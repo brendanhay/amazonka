@@ -1,0 +1,842 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApiGatewayV2.Types.DomainNameConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.DomainNameConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameStatus.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.DomainNameStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.EndpointType.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.EndpointType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.SecurityPolicy.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.SecurityPolicy</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The domain name configuration.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDomainNameConfiguration' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679409463"><span id="local-6989586621679409464"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainNameConfiguration"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-var">DomainNameConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainNameConfiguration%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-var">DomainNameConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A domain name for the API.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AapiGatewayDomainName%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AapiGatewayDomainName%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">apiGatewayDomainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ARN of the public certificate issued by ACM to validate ownership of</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- your custom domain. Only required when configuring mutual TLS and using</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- an ACM imported or private CA certificate ARN as the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- regionalCertificateArn</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AownershipVerificationCertificateArn%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AownershipVerificationCertificateArn%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">ownershipVerificationCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The user-friendly name of the certificate that will be used by the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- edge-optimized endpoint for this domain name.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcertificateName%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateName%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">certificateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon Route 53 Hosted Zone ID of the endpoint.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AhostedZoneId%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AhostedZoneId%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An AWS-managed certificate that will be used by the edge-optimized</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- endpoint for this domain name. AWS Certificate Manager is the only</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- supported source.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcertificateArn%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateArn%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The endpoint type.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AendpointType%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe EndpointType
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AendpointType%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-type">EndpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Transport Layer Security (TLS) version of the security policy for</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- this domain name. The valid values are TLS_1_0 and TLS_1_2.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsecurityPolicy%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe SecurityPolicy
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AsecurityPolicy%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">securityPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.SecurityPolicy.html#SecurityPolicy"><span class="hs-identifier hs-type">SecurityPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The timestamp when the certificate that was used by edge-optimized</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- endpoint for this domain name was uploaded.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcertificateUploadDate%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe POSIX
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateUploadDate%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">certificateUploadDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | An optional text message containing detailed information about status of</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the domain name migration.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdomainNameStatusMessage%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AdomainNameStatusMessage%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">domainNameStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The status of the domain name migration. The valid values are AVAILABLE,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- UPDATING, PENDING_CERTIFICATE_REIMPORT, and</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- PENDING_OWNERSHIP_VERIFICATION. If the status is UPDATING, the domain</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- cannot be modified further until the existing operation is complete. If</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- it is AVAILABLE, the domain can be updated.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdomainNameStatus%3ADomainNameConfiguration%27"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; Maybe DomainNameStatus
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AdomainNameStatus%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var hs-var">domainNameStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameStatus.html#DomainNameStatus"><span class="hs-identifier hs-type">DomainNameStatus</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409448"><span id="local-6989586621679409450"><span class="annot"><span class="annottext">DomainNameConfiguration -&gt; DomainNameConfiguration -&gt; Bool
+(DomainNameConfiguration -&gt; DomainNameConfiguration -&gt; Bool)
+-&gt; (DomainNameConfiguration -&gt; DomainNameConfiguration -&gt; Bool)
+-&gt; Eq DomainNameConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DomainNameConfiguration -&gt; DomainNameConfiguration -&gt; Bool
+$c/= :: DomainNameConfiguration -&gt; DomainNameConfiguration -&gt; Bool
+== :: DomainNameConfiguration -&gt; DomainNameConfiguration -&gt; Bool
+$c== :: DomainNameConfiguration -&gt; DomainNameConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409439"><span id="local-6989586621679409441"><span id="local-6989586621679409443"><span id="local-6989586621679409445"><span class="annot"><span class="annottext">ReadPrec [DomainNameConfiguration]
+ReadPrec DomainNameConfiguration
+Int -&gt; ReadS DomainNameConfiguration
+ReadS [DomainNameConfiguration]
+(Int -&gt; ReadS DomainNameConfiguration)
+-&gt; ReadS [DomainNameConfiguration]
+-&gt; ReadPrec DomainNameConfiguration
+-&gt; ReadPrec [DomainNameConfiguration]
+-&gt; Read DomainNameConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DomainNameConfiguration]
+$creadListPrec :: ReadPrec [DomainNameConfiguration]
+readPrec :: ReadPrec DomainNameConfiguration
+$creadPrec :: ReadPrec DomainNameConfiguration
+readList :: ReadS [DomainNameConfiguration]
+$creadList :: ReadS [DomainNameConfiguration]
+readsPrec :: Int -&gt; ReadS DomainNameConfiguration
+$creadsPrec :: Int -&gt; ReadS DomainNameConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409432"><span id="local-6989586621679409434"><span id="local-6989586621679409436"><span class="annot"><span class="annottext">Int -&gt; DomainNameConfiguration -&gt; ShowS
+[DomainNameConfiguration] -&gt; ShowS
+DomainNameConfiguration -&gt; String
+(Int -&gt; DomainNameConfiguration -&gt; ShowS)
+-&gt; (DomainNameConfiguration -&gt; String)
+-&gt; ([DomainNameConfiguration] -&gt; ShowS)
+-&gt; Show DomainNameConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DomainNameConfiguration] -&gt; ShowS
+$cshowList :: [DomainNameConfiguration] -&gt; ShowS
+show :: DomainNameConfiguration -&gt; String
+$cshow :: DomainNameConfiguration -&gt; String
+showsPrec :: Int -&gt; DomainNameConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DomainNameConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DomainNameConfiguration -&gt; Rep DomainNameConfiguration x)
+-&gt; (forall x.
+    Rep DomainNameConfiguration x -&gt; DomainNameConfiguration)
+-&gt; Generic DomainNameConfiguration
+forall x. Rep DomainNameConfiguration x -&gt; DomainNameConfiguration
+forall x. DomainNameConfiguration -&gt; Rep DomainNameConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DomainNameConfiguration x -&gt; DomainNameConfiguration
+$cfrom :: forall x. DomainNameConfiguration -&gt; Rep DomainNameConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DomainNameConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'apiGatewayDomainName', 'domainNameConfiguration_apiGatewayDomainName' - A domain name for the API.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'ownershipVerificationCertificateArn', 'domainNameConfiguration_ownershipVerificationCertificateArn' - The ARN of the public certificate issued by ACM to validate ownership of</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- your custom domain. Only required when configuring mutual TLS and using</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- an ACM imported or private CA certificate ARN as the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- regionalCertificateArn</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'certificateName', 'domainNameConfiguration_certificateName' - The user-friendly name of the certificate that will be used by the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- edge-optimized endpoint for this domain name.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'hostedZoneId', 'domainNameConfiguration_hostedZoneId' - The Amazon Route 53 Hosted Zone ID of the endpoint.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'certificateArn', 'domainNameConfiguration_certificateArn' - An AWS-managed certificate that will be used by the edge-optimized</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- endpoint for this domain name. AWS Certificate Manager is the only</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- supported source.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'endpointType', 'domainNameConfiguration_endpointType' - The endpoint type.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'securityPolicy', 'domainNameConfiguration_securityPolicy' - The Transport Layer Security (TLS) version of the security policy for</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- this domain name. The valid values are TLS_1_0 and TLS_1_2.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'certificateUploadDate', 'domainNameConfiguration_certificateUploadDate' - The timestamp when the certificate that was used by edge-optimized</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- endpoint for this domain name was uploaded.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'domainNameStatusMessage', 'domainNameConfiguration_domainNameStatusMessage' - An optional text message containing detailed information about status of</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the domain name migration.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'domainNameStatus', 'domainNameConfiguration_domainNameStatus' - The status of the domain name migration. The valid values are AVAILABLE,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- UPDATING, PENDING_CERTIFICATE_REIMPORT, and</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- PENDING_OWNERSHIP_VERIFICATION. If the status is UPDATING, the domain</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- cannot be modified further until the existing operation is complete. If</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- it is AVAILABLE, the domain can be updated.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#newDomainNameConfiguration"><span class="hs-identifier hs-type">newDomainNameConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span>
+</span><span id="line-111"></span><span id="newDomainNameConfiguration"><span class="annot"><span class="annottext">newDomainNameConfiguration :: DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#newDomainNameConfiguration"><span class="hs-identifier hs-var hs-var">newDomainNameConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">DomainNameConfiguration' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EndpointType
+-&gt; Maybe SecurityPolicy
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe DomainNameStatus
+-&gt; DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:apiGatewayDomainName:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AapiGatewayDomainName%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">apiGatewayDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownershipVerificationCertificateArn:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AownershipVerificationCertificateArn%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">ownershipVerificationCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateName:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateName%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">certificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostedZoneId:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AhostedZoneId%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateArn:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateArn%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointType:DomainNameConfiguration' :: Maybe EndpointType
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AendpointType%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityPolicy:DomainNameConfiguration' :: Maybe SecurityPolicy
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AsecurityPolicy%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">securityPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateUploadDate:DomainNameConfiguration' :: Maybe POSIX
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateUploadDate%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">certificateUploadDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainNameStatusMessage:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AdomainNameStatusMessage%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">domainNameStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainNameStatus:DomainNameConfiguration' :: Maybe DomainNameStatus
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AdomainNameStatus%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">domainNameStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainNameStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A domain name for the API.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_apiGatewayDomainName"><span class="hs-identifier hs-type">domainNameConfiguration_apiGatewayDomainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="domainNameConfiguration_apiGatewayDomainName"><span class="annot"><span class="annottext">domainNameConfiguration_apiGatewayDomainName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_apiGatewayDomainName"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_apiGatewayDomainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe Text)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe Text -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409423"><span class="annot"><span class="annottext">Maybe Text
+apiGatewayDomainName :: Maybe Text
+$sel:apiGatewayDomainName:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679409423"><span class="hs-identifier hs-var hs-var">apiGatewayDomainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409423"><span class="hs-identifier hs-var">apiGatewayDomainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409422"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiGatewayDomainName:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AapiGatewayDomainName%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">apiGatewayDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The ARN of the public certificate issued by ACM to validate ownership of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- your custom domain. Only required when configuring mutual TLS and using</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- an ACM imported or private CA certificate ARN as the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- regionalCertificateArn</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_ownershipVerificationCertificateArn"><span class="hs-identifier hs-type">domainNameConfiguration_ownershipVerificationCertificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="domainNameConfiguration_ownershipVerificationCertificateArn"><span class="annot"><span class="annottext">domainNameConfiguration_ownershipVerificationCertificateArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_ownershipVerificationCertificateArn"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_ownershipVerificationCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe Text)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe Text -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409419"><span class="annot"><span class="annottext">Maybe Text
+ownershipVerificationCertificateArn :: Maybe Text
+$sel:ownershipVerificationCertificateArn:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679409419"><span class="hs-identifier hs-var hs-var">ownershipVerificationCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409419"><span class="hs-identifier hs-var">ownershipVerificationCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409418"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownershipVerificationCertificateArn:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AownershipVerificationCertificateArn%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">ownershipVerificationCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The user-friendly name of the certificate that will be used by the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- edge-optimized endpoint for this domain name.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_certificateName"><span class="hs-identifier hs-type">domainNameConfiguration_certificateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="domainNameConfiguration_certificateName"><span class="annot"><span class="annottext">domainNameConfiguration_certificateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_certificateName"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_certificateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe Text)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe Text -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409415"><span class="annot"><span class="annottext">Maybe Text
+certificateName :: Maybe Text
+$sel:certificateName:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679409415"><span class="hs-identifier hs-var hs-var">certificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409415"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409414"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateName:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateName%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">certificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The Amazon Route 53 Hosted Zone ID of the endpoint.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_hostedZoneId"><span class="hs-identifier hs-type">domainNameConfiguration_hostedZoneId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="domainNameConfiguration_hostedZoneId"><span class="annot"><span class="annottext">domainNameConfiguration_hostedZoneId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_hostedZoneId"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_hostedZoneId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe Text)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe Text -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409411"><span class="annot"><span class="annottext">Maybe Text
+hostedZoneId :: Maybe Text
+$sel:hostedZoneId:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679409411"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409411"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409410"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AhostedZoneId%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | An AWS-managed certificate that will be used by the edge-optimized</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- endpoint for this domain name. AWS Certificate Manager is the only</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- supported source.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_certificateArn"><span class="hs-identifier hs-type">domainNameConfiguration_certificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="domainNameConfiguration_certificateArn"><span class="annot"><span class="annottext">domainNameConfiguration_certificateArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_certificateArn"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_certificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe Text)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe Text -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409407"><span class="annot"><span class="annottext">Maybe Text
+certificateArn :: Maybe Text
+$sel:certificateArn:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679409407"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409407"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409406"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateArn%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The endpoint type.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_endpointType"><span class="hs-identifier hs-type">domainNameConfiguration_endpointType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-type">EndpointType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="domainNameConfiguration_endpointType"><span class="annot"><span class="annottext">domainNameConfiguration_endpointType :: (Maybe EndpointType -&gt; f (Maybe EndpointType))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_endpointType"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_endpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe EndpointType)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe EndpointType -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe EndpointType)
+     (Maybe EndpointType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409403"><span class="annot"><span class="annottext">Maybe EndpointType
+endpointType :: Maybe EndpointType
+$sel:endpointType:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe EndpointType
+</span><a href="#local-6989586621679409403"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointType
+</span><a href="#local-6989586621679409403"><span class="hs-identifier hs-var">endpointType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409402"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409401"><span class="annot"><span class="annottext">Maybe EndpointType
+</span><a href="#local-6989586621679409401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointType:DomainNameConfiguration' :: Maybe EndpointType
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AendpointType%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointType
+</span><a href="#local-6989586621679409401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The Transport Layer Security (TLS) version of the security policy for</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- this domain name. The valid values are TLS_1_0 and TLS_1_2.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_securityPolicy"><span class="hs-identifier hs-type">domainNameConfiguration_securityPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.SecurityPolicy.html#SecurityPolicy"><span class="hs-identifier hs-type">SecurityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="domainNameConfiguration_securityPolicy"><span class="annot"><span class="annottext">domainNameConfiguration_securityPolicy :: (Maybe SecurityPolicy -&gt; f (Maybe SecurityPolicy))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_securityPolicy"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_securityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe SecurityPolicy)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe SecurityPolicy -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe SecurityPolicy)
+     (Maybe SecurityPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409399"><span class="annot"><span class="annottext">Maybe SecurityPolicy
+securityPolicy :: Maybe SecurityPolicy
+$sel:securityPolicy:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe SecurityPolicy
+</span><a href="#local-6989586621679409399"><span class="hs-identifier hs-var hs-var">securityPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityPolicy
+</span><a href="#local-6989586621679409399"><span class="hs-identifier hs-var">securityPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409398"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409397"><span class="annot"><span class="annottext">Maybe SecurityPolicy
+</span><a href="#local-6989586621679409397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityPolicy:DomainNameConfiguration' :: Maybe SecurityPolicy
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AsecurityPolicy%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">securityPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityPolicy
+</span><a href="#local-6989586621679409397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The timestamp when the certificate that was used by edge-optimized</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- endpoint for this domain name was uploaded.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_certificateUploadDate"><span class="hs-identifier hs-type">domainNameConfiguration_certificateUploadDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="domainNameConfiguration_certificateUploadDate"><span class="annot"><span class="annottext">domainNameConfiguration_certificateUploadDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_certificateUploadDate"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_certificateUploadDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe POSIX)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe POSIX -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409395"><span class="annot"><span class="annottext">Maybe POSIX
+certificateUploadDate :: Maybe POSIX
+$sel:certificateUploadDate:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe POSIX
+</span><a href="#local-6989586621679409395"><span class="hs-identifier hs-var hs-var">certificateUploadDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679409395"><span class="hs-identifier hs-var">certificateUploadDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409394"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409393"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679409393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateUploadDate:DomainNameConfiguration' :: Maybe POSIX
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AcertificateUploadDate%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">certificateUploadDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679409393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainNameConfiguration
+-&gt; f DomainNameConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | An optional text message containing detailed information about status of</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- the domain name migration.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_domainNameStatusMessage"><span class="hs-identifier hs-type">domainNameConfiguration_domainNameStatusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="domainNameConfiguration_domainNameStatusMessage"><span class="annot"><span class="annottext">domainNameConfiguration_domainNameStatusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_domainNameStatusMessage"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_domainNameStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe Text)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe Text -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409388"><span class="annot"><span class="annottext">Maybe Text
+domainNameStatusMessage :: Maybe Text
+$sel:domainNameStatusMessage:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679409388"><span class="hs-identifier hs-var hs-var">domainNameStatusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409388"><span class="hs-identifier hs-var">domainNameStatusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409387"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainNameStatusMessage:DomainNameConfiguration' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AdomainNameStatusMessage%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">domainNameStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The status of the domain name migration. The valid values are AVAILABLE,</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- UPDATING, PENDING_CERTIFICATE_REIMPORT, and</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- PENDING_OWNERSHIP_VERIFICATION. If the status is UPDATING, the domain</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- cannot be modified further until the existing operation is complete. If</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- it is AVAILABLE, the domain can be updated.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_domainNameStatus"><span class="hs-identifier hs-type">domainNameConfiguration_domainNameStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameStatus.html#DomainNameStatus"><span class="hs-identifier hs-type">DomainNameStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="domainNameConfiguration_domainNameStatus"><span class="annot"><span class="annottext">domainNameConfiguration_domainNameStatus :: (Maybe DomainNameStatus -&gt; f (Maybe DomainNameStatus))
+-&gt; DomainNameConfiguration -&gt; f DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#domainNameConfiguration_domainNameStatus"><span class="hs-identifier hs-var hs-var">domainNameConfiguration_domainNameStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainNameConfiguration -&gt; Maybe DomainNameStatus)
+-&gt; (DomainNameConfiguration
+    -&gt; Maybe DomainNameStatus -&gt; DomainNameConfiguration)
+-&gt; Lens
+     DomainNameConfiguration
+     DomainNameConfiguration
+     (Maybe DomainNameStatus)
+     (Maybe DomainNameStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409384"><span class="annot"><span class="annottext">Maybe DomainNameStatus
+domainNameStatus :: Maybe DomainNameStatus
+$sel:domainNameStatus:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe DomainNameStatus
+</span><a href="#local-6989586621679409384"><span class="hs-identifier hs-var hs-var">domainNameStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainNameStatus
+</span><a href="#local-6989586621679409384"><span class="hs-identifier hs-var">domainNameStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409383"><span class="annot"><span class="annottext">s :: DomainNameConfiguration
+</span><a href="#local-6989586621679409383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409382"><span class="annot"><span class="annottext">Maybe DomainNameStatus
+</span><a href="#local-6989586621679409382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainNameConfiguration
+</span><a href="#local-6989586621679409383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainNameStatus:DomainNameConfiguration' :: Maybe DomainNameStatus
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#%24sel%3AdomainNameStatus%3ADomainNameConfiguration%27"><span class="hs-identifier hs-var">domainNameStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainNameStatus
+</span><a href="#local-6989586621679409382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409379"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679409377"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainNameConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DomainNameConfiguration)
+-&gt; Value
+-&gt; Parser DomainNameConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DomainNameConfiguration&quot;</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409374"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EndpointType
+-&gt; Maybe SecurityPolicy
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe DomainNameStatus
+-&gt; DomainNameConfiguration
+</span><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-var">DomainNameConfiguration'</span></a></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe EndpointType
+ -&gt; Maybe SecurityPolicy
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe DomainNameStatus
+ -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointType
+      -&gt; Maybe SecurityPolicy
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe DomainNameStatus
+      -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiGatewayDomainName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointType
+   -&gt; Maybe SecurityPolicy
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe DomainNameStatus
+   -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointType
+      -&gt; Maybe SecurityPolicy
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe DomainNameStatus
+      -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownershipVerificationCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointType
+   -&gt; Maybe SecurityPolicy
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe DomainNameStatus
+   -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointType
+      -&gt; Maybe SecurityPolicy
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe DomainNameStatus
+      -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointType
+   -&gt; Maybe SecurityPolicy
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe DomainNameStatus
+   -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EndpointType
+      -&gt; Maybe SecurityPolicy
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe DomainNameStatus
+      -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hostedZoneId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EndpointType
+   -&gt; Maybe SecurityPolicy
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe DomainNameStatus
+   -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EndpointType
+      -&gt; Maybe SecurityPolicy
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe DomainNameStatus
+      -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EndpointType
+   -&gt; Maybe SecurityPolicy
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe DomainNameStatus
+   -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe EndpointType)
+-&gt; Parser
+     (Maybe SecurityPolicy
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe DomainNameStatus
+      -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EndpointType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endpointType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SecurityPolicy
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe DomainNameStatus
+   -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe SecurityPolicy)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe DomainNameStatus -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SecurityPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe DomainNameStatus -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe DomainNameStatus -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateUploadDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe DomainNameStatus -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe DomainNameStatus -&gt; DomainNameConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainNameStatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DomainNameStatus -&gt; DomainNameConfiguration)
+-&gt; Parser (Maybe DomainNameStatus)
+-&gt; Parser DomainNameConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DomainNameStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainNameStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409368"><span id="local-6989586621679409370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409357"><span id="local-6989586621679409359"><span id="local-6989586621679409361"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration"><span class="hs-identifier hs-type">DomainNameConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679409355"><span class="annot"><span class="annottext">toJSON :: DomainNameConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.DomainNameConfiguration.html#DomainNameConfiguration%27"><span class="hs-identifier hs-type">DomainNameConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409344"><span id="local-6989586621679409345"><span id="local-6989586621679409346"><span id="local-6989586621679409347"><span id="local-6989586621679409348"><span id="local-6989586621679409349"><span id="local-6989586621679409350"><span id="local-6989586621679409351"><span id="local-6989586621679409352"><span id="local-6989586621679409353"><span class="annot"><span class="annottext">Maybe Text
+Maybe POSIX
+Maybe DomainNameStatus
+Maybe EndpointType
+Maybe SecurityPolicy
+domainNameStatus :: Maybe DomainNameStatus
+domainNameStatusMessage :: Maybe Text
+certificateUploadDate :: Maybe POSIX
+securityPolicy :: Maybe SecurityPolicy
+endpointType :: Maybe EndpointType
+certificateArn :: Maybe Text
+hostedZoneId :: Maybe Text
+certificateName :: Maybe Text
+ownershipVerificationCertificateArn :: Maybe Text
+apiGatewayDomainName :: Maybe Text
+$sel:domainNameStatus:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe DomainNameStatus
+$sel:domainNameStatusMessage:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+$sel:certificateUploadDate:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe POSIX
+$sel:securityPolicy:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe SecurityPolicy
+$sel:endpointType:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe EndpointType
+$sel:certificateArn:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+$sel:hostedZoneId:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+$sel:certificateName:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+$sel:ownershipVerificationCertificateArn:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+$sel:apiGatewayDomainName:DomainNameConfiguration' :: DomainNameConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679409344"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiGatewayDomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409353"><span class="hs-identifier hs-var">apiGatewayDomainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownershipVerificationCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409352"><span class="hs-identifier hs-var">ownershipVerificationCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409351"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hostedZoneId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409350"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409349"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endpointType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EndpointType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EndpointType -&gt; Pair) -&gt; Maybe EndpointType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EndpointType
+</span><a href="#local-6989586621679409348"><span class="hs-identifier hs-var">endpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SecurityPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(SecurityPolicy -&gt; Pair) -&gt; Maybe SecurityPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SecurityPolicy
+</span><a href="#local-6989586621679409347"><span class="hs-identifier hs-var">securityPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateUploadDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679409346"><span class="hs-identifier hs-var">certificateUploadDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainNameStatusMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409345"><span class="hs-identifier hs-var">domainNameStatusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainNameStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DomainNameStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">(DomainNameStatus -&gt; Pair) -&gt; Maybe DomainNameStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DomainNameStatus
+</span><a href="#local-6989586621679409344"><span class="hs-identifier hs-var">domainNameStatus</span></a></span><span>
+</span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span></pre></body></html>

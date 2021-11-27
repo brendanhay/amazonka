@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.Types.LicenseSpecification</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.Types.LicenseSpecification</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Details for associating a license configuration with a resource.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLicenseSpecification' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679298729"><span id="local-6989586621679298730"></span></span><span class="hs-keyword">data</span><span> </span><span id="LicenseSpecification"><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-var">LicenseSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LicenseSpecification%27"><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-var">LicenseSpecification'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Scope of AMI associations. The possible value is @cross-account@.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AamiAssociationScope%3ALicenseSpecification%27"><span class="annot"><span class="annottext">LicenseSpecification -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#%24sel%3AamiAssociationScope%3ALicenseSpecification%27"><span class="hs-identifier hs-var hs-var">amiAssociationScope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the license configuration.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlicenseConfigurationArn%3ALicenseSpecification%27"><span class="annot"><span class="annottext">LicenseSpecification -&gt; Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#%24sel%3AlicenseConfigurationArn%3ALicenseSpecification%27"><span class="hs-identifier hs-var hs-var">licenseConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298722"><span id="local-6989586621679298724"><span class="annot"><span class="annottext">LicenseSpecification -&gt; LicenseSpecification -&gt; Bool
+(LicenseSpecification -&gt; LicenseSpecification -&gt; Bool)
+-&gt; (LicenseSpecification -&gt; LicenseSpecification -&gt; Bool)
+-&gt; Eq LicenseSpecification
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LicenseSpecification -&gt; LicenseSpecification -&gt; Bool
+$c/= :: LicenseSpecification -&gt; LicenseSpecification -&gt; Bool
+== :: LicenseSpecification -&gt; LicenseSpecification -&gt; Bool
+$c== :: LicenseSpecification -&gt; LicenseSpecification -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298713"><span id="local-6989586621679298715"><span id="local-6989586621679298717"><span id="local-6989586621679298719"><span class="annot"><span class="annottext">ReadPrec [LicenseSpecification]
+ReadPrec LicenseSpecification
+Int -&gt; ReadS LicenseSpecification
+ReadS [LicenseSpecification]
+(Int -&gt; ReadS LicenseSpecification)
+-&gt; ReadS [LicenseSpecification]
+-&gt; ReadPrec LicenseSpecification
+-&gt; ReadPrec [LicenseSpecification]
+-&gt; Read LicenseSpecification
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LicenseSpecification]
+$creadListPrec :: ReadPrec [LicenseSpecification]
+readPrec :: ReadPrec LicenseSpecification
+$creadPrec :: ReadPrec LicenseSpecification
+readList :: ReadS [LicenseSpecification]
+$creadList :: ReadS [LicenseSpecification]
+readsPrec :: Int -&gt; ReadS LicenseSpecification
+$creadsPrec :: Int -&gt; ReadS LicenseSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298706"><span id="local-6989586621679298708"><span id="local-6989586621679298710"><span class="annot"><span class="annottext">Int -&gt; LicenseSpecification -&gt; ShowS
+[LicenseSpecification] -&gt; ShowS
+LicenseSpecification -&gt; String
+(Int -&gt; LicenseSpecification -&gt; ShowS)
+-&gt; (LicenseSpecification -&gt; String)
+-&gt; ([LicenseSpecification] -&gt; ShowS)
+-&gt; Show LicenseSpecification
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LicenseSpecification] -&gt; ShowS
+$cshowList :: [LicenseSpecification] -&gt; ShowS
+show :: LicenseSpecification -&gt; String
+$cshow :: LicenseSpecification -&gt; String
+showsPrec :: Int -&gt; LicenseSpecification -&gt; ShowS
+$cshowsPrec :: Int -&gt; LicenseSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LicenseSpecification -&gt; Rep LicenseSpecification x)
+-&gt; (forall x. Rep LicenseSpecification x -&gt; LicenseSpecification)
+-&gt; Generic LicenseSpecification
+forall x. Rep LicenseSpecification x -&gt; LicenseSpecification
+forall x. LicenseSpecification -&gt; Rep LicenseSpecification x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LicenseSpecification x -&gt; LicenseSpecification
+$cfrom :: forall x. LicenseSpecification -&gt; Rep LicenseSpecification x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'LicenseSpecification' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'amiAssociationScope', 'licenseSpecification_amiAssociationScope' - Scope of AMI associations. The possible value is @cross-account@.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'licenseConfigurationArn', 'licenseSpecification_licenseConfigurationArn' - Amazon Resource Name (ARN) of the license configuration.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#newLicenseSpecification"><span class="hs-identifier hs-type">newLicenseSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-comment">-- | 'licenseConfigurationArn'</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span><span>
+</span><span id="line-52"></span><span id="newLicenseSpecification"><span class="annot"><span class="annottext">newLicenseSpecification :: Text -&gt; LicenseSpecification
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#newLicenseSpecification"><span class="hs-identifier hs-var hs-var">newLicenseSpecification</span></a></span></span><span> </span><span id="local-6989586621679298700"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298700"><span class="hs-identifier hs-var">pLicenseConfigurationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">LicenseSpecification' :: Maybe Text -&gt; Text -&gt; LicenseSpecification
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-type">LicenseSpecification'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:amiAssociationScope:LicenseSpecification' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#%24sel%3AamiAssociationScope%3ALicenseSpecification%27"><span class="hs-identifier hs-var">amiAssociationScope</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseConfigurationArn:LicenseSpecification' :: Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#%24sel%3AlicenseConfigurationArn%3ALicenseSpecification%27"><span class="hs-identifier hs-var">licenseConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298700"><span class="hs-identifier hs-var">pLicenseConfigurationArn_</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Scope of AMI associations. The possible value is @cross-account@.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#licenseSpecification_amiAssociationScope"><span class="hs-identifier hs-type">licenseSpecification_amiAssociationScope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="licenseSpecification_amiAssociationScope"><span class="annot"><span class="annottext">licenseSpecification_amiAssociationScope :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LicenseSpecification -&gt; f LicenseSpecification
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#licenseSpecification_amiAssociationScope"><span class="hs-identifier hs-var hs-var">licenseSpecification_amiAssociationScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseSpecification -&gt; Maybe Text)
+-&gt; (LicenseSpecification -&gt; Maybe Text -&gt; LicenseSpecification)
+-&gt; Lens
+     LicenseSpecification LicenseSpecification (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-type">LicenseSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298696"><span class="annot"><span class="annottext">Maybe Text
+amiAssociationScope :: Maybe Text
+$sel:amiAssociationScope:LicenseSpecification' :: LicenseSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679298696"><span class="hs-identifier hs-var hs-var">amiAssociationScope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298696"><span class="hs-identifier hs-var">amiAssociationScope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298695"><span class="annot"><span class="annottext">s :: LicenseSpecification
+</span><a href="#local-6989586621679298695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-type">LicenseSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298694"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseSpecification
+</span><a href="#local-6989586621679298695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amiAssociationScope:LicenseSpecification' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#%24sel%3AamiAssociationScope%3ALicenseSpecification%27"><span class="hs-identifier hs-var">amiAssociationScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the license configuration.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#licenseSpecification_licenseConfigurationArn"><span class="hs-identifier hs-type">licenseSpecification_licenseConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span id="licenseSpecification_licenseConfigurationArn"><span class="annot"><span class="annottext">licenseSpecification_licenseConfigurationArn :: (Text -&gt; f Text) -&gt; LicenseSpecification -&gt; f LicenseSpecification
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#licenseSpecification_licenseConfigurationArn"><span class="hs-identifier hs-var hs-var">licenseSpecification_licenseConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseSpecification -&gt; Text)
+-&gt; (LicenseSpecification -&gt; Text -&gt; LicenseSpecification)
+-&gt; Lens LicenseSpecification LicenseSpecification Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-type">LicenseSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298692"><span class="annot"><span class="annottext">Text
+licenseConfigurationArn :: Text
+$sel:licenseConfigurationArn:LicenseSpecification' :: LicenseSpecification -&gt; Text
+</span><a href="#local-6989586621679298692"><span class="hs-identifier hs-var hs-var">licenseConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298692"><span class="hs-identifier hs-var">licenseConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298691"><span class="annot"><span class="annottext">s :: LicenseSpecification
+</span><a href="#local-6989586621679298691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-type">LicenseSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseSpecification
+</span><a href="#local-6989586621679298691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseConfigurationArn:LicenseSpecification' :: Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#%24sel%3AlicenseConfigurationArn%3ALicenseSpecification%27"><span class="hs-identifier hs-var">licenseConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298687"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679298685"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LicenseSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LicenseSpecification)
+-&gt; Value
+-&gt; Parser LicenseSpecification
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LicenseSpecification&quot;</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298682"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; LicenseSpecification
+</span><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-var">LicenseSpecification'</span></a></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; LicenseSpecification)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; LicenseSpecification)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AmiAssociationScope&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; LicenseSpecification)
+-&gt; Parser Text -&gt; Parser LicenseSpecification
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseConfigurationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298675"><span id="local-6989586621679298677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298664"><span id="local-6989586621679298666"><span id="local-6989586621679298668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification"><span class="hs-identifier hs-type">LicenseSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679298662"><span class="annot"><span class="annottext">toJSON :: LicenseSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseSpecification.html#LicenseSpecification%27"><span class="hs-identifier hs-type">LicenseSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298659"><span id="local-6989586621679298660"><span class="annot"><span class="annottext">Maybe Text
+Text
+licenseConfigurationArn :: Text
+amiAssociationScope :: Maybe Text
+$sel:licenseConfigurationArn:LicenseSpecification' :: LicenseSpecification -&gt; Text
+$sel:amiAssociationScope:LicenseSpecification' :: LicenseSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679298659"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AmiAssociationScope&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298660"><span class="hs-identifier hs-var">amiAssociationScope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-88"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseConfigurationArn&quot;</span></span><span>
+</span><span id="line-89"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298659"><span class="hs-identifier hs-var">licenseConfigurationArn</span></a></span><span>
+</span><span id="line-90"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

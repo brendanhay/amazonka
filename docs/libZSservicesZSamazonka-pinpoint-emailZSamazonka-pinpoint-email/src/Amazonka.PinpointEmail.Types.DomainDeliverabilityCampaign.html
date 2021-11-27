@@ -1,0 +1,1089 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that contains the deliverability data for a specific campaign.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This data is available for a campaign only if the campaign sent email by</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- using a domain that the Deliverability dashboard is enabled for</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- (@PutDeliverabilityDashboardOption@ operation).</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDomainDeliverabilityCampaign' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679232021"><span id="local-6989586621679232022"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainDeliverabilityCampaign"><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-var">DomainDeliverabilityCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainDeliverabilityCampaign%27"><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">DomainDeliverabilityCampaign'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of email messages that were delivered to recipients\' spam or</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- junk mail folders.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AspamCount%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AspamCount%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">spamCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The subject line, or title, of the email message.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asubject%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3Asubject%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The major email providers who handled the email message.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aesps%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe [Text]
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3Aesps%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">esps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The verified email address that the email message was sent from.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AfromAddress%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AfromAddress%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">fromAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The percentage of email messages that were deleted by recipients,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- without being opened first. Due to technical limitations, this value</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- only includes recipients who opened the message by using an email client</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- that supports images.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdeleteRate%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AdeleteRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">deleteRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the campaign. Amazon Pinpoint automatically</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- generates and assigns this identifier to a campaign. This value is not</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- the same as the campaign identifier that Amazon Pinpoint assigns to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- campaigns that you create and manage by using the Amazon Pinpoint API or</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the Amazon Pinpoint console.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcampaignId%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AcampaignId%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The IP addresses that were used to send the email message.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsendingIps%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe [Text]
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AsendingIps%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">sendingIps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The first time, in Unix time format, when the email message was</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- delivered to any recipient\'s inbox. This value can help you determine</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- how long it took for a campaign to deliver an email message.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AfirstSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe POSIX
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AfirstSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">firstSeenDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The number of email messages that were delivered to recipients&#8217; inboxes.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AinboxCount%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AinboxCount%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">inboxCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The percentage of email messages that were opened and then deleted by</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- recipients. Due to technical limitations, this value only includes</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- recipients who opened the message by using an email client that supports</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- images.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AreadDeleteRate%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AreadDeleteRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">readDeleteRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The projected number of recipients that the email message was sent to.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AprojectedVolume%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AprojectedVolume%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">projectedVolume</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The URL of an image that contains a snapshot of the email message that</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- was sent.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AimageUrl%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AimageUrl%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The percentage of email messages that were opened by recipients. Due to</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- technical limitations, this value only includes recipients who opened</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the message by using an email client that supports images.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AreadRate%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AreadRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">readRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The last time, in Unix time format, when the email message was delivered</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- to any recipient\'s inbox. This value can help you determine how long it</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- took for a campaign to deliver an email message.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AlastSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign -&gt; Maybe POSIX
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AlastSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var hs-var">lastSeenDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232002"><span id="local-6989586621679232004"><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+-&gt; DomainDeliverabilityCampaign -&gt; Bool
+(DomainDeliverabilityCampaign
+ -&gt; DomainDeliverabilityCampaign -&gt; Bool)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; DomainDeliverabilityCampaign -&gt; Bool)
+-&gt; Eq DomainDeliverabilityCampaign
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DomainDeliverabilityCampaign
+-&gt; DomainDeliverabilityCampaign -&gt; Bool
+$c/= :: DomainDeliverabilityCampaign
+-&gt; DomainDeliverabilityCampaign -&gt; Bool
+== :: DomainDeliverabilityCampaign
+-&gt; DomainDeliverabilityCampaign -&gt; Bool
+$c== :: DomainDeliverabilityCampaign
+-&gt; DomainDeliverabilityCampaign -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231993"><span id="local-6989586621679231995"><span id="local-6989586621679231997"><span id="local-6989586621679231999"><span class="annot"><span class="annottext">ReadPrec [DomainDeliverabilityCampaign]
+ReadPrec DomainDeliverabilityCampaign
+Int -&gt; ReadS DomainDeliverabilityCampaign
+ReadS [DomainDeliverabilityCampaign]
+(Int -&gt; ReadS DomainDeliverabilityCampaign)
+-&gt; ReadS [DomainDeliverabilityCampaign]
+-&gt; ReadPrec DomainDeliverabilityCampaign
+-&gt; ReadPrec [DomainDeliverabilityCampaign]
+-&gt; Read DomainDeliverabilityCampaign
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DomainDeliverabilityCampaign]
+$creadListPrec :: ReadPrec [DomainDeliverabilityCampaign]
+readPrec :: ReadPrec DomainDeliverabilityCampaign
+$creadPrec :: ReadPrec DomainDeliverabilityCampaign
+readList :: ReadS [DomainDeliverabilityCampaign]
+$creadList :: ReadS [DomainDeliverabilityCampaign]
+readsPrec :: Int -&gt; ReadS DomainDeliverabilityCampaign
+$creadsPrec :: Int -&gt; ReadS DomainDeliverabilityCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231986"><span id="local-6989586621679231988"><span id="local-6989586621679231990"><span class="annot"><span class="annottext">Int -&gt; DomainDeliverabilityCampaign -&gt; ShowS
+[DomainDeliverabilityCampaign] -&gt; ShowS
+DomainDeliverabilityCampaign -&gt; String
+(Int -&gt; DomainDeliverabilityCampaign -&gt; ShowS)
+-&gt; (DomainDeliverabilityCampaign -&gt; String)
+-&gt; ([DomainDeliverabilityCampaign] -&gt; ShowS)
+-&gt; Show DomainDeliverabilityCampaign
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DomainDeliverabilityCampaign] -&gt; ShowS
+$cshowList :: [DomainDeliverabilityCampaign] -&gt; ShowS
+show :: DomainDeliverabilityCampaign -&gt; String
+$cshow :: DomainDeliverabilityCampaign -&gt; String
+showsPrec :: Int -&gt; DomainDeliverabilityCampaign -&gt; ShowS
+$cshowsPrec :: Int -&gt; DomainDeliverabilityCampaign -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DomainDeliverabilityCampaign -&gt; Rep DomainDeliverabilityCampaign x)
+-&gt; (forall x.
+    Rep DomainDeliverabilityCampaign x -&gt; DomainDeliverabilityCampaign)
+-&gt; Generic DomainDeliverabilityCampaign
+forall x.
+Rep DomainDeliverabilityCampaign x -&gt; DomainDeliverabilityCampaign
+forall x.
+DomainDeliverabilityCampaign -&gt; Rep DomainDeliverabilityCampaign x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DomainDeliverabilityCampaign x -&gt; DomainDeliverabilityCampaign
+$cfrom :: forall x.
+DomainDeliverabilityCampaign -&gt; Rep DomainDeliverabilityCampaign x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'DomainDeliverabilityCampaign' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'spamCount', 'domainDeliverabilityCampaign_spamCount' - The number of email messages that were delivered to recipients\' spam or</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- junk mail folders.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'subject', 'domainDeliverabilityCampaign_subject' - The subject line, or title, of the email message.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'esps', 'domainDeliverabilityCampaign_esps' - The major email providers who handled the email message.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'fromAddress', 'domainDeliverabilityCampaign_fromAddress' - The verified email address that the email message was sent from.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'deleteRate', 'domainDeliverabilityCampaign_deleteRate' - The percentage of email messages that were deleted by recipients,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- without being opened first. Due to technical limitations, this value</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- only includes recipients who opened the message by using an email client</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- that supports images.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'campaignId', 'domainDeliverabilityCampaign_campaignId' - The unique identifier for the campaign. Amazon Pinpoint automatically</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- generates and assigns this identifier to a campaign. This value is not</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the same as the campaign identifier that Amazon Pinpoint assigns to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- campaigns that you create and manage by using the Amazon Pinpoint API or</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the Amazon Pinpoint console.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'sendingIps', 'domainDeliverabilityCampaign_sendingIps' - The IP addresses that were used to send the email message.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'firstSeenDateTime', 'domainDeliverabilityCampaign_firstSeenDateTime' - The first time, in Unix time format, when the email message was</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- delivered to any recipient\'s inbox. This value can help you determine</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- how long it took for a campaign to deliver an email message.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'inboxCount', 'domainDeliverabilityCampaign_inboxCount' - The number of email messages that were delivered to recipients&#8217; inboxes.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'readDeleteRate', 'domainDeliverabilityCampaign_readDeleteRate' - The percentage of email messages that were opened and then deleted by</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- recipients. Due to technical limitations, this value only includes</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- recipients who opened the message by using an email client that supports</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- images.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'projectedVolume', 'domainDeliverabilityCampaign_projectedVolume' - The projected number of recipients that the email message was sent to.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'imageUrl', 'domainDeliverabilityCampaign_imageUrl' - The URL of an image that contains a snapshot of the email message that</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- was sent.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'readRate', 'domainDeliverabilityCampaign_readRate' - The percentage of email messages that were opened by recipients. Due to</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- technical limitations, this value only includes recipients who opened</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- the message by using an email client that supports images.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'lastSeenDateTime', 'domainDeliverabilityCampaign_lastSeenDateTime' - The last time, in Unix time format, when the email message was delivered</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- to any recipient\'s inbox. This value can help you determine how long it</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- took for a campaign to deliver an email message.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#newDomainDeliverabilityCampaign"><span class="hs-identifier hs-type">newDomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span>
+</span><span id="line-137"></span><span id="newDomainDeliverabilityCampaign"><span class="annot"><span class="annottext">newDomainDeliverabilityCampaign :: DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#newDomainDeliverabilityCampaign"><span class="hs-identifier hs-var hs-var">newDomainDeliverabilityCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign' :: Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe POSIX
+-&gt; DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spamCount:DomainDeliverabilityCampaign' :: Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AspamCount%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">spamCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3Asubject%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:esps:DomainDeliverabilityCampaign' :: Maybe [Text]
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3Aesps%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">esps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:fromAddress:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AfromAddress%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">fromAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteRate:DomainDeliverabilityCampaign' :: Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AdeleteRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">deleteRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:campaignId:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AcampaignId%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:sendingIps:DomainDeliverabilityCampaign' :: Maybe [Text]
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AsendingIps%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">sendingIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstSeenDateTime:DomainDeliverabilityCampaign' :: Maybe POSIX
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AfirstSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">firstSeenDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:inboxCount:DomainDeliverabilityCampaign' :: Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AinboxCount%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">inboxCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:readDeleteRate:DomainDeliverabilityCampaign' :: Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AreadDeleteRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">readDeleteRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectedVolume:DomainDeliverabilityCampaign' :: Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AprojectedVolume%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">projectedVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUrl:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AimageUrl%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:readRate:DomainDeliverabilityCampaign' :: Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AreadRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">readRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastSeenDateTime:DomainDeliverabilityCampaign' :: Maybe POSIX
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AlastSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">lastSeenDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The number of email messages that were delivered to recipients\' spam or</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- junk mail folders.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_spamCount"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_spamCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="domainDeliverabilityCampaign_spamCount"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_spamCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_spamCount"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_spamCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Integer)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Integer -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231977"><span class="annot"><span class="annottext">Maybe Integer
+spamCount :: Maybe Integer
+$sel:spamCount:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Integer
+</span><a href="#local-6989586621679231977"><span class="hs-identifier hs-var hs-var">spamCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231977"><span class="hs-identifier hs-var">spamCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231976"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231975"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spamCount:DomainDeliverabilityCampaign' :: Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AspamCount%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">spamCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The subject line, or title, of the email message.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_subject"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="domainDeliverabilityCampaign_subject"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_subject :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_subject"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Text)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Text -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231973"><span class="annot"><span class="annottext">Maybe Text
+subject :: Maybe Text
+$sel:subject:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="#local-6989586621679231973"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231973"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231972"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3Asubject%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The major email providers who handled the email message.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_esps"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_esps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="domainDeliverabilityCampaign_esps"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_esps :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_esps"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_esps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe [Text])
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe [Text] -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231969"><span class="annot"><span class="annottext">Maybe [Text]
+esps :: Maybe [Text]
+$sel:esps:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe [Text]
+</span><a href="#local-6989586621679231969"><span class="hs-identifier hs-var hs-var">esps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231969"><span class="hs-identifier hs-var">esps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231968"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231967"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:esps:DomainDeliverabilityCampaign' :: Maybe [Text]
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3Aesps%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">esps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DomainDeliverabilityCampaign
+-&gt; f DomainDeliverabilityCampaign
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The verified email address that the email message was sent from.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_fromAddress"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_fromAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="domainDeliverabilityCampaign_fromAddress"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_fromAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_fromAddress"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_fromAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Text)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Text -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231962"><span class="annot"><span class="annottext">Maybe Text
+fromAddress :: Maybe Text
+$sel:fromAddress:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="#local-6989586621679231962"><span class="hs-identifier hs-var hs-var">fromAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231962"><span class="hs-identifier hs-var">fromAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231961"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231960"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromAddress:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AfromAddress%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">fromAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The percentage of email messages that were deleted by recipients,</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- without being opened first. Due to technical limitations, this value</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- only includes recipients who opened the message by using an email client</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- that supports images.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_deleteRate"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_deleteRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="domainDeliverabilityCampaign_deleteRate"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_deleteRate :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_deleteRate"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_deleteRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Double)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Double -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231958"><span class="annot"><span class="annottext">Maybe Double
+deleteRate :: Maybe Double
+$sel:deleteRate:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Double
+</span><a href="#local-6989586621679231958"><span class="hs-identifier hs-var hs-var">deleteRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231958"><span class="hs-identifier hs-var">deleteRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231957"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231956"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteRate:DomainDeliverabilityCampaign' :: Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AdeleteRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">deleteRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The unique identifier for the campaign. Amazon Pinpoint automatically</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- generates and assigns this identifier to a campaign. This value is not</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- the same as the campaign identifier that Amazon Pinpoint assigns to</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- campaigns that you create and manage by using the Amazon Pinpoint API or</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the Amazon Pinpoint console.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_campaignId"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_campaignId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="domainDeliverabilityCampaign_campaignId"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_campaignId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_campaignId"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_campaignId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Text)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Text -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231954"><span class="annot"><span class="annottext">Maybe Text
+campaignId :: Maybe Text
+$sel:campaignId:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="#local-6989586621679231954"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231954"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231953"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231952"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AcampaignId%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The IP addresses that were used to send the email message.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_sendingIps"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_sendingIps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="domainDeliverabilityCampaign_sendingIps"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_sendingIps :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_sendingIps"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_sendingIps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe [Text])
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe [Text] -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231950"><span class="annot"><span class="annottext">Maybe [Text]
+sendingIps :: Maybe [Text]
+$sel:sendingIps:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe [Text]
+</span><a href="#local-6989586621679231950"><span class="hs-identifier hs-var hs-var">sendingIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231950"><span class="hs-identifier hs-var">sendingIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231949"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231948"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendingIps:DomainDeliverabilityCampaign' :: Maybe [Text]
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AsendingIps%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">sendingIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DomainDeliverabilityCampaign
+-&gt; f DomainDeliverabilityCampaign
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The first time, in Unix time format, when the email message was</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- delivered to any recipient\'s inbox. This value can help you determine</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- how long it took for a campaign to deliver an email message.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_firstSeenDateTime"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_firstSeenDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="domainDeliverabilityCampaign_firstSeenDateTime"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_firstSeenDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_firstSeenDateTime"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_firstSeenDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe POSIX)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231946"><span class="annot"><span class="annottext">Maybe POSIX
+firstSeenDateTime :: Maybe POSIX
+$sel:firstSeenDateTime:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe POSIX
+</span><a href="#local-6989586621679231946"><span class="hs-identifier hs-var hs-var">firstSeenDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231946"><span class="hs-identifier hs-var">firstSeenDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231945"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231944"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstSeenDateTime:DomainDeliverabilityCampaign' :: Maybe POSIX
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AfirstSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">firstSeenDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainDeliverabilityCampaign
+-&gt; f DomainDeliverabilityCampaign
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The number of email messages that were delivered to recipients&#8217; inboxes.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_inboxCount"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_inboxCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="domainDeliverabilityCampaign_inboxCount"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_inboxCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_inboxCount"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_inboxCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Integer)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Integer -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231941"><span class="annot"><span class="annottext">Maybe Integer
+inboxCount :: Maybe Integer
+$sel:inboxCount:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Integer
+</span><a href="#local-6989586621679231941"><span class="hs-identifier hs-var hs-var">inboxCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231941"><span class="hs-identifier hs-var">inboxCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231940"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231939"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inboxCount:DomainDeliverabilityCampaign' :: Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AinboxCount%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">inboxCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The percentage of email messages that were opened and then deleted by</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- recipients. Due to technical limitations, this value only includes</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- recipients who opened the message by using an email client that supports</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- images.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_readDeleteRate"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_readDeleteRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="domainDeliverabilityCampaign_readDeleteRate"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_readDeleteRate :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_readDeleteRate"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_readDeleteRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Double)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Double -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231937"><span class="annot"><span class="annottext">Maybe Double
+readDeleteRate :: Maybe Double
+$sel:readDeleteRate:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Double
+</span><a href="#local-6989586621679231937"><span class="hs-identifier hs-var hs-var">readDeleteRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231937"><span class="hs-identifier hs-var">readDeleteRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231936"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231935"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readDeleteRate:DomainDeliverabilityCampaign' :: Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AreadDeleteRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">readDeleteRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The projected number of recipients that the email message was sent to.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_projectedVolume"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_projectedVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="domainDeliverabilityCampaign_projectedVolume"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_projectedVolume :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_projectedVolume"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_projectedVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Integer)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Integer -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231933"><span class="annot"><span class="annottext">Maybe Integer
+projectedVolume :: Maybe Integer
+$sel:projectedVolume:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Integer
+</span><a href="#local-6989586621679231933"><span class="hs-identifier hs-var hs-var">projectedVolume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231933"><span class="hs-identifier hs-var">projectedVolume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231932"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231931"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectedVolume:DomainDeliverabilityCampaign' :: Maybe Integer
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AprojectedVolume%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">projectedVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679231931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The URL of an image that contains a snapshot of the email message that</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- was sent.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_imageUrl"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_imageUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="domainDeliverabilityCampaign_imageUrl"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_imageUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_imageUrl"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_imageUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Text)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Text -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231929"><span class="annot"><span class="annottext">Maybe Text
+imageUrl :: Maybe Text
+$sel:imageUrl:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Text
+</span><a href="#local-6989586621679231929"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231929"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231928"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUrl:DomainDeliverabilityCampaign' :: Maybe Text
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AimageUrl%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The percentage of email messages that were opened by recipients. Due to</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- technical limitations, this value only includes recipients who opened</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- the message by using an email client that supports images.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_readRate"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_readRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="domainDeliverabilityCampaign_readRate"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_readRate :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_readRate"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_readRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe Double)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe Double -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231925"><span class="annot"><span class="annottext">Maybe Double
+readRate :: Maybe Double
+$sel:readRate:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe Double
+</span><a href="#local-6989586621679231925"><span class="hs-identifier hs-var hs-var">readRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231925"><span class="hs-identifier hs-var">readRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231924"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231923"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readRate:DomainDeliverabilityCampaign' :: Maybe Double
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AreadRate%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">readRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679231923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The last time, in Unix time format, when the email message was delivered</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- to any recipient\'s inbox. This value can help you determine how long it</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- took for a campaign to deliver an email message.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_lastSeenDateTime"><span class="hs-identifier hs-type">domainDeliverabilityCampaign_lastSeenDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="domainDeliverabilityCampaign_lastSeenDateTime"><span class="annot"><span class="annottext">domainDeliverabilityCampaign_lastSeenDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#domainDeliverabilityCampaign_lastSeenDateTime"><span class="hs-identifier hs-var hs-var">domainDeliverabilityCampaign_lastSeenDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDeliverabilityCampaign -&gt; Maybe POSIX)
+-&gt; (DomainDeliverabilityCampaign
+    -&gt; Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+-&gt; Lens
+     DomainDeliverabilityCampaign
+     DomainDeliverabilityCampaign
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231921"><span class="annot"><span class="annottext">Maybe POSIX
+lastSeenDateTime :: Maybe POSIX
+$sel:lastSeenDateTime:DomainDeliverabilityCampaign' :: DomainDeliverabilityCampaign -&gt; Maybe POSIX
+</span><a href="#local-6989586621679231921"><span class="hs-identifier hs-var hs-var">lastSeenDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231921"><span class="hs-identifier hs-var">lastSeenDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231920"><span class="annot"><span class="annottext">s :: DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231919"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDeliverabilityCampaign
+</span><a href="#local-6989586621679231920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastSeenDateTime:DomainDeliverabilityCampaign' :: Maybe POSIX
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#%24sel%3AlastSeenDateTime%3ADomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">lastSeenDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DomainDeliverabilityCampaign -&gt; f DomainDeliverabilityCampaign)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainDeliverabilityCampaign
+-&gt; f DomainDeliverabilityCampaign
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231916"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679231914"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainDeliverabilityCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DomainDeliverabilityCampaign)
+-&gt; Value
+-&gt; Parser DomainDeliverabilityCampaign
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DomainDeliverabilityCampaign&quot;</span></span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231911"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe POSIX
+-&gt; DomainDeliverabilityCampaign
+</span><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign%27"><span class="hs-identifier hs-var">DomainDeliverabilityCampaign'</span></a></span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Integer
+ -&gt; Maybe Double
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe POSIX
+ -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SpamCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Esps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CampaignId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SendingIps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirstSeenDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InboxCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReadDeleteRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Double -&gt; Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectedVolume&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Double -&gt; Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Double -&gt; Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double -&gt; Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReadRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; DomainDeliverabilityCampaign)
+-&gt; Parser (Maybe POSIX) -&gt; Parser DomainDeliverabilityCampaign
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastSeenDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679231904"><span id="local-6989586621679231906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span></span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign.html#DomainDeliverabilityCampaign"><span class="hs-identifier hs-type">DomainDeliverabilityCampaign</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

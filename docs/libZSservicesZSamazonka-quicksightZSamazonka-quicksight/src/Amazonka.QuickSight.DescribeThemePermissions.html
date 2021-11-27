@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.DescribeThemePermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the read and write permissions for a theme.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.DescribeThemePermissions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier">DescribeThemePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#newDescribeThemePermissions"><span class="hs-identifier">newDescribeThemePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissions_awsAccountId"><span class="hs-identifier">describeThemePermissions_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissions_themeId"><span class="hs-identifier">describeThemePermissions_themeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier">DescribeThemePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#newDescribeThemePermissionsResponse"><span class="hs-identifier">newDescribeThemePermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_requestId"><span class="hs-identifier">describeThemePermissionsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_themeArn"><span class="hs-identifier">describeThemePermissionsResponse_themeArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_themeId"><span class="hs-identifier">describeThemePermissionsResponse_themeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_permissions"><span class="hs-identifier">describeThemePermissionsResponse_permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_status"><span class="hs-identifier">describeThemePermissionsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeThemePermissions' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679583476"><span id="local-6989586621679583477"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeThemePermissions"><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-var">DescribeThemePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeThemePermissions%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions%27"><span class="hs-identifier hs-var">DescribeThemePermissions'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the theme that</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- you\'re describing.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeThemePermissions%27"><span class="annot"><span class="annottext">DescribeThemePermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AawsAccountId%3ADescribeThemePermissions%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID for the theme that you want to describe permissions for.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AthemeId%3ADescribeThemePermissions%27"><span class="annot"><span class="annottext">DescribeThemePermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeId%3ADescribeThemePermissions%27"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679583469"><span id="local-6989586621679583471"><span class="annot"><span class="annottext">DescribeThemePermissions -&gt; DescribeThemePermissions -&gt; Bool
+(DescribeThemePermissions -&gt; DescribeThemePermissions -&gt; Bool)
+-&gt; (DescribeThemePermissions -&gt; DescribeThemePermissions -&gt; Bool)
+-&gt; Eq DescribeThemePermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeThemePermissions -&gt; DescribeThemePermissions -&gt; Bool
+$c/= :: DescribeThemePermissions -&gt; DescribeThemePermissions -&gt; Bool
+== :: DescribeThemePermissions -&gt; DescribeThemePermissions -&gt; Bool
+$c== :: DescribeThemePermissions -&gt; DescribeThemePermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679583460"><span id="local-6989586621679583462"><span id="local-6989586621679583464"><span id="local-6989586621679583466"><span class="annot"><span class="annottext">ReadPrec [DescribeThemePermissions]
+ReadPrec DescribeThemePermissions
+Int -&gt; ReadS DescribeThemePermissions
+ReadS [DescribeThemePermissions]
+(Int -&gt; ReadS DescribeThemePermissions)
+-&gt; ReadS [DescribeThemePermissions]
+-&gt; ReadPrec DescribeThemePermissions
+-&gt; ReadPrec [DescribeThemePermissions]
+-&gt; Read DescribeThemePermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeThemePermissions]
+$creadListPrec :: ReadPrec [DescribeThemePermissions]
+readPrec :: ReadPrec DescribeThemePermissions
+$creadPrec :: ReadPrec DescribeThemePermissions
+readList :: ReadS [DescribeThemePermissions]
+$creadList :: ReadS [DescribeThemePermissions]
+readsPrec :: Int -&gt; ReadS DescribeThemePermissions
+$creadsPrec :: Int -&gt; ReadS DescribeThemePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679583453"><span id="local-6989586621679583455"><span id="local-6989586621679583457"><span class="annot"><span class="annottext">Int -&gt; DescribeThemePermissions -&gt; ShowS
+[DescribeThemePermissions] -&gt; ShowS
+DescribeThemePermissions -&gt; String
+(Int -&gt; DescribeThemePermissions -&gt; ShowS)
+-&gt; (DescribeThemePermissions -&gt; String)
+-&gt; ([DescribeThemePermissions] -&gt; ShowS)
+-&gt; Show DescribeThemePermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeThemePermissions] -&gt; ShowS
+$cshowList :: [DescribeThemePermissions] -&gt; ShowS
+show :: DescribeThemePermissions -&gt; String
+$cshow :: DescribeThemePermissions -&gt; String
+showsPrec :: Int -&gt; DescribeThemePermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeThemePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeThemePermissions -&gt; Rep DescribeThemePermissions x)
+-&gt; (forall x.
+    Rep DescribeThemePermissions x -&gt; DescribeThemePermissions)
+-&gt; Generic DescribeThemePermissions
+forall x.
+Rep DescribeThemePermissions x -&gt; DescribeThemePermissions
+forall x.
+DescribeThemePermissions -&gt; Rep DescribeThemePermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeThemePermissions x -&gt; DescribeThemePermissions
+$cfrom :: forall x.
+DescribeThemePermissions -&gt; Rep DescribeThemePermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeThemePermissions' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'awsAccountId', 'describeThemePermissions_awsAccountId' - The ID of the Amazon Web Services account that contains the theme that</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- you\'re describing.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'themeId', 'describeThemePermissions_themeId' - The ID for the theme that you want to describe permissions for.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#newDescribeThemePermissions"><span class="hs-identifier hs-type">newDescribeThemePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'themeId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span>
+</span><span id="line-81"></span><span id="newDescribeThemePermissions"><span class="annot"><span class="annottext">newDescribeThemePermissions :: Text -&gt; Text -&gt; DescribeThemePermissions
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#newDescribeThemePermissions"><span class="hs-identifier hs-var hs-var">newDescribeThemePermissions</span></a></span></span><span> </span><span id="local-6989586621679583448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583448"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679583447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583447"><span class="hs-identifier hs-var">pThemeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DescribeThemePermissions' :: Text -&gt; Text -&gt; DescribeThemePermissions
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions%27"><span class="hs-identifier hs-type">DescribeThemePermissions'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeThemePermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AawsAccountId%3ADescribeThemePermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583448"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:themeId:DescribeThemePermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeId%3ADescribeThemePermissions%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583447"><span class="hs-identifier hs-var">pThemeId_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the theme that</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- you\'re describing.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissions_awsAccountId"><span class="hs-identifier hs-type">describeThemePermissions_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="describeThemePermissions_awsAccountId"><span class="annot"><span class="annottext">describeThemePermissions_awsAccountId :: (Text -&gt; f Text)
+-&gt; DescribeThemePermissions -&gt; f DescribeThemePermissions
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissions_awsAccountId"><span class="hs-identifier hs-var hs-var">describeThemePermissions_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeThemePermissions -&gt; Text)
+-&gt; (DescribeThemePermissions -&gt; Text -&gt; DescribeThemePermissions)
+-&gt; Lens DescribeThemePermissions DescribeThemePermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions%27"><span class="hs-identifier hs-type">DescribeThemePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583444"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeThemePermissions' :: DescribeThemePermissions -&gt; Text
+</span><a href="#local-6989586621679583444"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583444"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583443"><span class="annot"><span class="annottext">s :: DescribeThemePermissions
+</span><a href="#local-6989586621679583443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions%27"><span class="hs-identifier hs-type">DescribeThemePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeThemePermissions
+</span><a href="#local-6989586621679583443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeThemePermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AawsAccountId%3ADescribeThemePermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ID for the theme that you want to describe permissions for.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissions_themeId"><span class="hs-identifier hs-type">describeThemePermissions_themeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="describeThemePermissions_themeId"><span class="annot"><span class="annottext">describeThemePermissions_themeId :: (Text -&gt; f Text)
+-&gt; DescribeThemePermissions -&gt; f DescribeThemePermissions
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissions_themeId"><span class="hs-identifier hs-var hs-var">describeThemePermissions_themeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeThemePermissions -&gt; Text)
+-&gt; (DescribeThemePermissions -&gt; Text -&gt; DescribeThemePermissions)
+-&gt; Lens DescribeThemePermissions DescribeThemePermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions%27"><span class="hs-identifier hs-type">DescribeThemePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583441"><span class="annot"><span class="annottext">Text
+themeId :: Text
+$sel:themeId:DescribeThemePermissions' :: DescribeThemePermissions -&gt; Text
+</span><a href="#local-6989586621679583441"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583441"><span class="hs-identifier hs-var">themeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583440"><span class="annot"><span class="annottext">s :: DescribeThemePermissions
+</span><a href="#local-6989586621679583440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions%27"><span class="hs-identifier hs-type">DescribeThemePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeThemePermissions
+</span><a href="#local-6989586621679583440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeId:DescribeThemePermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeId%3ADescribeThemePermissions%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679583435"><span class="annot"><span class="annottext">request :: DescribeThemePermissions -&gt; Request DescribeThemePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeThemePermissions -&gt; Request DescribeThemePermissions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679583431"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeThemePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeThemePermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeThemePermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeThemePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeThemePermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679583428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679583428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679583427"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679583427"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679583426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679583426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">DescribeThemePermissionsResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty ResourcePermission)
+ -&gt; Int
+ -&gt; DescribeThemePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; DescribeThemePermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679583426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; DescribeThemePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; DescribeThemePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679583426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThemeArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; DescribeThemePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (NonEmpty ResourcePermission)
+      -&gt; Int -&gt; DescribeThemePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679583426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThemeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty ResourcePermission)
+   -&gt; Int -&gt; DescribeThemePermissionsResponse)
+-&gt; Either String (Maybe (NonEmpty ResourcePermission))
+-&gt; Either String (Int -&gt; DescribeThemePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679583426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (NonEmpty ResourcePermission))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Permissions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeThemePermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeThemePermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679583428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679583418"><span id="local-6989586621679583420"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679583415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679583411"><span class="annot"><span class="annottext">toHeaders :: DescribeThemePermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeThemePermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679583405"><span class="annot"><span class="annottext">toPath :: DescribeThemePermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions%27"><span class="hs-identifier hs-type">DescribeThemePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583402"><span id="local-6989586621679583403"><span class="annot"><span class="annottext">Text
+themeId :: Text
+awsAccountId :: Text
+$sel:themeId:DescribeThemePermissions' :: DescribeThemePermissions -&gt; Text
+$sel:awsAccountId:DescribeThemePermissions' :: DescribeThemePermissions -&gt; Text
+</span><a href="#local-6989586621679583402"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583403"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/themes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679583402"><span class="hs-identifier hs-var">themeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/permissions&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissions"><span class="hs-identifier hs-type">DescribeThemePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679583398"><span class="annot"><span class="annottext">toQuery :: DescribeThemePermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeThemePermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDescribeThemePermissionsResponse' smart constructor.</span><span>
+</span><span id="line-142"></span><span id="local-6989586621679583395"><span id="local-6989586621679583396"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeThemePermissionsResponse"><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-var">DescribeThemePermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeThemePermissionsResponse%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">DescribeThemePermissionsResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeThemePermissionsResponse%27"><span class="annot"><span class="annottext">DescribeThemePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3ArequestId%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the theme.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AthemeArn%3ADescribeThemePermissionsResponse%27"><span class="annot"><span class="annottext">DescribeThemePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeArn%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">themeArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The ID for the theme.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AthemeId%3ADescribeThemePermissionsResponse%27"><span class="annot"><span class="annottext">DescribeThemePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeId%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | A list of resource permissions set on the theme.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3Apermissions%3ADescribeThemePermissionsResponse%27"><span class="annot"><span class="annottext">DescribeThemePermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3Apermissions%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeThemePermissionsResponse%27"><span class="annot"><span class="annottext">DescribeThemePermissionsResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3Astatus%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679583386"><span id="local-6989586621679583388"><span class="annot"><span class="annottext">DescribeThemePermissionsResponse
+-&gt; DescribeThemePermissionsResponse -&gt; Bool
+(DescribeThemePermissionsResponse
+ -&gt; DescribeThemePermissionsResponse -&gt; Bool)
+-&gt; (DescribeThemePermissionsResponse
+    -&gt; DescribeThemePermissionsResponse -&gt; Bool)
+-&gt; Eq DescribeThemePermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeThemePermissionsResponse
+-&gt; DescribeThemePermissionsResponse -&gt; Bool
+$c/= :: DescribeThemePermissionsResponse
+-&gt; DescribeThemePermissionsResponse -&gt; Bool
+== :: DescribeThemePermissionsResponse
+-&gt; DescribeThemePermissionsResponse -&gt; Bool
+$c== :: DescribeThemePermissionsResponse
+-&gt; DescribeThemePermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679583378"><span id="local-6989586621679583380"><span id="local-6989586621679583382"><span id="local-6989586621679583384"><span class="annot"><span class="annottext">ReadPrec [DescribeThemePermissionsResponse]
+ReadPrec DescribeThemePermissionsResponse
+Int -&gt; ReadS DescribeThemePermissionsResponse
+ReadS [DescribeThemePermissionsResponse]
+(Int -&gt; ReadS DescribeThemePermissionsResponse)
+-&gt; ReadS [DescribeThemePermissionsResponse]
+-&gt; ReadPrec DescribeThemePermissionsResponse
+-&gt; ReadPrec [DescribeThemePermissionsResponse]
+-&gt; Read DescribeThemePermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeThemePermissionsResponse]
+$creadListPrec :: ReadPrec [DescribeThemePermissionsResponse]
+readPrec :: ReadPrec DescribeThemePermissionsResponse
+$creadPrec :: ReadPrec DescribeThemePermissionsResponse
+readList :: ReadS [DescribeThemePermissionsResponse]
+$creadList :: ReadS [DescribeThemePermissionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeThemePermissionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeThemePermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679583372"><span id="local-6989586621679583374"><span id="local-6989586621679583376"><span class="annot"><span class="annottext">Int -&gt; DescribeThemePermissionsResponse -&gt; ShowS
+[DescribeThemePermissionsResponse] -&gt; ShowS
+DescribeThemePermissionsResponse -&gt; String
+(Int -&gt; DescribeThemePermissionsResponse -&gt; ShowS)
+-&gt; (DescribeThemePermissionsResponse -&gt; String)
+-&gt; ([DescribeThemePermissionsResponse] -&gt; ShowS)
+-&gt; Show DescribeThemePermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeThemePermissionsResponse] -&gt; ShowS
+$cshowList :: [DescribeThemePermissionsResponse] -&gt; ShowS
+show :: DescribeThemePermissionsResponse -&gt; String
+$cshow :: DescribeThemePermissionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeThemePermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeThemePermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeThemePermissionsResponse
+ -&gt; Rep DescribeThemePermissionsResponse x)
+-&gt; (forall x.
+    Rep DescribeThemePermissionsResponse x
+    -&gt; DescribeThemePermissionsResponse)
+-&gt; Generic DescribeThemePermissionsResponse
+forall x.
+Rep DescribeThemePermissionsResponse x
+-&gt; DescribeThemePermissionsResponse
+forall x.
+DescribeThemePermissionsResponse
+-&gt; Rep DescribeThemePermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeThemePermissionsResponse x
+-&gt; DescribeThemePermissionsResponse
+$cfrom :: forall x.
+DescribeThemePermissionsResponse
+-&gt; Rep DescribeThemePermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'DescribeThemePermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'requestId', 'describeThemePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'themeArn', 'describeThemePermissionsResponse_themeArn' - The Amazon Resource Name (ARN) of the theme.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'themeId', 'describeThemePermissionsResponse_themeId' - The ID for the theme.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'permissions', 'describeThemePermissionsResponse_permissions' - A list of resource permissions set on the theme.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'status', 'describeThemePermissionsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#newDescribeThemePermissionsResponse"><span class="hs-identifier hs-type">newDescribeThemePermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newDescribeThemePermissionsResponse"><span class="annot"><span class="annottext">newDescribeThemePermissionsResponse :: Int -&gt; DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#newDescribeThemePermissionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeThemePermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679583369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679583369"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">DescribeThemePermissionsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeThemePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3ArequestId%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:themeArn:DescribeThemePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeArn%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">themeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:themeId:DescribeThemePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeId%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:DescribeThemePermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3Apermissions%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeThemePermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3Astatus%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679583369"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_requestId"><span class="hs-identifier hs-type">describeThemePermissionsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="describeThemePermissionsResponse_requestId"><span class="annot"><span class="annottext">describeThemePermissionsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeThemePermissionsResponse
+-&gt; f DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_requestId"><span class="hs-identifier hs-var hs-var">describeThemePermissionsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeThemePermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeThemePermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeThemePermissionsResponse)
+-&gt; Lens
+     DescribeThemePermissionsResponse
+     DescribeThemePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583368"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeThemePermissionsResponse' :: DescribeThemePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679583368"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583368"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583367"><span class="annot"><span class="annottext">s :: DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583366"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeThemePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3ArequestId%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the theme.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_themeArn"><span class="hs-identifier hs-type">describeThemePermissionsResponse_themeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="describeThemePermissionsResponse_themeArn"><span class="annot"><span class="annottext">describeThemePermissionsResponse_themeArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeThemePermissionsResponse
+-&gt; f DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_themeArn"><span class="hs-identifier hs-var hs-var">describeThemePermissionsResponse_themeArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeThemePermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeThemePermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeThemePermissionsResponse)
+-&gt; Lens
+     DescribeThemePermissionsResponse
+     DescribeThemePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583365"><span class="annot"><span class="annottext">Maybe Text
+themeArn :: Maybe Text
+$sel:themeArn:DescribeThemePermissionsResponse' :: DescribeThemePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679583365"><span class="hs-identifier hs-var hs-var">themeArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583365"><span class="hs-identifier hs-var">themeArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583364"><span class="annot"><span class="annottext">s :: DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583363"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeArn:DescribeThemePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeArn%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">themeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The ID for the theme.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_themeId"><span class="hs-identifier hs-type">describeThemePermissionsResponse_themeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="describeThemePermissionsResponse_themeId"><span class="annot"><span class="annottext">describeThemePermissionsResponse_themeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeThemePermissionsResponse
+-&gt; f DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_themeId"><span class="hs-identifier hs-var hs-var">describeThemePermissionsResponse_themeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeThemePermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeThemePermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeThemePermissionsResponse)
+-&gt; Lens
+     DescribeThemePermissionsResponse
+     DescribeThemePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583362"><span class="annot"><span class="annottext">Maybe Text
+themeId :: Maybe Text
+$sel:themeId:DescribeThemePermissionsResponse' :: DescribeThemePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679583362"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583362"><span class="hs-identifier hs-var">themeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583361"><span class="annot"><span class="annottext">s :: DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeId:DescribeThemePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3AthemeId%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679583360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | A list of resource permissions set on the theme.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_permissions"><span class="hs-identifier hs-type">describeThemePermissionsResponse_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="describeThemePermissionsResponse_permissions"><span class="annot"><span class="annottext">describeThemePermissionsResponse_permissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; DescribeThemePermissionsResponse
+-&gt; f DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_permissions"><span class="hs-identifier hs-var hs-var">describeThemePermissionsResponse_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeThemePermissionsResponse
+ -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (DescribeThemePermissionsResponse
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; DescribeThemePermissionsResponse)
+-&gt; Lens
+     DescribeThemePermissionsResponse
+     DescribeThemePermissionsResponse
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583359"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+permissions :: Maybe (NonEmpty ResourcePermission)
+$sel:permissions:DescribeThemePermissionsResponse' :: DescribeThemePermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679583359"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679583359"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583358"><span class="annot"><span class="annottext">s :: DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583357"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679583357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:DescribeThemePermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3Apermissions%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679583357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; DescribeThemePermissionsResponse
+ -&gt; f DescribeThemePermissionsResponse)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; DescribeThemePermissionsResponse
+-&gt; f DescribeThemePermissionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_status"><span class="hs-identifier hs-type">describeThemePermissionsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-205"></span><span id="describeThemePermissionsResponse_status"><span class="annot"><span class="annottext">describeThemePermissionsResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeThemePermissionsResponse
+-&gt; f DescribeThemePermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#describeThemePermissionsResponse_status"><span class="hs-identifier hs-var hs-var">describeThemePermissionsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeThemePermissionsResponse -&gt; Int)
+-&gt; (DescribeThemePermissionsResponse
+    -&gt; Int -&gt; DescribeThemePermissionsResponse)
+-&gt; Lens
+     DescribeThemePermissionsResponse
+     DescribeThemePermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679583353"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeThemePermissionsResponse' :: DescribeThemePermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679583353"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679583353"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679583352"><span class="annot"><span class="annottext">s :: DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse%27"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679583351"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679583351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeThemePermissionsResponse
+</span><a href="#local-6989586621679583352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeThemePermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeThemePermissions.html#%24sel%3Astatus%3ADescribeThemePermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679583351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679583349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeThemePermissions.html#DescribeThemePermissionsResponse"><span class="hs-identifier hs-type">DescribeThemePermissionsResponse</span></a></span></span><span>
+</span><span id="line-210"></span></pre></body></html>

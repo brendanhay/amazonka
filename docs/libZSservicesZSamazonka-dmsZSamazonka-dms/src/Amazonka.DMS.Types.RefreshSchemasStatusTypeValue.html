@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DMS.Types.RefreshSchemasStatusTypeValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.Types.RefreshSchemasStatusTypeValue</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue"><span class="hs-identifier">RefreshSchemasStatusTypeValue</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Failed"><span class="hs-identifier">RefreshSchemasStatusTypeValue_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Refreshing"><span class="hs-identifier">RefreshSchemasStatusTypeValue_Refreshing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Successful"><span class="hs-identifier">RefreshSchemasStatusTypeValue_Successful</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679435772"><span id="local-6989586621679435773"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RefreshSchemasStatusTypeValue"><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue"><span class="hs-identifier hs-var">RefreshSchemasStatusTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshSchemasStatusTypeValue%27"><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue%27"><span class="hs-identifier hs-var">RefreshSchemasStatusTypeValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRefreshSchemasStatusTypeValue"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue -&gt; Text
+</span><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#fromRefreshSchemasStatusTypeValue"><span class="hs-identifier hs-var hs-var">fromRefreshSchemasStatusTypeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435764"><span id="local-6989586621679435766"><span id="local-6989586621679435768"><span class="annot"><span class="annottext">Int -&gt; RefreshSchemasStatusTypeValue -&gt; ShowS
+[RefreshSchemasStatusTypeValue] -&gt; ShowS
+RefreshSchemasStatusTypeValue -&gt; String
+(Int -&gt; RefreshSchemasStatusTypeValue -&gt; ShowS)
+-&gt; (RefreshSchemasStatusTypeValue -&gt; String)
+-&gt; ([RefreshSchemasStatusTypeValue] -&gt; ShowS)
+-&gt; Show RefreshSchemasStatusTypeValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RefreshSchemasStatusTypeValue] -&gt; ShowS
+$cshowList :: [RefreshSchemasStatusTypeValue] -&gt; ShowS
+show :: RefreshSchemasStatusTypeValue -&gt; String
+$cshow :: RefreshSchemasStatusTypeValue -&gt; String
+showsPrec :: Int -&gt; RefreshSchemasStatusTypeValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; RefreshSchemasStatusTypeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679435755"><span id="local-6989586621679435757"><span id="local-6989586621679435759"><span id="local-6989586621679435761"><span class="annot"><span class="annottext">ReadPrec [RefreshSchemasStatusTypeValue]
+ReadPrec RefreshSchemasStatusTypeValue
+Int -&gt; ReadS RefreshSchemasStatusTypeValue
+ReadS [RefreshSchemasStatusTypeValue]
+(Int -&gt; ReadS RefreshSchemasStatusTypeValue)
+-&gt; ReadS [RefreshSchemasStatusTypeValue]
+-&gt; ReadPrec RefreshSchemasStatusTypeValue
+-&gt; ReadPrec [RefreshSchemasStatusTypeValue]
+-&gt; Read RefreshSchemasStatusTypeValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RefreshSchemasStatusTypeValue]
+$creadListPrec :: ReadPrec [RefreshSchemasStatusTypeValue]
+readPrec :: ReadPrec RefreshSchemasStatusTypeValue
+$creadPrec :: ReadPrec RefreshSchemasStatusTypeValue
+readList :: ReadS [RefreshSchemasStatusTypeValue]
+$creadList :: ReadS [RefreshSchemasStatusTypeValue]
+readsPrec :: Int -&gt; ReadS RefreshSchemasStatusTypeValue
+$creadsPrec :: Int -&gt; ReadS RefreshSchemasStatusTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679435750"><span id="local-6989586621679435752"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+(RefreshSchemasStatusTypeValue
+ -&gt; RefreshSchemasStatusTypeValue -&gt; Bool)
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; Bool)
+-&gt; Eq RefreshSchemasStatusTypeValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+$c/= :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+== :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+$c== :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679435734"><span id="local-6989586621679435736"><span id="local-6989586621679435738"><span id="local-6989586621679435740"><span id="local-6989586621679435742"><span id="local-6989586621679435744"><span id="local-6989586621679435746"><span class="annot"><span class="annottext">Eq RefreshSchemasStatusTypeValue
+Eq RefreshSchemasStatusTypeValue
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; Ordering)
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; Bool)
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; Bool)
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; Bool)
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; Bool)
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; RefreshSchemasStatusTypeValue)
+-&gt; (RefreshSchemasStatusTypeValue
+    -&gt; RefreshSchemasStatusTypeValue -&gt; RefreshSchemasStatusTypeValue)
+-&gt; Ord RefreshSchemasStatusTypeValue
+RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Ordering
+RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; RefreshSchemasStatusTypeValue
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; RefreshSchemasStatusTypeValue
+$cmin :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; RefreshSchemasStatusTypeValue
+max :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; RefreshSchemasStatusTypeValue
+$cmax :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; RefreshSchemasStatusTypeValue
+&gt;= :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+$c&gt;= :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+&gt; :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+$c&gt; :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+&lt;= :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+$c&lt;= :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+&lt; :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+$c&lt; :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Bool
+compare :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Ordering
+$ccompare :: RefreshSchemasStatusTypeValue
+-&gt; RefreshSchemasStatusTypeValue -&gt; Ordering
+$cp1Ord :: Eq RefreshSchemasStatusTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RefreshSchemasStatusTypeValue
+ -&gt; Rep RefreshSchemasStatusTypeValue x)
+-&gt; (forall x.
+    Rep RefreshSchemasStatusTypeValue x
+    -&gt; RefreshSchemasStatusTypeValue)
+-&gt; Generic RefreshSchemasStatusTypeValue
+forall x.
+Rep RefreshSchemasStatusTypeValue x
+-&gt; RefreshSchemasStatusTypeValue
+forall x.
+RefreshSchemasStatusTypeValue
+-&gt; Rep RefreshSchemasStatusTypeValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RefreshSchemasStatusTypeValue x
+-&gt; RefreshSchemasStatusTypeValue
+$cfrom :: forall x.
+RefreshSchemasStatusTypeValue
+-&gt; Rep RefreshSchemasStatusTypeValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435726"><span id="local-6989586621679435728"><span class="annot"><span class="annottext">Int -&gt; RefreshSchemasStatusTypeValue -&gt; Int
+RefreshSchemasStatusTypeValue -&gt; Int
+(Int -&gt; RefreshSchemasStatusTypeValue -&gt; Int)
+-&gt; (RefreshSchemasStatusTypeValue -&gt; Int)
+-&gt; Hashable RefreshSchemasStatusTypeValue
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RefreshSchemasStatusTypeValue -&gt; Int
+$chash :: RefreshSchemasStatusTypeValue -&gt; Int
+hashWithSalt :: Int -&gt; RefreshSchemasStatusTypeValue -&gt; Int
+$chashWithSalt :: Int -&gt; RefreshSchemasStatusTypeValue -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435723"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue -&gt; ()
+(RefreshSchemasStatusTypeValue -&gt; ())
+-&gt; NFData RefreshSchemasStatusTypeValue
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RefreshSchemasStatusTypeValue -&gt; ()
+$crnf :: RefreshSchemasStatusTypeValue -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679435720"><span class="annot"><span class="annottext">Text -&gt; Either String RefreshSchemasStatusTypeValue
+(Text -&gt; Either String RefreshSchemasStatusTypeValue)
+-&gt; FromText RefreshSchemasStatusTypeValue
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RefreshSchemasStatusTypeValue
+$cfromText :: Text -&gt; Either String RefreshSchemasStatusTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679435717"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue -&gt; Text
+(RefreshSchemasStatusTypeValue -&gt; Text)
+-&gt; ToText RefreshSchemasStatusTypeValue
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RefreshSchemasStatusTypeValue -&gt; Text
+$ctoText :: RefreshSchemasStatusTypeValue -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679435714"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue -&gt; ByteString
+(RefreshSchemasStatusTypeValue -&gt; ByteString)
+-&gt; ToByteString RefreshSchemasStatusTypeValue
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RefreshSchemasStatusTypeValue -&gt; ByteString
+$ctoBS :: RefreshSchemasStatusTypeValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679435711"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue -&gt; ByteStringBuilder
+(RefreshSchemasStatusTypeValue -&gt; ByteStringBuilder)
+-&gt; ToLog RefreshSchemasStatusTypeValue
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RefreshSchemasStatusTypeValue -&gt; ByteStringBuilder
+$cbuild :: RefreshSchemasStatusTypeValue -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435708"><span class="annot"><span class="annottext">HeaderName -&gt; RefreshSchemasStatusTypeValue -&gt; [Header]
+(HeaderName -&gt; RefreshSchemasStatusTypeValue -&gt; [Header])
+-&gt; ToHeader RefreshSchemasStatusTypeValue
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RefreshSchemasStatusTypeValue -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RefreshSchemasStatusTypeValue -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435705"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue -&gt; QueryString
+(RefreshSchemasStatusTypeValue -&gt; QueryString)
+-&gt; ToQuery RefreshSchemasStatusTypeValue
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RefreshSchemasStatusTypeValue -&gt; QueryString
+$ctoQuery :: RefreshSchemasStatusTypeValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435700"><span id="local-6989586621679435702"><span class="annot"><span class="annottext">Value -&gt; Parser [RefreshSchemasStatusTypeValue]
+Value -&gt; Parser RefreshSchemasStatusTypeValue
+(Value -&gt; Parser RefreshSchemasStatusTypeValue)
+-&gt; (Value -&gt; Parser [RefreshSchemasStatusTypeValue])
+-&gt; FromJSON RefreshSchemasStatusTypeValue
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RefreshSchemasStatusTypeValue]
+$cparseJSONList :: Value -&gt; Parser [RefreshSchemasStatusTypeValue]
+parseJSON :: Value -&gt; Parser RefreshSchemasStatusTypeValue
+$cparseJSON :: Value -&gt; Parser RefreshSchemasStatusTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435695"><span id="local-6989586621679435697"><span class="annot"><span class="annottext">FromJSONKeyFunction [RefreshSchemasStatusTypeValue]
+FromJSONKeyFunction RefreshSchemasStatusTypeValue
+FromJSONKeyFunction RefreshSchemasStatusTypeValue
+-&gt; FromJSONKeyFunction [RefreshSchemasStatusTypeValue]
+-&gt; FromJSONKey RefreshSchemasStatusTypeValue
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RefreshSchemasStatusTypeValue]
+$cfromJSONKeyList :: FromJSONKeyFunction [RefreshSchemasStatusTypeValue]
+fromJSONKey :: FromJSONKeyFunction RefreshSchemasStatusTypeValue
+$cfromJSONKey :: FromJSONKeyFunction RefreshSchemasStatusTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435686"><span id="local-6989586621679435688"><span id="local-6989586621679435690"><span id="local-6989586621679435692"><span class="annot"><span class="annottext">[RefreshSchemasStatusTypeValue] -&gt; Encoding
+[RefreshSchemasStatusTypeValue] -&gt; Value
+RefreshSchemasStatusTypeValue -&gt; Encoding
+RefreshSchemasStatusTypeValue -&gt; Value
+(RefreshSchemasStatusTypeValue -&gt; Value)
+-&gt; (RefreshSchemasStatusTypeValue -&gt; Encoding)
+-&gt; ([RefreshSchemasStatusTypeValue] -&gt; Value)
+-&gt; ([RefreshSchemasStatusTypeValue] -&gt; Encoding)
+-&gt; ToJSON RefreshSchemasStatusTypeValue
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RefreshSchemasStatusTypeValue] -&gt; Encoding
+$ctoEncodingList :: [RefreshSchemasStatusTypeValue] -&gt; Encoding
+toJSONList :: [RefreshSchemasStatusTypeValue] -&gt; Value
+$ctoJSONList :: [RefreshSchemasStatusTypeValue] -&gt; Value
+toEncoding :: RefreshSchemasStatusTypeValue -&gt; Encoding
+$ctoEncoding :: RefreshSchemasStatusTypeValue -&gt; Encoding
+toJSON :: RefreshSchemasStatusTypeValue -&gt; Value
+$ctoJSON :: RefreshSchemasStatusTypeValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435681"><span id="local-6989586621679435683"><span class="annot"><span class="annottext">ToJSONKeyFunction [RefreshSchemasStatusTypeValue]
+ToJSONKeyFunction RefreshSchemasStatusTypeValue
+ToJSONKeyFunction RefreshSchemasStatusTypeValue
+-&gt; ToJSONKeyFunction [RefreshSchemasStatusTypeValue]
+-&gt; ToJSONKey RefreshSchemasStatusTypeValue
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RefreshSchemasStatusTypeValue]
+$ctoJSONKeyList :: ToJSONKeyFunction [RefreshSchemasStatusTypeValue]
+toJSONKey :: ToJSONKeyFunction RefreshSchemasStatusTypeValue
+$ctoJSONKey :: ToJSONKeyFunction RefreshSchemasStatusTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435678"><span class="annot"><span class="annottext">[Node] -&gt; Either String RefreshSchemasStatusTypeValue
+([Node] -&gt; Either String RefreshSchemasStatusTypeValue)
+-&gt; FromXML RefreshSchemasStatusTypeValue
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RefreshSchemasStatusTypeValue
+$cparseXML :: [Node] -&gt; Either String RefreshSchemasStatusTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435675"><span class="annot"><span class="annottext">RefreshSchemasStatusTypeValue -&gt; XML
+(RefreshSchemasStatusTypeValue -&gt; XML)
+-&gt; ToXML RefreshSchemasStatusTypeValue
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RefreshSchemasStatusTypeValue -&gt; XML
+$ctoXML :: RefreshSchemasStatusTypeValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Failed"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRefreshSchemasStatusTypeValue_Failed"><span id="%24mRefreshSchemasStatusTypeValue_Failed"><span id="RefreshSchemasStatusTypeValue_Failed"><span class="annot"><span class="annottext">$bRefreshSchemasStatusTypeValue_Failed :: RefreshSchemasStatusTypeValue
+$mRefreshSchemasStatusTypeValue_Failed :: forall r.
+RefreshSchemasStatusTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#%24bRefreshSchemasStatusTypeValue_Failed"><span class="hs-identifier hs-var hs-var hs-var">RefreshSchemasStatusTypeValue_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue%27"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Refreshing"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue_Refreshing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRefreshSchemasStatusTypeValue_Refreshing"><span id="%24mRefreshSchemasStatusTypeValue_Refreshing"><span id="RefreshSchemasStatusTypeValue_Refreshing"><span class="annot"><span class="annottext">$bRefreshSchemasStatusTypeValue_Refreshing :: RefreshSchemasStatusTypeValue
+$mRefreshSchemasStatusTypeValue_Refreshing :: forall r.
+RefreshSchemasStatusTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#%24bRefreshSchemasStatusTypeValue_Refreshing"><span class="hs-identifier hs-var hs-var hs-var">RefreshSchemasStatusTypeValue_Refreshing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue%27"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;refreshing&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Successful"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue_Successful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRefreshSchemasStatusTypeValue_Successful"><span id="%24mRefreshSchemasStatusTypeValue_Successful"><span id="RefreshSchemasStatusTypeValue_Successful"><span class="annot"><span class="annottext">$bRefreshSchemasStatusTypeValue_Successful :: RefreshSchemasStatusTypeValue
+$mRefreshSchemasStatusTypeValue_Successful :: forall r.
+RefreshSchemasStatusTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#%24bRefreshSchemasStatusTypeValue_Successful"><span class="hs-identifier hs-var hs-var hs-var">RefreshSchemasStatusTypeValue_Successful</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue%27"><span class="hs-identifier hs-type">RefreshSchemasStatusTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;successful&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Failed"><span class="hs-pragma hs-type">RefreshSchemasStatusTypeValue_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Refreshing"><span class="hs-pragma hs-type">RefreshSchemasStatusTypeValue_Refreshing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue_Successful"><span class="hs-pragma hs-type">RefreshSchemasStatusTypeValue_Successful</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatusTypeValue.html#RefreshSchemasStatusTypeValue%27"><span class="hs-pragma hs-type">RefreshSchemasStatusTypeValue'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

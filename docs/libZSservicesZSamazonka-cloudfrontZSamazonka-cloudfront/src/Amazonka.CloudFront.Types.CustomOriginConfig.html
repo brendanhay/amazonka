@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.CustomOriginConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.CustomOriginConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginProtocolPolicy.html"><span class="hs-identifier">Amazonka.CloudFront.Types.OriginProtocolPolicy</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginSslProtocols.html"><span class="hs-identifier">Amazonka.CloudFront.Types.OriginSslProtocols</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A custom origin. A custom origin is any origin that is /not/ an Amazon</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- S3 bucket, with one exception. An Amazon S3 bucket that is</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html configured with static website hosting&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /is/ a custom origin.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCustomOriginConfig' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679402251"><span id="local-6989586621679402252"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomOriginConfig"><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-var">CustomOriginConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomOriginConfig%27"><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-var">CustomOriginConfig'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how long, in seconds, CloudFront persists its connection to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the origin. The minimum timeout is 1 second, the maximum is 60 seconds,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- and the default (if you don&#8217;t specify otherwise) is 5 seconds.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout&gt;</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AoriginKeepaliveTimeout%3ACustomOriginConfig%27"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; Maybe Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginKeepaliveTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var hs-var">originKeepaliveTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Specifies how long, in seconds, CloudFront waits for a response from the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- origin. This is also known as the /origin response timeout/. The minimum</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- timeout is 1 second, the maximum is 60 seconds, and the default (if you</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- don&#8217;t specify otherwise) is 30 seconds.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout&gt;</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AoriginReadTimeout%3ACustomOriginConfig%27"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; Maybe Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginReadTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var hs-var">originReadTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- connecting to your origin over HTTPS. Valid values include @SSLv3@,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol&gt;</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AoriginSslProtocols%3ACustomOriginConfig%27"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; Maybe OriginSslProtocols
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginSslProtocols%3ACustomOriginConfig%27"><span class="hs-identifier hs-var hs-var">originSslProtocols</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The HTTP port that CloudFront uses to connect to the origin. Specify the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- HTTP port that the origin listens on.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AhTTPPort%3ACustomOriginConfig%27"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var hs-var">hTTPPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The HTTPS port that CloudFront uses to connect to the origin. Specify</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the HTTPS port that the origin listens on.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AhTTPSPort%3ACustomOriginConfig%27"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPSPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var hs-var">hTTPSPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- to the origin. Valid values are:</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @http-only@ &#8211; CloudFront always uses HTTP to connect to the origin.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @match-viewer@ &#8211; CloudFront connects to the origin using the same</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     protocol that the viewer used to connect to CloudFront.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @https-only@ &#8211; CloudFront always uses HTTPS to connect to the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     origin.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; OriginProtocolPolicy
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="hs-identifier hs-var hs-var">originProtocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginProtocolPolicy.html#OriginProtocolPolicy"><span class="hs-identifier hs-type">OriginProtocolPolicy</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402240"><span id="local-6989586621679402242"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
+(CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool)
+-&gt; (CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool)
+-&gt; Eq CustomOriginConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
+$c/= :: CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
+== :: CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
+$c== :: CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402231"><span id="local-6989586621679402233"><span id="local-6989586621679402235"><span id="local-6989586621679402237"><span class="annot"><span class="annottext">ReadPrec [CustomOriginConfig]
+ReadPrec CustomOriginConfig
+Int -&gt; ReadS CustomOriginConfig
+ReadS [CustomOriginConfig]
+(Int -&gt; ReadS CustomOriginConfig)
+-&gt; ReadS [CustomOriginConfig]
+-&gt; ReadPrec CustomOriginConfig
+-&gt; ReadPrec [CustomOriginConfig]
+-&gt; Read CustomOriginConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomOriginConfig]
+$creadListPrec :: ReadPrec [CustomOriginConfig]
+readPrec :: ReadPrec CustomOriginConfig
+$creadPrec :: ReadPrec CustomOriginConfig
+readList :: ReadS [CustomOriginConfig]
+$creadList :: ReadS [CustomOriginConfig]
+readsPrec :: Int -&gt; ReadS CustomOriginConfig
+$creadsPrec :: Int -&gt; ReadS CustomOriginConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402224"><span id="local-6989586621679402226"><span id="local-6989586621679402228"><span class="annot"><span class="annottext">Int -&gt; CustomOriginConfig -&gt; ShowS
+[CustomOriginConfig] -&gt; ShowS
+CustomOriginConfig -&gt; String
+(Int -&gt; CustomOriginConfig -&gt; ShowS)
+-&gt; (CustomOriginConfig -&gt; String)
+-&gt; ([CustomOriginConfig] -&gt; ShowS)
+-&gt; Show CustomOriginConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomOriginConfig] -&gt; ShowS
+$cshowList :: [CustomOriginConfig] -&gt; ShowS
+show :: CustomOriginConfig -&gt; String
+$cshow :: CustomOriginConfig -&gt; String
+showsPrec :: Int -&gt; CustomOriginConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomOriginConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CustomOriginConfig -&gt; Rep CustomOriginConfig x)
+-&gt; (forall x. Rep CustomOriginConfig x -&gt; CustomOriginConfig)
+-&gt; Generic CustomOriginConfig
+forall x. Rep CustomOriginConfig x -&gt; CustomOriginConfig
+forall x. CustomOriginConfig -&gt; Rep CustomOriginConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CustomOriginConfig x -&gt; CustomOriginConfig
+$cfrom :: forall x. CustomOriginConfig -&gt; Rep CustomOriginConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'CustomOriginConfig' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'originKeepaliveTimeout', 'customOriginConfig_originKeepaliveTimeout' - Specifies how long, in seconds, CloudFront persists its connection to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the origin. The minimum timeout is 1 second, the maximum is 60 seconds,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- and the default (if you don&#8217;t specify otherwise) is 5 seconds.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout&gt;</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'originReadTimeout', 'customOriginConfig_originReadTimeout' - Specifies how long, in seconds, CloudFront waits for a response from the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- origin. This is also known as the /origin response timeout/. The minimum</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- timeout is 1 second, the maximum is 60 seconds, and the default (if you</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- don&#8217;t specify otherwise) is 30 seconds.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout&gt;</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'originSslProtocols', 'customOriginConfig_originSslProtocols' - Specifies the minimum SSL\/TLS protocol that CloudFront uses when</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- connecting to your origin over HTTPS. Valid values include @SSLv3@,</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol&gt;</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'hTTPPort', 'customOriginConfig_hTTPPort' - The HTTP port that CloudFront uses to connect to the origin. Specify the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- HTTP port that the origin listens on.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'hTTPSPort', 'customOriginConfig_hTTPSPort' - The HTTPS port that CloudFront uses to connect to the origin. Specify</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the HTTPS port that the origin listens on.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'originProtocolPolicy', 'customOriginConfig_originProtocolPolicy' - Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to the origin. Valid values are:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @http-only@ &#8211; CloudFront always uses HTTP to connect to the origin.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @match-viewer@ &#8211; CloudFront connects to the origin using the same</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     protocol that the viewer used to connect to CloudFront.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @https-only@ &#8211; CloudFront always uses HTTPS to connect to the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     origin.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#newCustomOriginConfig"><span class="hs-identifier hs-type">newCustomOriginConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'hTTPPort'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'hTTPSPort'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'originProtocolPolicy'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginProtocolPolicy.html#OriginProtocolPolicy"><span class="hs-identifier hs-type">OriginProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span>
+</span><span id="line-137"></span><span id="newCustomOriginConfig"><span class="annot"><span class="annottext">newCustomOriginConfig :: Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#newCustomOriginConfig"><span class="hs-identifier hs-var hs-var">newCustomOriginConfig</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679402218"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402218"><span class="hs-identifier hs-var">pHTTPPort_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679402217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402217"><span class="hs-identifier hs-var">pHTTPSPort_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679402216"><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402216"><span class="hs-identifier hs-var">pOriginProtocolPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">CustomOriginConfig' :: Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe OriginSslProtocols
+-&gt; Int
+-&gt; Int
+-&gt; OriginProtocolPolicy
+-&gt; CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:originKeepaliveTimeout:CustomOriginConfig' :: Maybe Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginKeepaliveTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:originReadTimeout:CustomOriginConfig' :: Maybe Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginReadTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:originSslProtocols:CustomOriginConfig' :: Maybe OriginSslProtocols
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginSslProtocols%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:hTTPPort:CustomOriginConfig' :: Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402218"><span class="hs-identifier hs-var">pHTTPPort_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:hTTPSPort:CustomOriginConfig' :: Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPSPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402217"><span class="hs-identifier hs-var">pHTTPSPort_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:originProtocolPolicy:CustomOriginConfig' :: OriginProtocolPolicy
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402216"><span class="hs-identifier hs-var">pOriginProtocolPolicy_</span></a></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Specifies how long, in seconds, CloudFront persists its connection to</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the origin. The minimum timeout is 1 second, the maximum is 60 seconds,</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- and the default (if you don&#8217;t specify otherwise) is 5 seconds.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout&gt;</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originKeepaliveTimeout"><span class="hs-identifier hs-type">customOriginConfig_originKeepaliveTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="customOriginConfig_originKeepaliveTimeout"><span class="annot"><span class="annottext">customOriginConfig_originKeepaliveTimeout :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; CustomOriginConfig -&gt; f CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originKeepaliveTimeout"><span class="hs-identifier hs-var hs-var">customOriginConfig_originKeepaliveTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomOriginConfig -&gt; Maybe Int)
+-&gt; (CustomOriginConfig -&gt; Maybe Int -&gt; CustomOriginConfig)
+-&gt; Lens
+     CustomOriginConfig CustomOriginConfig (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402212"><span class="annot"><span class="annottext">Maybe Int
+originKeepaliveTimeout :: Maybe Int
+$sel:originKeepaliveTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
+</span><a href="#local-6989586621679402212"><span class="hs-identifier hs-var hs-var">originKeepaliveTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402212"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402211"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402210"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originKeepaliveTimeout:CustomOriginConfig' :: Maybe Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginKeepaliveTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Specifies how long, in seconds, CloudFront waits for a response from the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- origin. This is also known as the /origin response timeout/. The minimum</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- timeout is 1 second, the maximum is 60 seconds, and the default (if you</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- don&#8217;t specify otherwise) is 30 seconds.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout&gt;</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originReadTimeout"><span class="hs-identifier hs-type">customOriginConfig_originReadTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="customOriginConfig_originReadTimeout"><span class="annot"><span class="annottext">customOriginConfig_originReadTimeout :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; CustomOriginConfig -&gt; f CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originReadTimeout"><span class="hs-identifier hs-var hs-var">customOriginConfig_originReadTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomOriginConfig -&gt; Maybe Int)
+-&gt; (CustomOriginConfig -&gt; Maybe Int -&gt; CustomOriginConfig)
+-&gt; Lens
+     CustomOriginConfig CustomOriginConfig (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402208"><span class="annot"><span class="annottext">Maybe Int
+originReadTimeout :: Maybe Int
+$sel:originReadTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
+</span><a href="#local-6989586621679402208"><span class="hs-identifier hs-var hs-var">originReadTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402208"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402207"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402206"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originReadTimeout:CustomOriginConfig' :: Maybe Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginReadTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- connecting to your origin over HTTPS. Valid values include @SSLv3@,</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol&gt;</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originSslProtocols"><span class="hs-identifier hs-type">customOriginConfig_originSslProtocols</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginSslProtocols.html#OriginSslProtocols"><span class="hs-identifier hs-type">OriginSslProtocols</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="customOriginConfig_originSslProtocols"><span class="annot"><span class="annottext">customOriginConfig_originSslProtocols :: (Maybe OriginSslProtocols -&gt; f (Maybe OriginSslProtocols))
+-&gt; CustomOriginConfig -&gt; f CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originSslProtocols"><span class="hs-identifier hs-var hs-var">customOriginConfig_originSslProtocols</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomOriginConfig -&gt; Maybe OriginSslProtocols)
+-&gt; (CustomOriginConfig
+    -&gt; Maybe OriginSslProtocols -&gt; CustomOriginConfig)
+-&gt; Lens
+     CustomOriginConfig
+     CustomOriginConfig
+     (Maybe OriginSslProtocols)
+     (Maybe OriginSslProtocols)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402204"><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+originSslProtocols :: Maybe OriginSslProtocols
+$sel:originSslProtocols:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402204"><span class="hs-identifier hs-var hs-var">originSslProtocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402204"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402203"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402202"><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originSslProtocols:CustomOriginConfig' :: Maybe OriginSslProtocols
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginSslProtocols%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The HTTP port that CloudFront uses to connect to the origin. Specify the</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- HTTP port that the origin listens on.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_hTTPPort"><span class="hs-identifier hs-type">customOriginConfig_hTTPPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="customOriginConfig_hTTPPort"><span class="annot"><span class="annottext">customOriginConfig_hTTPPort :: (Int -&gt; f Int) -&gt; CustomOriginConfig -&gt; f CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_hTTPPort"><span class="hs-identifier hs-var hs-var">customOriginConfig_hTTPPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomOriginConfig -&gt; Int)
+-&gt; (CustomOriginConfig -&gt; Int -&gt; CustomOriginConfig)
+-&gt; Lens CustomOriginConfig CustomOriginConfig Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402200"><span class="annot"><span class="annottext">Int
+hTTPPort :: Int
+$sel:hTTPPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
+</span><a href="#local-6989586621679402200"><span class="hs-identifier hs-var hs-var">hTTPPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402200"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402199"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402198"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPPort:CustomOriginConfig' :: Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The HTTPS port that CloudFront uses to connect to the origin. Specify</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- the HTTPS port that the origin listens on.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_hTTPSPort"><span class="hs-identifier hs-type">customOriginConfig_hTTPSPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span id="customOriginConfig_hTTPSPort"><span class="annot"><span class="annottext">customOriginConfig_hTTPSPort :: (Int -&gt; f Int) -&gt; CustomOriginConfig -&gt; f CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_hTTPSPort"><span class="hs-identifier hs-var hs-var">customOriginConfig_hTTPSPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomOriginConfig -&gt; Int)
+-&gt; (CustomOriginConfig -&gt; Int -&gt; CustomOriginConfig)
+-&gt; Lens CustomOriginConfig CustomOriginConfig Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402196"><span class="annot"><span class="annottext">Int
+hTTPSPort :: Int
+$sel:hTTPSPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
+</span><a href="#local-6989586621679402196"><span class="hs-identifier hs-var hs-var">hTTPSPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402196"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402195"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402194"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPSPort:CustomOriginConfig' :: Int
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPSPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- to the origin. Valid values are:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @http-only@ &#8211; CloudFront always uses HTTP to connect to the origin.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   @match-viewer@ &#8211; CloudFront connects to the origin using the same</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     protocol that the viewer used to connect to CloudFront.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   @https-only@ &#8211; CloudFront always uses HTTPS to connect to the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     origin.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originProtocolPolicy"><span class="hs-identifier hs-type">customOriginConfig_originProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginProtocolPolicy.html#OriginProtocolPolicy"><span class="hs-identifier hs-type">OriginProtocolPolicy</span></a></span><span>
+</span><span id="line-203"></span><span id="customOriginConfig_originProtocolPolicy"><span class="annot"><span class="annottext">customOriginConfig_originProtocolPolicy :: (OriginProtocolPolicy -&gt; f OriginProtocolPolicy)
+-&gt; CustomOriginConfig -&gt; f CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#customOriginConfig_originProtocolPolicy"><span class="hs-identifier hs-var hs-var">customOriginConfig_originProtocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomOriginConfig -&gt; OriginProtocolPolicy)
+-&gt; (CustomOriginConfig
+    -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
+-&gt; Lens
+     CustomOriginConfig
+     CustomOriginConfig
+     OriginProtocolPolicy
+     OriginProtocolPolicy
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402192"><span class="annot"><span class="annottext">OriginProtocolPolicy
+originProtocolPolicy :: OriginProtocolPolicy
+$sel:originProtocolPolicy:CustomOriginConfig' :: CustomOriginConfig -&gt; OriginProtocolPolicy
+</span><a href="#local-6989586621679402192"><span class="hs-identifier hs-var hs-var">originProtocolPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402192"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402191"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402190"><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originProtocolPolicy:CustomOriginConfig' :: OriginProtocolPolicy
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679402187"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomOriginConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402185"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402185"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe OriginSslProtocols
+-&gt; Int
+-&gt; Int
+-&gt; OriginProtocolPolicy
+-&gt; CustomOriginConfig
+</span><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-var">CustomOriginConfig'</span></a></span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe OriginSslProtocols
+ -&gt; Int
+ -&gt; Int
+ -&gt; OriginProtocolPolicy
+ -&gt; CustomOriginConfig)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe OriginSslProtocols
+      -&gt; Int
+      -&gt; Int
+      -&gt; OriginProtocolPolicy
+      -&gt; CustomOriginConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginKeepaliveTimeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe OriginSslProtocols
+   -&gt; Int
+   -&gt; Int
+   -&gt; OriginProtocolPolicy
+   -&gt; CustomOriginConfig)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe OriginSslProtocols
+      -&gt; Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginReadTimeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OriginSslProtocols
+   -&gt; Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
+-&gt; Either String (Maybe OriginSslProtocols)
+-&gt; Either
+     String (Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OriginSslProtocols)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginSslProtocols&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
+-&gt; Either String Int
+-&gt; Either
+     String (Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HTTPPort&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
+-&gt; Either String Int
+-&gt; Either String (OriginProtocolPolicy -&gt; CustomOriginConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HTTPSPort&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either String (OriginProtocolPolicy -&gt; CustomOriginConfig)
+-&gt; Either String OriginProtocolPolicy
+-&gt; Either String CustomOriginConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OriginProtocolPolicy
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginProtocolPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402178"><span id="local-6989586621679402180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span></span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679402171"><span class="annot"><span class="annottext">toXML :: CustomOriginConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402164"><span id="local-6989586621679402165"><span id="local-6989586621679402166"><span id="local-6989586621679402167"><span id="local-6989586621679402168"><span id="local-6989586621679402169"><span class="annot"><span class="annottext">Int
+Maybe Int
+Maybe OriginSslProtocols
+OriginProtocolPolicy
+originProtocolPolicy :: OriginProtocolPolicy
+hTTPSPort :: Int
+hTTPPort :: Int
+originSslProtocols :: Maybe OriginSslProtocols
+originReadTimeout :: Maybe Int
+originKeepaliveTimeout :: Maybe Int
+$sel:originProtocolPolicy:CustomOriginConfig' :: CustomOriginConfig -&gt; OriginProtocolPolicy
+$sel:hTTPSPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
+$sel:hTTPPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
+$sel:originSslProtocols:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe OriginSslProtocols
+$sel:originReadTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
+$sel:originKeepaliveTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
+</span><a href="#local-6989586621679402164"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;OriginKeepaliveTimeout&quot;</span></span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402169"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;OriginReadTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402168"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;OriginSslProtocols&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe OriginSslProtocols -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402167"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;HTTPPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402166"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;HTTPSPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402165"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;OriginProtocolPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; OriginProtocolPolicy -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402164"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span></pre></body></html>

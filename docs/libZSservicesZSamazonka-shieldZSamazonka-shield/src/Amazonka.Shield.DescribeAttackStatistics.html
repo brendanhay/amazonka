@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Shield.DescribeAttackStatistics</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides information about the number and type of attacks Shield has</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- detected in the last year for all resources that belong to your account,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- regardless of whether you\'ve defined Shield protections for them. This</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- operation is available to Shield customers as well as to Shield Advanced</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- customers.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The operation returns data for the time range of midnight UTC, one year</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- ago, to midnight UTC, today. For example, if the current time is</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @2020-10-26 15:39:32 PDT@, equal to @2020-10-26 22:39:32 UTC@, then the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- time range for the attack data returned is from</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @2019-10-26 00:00:00 UTC@ to @2020-10-26 00:00:00 UTC@.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- The time range indicates the period covered by the attack statistics</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- data items.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Shield.DescribeAttackStatistics</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier">DescribeAttackStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#newDescribeAttackStatistics"><span class="hs-identifier">newDescribeAttackStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier">DescribeAttackStatisticsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#newDescribeAttackStatisticsResponse"><span class="hs-identifier">newDescribeAttackStatisticsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_httpStatus"><span class="hs-identifier">describeAttackStatisticsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_timeRange"><span class="hs-identifier">describeAttackStatisticsResponse_timeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_dataItems"><span class="hs-identifier">describeAttackStatisticsResponse_dataItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.html"><span class="hs-identifier">Amazonka.Shield.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeAttackStatistics' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679209232"><span id="local-6989586621679209233"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttackStatistics"><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-var">DescribeAttackStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttackStatistics%27"><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics%27"><span class="hs-identifier hs-var">DescribeAttackStatistics'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209227"><span id="local-6989586621679209229"><span class="annot"><span class="annottext">DescribeAttackStatistics -&gt; DescribeAttackStatistics -&gt; Bool
+(DescribeAttackStatistics -&gt; DescribeAttackStatistics -&gt; Bool)
+-&gt; (DescribeAttackStatistics -&gt; DescribeAttackStatistics -&gt; Bool)
+-&gt; Eq DescribeAttackStatistics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAttackStatistics -&gt; DescribeAttackStatistics -&gt; Bool
+$c/= :: DescribeAttackStatistics -&gt; DescribeAttackStatistics -&gt; Bool
+== :: DescribeAttackStatistics -&gt; DescribeAttackStatistics -&gt; Bool
+$c== :: DescribeAttackStatistics -&gt; DescribeAttackStatistics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209218"><span id="local-6989586621679209220"><span id="local-6989586621679209222"><span id="local-6989586621679209224"><span class="annot"><span class="annottext">ReadPrec [DescribeAttackStatistics]
+ReadPrec DescribeAttackStatistics
+Int -&gt; ReadS DescribeAttackStatistics
+ReadS [DescribeAttackStatistics]
+(Int -&gt; ReadS DescribeAttackStatistics)
+-&gt; ReadS [DescribeAttackStatistics]
+-&gt; ReadPrec DescribeAttackStatistics
+-&gt; ReadPrec [DescribeAttackStatistics]
+-&gt; Read DescribeAttackStatistics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAttackStatistics]
+$creadListPrec :: ReadPrec [DescribeAttackStatistics]
+readPrec :: ReadPrec DescribeAttackStatistics
+$creadPrec :: ReadPrec DescribeAttackStatistics
+readList :: ReadS [DescribeAttackStatistics]
+$creadList :: ReadS [DescribeAttackStatistics]
+readsPrec :: Int -&gt; ReadS DescribeAttackStatistics
+$creadsPrec :: Int -&gt; ReadS DescribeAttackStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209211"><span id="local-6989586621679209213"><span id="local-6989586621679209215"><span class="annot"><span class="annottext">Int -&gt; DescribeAttackStatistics -&gt; ShowS
+[DescribeAttackStatistics] -&gt; ShowS
+DescribeAttackStatistics -&gt; String
+(Int -&gt; DescribeAttackStatistics -&gt; ShowS)
+-&gt; (DescribeAttackStatistics -&gt; String)
+-&gt; ([DescribeAttackStatistics] -&gt; ShowS)
+-&gt; Show DescribeAttackStatistics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAttackStatistics] -&gt; ShowS
+$cshowList :: [DescribeAttackStatistics] -&gt; ShowS
+show :: DescribeAttackStatistics -&gt; String
+$cshow :: DescribeAttackStatistics -&gt; String
+showsPrec :: Int -&gt; DescribeAttackStatistics -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAttackStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAttackStatistics -&gt; Rep DescribeAttackStatistics x)
+-&gt; (forall x.
+    Rep DescribeAttackStatistics x -&gt; DescribeAttackStatistics)
+-&gt; Generic DescribeAttackStatistics
+forall x.
+Rep DescribeAttackStatistics x -&gt; DescribeAttackStatistics
+forall x.
+DescribeAttackStatistics -&gt; Rep DescribeAttackStatistics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAttackStatistics x -&gt; DescribeAttackStatistics
+$cfrom :: forall x.
+DescribeAttackStatistics -&gt; Rep DescribeAttackStatistics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DescribeAttackStatistics' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#newDescribeAttackStatistics"><span class="hs-identifier hs-type">newDescribeAttackStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span><span>
+</span><span id="line-72"></span><span id="newDescribeAttackStatistics"><span class="annot"><span class="annottext">newDescribeAttackStatistics :: DescribeAttackStatistics
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#newDescribeAttackStatistics"><span class="hs-identifier hs-var hs-var">newDescribeAttackStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DescribeAttackStatistics
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics%27"><span class="hs-identifier hs-var">DescribeAttackStatistics'</span></a></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679209203"><span class="annot"><span class="annottext">request :: DescribeAttackStatistics -&gt; Request DescribeAttackStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAttackStatistics -&gt; Request DescribeAttackStatistics
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Shield.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679209199"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAttackStatistics
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAttackStatistics)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAttackStatistics))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAttackStatistics
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAttackStatistics)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209196"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209196"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209195"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679209195"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209194"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209194"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; TimeRange
+-&gt; [AttackStatisticsDataItem]
+-&gt; DescribeAttackStatisticsResponse
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">DescribeAttackStatisticsResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; TimeRange
+ -&gt; [AttackStatisticsDataItem]
+ -&gt; DescribeAttackStatisticsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (TimeRange
+      -&gt; [AttackStatisticsDataItem] -&gt; DescribeAttackStatisticsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209196"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (TimeRange
+   -&gt; [AttackStatisticsDataItem] -&gt; DescribeAttackStatisticsResponse)
+-&gt; Either String TimeRange
+-&gt; Either
+     String
+     ([AttackStatisticsDataItem] -&gt; DescribeAttackStatisticsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String TimeRange
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;TimeRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([AttackStatisticsDataItem] -&gt; DescribeAttackStatisticsResponse)
+-&gt; Either String [AttackStatisticsDataItem]
+-&gt; Either String DescribeAttackStatisticsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe [AttackStatisticsDataItem])
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;DataItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [AttackStatisticsDataItem])
+-&gt; [AttackStatisticsDataItem]
+-&gt; Either String [AttackStatisticsDataItem]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[AttackStatisticsDataItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209184"><span id="local-6989586621679209186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679209177"><span class="annot"><span class="annottext">toHeaders :: DescribeAttackStatistics -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAttackStatistics -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSShield_20160616.DescribeAttackStatistics&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209167"><span id="local-6989586621679209169"><span id="local-6989586621679209171"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679209165"><span class="annot"><span class="annottext">toJSON :: DescribeAttackStatistics -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeAttackStatistics -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679209160"><span class="annot"><span class="annottext">toPath :: DescribeAttackStatistics -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAttackStatistics -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatistics"><span class="hs-identifier hs-type">DescribeAttackStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679209156"><span class="annot"><span class="annottext">toQuery :: DescribeAttackStatistics -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAttackStatistics -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDescribeAttackStatisticsResponse' smart constructor.</span><span>
+</span><span id="line-118"></span><span id="local-6989586621679209153"><span id="local-6989586621679209154"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttackStatisticsResponse"><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-var">DescribeAttackStatisticsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttackStatisticsResponse%27"><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">DescribeAttackStatisticsResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAttackStatisticsResponse%27"><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse -&gt; Int
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AhttpStatus%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AtimeRange%3ADescribeAttackStatisticsResponse%27"><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse -&gt; TimeRange
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AtimeRange%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var hs-var">timeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The data that describes the attacks detected during the time period.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AdataItems%3ADescribeAttackStatisticsResponse%27"><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse -&gt; [AttackStatisticsDataItem]
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AdataItems%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var hs-var">dataItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209146"><span id="local-6989586621679209148"><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse
+-&gt; DescribeAttackStatisticsResponse -&gt; Bool
+(DescribeAttackStatisticsResponse
+ -&gt; DescribeAttackStatisticsResponse -&gt; Bool)
+-&gt; (DescribeAttackStatisticsResponse
+    -&gt; DescribeAttackStatisticsResponse -&gt; Bool)
+-&gt; Eq DescribeAttackStatisticsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAttackStatisticsResponse
+-&gt; DescribeAttackStatisticsResponse -&gt; Bool
+$c/= :: DescribeAttackStatisticsResponse
+-&gt; DescribeAttackStatisticsResponse -&gt; Bool
+== :: DescribeAttackStatisticsResponse
+-&gt; DescribeAttackStatisticsResponse -&gt; Bool
+$c== :: DescribeAttackStatisticsResponse
+-&gt; DescribeAttackStatisticsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209138"><span id="local-6989586621679209140"><span id="local-6989586621679209142"><span id="local-6989586621679209144"><span class="annot"><span class="annottext">ReadPrec [DescribeAttackStatisticsResponse]
+ReadPrec DescribeAttackStatisticsResponse
+Int -&gt; ReadS DescribeAttackStatisticsResponse
+ReadS [DescribeAttackStatisticsResponse]
+(Int -&gt; ReadS DescribeAttackStatisticsResponse)
+-&gt; ReadS [DescribeAttackStatisticsResponse]
+-&gt; ReadPrec DescribeAttackStatisticsResponse
+-&gt; ReadPrec [DescribeAttackStatisticsResponse]
+-&gt; Read DescribeAttackStatisticsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAttackStatisticsResponse]
+$creadListPrec :: ReadPrec [DescribeAttackStatisticsResponse]
+readPrec :: ReadPrec DescribeAttackStatisticsResponse
+$creadPrec :: ReadPrec DescribeAttackStatisticsResponse
+readList :: ReadS [DescribeAttackStatisticsResponse]
+$creadList :: ReadS [DescribeAttackStatisticsResponse]
+readsPrec :: Int -&gt; ReadS DescribeAttackStatisticsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAttackStatisticsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209132"><span id="local-6989586621679209134"><span id="local-6989586621679209136"><span class="annot"><span class="annottext">Int -&gt; DescribeAttackStatisticsResponse -&gt; ShowS
+[DescribeAttackStatisticsResponse] -&gt; ShowS
+DescribeAttackStatisticsResponse -&gt; String
+(Int -&gt; DescribeAttackStatisticsResponse -&gt; ShowS)
+-&gt; (DescribeAttackStatisticsResponse -&gt; String)
+-&gt; ([DescribeAttackStatisticsResponse] -&gt; ShowS)
+-&gt; Show DescribeAttackStatisticsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAttackStatisticsResponse] -&gt; ShowS
+$cshowList :: [DescribeAttackStatisticsResponse] -&gt; ShowS
+show :: DescribeAttackStatisticsResponse -&gt; String
+$cshow :: DescribeAttackStatisticsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAttackStatisticsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAttackStatisticsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAttackStatisticsResponse
+ -&gt; Rep DescribeAttackStatisticsResponse x)
+-&gt; (forall x.
+    Rep DescribeAttackStatisticsResponse x
+    -&gt; DescribeAttackStatisticsResponse)
+-&gt; Generic DescribeAttackStatisticsResponse
+forall x.
+Rep DescribeAttackStatisticsResponse x
+-&gt; DescribeAttackStatisticsResponse
+forall x.
+DescribeAttackStatisticsResponse
+-&gt; Rep DescribeAttackStatisticsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAttackStatisticsResponse x
+-&gt; DescribeAttackStatisticsResponse
+$cfrom :: forall x.
+DescribeAttackStatisticsResponse
+-&gt; Rep DescribeAttackStatisticsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'DescribeAttackStatisticsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'httpStatus', 'describeAttackStatisticsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'timeRange', 'describeAttackStatisticsResponse_timeRange' - Undocumented member.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'dataItems', 'describeAttackStatisticsResponse_dataItems' - The data that describes the attacks detected during the time period.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#newDescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">newDescribeAttackStatisticsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'timeRange'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newDescribeAttackStatisticsResponse"><span class="annot"><span class="annottext">newDescribeAttackStatisticsResponse :: Int -&gt; TimeRange -&gt; DescribeAttackStatisticsResponse
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#newDescribeAttackStatisticsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAttackStatisticsResponse</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679209129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679209128"><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679209128"><span class="hs-identifier hs-var">pTimeRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse' :: Int
+-&gt; TimeRange
+-&gt; [AttackStatisticsDataItem]
+-&gt; DescribeAttackStatisticsResponse
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttackStatisticsResponse' :: Int
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AhttpStatus%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeRange:DescribeAttackStatisticsResponse' :: TimeRange
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AtimeRange%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">timeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679209128"><span class="hs-identifier hs-var">pTimeRange_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataItems:DescribeAttackStatisticsResponse' :: [AttackStatisticsDataItem]
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AdataItems%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">dataItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttackStatisticsDataItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_httpStatus"><span class="hs-identifier hs-type">describeAttackStatisticsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="describeAttackStatisticsResponse_httpStatus"><span class="annot"><span class="annottext">describeAttackStatisticsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAttackStatisticsResponse
+-&gt; f DescribeAttackStatisticsResponse
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAttackStatisticsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAttackStatisticsResponse -&gt; Int)
+-&gt; (DescribeAttackStatisticsResponse
+    -&gt; Int -&gt; DescribeAttackStatisticsResponse)
+-&gt; Lens
+     DescribeAttackStatisticsResponse
+     DescribeAttackStatisticsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209125"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAttackStatisticsResponse' :: DescribeAttackStatisticsResponse -&gt; Int
+</span><a href="#local-6989586621679209125"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209125"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209124"><span class="annot"><span class="annottext">s :: DescribeAttackStatisticsResponse
+</span><a href="#local-6989586621679209124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209123"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse
+</span><a href="#local-6989586621679209124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttackStatisticsResponse' :: Int
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AhttpStatus%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_timeRange"><span class="hs-identifier hs-type">describeAttackStatisticsResponse_timeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span>
+</span><span id="line-162"></span><span id="describeAttackStatisticsResponse_timeRange"><span class="annot"><span class="annottext">describeAttackStatisticsResponse_timeRange :: (TimeRange -&gt; f TimeRange)
+-&gt; DescribeAttackStatisticsResponse
+-&gt; f DescribeAttackStatisticsResponse
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_timeRange"><span class="hs-identifier hs-var hs-var">describeAttackStatisticsResponse_timeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAttackStatisticsResponse -&gt; TimeRange)
+-&gt; (DescribeAttackStatisticsResponse
+    -&gt; TimeRange -&gt; DescribeAttackStatisticsResponse)
+-&gt; Lens
+     DescribeAttackStatisticsResponse
+     DescribeAttackStatisticsResponse
+     TimeRange
+     TimeRange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209122"><span class="annot"><span class="annottext">TimeRange
+timeRange :: TimeRange
+$sel:timeRange:DescribeAttackStatisticsResponse' :: DescribeAttackStatisticsResponse -&gt; TimeRange
+</span><a href="#local-6989586621679209122"><span class="hs-identifier hs-var hs-var">timeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679209122"><span class="hs-identifier hs-var">timeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209121"><span class="annot"><span class="annottext">s :: DescribeAttackStatisticsResponse
+</span><a href="#local-6989586621679209121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209120"><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679209120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse
+</span><a href="#local-6989586621679209121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeRange:DescribeAttackStatisticsResponse' :: TimeRange
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AtimeRange%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">timeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679209120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The data that describes the attacks detected during the time period.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_dataItems"><span class="hs-identifier hs-type">describeAttackStatisticsResponse_dataItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span id="describeAttackStatisticsResponse_dataItems"><span class="annot"><span class="annottext">describeAttackStatisticsResponse_dataItems :: ([AttackStatisticsDataItem] -&gt; f [AttackStatisticsDataItem])
+-&gt; DescribeAttackStatisticsResponse
+-&gt; f DescribeAttackStatisticsResponse
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#describeAttackStatisticsResponse_dataItems"><span class="hs-identifier hs-var hs-var">describeAttackStatisticsResponse_dataItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAttackStatisticsResponse -&gt; [AttackStatisticsDataItem])
+-&gt; (DescribeAttackStatisticsResponse
+    -&gt; [AttackStatisticsDataItem] -&gt; DescribeAttackStatisticsResponse)
+-&gt; Lens
+     DescribeAttackStatisticsResponse
+     DescribeAttackStatisticsResponse
+     [AttackStatisticsDataItem]
+     [AttackStatisticsDataItem]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209119"><span class="annot"><span class="annottext">[AttackStatisticsDataItem]
+dataItems :: [AttackStatisticsDataItem]
+$sel:dataItems:DescribeAttackStatisticsResponse' :: DescribeAttackStatisticsResponse -&gt; [AttackStatisticsDataItem]
+</span><a href="#local-6989586621679209119"><span class="hs-identifier hs-var hs-var">dataItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttackStatisticsDataItem]
+</span><a href="#local-6989586621679209119"><span class="hs-identifier hs-var">dataItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209118"><span class="annot"><span class="annottext">s :: DescribeAttackStatisticsResponse
+</span><a href="#local-6989586621679209118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209117"><span class="annot"><span class="annottext">[AttackStatisticsDataItem]
+</span><a href="#local-6989586621679209117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttackStatisticsResponse
+</span><a href="#local-6989586621679209118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataItems:DescribeAttackStatisticsResponse' :: [AttackStatisticsDataItem]
+</span><a href="Amazonka.Shield.DescribeAttackStatistics.html#%24sel%3AdataItems%3ADescribeAttackStatisticsResponse%27"><span class="hs-identifier hs-var">dataItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttackStatisticsDataItem]
+</span><a href="#local-6989586621679209117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttackStatisticsDataItem] -&gt; f [AttackStatisticsDataItem])
+ -&gt; DescribeAttackStatisticsResponse
+ -&gt; f DescribeAttackStatisticsResponse)
+-&gt; (([AttackStatisticsDataItem] -&gt; f [AttackStatisticsDataItem])
+    -&gt; [AttackStatisticsDataItem] -&gt; f [AttackStatisticsDataItem])
+-&gt; ([AttackStatisticsDataItem] -&gt; f [AttackStatisticsDataItem])
+-&gt; DescribeAttackStatisticsResponse
+-&gt; f DescribeAttackStatisticsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AttackStatisticsDataItem] -&gt; f [AttackStatisticsDataItem])
+-&gt; [AttackStatisticsDataItem] -&gt; f [AttackStatisticsDataItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679209113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.DescribeAttackStatistics.html#DescribeAttackStatisticsResponse"><span class="hs-identifier hs-type">DescribeAttackStatisticsResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

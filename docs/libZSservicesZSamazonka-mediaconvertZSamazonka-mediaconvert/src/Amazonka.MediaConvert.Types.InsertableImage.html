@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.InsertableImage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.InsertableImage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | These settings apply to a specific graphic overlay. You can include</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- multiple overlays in your job.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInsertableImage' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679982972"><span id="local-6989586621679982973"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsertableImage"><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-var">InsertableImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsertableImage%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-var">InsertableImage'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the distance, in pixels, between the inserted image and the left</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- edge of the video frame. Required for any image overlay that you</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specify.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AimageX%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageX%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">imageX</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specify the height of the inserted image in pixels. If you specify a</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- value that\'s larger than the video resolution height, the service will</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- crop your overlaid image to fit. To use the native height of the image,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- keep this setting blank.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aheight%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aheight%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specify the timecode of the frame that you want the overlay to first</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- appear on. This must be in timecode (HH:MM:SS:FF or HH:MM:SS;FF) format.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Remember to take into account your timecode source settings.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstartTime%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AstartTime%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specify the length of time, in milliseconds, between the end of the time</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- that you have specified for the image overlay Duration and when the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- overlaid image has faded to total transparency. If you don\'t specify a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- value for Fade-out, the image will disappear abruptly at the end of the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- inserted image duration.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AfadeOut%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AfadeOut%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">fadeOut</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Specify the width of the inserted image in pixels. If you specify a</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- value that\'s larger than the video resolution width, the service will</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- crop your overlaid image to fit. To use the native width of the image,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- keep this setting blank.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Awidth%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Awidth%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Use Opacity (Opacity) to specify how much of the underlying video shows</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- through the inserted image. 0 is transparent and 100 is fully opaque.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Default is 50.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aopacity%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aopacity%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">opacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Specify how overlapping inserted images appear. Images with higher</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- values for Layer appear on top of images with lower values for Layer.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Alayer%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Alayer%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">layer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Specify the time, in milliseconds, for the image to remain on the output</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- video. This duration includes fade-in time but not fade-out time.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aduration%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aduration%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Specify the distance, in pixels, between the overlaid image and the top</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- edge of the video frame. Required for any image overlay that you</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- specify.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AimageY%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageY%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">imageY</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Specify the HTTP, HTTPS, or Amazon S3 location of the image that you</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- want to overlay on the video. Use a PNG or TGA file.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AimageInserterInput%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageInserterInput%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">imageInserterInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Specify the length of time, in milliseconds, between the Start time that</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- you specify for the image insertion and the time that the image appears</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- at full opacity. Full opacity is the level that you specify for the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- opacity setting. If you don\'t specify a value for Fade-in, the image</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- will appear abruptly at the overlay start time.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AfadeIn%3AInsertableImage%27"><span class="annot"><span class="annottext">InsertableImage -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AfadeIn%3AInsertableImage%27"><span class="hs-identifier hs-var hs-var">fadeIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679982956"><span id="local-6989586621679982958"><span class="annot"><span class="annottext">InsertableImage -&gt; InsertableImage -&gt; Bool
+(InsertableImage -&gt; InsertableImage -&gt; Bool)
+-&gt; (InsertableImage -&gt; InsertableImage -&gt; Bool)
+-&gt; Eq InsertableImage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InsertableImage -&gt; InsertableImage -&gt; Bool
+$c/= :: InsertableImage -&gt; InsertableImage -&gt; Bool
+== :: InsertableImage -&gt; InsertableImage -&gt; Bool
+$c== :: InsertableImage -&gt; InsertableImage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679982947"><span id="local-6989586621679982949"><span id="local-6989586621679982951"><span id="local-6989586621679982953"><span class="annot"><span class="annottext">ReadPrec [InsertableImage]
+ReadPrec InsertableImage
+Int -&gt; ReadS InsertableImage
+ReadS [InsertableImage]
+(Int -&gt; ReadS InsertableImage)
+-&gt; ReadS [InsertableImage]
+-&gt; ReadPrec InsertableImage
+-&gt; ReadPrec [InsertableImage]
+-&gt; Read InsertableImage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InsertableImage]
+$creadListPrec :: ReadPrec [InsertableImage]
+readPrec :: ReadPrec InsertableImage
+$creadPrec :: ReadPrec InsertableImage
+readList :: ReadS [InsertableImage]
+$creadList :: ReadS [InsertableImage]
+readsPrec :: Int -&gt; ReadS InsertableImage
+$creadsPrec :: Int -&gt; ReadS InsertableImage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679982940"><span id="local-6989586621679982942"><span id="local-6989586621679982944"><span class="annot"><span class="annottext">Int -&gt; InsertableImage -&gt; ShowS
+[InsertableImage] -&gt; ShowS
+InsertableImage -&gt; String
+(Int -&gt; InsertableImage -&gt; ShowS)
+-&gt; (InsertableImage -&gt; String)
+-&gt; ([InsertableImage] -&gt; ShowS)
+-&gt; Show InsertableImage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InsertableImage] -&gt; ShowS
+$cshowList :: [InsertableImage] -&gt; ShowS
+show :: InsertableImage -&gt; String
+$cshow :: InsertableImage -&gt; String
+showsPrec :: Int -&gt; InsertableImage -&gt; ShowS
+$cshowsPrec :: Int -&gt; InsertableImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InsertableImage -&gt; Rep InsertableImage x)
+-&gt; (forall x. Rep InsertableImage x -&gt; InsertableImage)
+-&gt; Generic InsertableImage
+forall x. Rep InsertableImage x -&gt; InsertableImage
+forall x. InsertableImage -&gt; Rep InsertableImage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InsertableImage x -&gt; InsertableImage
+$cfrom :: forall x. InsertableImage -&gt; Rep InsertableImage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'InsertableImage' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'imageX', 'insertableImage_imageX' - Specify the distance, in pixels, between the inserted image and the left</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- edge of the video frame. Required for any image overlay that you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- specify.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'height', 'insertableImage_height' - Specify the height of the inserted image in pixels. If you specify a</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- value that\'s larger than the video resolution height, the service will</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- crop your overlaid image to fit. To use the native height of the image,</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- keep this setting blank.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'startTime', 'insertableImage_startTime' - Specify the timecode of the frame that you want the overlay to first</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- appear on. This must be in timecode (HH:MM:SS:FF or HH:MM:SS;FF) format.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Remember to take into account your timecode source settings.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'fadeOut', 'insertableImage_fadeOut' - Specify the length of time, in milliseconds, between the end of the time</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- that you have specified for the image overlay Duration and when the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- overlaid image has faded to total transparency. If you don\'t specify a</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- value for Fade-out, the image will disappear abruptly at the end of the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- inserted image duration.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'width', 'insertableImage_width' - Specify the width of the inserted image in pixels. If you specify a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- value that\'s larger than the video resolution width, the service will</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- crop your overlaid image to fit. To use the native width of the image,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- keep this setting blank.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'opacity', 'insertableImage_opacity' - Use Opacity (Opacity) to specify how much of the underlying video shows</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- through the inserted image. 0 is transparent and 100 is fully opaque.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Default is 50.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'layer', 'insertableImage_layer' - Specify how overlapping inserted images appear. Images with higher</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- values for Layer appear on top of images with lower values for Layer.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'duration', 'insertableImage_duration' - Specify the time, in milliseconds, for the image to remain on the output</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- video. This duration includes fade-in time but not fade-out time.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'imageY', 'insertableImage_imageY' - Specify the distance, in pixels, between the overlaid image and the top</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- edge of the video frame. Required for any image overlay that you</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- specify.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'imageInserterInput', 'insertableImage_imageInserterInput' - Specify the HTTP, HTTPS, or Amazon S3 location of the image that you</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- want to overlay on the video. Use a PNG or TGA file.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'fadeIn', 'insertableImage_fadeIn' - Specify the length of time, in milliseconds, between the Start time that</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- you specify for the image insertion and the time that the image appears</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- at full opacity. Full opacity is the level that you specify for the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- opacity setting. If you don\'t specify a value for Fade-in, the image</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- will appear abruptly at the overlay start time.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#newInsertableImage"><span class="hs-identifier hs-type">newInsertableImage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span>
+</span><span id="line-137"></span><span id="newInsertableImage"><span class="annot"><span class="annottext">newInsertableImage :: InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#newInsertableImage"><span class="hs-identifier hs-var hs-var">newInsertableImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">InsertableImage' :: Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageX:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageX%3AInsertableImage%27"><span class="hs-identifier hs-var">imageX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:height:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aheight%3AInsertableImage%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:InsertableImage' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AstartTime%3AInsertableImage%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:fadeOut:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AfadeOut%3AInsertableImage%27"><span class="hs-identifier hs-var">fadeOut</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:width:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Awidth%3AInsertableImage%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:opacity:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aopacity%3AInsertableImage%27"><span class="hs-identifier hs-var">opacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:layer:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Alayer%3AInsertableImage%27"><span class="hs-identifier hs-var">layer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aduration%3AInsertableImage%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageY:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageY%3AInsertableImage%27"><span class="hs-identifier hs-var">imageY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageInserterInput:InsertableImage' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageInserterInput%3AInsertableImage%27"><span class="hs-identifier hs-var">imageInserterInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:fadeIn:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AfadeIn%3AInsertableImage%27"><span class="hs-identifier hs-var">fadeIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Specify the distance, in pixels, between the inserted image and the left</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- edge of the video frame. Required for any image overlay that you</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- specify.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_imageX"><span class="hs-identifier hs-type">insertableImage_imageX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="insertableImage_imageX"><span class="annot"><span class="annottext">insertableImage_imageX :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_imageX"><span class="hs-identifier hs-var hs-var">insertableImage_imageX</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982931"><span class="annot"><span class="annottext">Maybe Natural
+imageX :: Maybe Natural
+$sel:imageX:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982931"><span class="hs-identifier hs-var hs-var">imageX</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982931"><span class="hs-identifier hs-var">imageX</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982930"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982929"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageX:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageX%3AInsertableImage%27"><span class="hs-identifier hs-var">imageX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Specify the height of the inserted image in pixels. If you specify a</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- value that\'s larger than the video resolution height, the service will</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- crop your overlaid image to fit. To use the native height of the image,</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- keep this setting blank.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_height"><span class="hs-identifier hs-type">insertableImage_height</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="insertableImage_height"><span class="annot"><span class="annottext">insertableImage_height :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_height"><span class="hs-identifier hs-var hs-var">insertableImage_height</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982927"><span class="annot"><span class="annottext">Maybe Natural
+height :: Maybe Natural
+$sel:height:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982927"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982927"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982926"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982925"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aheight%3AInsertableImage%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Specify the timecode of the frame that you want the overlay to first</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- appear on. This must be in timecode (HH:MM:SS:FF or HH:MM:SS;FF) format.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Remember to take into account your timecode source settings.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_startTime"><span class="hs-identifier hs-type">insertableImage_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="insertableImage_startTime"><span class="annot"><span class="annottext">insertableImage_startTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_startTime"><span class="hs-identifier hs-var hs-var">insertableImage_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Text)
+-&gt; (InsertableImage -&gt; Maybe Text -&gt; InsertableImage)
+-&gt; Lens InsertableImage InsertableImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982923"><span class="annot"><span class="annottext">Maybe Text
+startTime :: Maybe Text
+$sel:startTime:InsertableImage' :: InsertableImage -&gt; Maybe Text
+</span><a href="#local-6989586621679982923"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982923"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982922"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:InsertableImage' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AstartTime%3AInsertableImage%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Specify the length of time, in milliseconds, between the end of the time</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- that you have specified for the image overlay Duration and when the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- overlaid image has faded to total transparency. If you don\'t specify a</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- value for Fade-out, the image will disappear abruptly at the end of the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- inserted image duration.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_fadeOut"><span class="hs-identifier hs-type">insertableImage_fadeOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="insertableImage_fadeOut"><span class="annot"><span class="annottext">insertableImage_fadeOut :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_fadeOut"><span class="hs-identifier hs-var hs-var">insertableImage_fadeOut</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982919"><span class="annot"><span class="annottext">Maybe Natural
+fadeOut :: Maybe Natural
+$sel:fadeOut:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982919"><span class="hs-identifier hs-var hs-var">fadeOut</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982919"><span class="hs-identifier hs-var">fadeOut</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982918"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982917"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fadeOut:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AfadeOut%3AInsertableImage%27"><span class="hs-identifier hs-var">fadeOut</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Specify the width of the inserted image in pixels. If you specify a</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- value that\'s larger than the video resolution width, the service will</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- crop your overlaid image to fit. To use the native width of the image,</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- keep this setting blank.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_width"><span class="hs-identifier hs-type">insertableImage_width</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="insertableImage_width"><span class="annot"><span class="annottext">insertableImage_width :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_width"><span class="hs-identifier hs-var hs-var">insertableImage_width</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982915"><span class="annot"><span class="annottext">Maybe Natural
+width :: Maybe Natural
+$sel:width:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982915"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982915"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982914"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982913"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Awidth%3AInsertableImage%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Use Opacity (Opacity) to specify how much of the underlying video shows</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- through the inserted image. 0 is transparent and 100 is fully opaque.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Default is 50.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_opacity"><span class="hs-identifier hs-type">insertableImage_opacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="insertableImage_opacity"><span class="annot"><span class="annottext">insertableImage_opacity :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_opacity"><span class="hs-identifier hs-var hs-var">insertableImage_opacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982911"><span class="annot"><span class="annottext">Maybe Natural
+opacity :: Maybe Natural
+$sel:opacity:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982911"><span class="hs-identifier hs-var hs-var">opacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982911"><span class="hs-identifier hs-var">opacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982910"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982909"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opacity:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aopacity%3AInsertableImage%27"><span class="hs-identifier hs-var">opacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Specify how overlapping inserted images appear. Images with higher</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- values for Layer appear on top of images with lower values for Layer.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_layer"><span class="hs-identifier hs-type">insertableImage_layer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="insertableImage_layer"><span class="annot"><span class="annottext">insertableImage_layer :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_layer"><span class="hs-identifier hs-var hs-var">insertableImage_layer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982907"><span class="annot"><span class="annottext">Maybe Natural
+layer :: Maybe Natural
+$sel:layer:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982907"><span class="hs-identifier hs-var hs-var">layer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982907"><span class="hs-identifier hs-var">layer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982906"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982905"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layer:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Alayer%3AInsertableImage%27"><span class="hs-identifier hs-var">layer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Specify the time, in milliseconds, for the image to remain on the output</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- video. This duration includes fade-in time but not fade-out time.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_duration"><span class="hs-identifier hs-type">insertableImage_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="insertableImage_duration"><span class="annot"><span class="annottext">insertableImage_duration :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_duration"><span class="hs-identifier hs-var hs-var">insertableImage_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982903"><span class="annot"><span class="annottext">Maybe Natural
+duration :: Maybe Natural
+$sel:duration:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982903"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982903"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982902"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982901"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3Aduration%3AInsertableImage%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Specify the distance, in pixels, between the overlaid image and the top</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- edge of the video frame. Required for any image overlay that you</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- specify.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_imageY"><span class="hs-identifier hs-type">insertableImage_imageY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="insertableImage_imageY"><span class="annot"><span class="annottext">insertableImage_imageY :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_imageY"><span class="hs-identifier hs-var hs-var">insertableImage_imageY</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982899"><span class="annot"><span class="annottext">Maybe Natural
+imageY :: Maybe Natural
+$sel:imageY:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982899"><span class="hs-identifier hs-var hs-var">imageY</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982899"><span class="hs-identifier hs-var">imageY</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982898"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982897"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageY:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageY%3AInsertableImage%27"><span class="hs-identifier hs-var">imageY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Specify the HTTP, HTTPS, or Amazon S3 location of the image that you</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- want to overlay on the video. Use a PNG or TGA file.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_imageInserterInput"><span class="hs-identifier hs-type">insertableImage_imageInserterInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="insertableImage_imageInserterInput"><span class="annot"><span class="annottext">insertableImage_imageInserterInput :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_imageInserterInput"><span class="hs-identifier hs-var hs-var">insertableImage_imageInserterInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Text)
+-&gt; (InsertableImage -&gt; Maybe Text -&gt; InsertableImage)
+-&gt; Lens InsertableImage InsertableImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982895"><span class="annot"><span class="annottext">Maybe Text
+imageInserterInput :: Maybe Text
+$sel:imageInserterInput:InsertableImage' :: InsertableImage -&gt; Maybe Text
+</span><a href="#local-6989586621679982895"><span class="hs-identifier hs-var hs-var">imageInserterInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982895"><span class="hs-identifier hs-var">imageInserterInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982894"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982893"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageInserterInput:InsertableImage' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AimageInserterInput%3AInsertableImage%27"><span class="hs-identifier hs-var">imageInserterInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Specify the length of time, in milliseconds, between the Start time that</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- you specify for the image insertion and the time that the image appears</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- at full opacity. Full opacity is the level that you specify for the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- opacity setting. If you don\'t specify a value for Fade-in, the image</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- will appear abruptly at the overlay start time.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_fadeIn"><span class="hs-identifier hs-type">insertableImage_fadeIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="insertableImage_fadeIn"><span class="annot"><span class="annottext">insertableImage_fadeIn :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InsertableImage -&gt; f InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#insertableImage_fadeIn"><span class="hs-identifier hs-var hs-var">insertableImage_fadeIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsertableImage -&gt; Maybe Natural)
+-&gt; (InsertableImage -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Lens
+     InsertableImage InsertableImage (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982891"><span class="annot"><span class="annottext">Maybe Natural
+fadeIn :: Maybe Natural
+$sel:fadeIn:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982891"><span class="hs-identifier hs-var hs-var">fadeIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982891"><span class="hs-identifier hs-var">fadeIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982890"><span class="annot"><span class="annottext">s :: InsertableImage
+</span><a href="#local-6989586621679982890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982889"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsertableImage
+</span><a href="#local-6989586621679982890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fadeIn:InsertableImage' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#%24sel%3AfadeIn%3AInsertableImage%27"><span class="hs-identifier hs-var">fadeIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982886"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679982884"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InsertableImage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InsertableImage)
+-&gt; Value
+-&gt; Parser InsertableImage
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InsertableImage&quot;</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679982881"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; InsertableImage
+</span><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-var">InsertableImage'</span></a></span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageX&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;height&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; InsertableImage)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fadeOut&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;width&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;opacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;layer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageY&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; InsertableImage)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; InsertableImage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageInserterInput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; InsertableImage)
+-&gt; Parser (Maybe Natural) -&gt; Parser InsertableImage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fadeIn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982875"><span id="local-6989586621679982877"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span></span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982864"><span id="local-6989586621679982866"><span id="local-6989586621679982868"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679982862"><span class="annot"><span class="annottext">toJSON :: InsertableImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.InsertableImage.html#InsertableImage%27"><span class="hs-identifier hs-type">InsertableImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982850"><span id="local-6989586621679982851"><span id="local-6989586621679982852"><span id="local-6989586621679982853"><span id="local-6989586621679982854"><span id="local-6989586621679982855"><span id="local-6989586621679982856"><span id="local-6989586621679982857"><span id="local-6989586621679982858"><span id="local-6989586621679982859"><span id="local-6989586621679982860"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+fadeIn :: Maybe Natural
+imageInserterInput :: Maybe Text
+imageY :: Maybe Natural
+duration :: Maybe Natural
+layer :: Maybe Natural
+opacity :: Maybe Natural
+width :: Maybe Natural
+fadeOut :: Maybe Natural
+startTime :: Maybe Text
+height :: Maybe Natural
+imageX :: Maybe Natural
+$sel:fadeIn:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:imageInserterInput:InsertableImage' :: InsertableImage -&gt; Maybe Text
+$sel:imageY:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:duration:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:layer:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:opacity:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:width:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:fadeOut:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:startTime:InsertableImage' :: InsertableImage -&gt; Maybe Text
+$sel:height:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+$sel:imageX:InsertableImage' :: InsertableImage -&gt; Maybe Natural
+</span><a href="#local-6989586621679982850"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-248"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageX&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982860"><span class="hs-identifier hs-var">imageX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;height&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982859"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982858"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fadeOut&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982857"><span class="hs-identifier hs-var">fadeOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;width&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982856"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;opacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982855"><span class="hs-identifier hs-var">opacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;layer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982854"><span class="hs-identifier hs-var">layer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982853"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageY&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982852"><span class="hs-identifier hs-var">imageY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageInserterInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982851"><span class="hs-identifier hs-var">imageInserterInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fadeIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679982850"><span class="hs-identifier hs-var">fadeIn</span></a></span><span>
+</span><span id="line-260"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span></pre></body></html>

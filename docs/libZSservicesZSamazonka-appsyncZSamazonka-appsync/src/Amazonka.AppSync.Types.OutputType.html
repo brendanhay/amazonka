@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppSync.Types.OutputType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppSync.Types.OutputType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType"><span class="hs-identifier">OutputType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType_JSON"><span class="hs-identifier">OutputType_JSON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType_SDL"><span class="hs-identifier">OutputType_SDL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679250548"><span id="local-6989586621679250549"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutputType"><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType"><span class="hs-identifier hs-var">OutputType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputType%27"><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType%27"><span class="hs-identifier hs-var">OutputType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOutputType"><span class="annot"><span class="annottext">OutputType -&gt; Text
+</span><a href="Amazonka.AppSync.Types.OutputType.html#fromOutputType"><span class="hs-identifier hs-var hs-var">fromOutputType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250540"><span id="local-6989586621679250542"><span id="local-6989586621679250544"><span class="annot"><span class="annottext">Int -&gt; OutputType -&gt; ShowS
+[OutputType] -&gt; ShowS
+OutputType -&gt; String
+(Int -&gt; OutputType -&gt; ShowS)
+-&gt; (OutputType -&gt; String)
+-&gt; ([OutputType] -&gt; ShowS)
+-&gt; Show OutputType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OutputType] -&gt; ShowS
+$cshowList :: [OutputType] -&gt; ShowS
+show :: OutputType -&gt; String
+$cshow :: OutputType -&gt; String
+showsPrec :: Int -&gt; OutputType -&gt; ShowS
+$cshowsPrec :: Int -&gt; OutputType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679250531"><span id="local-6989586621679250533"><span id="local-6989586621679250535"><span id="local-6989586621679250537"><span class="annot"><span class="annottext">ReadPrec [OutputType]
+ReadPrec OutputType
+Int -&gt; ReadS OutputType
+ReadS [OutputType]
+(Int -&gt; ReadS OutputType)
+-&gt; ReadS [OutputType]
+-&gt; ReadPrec OutputType
+-&gt; ReadPrec [OutputType]
+-&gt; Read OutputType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OutputType]
+$creadListPrec :: ReadPrec [OutputType]
+readPrec :: ReadPrec OutputType
+$creadPrec :: ReadPrec OutputType
+readList :: ReadS [OutputType]
+$creadList :: ReadS [OutputType]
+readsPrec :: Int -&gt; ReadS OutputType
+$creadsPrec :: Int -&gt; ReadS OutputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250526"><span id="local-6989586621679250528"><span class="annot"><span class="annottext">OutputType -&gt; OutputType -&gt; Bool
+(OutputType -&gt; OutputType -&gt; Bool)
+-&gt; (OutputType -&gt; OutputType -&gt; Bool) -&gt; Eq OutputType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OutputType -&gt; OutputType -&gt; Bool
+$c/= :: OutputType -&gt; OutputType -&gt; Bool
+== :: OutputType -&gt; OutputType -&gt; Bool
+$c== :: OutputType -&gt; OutputType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250510"><span id="local-6989586621679250512"><span id="local-6989586621679250514"><span id="local-6989586621679250516"><span id="local-6989586621679250518"><span id="local-6989586621679250520"><span id="local-6989586621679250522"><span class="annot"><span class="annottext">Eq OutputType
+Eq OutputType
+-&gt; (OutputType -&gt; OutputType -&gt; Ordering)
+-&gt; (OutputType -&gt; OutputType -&gt; Bool)
+-&gt; (OutputType -&gt; OutputType -&gt; Bool)
+-&gt; (OutputType -&gt; OutputType -&gt; Bool)
+-&gt; (OutputType -&gt; OutputType -&gt; Bool)
+-&gt; (OutputType -&gt; OutputType -&gt; OutputType)
+-&gt; (OutputType -&gt; OutputType -&gt; OutputType)
+-&gt; Ord OutputType
+OutputType -&gt; OutputType -&gt; Bool
+OutputType -&gt; OutputType -&gt; Ordering
+OutputType -&gt; OutputType -&gt; OutputType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OutputType -&gt; OutputType -&gt; OutputType
+$cmin :: OutputType -&gt; OutputType -&gt; OutputType
+max :: OutputType -&gt; OutputType -&gt; OutputType
+$cmax :: OutputType -&gt; OutputType -&gt; OutputType
+&gt;= :: OutputType -&gt; OutputType -&gt; Bool
+$c&gt;= :: OutputType -&gt; OutputType -&gt; Bool
+&gt; :: OutputType -&gt; OutputType -&gt; Bool
+$c&gt; :: OutputType -&gt; OutputType -&gt; Bool
+&lt;= :: OutputType -&gt; OutputType -&gt; Bool
+$c&lt;= :: OutputType -&gt; OutputType -&gt; Bool
+&lt; :: OutputType -&gt; OutputType -&gt; Bool
+$c&lt; :: OutputType -&gt; OutputType -&gt; Bool
+compare :: OutputType -&gt; OutputType -&gt; Ordering
+$ccompare :: OutputType -&gt; OutputType -&gt; Ordering
+$cp1Ord :: Eq OutputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OutputType -&gt; Rep OutputType x)
+-&gt; (forall x. Rep OutputType x -&gt; OutputType) -&gt; Generic OutputType
+forall x. Rep OutputType x -&gt; OutputType
+forall x. OutputType -&gt; Rep OutputType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OutputType x -&gt; OutputType
+$cfrom :: forall x. OutputType -&gt; Rep OutputType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250502"><span id="local-6989586621679250504"><span class="annot"><span class="annottext">Int -&gt; OutputType -&gt; Int
+OutputType -&gt; Int
+(Int -&gt; OutputType -&gt; Int)
+-&gt; (OutputType -&gt; Int) -&gt; Hashable OutputType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OutputType -&gt; Int
+$chash :: OutputType -&gt; Int
+hashWithSalt :: Int -&gt; OutputType -&gt; Int
+$chashWithSalt :: Int -&gt; OutputType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250499"><span class="annot"><span class="annottext">OutputType -&gt; ()
+(OutputType -&gt; ()) -&gt; NFData OutputType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OutputType -&gt; ()
+$crnf :: OutputType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250496"><span class="annot"><span class="annottext">Text -&gt; Either String OutputType
+(Text -&gt; Either String OutputType) -&gt; FromText OutputType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OutputType
+$cfromText :: Text -&gt; Either String OutputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250493"><span class="annot"><span class="annottext">OutputType -&gt; Text
+(OutputType -&gt; Text) -&gt; ToText OutputType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OutputType -&gt; Text
+$ctoText :: OutputType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250490"><span class="annot"><span class="annottext">OutputType -&gt; ByteString
+(OutputType -&gt; ByteString) -&gt; ToByteString OutputType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OutputType -&gt; ByteString
+$ctoBS :: OutputType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250487"><span class="annot"><span class="annottext">OutputType -&gt; ByteStringBuilder
+(OutputType -&gt; ByteStringBuilder) -&gt; ToLog OutputType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OutputType -&gt; ByteStringBuilder
+$cbuild :: OutputType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250484"><span class="annot"><span class="annottext">HeaderName -&gt; OutputType -&gt; [Header]
+(HeaderName -&gt; OutputType -&gt; [Header]) -&gt; ToHeader OutputType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OutputType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OutputType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250481"><span class="annot"><span class="annottext">OutputType -&gt; QueryString
+(OutputType -&gt; QueryString) -&gt; ToQuery OutputType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OutputType -&gt; QueryString
+$ctoQuery :: OutputType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250476"><span id="local-6989586621679250478"><span class="annot"><span class="annottext">Value -&gt; Parser [OutputType]
+Value -&gt; Parser OutputType
+(Value -&gt; Parser OutputType)
+-&gt; (Value -&gt; Parser [OutputType]) -&gt; FromJSON OutputType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OutputType]
+$cparseJSONList :: Value -&gt; Parser [OutputType]
+parseJSON :: Value -&gt; Parser OutputType
+$cparseJSON :: Value -&gt; Parser OutputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250471"><span id="local-6989586621679250473"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutputType]
+FromJSONKeyFunction OutputType
+FromJSONKeyFunction OutputType
+-&gt; FromJSONKeyFunction [OutputType] -&gt; FromJSONKey OutputType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OutputType]
+$cfromJSONKeyList :: FromJSONKeyFunction [OutputType]
+fromJSONKey :: FromJSONKeyFunction OutputType
+$cfromJSONKey :: FromJSONKeyFunction OutputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250462"><span id="local-6989586621679250464"><span id="local-6989586621679250466"><span id="local-6989586621679250468"><span class="annot"><span class="annottext">[OutputType] -&gt; Encoding
+[OutputType] -&gt; Value
+OutputType -&gt; Encoding
+OutputType -&gt; Value
+(OutputType -&gt; Value)
+-&gt; (OutputType -&gt; Encoding)
+-&gt; ([OutputType] -&gt; Value)
+-&gt; ([OutputType] -&gt; Encoding)
+-&gt; ToJSON OutputType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OutputType] -&gt; Encoding
+$ctoEncodingList :: [OutputType] -&gt; Encoding
+toJSONList :: [OutputType] -&gt; Value
+$ctoJSONList :: [OutputType] -&gt; Value
+toEncoding :: OutputType -&gt; Encoding
+$ctoEncoding :: OutputType -&gt; Encoding
+toJSON :: OutputType -&gt; Value
+$ctoJSON :: OutputType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250457"><span id="local-6989586621679250459"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutputType]
+ToJSONKeyFunction OutputType
+ToJSONKeyFunction OutputType
+-&gt; ToJSONKeyFunction [OutputType] -&gt; ToJSONKey OutputType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OutputType]
+$ctoJSONKeyList :: ToJSONKeyFunction [OutputType]
+toJSONKey :: ToJSONKeyFunction OutputType
+$ctoJSONKey :: ToJSONKeyFunction OutputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250454"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutputType
+([Node] -&gt; Either String OutputType) -&gt; FromXML OutputType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OutputType
+$cparseXML :: [Node] -&gt; Either String OutputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250451"><span class="annot"><span class="annottext">OutputType -&gt; XML
+(OutputType -&gt; XML) -&gt; ToXML OutputType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OutputType -&gt; XML
+$ctoXML :: OutputType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType_JSON"><span class="hs-identifier hs-type">OutputType_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType"><span class="hs-identifier hs-type">OutputType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutputType_JSON"><span id="%24mOutputType_JSON"><span id="OutputType_JSON"><span class="annot"><span class="annottext">$bOutputType_JSON :: OutputType
+$mOutputType_JSON :: forall r. OutputType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppSync.Types.OutputType.html#%24bOutputType_JSON"><span class="hs-identifier hs-var hs-var hs-var">OutputType_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType%27"><span class="hs-identifier hs-type">OutputType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType_SDL"><span class="hs-identifier hs-type">OutputType_SDL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType"><span class="hs-identifier hs-type">OutputType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutputType_SDL"><span id="%24mOutputType_SDL"><span id="OutputType_SDL"><span class="annot"><span class="annottext">$bOutputType_SDL :: OutputType
+$mOutputType_SDL :: forall r. OutputType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppSync.Types.OutputType.html#%24bOutputType_SDL"><span class="hs-identifier hs-var hs-var hs-var">OutputType_SDL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType%27"><span class="hs-identifier hs-type">OutputType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SDL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType_JSON"><span class="hs-pragma hs-type">OutputType_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType_SDL"><span class="hs-pragma hs-type">OutputType_SDL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.Types.OutputType.html#OutputType%27"><span class="hs-pragma hs-type">OutputType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

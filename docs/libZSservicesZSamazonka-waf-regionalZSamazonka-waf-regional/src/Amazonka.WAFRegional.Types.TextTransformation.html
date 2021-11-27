@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WAFRegional.Types.TextTransformation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAFRegional.Types.TextTransformation</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier">TextTransformation</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_CMD_LINE"><span class="hs-identifier">TextTransformation_CMD_LINE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_COMPRESS_WHITE_SPACE"><span class="hs-identifier">TextTransformation_COMPRESS_WHITE_SPACE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_HTML_ENTITY_DECODE"><span class="hs-identifier">TextTransformation_HTML_ENTITY_DECODE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_LOWERCASE"><span class="hs-identifier">TextTransformation_LOWERCASE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_NONE"><span class="hs-identifier">TextTransformation_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_URL_DECODE"><span class="hs-identifier">TextTransformation_URL_DECODE</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679308283"><span id="local-6989586621679308284"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TextTransformation"><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-var">TextTransformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TextTransformation%27"><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-var">TextTransformation'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTextTransformation"><span class="annot"><span class="annottext">TextTransformation -&gt; Text
+</span><a href="Amazonka.WAFRegional.Types.TextTransformation.html#fromTextTransformation"><span class="hs-identifier hs-var hs-var">fromTextTransformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308275"><span id="local-6989586621679308277"><span id="local-6989586621679308279"><span class="annot"><span class="annottext">Int -&gt; TextTransformation -&gt; ShowS
+[TextTransformation] -&gt; ShowS
+TextTransformation -&gt; String
+(Int -&gt; TextTransformation -&gt; ShowS)
+-&gt; (TextTransformation -&gt; String)
+-&gt; ([TextTransformation] -&gt; ShowS)
+-&gt; Show TextTransformation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TextTransformation] -&gt; ShowS
+$cshowList :: [TextTransformation] -&gt; ShowS
+show :: TextTransformation -&gt; String
+$cshow :: TextTransformation -&gt; String
+showsPrec :: Int -&gt; TextTransformation -&gt; ShowS
+$cshowsPrec :: Int -&gt; TextTransformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679308266"><span id="local-6989586621679308268"><span id="local-6989586621679308270"><span id="local-6989586621679308272"><span class="annot"><span class="annottext">ReadPrec [TextTransformation]
+ReadPrec TextTransformation
+Int -&gt; ReadS TextTransformation
+ReadS [TextTransformation]
+(Int -&gt; ReadS TextTransformation)
+-&gt; ReadS [TextTransformation]
+-&gt; ReadPrec TextTransformation
+-&gt; ReadPrec [TextTransformation]
+-&gt; Read TextTransformation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TextTransformation]
+$creadListPrec :: ReadPrec [TextTransformation]
+readPrec :: ReadPrec TextTransformation
+$creadPrec :: ReadPrec TextTransformation
+readList :: ReadS [TextTransformation]
+$creadList :: ReadS [TextTransformation]
+readsPrec :: Int -&gt; ReadS TextTransformation
+$creadsPrec :: Int -&gt; ReadS TextTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679308261"><span id="local-6989586621679308263"><span class="annot"><span class="annottext">TextTransformation -&gt; TextTransformation -&gt; Bool
+(TextTransformation -&gt; TextTransformation -&gt; Bool)
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; Bool)
+-&gt; Eq TextTransformation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TextTransformation -&gt; TextTransformation -&gt; Bool
+$c/= :: TextTransformation -&gt; TextTransformation -&gt; Bool
+== :: TextTransformation -&gt; TextTransformation -&gt; Bool
+$c== :: TextTransformation -&gt; TextTransformation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679308245"><span id="local-6989586621679308247"><span id="local-6989586621679308249"><span id="local-6989586621679308251"><span id="local-6989586621679308253"><span id="local-6989586621679308255"><span id="local-6989586621679308257"><span class="annot"><span class="annottext">Eq TextTransformation
+Eq TextTransformation
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; Ordering)
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; Bool)
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; Bool)
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; Bool)
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; Bool)
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; TextTransformation)
+-&gt; (TextTransformation -&gt; TextTransformation -&gt; TextTransformation)
+-&gt; Ord TextTransformation
+TextTransformation -&gt; TextTransformation -&gt; Bool
+TextTransformation -&gt; TextTransformation -&gt; Ordering
+TextTransformation -&gt; TextTransformation -&gt; TextTransformation
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TextTransformation -&gt; TextTransformation -&gt; TextTransformation
+$cmin :: TextTransformation -&gt; TextTransformation -&gt; TextTransformation
+max :: TextTransformation -&gt; TextTransformation -&gt; TextTransformation
+$cmax :: TextTransformation -&gt; TextTransformation -&gt; TextTransformation
+&gt;= :: TextTransformation -&gt; TextTransformation -&gt; Bool
+$c&gt;= :: TextTransformation -&gt; TextTransformation -&gt; Bool
+&gt; :: TextTransformation -&gt; TextTransformation -&gt; Bool
+$c&gt; :: TextTransformation -&gt; TextTransformation -&gt; Bool
+&lt;= :: TextTransformation -&gt; TextTransformation -&gt; Bool
+$c&lt;= :: TextTransformation -&gt; TextTransformation -&gt; Bool
+&lt; :: TextTransformation -&gt; TextTransformation -&gt; Bool
+$c&lt; :: TextTransformation -&gt; TextTransformation -&gt; Bool
+compare :: TextTransformation -&gt; TextTransformation -&gt; Ordering
+$ccompare :: TextTransformation -&gt; TextTransformation -&gt; Ordering
+$cp1Ord :: Eq TextTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TextTransformation -&gt; Rep TextTransformation x)
+-&gt; (forall x. Rep TextTransformation x -&gt; TextTransformation)
+-&gt; Generic TextTransformation
+forall x. Rep TextTransformation x -&gt; TextTransformation
+forall x. TextTransformation -&gt; Rep TextTransformation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TextTransformation x -&gt; TextTransformation
+$cfrom :: forall x. TextTransformation -&gt; Rep TextTransformation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308237"><span id="local-6989586621679308239"><span class="annot"><span class="annottext">Int -&gt; TextTransformation -&gt; Int
+TextTransformation -&gt; Int
+(Int -&gt; TextTransformation -&gt; Int)
+-&gt; (TextTransformation -&gt; Int) -&gt; Hashable TextTransformation
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TextTransformation -&gt; Int
+$chash :: TextTransformation -&gt; Int
+hashWithSalt :: Int -&gt; TextTransformation -&gt; Int
+$chashWithSalt :: Int -&gt; TextTransformation -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679308234"><span class="annot"><span class="annottext">TextTransformation -&gt; ()
+(TextTransformation -&gt; ()) -&gt; NFData TextTransformation
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TextTransformation -&gt; ()
+$crnf :: TextTransformation -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679308231"><span class="annot"><span class="annottext">Text -&gt; Either String TextTransformation
+(Text -&gt; Either String TextTransformation)
+-&gt; FromText TextTransformation
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TextTransformation
+$cfromText :: Text -&gt; Either String TextTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679308228"><span class="annot"><span class="annottext">TextTransformation -&gt; Text
+(TextTransformation -&gt; Text) -&gt; ToText TextTransformation
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TextTransformation -&gt; Text
+$ctoText :: TextTransformation -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679308225"><span class="annot"><span class="annottext">TextTransformation -&gt; ByteString
+(TextTransformation -&gt; ByteString)
+-&gt; ToByteString TextTransformation
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TextTransformation -&gt; ByteString
+$ctoBS :: TextTransformation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679308222"><span class="annot"><span class="annottext">TextTransformation -&gt; ByteStringBuilder
+(TextTransformation -&gt; ByteStringBuilder)
+-&gt; ToLog TextTransformation
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TextTransformation -&gt; ByteStringBuilder
+$cbuild :: TextTransformation -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679308219"><span class="annot"><span class="annottext">HeaderName -&gt; TextTransformation -&gt; [Header]
+(HeaderName -&gt; TextTransformation -&gt; [Header])
+-&gt; ToHeader TextTransformation
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TextTransformation -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TextTransformation -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679308216"><span class="annot"><span class="annottext">TextTransformation -&gt; QueryString
+(TextTransformation -&gt; QueryString) -&gt; ToQuery TextTransformation
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TextTransformation -&gt; QueryString
+$ctoQuery :: TextTransformation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679308211"><span id="local-6989586621679308213"><span class="annot"><span class="annottext">Value -&gt; Parser [TextTransformation]
+Value -&gt; Parser TextTransformation
+(Value -&gt; Parser TextTransformation)
+-&gt; (Value -&gt; Parser [TextTransformation])
+-&gt; FromJSON TextTransformation
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TextTransformation]
+$cparseJSONList :: Value -&gt; Parser [TextTransformation]
+parseJSON :: Value -&gt; Parser TextTransformation
+$cparseJSON :: Value -&gt; Parser TextTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679308206"><span id="local-6989586621679308208"><span class="annot"><span class="annottext">FromJSONKeyFunction [TextTransformation]
+FromJSONKeyFunction TextTransformation
+FromJSONKeyFunction TextTransformation
+-&gt; FromJSONKeyFunction [TextTransformation]
+-&gt; FromJSONKey TextTransformation
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TextTransformation]
+$cfromJSONKeyList :: FromJSONKeyFunction [TextTransformation]
+fromJSONKey :: FromJSONKeyFunction TextTransformation
+$cfromJSONKey :: FromJSONKeyFunction TextTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679308197"><span id="local-6989586621679308199"><span id="local-6989586621679308201"><span id="local-6989586621679308203"><span class="annot"><span class="annottext">[TextTransformation] -&gt; Encoding
+[TextTransformation] -&gt; Value
+TextTransformation -&gt; Encoding
+TextTransformation -&gt; Value
+(TextTransformation -&gt; Value)
+-&gt; (TextTransformation -&gt; Encoding)
+-&gt; ([TextTransformation] -&gt; Value)
+-&gt; ([TextTransformation] -&gt; Encoding)
+-&gt; ToJSON TextTransformation
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TextTransformation] -&gt; Encoding
+$ctoEncodingList :: [TextTransformation] -&gt; Encoding
+toJSONList :: [TextTransformation] -&gt; Value
+$ctoJSONList :: [TextTransformation] -&gt; Value
+toEncoding :: TextTransformation -&gt; Encoding
+$ctoEncoding :: TextTransformation -&gt; Encoding
+toJSON :: TextTransformation -&gt; Value
+$ctoJSON :: TextTransformation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679308192"><span id="local-6989586621679308194"><span class="annot"><span class="annottext">ToJSONKeyFunction [TextTransformation]
+ToJSONKeyFunction TextTransformation
+ToJSONKeyFunction TextTransformation
+-&gt; ToJSONKeyFunction [TextTransformation]
+-&gt; ToJSONKey TextTransformation
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TextTransformation]
+$ctoJSONKeyList :: ToJSONKeyFunction [TextTransformation]
+toJSONKey :: ToJSONKeyFunction TextTransformation
+$ctoJSONKey :: ToJSONKeyFunction TextTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679308189"><span class="annot"><span class="annottext">[Node] -&gt; Either String TextTransformation
+([Node] -&gt; Either String TextTransformation)
+-&gt; FromXML TextTransformation
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TextTransformation
+$cparseXML :: [Node] -&gt; Either String TextTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679308186"><span class="annot"><span class="annottext">TextTransformation -&gt; XML
+(TextTransformation -&gt; XML) -&gt; ToXML TextTransformation
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TextTransformation -&gt; XML
+$ctoXML :: TextTransformation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_CMD_LINE"><span class="hs-identifier hs-type">TextTransformation_CMD_LINE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextTransformation_CMD_LINE"><span id="%24mTextTransformation_CMD_LINE"><span id="TextTransformation_CMD_LINE"><span class="annot"><span class="annottext">$bTextTransformation_CMD_LINE :: TextTransformation
+$mTextTransformation_CMD_LINE :: forall r. TextTransformation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.TextTransformation.html#%24bTextTransformation_CMD_LINE"><span class="hs-identifier hs-var hs-var hs-var">TextTransformation_CMD_LINE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-type">TextTransformation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CMD_LINE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_COMPRESS_WHITE_SPACE"><span class="hs-identifier hs-type">TextTransformation_COMPRESS_WHITE_SPACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextTransformation_COMPRESS_WHITE_SPACE"><span id="%24mTextTransformation_COMPRESS_WHITE_SPACE"><span id="TextTransformation_COMPRESS_WHITE_SPACE"><span class="annot"><span class="annottext">$bTextTransformation_COMPRESS_WHITE_SPACE :: TextTransformation
+$mTextTransformation_COMPRESS_WHITE_SPACE :: forall r. TextTransformation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.TextTransformation.html#%24bTextTransformation_COMPRESS_WHITE_SPACE"><span class="hs-identifier hs-var hs-var hs-var">TextTransformation_COMPRESS_WHITE_SPACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-type">TextTransformation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPRESS_WHITE_SPACE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_HTML_ENTITY_DECODE"><span class="hs-identifier hs-type">TextTransformation_HTML_ENTITY_DECODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextTransformation_HTML_ENTITY_DECODE"><span id="%24mTextTransformation_HTML_ENTITY_DECODE"><span id="TextTransformation_HTML_ENTITY_DECODE"><span class="annot"><span class="annottext">$bTextTransformation_HTML_ENTITY_DECODE :: TextTransformation
+$mTextTransformation_HTML_ENTITY_DECODE :: forall r. TextTransformation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.TextTransformation.html#%24bTextTransformation_HTML_ENTITY_DECODE"><span class="hs-identifier hs-var hs-var hs-var">TextTransformation_HTML_ENTITY_DECODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-type">TextTransformation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTML_ENTITY_DECODE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_LOWERCASE"><span class="hs-identifier hs-type">TextTransformation_LOWERCASE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextTransformation_LOWERCASE"><span id="%24mTextTransformation_LOWERCASE"><span id="TextTransformation_LOWERCASE"><span class="annot"><span class="annottext">$bTextTransformation_LOWERCASE :: TextTransformation
+$mTextTransformation_LOWERCASE :: forall r. TextTransformation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.TextTransformation.html#%24bTextTransformation_LOWERCASE"><span class="hs-identifier hs-var hs-var hs-var">TextTransformation_LOWERCASE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-type">TextTransformation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOWERCASE&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_NONE"><span class="hs-identifier hs-type">TextTransformation_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextTransformation_NONE"><span id="%24mTextTransformation_NONE"><span id="TextTransformation_NONE"><span class="annot"><span class="annottext">$bTextTransformation_NONE :: TextTransformation
+$mTextTransformation_NONE :: forall r. TextTransformation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.TextTransformation.html#%24bTextTransformation_NONE"><span class="hs-identifier hs-var hs-var hs-var">TextTransformation_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-type">TextTransformation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_URL_DECODE"><span class="hs-identifier hs-type">TextTransformation_URL_DECODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextTransformation_URL_DECODE"><span id="%24mTextTransformation_URL_DECODE"><span id="TextTransformation_URL_DECODE"><span class="annot"><span class="annottext">$bTextTransformation_URL_DECODE :: TextTransformation
+$mTextTransformation_URL_DECODE :: forall r. TextTransformation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.TextTransformation.html#%24bTextTransformation_URL_DECODE"><span class="hs-identifier hs-var hs-var hs-var">TextTransformation_URL_DECODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-type">TextTransformation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;URL_DECODE&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_CMD_LINE"><span class="hs-pragma hs-type">TextTransformation_CMD_LINE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_COMPRESS_WHITE_SPACE"><span class="hs-pragma hs-type">TextTransformation_COMPRESS_WHITE_SPACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_HTML_ENTITY_DECODE"><span class="hs-pragma hs-type">TextTransformation_HTML_ENTITY_DECODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_LOWERCASE"><span class="hs-pragma hs-type">TextTransformation_LOWERCASE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_NONE"><span class="hs-pragma hs-type">TextTransformation_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation_URL_DECODE"><span class="hs-pragma hs-type">TextTransformation_URL_DECODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-pragma hs-type">TextTransformation'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ImportExport.Types.Artifact
+module Amazonka.ImportExport.Types.Artifact
 
 -- | A discrete item that contains the description and URL of an artifact
 --   (such as a PDF).
@@ -35,16 +35,16 @@ artifact_url :: Lens' Artifact (Maybe Text)
 
 -- | Undocumented member.
 artifact_description :: Lens' Artifact (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ImportExport.Types.Artifact.Artifact
-instance GHC.Show.Show Network.AWS.ImportExport.Types.Artifact.Artifact
-instance GHC.Read.Read Network.AWS.ImportExport.Types.Artifact.Artifact
-instance GHC.Classes.Eq Network.AWS.ImportExport.Types.Artifact.Artifact
-instance Network.AWS.Data.XML.FromXML Network.AWS.ImportExport.Types.Artifact.Artifact
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.Types.Artifact.Artifact
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.Types.Artifact.Artifact
+instance GHC.Generics.Generic Amazonka.ImportExport.Types.Artifact.Artifact
+instance GHC.Show.Show Amazonka.ImportExport.Types.Artifact.Artifact
+instance GHC.Read.Read Amazonka.ImportExport.Types.Artifact.Artifact
+instance GHC.Classes.Eq Amazonka.ImportExport.Types.Artifact.Artifact
+instance Amazonka.Data.XML.FromXML Amazonka.ImportExport.Types.Artifact.Artifact
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.Types.Artifact.Artifact
+instance Control.DeepSeq.NFData Amazonka.ImportExport.Types.Artifact.Artifact
 
 
-module Network.AWS.ImportExport.Types.JobType
+module Amazonka.ImportExport.Types.JobType
 
 -- | Specifies whether the job to initiate is an import or export job.
 newtype JobType
@@ -52,28 +52,28 @@ JobType' :: Text -> JobType
 [fromJobType] :: JobType -> Text
 pattern JobType_Export :: JobType
 pattern JobType_Import :: JobType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ImportExport.Types.JobType.JobType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ImportExport.Types.JobType.JobType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ImportExport.Types.JobType.JobType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ImportExport.Types.JobType.JobType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ImportExport.Types.JobType.JobType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ImportExport.Types.JobType.JobType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.Types.JobType.JobType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ImportExport.Types.JobType.JobType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ImportExport.Types.JobType.JobType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ImportExport.Types.JobType.JobType
-instance Network.AWS.Data.Text.ToText Network.AWS.ImportExport.Types.JobType.JobType
-instance Network.AWS.Data.Text.FromText Network.AWS.ImportExport.Types.JobType.JobType
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.Types.JobType.JobType
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.Types.JobType.JobType
-instance GHC.Generics.Generic Network.AWS.ImportExport.Types.JobType.JobType
-instance GHC.Classes.Ord Network.AWS.ImportExport.Types.JobType.JobType
-instance GHC.Classes.Eq Network.AWS.ImportExport.Types.JobType.JobType
-instance GHC.Read.Read Network.AWS.ImportExport.Types.JobType.JobType
-instance GHC.Show.Show Network.AWS.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.XML.ToXML Amazonka.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.XML.FromXML Amazonka.ImportExport.Types.JobType.JobType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ImportExport.Types.JobType.JobType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ImportExport.Types.JobType.JobType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ImportExport.Types.JobType.JobType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.Query.ToQuery Amazonka.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.Log.ToLog Amazonka.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.Text.ToText Amazonka.ImportExport.Types.JobType.JobType
+instance Amazonka.Data.Text.FromText Amazonka.ImportExport.Types.JobType.JobType
+instance Control.DeepSeq.NFData Amazonka.ImportExport.Types.JobType.JobType
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.Types.JobType.JobType
+instance GHC.Generics.Generic Amazonka.ImportExport.Types.JobType.JobType
+instance GHC.Classes.Ord Amazonka.ImportExport.Types.JobType.JobType
+instance GHC.Classes.Eq Amazonka.ImportExport.Types.JobType.JobType
+instance GHC.Read.Read Amazonka.ImportExport.Types.JobType.JobType
+instance GHC.Show.Show Amazonka.ImportExport.Types.JobType.JobType
 
 
-module Network.AWS.ImportExport.Types.Job
+module Amazonka.ImportExport.Types.Job
 
 -- | Representation of a job returned by the ListJobs operation.
 --   
@@ -115,16 +115,16 @@ job_isCanceled :: Lens' Job Bool
 
 -- | Undocumented member.
 job_creationDate :: Lens' Job UTCTime
-instance GHC.Generics.Generic Network.AWS.ImportExport.Types.Job.Job
-instance GHC.Show.Show Network.AWS.ImportExport.Types.Job.Job
-instance GHC.Read.Read Network.AWS.ImportExport.Types.Job.Job
-instance GHC.Classes.Eq Network.AWS.ImportExport.Types.Job.Job
-instance Network.AWS.Data.XML.FromXML Network.AWS.ImportExport.Types.Job.Job
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.Types.Job.Job
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.Types.Job.Job
+instance GHC.Generics.Generic Amazonka.ImportExport.Types.Job.Job
+instance GHC.Show.Show Amazonka.ImportExport.Types.Job.Job
+instance GHC.Read.Read Amazonka.ImportExport.Types.Job.Job
+instance GHC.Classes.Eq Amazonka.ImportExport.Types.Job.Job
+instance Amazonka.Data.XML.FromXML Amazonka.ImportExport.Types.Job.Job
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.Types.Job.Job
+instance Control.DeepSeq.NFData Amazonka.ImportExport.Types.Job.Job
 
 
-module Network.AWS.ImportExport.Types
+module Amazonka.ImportExport.Types
 
 -- | API version <tt>2010-06-01</tt> of the Amazon Import/Export SDK
 --   configuration.
@@ -287,7 +287,7 @@ job_creationDate :: Lens' Job UTCTime
 --   Test2 followed by Test1.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ImportExport.ListJobs
+module Amazonka.ImportExport.ListJobs
 
 -- | Input structure for the ListJobs operation.
 --   
@@ -363,29 +363,29 @@ listJobsResponse_isTruncated :: Lens' ListJobsResponse (Maybe Bool)
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.ImportExport.ListJobs.ListJobs
-instance GHC.Show.Show Network.AWS.ImportExport.ListJobs.ListJobs
-instance GHC.Read.Read Network.AWS.ImportExport.ListJobs.ListJobs
-instance GHC.Classes.Eq Network.AWS.ImportExport.ListJobs.ListJobs
-instance GHC.Generics.Generic Network.AWS.ImportExport.ListJobs.ListJobsResponse
-instance GHC.Show.Show Network.AWS.ImportExport.ListJobs.ListJobsResponse
-instance GHC.Read.Read Network.AWS.ImportExport.ListJobs.ListJobsResponse
-instance GHC.Classes.Eq Network.AWS.ImportExport.ListJobs.ListJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ImportExport.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.ListJobs.ListJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ImportExport.ListJobs.ListJobs
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.ListJobs.ListJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ImportExport.ListJobs.ListJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.ImportExport.ListJobs.ListJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.ImportExport.ListJobs.ListJobs
+instance GHC.Show.Show Amazonka.ImportExport.ListJobs.ListJobs
+instance GHC.Read.Read Amazonka.ImportExport.ListJobs.ListJobs
+instance GHC.Classes.Eq Amazonka.ImportExport.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.ImportExport.ListJobs.ListJobsResponse
+instance GHC.Show.Show Amazonka.ImportExport.ListJobs.ListJobsResponse
+instance GHC.Read.Read Amazonka.ImportExport.ListJobs.ListJobsResponse
+instance GHC.Classes.Eq Amazonka.ImportExport.ListJobs.ListJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ImportExport.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.ImportExport.ListJobs.ListJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ImportExport.ListJobs.ListJobs
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.ImportExport.ListJobs.ListJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ImportExport.ListJobs.ListJobs
+instance Amazonka.Data.Path.ToPath Amazonka.ImportExport.ListJobs.ListJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.ImportExport.ListJobs.ListJobs
 
 
 -- | This operation returns information about a job, including where the
 --   job is in the processing pipeline, the status of the results, and the
 --   signature value associated with the job. You can only return
 --   information about jobs you own.
-module Network.AWS.ImportExport.GetStatus
+module Amazonka.ImportExport.GetStatus
 
 -- | Input structure for the GetStatus operation.
 --   
@@ -552,26 +552,26 @@ getStatusResponse_progressMessage :: Lens' GetStatusResponse (Maybe Text)
 
 -- | The response's http status code.
 getStatusResponse_httpStatus :: Lens' GetStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.ImportExport.GetStatus.GetStatus
-instance GHC.Show.Show Network.AWS.ImportExport.GetStatus.GetStatus
-instance GHC.Read.Read Network.AWS.ImportExport.GetStatus.GetStatus
-instance GHC.Classes.Eq Network.AWS.ImportExport.GetStatus.GetStatus
-instance GHC.Generics.Generic Network.AWS.ImportExport.GetStatus.GetStatusResponse
-instance GHC.Show.Show Network.AWS.ImportExport.GetStatus.GetStatusResponse
-instance GHC.Read.Read Network.AWS.ImportExport.GetStatus.GetStatusResponse
-instance GHC.Classes.Eq Network.AWS.ImportExport.GetStatus.GetStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ImportExport.GetStatus.GetStatus
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.GetStatus.GetStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.GetStatus.GetStatus
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.GetStatus.GetStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ImportExport.GetStatus.GetStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.ImportExport.GetStatus.GetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.GetStatus.GetStatus
+instance GHC.Generics.Generic Amazonka.ImportExport.GetStatus.GetStatus
+instance GHC.Show.Show Amazonka.ImportExport.GetStatus.GetStatus
+instance GHC.Read.Read Amazonka.ImportExport.GetStatus.GetStatus
+instance GHC.Classes.Eq Amazonka.ImportExport.GetStatus.GetStatus
+instance GHC.Generics.Generic Amazonka.ImportExport.GetStatus.GetStatusResponse
+instance GHC.Show.Show Amazonka.ImportExport.GetStatus.GetStatusResponse
+instance GHC.Read.Read Amazonka.ImportExport.GetStatus.GetStatusResponse
+instance GHC.Classes.Eq Amazonka.ImportExport.GetStatus.GetStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.ImportExport.GetStatus.GetStatus
+instance Control.DeepSeq.NFData Amazonka.ImportExport.GetStatus.GetStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.GetStatus.GetStatus
+instance Control.DeepSeq.NFData Amazonka.ImportExport.GetStatus.GetStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ImportExport.GetStatus.GetStatus
+instance Amazonka.Data.Path.ToPath Amazonka.ImportExport.GetStatus.GetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ImportExport.GetStatus.GetStatus
 
 
 -- | This operation generates a pre-paid UPS shipping label that you will
 --   use to ship your device to AWS for processing.
-module Network.AWS.ImportExport.GetShippingLabel
+module Amazonka.ImportExport.GetShippingLabel
 
 -- | <i>See:</i> <a>newGetShippingLabel</a> smart constructor.
 data GetShippingLabel
@@ -709,21 +709,21 @@ getShippingLabelResponse_warning :: Lens' GetShippingLabelResponse (Maybe Text)
 
 -- | The response's http status code.
 getShippingLabelResponse_httpStatus :: Lens' GetShippingLabelResponse Int
-instance GHC.Generics.Generic Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance GHC.Show.Show Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance GHC.Read.Read Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance GHC.Classes.Eq Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance GHC.Generics.Generic Network.AWS.ImportExport.GetShippingLabel.GetShippingLabelResponse
-instance GHC.Show.Show Network.AWS.ImportExport.GetShippingLabel.GetShippingLabelResponse
-instance GHC.Read.Read Network.AWS.ImportExport.GetShippingLabel.GetShippingLabelResponse
-instance GHC.Classes.Eq Network.AWS.ImportExport.GetShippingLabel.GetShippingLabelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.GetShippingLabel.GetShippingLabelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance Network.AWS.Data.Path.ToPath Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.GetShippingLabel.GetShippingLabel
+instance GHC.Generics.Generic Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance GHC.Show.Show Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance GHC.Read.Read Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance GHC.Classes.Eq Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance GHC.Generics.Generic Amazonka.ImportExport.GetShippingLabel.GetShippingLabelResponse
+instance GHC.Show.Show Amazonka.ImportExport.GetShippingLabel.GetShippingLabelResponse
+instance GHC.Read.Read Amazonka.ImportExport.GetShippingLabel.GetShippingLabelResponse
+instance GHC.Classes.Eq Amazonka.ImportExport.GetShippingLabel.GetShippingLabelResponse
+instance Amazonka.Types.AWSRequest Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance Control.DeepSeq.NFData Amazonka.ImportExport.GetShippingLabel.GetShippingLabelResponse
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance Control.DeepSeq.NFData Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance Amazonka.Data.Path.ToPath Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
+instance Amazonka.Data.Query.ToQuery Amazonka.ImportExport.GetShippingLabel.GetShippingLabel
 
 
 -- | This operation initiates the process of scheduling an upload or
@@ -732,7 +732,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.GetShippingLabe
 --   includes a job ID, which you can use in other operations, a signature
 --   that you use to identify your storage device, and the address where
 --   you should ship your storage device.
-module Network.AWS.ImportExport.CreateJob
+module Amazonka.ImportExport.CreateJob
 
 -- | Input structure for the CreateJob operation.
 --   
@@ -850,26 +850,26 @@ createJobResponse_artifactList :: Lens' CreateJobResponse (Maybe [Artifact])
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens' CreateJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ImportExport.CreateJob.CreateJob
-instance GHC.Show.Show Network.AWS.ImportExport.CreateJob.CreateJob
-instance GHC.Read.Read Network.AWS.ImportExport.CreateJob.CreateJob
-instance GHC.Classes.Eq Network.AWS.ImportExport.CreateJob.CreateJob
-instance GHC.Generics.Generic Network.AWS.ImportExport.CreateJob.CreateJobResponse
-instance GHC.Show.Show Network.AWS.ImportExport.CreateJob.CreateJobResponse
-instance GHC.Read.Read Network.AWS.ImportExport.CreateJob.CreateJobResponse
-instance GHC.Classes.Eq Network.AWS.ImportExport.CreateJob.CreateJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ImportExport.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.CreateJob.CreateJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.CreateJob.CreateJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ImportExport.CreateJob.CreateJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ImportExport.CreateJob.CreateJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.ImportExport.CreateJob.CreateJob
+instance GHC.Show.Show Amazonka.ImportExport.CreateJob.CreateJob
+instance GHC.Read.Read Amazonka.ImportExport.CreateJob.CreateJob
+instance GHC.Classes.Eq Amazonka.ImportExport.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.ImportExport.CreateJob.CreateJobResponse
+instance GHC.Show.Show Amazonka.ImportExport.CreateJob.CreateJobResponse
+instance GHC.Read.Read Amazonka.ImportExport.CreateJob.CreateJobResponse
+instance GHC.Classes.Eq Amazonka.ImportExport.CreateJob.CreateJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ImportExport.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.ImportExport.CreateJob.CreateJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.ImportExport.CreateJob.CreateJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ImportExport.CreateJob.CreateJob
+instance Amazonka.Data.Path.ToPath Amazonka.ImportExport.CreateJob.CreateJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ImportExport.CreateJob.CreateJob
 
 
 -- | This operation cancels a specified job. Only the job owner can cancel
 --   it. The operation fails if the job has already started or is complete.
-module Network.AWS.ImportExport.CancelJob
+module Amazonka.ImportExport.CancelJob
 
 -- | Input structure for the CancelJob operation.
 --   
@@ -931,21 +931,21 @@ cancelJobResponse_success :: Lens' CancelJobResponse (Maybe Bool)
 
 -- | The response's http status code.
 cancelJobResponse_httpStatus :: Lens' CancelJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ImportExport.CancelJob.CancelJob
-instance GHC.Show.Show Network.AWS.ImportExport.CancelJob.CancelJob
-instance GHC.Read.Read Network.AWS.ImportExport.CancelJob.CancelJob
-instance GHC.Classes.Eq Network.AWS.ImportExport.CancelJob.CancelJob
-instance GHC.Generics.Generic Network.AWS.ImportExport.CancelJob.CancelJobResponse
-instance GHC.Show.Show Network.AWS.ImportExport.CancelJob.CancelJobResponse
-instance GHC.Read.Read Network.AWS.ImportExport.CancelJob.CancelJobResponse
-instance GHC.Classes.Eq Network.AWS.ImportExport.CancelJob.CancelJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ImportExport.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.CancelJob.CancelJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.CancelJob.CancelJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ImportExport.CancelJob.CancelJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ImportExport.CancelJob.CancelJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.ImportExport.CancelJob.CancelJob
+instance GHC.Show.Show Amazonka.ImportExport.CancelJob.CancelJob
+instance GHC.Read.Read Amazonka.ImportExport.CancelJob.CancelJob
+instance GHC.Classes.Eq Amazonka.ImportExport.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.ImportExport.CancelJob.CancelJobResponse
+instance GHC.Show.Show Amazonka.ImportExport.CancelJob.CancelJobResponse
+instance GHC.Read.Read Amazonka.ImportExport.CancelJob.CancelJobResponse
+instance GHC.Classes.Eq Amazonka.ImportExport.CancelJob.CancelJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ImportExport.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.ImportExport.CancelJob.CancelJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.ImportExport.CancelJob.CancelJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ImportExport.CancelJob.CancelJob
+instance Amazonka.Data.Path.ToPath Amazonka.ImportExport.CancelJob.CancelJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ImportExport.CancelJob.CancelJob
 
 
 -- | You use this operation to change the parameters specified in the
@@ -953,7 +953,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.CancelJob.Cance
 --   file attached to this request replaces the original manifest file. You
 --   can only use the operation after a CreateJob request but before the
 --   data transfer starts and you can only use it on jobs you own.
-module Network.AWS.ImportExport.UpdateJob
+module Amazonka.ImportExport.UpdateJob
 
 -- | Input structure for the UpateJob operation.
 --   
@@ -1050,24 +1050,24 @@ updateJobResponse_artifactList :: Lens' UpdateJobResponse (Maybe [Artifact])
 
 -- | The response's http status code.
 updateJobResponse_httpStatus :: Lens' UpdateJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance GHC.Show.Show Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance GHC.Read.Read Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance GHC.Classes.Eq Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance GHC.Generics.Generic Network.AWS.ImportExport.UpdateJob.UpdateJobResponse
-instance GHC.Show.Show Network.AWS.ImportExport.UpdateJob.UpdateJobResponse
-instance GHC.Read.Read Network.AWS.ImportExport.UpdateJob.UpdateJobResponse
-instance GHC.Classes.Eq Network.AWS.ImportExport.UpdateJob.UpdateJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.UpdateJob.UpdateJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance Control.DeepSeq.NFData Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ImportExport.UpdateJob.UpdateJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.UpdateJob.UpdateJob
+instance GHC.Generics.Generic Amazonka.ImportExport.UpdateJob.UpdateJob
+instance GHC.Show.Show Amazonka.ImportExport.UpdateJob.UpdateJob
+instance GHC.Read.Read Amazonka.ImportExport.UpdateJob.UpdateJob
+instance GHC.Classes.Eq Amazonka.ImportExport.UpdateJob.UpdateJob
+instance GHC.Generics.Generic Amazonka.ImportExport.UpdateJob.UpdateJobResponse
+instance GHC.Show.Show Amazonka.ImportExport.UpdateJob.UpdateJobResponse
+instance GHC.Read.Read Amazonka.ImportExport.UpdateJob.UpdateJobResponse
+instance GHC.Classes.Eq Amazonka.ImportExport.UpdateJob.UpdateJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ImportExport.UpdateJob.UpdateJob
+instance Control.DeepSeq.NFData Amazonka.ImportExport.UpdateJob.UpdateJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ImportExport.UpdateJob.UpdateJob
+instance Control.DeepSeq.NFData Amazonka.ImportExport.UpdateJob.UpdateJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ImportExport.UpdateJob.UpdateJob
+instance Amazonka.Data.Path.ToPath Amazonka.ImportExport.UpdateJob.UpdateJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ImportExport.UpdateJob.UpdateJob
 
 
-module Network.AWS.ImportExport.Lens
+module Amazonka.ImportExport.Lens
 
 -- | Undocumented member.
 getShippingLabel_street3 :: Lens' GetShippingLabel (Maybe Text)
@@ -1283,7 +1283,7 @@ job_isCanceled :: Lens' Job Bool
 job_creationDate :: Lens' Job UTCTime
 
 
-module Network.AWS.ImportExport.Waiters
+module Amazonka.ImportExport.Waiters
 
 
 -- | Derived from API version <tt>2010-06-01</tt> of the AWS service
@@ -1296,7 +1296,7 @@ module Network.AWS.ImportExport.Waiters
 --   internal network and bypassing the Internet. For large data sets, AWS
 --   Import/Export is often faster than Internet transfer and more cost
 --   effective than upgrading your connectivity.
-module Network.AWS.ImportExport
+module Amazonka.ImportExport
 
 -- | API version <tt>2010-06-01</tt> of the Amazon Import/Export SDK
 --   configuration.

@@ -1,0 +1,1301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruProfiler.BatchGetFrameMetricData</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the time series of values for a requested list of frame metrics</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- from a time period.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruProfiler.BatchGetFrameMetricData</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#newBatchGetFrameMetricData"><span class="hs-identifier">newBatchGetFrameMetricData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_targetResolution"><span class="hs-identifier">batchGetFrameMetricData_targetResolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_frameMetrics"><span class="hs-identifier">batchGetFrameMetricData_frameMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_startTime"><span class="hs-identifier">batchGetFrameMetricData_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_period"><span class="hs-identifier">batchGetFrameMetricData_period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_endTime"><span class="hs-identifier">batchGetFrameMetricData_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_profilingGroupName"><span class="hs-identifier">batchGetFrameMetricData_profilingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#newBatchGetFrameMetricDataResponse"><span class="hs-identifier">newBatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_httpStatus"><span class="hs-identifier">batchGetFrameMetricDataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_endTime"><span class="hs-identifier">batchGetFrameMetricDataResponse_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_endTimes"><span class="hs-identifier">batchGetFrameMetricDataResponse_endTimes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_frameMetricData"><span class="hs-identifier">batchGetFrameMetricDataResponse_frameMetricData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_resolution"><span class="hs-identifier">batchGetFrameMetricDataResponse_resolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_startTime"><span class="hs-identifier">batchGetFrameMetricDataResponse_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_unprocessedEndTimes"><span class="hs-identifier">batchGetFrameMetricDataResponse_unprocessedEndTimes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.html"><span class="hs-identifier">Amazonka.CodeGuruProfiler.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The structure representing the BatchGetFrameMetricDataRequest.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newBatchGetFrameMetricData' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679205250"><span id="local-6989586621679205251"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetFrameMetricData"><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-var">BatchGetFrameMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetFrameMetricData%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-var">BatchGetFrameMetricData'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The requested resolution of time steps for the returned time series of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- values. If the requested target resolution is not available due to data</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- not being retained we provide a best effort result by falling back to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the most granular available resolution after the target resolution.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- There are 3 valid values.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AtargetResolution%3ABatchGetFrameMetricData%27"><span class="annot"><span class="annottext">BatchGetFrameMetricData -&gt; Maybe AggregationPeriod
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AtargetResolution%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var hs-var">targetResolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The details of the metrics that are used to request a time series of</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- values. The metric includes the name of the frame, the aggregation type</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- to calculate the metric value for the frame, and the thread states to</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- use to get the count for the metric value of the frame.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AframeMetrics%3ABatchGetFrameMetricData%27"><span class="annot"><span class="annottext">BatchGetFrameMetricData -&gt; Maybe [FrameMetric]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AframeMetrics%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var hs-var">frameMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FrameMetric.html#FrameMetric"><span class="hs-identifier hs-type">FrameMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The start time of the time period for the frame metrics used to return</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- the time series values. This is specified using the ISO 8601 format. For</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- 2020 1:15:02 PM UTC.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AstartTime%3ABatchGetFrameMetricData%27"><span class="annot"><span class="annottext">BatchGetFrameMetricData -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AstartTime%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The duration of the frame metrics used to return the time series values.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Specify using the ISO 8601 format. The maximum period duration is one</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- day (@PT24H@ or @P1D@).</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Aperiod%3ABatchGetFrameMetricData%27"><span class="annot"><span class="annottext">BatchGetFrameMetricData -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3Aperiod%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The end time of the time period for the returned time series values.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AendTime%3ABatchGetFrameMetricData%27"><span class="annot"><span class="annottext">BatchGetFrameMetricData -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTime%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The name of the profiling group associated with the the frame metrics</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- used to return the time series values.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AprofilingGroupName%3ABatchGetFrameMetricData%27"><span class="annot"><span class="annottext">BatchGetFrameMetricData -&gt; Text
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AprofilingGroupName%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205239"><span id="local-6989586621679205241"><span class="annot"><span class="annottext">BatchGetFrameMetricData -&gt; BatchGetFrameMetricData -&gt; Bool
+(BatchGetFrameMetricData -&gt; BatchGetFrameMetricData -&gt; Bool)
+-&gt; (BatchGetFrameMetricData -&gt; BatchGetFrameMetricData -&gt; Bool)
+-&gt; Eq BatchGetFrameMetricData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetFrameMetricData -&gt; BatchGetFrameMetricData -&gt; Bool
+$c/= :: BatchGetFrameMetricData -&gt; BatchGetFrameMetricData -&gt; Bool
+== :: BatchGetFrameMetricData -&gt; BatchGetFrameMetricData -&gt; Bool
+$c== :: BatchGetFrameMetricData -&gt; BatchGetFrameMetricData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205230"><span id="local-6989586621679205232"><span id="local-6989586621679205234"><span id="local-6989586621679205236"><span class="annot"><span class="annottext">ReadPrec [BatchGetFrameMetricData]
+ReadPrec BatchGetFrameMetricData
+Int -&gt; ReadS BatchGetFrameMetricData
+ReadS [BatchGetFrameMetricData]
+(Int -&gt; ReadS BatchGetFrameMetricData)
+-&gt; ReadS [BatchGetFrameMetricData]
+-&gt; ReadPrec BatchGetFrameMetricData
+-&gt; ReadPrec [BatchGetFrameMetricData]
+-&gt; Read BatchGetFrameMetricData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetFrameMetricData]
+$creadListPrec :: ReadPrec [BatchGetFrameMetricData]
+readPrec :: ReadPrec BatchGetFrameMetricData
+$creadPrec :: ReadPrec BatchGetFrameMetricData
+readList :: ReadS [BatchGetFrameMetricData]
+$creadList :: ReadS [BatchGetFrameMetricData]
+readsPrec :: Int -&gt; ReadS BatchGetFrameMetricData
+$creadsPrec :: Int -&gt; ReadS BatchGetFrameMetricData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205223"><span id="local-6989586621679205225"><span id="local-6989586621679205227"><span class="annot"><span class="annottext">Int -&gt; BatchGetFrameMetricData -&gt; ShowS
+[BatchGetFrameMetricData] -&gt; ShowS
+BatchGetFrameMetricData -&gt; String
+(Int -&gt; BatchGetFrameMetricData -&gt; ShowS)
+-&gt; (BatchGetFrameMetricData -&gt; String)
+-&gt; ([BatchGetFrameMetricData] -&gt; ShowS)
+-&gt; Show BatchGetFrameMetricData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetFrameMetricData] -&gt; ShowS
+$cshowList :: [BatchGetFrameMetricData] -&gt; ShowS
+show :: BatchGetFrameMetricData -&gt; String
+$cshow :: BatchGetFrameMetricData -&gt; String
+showsPrec :: Int -&gt; BatchGetFrameMetricData -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetFrameMetricData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchGetFrameMetricData -&gt; Rep BatchGetFrameMetricData x)
+-&gt; (forall x.
+    Rep BatchGetFrameMetricData x -&gt; BatchGetFrameMetricData)
+-&gt; Generic BatchGetFrameMetricData
+forall x. Rep BatchGetFrameMetricData x -&gt; BatchGetFrameMetricData
+forall x. BatchGetFrameMetricData -&gt; Rep BatchGetFrameMetricData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetFrameMetricData x -&gt; BatchGetFrameMetricData
+$cfrom :: forall x. BatchGetFrameMetricData -&gt; Rep BatchGetFrameMetricData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'BatchGetFrameMetricData' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'targetResolution', 'batchGetFrameMetricData_targetResolution' - The requested resolution of time steps for the returned time series of</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- values. If the requested target resolution is not available due to data</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- not being retained we provide a best effort result by falling back to</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the most granular available resolution after the target resolution.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- There are 3 valid values.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'frameMetrics', 'batchGetFrameMetricData_frameMetrics' - The details of the metrics that are used to request a time series of</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- values. The metric includes the name of the frame, the aggregation type</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- to calculate the metric value for the frame, and the thread states to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- use to get the count for the metric value of the frame.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'startTime', 'batchGetFrameMetricData_startTime' - The start time of the time period for the frame metrics used to return</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the time series values. This is specified using the ISO 8601 format. For</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 2020 1:15:02 PM UTC.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'period', 'batchGetFrameMetricData_period' - The duration of the frame metrics used to return the time series values.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Specify using the ISO 8601 format. The maximum period duration is one</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- day (@PT24H@ or @P1D@).</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'endTime', 'batchGetFrameMetricData_endTime' - The end time of the time period for the returned time series values.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'profilingGroupName', 'batchGetFrameMetricData_profilingGroupName' - The name of the profiling group associated with the the frame metrics</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- used to return the time series values.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#newBatchGetFrameMetricData"><span class="hs-identifier hs-type">newBatchGetFrameMetricData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'profilingGroupName'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span>
+</span><span id="line-146"></span><span id="newBatchGetFrameMetricData"><span class="annot"><span class="annottext">newBatchGetFrameMetricData :: Text -&gt; BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#newBatchGetFrameMetricData"><span class="hs-identifier hs-var hs-var">newBatchGetFrameMetricData</span></a></span></span><span> </span><span id="local-6989586621679205218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205218"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">BatchGetFrameMetricData' :: Maybe AggregationPeriod
+-&gt; Maybe [FrameMetric]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Text
+-&gt; BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetResolution:BatchGetFrameMetricData' :: Maybe AggregationPeriod
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AtargetResolution%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">targetResolution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe AggregationPeriod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameMetrics:BatchGetFrameMetricData' :: Maybe [FrameMetric]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AframeMetrics%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">frameMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FrameMetric]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:BatchGetFrameMetricData' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AstartTime%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:period:BatchGetFrameMetricData' :: Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3Aperiod%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:BatchGetFrameMetricData' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTime%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:profilingGroupName:BatchGetFrameMetricData' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AprofilingGroupName%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205218"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The requested resolution of time steps for the returned time series of</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- values. If the requested target resolution is not available due to data</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- not being retained we provide a best effort result by falling back to</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- the most granular available resolution after the target resolution.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- There are 3 valid values.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_targetResolution"><span class="hs-identifier hs-type">batchGetFrameMetricData_targetResolution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="batchGetFrameMetricData_targetResolution"><span class="annot"><span class="annottext">batchGetFrameMetricData_targetResolution :: (Maybe AggregationPeriod -&gt; f (Maybe AggregationPeriod))
+-&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_targetResolution"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricData_targetResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricData -&gt; Maybe AggregationPeriod)
+-&gt; (BatchGetFrameMetricData
+    -&gt; Maybe AggregationPeriod -&gt; BatchGetFrameMetricData)
+-&gt; Lens
+     BatchGetFrameMetricData
+     BatchGetFrameMetricData
+     (Maybe AggregationPeriod)
+     (Maybe AggregationPeriod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205215"><span class="annot"><span class="annottext">Maybe AggregationPeriod
+targetResolution :: Maybe AggregationPeriod
+$sel:targetResolution:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe AggregationPeriod
+</span><a href="#local-6989586621679205215"><span class="hs-identifier hs-var hs-var">targetResolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregationPeriod
+</span><a href="#local-6989586621679205215"><span class="hs-identifier hs-var">targetResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205214"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricData
+</span><a href="#local-6989586621679205214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205213"><span class="annot"><span class="annottext">Maybe AggregationPeriod
+</span><a href="#local-6989586621679205213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricData
+</span><a href="#local-6989586621679205214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetResolution:BatchGetFrameMetricData' :: Maybe AggregationPeriod
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AtargetResolution%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">targetResolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregationPeriod
+</span><a href="#local-6989586621679205213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The details of the metrics that are used to request a time series of</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- values. The metric includes the name of the frame, the aggregation type</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- to calculate the metric value for the frame, and the thread states to</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- use to get the count for the metric value of the frame.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_frameMetrics"><span class="hs-identifier hs-type">batchGetFrameMetricData_frameMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FrameMetric.html#FrameMetric"><span class="hs-identifier hs-type">FrameMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="batchGetFrameMetricData_frameMetrics"><span class="annot"><span class="annottext">batchGetFrameMetricData_frameMetrics :: (Maybe [FrameMetric] -&gt; f (Maybe [FrameMetric]))
+-&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_frameMetrics"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricData_frameMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricData -&gt; Maybe [FrameMetric])
+-&gt; (BatchGetFrameMetricData
+    -&gt; Maybe [FrameMetric] -&gt; BatchGetFrameMetricData)
+-&gt; Lens
+     BatchGetFrameMetricData
+     BatchGetFrameMetricData
+     (Maybe [FrameMetric])
+     (Maybe [FrameMetric])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205212"><span class="annot"><span class="annottext">Maybe [FrameMetric]
+frameMetrics :: Maybe [FrameMetric]
+$sel:frameMetrics:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe [FrameMetric]
+</span><a href="#local-6989586621679205212"><span class="hs-identifier hs-var hs-var">frameMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FrameMetric]
+</span><a href="#local-6989586621679205212"><span class="hs-identifier hs-var">frameMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205211"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricData
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205210"><span class="annot"><span class="annottext">Maybe [FrameMetric]
+</span><a href="#local-6989586621679205210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricData
+</span><a href="#local-6989586621679205211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameMetrics:BatchGetFrameMetricData' :: Maybe [FrameMetric]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AframeMetrics%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">frameMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FrameMetric]
+</span><a href="#local-6989586621679205210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FrameMetric] -&gt; f (Maybe [FrameMetric]))
+ -&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData)
+-&gt; ((Maybe [FrameMetric] -&gt; f (Maybe [FrameMetric]))
+    -&gt; Maybe [FrameMetric] -&gt; f (Maybe [FrameMetric]))
+-&gt; (Maybe [FrameMetric] -&gt; f (Maybe [FrameMetric]))
+-&gt; BatchGetFrameMetricData
+-&gt; f BatchGetFrameMetricData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FrameMetric] [FrameMetric] [FrameMetric] [FrameMetric]
+-&gt; Iso
+     (Maybe [FrameMetric])
+     (Maybe [FrameMetric])
+     (Maybe [FrameMetric])
+     (Maybe [FrameMetric])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FrameMetric] [FrameMetric] [FrameMetric] [FrameMetric]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The start time of the time period for the frame metrics used to return</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- the time series values. This is specified using the ISO 8601 format. For</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 2020 1:15:02 PM UTC.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_startTime"><span class="hs-identifier hs-type">batchGetFrameMetricData_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="batchGetFrameMetricData_startTime"><span class="annot"><span class="annottext">batchGetFrameMetricData_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_startTime"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricData_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricData -&gt; Maybe POSIX)
+-&gt; (BatchGetFrameMetricData
+    -&gt; Maybe POSIX -&gt; BatchGetFrameMetricData)
+-&gt; Lens
+     BatchGetFrameMetricData
+     BatchGetFrameMetricData
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205206"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205206"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205206"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205205"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricData
+</span><a href="#local-6989586621679205205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205204"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricData
+</span><a href="#local-6989586621679205205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:BatchGetFrameMetricData' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AstartTime%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchGetFrameMetricData
+-&gt; f BatchGetFrameMetricData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The duration of the frame metrics used to return the time series values.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Specify using the ISO 8601 format. The maximum period duration is one</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- day (@PT24H@ or @P1D@).</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_period"><span class="hs-identifier hs-type">batchGetFrameMetricData_period</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="batchGetFrameMetricData_period"><span class="annot"><span class="annottext">batchGetFrameMetricData_period :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_period"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricData_period</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricData -&gt; Maybe Text)
+-&gt; (BatchGetFrameMetricData
+    -&gt; Maybe Text -&gt; BatchGetFrameMetricData)
+-&gt; Lens
+     BatchGetFrameMetricData
+     BatchGetFrameMetricData
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205202"><span class="annot"><span class="annottext">Maybe Text
+period :: Maybe Text
+$sel:period:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe Text
+</span><a href="#local-6989586621679205202"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205202"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205201"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricData
+</span><a href="#local-6989586621679205201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205200"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricData
+</span><a href="#local-6989586621679205201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:BatchGetFrameMetricData' :: Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3Aperiod%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The end time of the time period for the returned time series values.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_endTime"><span class="hs-identifier hs-type">batchGetFrameMetricData_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="batchGetFrameMetricData_endTime"><span class="annot"><span class="annottext">batchGetFrameMetricData_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_endTime"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricData_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricData -&gt; Maybe POSIX)
+-&gt; (BatchGetFrameMetricData
+    -&gt; Maybe POSIX -&gt; BatchGetFrameMetricData)
+-&gt; Lens
+     BatchGetFrameMetricData
+     BatchGetFrameMetricData
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205199"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205199"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205199"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205198"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricData
+</span><a href="#local-6989586621679205198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205197"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricData
+</span><a href="#local-6989586621679205198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:BatchGetFrameMetricData' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTime%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchGetFrameMetricData
+-&gt; f BatchGetFrameMetricData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The name of the profiling group associated with the the frame metrics</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- used to return the time series values.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_profilingGroupName"><span class="hs-identifier hs-type">batchGetFrameMetricData_profilingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-201"></span><span id="batchGetFrameMetricData_profilingGroupName"><span class="annot"><span class="annottext">batchGetFrameMetricData_profilingGroupName :: (Text -&gt; f Text)
+-&gt; BatchGetFrameMetricData -&gt; f BatchGetFrameMetricData
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricData_profilingGroupName"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricData_profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricData -&gt; Text)
+-&gt; (BatchGetFrameMetricData -&gt; Text -&gt; BatchGetFrameMetricData)
+-&gt; Lens BatchGetFrameMetricData BatchGetFrameMetricData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205196"><span class="annot"><span class="annottext">Text
+profilingGroupName :: Text
+$sel:profilingGroupName:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Text
+</span><a href="#local-6989586621679205196"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205196"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205195"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricData
+</span><a href="#local-6989586621679205195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricData
+</span><a href="#local-6989586621679205195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroupName:BatchGetFrameMetricData' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AprofilingGroupName%3ABatchGetFrameMetricData%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-205"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679205190"><span class="annot"><span class="annottext">request :: BatchGetFrameMetricData -&gt; Request BatchGetFrameMetricData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; BatchGetFrameMetricData -&gt; Request BatchGetFrameMetricData
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeGuruProfiler.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679205186"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchGetFrameMetricData
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchGetFrameMetricData)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchGetFrameMetricData))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchGetFrameMetricData
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchGetFrameMetricData)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205182"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; POSIX
+-&gt; [TimestampStructure]
+-&gt; [FrameMetricDatum]
+-&gt; AggregationPeriod
+-&gt; POSIX
+-&gt; HashMap Text [TimestampStructure]
+-&gt; BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">BatchGetFrameMetricDataResponse'</span></a></span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; POSIX
+ -&gt; [TimestampStructure]
+ -&gt; [FrameMetricDatum]
+ -&gt; AggregationPeriod
+ -&gt; POSIX
+ -&gt; HashMap Text [TimestampStructure]
+ -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (POSIX
+      -&gt; [TimestampStructure]
+      -&gt; [FrameMetricDatum]
+      -&gt; AggregationPeriod
+      -&gt; POSIX
+      -&gt; HashMap Text [TimestampStructure]
+      -&gt; BatchGetFrameMetricDataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (POSIX
+   -&gt; [TimestampStructure]
+   -&gt; [FrameMetricDatum]
+   -&gt; AggregationPeriod
+   -&gt; POSIX
+   -&gt; HashMap Text [TimestampStructure]
+   -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Either String POSIX
+-&gt; Either
+     String
+     ([TimestampStructure]
+      -&gt; [FrameMetricDatum]
+      -&gt; AggregationPeriod
+      -&gt; POSIX
+      -&gt; HashMap Text [TimestampStructure]
+      -&gt; BatchGetFrameMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([TimestampStructure]
+   -&gt; [FrameMetricDatum]
+   -&gt; AggregationPeriod
+   -&gt; POSIX
+   -&gt; HashMap Text [TimestampStructure]
+   -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Either String [TimestampStructure]
+-&gt; Either
+     String
+     ([FrameMetricDatum]
+      -&gt; AggregationPeriod
+      -&gt; POSIX
+      -&gt; HashMap Text [TimestampStructure]
+      -&gt; BatchGetFrameMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [TimestampStructure])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endTimes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [TimestampStructure])
+-&gt; [TimestampStructure] -&gt; Either String [TimestampStructure]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[TimestampStructure]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([FrameMetricDatum]
+   -&gt; AggregationPeriod
+   -&gt; POSIX
+   -&gt; HashMap Text [TimestampStructure]
+   -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Either String [FrameMetricDatum]
+-&gt; Either
+     String
+     (AggregationPeriod
+      -&gt; POSIX
+      -&gt; HashMap Text [TimestampStructure]
+      -&gt; BatchGetFrameMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [FrameMetricDatum])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;frameMetricData&quot;</span></span><span>
+</span><span id="line-216"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [FrameMetricDatum])
+-&gt; [FrameMetricDatum] -&gt; Either String [FrameMetricDatum]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[FrameMetricDatum]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-217"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (AggregationPeriod
+   -&gt; POSIX
+   -&gt; HashMap Text [TimestampStructure]
+   -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Either String AggregationPeriod
+-&gt; Either
+     String
+     (POSIX
+      -&gt; HashMap Text [TimestampStructure]
+      -&gt; BatchGetFrameMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String AggregationPeriod
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resolution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (POSIX
+   -&gt; HashMap Text [TimestampStructure]
+   -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Either String POSIX
+-&gt; Either
+     String
+     (HashMap Text [TimestampStructure]
+      -&gt; BatchGetFrameMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (HashMap Text [TimestampStructure]
+   -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Either String (HashMap Text [TimestampStructure])
+-&gt; Either String BatchGetFrameMetricDataResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (HashMap Text [TimestampStructure]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unprocessedEndTimes&quot;</span></span><span>
+</span><span id="line-221"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (HashMap Text [TimestampStructure]))
+-&gt; HashMap Text [TimestampStructure]
+-&gt; Either String (HashMap Text [TimestampStructure])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text [TimestampStructure]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-222"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205171"><span id="local-6989586621679205173"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span></span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205168"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679205164"><span class="annot"><span class="annottext">toHeaders :: BatchGetFrameMetricData -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetFrameMetricData -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-234"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-235"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-236"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205154"><span id="local-6989586621679205156"><span id="local-6989586621679205158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679205152"><span class="annot"><span class="annottext">toJSON :: BatchGetFrameMetricData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205145"><span id="local-6989586621679205146"><span id="local-6989586621679205147"><span id="local-6989586621679205148"><span id="local-6989586621679205149"><span id="local-6989586621679205150"><span class="annot"><span class="annottext">Maybe [FrameMetric]
+Maybe Text
+Maybe POSIX
+Maybe AggregationPeriod
+Text
+profilingGroupName :: Text
+endTime :: Maybe POSIX
+period :: Maybe Text
+startTime :: Maybe POSIX
+frameMetrics :: Maybe [FrameMetric]
+targetResolution :: Maybe AggregationPeriod
+$sel:profilingGroupName:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Text
+$sel:endTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+$sel:period:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe Text
+$sel:startTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+$sel:frameMetrics:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe [FrameMetric]
+$sel:targetResolution:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe AggregationPeriod
+</span><a href="#local-6989586621679205145"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-244"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;frameMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FrameMetric] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([FrameMetric] -&gt; Pair) -&gt; Maybe [FrameMetric] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FrameMetric]
+</span><a href="#local-6989586621679205149"><span class="hs-identifier hs-var">frameMetrics</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679205139"><span class="annot"><span class="annottext">toPath :: BatchGetFrameMetricData -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205132"><span id="local-6989586621679205133"><span id="local-6989586621679205134"><span id="local-6989586621679205135"><span id="local-6989586621679205136"><span id="local-6989586621679205137"><span class="annot"><span class="annottext">Maybe [FrameMetric]
+Maybe Text
+Maybe POSIX
+Maybe AggregationPeriod
+Text
+profilingGroupName :: Text
+endTime :: Maybe POSIX
+period :: Maybe Text
+startTime :: Maybe POSIX
+frameMetrics :: Maybe [FrameMetric]
+targetResolution :: Maybe AggregationPeriod
+$sel:profilingGroupName:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Text
+$sel:endTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+$sel:period:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe Text
+$sel:startTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+$sel:frameMetrics:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe [FrameMetric]
+$sel:targetResolution:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe AggregationPeriod
+</span><a href="#local-6989586621679205132"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profilingGroups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205132"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/frames/-/metrics&quot;</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData"><span class="hs-identifier hs-type">BatchGetFrameMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679205128"><span class="annot"><span class="annottext">toQuery :: BatchGetFrameMetricData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricData%27"><span class="hs-identifier hs-type">BatchGetFrameMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205121"><span id="local-6989586621679205122"><span id="local-6989586621679205123"><span id="local-6989586621679205124"><span id="local-6989586621679205125"><span id="local-6989586621679205126"><span class="annot"><span class="annottext">Maybe [FrameMetric]
+Maybe Text
+Maybe POSIX
+Maybe AggregationPeriod
+Text
+profilingGroupName :: Text
+endTime :: Maybe POSIX
+period :: Maybe Text
+startTime :: Maybe POSIX
+frameMetrics :: Maybe [FrameMetric]
+targetResolution :: Maybe AggregationPeriod
+$sel:profilingGroupName:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Text
+$sel:endTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+$sel:period:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe Text
+$sel:startTime:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe POSIX
+$sel:frameMetrics:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe [FrameMetric]
+$sel:targetResolution:BatchGetFrameMetricData' :: BatchGetFrameMetricData -&gt; Maybe AggregationPeriod
+</span><a href="#local-6989586621679205121"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;targetResolution&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AggregationPeriod -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AggregationPeriod
+</span><a href="#local-6989586621679205126"><span class="hs-identifier hs-var">targetResolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205124"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;period&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205123"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205122"><span class="hs-identifier hs-var">endTime</span></a></span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The structure representing the BatchGetFrameMetricDataResponse.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- /See:/ 'newBatchGetFrameMetricDataResponse' smart constructor.</span><span>
+</span><span id="line-267"></span><span id="local-6989586621679205118"><span id="local-6989586621679205119"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetFrameMetricDataResponse"><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-var">BatchGetFrameMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetFrameMetricDataResponse%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">BatchGetFrameMetricDataResponse'</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetFrameMetricDataResponse%27"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse -&gt; Int
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AhttpStatus%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- | The end time of the time period for the returned time series values.</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-274"></span><span>    </span><span id="%24sel%3AendTime%3ABatchGetFrameMetricDataResponse%27"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse -&gt; POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTime%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- | List of instances, or time steps, in the time series. For example, if</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- the @period@ is one day (@PT24H)@), and the @resolution@ is five minutes</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- (@PT5M@), then there are 288 @endTimes@ in the list that are each five</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- minutes appart.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3AendTimes%3ABatchGetFrameMetricDataResponse%27"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse -&gt; [TimestampStructure]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTimes%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">endTimes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.TimestampStructure.html#TimestampStructure"><span class="hs-identifier hs-type">TimestampStructure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- | Details of the metrics to request a time series of values. The metric</span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-comment">-- includes the name of the frame, the aggregation type to calculate the</span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-comment">-- metric value for the frame, and the thread states to use to get the</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-comment">-- count for the metric value of the frame.</span><span>
+</span><span id="line-284"></span><span>    </span><span id="%24sel%3AframeMetricData%3ABatchGetFrameMetricDataResponse%27"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse -&gt; [FrameMetricDatum]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AframeMetricData%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">frameMetricData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.html#FrameMetricDatum"><span class="hs-identifier hs-type">FrameMetricDatum</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- | Resolution or granularity of the profile data used to generate the time</span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-comment">-- series. This is the value used to jump through time steps in a time</span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-comment">-- series. There are 3 valid values.</span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-294"></span><span>    </span><span id="%24sel%3Aresolution%3ABatchGetFrameMetricDataResponse%27"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse -&gt; AggregationPeriod
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3Aresolution%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-comment">-- | The start time of the time period for the returned time series values.</span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-299"></span><span>    </span><span id="%24sel%3AstartTime%3ABatchGetFrameMetricDataResponse%27"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse -&gt; POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AstartTime%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="hs-comment">-- | List of instances which remained unprocessed. This will create a missing</span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-comment">-- time step in the list of end times.</span><span>
+</span><span id="line-302"></span><span>    </span><span id="%24sel%3AunprocessedEndTimes%3ABatchGetFrameMetricDataResponse%27"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+-&gt; HashMap Text [TimestampStructure]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AunprocessedEndTimes%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedEndTimes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.TimestampStructure.html#TimestampStructure"><span class="hs-identifier hs-type">TimestampStructure</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-303"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-304"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205107"><span id="local-6989586621679205109"><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+-&gt; BatchGetFrameMetricDataResponse -&gt; Bool
+(BatchGetFrameMetricDataResponse
+ -&gt; BatchGetFrameMetricDataResponse -&gt; Bool)
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; BatchGetFrameMetricDataResponse -&gt; Bool)
+-&gt; Eq BatchGetFrameMetricDataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetFrameMetricDataResponse
+-&gt; BatchGetFrameMetricDataResponse -&gt; Bool
+$c/= :: BatchGetFrameMetricDataResponse
+-&gt; BatchGetFrameMetricDataResponse -&gt; Bool
+== :: BatchGetFrameMetricDataResponse
+-&gt; BatchGetFrameMetricDataResponse -&gt; Bool
+$c== :: BatchGetFrameMetricDataResponse
+-&gt; BatchGetFrameMetricDataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205099"><span id="local-6989586621679205101"><span id="local-6989586621679205103"><span id="local-6989586621679205105"><span class="annot"><span class="annottext">ReadPrec [BatchGetFrameMetricDataResponse]
+ReadPrec BatchGetFrameMetricDataResponse
+Int -&gt; ReadS BatchGetFrameMetricDataResponse
+ReadS [BatchGetFrameMetricDataResponse]
+(Int -&gt; ReadS BatchGetFrameMetricDataResponse)
+-&gt; ReadS [BatchGetFrameMetricDataResponse]
+-&gt; ReadPrec BatchGetFrameMetricDataResponse
+-&gt; ReadPrec [BatchGetFrameMetricDataResponse]
+-&gt; Read BatchGetFrameMetricDataResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetFrameMetricDataResponse]
+$creadListPrec :: ReadPrec [BatchGetFrameMetricDataResponse]
+readPrec :: ReadPrec BatchGetFrameMetricDataResponse
+$creadPrec :: ReadPrec BatchGetFrameMetricDataResponse
+readList :: ReadS [BatchGetFrameMetricDataResponse]
+$creadList :: ReadS [BatchGetFrameMetricDataResponse]
+readsPrec :: Int -&gt; ReadS BatchGetFrameMetricDataResponse
+$creadsPrec :: Int -&gt; ReadS BatchGetFrameMetricDataResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205093"><span id="local-6989586621679205095"><span id="local-6989586621679205097"><span class="annot"><span class="annottext">Int -&gt; BatchGetFrameMetricDataResponse -&gt; ShowS
+[BatchGetFrameMetricDataResponse] -&gt; ShowS
+BatchGetFrameMetricDataResponse -&gt; String
+(Int -&gt; BatchGetFrameMetricDataResponse -&gt; ShowS)
+-&gt; (BatchGetFrameMetricDataResponse -&gt; String)
+-&gt; ([BatchGetFrameMetricDataResponse] -&gt; ShowS)
+-&gt; Show BatchGetFrameMetricDataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetFrameMetricDataResponse] -&gt; ShowS
+$cshowList :: [BatchGetFrameMetricDataResponse] -&gt; ShowS
+show :: BatchGetFrameMetricDataResponse -&gt; String
+$cshow :: BatchGetFrameMetricDataResponse -&gt; String
+showsPrec :: Int -&gt; BatchGetFrameMetricDataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetFrameMetricDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchGetFrameMetricDataResponse
+ -&gt; Rep BatchGetFrameMetricDataResponse x)
+-&gt; (forall x.
+    Rep BatchGetFrameMetricDataResponse x
+    -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Generic BatchGetFrameMetricDataResponse
+forall x.
+Rep BatchGetFrameMetricDataResponse x
+-&gt; BatchGetFrameMetricDataResponse
+forall x.
+BatchGetFrameMetricDataResponse
+-&gt; Rep BatchGetFrameMetricDataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchGetFrameMetricDataResponse x
+-&gt; BatchGetFrameMetricDataResponse
+$cfrom :: forall x.
+BatchGetFrameMetricDataResponse
+-&gt; Rep BatchGetFrameMetricDataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- Create a value of 'BatchGetFrameMetricDataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- 'httpStatus', 'batchGetFrameMetricDataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- 'endTime', 'batchGetFrameMetricDataResponse_endTime' - The end time of the time period for the returned time series values.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- 'endTimes', 'batchGetFrameMetricDataResponse_endTimes' - List of instances, or time steps, in the time series. For example, if</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- the @period@ is one day (@PT24H)@), and the @resolution@ is five minutes</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- (@PT5M@), then there are 288 @endTimes@ in the list that are each five</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- minutes appart.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- 'frameMetricData', 'batchGetFrameMetricDataResponse_frameMetricData' - Details of the metrics to request a time series of values. The metric</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- includes the name of the frame, the aggregation type to calculate the</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- metric value for the frame, and the thread states to use to get the</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- count for the metric value of the frame.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- 'resolution', 'batchGetFrameMetricDataResponse_resolution' - Resolution or granularity of the profile data used to generate the time</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- series. This is the value used to jump through time steps in a time</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- series. There are 3 valid values.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- 'startTime', 'batchGetFrameMetricDataResponse_startTime' - The start time of the time period for the returned time series values.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- 'unprocessedEndTimes', 'batchGetFrameMetricDataResponse_unprocessedEndTimes' - List of instances which remained unprocessed. This will create a missing</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- time step in the list of end times.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#newBatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">newBatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-349"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-350"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-351"></span><span>  </span><span class="hs-comment">-- | 'endTime'</span><span>
+</span><span id="line-352"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-353"></span><span>  </span><span class="hs-comment">-- | 'resolution'</span><span>
+</span><span id="line-354"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-355"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-356"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-357"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span>
+</span><span id="line-358"></span><span id="newBatchGetFrameMetricDataResponse"><span class="annot"><span class="annottext">newBatchGetFrameMetricDataResponse :: Int
+-&gt; UTCTime
+-&gt; AggregationPeriod
+-&gt; UTCTime
+-&gt; BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#newBatchGetFrameMetricDataResponse"><span class="hs-identifier hs-var hs-var">newBatchGetFrameMetricDataResponse</span></a></span></span><span>
+</span><span id="line-359"></span><span>  </span><span id="local-6989586621679205090"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205090"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621679205089"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679205089"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621679205088"><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679205088"><span class="hs-identifier hs-var">pResolution_</span></a></span></span><span>
+</span><span id="line-362"></span><span>  </span><span id="local-6989586621679205087"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679205087"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse' :: Int
+-&gt; POSIX
+-&gt; [TimestampStructure]
+-&gt; [FrameMetricDatum]
+-&gt; AggregationPeriod
+-&gt; POSIX
+-&gt; HashMap Text [TimestampStructure]
+-&gt; BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span>
+</span><span id="line-364"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetFrameMetricDataResponse' :: Int
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AhttpStatus%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-365"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205090"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:BatchGetFrameMetricDataResponse' :: POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTime%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679205089"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTimes:BatchGetFrameMetricDataResponse' :: [TimestampStructure]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTimes%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">endTimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TimestampStructure]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>        </span><span class="annot"><span class="annottext">$sel:frameMetricData:BatchGetFrameMetricDataResponse' :: [FrameMetricDatum]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AframeMetricData%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">frameMetricData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[FrameMetricDatum]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>        </span><span class="annot"><span class="annottext">$sel:resolution:BatchGetFrameMetricDataResponse' :: AggregationPeriod
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3Aresolution%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679205088"><span class="hs-identifier hs-var">pResolution_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:BatchGetFrameMetricDataResponse' :: POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AstartTime%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679205087"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>        </span><span class="annot"><span class="annottext">$sel:unprocessedEndTimes:BatchGetFrameMetricDataResponse' :: HashMap Text [TimestampStructure]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AunprocessedEndTimes%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">unprocessedEndTimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text [TimestampStructure]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-372"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_httpStatus"><span class="hs-identifier hs-type">batchGetFrameMetricDataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-376"></span><span id="batchGetFrameMetricDataResponse_httpStatus"><span class="annot"><span class="annottext">batchGetFrameMetricDataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricDataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricDataResponse -&gt; Int)
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; Int -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Lens
+     BatchGetFrameMetricDataResponse
+     BatchGetFrameMetricDataResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205085"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchGetFrameMetricDataResponse' :: BatchGetFrameMetricDataResponse -&gt; Int
+</span><a href="#local-6989586621679205085"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205085"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205084"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetFrameMetricDataResponse' :: Int
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AhttpStatus%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | The end time of the time period for the returned time series values.</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-382"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_endTime"><span class="hs-identifier hs-type">batchGetFrameMetricDataResponse_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-383"></span><span id="batchGetFrameMetricDataResponse_endTime"><span class="annot"><span class="annottext">batchGetFrameMetricDataResponse_endTime :: (UTCTime -&gt; f UTCTime)
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_endTime"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricDataResponse_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricDataResponse -&gt; POSIX)
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; POSIX -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Lens
+     BatchGetFrameMetricDataResponse
+     BatchGetFrameMetricDataResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205082"><span class="annot"><span class="annottext">POSIX
+endTime :: POSIX
+$sel:endTime:BatchGetFrameMetricDataResponse' :: BatchGetFrameMetricDataResponse -&gt; POSIX
+</span><a href="#local-6989586621679205082"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679205082"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205081"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205080"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679205080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:BatchGetFrameMetricDataResponse' :: POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTime%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679205080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; BatchGetFrameMetricDataResponse
+ -&gt; f BatchGetFrameMetricDataResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- | List of instances, or time steps, in the time series. For example, if</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- the @period@ is one day (@PT24H)@), and the @resolution@ is five minutes</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- (@PT5M@), then there are 288 @endTimes@ in the list that are each five</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- minutes appart.</span><span>
+</span><span id="line-389"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_endTimes"><span class="hs-identifier hs-type">batchGetFrameMetricDataResponse_endTimes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.TimestampStructure.html#TimestampStructure"><span class="hs-identifier hs-type">TimestampStructure</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-390"></span><span id="batchGetFrameMetricDataResponse_endTimes"><span class="annot"><span class="annottext">batchGetFrameMetricDataResponse_endTimes :: ([TimestampStructure] -&gt; f [TimestampStructure])
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_endTimes"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricDataResponse_endTimes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricDataResponse -&gt; [TimestampStructure])
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; [TimestampStructure] -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Lens
+     BatchGetFrameMetricDataResponse
+     BatchGetFrameMetricDataResponse
+     [TimestampStructure]
+     [TimestampStructure]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205079"><span class="annot"><span class="annottext">[TimestampStructure]
+endTimes :: [TimestampStructure]
+$sel:endTimes:BatchGetFrameMetricDataResponse' :: BatchGetFrameMetricDataResponse -&gt; [TimestampStructure]
+</span><a href="#local-6989586621679205079"><span class="hs-identifier hs-var hs-var">endTimes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TimestampStructure]
+</span><a href="#local-6989586621679205079"><span class="hs-identifier hs-var">endTimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205078"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205077"><span class="annot"><span class="annottext">[TimestampStructure]
+</span><a href="#local-6989586621679205077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimes:BatchGetFrameMetricDataResponse' :: [TimestampStructure]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AendTimes%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">endTimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TimestampStructure]
+</span><a href="#local-6989586621679205077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TimestampStructure] -&gt; f [TimestampStructure])
+ -&gt; BatchGetFrameMetricDataResponse
+ -&gt; f BatchGetFrameMetricDataResponse)
+-&gt; (([TimestampStructure] -&gt; f [TimestampStructure])
+    -&gt; [TimestampStructure] -&gt; f [TimestampStructure])
+-&gt; ([TimestampStructure] -&gt; f [TimestampStructure])
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TimestampStructure] -&gt; f [TimestampStructure])
+-&gt; [TimestampStructure] -&gt; f [TimestampStructure]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- | Details of the metrics to request a time series of values. The metric</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- includes the name of the frame, the aggregation type to calculate the</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- metric value for the frame, and the thread states to use to get the</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- count for the metric value of the frame.</span><span>
+</span><span id="line-396"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_frameMetricData"><span class="hs-identifier hs-type">batchGetFrameMetricDataResponse_frameMetricData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.html#FrameMetricDatum"><span class="hs-identifier hs-type">FrameMetricDatum</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-397"></span><span id="batchGetFrameMetricDataResponse_frameMetricData"><span class="annot"><span class="annottext">batchGetFrameMetricDataResponse_frameMetricData :: ([FrameMetricDatum] -&gt; f [FrameMetricDatum])
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_frameMetricData"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricDataResponse_frameMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricDataResponse -&gt; [FrameMetricDatum])
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; [FrameMetricDatum] -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Lens
+     BatchGetFrameMetricDataResponse
+     BatchGetFrameMetricDataResponse
+     [FrameMetricDatum]
+     [FrameMetricDatum]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205076"><span class="annot"><span class="annottext">[FrameMetricDatum]
+frameMetricData :: [FrameMetricDatum]
+$sel:frameMetricData:BatchGetFrameMetricDataResponse' :: BatchGetFrameMetricDataResponse -&gt; [FrameMetricDatum]
+</span><a href="#local-6989586621679205076"><span class="hs-identifier hs-var hs-var">frameMetricData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[FrameMetricDatum]
+</span><a href="#local-6989586621679205076"><span class="hs-identifier hs-var">frameMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205075"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205074"><span class="annot"><span class="annottext">[FrameMetricDatum]
+</span><a href="#local-6989586621679205074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameMetricData:BatchGetFrameMetricDataResponse' :: [FrameMetricDatum]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AframeMetricData%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">frameMetricData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[FrameMetricDatum]
+</span><a href="#local-6989586621679205074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([FrameMetricDatum] -&gt; f [FrameMetricDatum])
+ -&gt; BatchGetFrameMetricDataResponse
+ -&gt; f BatchGetFrameMetricDataResponse)
+-&gt; (([FrameMetricDatum] -&gt; f [FrameMetricDatum])
+    -&gt; [FrameMetricDatum] -&gt; f [FrameMetricDatum])
+-&gt; ([FrameMetricDatum] -&gt; f [FrameMetricDatum])
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([FrameMetricDatum] -&gt; f [FrameMetricDatum])
+-&gt; [FrameMetricDatum] -&gt; f [FrameMetricDatum]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-398"></span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- | Resolution or granularity of the profile data used to generate the time</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- series. This is the value used to jump through time steps in a time</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- series. There are 3 valid values.</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-408"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_resolution"><span class="hs-identifier hs-type">batchGetFrameMetricDataResponse_resolution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span>
+</span><span id="line-409"></span><span id="batchGetFrameMetricDataResponse_resolution"><span class="annot"><span class="annottext">batchGetFrameMetricDataResponse_resolution :: (AggregationPeriod -&gt; f AggregationPeriod)
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_resolution"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricDataResponse_resolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricDataResponse -&gt; AggregationPeriod)
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; AggregationPeriod -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Lens
+     BatchGetFrameMetricDataResponse
+     BatchGetFrameMetricDataResponse
+     AggregationPeriod
+     AggregationPeriod
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205073"><span class="annot"><span class="annottext">AggregationPeriod
+resolution :: AggregationPeriod
+$sel:resolution:BatchGetFrameMetricDataResponse' :: BatchGetFrameMetricDataResponse -&gt; AggregationPeriod
+</span><a href="#local-6989586621679205073"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679205073"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205072"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205071"><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679205071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:BatchGetFrameMetricDataResponse' :: AggregationPeriod
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3Aresolution%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679205071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | The start time of the time period for the returned time series values.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_startTime"><span class="hs-identifier hs-type">batchGetFrameMetricDataResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-416"></span><span id="batchGetFrameMetricDataResponse_startTime"><span class="annot"><span class="annottext">batchGetFrameMetricDataResponse_startTime :: (UTCTime -&gt; f UTCTime)
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_startTime"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricDataResponse_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricDataResponse -&gt; POSIX)
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; POSIX -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Lens
+     BatchGetFrameMetricDataResponse
+     BatchGetFrameMetricDataResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205070"><span class="annot"><span class="annottext">POSIX
+startTime :: POSIX
+$sel:startTime:BatchGetFrameMetricDataResponse' :: BatchGetFrameMetricDataResponse -&gt; POSIX
+</span><a href="#local-6989586621679205070"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679205070"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205069"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205068"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679205068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:BatchGetFrameMetricDataResponse' :: POSIX
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AstartTime%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679205068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; BatchGetFrameMetricDataResponse
+ -&gt; f BatchGetFrameMetricDataResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | List of instances which remained unprocessed. This will create a missing</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- time step in the list of end times.</span><span>
+</span><span id="line-420"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_unprocessedEndTimes"><span class="hs-identifier hs-type">batchGetFrameMetricDataResponse_unprocessedEndTimes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.TimestampStructure.html#TimestampStructure"><span class="hs-identifier hs-type">TimestampStructure</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span id="batchGetFrameMetricDataResponse_unprocessedEndTimes"><span class="annot"><span class="annottext">batchGetFrameMetricDataResponse_unprocessedEndTimes :: (HashMap Text [TimestampStructure]
+ -&gt; f (HashMap Text [TimestampStructure]))
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#batchGetFrameMetricDataResponse_unprocessedEndTimes"><span class="hs-identifier hs-var hs-var">batchGetFrameMetricDataResponse_unprocessedEndTimes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetFrameMetricDataResponse
+ -&gt; HashMap Text [TimestampStructure])
+-&gt; (BatchGetFrameMetricDataResponse
+    -&gt; HashMap Text [TimestampStructure]
+    -&gt; BatchGetFrameMetricDataResponse)
+-&gt; Lens
+     BatchGetFrameMetricDataResponse
+     BatchGetFrameMetricDataResponse
+     (HashMap Text [TimestampStructure])
+     (HashMap Text [TimestampStructure])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205067"><span class="annot"><span class="annottext">HashMap Text [TimestampStructure]
+unprocessedEndTimes :: HashMap Text [TimestampStructure]
+$sel:unprocessedEndTimes:BatchGetFrameMetricDataResponse' :: BatchGetFrameMetricDataResponse
+-&gt; HashMap Text [TimestampStructure]
+</span><a href="#local-6989586621679205067"><span class="hs-identifier hs-var hs-var">unprocessedEndTimes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text [TimestampStructure]
+</span><a href="#local-6989586621679205067"><span class="hs-identifier hs-var">unprocessedEndTimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205066"><span class="annot"><span class="annottext">s :: BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205065"><span class="annot"><span class="annottext">HashMap Text [TimestampStructure]
+</span><a href="#local-6989586621679205065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetFrameMetricDataResponse
+</span><a href="#local-6989586621679205066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedEndTimes:BatchGetFrameMetricDataResponse' :: HashMap Text [TimestampStructure]
+</span><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#%24sel%3AunprocessedEndTimes%3ABatchGetFrameMetricDataResponse%27"><span class="hs-identifier hs-var">unprocessedEndTimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text [TimestampStructure]
+</span><a href="#local-6989586621679205065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text [TimestampStructure]
+  -&gt; f (HashMap Text [TimestampStructure]))
+ -&gt; BatchGetFrameMetricDataResponse
+ -&gt; f BatchGetFrameMetricDataResponse)
+-&gt; ((HashMap Text [TimestampStructure]
+     -&gt; f (HashMap Text [TimestampStructure]))
+    -&gt; HashMap Text [TimestampStructure]
+    -&gt; f (HashMap Text [TimestampStructure]))
+-&gt; (HashMap Text [TimestampStructure]
+    -&gt; f (HashMap Text [TimestampStructure]))
+-&gt; BatchGetFrameMetricDataResponse
+-&gt; f BatchGetFrameMetricDataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text [TimestampStructure]
+ -&gt; f (HashMap Text [TimestampStructure]))
+-&gt; HashMap Text [TimestampStructure]
+-&gt; f (HashMap Text [TimestampStructure])
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-422"></span><span>
+</span><span id="line-423"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-424"></span><span>  </span><span id="local-6989586621679205063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-425"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.html#BatchGetFrameMetricDataResponse"><span class="hs-identifier hs-type">BatchGetFrameMetricDataResponse</span></a></span></span><span>
+</span><span id="line-426"></span></pre></body></html>

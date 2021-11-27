@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.SigningAlg</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.SigningAlg</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg"><span class="hs-identifier">SigningAlg</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg_Ed25519"><span class="hs-identifier">SigningAlg_Ed25519</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg_P256r1"><span class="hs-identifier">SigningAlg_P256r1</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The certificate chain algorithm provided by sidewalk.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679277792"><span id="local-6989586621679277793"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SigningAlg"><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg"><span class="hs-identifier hs-var">SigningAlg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigningAlg%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg%27"><span class="hs-identifier hs-var">SigningAlg'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSigningAlg"><span class="annot"><span class="annottext">SigningAlg -&gt; Text
+</span><a href="Amazonka.IoTWireless.Types.SigningAlg.html#fromSigningAlg"><span class="hs-identifier hs-var hs-var">fromSigningAlg</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277784"><span id="local-6989586621679277786"><span id="local-6989586621679277788"><span class="annot"><span class="annottext">Int -&gt; SigningAlg -&gt; ShowS
+[SigningAlg] -&gt; ShowS
+SigningAlg -&gt; String
+(Int -&gt; SigningAlg -&gt; ShowS)
+-&gt; (SigningAlg -&gt; String)
+-&gt; ([SigningAlg] -&gt; ShowS)
+-&gt; Show SigningAlg
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SigningAlg] -&gt; ShowS
+$cshowList :: [SigningAlg] -&gt; ShowS
+show :: SigningAlg -&gt; String
+$cshow :: SigningAlg -&gt; String
+showsPrec :: Int -&gt; SigningAlg -&gt; ShowS
+$cshowsPrec :: Int -&gt; SigningAlg -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679277775"><span id="local-6989586621679277777"><span id="local-6989586621679277779"><span id="local-6989586621679277781"><span class="annot"><span class="annottext">ReadPrec [SigningAlg]
+ReadPrec SigningAlg
+Int -&gt; ReadS SigningAlg
+ReadS [SigningAlg]
+(Int -&gt; ReadS SigningAlg)
+-&gt; ReadS [SigningAlg]
+-&gt; ReadPrec SigningAlg
+-&gt; ReadPrec [SigningAlg]
+-&gt; Read SigningAlg
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SigningAlg]
+$creadListPrec :: ReadPrec [SigningAlg]
+readPrec :: ReadPrec SigningAlg
+$creadPrec :: ReadPrec SigningAlg
+readList :: ReadS [SigningAlg]
+$creadList :: ReadS [SigningAlg]
+readsPrec :: Int -&gt; ReadS SigningAlg
+$creadsPrec :: Int -&gt; ReadS SigningAlg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679277770"><span id="local-6989586621679277772"><span class="annot"><span class="annottext">SigningAlg -&gt; SigningAlg -&gt; Bool
+(SigningAlg -&gt; SigningAlg -&gt; Bool)
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; Bool) -&gt; Eq SigningAlg
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SigningAlg -&gt; SigningAlg -&gt; Bool
+$c/= :: SigningAlg -&gt; SigningAlg -&gt; Bool
+== :: SigningAlg -&gt; SigningAlg -&gt; Bool
+$c== :: SigningAlg -&gt; SigningAlg -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679277754"><span id="local-6989586621679277756"><span id="local-6989586621679277758"><span id="local-6989586621679277760"><span id="local-6989586621679277762"><span id="local-6989586621679277764"><span id="local-6989586621679277766"><span class="annot"><span class="annottext">Eq SigningAlg
+Eq SigningAlg
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; Ordering)
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; Bool)
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; Bool)
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; Bool)
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; Bool)
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; SigningAlg)
+-&gt; (SigningAlg -&gt; SigningAlg -&gt; SigningAlg)
+-&gt; Ord SigningAlg
+SigningAlg -&gt; SigningAlg -&gt; Bool
+SigningAlg -&gt; SigningAlg -&gt; Ordering
+SigningAlg -&gt; SigningAlg -&gt; SigningAlg
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SigningAlg -&gt; SigningAlg -&gt; SigningAlg
+$cmin :: SigningAlg -&gt; SigningAlg -&gt; SigningAlg
+max :: SigningAlg -&gt; SigningAlg -&gt; SigningAlg
+$cmax :: SigningAlg -&gt; SigningAlg -&gt; SigningAlg
+&gt;= :: SigningAlg -&gt; SigningAlg -&gt; Bool
+$c&gt;= :: SigningAlg -&gt; SigningAlg -&gt; Bool
+&gt; :: SigningAlg -&gt; SigningAlg -&gt; Bool
+$c&gt; :: SigningAlg -&gt; SigningAlg -&gt; Bool
+&lt;= :: SigningAlg -&gt; SigningAlg -&gt; Bool
+$c&lt;= :: SigningAlg -&gt; SigningAlg -&gt; Bool
+&lt; :: SigningAlg -&gt; SigningAlg -&gt; Bool
+$c&lt; :: SigningAlg -&gt; SigningAlg -&gt; Bool
+compare :: SigningAlg -&gt; SigningAlg -&gt; Ordering
+$ccompare :: SigningAlg -&gt; SigningAlg -&gt; Ordering
+$cp1Ord :: Eq SigningAlg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SigningAlg -&gt; Rep SigningAlg x)
+-&gt; (forall x. Rep SigningAlg x -&gt; SigningAlg) -&gt; Generic SigningAlg
+forall x. Rep SigningAlg x -&gt; SigningAlg
+forall x. SigningAlg -&gt; Rep SigningAlg x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SigningAlg x -&gt; SigningAlg
+$cfrom :: forall x. SigningAlg -&gt; Rep SigningAlg x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277746"><span id="local-6989586621679277748"><span class="annot"><span class="annottext">Int -&gt; SigningAlg -&gt; Int
+SigningAlg -&gt; Int
+(Int -&gt; SigningAlg -&gt; Int)
+-&gt; (SigningAlg -&gt; Int) -&gt; Hashable SigningAlg
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SigningAlg -&gt; Int
+$chash :: SigningAlg -&gt; Int
+hashWithSalt :: Int -&gt; SigningAlg -&gt; Int
+$chashWithSalt :: Int -&gt; SigningAlg -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679277743"><span class="annot"><span class="annottext">SigningAlg -&gt; ()
+(SigningAlg -&gt; ()) -&gt; NFData SigningAlg
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SigningAlg -&gt; ()
+$crnf :: SigningAlg -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679277740"><span class="annot"><span class="annottext">Text -&gt; Either String SigningAlg
+(Text -&gt; Either String SigningAlg) -&gt; FromText SigningAlg
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SigningAlg
+$cfromText :: Text -&gt; Either String SigningAlg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679277737"><span class="annot"><span class="annottext">SigningAlg -&gt; Text
+(SigningAlg -&gt; Text) -&gt; ToText SigningAlg
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SigningAlg -&gt; Text
+$ctoText :: SigningAlg -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679277734"><span class="annot"><span class="annottext">SigningAlg -&gt; ByteString
+(SigningAlg -&gt; ByteString) -&gt; ToByteString SigningAlg
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SigningAlg -&gt; ByteString
+$ctoBS :: SigningAlg -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679277731"><span class="annot"><span class="annottext">SigningAlg -&gt; ByteStringBuilder
+(SigningAlg -&gt; ByteStringBuilder) -&gt; ToLog SigningAlg
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SigningAlg -&gt; ByteStringBuilder
+$cbuild :: SigningAlg -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679277728"><span class="annot"><span class="annottext">HeaderName -&gt; SigningAlg -&gt; [Header]
+(HeaderName -&gt; SigningAlg -&gt; [Header]) -&gt; ToHeader SigningAlg
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SigningAlg -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SigningAlg -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679277725"><span class="annot"><span class="annottext">SigningAlg -&gt; QueryString
+(SigningAlg -&gt; QueryString) -&gt; ToQuery SigningAlg
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SigningAlg -&gt; QueryString
+$ctoQuery :: SigningAlg -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679277720"><span id="local-6989586621679277722"><span class="annot"><span class="annottext">Value -&gt; Parser [SigningAlg]
+Value -&gt; Parser SigningAlg
+(Value -&gt; Parser SigningAlg)
+-&gt; (Value -&gt; Parser [SigningAlg]) -&gt; FromJSON SigningAlg
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SigningAlg]
+$cparseJSONList :: Value -&gt; Parser [SigningAlg]
+parseJSON :: Value -&gt; Parser SigningAlg
+$cparseJSON :: Value -&gt; Parser SigningAlg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679277715"><span id="local-6989586621679277717"><span class="annot"><span class="annottext">FromJSONKeyFunction [SigningAlg]
+FromJSONKeyFunction SigningAlg
+FromJSONKeyFunction SigningAlg
+-&gt; FromJSONKeyFunction [SigningAlg] -&gt; FromJSONKey SigningAlg
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SigningAlg]
+$cfromJSONKeyList :: FromJSONKeyFunction [SigningAlg]
+fromJSONKey :: FromJSONKeyFunction SigningAlg
+$cfromJSONKey :: FromJSONKeyFunction SigningAlg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679277706"><span id="local-6989586621679277708"><span id="local-6989586621679277710"><span id="local-6989586621679277712"><span class="annot"><span class="annottext">[SigningAlg] -&gt; Encoding
+[SigningAlg] -&gt; Value
+SigningAlg -&gt; Encoding
+SigningAlg -&gt; Value
+(SigningAlg -&gt; Value)
+-&gt; (SigningAlg -&gt; Encoding)
+-&gt; ([SigningAlg] -&gt; Value)
+-&gt; ([SigningAlg] -&gt; Encoding)
+-&gt; ToJSON SigningAlg
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SigningAlg] -&gt; Encoding
+$ctoEncodingList :: [SigningAlg] -&gt; Encoding
+toJSONList :: [SigningAlg] -&gt; Value
+$ctoJSONList :: [SigningAlg] -&gt; Value
+toEncoding :: SigningAlg -&gt; Encoding
+$ctoEncoding :: SigningAlg -&gt; Encoding
+toJSON :: SigningAlg -&gt; Value
+$ctoJSON :: SigningAlg -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679277701"><span id="local-6989586621679277703"><span class="annot"><span class="annottext">ToJSONKeyFunction [SigningAlg]
+ToJSONKeyFunction SigningAlg
+ToJSONKeyFunction SigningAlg
+-&gt; ToJSONKeyFunction [SigningAlg] -&gt; ToJSONKey SigningAlg
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SigningAlg]
+$ctoJSONKeyList :: ToJSONKeyFunction [SigningAlg]
+toJSONKey :: ToJSONKeyFunction SigningAlg
+$ctoJSONKey :: ToJSONKeyFunction SigningAlg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679277698"><span class="annot"><span class="annottext">[Node] -&gt; Either String SigningAlg
+([Node] -&gt; Either String SigningAlg) -&gt; FromXML SigningAlg
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SigningAlg
+$cparseXML :: [Node] -&gt; Either String SigningAlg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679277695"><span class="annot"><span class="annottext">SigningAlg -&gt; XML
+(SigningAlg -&gt; XML) -&gt; ToXML SigningAlg
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SigningAlg -&gt; XML
+$ctoXML :: SigningAlg -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg_Ed25519"><span class="hs-identifier hs-type">SigningAlg_Ed25519</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg"><span class="hs-identifier hs-type">SigningAlg</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSigningAlg_Ed25519"><span id="%24mSigningAlg_Ed25519"><span id="SigningAlg_Ed25519"><span class="annot"><span class="annottext">$bSigningAlg_Ed25519 :: SigningAlg
+$mSigningAlg_Ed25519 :: forall r. SigningAlg -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.SigningAlg.html#%24bSigningAlg_Ed25519"><span class="hs-identifier hs-var hs-var hs-var">SigningAlg_Ed25519</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg%27"><span class="hs-identifier hs-type">SigningAlg'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ed25519&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg_P256r1"><span class="hs-identifier hs-type">SigningAlg_P256r1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg"><span class="hs-identifier hs-type">SigningAlg</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSigningAlg_P256r1"><span id="%24mSigningAlg_P256r1"><span id="SigningAlg_P256r1"><span class="annot"><span class="annottext">$bSigningAlg_P256r1 :: SigningAlg
+$mSigningAlg_P256r1 :: forall r. SigningAlg -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.SigningAlg.html#%24bSigningAlg_P256r1"><span class="hs-identifier hs-var hs-var hs-var">SigningAlg_P256r1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg%27"><span class="hs-identifier hs-type">SigningAlg'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;P256r1&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg_Ed25519"><span class="hs-pragma hs-type">SigningAlg_Ed25519</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg_P256r1"><span class="hs-pragma hs-type">SigningAlg_P256r1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SigningAlg.html#SigningAlg%27"><span class="hs-pragma hs-type">SigningAlg'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

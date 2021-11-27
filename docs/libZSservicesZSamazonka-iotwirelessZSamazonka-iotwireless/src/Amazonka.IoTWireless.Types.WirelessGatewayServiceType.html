@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.WirelessGatewayServiceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.WirelessGatewayServiceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier">WirelessGatewayServiceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType_CUPS"><span class="hs-identifier">WirelessGatewayServiceType_CUPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType_LNS"><span class="hs-identifier">WirelessGatewayServiceType_LNS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679280042"><span id="local-6989586621679280043"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WirelessGatewayServiceType"><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier hs-var">WirelessGatewayServiceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WirelessGatewayServiceType%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType%27"><span class="hs-identifier hs-var">WirelessGatewayServiceType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWirelessGatewayServiceType"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; Text
+</span><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#fromWirelessGatewayServiceType"><span class="hs-identifier hs-var hs-var">fromWirelessGatewayServiceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280034"><span id="local-6989586621679280036"><span id="local-6989586621679280038"><span class="annot"><span class="annottext">Int -&gt; WirelessGatewayServiceType -&gt; ShowS
+[WirelessGatewayServiceType] -&gt; ShowS
+WirelessGatewayServiceType -&gt; String
+(Int -&gt; WirelessGatewayServiceType -&gt; ShowS)
+-&gt; (WirelessGatewayServiceType -&gt; String)
+-&gt; ([WirelessGatewayServiceType] -&gt; ShowS)
+-&gt; Show WirelessGatewayServiceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WirelessGatewayServiceType] -&gt; ShowS
+$cshowList :: [WirelessGatewayServiceType] -&gt; ShowS
+show :: WirelessGatewayServiceType -&gt; String
+$cshow :: WirelessGatewayServiceType -&gt; String
+showsPrec :: Int -&gt; WirelessGatewayServiceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; WirelessGatewayServiceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679280025"><span id="local-6989586621679280027"><span id="local-6989586621679280029"><span id="local-6989586621679280031"><span class="annot"><span class="annottext">ReadPrec [WirelessGatewayServiceType]
+ReadPrec WirelessGatewayServiceType
+Int -&gt; ReadS WirelessGatewayServiceType
+ReadS [WirelessGatewayServiceType]
+(Int -&gt; ReadS WirelessGatewayServiceType)
+-&gt; ReadS [WirelessGatewayServiceType]
+-&gt; ReadPrec WirelessGatewayServiceType
+-&gt; ReadPrec [WirelessGatewayServiceType]
+-&gt; Read WirelessGatewayServiceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WirelessGatewayServiceType]
+$creadListPrec :: ReadPrec [WirelessGatewayServiceType]
+readPrec :: ReadPrec WirelessGatewayServiceType
+$creadPrec :: ReadPrec WirelessGatewayServiceType
+readList :: ReadS [WirelessGatewayServiceType]
+$creadList :: ReadS [WirelessGatewayServiceType]
+readsPrec :: Int -&gt; ReadS WirelessGatewayServiceType
+$creadsPrec :: Int -&gt; ReadS WirelessGatewayServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679280020"><span id="local-6989586621679280022"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+(WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool)
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; Bool)
+-&gt; Eq WirelessGatewayServiceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+$c/= :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+== :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+$c== :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679280004"><span id="local-6989586621679280006"><span id="local-6989586621679280008"><span id="local-6989586621679280010"><span id="local-6989586621679280012"><span id="local-6989586621679280014"><span id="local-6989586621679280016"><span class="annot"><span class="annottext">Eq WirelessGatewayServiceType
+Eq WirelessGatewayServiceType
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; Ordering)
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; Bool)
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; Bool)
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; Bool)
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; Bool)
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; WirelessGatewayServiceType)
+-&gt; (WirelessGatewayServiceType
+    -&gt; WirelessGatewayServiceType -&gt; WirelessGatewayServiceType)
+-&gt; Ord WirelessGatewayServiceType
+WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; Ordering
+WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; WirelessGatewayServiceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; WirelessGatewayServiceType
+$cmin :: WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; WirelessGatewayServiceType
+max :: WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; WirelessGatewayServiceType
+$cmax :: WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; WirelessGatewayServiceType
+&gt;= :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+$c&gt;= :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+&gt; :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+$c&gt; :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+&lt;= :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+$c&lt;= :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+&lt; :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+$c&lt; :: WirelessGatewayServiceType -&gt; WirelessGatewayServiceType -&gt; Bool
+compare :: WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; Ordering
+$ccompare :: WirelessGatewayServiceType
+-&gt; WirelessGatewayServiceType -&gt; Ordering
+$cp1Ord :: Eq WirelessGatewayServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ WirelessGatewayServiceType -&gt; Rep WirelessGatewayServiceType x)
+-&gt; (forall x.
+    Rep WirelessGatewayServiceType x -&gt; WirelessGatewayServiceType)
+-&gt; Generic WirelessGatewayServiceType
+forall x.
+Rep WirelessGatewayServiceType x -&gt; WirelessGatewayServiceType
+forall x.
+WirelessGatewayServiceType -&gt; Rep WirelessGatewayServiceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep WirelessGatewayServiceType x -&gt; WirelessGatewayServiceType
+$cfrom :: forall x.
+WirelessGatewayServiceType -&gt; Rep WirelessGatewayServiceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279996"><span id="local-6989586621679279998"><span class="annot"><span class="annottext">Int -&gt; WirelessGatewayServiceType -&gt; Int
+WirelessGatewayServiceType -&gt; Int
+(Int -&gt; WirelessGatewayServiceType -&gt; Int)
+-&gt; (WirelessGatewayServiceType -&gt; Int)
+-&gt; Hashable WirelessGatewayServiceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WirelessGatewayServiceType -&gt; Int
+$chash :: WirelessGatewayServiceType -&gt; Int
+hashWithSalt :: Int -&gt; WirelessGatewayServiceType -&gt; Int
+$chashWithSalt :: Int -&gt; WirelessGatewayServiceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679279993"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; ()
+(WirelessGatewayServiceType -&gt; ())
+-&gt; NFData WirelessGatewayServiceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WirelessGatewayServiceType -&gt; ()
+$crnf :: WirelessGatewayServiceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679279990"><span class="annot"><span class="annottext">Text -&gt; Either String WirelessGatewayServiceType
+(Text -&gt; Either String WirelessGatewayServiceType)
+-&gt; FromText WirelessGatewayServiceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WirelessGatewayServiceType
+$cfromText :: Text -&gt; Either String WirelessGatewayServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679279987"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; Text
+(WirelessGatewayServiceType -&gt; Text)
+-&gt; ToText WirelessGatewayServiceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WirelessGatewayServiceType -&gt; Text
+$ctoText :: WirelessGatewayServiceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679279984"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; ByteString
+(WirelessGatewayServiceType -&gt; ByteString)
+-&gt; ToByteString WirelessGatewayServiceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WirelessGatewayServiceType -&gt; ByteString
+$ctoBS :: WirelessGatewayServiceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679279981"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; ByteStringBuilder
+(WirelessGatewayServiceType -&gt; ByteStringBuilder)
+-&gt; ToLog WirelessGatewayServiceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WirelessGatewayServiceType -&gt; ByteStringBuilder
+$cbuild :: WirelessGatewayServiceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279978"><span class="annot"><span class="annottext">HeaderName -&gt; WirelessGatewayServiceType -&gt; [Header]
+(HeaderName -&gt; WirelessGatewayServiceType -&gt; [Header])
+-&gt; ToHeader WirelessGatewayServiceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WirelessGatewayServiceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WirelessGatewayServiceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279975"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; QueryString
+(WirelessGatewayServiceType -&gt; QueryString)
+-&gt; ToQuery WirelessGatewayServiceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WirelessGatewayServiceType -&gt; QueryString
+$ctoQuery :: WirelessGatewayServiceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279970"><span id="local-6989586621679279972"><span class="annot"><span class="annottext">Value -&gt; Parser [WirelessGatewayServiceType]
+Value -&gt; Parser WirelessGatewayServiceType
+(Value -&gt; Parser WirelessGatewayServiceType)
+-&gt; (Value -&gt; Parser [WirelessGatewayServiceType])
+-&gt; FromJSON WirelessGatewayServiceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WirelessGatewayServiceType]
+$cparseJSONList :: Value -&gt; Parser [WirelessGatewayServiceType]
+parseJSON :: Value -&gt; Parser WirelessGatewayServiceType
+$cparseJSON :: Value -&gt; Parser WirelessGatewayServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279965"><span id="local-6989586621679279967"><span class="annot"><span class="annottext">FromJSONKeyFunction [WirelessGatewayServiceType]
+FromJSONKeyFunction WirelessGatewayServiceType
+FromJSONKeyFunction WirelessGatewayServiceType
+-&gt; FromJSONKeyFunction [WirelessGatewayServiceType]
+-&gt; FromJSONKey WirelessGatewayServiceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WirelessGatewayServiceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [WirelessGatewayServiceType]
+fromJSONKey :: FromJSONKeyFunction WirelessGatewayServiceType
+$cfromJSONKey :: FromJSONKeyFunction WirelessGatewayServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279956"><span id="local-6989586621679279958"><span id="local-6989586621679279960"><span id="local-6989586621679279962"><span class="annot"><span class="annottext">[WirelessGatewayServiceType] -&gt; Encoding
+[WirelessGatewayServiceType] -&gt; Value
+WirelessGatewayServiceType -&gt; Encoding
+WirelessGatewayServiceType -&gt; Value
+(WirelessGatewayServiceType -&gt; Value)
+-&gt; (WirelessGatewayServiceType -&gt; Encoding)
+-&gt; ([WirelessGatewayServiceType] -&gt; Value)
+-&gt; ([WirelessGatewayServiceType] -&gt; Encoding)
+-&gt; ToJSON WirelessGatewayServiceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WirelessGatewayServiceType] -&gt; Encoding
+$ctoEncodingList :: [WirelessGatewayServiceType] -&gt; Encoding
+toJSONList :: [WirelessGatewayServiceType] -&gt; Value
+$ctoJSONList :: [WirelessGatewayServiceType] -&gt; Value
+toEncoding :: WirelessGatewayServiceType -&gt; Encoding
+$ctoEncoding :: WirelessGatewayServiceType -&gt; Encoding
+toJSON :: WirelessGatewayServiceType -&gt; Value
+$ctoJSON :: WirelessGatewayServiceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279951"><span id="local-6989586621679279953"><span class="annot"><span class="annottext">ToJSONKeyFunction [WirelessGatewayServiceType]
+ToJSONKeyFunction WirelessGatewayServiceType
+ToJSONKeyFunction WirelessGatewayServiceType
+-&gt; ToJSONKeyFunction [WirelessGatewayServiceType]
+-&gt; ToJSONKey WirelessGatewayServiceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WirelessGatewayServiceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [WirelessGatewayServiceType]
+toJSONKey :: ToJSONKeyFunction WirelessGatewayServiceType
+$ctoJSONKey :: ToJSONKeyFunction WirelessGatewayServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279948"><span class="annot"><span class="annottext">[Node] -&gt; Either String WirelessGatewayServiceType
+([Node] -&gt; Either String WirelessGatewayServiceType)
+-&gt; FromXML WirelessGatewayServiceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WirelessGatewayServiceType
+$cparseXML :: [Node] -&gt; Either String WirelessGatewayServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279945"><span class="annot"><span class="annottext">WirelessGatewayServiceType -&gt; XML
+(WirelessGatewayServiceType -&gt; XML)
+-&gt; ToXML WirelessGatewayServiceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WirelessGatewayServiceType -&gt; XML
+$ctoXML :: WirelessGatewayServiceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType_CUPS"><span class="hs-identifier hs-type">WirelessGatewayServiceType_CUPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier hs-type">WirelessGatewayServiceType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessGatewayServiceType_CUPS"><span id="%24mWirelessGatewayServiceType_CUPS"><span id="WirelessGatewayServiceType_CUPS"><span class="annot"><span class="annottext">$bWirelessGatewayServiceType_CUPS :: WirelessGatewayServiceType
+$mWirelessGatewayServiceType_CUPS :: forall r.
+WirelessGatewayServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#%24bWirelessGatewayServiceType_CUPS"><span class="hs-identifier hs-var hs-var hs-var">WirelessGatewayServiceType_CUPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType%27"><span class="hs-identifier hs-type">WirelessGatewayServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUPS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType_LNS"><span class="hs-identifier hs-type">WirelessGatewayServiceType_LNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier hs-type">WirelessGatewayServiceType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessGatewayServiceType_LNS"><span id="%24mWirelessGatewayServiceType_LNS"><span id="WirelessGatewayServiceType_LNS"><span class="annot"><span class="annottext">$bWirelessGatewayServiceType_LNS :: WirelessGatewayServiceType
+$mWirelessGatewayServiceType_LNS :: forall r.
+WirelessGatewayServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#%24bWirelessGatewayServiceType_LNS"><span class="hs-identifier hs-var hs-var hs-var">WirelessGatewayServiceType_LNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType%27"><span class="hs-identifier hs-type">WirelessGatewayServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LNS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType_CUPS"><span class="hs-pragma hs-type">WirelessGatewayServiceType_CUPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType_LNS"><span class="hs-pragma hs-type">WirelessGatewayServiceType_LNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType%27"><span class="hs-pragma hs-type">WirelessGatewayServiceType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

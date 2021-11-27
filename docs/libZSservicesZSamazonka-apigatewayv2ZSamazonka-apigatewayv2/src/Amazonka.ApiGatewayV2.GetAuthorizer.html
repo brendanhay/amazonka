@@ -1,0 +1,1218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ApiGatewayV2.GetAuthorizer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets an Authorizer.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApiGatewayV2.GetAuthorizer</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier">GetAuthorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#newGetAuthorizer"><span class="hs-identifier">newGetAuthorizer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizer_authorizerId"><span class="hs-identifier">getAuthorizer_authorizerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizer_apiId"><span class="hs-identifier">getAuthorizer_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#newGetAuthorizerResponse"><span class="hs-identifier">newGetAuthorizerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerCredentialsArn"><span class="hs-identifier">getAuthorizerResponse_authorizerCredentialsArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_identityValidationExpression"><span class="hs-identifier">getAuthorizerResponse_identityValidationExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_enableSimpleResponses"><span class="hs-identifier">getAuthorizerResponse_enableSimpleResponses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerUri"><span class="hs-identifier">getAuthorizerResponse_authorizerUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerPayloadFormatVersion"><span class="hs-identifier">getAuthorizerResponse_authorizerPayloadFormatVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_jwtConfiguration"><span class="hs-identifier">getAuthorizerResponse_jwtConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerId"><span class="hs-identifier">getAuthorizerResponse_authorizerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_name"><span class="hs-identifier">getAuthorizerResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerResultTtlInSeconds"><span class="hs-identifier">getAuthorizerResponse_authorizerResultTtlInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_identitySource"><span class="hs-identifier">getAuthorizerResponse_identitySource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerType"><span class="hs-identifier">getAuthorizerResponse_authorizerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_httpStatus"><span class="hs-identifier">getAuthorizerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newGetAuthorizer' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679418056"><span id="local-6989586621679418057"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAuthorizer"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-var">GetAuthorizer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAuthorizer%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer%27"><span class="hs-identifier hs-var">GetAuthorizer'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authorizer identifier.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AauthorizerId%3AGetAuthorizer%27"><span class="annot"><span class="annottext">GetAuthorizer -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerId%3AGetAuthorizer%27"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AapiId%3AGetAuthorizer%27"><span class="annot"><span class="annottext">GetAuthorizer -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AapiId%3AGetAuthorizer%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418049"><span id="local-6989586621679418051"><span class="annot"><span class="annottext">GetAuthorizer -&gt; GetAuthorizer -&gt; Bool
+(GetAuthorizer -&gt; GetAuthorizer -&gt; Bool)
+-&gt; (GetAuthorizer -&gt; GetAuthorizer -&gt; Bool) -&gt; Eq GetAuthorizer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAuthorizer -&gt; GetAuthorizer -&gt; Bool
+$c/= :: GetAuthorizer -&gt; GetAuthorizer -&gt; Bool
+== :: GetAuthorizer -&gt; GetAuthorizer -&gt; Bool
+$c== :: GetAuthorizer -&gt; GetAuthorizer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418040"><span id="local-6989586621679418042"><span id="local-6989586621679418044"><span id="local-6989586621679418046"><span class="annot"><span class="annottext">ReadPrec [GetAuthorizer]
+ReadPrec GetAuthorizer
+Int -&gt; ReadS GetAuthorizer
+ReadS [GetAuthorizer]
+(Int -&gt; ReadS GetAuthorizer)
+-&gt; ReadS [GetAuthorizer]
+-&gt; ReadPrec GetAuthorizer
+-&gt; ReadPrec [GetAuthorizer]
+-&gt; Read GetAuthorizer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAuthorizer]
+$creadListPrec :: ReadPrec [GetAuthorizer]
+readPrec :: ReadPrec GetAuthorizer
+$creadPrec :: ReadPrec GetAuthorizer
+readList :: ReadS [GetAuthorizer]
+$creadList :: ReadS [GetAuthorizer]
+readsPrec :: Int -&gt; ReadS GetAuthorizer
+$creadsPrec :: Int -&gt; ReadS GetAuthorizer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418033"><span id="local-6989586621679418035"><span id="local-6989586621679418037"><span class="annot"><span class="annottext">Int -&gt; GetAuthorizer -&gt; ShowS
+[GetAuthorizer] -&gt; ShowS
+GetAuthorizer -&gt; String
+(Int -&gt; GetAuthorizer -&gt; ShowS)
+-&gt; (GetAuthorizer -&gt; String)
+-&gt; ([GetAuthorizer] -&gt; ShowS)
+-&gt; Show GetAuthorizer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAuthorizer] -&gt; ShowS
+$cshowList :: [GetAuthorizer] -&gt; ShowS
+show :: GetAuthorizer -&gt; String
+$cshow :: GetAuthorizer -&gt; String
+showsPrec :: Int -&gt; GetAuthorizer -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAuthorizer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAuthorizer -&gt; Rep GetAuthorizer x)
+-&gt; (forall x. Rep GetAuthorizer x -&gt; GetAuthorizer)
+-&gt; Generic GetAuthorizer
+forall x. Rep GetAuthorizer x -&gt; GetAuthorizer
+forall x. GetAuthorizer -&gt; Rep GetAuthorizer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAuthorizer x -&gt; GetAuthorizer
+$cfrom :: forall x. GetAuthorizer -&gt; Rep GetAuthorizer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'GetAuthorizer' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'authorizerId', 'getAuthorizer_authorizerId' - The authorizer identifier.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'apiId', 'getAuthorizer_apiId' - The API identifier.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#newGetAuthorizer"><span class="hs-identifier hs-type">newGetAuthorizer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'authorizerId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span>
+</span><span id="line-86"></span><span id="newGetAuthorizer"><span class="annot"><span class="annottext">newGetAuthorizer :: Text -&gt; Text -&gt; GetAuthorizer
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#newGetAuthorizer"><span class="hs-identifier hs-var hs-var">newGetAuthorizer</span></a></span></span><span> </span><span id="local-6989586621679418028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418028"><span class="hs-identifier hs-var">pAuthorizerId_</span></a></span></span><span> </span><span id="local-6989586621679418027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418027"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">GetAuthorizer' :: Text -&gt; Text -&gt; GetAuthorizer
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer%27"><span class="hs-identifier hs-type">GetAuthorizer'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authorizerId:GetAuthorizer' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerId%3AGetAuthorizer%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418028"><span class="hs-identifier hs-var">pAuthorizerId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:GetAuthorizer' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AapiId%3AGetAuthorizer%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418027"><span class="hs-identifier hs-var">pApiId_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The authorizer identifier.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizer_authorizerId"><span class="hs-identifier hs-type">getAuthorizer_authorizerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="getAuthorizer_authorizerId"><span class="annot"><span class="annottext">getAuthorizer_authorizerId :: (Text -&gt; f Text) -&gt; GetAuthorizer -&gt; f GetAuthorizer
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizer_authorizerId"><span class="hs-identifier hs-var hs-var">getAuthorizer_authorizerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizer -&gt; Text)
+-&gt; (GetAuthorizer -&gt; Text -&gt; GetAuthorizer)
+-&gt; Lens GetAuthorizer GetAuthorizer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer%27"><span class="hs-identifier hs-type">GetAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418024"><span class="annot"><span class="annottext">Text
+authorizerId :: Text
+$sel:authorizerId:GetAuthorizer' :: GetAuthorizer -&gt; Text
+</span><a href="#local-6989586621679418024"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418024"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418023"><span class="annot"><span class="annottext">s :: GetAuthorizer
+</span><a href="#local-6989586621679418023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer%27"><span class="hs-identifier hs-type">GetAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizer
+</span><a href="#local-6989586621679418023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:GetAuthorizer' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerId%3AGetAuthorizer%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizer_apiId"><span class="hs-identifier hs-type">getAuthorizer_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="getAuthorizer_apiId"><span class="annot"><span class="annottext">getAuthorizer_apiId :: (Text -&gt; f Text) -&gt; GetAuthorizer -&gt; f GetAuthorizer
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizer_apiId"><span class="hs-identifier hs-var hs-var">getAuthorizer_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizer -&gt; Text)
+-&gt; (GetAuthorizer -&gt; Text -&gt; GetAuthorizer)
+-&gt; Lens GetAuthorizer GetAuthorizer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer%27"><span class="hs-identifier hs-type">GetAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418021"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:GetAuthorizer' :: GetAuthorizer -&gt; Text
+</span><a href="#local-6989586621679418021"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418021"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418020"><span class="annot"><span class="annottext">s :: GetAuthorizer
+</span><a href="#local-6989586621679418020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer%27"><span class="hs-identifier hs-type">GetAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizer
+</span><a href="#local-6989586621679418020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:GetAuthorizer' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AapiId%3AGetAuthorizer%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679418015"><span class="annot"><span class="annottext">request :: GetAuthorizer -&gt; Request GetAuthorizer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAuthorizer -&gt; Request GetAuthorizer
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679418011"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAuthorizer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetAuthorizer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetAuthorizer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAuthorizer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetAuthorizer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679418008"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418008"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679418007"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679418007"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679418006"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe JWTConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [Text]
+-&gt; Maybe AuthorizerType
+-&gt; Int
+-&gt; GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-var">GetAuthorizerResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe JWTConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe [Text]
+ -&gt; Maybe AuthorizerType
+ -&gt; Int
+ -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe JWTConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerCredentialsArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe JWTConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe JWTConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identityValidationExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe JWTConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe JWTConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableSimpleResponses&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe JWTConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe JWTConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe JWTConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe JWTConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerPayloadFormatVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe JWTConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe JWTConfiguration)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JWTConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jwtConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe [Text]
+      -&gt; Maybe AuthorizerType
+      -&gt; Int
+      -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe [Text]
+   -&gt; Maybe AuthorizerType
+   -&gt; Int
+   -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe AuthorizerType -&gt; Int -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerResultTtlInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe AuthorizerType -&gt; Int -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe AuthorizerType -&gt; Int -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identitySource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe AuthorizerType -&gt; Int -&gt; GetAuthorizerResponse)
+-&gt; Either String (Maybe AuthorizerType)
+-&gt; Either String (Int -&gt; GetAuthorizerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuthorizerType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAuthorizerResponse)
+-&gt; Either String Int -&gt; Either String GetAuthorizerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418008"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417997"><span id="local-6989586621679417999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679417990"><span class="annot"><span class="annottext">toHeaders :: GetAuthorizer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAuthorizer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679417984"><span class="annot"><span class="annottext">toPath :: GetAuthorizer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer%27"><span class="hs-identifier hs-type">GetAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417981"><span id="local-6989586621679417982"><span class="annot"><span class="annottext">Text
+apiId :: Text
+authorizerId :: Text
+$sel:apiId:GetAuthorizer' :: GetAuthorizer -&gt; Text
+$sel:authorizerId:GetAuthorizer' :: GetAuthorizer -&gt; Text
+</span><a href="#local-6989586621679417981"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/apis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417981"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/authorizers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417982"><span class="hs-identifier hs-var">authorizerId</span></a></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizer"><span class="hs-identifier hs-type">GetAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679417977"><span class="annot"><span class="annottext">toQuery :: GetAuthorizer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAuthorizer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newGetAuthorizerResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679417974"><span id="local-6989586621679417975"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAuthorizerResponse"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-var">GetAuthorizerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAuthorizerResponse%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-var">GetAuthorizerResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the required credentials as an IAM role for API Gateway to</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- invoke the authorizer. To specify an IAM role for API Gateway to assume,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- use the role\'s Amazon Resource Name (ARN). To use resource-based</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- permissions on the Lambda function, don\'t specify this parameter.</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- Supported only for REQUEST authorizers.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AauthorizerCredentialsArn%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerCredentialsArn%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorizerCredentialsArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The validation expression does not apply to the REQUEST authorizer.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AidentityValidationExpression%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AidentityValidationExpression%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">identityValidationExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | Specifies whether a Lambda authorizer returns a response in a simple</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- format. If enabled, the Lambda authorizer can return a boolean value</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- instead of an IAM policy. Supported only for HTTP APIs. To learn more,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AenableSimpleResponses%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AenableSimpleResponses%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">enableSimpleResponses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The authorizer\'s Uniform Resource Identifier (URI). For REQUEST</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- authorizers, this must be a well-formed Lambda function URI, for</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- example,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- arn:aws:apigateway:us-west-2:lambda:path\/2015-03-31\/functions\/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}\/invocations.</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- In general, the URI has this form:</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- arn:aws:apigateway:{region}:lambda:path\/{service_api} , where {region}</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- is the same as the region hosting the Lambda function, path indicates</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- that the remaining substring in the URI should be treated as the path to</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- the resource, including the initial \/. For Lambda functions, this is</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- usually of the form \/2015-03-31\/functions\/[FunctionARN]\/invocations.</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- Supported only for REQUEST authorizers.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AauthorizerUri%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerUri%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorizerUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | Specifies the format of the payload sent to an HTTP API Lambda</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- authorizer. Required for HTTP API Lambda authorizers. Supported values</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- are 1.0 and 2.0. To learn more, see</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AauthorizerPayloadFormatVersion%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerPayloadFormatVersion%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorizerPayloadFormatVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | Represents the configuration of a JWT authorizer. Required for the JWT</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- authorizer type. Supported only for HTTP APIs.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AjwtConfiguration%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe JWTConfiguration
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AjwtConfiguration%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">jwtConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.JWTConfiguration.html#JWTConfiguration"><span class="hs-identifier hs-type">JWTConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The authorizer identifier.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AauthorizerId%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerId%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The name of the authorizer.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3Aname%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3Aname%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The time to live (TTL) for cached authorizer results, in seconds. If it</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- equals 0, authorization caching is disabled. If it is greater than 0,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- API Gateway caches authorizer responses. The maximum value is 3600, or 1</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- hour. Supported only for HTTP API Lambda authorizers.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AauthorizerResultTtlInSeconds%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe Natural
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerResultTtlInSeconds%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorizerResultTtlInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The identity source for which authorization is requested.</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- For a REQUEST authorizer, this is optional. The value is a set of one or</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- more mapping expressions of the specified request parameters. The</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- identity source can be headers, query string parameters, stage</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- variables, and context parameters. For example, if an Auth header and a</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- Name query string parameter are defined as identity sources, this value</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- is route.request.header.Auth, route.request.querystring.Name for</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- WebSocket APIs. For HTTP APIs, use selection expressions prefixed with</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- \$, for example, $request.header.Auth, $request.querystring.Name. These</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- parameters are used to perform runtime validation for Lambda-based</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- authorizers by verifying all of the identity-related request parameters</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- are present in the request, not null, and non-empty. Only when this is</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- true does the authorizer invoke the authorizer Lambda function.</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- Otherwise, it returns a 401 Unauthorized response without calling the</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- Lambda function. For HTTP APIs, identity sources are also used as the</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- cache key when caching is enabled. To learn more, see</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;.</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- For JWT, a single entry that specifies where to extract the JSON Web</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- Token (JWT) from inbound requests. Currently only header-based and query</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- parameter-based selections are supported, for example</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- \$request.header.Authorization.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AidentitySource%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AidentitySource%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">identitySource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | The authorizer type. Specify REQUEST for a Lambda function using</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- incoming request parameters. Specify JWT to use JSON Web Tokens</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- (supported only for HTTP APIs).</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AauthorizerType%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Maybe AuthorizerType
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerType%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorizerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier hs-type">AuthorizerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAuthorizerResponse%27"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; Int
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AhttpStatus%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417958"><span id="local-6989586621679417960"><span class="annot"><span class="annottext">GetAuthorizerResponse -&gt; GetAuthorizerResponse -&gt; Bool
+(GetAuthorizerResponse -&gt; GetAuthorizerResponse -&gt; Bool)
+-&gt; (GetAuthorizerResponse -&gt; GetAuthorizerResponse -&gt; Bool)
+-&gt; Eq GetAuthorizerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAuthorizerResponse -&gt; GetAuthorizerResponse -&gt; Bool
+$c/= :: GetAuthorizerResponse -&gt; GetAuthorizerResponse -&gt; Bool
+== :: GetAuthorizerResponse -&gt; GetAuthorizerResponse -&gt; Bool
+$c== :: GetAuthorizerResponse -&gt; GetAuthorizerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417950"><span id="local-6989586621679417952"><span id="local-6989586621679417954"><span id="local-6989586621679417956"><span class="annot"><span class="annottext">ReadPrec [GetAuthorizerResponse]
+ReadPrec GetAuthorizerResponse
+Int -&gt; ReadS GetAuthorizerResponse
+ReadS [GetAuthorizerResponse]
+(Int -&gt; ReadS GetAuthorizerResponse)
+-&gt; ReadS [GetAuthorizerResponse]
+-&gt; ReadPrec GetAuthorizerResponse
+-&gt; ReadPrec [GetAuthorizerResponse]
+-&gt; Read GetAuthorizerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAuthorizerResponse]
+$creadListPrec :: ReadPrec [GetAuthorizerResponse]
+readPrec :: ReadPrec GetAuthorizerResponse
+$creadPrec :: ReadPrec GetAuthorizerResponse
+readList :: ReadS [GetAuthorizerResponse]
+$creadList :: ReadS [GetAuthorizerResponse]
+readsPrec :: Int -&gt; ReadS GetAuthorizerResponse
+$creadsPrec :: Int -&gt; ReadS GetAuthorizerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417944"><span id="local-6989586621679417946"><span id="local-6989586621679417948"><span class="annot"><span class="annottext">Int -&gt; GetAuthorizerResponse -&gt; ShowS
+[GetAuthorizerResponse] -&gt; ShowS
+GetAuthorizerResponse -&gt; String
+(Int -&gt; GetAuthorizerResponse -&gt; ShowS)
+-&gt; (GetAuthorizerResponse -&gt; String)
+-&gt; ([GetAuthorizerResponse] -&gt; ShowS)
+-&gt; Show GetAuthorizerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAuthorizerResponse] -&gt; ShowS
+$cshowList :: [GetAuthorizerResponse] -&gt; ShowS
+show :: GetAuthorizerResponse -&gt; String
+$cshow :: GetAuthorizerResponse -&gt; String
+showsPrec :: Int -&gt; GetAuthorizerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAuthorizerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAuthorizerResponse -&gt; Rep GetAuthorizerResponse x)
+-&gt; (forall x. Rep GetAuthorizerResponse x -&gt; GetAuthorizerResponse)
+-&gt; Generic GetAuthorizerResponse
+forall x. Rep GetAuthorizerResponse x -&gt; GetAuthorizerResponse
+forall x. GetAuthorizerResponse -&gt; Rep GetAuthorizerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAuthorizerResponse x -&gt; GetAuthorizerResponse
+$cfrom :: forall x. GetAuthorizerResponse -&gt; Rep GetAuthorizerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'GetAuthorizerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'authorizerCredentialsArn', 'getAuthorizerResponse_authorizerCredentialsArn' - Specifies the required credentials as an IAM role for API Gateway to</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- invoke the authorizer. To specify an IAM role for API Gateway to assume,</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- use the role\'s Amazon Resource Name (ARN). To use resource-based</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- permissions on the Lambda function, don\'t specify this parameter.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Supported only for REQUEST authorizers.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'identityValidationExpression', 'getAuthorizerResponse_identityValidationExpression' - The validation expression does not apply to the REQUEST authorizer.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'enableSimpleResponses', 'getAuthorizerResponse_enableSimpleResponses' - Specifies whether a Lambda authorizer returns a response in a simple</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- format. If enabled, the Lambda authorizer can return a boolean value</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- instead of an IAM policy. Supported only for HTTP APIs. To learn more,</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'authorizerUri', 'getAuthorizerResponse_authorizerUri' - The authorizer\'s Uniform Resource Identifier (URI). For REQUEST</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- authorizers, this must be a well-formed Lambda function URI, for</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- example,</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- arn:aws:apigateway:us-west-2:lambda:path\/2015-03-31\/functions\/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}\/invocations.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- In general, the URI has this form:</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- arn:aws:apigateway:{region}:lambda:path\/{service_api} , where {region}</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- is the same as the region hosting the Lambda function, path indicates</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- that the remaining substring in the URI should be treated as the path to</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- the resource, including the initial \/. For Lambda functions, this is</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- usually of the form \/2015-03-31\/functions\/[FunctionARN]\/invocations.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Supported only for REQUEST authorizers.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'authorizerPayloadFormatVersion', 'getAuthorizerResponse_authorizerPayloadFormatVersion' - Specifies the format of the payload sent to an HTTP API Lambda</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- authorizer. Required for HTTP API Lambda authorizers. Supported values</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- are 1.0 and 2.0. To learn more, see</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'jwtConfiguration', 'getAuthorizerResponse_jwtConfiguration' - Represents the configuration of a JWT authorizer. Required for the JWT</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- authorizer type. Supported only for HTTP APIs.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'authorizerId', 'getAuthorizerResponse_authorizerId' - The authorizer identifier.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'name', 'getAuthorizerResponse_name' - The name of the authorizer.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'authorizerResultTtlInSeconds', 'getAuthorizerResponse_authorizerResultTtlInSeconds' - The time to live (TTL) for cached authorizer results, in seconds. If it</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- equals 0, authorization caching is disabled. If it is greater than 0,</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- API Gateway caches authorizer responses. The maximum value is 3600, or 1</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- hour. Supported only for HTTP API Lambda authorizers.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- 'identitySource', 'getAuthorizerResponse_identitySource' - The identity source for which authorization is requested.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- For a REQUEST authorizer, this is optional. The value is a set of one or</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- more mapping expressions of the specified request parameters. The</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- identity source can be headers, query string parameters, stage</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- variables, and context parameters. For example, if an Auth header and a</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Name query string parameter are defined as identity sources, this value</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- is route.request.header.Auth, route.request.querystring.Name for</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- WebSocket APIs. For HTTP APIs, use selection expressions prefixed with</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- \$, for example, $request.header.Auth, $request.querystring.Name. These</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- parameters are used to perform runtime validation for Lambda-based</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- authorizers by verifying all of the identity-related request parameters</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- are present in the request, not null, and non-empty. Only when this is</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- true does the authorizer invoke the authorizer Lambda function.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- Otherwise, it returns a 401 Unauthorized response without calling the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- Lambda function. For HTTP APIs, identity sources are also used as the</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- cache key when caching is enabled. To learn more, see</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- For JWT, a single entry that specifies where to extract the JSON Web</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- Token (JWT) from inbound requests. Currently only header-based and query</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- parameter-based selections are supported, for example</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- \$request.header.Authorization.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'authorizerType', 'getAuthorizerResponse_authorizerType' - The authorizer type. Specify REQUEST for a Lambda function using</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- incoming request parameters. Specify JWT to use JSON Web Tokens</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- (supported only for HTTP APIs).</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- 'httpStatus', 'getAuthorizerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#newGetAuthorizerResponse"><span class="hs-identifier hs-type">newGetAuthorizerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-309"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-310"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-311"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span>
+</span><span id="line-312"></span><span id="newGetAuthorizerResponse"><span class="annot"><span class="annottext">newGetAuthorizerResponse :: Int -&gt; GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#newGetAuthorizerResponse"><span class="hs-identifier hs-var hs-var">newGetAuthorizerResponse</span></a></span></span><span> </span><span id="local-6989586621679417941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-313"></span><span>  </span><span class="annot"><span class="annottext">GetAuthorizerResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe JWTConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [Text]
+-&gt; Maybe AuthorizerType
+-&gt; Int
+-&gt; GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authorizerCredentialsArn:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerCredentialsArn%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerCredentialsArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityValidationExpression:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AidentityValidationExpression%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">identityValidationExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableSimpleResponses:GetAuthorizerResponse' :: Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AenableSimpleResponses%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">enableSimpleResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerUri:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerUri%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerPayloadFormatVersion:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerPayloadFormatVersion%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerPayloadFormatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>      </span><span class="annot"><span class="annottext">$sel:jwtConfiguration:GetAuthorizerResponse' :: Maybe JWTConfiguration
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AjwtConfiguration%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">jwtConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JWTConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerId:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerId%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3Aname%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerResultTtlInSeconds:GetAuthorizerResponse' :: Maybe Natural
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerResultTtlInSeconds%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerResultTtlInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:identitySource:GetAuthorizerResponse' :: Maybe [Text]
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AidentitySource%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">identitySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerType:GetAuthorizerResponse' :: Maybe AuthorizerType
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerType%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAuthorizerResponse' :: Int
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AhttpStatus%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | Specifies the required credentials as an IAM role for API Gateway to</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- invoke the authorizer. To specify an IAM role for API Gateway to assume,</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- use the role\'s Amazon Resource Name (ARN). To use resource-based</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- permissions on the Lambda function, don\'t specify this parameter.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- Supported only for REQUEST authorizers.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerCredentialsArn"><span class="hs-identifier hs-type">getAuthorizerResponse_authorizerCredentialsArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="getAuthorizerResponse_authorizerCredentialsArn"><span class="annot"><span class="annottext">getAuthorizerResponse_authorizerCredentialsArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerCredentialsArn"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_authorizerCredentialsArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Text)
+-&gt; (GetAuthorizerResponse -&gt; Maybe Text -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417940"><span class="annot"><span class="annottext">Maybe Text
+authorizerCredentialsArn :: Maybe Text
+$sel:authorizerCredentialsArn:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417940"><span class="hs-identifier hs-var hs-var">authorizerCredentialsArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417940"><span class="hs-identifier hs-var">authorizerCredentialsArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417939"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417938"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerCredentialsArn:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerCredentialsArn%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerCredentialsArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | The validation expression does not apply to the REQUEST authorizer.</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_identityValidationExpression"><span class="hs-identifier hs-type">getAuthorizerResponse_identityValidationExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="getAuthorizerResponse_identityValidationExpression"><span class="annot"><span class="annottext">getAuthorizerResponse_identityValidationExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_identityValidationExpression"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_identityValidationExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Text)
+-&gt; (GetAuthorizerResponse -&gt; Maybe Text -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417937"><span class="annot"><span class="annottext">Maybe Text
+identityValidationExpression :: Maybe Text
+$sel:identityValidationExpression:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417937"><span class="hs-identifier hs-var hs-var">identityValidationExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417937"><span class="hs-identifier hs-var">identityValidationExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417936"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417935"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityValidationExpression:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AidentityValidationExpression%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">identityValidationExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | Specifies whether a Lambda authorizer returns a response in a simple</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- format. If enabled, the Lambda authorizer can return a boolean value</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- instead of an IAM policy. Supported only for HTTP APIs. To learn more,</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;</span><span>
+</span><span id="line-346"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_enableSimpleResponses"><span class="hs-identifier hs-type">getAuthorizerResponse_enableSimpleResponses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span id="getAuthorizerResponse_enableSimpleResponses"><span class="annot"><span class="annottext">getAuthorizerResponse_enableSimpleResponses :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_enableSimpleResponses"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_enableSimpleResponses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Bool)
+-&gt; (GetAuthorizerResponse -&gt; Maybe Bool -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417934"><span class="annot"><span class="annottext">Maybe Bool
+enableSimpleResponses :: Maybe Bool
+$sel:enableSimpleResponses:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679417934"><span class="hs-identifier hs-var hs-var">enableSimpleResponses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679417934"><span class="hs-identifier hs-var">enableSimpleResponses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417933"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417932"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679417932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSimpleResponses:GetAuthorizerResponse' :: Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AenableSimpleResponses%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">enableSimpleResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679417932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- | The authorizer\'s Uniform Resource Identifier (URI). For REQUEST</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- authorizers, this must be a well-formed Lambda function URI, for</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- example,</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- arn:aws:apigateway:us-west-2:lambda:path\/2015-03-31\/functions\/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}\/invocations.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- In general, the URI has this form:</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- arn:aws:apigateway:{region}:lambda:path\/{service_api} , where {region}</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- is the same as the region hosting the Lambda function, path indicates</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- that the remaining substring in the URI should be treated as the path to</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- the resource, including the initial \/. For Lambda functions, this is</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- usually of the form \/2015-03-31\/functions\/[FunctionARN]\/invocations.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- Supported only for REQUEST authorizers.</span><span>
+</span><span id="line-360"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerUri"><span class="hs-identifier hs-type">getAuthorizerResponse_authorizerUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span id="getAuthorizerResponse_authorizerUri"><span class="annot"><span class="annottext">getAuthorizerResponse_authorizerUri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerUri"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_authorizerUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Text)
+-&gt; (GetAuthorizerResponse -&gt; Maybe Text -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417931"><span class="annot"><span class="annottext">Maybe Text
+authorizerUri :: Maybe Text
+$sel:authorizerUri:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417931"><span class="hs-identifier hs-var hs-var">authorizerUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417931"><span class="hs-identifier hs-var">authorizerUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417930"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerUri:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerUri%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- | Specifies the format of the payload sent to an HTTP API Lambda</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- authorizer. Required for HTTP API Lambda authorizers. Supported values</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- are 1.0 and 2.0. To learn more, see</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;.</span><span>
+</span><span id="line-367"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerPayloadFormatVersion"><span class="hs-identifier hs-type">getAuthorizerResponse_authorizerPayloadFormatVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span id="getAuthorizerResponse_authorizerPayloadFormatVersion"><span class="annot"><span class="annottext">getAuthorizerResponse_authorizerPayloadFormatVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerPayloadFormatVersion"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_authorizerPayloadFormatVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Text)
+-&gt; (GetAuthorizerResponse -&gt; Maybe Text -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417928"><span class="annot"><span class="annottext">Maybe Text
+authorizerPayloadFormatVersion :: Maybe Text
+$sel:authorizerPayloadFormatVersion:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417928"><span class="hs-identifier hs-var hs-var">authorizerPayloadFormatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417928"><span class="hs-identifier hs-var">authorizerPayloadFormatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417927"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417926"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerPayloadFormatVersion:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerPayloadFormatVersion%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerPayloadFormatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- | Represents the configuration of a JWT authorizer. Required for the JWT</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- authorizer type. Supported only for HTTP APIs.</span><span>
+</span><span id="line-372"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_jwtConfiguration"><span class="hs-identifier hs-type">getAuthorizerResponse_jwtConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.JWTConfiguration.html#JWTConfiguration"><span class="hs-identifier hs-type">JWTConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span id="getAuthorizerResponse_jwtConfiguration"><span class="annot"><span class="annottext">getAuthorizerResponse_jwtConfiguration :: (Maybe JWTConfiguration -&gt; f (Maybe JWTConfiguration))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_jwtConfiguration"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_jwtConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe JWTConfiguration)
+-&gt; (GetAuthorizerResponse
+    -&gt; Maybe JWTConfiguration -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe JWTConfiguration)
+     (Maybe JWTConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417925"><span class="annot"><span class="annottext">Maybe JWTConfiguration
+jwtConfiguration :: Maybe JWTConfiguration
+$sel:jwtConfiguration:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe JWTConfiguration
+</span><a href="#local-6989586621679417925"><span class="hs-identifier hs-var hs-var">jwtConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JWTConfiguration
+</span><a href="#local-6989586621679417925"><span class="hs-identifier hs-var">jwtConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417924"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417923"><span class="annot"><span class="annottext">Maybe JWTConfiguration
+</span><a href="#local-6989586621679417923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jwtConfiguration:GetAuthorizerResponse' :: Maybe JWTConfiguration
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AjwtConfiguration%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">jwtConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JWTConfiguration
+</span><a href="#local-6989586621679417923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- | The authorizer identifier.</span><span>
+</span><span id="line-376"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerId"><span class="hs-identifier hs-type">getAuthorizerResponse_authorizerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span id="getAuthorizerResponse_authorizerId"><span class="annot"><span class="annottext">getAuthorizerResponse_authorizerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerId"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_authorizerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Text)
+-&gt; (GetAuthorizerResponse -&gt; Maybe Text -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417922"><span class="annot"><span class="annottext">Maybe Text
+authorizerId :: Maybe Text
+$sel:authorizerId:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417922"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417922"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417921"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417920"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerId%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- | The name of the authorizer.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_name"><span class="hs-identifier hs-type">getAuthorizerResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span id="getAuthorizerResponse_name"><span class="annot"><span class="annottext">getAuthorizerResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_name"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Text)
+-&gt; (GetAuthorizerResponse -&gt; Maybe Text -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417919"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417919"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417919"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417918"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetAuthorizerResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3Aname%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- | The time to live (TTL) for cached authorizer results, in seconds. If it</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- equals 0, authorization caching is disabled. If it is greater than 0,</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- API Gateway caches authorizer responses. The maximum value is 3600, or 1</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- hour. Supported only for HTTP API Lambda authorizers.</span><span>
+</span><span id="line-387"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerResultTtlInSeconds"><span class="hs-identifier hs-type">getAuthorizerResponse_authorizerResultTtlInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span id="getAuthorizerResponse_authorizerResultTtlInSeconds"><span class="annot"><span class="annottext">getAuthorizerResponse_authorizerResultTtlInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerResultTtlInSeconds"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_authorizerResultTtlInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe Natural)
+-&gt; (GetAuthorizerResponse
+    -&gt; Maybe Natural -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417916"><span class="annot"><span class="annottext">Maybe Natural
+authorizerResultTtlInSeconds :: Maybe Natural
+$sel:authorizerResultTtlInSeconds:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679417916"><span class="hs-identifier hs-var hs-var">authorizerResultTtlInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679417916"><span class="hs-identifier hs-var">authorizerResultTtlInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417915"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417914"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679417914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerResultTtlInSeconds:GetAuthorizerResponse' :: Maybe Natural
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerResultTtlInSeconds%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerResultTtlInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679417914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- | The identity source for which authorization is requested.</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- For a REQUEST authorizer, this is optional. The value is a set of one or</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- more mapping expressions of the specified request parameters. The</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- identity source can be headers, query string parameters, stage</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- variables, and context parameters. For example, if an Auth header and a</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- Name query string parameter are defined as identity sources, this value</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- is route.request.header.Auth, route.request.querystring.Name for</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- WebSocket APIs. For HTTP APIs, use selection expressions prefixed with</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- \$, for example, $request.header.Auth, $request.querystring.Name. These</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- parameters are used to perform runtime validation for Lambda-based</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- authorizers by verifying all of the identity-related request parameters</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- are present in the request, not null, and non-empty. Only when this is</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- true does the authorizer invoke the authorizer Lambda function.</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- Otherwise, it returns a 401 Unauthorized response without calling the</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- Lambda function. For HTTP APIs, identity sources are also used as the</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- cache key when caching is enabled. To learn more, see</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html Working with AWS Lambda authorizers for HTTP APIs&gt;.</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- For JWT, a single entry that specifies where to extract the JSON Web</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- Token (JWT) from inbound requests. Currently only header-based and query</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- parameter-based selections are supported, for example</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- \$request.header.Authorization.</span><span>
+</span><span id="line-413"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_identitySource"><span class="hs-identifier hs-type">getAuthorizerResponse_identitySource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span id="getAuthorizerResponse_identitySource"><span class="annot"><span class="annottext">getAuthorizerResponse_identitySource :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_identitySource"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_identitySource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe [Text])
+-&gt; (GetAuthorizerResponse -&gt; Maybe [Text] -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417913"><span class="annot"><span class="annottext">Maybe [Text]
+identitySource :: Maybe [Text]
+$sel:identitySource:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679417913"><span class="hs-identifier hs-var hs-var">identitySource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679417913"><span class="hs-identifier hs-var">identitySource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417912"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417911"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679417911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identitySource:GetAuthorizerResponse' :: Maybe [Text]
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AidentitySource%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">identitySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679417911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetAuthorizerResponse
+-&gt; f GetAuthorizerResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-415"></span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- | The authorizer type. Specify REQUEST for a Lambda function using</span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- incoming request parameters. Specify JWT to use JSON Web Tokens</span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- (supported only for HTTP APIs).</span><span>
+</span><span id="line-419"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerType"><span class="hs-identifier hs-type">getAuthorizerResponse_authorizerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier hs-type">AuthorizerType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span id="getAuthorizerResponse_authorizerType"><span class="annot"><span class="annottext">getAuthorizerResponse_authorizerType :: (Maybe AuthorizerType -&gt; f (Maybe AuthorizerType))
+-&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_authorizerType"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_authorizerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Maybe AuthorizerType)
+-&gt; (GetAuthorizerResponse
+    -&gt; Maybe AuthorizerType -&gt; GetAuthorizerResponse)
+-&gt; Lens
+     GetAuthorizerResponse
+     GetAuthorizerResponse
+     (Maybe AuthorizerType)
+     (Maybe AuthorizerType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417907"><span class="annot"><span class="annottext">Maybe AuthorizerType
+authorizerType :: Maybe AuthorizerType
+$sel:authorizerType:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Maybe AuthorizerType
+</span><a href="#local-6989586621679417907"><span class="hs-identifier hs-var hs-var">authorizerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerType
+</span><a href="#local-6989586621679417907"><span class="hs-identifier hs-var">authorizerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417906"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417905"><span class="annot"><span class="annottext">Maybe AuthorizerType
+</span><a href="#local-6989586621679417905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerType:GetAuthorizerResponse' :: Maybe AuthorizerType
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AauthorizerType%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerType
+</span><a href="#local-6989586621679417905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_httpStatus"><span class="hs-identifier hs-type">getAuthorizerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-424"></span><span id="getAuthorizerResponse_httpStatus"><span class="annot"><span class="annottext">getAuthorizerResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetAuthorizerResponse -&gt; f GetAuthorizerResponse
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#getAuthorizerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAuthorizerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAuthorizerResponse -&gt; Int)
+-&gt; (GetAuthorizerResponse -&gt; Int -&gt; GetAuthorizerResponse)
+-&gt; Lens GetAuthorizerResponse GetAuthorizerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417904"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAuthorizerResponse' :: GetAuthorizerResponse -&gt; Int
+</span><a href="#local-6989586621679417904"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417904"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417903"><span class="annot"><span class="annottext">s :: GetAuthorizerResponse
+</span><a href="#local-6989586621679417903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse%27"><span class="hs-identifier hs-type">GetAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAuthorizerResponse
+</span><a href="#local-6989586621679417903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAuthorizerResponse' :: Int
+</span><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#%24sel%3AhttpStatus%3AGetAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetAuthorizer.html#GetAuthorizerResponse"><span class="hs-identifier hs-type">GetAuthorizerResponse</span></a></span></span><span>
+</span><span id="line-427"></span></pre></body></html>

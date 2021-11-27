@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSOAdmin.DeleteAccountAssignment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a principal\'s access from a specified Amazon Web Services</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account using a specified permission set.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSOAdmin.DeleteAccountAssignment</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier">DeleteAccountAssignment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#newDeleteAccountAssignment"><span class="hs-identifier">newDeleteAccountAssignment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_instanceArn"><span class="hs-identifier">deleteAccountAssignment_instanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_targetId"><span class="hs-identifier">deleteAccountAssignment_targetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_targetType"><span class="hs-identifier">deleteAccountAssignment_targetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_permissionSetArn"><span class="hs-identifier">deleteAccountAssignment_permissionSetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_principalType"><span class="hs-identifier">deleteAccountAssignment_principalType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_principalId"><span class="hs-identifier">deleteAccountAssignment_principalId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier">DeleteAccountAssignmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#newDeleteAccountAssignmentResponse"><span class="hs-identifier">newDeleteAccountAssignmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignmentResponse_accountAssignmentDeletionStatus"><span class="hs-identifier">deleteAccountAssignmentResponse_accountAssignmentDeletionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignmentResponse_httpStatus"><span class="hs-identifier">deleteAccountAssignmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.html"><span class="hs-identifier">Amazonka.SSOAdmin.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteAccountAssignment' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679206254"><span id="local-6989586621679206255"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccountAssignment"><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-var">DeleteAccountAssignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccountAssignment%27"><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-var">DeleteAccountAssignment'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AinstanceArn%3ADeleteAccountAssignment%27"><span class="annot"><span class="annottext">DeleteAccountAssignment -&gt; Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AinstanceArn%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | TargetID is an Amazon Web Services account identifier, typically a 10-12</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- digit string (For example, 123456789012).</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtargetId%3ADeleteAccountAssignment%27"><span class="annot"><span class="annottext">DeleteAccountAssignment -&gt; Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AtargetId%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The entity type for which the assignment will be deleted.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtargetType%3ADeleteAccountAssignment%27"><span class="annot"><span class="annottext">DeleteAccountAssignment -&gt; TargetType
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AtargetType%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ARN of the permission set that will be used to remove access.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3ApermissionSetArn%3ADeleteAccountAssignment%27"><span class="annot"><span class="annottext">DeleteAccountAssignment -&gt; Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3ApermissionSetArn%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The entity type for which the assignment will be deleted.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AprincipalType%3ADeleteAccountAssignment%27"><span class="annot"><span class="annottext">DeleteAccountAssignment -&gt; PrincipalType
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AprincipalType%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | An identifier for an object in Amazon Web Services SSO, such as a user</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- or group. PrincipalIds are GUIDs (For example,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- PrincipalIds in Amazon Web Services SSO, see the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- &lt;/singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference&gt;.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AprincipalId%3ADeleteAccountAssignment%27"><span class="annot"><span class="annottext">DeleteAccountAssignment -&gt; Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AprincipalId%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206243"><span id="local-6989586621679206245"><span class="annot"><span class="annottext">DeleteAccountAssignment -&gt; DeleteAccountAssignment -&gt; Bool
+(DeleteAccountAssignment -&gt; DeleteAccountAssignment -&gt; Bool)
+-&gt; (DeleteAccountAssignment -&gt; DeleteAccountAssignment -&gt; Bool)
+-&gt; Eq DeleteAccountAssignment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAccountAssignment -&gt; DeleteAccountAssignment -&gt; Bool
+$c/= :: DeleteAccountAssignment -&gt; DeleteAccountAssignment -&gt; Bool
+== :: DeleteAccountAssignment -&gt; DeleteAccountAssignment -&gt; Bool
+$c== :: DeleteAccountAssignment -&gt; DeleteAccountAssignment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206234"><span id="local-6989586621679206236"><span id="local-6989586621679206238"><span id="local-6989586621679206240"><span class="annot"><span class="annottext">ReadPrec [DeleteAccountAssignment]
+ReadPrec DeleteAccountAssignment
+Int -&gt; ReadS DeleteAccountAssignment
+ReadS [DeleteAccountAssignment]
+(Int -&gt; ReadS DeleteAccountAssignment)
+-&gt; ReadS [DeleteAccountAssignment]
+-&gt; ReadPrec DeleteAccountAssignment
+-&gt; ReadPrec [DeleteAccountAssignment]
+-&gt; Read DeleteAccountAssignment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAccountAssignment]
+$creadListPrec :: ReadPrec [DeleteAccountAssignment]
+readPrec :: ReadPrec DeleteAccountAssignment
+$creadPrec :: ReadPrec DeleteAccountAssignment
+readList :: ReadS [DeleteAccountAssignment]
+$creadList :: ReadS [DeleteAccountAssignment]
+readsPrec :: Int -&gt; ReadS DeleteAccountAssignment
+$creadsPrec :: Int -&gt; ReadS DeleteAccountAssignment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206227"><span id="local-6989586621679206229"><span id="local-6989586621679206231"><span class="annot"><span class="annottext">Int -&gt; DeleteAccountAssignment -&gt; ShowS
+[DeleteAccountAssignment] -&gt; ShowS
+DeleteAccountAssignment -&gt; String
+(Int -&gt; DeleteAccountAssignment -&gt; ShowS)
+-&gt; (DeleteAccountAssignment -&gt; String)
+-&gt; ([DeleteAccountAssignment] -&gt; ShowS)
+-&gt; Show DeleteAccountAssignment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAccountAssignment] -&gt; ShowS
+$cshowList :: [DeleteAccountAssignment] -&gt; ShowS
+show :: DeleteAccountAssignment -&gt; String
+$cshow :: DeleteAccountAssignment -&gt; String
+showsPrec :: Int -&gt; DeleteAccountAssignment -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAccountAssignment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAccountAssignment -&gt; Rep DeleteAccountAssignment x)
+-&gt; (forall x.
+    Rep DeleteAccountAssignment x -&gt; DeleteAccountAssignment)
+-&gt; Generic DeleteAccountAssignment
+forall x. Rep DeleteAccountAssignment x -&gt; DeleteAccountAssignment
+forall x. DeleteAccountAssignment -&gt; Rep DeleteAccountAssignment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAccountAssignment x -&gt; DeleteAccountAssignment
+$cfrom :: forall x. DeleteAccountAssignment -&gt; Rep DeleteAccountAssignment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'DeleteAccountAssignment' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'instanceArn', 'deleteAccountAssignment_instanceArn' - The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'targetId', 'deleteAccountAssignment_targetId' - TargetID is an Amazon Web Services account identifier, typically a 10-12</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- digit string (For example, 123456789012).</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'targetType', 'deleteAccountAssignment_targetType' - The entity type for which the assignment will be deleted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'permissionSetArn', 'deleteAccountAssignment_permissionSetArn' - The ARN of the permission set that will be used to remove access.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'principalType', 'deleteAccountAssignment_principalType' - The entity type for which the assignment will be deleted.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'principalId', 'deleteAccountAssignment_principalId' - An identifier for an object in Amazon Web Services SSO, such as a user</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- or group. PrincipalIds are GUIDs (For example,</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- PrincipalIds in Amazon Web Services SSO, see the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- &lt;/singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference&gt;.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#newDeleteAccountAssignment"><span class="hs-identifier hs-type">newDeleteAccountAssignment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'instanceArn'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'targetId'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'targetType'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'permissionSetArn'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'principalType'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'principalId'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span>
+</span><span id="line-121"></span><span id="newDeleteAccountAssignment"><span class="annot"><span class="annottext">newDeleteAccountAssignment :: Text
+-&gt; Text
+-&gt; TargetType
+-&gt; Text
+-&gt; PrincipalType
+-&gt; Text
+-&gt; DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#newDeleteAccountAssignment"><span class="hs-identifier hs-var hs-var">newDeleteAccountAssignment</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679206222"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206222"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679206221"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206221"><span class="hs-identifier hs-var">pTargetId_</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679206220"><span class="annot"><span class="annottext">TargetType
+</span><a href="#local-6989586621679206220"><span class="hs-identifier hs-var">pTargetType_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679206219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206219"><span class="hs-identifier hs-var">pPermissionSetArn_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679206218"><span class="annot"><span class="annottext">PrincipalType
+</span><a href="#local-6989586621679206218"><span class="hs-identifier hs-var">pPrincipalType_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679206217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206217"><span class="hs-identifier hs-var">pPrincipalId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">DeleteAccountAssignment' :: Text
+-&gt; Text
+-&gt; TargetType
+-&gt; Text
+-&gt; PrincipalType
+-&gt; Text
+-&gt; DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceArn:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AinstanceArn%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206222"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetId:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AtargetId%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206221"><span class="hs-identifier hs-var">pTargetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetType:DeleteAccountAssignment' :: TargetType
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AtargetType%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TargetType
+</span><a href="#local-6989586621679206220"><span class="hs-identifier hs-var">pTargetType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:permissionSetArn:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3ApermissionSetArn%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206219"><span class="hs-identifier hs-var">pPermissionSetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:principalType:DeleteAccountAssignment' :: PrincipalType
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AprincipalType%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrincipalType
+</span><a href="#local-6989586621679206218"><span class="hs-identifier hs-var">pPrincipalType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:principalId:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AprincipalId%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206217"><span class="hs-identifier hs-var">pPrincipalId_</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_instanceArn"><span class="hs-identifier hs-type">deleteAccountAssignment_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="deleteAccountAssignment_instanceArn"><span class="annot"><span class="annottext">deleteAccountAssignment_instanceArn :: (Text -&gt; f Text)
+-&gt; DeleteAccountAssignment -&gt; f DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_instanceArn"><span class="hs-identifier hs-var hs-var">deleteAccountAssignment_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignment -&gt; Text)
+-&gt; (DeleteAccountAssignment -&gt; Text -&gt; DeleteAccountAssignment)
+-&gt; Lens DeleteAccountAssignment DeleteAccountAssignment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206214"><span class="annot"><span class="annottext">Text
+instanceArn :: Text
+$sel:instanceArn:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+</span><a href="#local-6989586621679206214"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206214"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206213"><span class="annot"><span class="annottext">s :: DeleteAccountAssignment
+</span><a href="#local-6989586621679206213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206212"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignment
+</span><a href="#local-6989586621679206213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AinstanceArn%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | TargetID is an Amazon Web Services account identifier, typically a 10-12</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- digit string (For example, 123456789012).</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_targetId"><span class="hs-identifier hs-type">deleteAccountAssignment_targetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="deleteAccountAssignment_targetId"><span class="annot"><span class="annottext">deleteAccountAssignment_targetId :: (Text -&gt; f Text)
+-&gt; DeleteAccountAssignment -&gt; f DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_targetId"><span class="hs-identifier hs-var hs-var">deleteAccountAssignment_targetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignment -&gt; Text)
+-&gt; (DeleteAccountAssignment -&gt; Text -&gt; DeleteAccountAssignment)
+-&gt; Lens DeleteAccountAssignment DeleteAccountAssignment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206211"><span class="annot"><span class="annottext">Text
+targetId :: Text
+$sel:targetId:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+</span><a href="#local-6989586621679206211"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206211"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206210"><span class="annot"><span class="annottext">s :: DeleteAccountAssignment
+</span><a href="#local-6989586621679206210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignment
+</span><a href="#local-6989586621679206210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetId:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AtargetId%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The entity type for which the assignment will be deleted.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_targetType"><span class="hs-identifier hs-type">deleteAccountAssignment_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span>
+</span><span id="line-152"></span><span id="deleteAccountAssignment_targetType"><span class="annot"><span class="annottext">deleteAccountAssignment_targetType :: (TargetType -&gt; f TargetType)
+-&gt; DeleteAccountAssignment -&gt; f DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_targetType"><span class="hs-identifier hs-var hs-var">deleteAccountAssignment_targetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignment -&gt; TargetType)
+-&gt; (DeleteAccountAssignment
+    -&gt; TargetType -&gt; DeleteAccountAssignment)
+-&gt; Lens
+     DeleteAccountAssignment
+     DeleteAccountAssignment
+     TargetType
+     TargetType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206208"><span class="annot"><span class="annottext">TargetType
+targetType :: TargetType
+$sel:targetType:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; TargetType
+</span><a href="#local-6989586621679206208"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetType
+</span><a href="#local-6989586621679206208"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206207"><span class="annot"><span class="annottext">s :: DeleteAccountAssignment
+</span><a href="#local-6989586621679206207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206206"><span class="annot"><span class="annottext">TargetType
+</span><a href="#local-6989586621679206206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignment
+</span><a href="#local-6989586621679206207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:DeleteAccountAssignment' :: TargetType
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AtargetType%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TargetType
+</span><a href="#local-6989586621679206206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The ARN of the permission set that will be used to remove access.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_permissionSetArn"><span class="hs-identifier hs-type">deleteAccountAssignment_permissionSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="deleteAccountAssignment_permissionSetArn"><span class="annot"><span class="annottext">deleteAccountAssignment_permissionSetArn :: (Text -&gt; f Text)
+-&gt; DeleteAccountAssignment -&gt; f DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_permissionSetArn"><span class="hs-identifier hs-var hs-var">deleteAccountAssignment_permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignment -&gt; Text)
+-&gt; (DeleteAccountAssignment -&gt; Text -&gt; DeleteAccountAssignment)
+-&gt; Lens DeleteAccountAssignment DeleteAccountAssignment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206205"><span class="annot"><span class="annottext">Text
+permissionSetArn :: Text
+$sel:permissionSetArn:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+</span><a href="#local-6989586621679206205"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206205"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206204"><span class="annot"><span class="annottext">s :: DeleteAccountAssignment
+</span><a href="#local-6989586621679206204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignment
+</span><a href="#local-6989586621679206204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionSetArn:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3ApermissionSetArn%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The entity type for which the assignment will be deleted.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_principalType"><span class="hs-identifier hs-type">deleteAccountAssignment_principalType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span>
+</span><span id="line-160"></span><span id="deleteAccountAssignment_principalType"><span class="annot"><span class="annottext">deleteAccountAssignment_principalType :: (PrincipalType -&gt; f PrincipalType)
+-&gt; DeleteAccountAssignment -&gt; f DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_principalType"><span class="hs-identifier hs-var hs-var">deleteAccountAssignment_principalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignment -&gt; PrincipalType)
+-&gt; (DeleteAccountAssignment
+    -&gt; PrincipalType -&gt; DeleteAccountAssignment)
+-&gt; Lens
+     DeleteAccountAssignment
+     DeleteAccountAssignment
+     PrincipalType
+     PrincipalType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206202"><span class="annot"><span class="annottext">PrincipalType
+principalType :: PrincipalType
+$sel:principalType:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; PrincipalType
+</span><a href="#local-6989586621679206202"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrincipalType
+</span><a href="#local-6989586621679206202"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206201"><span class="annot"><span class="annottext">s :: DeleteAccountAssignment
+</span><a href="#local-6989586621679206201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206200"><span class="annot"><span class="annottext">PrincipalType
+</span><a href="#local-6989586621679206200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignment
+</span><a href="#local-6989586621679206201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalType:DeleteAccountAssignment' :: PrincipalType
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AprincipalType%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrincipalType
+</span><a href="#local-6989586621679206200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | An identifier for an object in Amazon Web Services SSO, such as a user</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- or group. PrincipalIds are GUIDs (For example,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- PrincipalIds in Amazon Web Services SSO, see the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;/singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference&gt;.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_principalId"><span class="hs-identifier hs-type">deleteAccountAssignment_principalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span id="deleteAccountAssignment_principalId"><span class="annot"><span class="annottext">deleteAccountAssignment_principalId :: (Text -&gt; f Text)
+-&gt; DeleteAccountAssignment -&gt; f DeleteAccountAssignment
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignment_principalId"><span class="hs-identifier hs-var hs-var">deleteAccountAssignment_principalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignment -&gt; Text)
+-&gt; (DeleteAccountAssignment -&gt; Text -&gt; DeleteAccountAssignment)
+-&gt; Lens DeleteAccountAssignment DeleteAccountAssignment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206199"><span class="annot"><span class="annottext">Text
+principalId :: Text
+$sel:principalId:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+</span><a href="#local-6989586621679206199"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206199"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206198"><span class="annot"><span class="annottext">s :: DeleteAccountAssignment
+</span><a href="#local-6989586621679206198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206197"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignment
+</span><a href="#local-6989586621679206198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:DeleteAccountAssignment' :: Text
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AprincipalId%3ADeleteAccountAssignment%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-172"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679206193"><span class="annot"><span class="annottext">request :: DeleteAccountAssignment -&gt; Request DeleteAccountAssignment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteAccountAssignment -&gt; Request DeleteAccountAssignment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSOAdmin.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679206189"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAccountAssignment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAccountAssignment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteAccountAssignment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAccountAssignment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAccountAssignment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206186"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206186"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206185"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206185"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206184"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccountAssignmentOperationStatus
+-&gt; Int -&gt; DeleteAccountAssignmentResponse
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var">DeleteAccountAssignmentResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccountAssignmentOperationStatus
+ -&gt; Int -&gt; DeleteAccountAssignmentResponse)
+-&gt; Either String (Maybe AccountAssignmentOperationStatus)
+-&gt; Either String (Int -&gt; DeleteAccountAssignmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe AccountAssignmentOperationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountAssignmentDeletionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteAccountAssignmentResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteAccountAssignmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206186"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206176"><span id="local-6989586621679206178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679206169"><span class="annot"><span class="annottext">toHeaders :: DeleteAccountAssignment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAccountAssignment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SWBExternalService.DeleteAccountAssignment&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-194"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-198"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206159"><span id="local-6989586621679206161"><span id="local-6989586621679206163"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679206157"><span class="annot"><span class="annottext">toJSON :: DeleteAccountAssignment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment%27"><span class="hs-identifier hs-type">DeleteAccountAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206150"><span id="local-6989586621679206151"><span id="local-6989586621679206152"><span id="local-6989586621679206153"><span id="local-6989586621679206154"><span id="local-6989586621679206155"><span class="annot"><span class="annottext">Text
+PrincipalType
+TargetType
+principalId :: Text
+principalType :: PrincipalType
+permissionSetArn :: Text
+targetType :: TargetType
+targetId :: Text
+instanceArn :: Text
+$sel:principalId:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+$sel:principalType:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; PrincipalType
+$sel:permissionSetArn:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+$sel:targetType:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; TargetType
+$sel:targetId:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+$sel:instanceArn:DeleteAccountAssignment' :: DeleteAccountAssignment -&gt; Text
+</span><a href="#local-6989586621679206150"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206155"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206154"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TargetType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TargetType
+</span><a href="#local-6989586621679206153"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-210"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionSetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206152"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrincipalType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PrincipalType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PrincipalType
+</span><a href="#local-6989586621679206151"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrincipalId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206150"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679206144"><span class="annot"><span class="annottext">toPath :: DeleteAccountAssignment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAccountAssignment -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignment"><span class="hs-identifier hs-type">DeleteAccountAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679206140"><span class="annot"><span class="annottext">toQuery :: DeleteAccountAssignment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAccountAssignment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | /See:/ 'newDeleteAccountAssignmentResponse' smart constructor.</span><span>
+</span><span id="line-223"></span><span id="local-6989586621679206137"><span id="local-6989586621679206138"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccountAssignmentResponse"><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-var">DeleteAccountAssignmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccountAssignmentResponse%27"><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var">DeleteAccountAssignmentResponse'</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status object for the account assignment deletion operation.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AaccountAssignmentDeletionStatus%3ADeleteAccountAssignmentResponse%27"><span class="annot"><span class="annottext">DeleteAccountAssignmentResponse
+-&gt; Maybe AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AaccountAssignmentDeletionStatus%3ADeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var hs-var">accountAssignmentDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAccountAssignmentResponse%27"><span class="annot"><span class="annottext">DeleteAccountAssignmentResponse -&gt; Int
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AhttpStatus%3ADeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206131"><span id="local-6989586621679206133"><span class="annot"><span class="annottext">DeleteAccountAssignmentResponse
+-&gt; DeleteAccountAssignmentResponse -&gt; Bool
+(DeleteAccountAssignmentResponse
+ -&gt; DeleteAccountAssignmentResponse -&gt; Bool)
+-&gt; (DeleteAccountAssignmentResponse
+    -&gt; DeleteAccountAssignmentResponse -&gt; Bool)
+-&gt; Eq DeleteAccountAssignmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAccountAssignmentResponse
+-&gt; DeleteAccountAssignmentResponse -&gt; Bool
+$c/= :: DeleteAccountAssignmentResponse
+-&gt; DeleteAccountAssignmentResponse -&gt; Bool
+== :: DeleteAccountAssignmentResponse
+-&gt; DeleteAccountAssignmentResponse -&gt; Bool
+$c== :: DeleteAccountAssignmentResponse
+-&gt; DeleteAccountAssignmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206123"><span id="local-6989586621679206125"><span id="local-6989586621679206127"><span id="local-6989586621679206129"><span class="annot"><span class="annottext">ReadPrec [DeleteAccountAssignmentResponse]
+ReadPrec DeleteAccountAssignmentResponse
+Int -&gt; ReadS DeleteAccountAssignmentResponse
+ReadS [DeleteAccountAssignmentResponse]
+(Int -&gt; ReadS DeleteAccountAssignmentResponse)
+-&gt; ReadS [DeleteAccountAssignmentResponse]
+-&gt; ReadPrec DeleteAccountAssignmentResponse
+-&gt; ReadPrec [DeleteAccountAssignmentResponse]
+-&gt; Read DeleteAccountAssignmentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAccountAssignmentResponse]
+$creadListPrec :: ReadPrec [DeleteAccountAssignmentResponse]
+readPrec :: ReadPrec DeleteAccountAssignmentResponse
+$creadPrec :: ReadPrec DeleteAccountAssignmentResponse
+readList :: ReadS [DeleteAccountAssignmentResponse]
+$creadList :: ReadS [DeleteAccountAssignmentResponse]
+readsPrec :: Int -&gt; ReadS DeleteAccountAssignmentResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAccountAssignmentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206117"><span id="local-6989586621679206119"><span id="local-6989586621679206121"><span class="annot"><span class="annottext">Int -&gt; DeleteAccountAssignmentResponse -&gt; ShowS
+[DeleteAccountAssignmentResponse] -&gt; ShowS
+DeleteAccountAssignmentResponse -&gt; String
+(Int -&gt; DeleteAccountAssignmentResponse -&gt; ShowS)
+-&gt; (DeleteAccountAssignmentResponse -&gt; String)
+-&gt; ([DeleteAccountAssignmentResponse] -&gt; ShowS)
+-&gt; Show DeleteAccountAssignmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAccountAssignmentResponse] -&gt; ShowS
+$cshowList :: [DeleteAccountAssignmentResponse] -&gt; ShowS
+show :: DeleteAccountAssignmentResponse -&gt; String
+$cshow :: DeleteAccountAssignmentResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAccountAssignmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAccountAssignmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAccountAssignmentResponse
+ -&gt; Rep DeleteAccountAssignmentResponse x)
+-&gt; (forall x.
+    Rep DeleteAccountAssignmentResponse x
+    -&gt; DeleteAccountAssignmentResponse)
+-&gt; Generic DeleteAccountAssignmentResponse
+forall x.
+Rep DeleteAccountAssignmentResponse x
+-&gt; DeleteAccountAssignmentResponse
+forall x.
+DeleteAccountAssignmentResponse
+-&gt; Rep DeleteAccountAssignmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAccountAssignmentResponse x
+-&gt; DeleteAccountAssignmentResponse
+$cfrom :: forall x.
+DeleteAccountAssignmentResponse
+-&gt; Rep DeleteAccountAssignmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Create a value of 'DeleteAccountAssignmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'accountAssignmentDeletionStatus', 'deleteAccountAssignmentResponse_accountAssignmentDeletionStatus' - The status object for the account assignment deletion operation.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'deleteAccountAssignmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#newDeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">newDeleteAccountAssignmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newDeleteAccountAssignmentResponse"><span class="annot"><span class="annottext">newDeleteAccountAssignmentResponse :: Int -&gt; DeleteAccountAssignmentResponse
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#newDeleteAccountAssignmentResponse"><span class="hs-identifier hs-var hs-var">newDeleteAccountAssignmentResponse</span></a></span></span><span> </span><span id="local-6989586621679206114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">DeleteAccountAssignmentResponse' :: Maybe AccountAssignmentOperationStatus
+-&gt; Int -&gt; DeleteAccountAssignmentResponse
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountAssignmentDeletionStatus:DeleteAccountAssignmentResponse' :: Maybe AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AaccountAssignmentDeletionStatus%3ADeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var">accountAssignmentDeletionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccountAssignmentOperationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAccountAssignmentResponse' :: Int
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AhttpStatus%3ADeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The status object for the account assignment deletion operation.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignmentResponse_accountAssignmentDeletionStatus"><span class="hs-identifier hs-type">deleteAccountAssignmentResponse_accountAssignmentDeletionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="deleteAccountAssignmentResponse_accountAssignmentDeletionStatus"><span class="annot"><span class="annottext">deleteAccountAssignmentResponse_accountAssignmentDeletionStatus :: (Maybe AccountAssignmentOperationStatus
+ -&gt; f (Maybe AccountAssignmentOperationStatus))
+-&gt; DeleteAccountAssignmentResponse
+-&gt; f DeleteAccountAssignmentResponse
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignmentResponse_accountAssignmentDeletionStatus"><span class="hs-identifier hs-var hs-var">deleteAccountAssignmentResponse_accountAssignmentDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignmentResponse
+ -&gt; Maybe AccountAssignmentOperationStatus)
+-&gt; (DeleteAccountAssignmentResponse
+    -&gt; Maybe AccountAssignmentOperationStatus
+    -&gt; DeleteAccountAssignmentResponse)
+-&gt; Lens
+     DeleteAccountAssignmentResponse
+     DeleteAccountAssignmentResponse
+     (Maybe AccountAssignmentOperationStatus)
+     (Maybe AccountAssignmentOperationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206113"><span class="annot"><span class="annottext">Maybe AccountAssignmentOperationStatus
+accountAssignmentDeletionStatus :: Maybe AccountAssignmentOperationStatus
+$sel:accountAssignmentDeletionStatus:DeleteAccountAssignmentResponse' :: DeleteAccountAssignmentResponse
+-&gt; Maybe AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679206113"><span class="hs-identifier hs-var hs-var">accountAssignmentDeletionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679206113"><span class="hs-identifier hs-var">accountAssignmentDeletionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206112"><span class="annot"><span class="annottext">s :: DeleteAccountAssignmentResponse
+</span><a href="#local-6989586621679206112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206111"><span class="annot"><span class="annottext">Maybe AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679206111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignmentResponse
+</span><a href="#local-6989586621679206112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountAssignmentDeletionStatus:DeleteAccountAssignmentResponse' :: Maybe AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AaccountAssignmentDeletionStatus%3ADeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var">accountAssignmentDeletionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679206111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignmentResponse_httpStatus"><span class="hs-identifier hs-type">deleteAccountAssignmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="deleteAccountAssignmentResponse_httpStatus"><span class="annot"><span class="annottext">deleteAccountAssignmentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteAccountAssignmentResponse
+-&gt; f DeleteAccountAssignmentResponse
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#deleteAccountAssignmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteAccountAssignmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccountAssignmentResponse -&gt; Int)
+-&gt; (DeleteAccountAssignmentResponse
+    -&gt; Int -&gt; DeleteAccountAssignmentResponse)
+-&gt; Lens
+     DeleteAccountAssignmentResponse
+     DeleteAccountAssignmentResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206110"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteAccountAssignmentResponse' :: DeleteAccountAssignmentResponse -&gt; Int
+</span><a href="#local-6989586621679206110"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206110"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206109"><span class="annot"><span class="annottext">s :: DeleteAccountAssignmentResponse
+</span><a href="#local-6989586621679206109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206108"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccountAssignmentResponse
+</span><a href="#local-6989586621679206109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAccountAssignmentResponse' :: Int
+</span><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#%24sel%3AhttpStatus%3ADeleteAccountAssignmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679206106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.DeleteAccountAssignment.html#DeleteAccountAssignmentResponse"><span class="hs-identifier hs-type">DeleteAccountAssignmentResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.KeyGroupSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.KeyGroupSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroup.html"><span class="hs-identifier">Amazonka.CloudFront.Types.KeyGroup</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a key group.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKeyGroupSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679393543"><span id="local-6989586621679393544"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyGroupSummary"><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-var">KeyGroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyGroupSummary%27"><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-var">KeyGroupSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A key group.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="annot"><span class="annottext">KeyGroupSummary -&gt; KeyGroup
+</span><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393537"><span id="local-6989586621679393539"><span class="annot"><span class="annottext">KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
+(KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool)
+-&gt; (KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool)
+-&gt; Eq KeyGroupSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
+$c/= :: KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
+== :: KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
+$c== :: KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393528"><span id="local-6989586621679393530"><span id="local-6989586621679393532"><span id="local-6989586621679393534"><span class="annot"><span class="annottext">ReadPrec [KeyGroupSummary]
+ReadPrec KeyGroupSummary
+Int -&gt; ReadS KeyGroupSummary
+ReadS [KeyGroupSummary]
+(Int -&gt; ReadS KeyGroupSummary)
+-&gt; ReadS [KeyGroupSummary]
+-&gt; ReadPrec KeyGroupSummary
+-&gt; ReadPrec [KeyGroupSummary]
+-&gt; Read KeyGroupSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KeyGroupSummary]
+$creadListPrec :: ReadPrec [KeyGroupSummary]
+readPrec :: ReadPrec KeyGroupSummary
+$creadPrec :: ReadPrec KeyGroupSummary
+readList :: ReadS [KeyGroupSummary]
+$creadList :: ReadS [KeyGroupSummary]
+readsPrec :: Int -&gt; ReadS KeyGroupSummary
+$creadsPrec :: Int -&gt; ReadS KeyGroupSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393521"><span id="local-6989586621679393523"><span id="local-6989586621679393525"><span class="annot"><span class="annottext">Int -&gt; KeyGroupSummary -&gt; ShowS
+[KeyGroupSummary] -&gt; ShowS
+KeyGroupSummary -&gt; String
+(Int -&gt; KeyGroupSummary -&gt; ShowS)
+-&gt; (KeyGroupSummary -&gt; String)
+-&gt; ([KeyGroupSummary] -&gt; ShowS)
+-&gt; Show KeyGroupSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KeyGroupSummary] -&gt; ShowS
+$cshowList :: [KeyGroupSummary] -&gt; ShowS
+show :: KeyGroupSummary -&gt; String
+$cshow :: KeyGroupSummary -&gt; String
+showsPrec :: Int -&gt; KeyGroupSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; KeyGroupSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. KeyGroupSummary -&gt; Rep KeyGroupSummary x)
+-&gt; (forall x. Rep KeyGroupSummary x -&gt; KeyGroupSummary)
+-&gt; Generic KeyGroupSummary
+forall x. Rep KeyGroupSummary x -&gt; KeyGroupSummary
+forall x. KeyGroupSummary -&gt; Rep KeyGroupSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep KeyGroupSummary x -&gt; KeyGroupSummary
+$cfrom :: forall x. KeyGroupSummary -&gt; Rep KeyGroupSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'KeyGroupSummary' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'keyGroup', 'keyGroupSummary_keyGroup' - A key group.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#newKeyGroupSummary"><span class="hs-identifier hs-type">newKeyGroupSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-comment">-- | 'keyGroup'</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span>
+</span><span id="line-49"></span><span id="newKeyGroupSummary"><span class="annot"><span class="annottext">newKeyGroupSummary :: KeyGroup -&gt; KeyGroupSummary
+</span><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#newKeyGroupSummary"><span class="hs-identifier hs-var hs-var">newKeyGroupSummary</span></a></span></span><span> </span><span id="local-6989586621679393515"><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393515"><span class="hs-identifier hs-var">pKeyGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">KeyGroupSummary' :: KeyGroup -&gt; KeyGroupSummary
+</span><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:KeyGroupSummary' :: KeyGroup
+</span><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="hs-identifier hs-var">keyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393515"><span class="hs-identifier hs-var">pKeyGroup_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | A key group.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#keyGroupSummary_keyGroup"><span class="hs-identifier hs-type">keyGroupSummary_keyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span>
+</span><span id="line-54"></span><span id="keyGroupSummary_keyGroup"><span class="annot"><span class="annottext">keyGroupSummary_keyGroup :: (KeyGroup -&gt; f KeyGroup) -&gt; KeyGroupSummary -&gt; f KeyGroupSummary
+</span><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#keyGroupSummary_keyGroup"><span class="hs-identifier hs-var hs-var">keyGroupSummary_keyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyGroupSummary -&gt; KeyGroup)
+-&gt; (KeyGroupSummary -&gt; KeyGroup -&gt; KeyGroupSummary)
+-&gt; Lens KeyGroupSummary KeyGroupSummary KeyGroup KeyGroup
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393511"><span class="annot"><span class="annottext">KeyGroup
+keyGroup :: KeyGroup
+$sel:keyGroup:KeyGroupSummary' :: KeyGroupSummary -&gt; KeyGroup
+</span><a href="#local-6989586621679393511"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393511"><span class="hs-identifier hs-var">keyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393510"><span class="annot"><span class="annottext">s :: KeyGroupSummary
+</span><a href="#local-6989586621679393510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393509"><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupSummary
+</span><a href="#local-6989586621679393510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:KeyGroupSummary' :: KeyGroup
+</span><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="hs-identifier hs-var">keyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679393506"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyGroupSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393504"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">KeyGroup -&gt; KeyGroupSummary
+</span><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-var">KeyGroupSummary'</span></a></span><span> </span><span class="annot"><span class="annottext">(KeyGroup -&gt; KeyGroupSummary)
+-&gt; Either String KeyGroup -&gt; Either String KeyGroupSummary
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String KeyGroup
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393498"><span id="local-6989586621679393500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span></span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span></span><span>
+</span><span id="line-63"></span></pre></body></html>

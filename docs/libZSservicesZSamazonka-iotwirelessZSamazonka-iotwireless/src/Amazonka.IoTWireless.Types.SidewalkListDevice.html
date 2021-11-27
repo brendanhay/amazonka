@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.SidewalkListDevice</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.SidewalkListDevice</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.CertificateList.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.CertificateList</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Sidewalk object used by list functions.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSidewalkListDevice' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679278022"><span id="local-6989586621679278023"></span></span><span class="hs-keyword">data</span><span> </span><span id="SidewalkListDevice"><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-var">SidewalkListDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SidewalkListDevice%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-var">SidewalkListDevice'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Sidewalk manufacturing series number.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsidewalkManufacturingSn%3ASidewalkListDevice%27"><span class="annot"><span class="annottext">SidewalkListDevice -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AsidewalkManufacturingSn%3ASidewalkListDevice%27"><span class="hs-identifier hs-var hs-var">sidewalkManufacturingSn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Sidewalk Amazon ID.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AamazonId%3ASidewalkListDevice%27"><span class="annot"><span class="annottext">SidewalkListDevice -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AamazonId%3ASidewalkListDevice%27"><span class="hs-identifier hs-var hs-var">amazonId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The sidewalk device certificates for Ed25519 and P256r1.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeviceCertificates%3ASidewalkListDevice%27"><span class="annot"><span class="annottext">SidewalkListDevice -&gt; Maybe [CertificateList]
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AdeviceCertificates%3ASidewalkListDevice%27"><span class="hs-identifier hs-var hs-var">deviceCertificates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.CertificateList.html#CertificateList"><span class="hs-identifier hs-type">CertificateList</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The sidewalk device identification.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsidewalkId%3ASidewalkListDevice%27"><span class="annot"><span class="annottext">SidewalkListDevice -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AsidewalkId%3ASidewalkListDevice%27"><span class="hs-identifier hs-var hs-var">sidewalkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278013"><span id="local-6989586621679278015"><span class="annot"><span class="annottext">SidewalkListDevice -&gt; SidewalkListDevice -&gt; Bool
+(SidewalkListDevice -&gt; SidewalkListDevice -&gt; Bool)
+-&gt; (SidewalkListDevice -&gt; SidewalkListDevice -&gt; Bool)
+-&gt; Eq SidewalkListDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SidewalkListDevice -&gt; SidewalkListDevice -&gt; Bool
+$c/= :: SidewalkListDevice -&gt; SidewalkListDevice -&gt; Bool
+== :: SidewalkListDevice -&gt; SidewalkListDevice -&gt; Bool
+$c== :: SidewalkListDevice -&gt; SidewalkListDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278004"><span id="local-6989586621679278006"><span id="local-6989586621679278008"><span id="local-6989586621679278010"><span class="annot"><span class="annottext">ReadPrec [SidewalkListDevice]
+ReadPrec SidewalkListDevice
+Int -&gt; ReadS SidewalkListDevice
+ReadS [SidewalkListDevice]
+(Int -&gt; ReadS SidewalkListDevice)
+-&gt; ReadS [SidewalkListDevice]
+-&gt; ReadPrec SidewalkListDevice
+-&gt; ReadPrec [SidewalkListDevice]
+-&gt; Read SidewalkListDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SidewalkListDevice]
+$creadListPrec :: ReadPrec [SidewalkListDevice]
+readPrec :: ReadPrec SidewalkListDevice
+$creadPrec :: ReadPrec SidewalkListDevice
+readList :: ReadS [SidewalkListDevice]
+$creadList :: ReadS [SidewalkListDevice]
+readsPrec :: Int -&gt; ReadS SidewalkListDevice
+$creadsPrec :: Int -&gt; ReadS SidewalkListDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277997"><span id="local-6989586621679277999"><span id="local-6989586621679278001"><span class="annot"><span class="annottext">Int -&gt; SidewalkListDevice -&gt; ShowS
+[SidewalkListDevice] -&gt; ShowS
+SidewalkListDevice -&gt; String
+(Int -&gt; SidewalkListDevice -&gt; ShowS)
+-&gt; (SidewalkListDevice -&gt; String)
+-&gt; ([SidewalkListDevice] -&gt; ShowS)
+-&gt; Show SidewalkListDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SidewalkListDevice] -&gt; ShowS
+$cshowList :: [SidewalkListDevice] -&gt; ShowS
+show :: SidewalkListDevice -&gt; String
+$cshow :: SidewalkListDevice -&gt; String
+showsPrec :: Int -&gt; SidewalkListDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; SidewalkListDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SidewalkListDevice -&gt; Rep SidewalkListDevice x)
+-&gt; (forall x. Rep SidewalkListDevice x -&gt; SidewalkListDevice)
+-&gt; Generic SidewalkListDevice
+forall x. Rep SidewalkListDevice x -&gt; SidewalkListDevice
+forall x. SidewalkListDevice -&gt; Rep SidewalkListDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SidewalkListDevice x -&gt; SidewalkListDevice
+$cfrom :: forall x. SidewalkListDevice -&gt; Rep SidewalkListDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'SidewalkListDevice' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'sidewalkManufacturingSn', 'sidewalkListDevice_sidewalkManufacturingSn' - The Sidewalk manufacturing series number.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'amazonId', 'sidewalkListDevice_amazonId' - The Sidewalk Amazon ID.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'deviceCertificates', 'sidewalkListDevice_deviceCertificates' - The sidewalk device certificates for Ed25519 and P256r1.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'sidewalkId', 'sidewalkListDevice_sidewalkId' - The sidewalk device identification.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#newSidewalkListDevice"><span class="hs-identifier hs-type">newSidewalkListDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span>
+</span><span id="line-59"></span><span id="newSidewalkListDevice"><span class="annot"><span class="annottext">newSidewalkListDevice :: SidewalkListDevice
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#newSidewalkListDevice"><span class="hs-identifier hs-var hs-var">newSidewalkListDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">SidewalkListDevice' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [CertificateList]
+-&gt; Maybe Text
+-&gt; SidewalkListDevice
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sidewalkManufacturingSn:SidewalkListDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AsidewalkManufacturingSn%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">sidewalkManufacturingSn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:amazonId:SidewalkListDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AamazonId%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">amazonId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceCertificates:SidewalkListDevice' :: Maybe [CertificateList]
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AdeviceCertificates%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">deviceCertificates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CertificateList]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:sidewalkId:SidewalkListDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AsidewalkId%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">sidewalkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The Sidewalk manufacturing series number.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_sidewalkManufacturingSn"><span class="hs-identifier hs-type">sidewalkListDevice_sidewalkManufacturingSn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="sidewalkListDevice_sidewalkManufacturingSn"><span class="annot"><span class="annottext">sidewalkListDevice_sidewalkManufacturingSn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SidewalkListDevice -&gt; f SidewalkListDevice
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_sidewalkManufacturingSn"><span class="hs-identifier hs-var hs-var">sidewalkListDevice_sidewalkManufacturingSn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkListDevice -&gt; Maybe Text)
+-&gt; (SidewalkListDevice -&gt; Maybe Text -&gt; SidewalkListDevice)
+-&gt; Lens
+     SidewalkListDevice SidewalkListDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277988"><span class="annot"><span class="annottext">Maybe Text
+sidewalkManufacturingSn :: Maybe Text
+$sel:sidewalkManufacturingSn:SidewalkListDevice' :: SidewalkListDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679277988"><span class="hs-identifier hs-var hs-var">sidewalkManufacturingSn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277988"><span class="hs-identifier hs-var">sidewalkManufacturingSn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277987"><span class="annot"><span class="annottext">s :: SidewalkListDevice
+</span><a href="#local-6989586621679277987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkListDevice
+</span><a href="#local-6989586621679277987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sidewalkManufacturingSn:SidewalkListDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AsidewalkManufacturingSn%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">sidewalkManufacturingSn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The Sidewalk Amazon ID.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_amazonId"><span class="hs-identifier hs-type">sidewalkListDevice_amazonId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="sidewalkListDevice_amazonId"><span class="annot"><span class="annottext">sidewalkListDevice_amazonId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SidewalkListDevice -&gt; f SidewalkListDevice
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_amazonId"><span class="hs-identifier hs-var hs-var">sidewalkListDevice_amazonId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkListDevice -&gt; Maybe Text)
+-&gt; (SidewalkListDevice -&gt; Maybe Text -&gt; SidewalkListDevice)
+-&gt; Lens
+     SidewalkListDevice SidewalkListDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277984"><span class="annot"><span class="annottext">Maybe Text
+amazonId :: Maybe Text
+$sel:amazonId:SidewalkListDevice' :: SidewalkListDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679277984"><span class="hs-identifier hs-var hs-var">amazonId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277984"><span class="hs-identifier hs-var">amazonId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277983"><span class="annot"><span class="annottext">s :: SidewalkListDevice
+</span><a href="#local-6989586621679277983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277982"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkListDevice
+</span><a href="#local-6989586621679277983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonId:SidewalkListDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AamazonId%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">amazonId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The sidewalk device certificates for Ed25519 and P256r1.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_deviceCertificates"><span class="hs-identifier hs-type">sidewalkListDevice_deviceCertificates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.CertificateList.html#CertificateList"><span class="hs-identifier hs-type">CertificateList</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="sidewalkListDevice_deviceCertificates"><span class="annot"><span class="annottext">sidewalkListDevice_deviceCertificates :: (Maybe [CertificateList] -&gt; f (Maybe [CertificateList]))
+-&gt; SidewalkListDevice -&gt; f SidewalkListDevice
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_deviceCertificates"><span class="hs-identifier hs-var hs-var">sidewalkListDevice_deviceCertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkListDevice -&gt; Maybe [CertificateList])
+-&gt; (SidewalkListDevice
+    -&gt; Maybe [CertificateList] -&gt; SidewalkListDevice)
+-&gt; Lens
+     SidewalkListDevice
+     SidewalkListDevice
+     (Maybe [CertificateList])
+     (Maybe [CertificateList])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277980"><span class="annot"><span class="annottext">Maybe [CertificateList]
+deviceCertificates :: Maybe [CertificateList]
+$sel:deviceCertificates:SidewalkListDevice' :: SidewalkListDevice -&gt; Maybe [CertificateList]
+</span><a href="#local-6989586621679277980"><span class="hs-identifier hs-var hs-var">deviceCertificates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CertificateList]
+</span><a href="#local-6989586621679277980"><span class="hs-identifier hs-var">deviceCertificates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277979"><span class="annot"><span class="annottext">s :: SidewalkListDevice
+</span><a href="#local-6989586621679277979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277978"><span class="annot"><span class="annottext">Maybe [CertificateList]
+</span><a href="#local-6989586621679277978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkListDevice
+</span><a href="#local-6989586621679277979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceCertificates:SidewalkListDevice' :: Maybe [CertificateList]
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AdeviceCertificates%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">deviceCertificates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CertificateList]
+</span><a href="#local-6989586621679277978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CertificateList] -&gt; f (Maybe [CertificateList]))
+ -&gt; SidewalkListDevice -&gt; f SidewalkListDevice)
+-&gt; ((Maybe [CertificateList] -&gt; f (Maybe [CertificateList]))
+    -&gt; Maybe [CertificateList] -&gt; f (Maybe [CertificateList]))
+-&gt; (Maybe [CertificateList] -&gt; f (Maybe [CertificateList]))
+-&gt; SidewalkListDevice
+-&gt; f SidewalkListDevice
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CertificateList]
+  [CertificateList]
+  [CertificateList]
+  [CertificateList]
+-&gt; Iso
+     (Maybe [CertificateList])
+     (Maybe [CertificateList])
+     (Maybe [CertificateList])
+     (Maybe [CertificateList])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CertificateList]
+  [CertificateList]
+  [CertificateList]
+  [CertificateList]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The sidewalk device identification.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_sidewalkId"><span class="hs-identifier hs-type">sidewalkListDevice_sidewalkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="sidewalkListDevice_sidewalkId"><span class="annot"><span class="annottext">sidewalkListDevice_sidewalkId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SidewalkListDevice -&gt; f SidewalkListDevice
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#sidewalkListDevice_sidewalkId"><span class="hs-identifier hs-var hs-var">sidewalkListDevice_sidewalkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkListDevice -&gt; Maybe Text)
+-&gt; (SidewalkListDevice -&gt; Maybe Text -&gt; SidewalkListDevice)
+-&gt; Lens
+     SidewalkListDevice SidewalkListDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277973"><span class="annot"><span class="annottext">Maybe Text
+sidewalkId :: Maybe Text
+$sel:sidewalkId:SidewalkListDevice' :: SidewalkListDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679277973"><span class="hs-identifier hs-var hs-var">sidewalkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277973"><span class="hs-identifier hs-var">sidewalkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277972"><span class="annot"><span class="annottext">s :: SidewalkListDevice
+</span><a href="#local-6989586621679277972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-type">SidewalkListDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkListDevice
+</span><a href="#local-6989586621679277972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sidewalkId:SidewalkListDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#%24sel%3AsidewalkId%3ASidewalkListDevice%27"><span class="hs-identifier hs-var">sidewalkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679277966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SidewalkListDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SidewalkListDevice)
+-&gt; Value
+-&gt; Parser SidewalkListDevice
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SidewalkListDevice&quot;</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [CertificateList]
+-&gt; Maybe Text
+-&gt; SidewalkListDevice
+</span><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice%27"><span class="hs-identifier hs-var">SidewalkListDevice'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [CertificateList]
+ -&gt; Maybe Text
+ -&gt; SidewalkListDevice)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [CertificateList] -&gt; Maybe Text -&gt; SidewalkListDevice)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SidewalkManufacturingSn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [CertificateList] -&gt; Maybe Text -&gt; SidewalkListDevice)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [CertificateList] -&gt; Maybe Text -&gt; SidewalkListDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AmazonId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [CertificateList] -&gt; Maybe Text -&gt; SidewalkListDevice)
+-&gt; Parser (Maybe [CertificateList])
+-&gt; Parser (Maybe Text -&gt; SidewalkListDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CertificateList]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceCertificates&quot;</span></span><span>
+</span><span id="line-93"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CertificateList]))
+-&gt; Maybe [CertificateList] -&gt; Parser (Maybe [CertificateList])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CertificateList]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-94"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SidewalkListDevice)
+-&gt; Parser (Maybe Text) -&gt; Parser SidewalkListDevice
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SidewalkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277956"><span id="local-6989586621679277958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span></span><span>
+</span><span id="line-101"></span></pre></body></html>

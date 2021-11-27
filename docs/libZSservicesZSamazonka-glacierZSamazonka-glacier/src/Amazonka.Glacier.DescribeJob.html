@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glacier.DescribeJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation returns information about a job you previously initiated,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- including the job initiation date, the user who initiated the job, the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- job status code\/message and the Amazon SNS topic to notify after Amazon</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- S3 Glacier (Glacier) completes the job. For more information about</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- initiating a job, see InitiateJob.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation enables you to check the status of your job. However, it</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- is strongly recommended that you set up an Amazon SNS topic and specify</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- it in your initiate job request so that Glacier can notify the topic</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- after it completes the job.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- A job ID will not expire for at least 24 hours after Glacier completes</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the job.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- An AWS account has full permission to perform all operations (actions).</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- However, AWS Identity and Access Management (IAM) users don\'t have any</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- permissions by default. You must grant them explicit permission to</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- perform specific actions. For more information, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)&gt;.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- For more information about using this operation, see the documentation</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for the underlying REST API</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html Describe Job&gt;</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- in the /Amazon Glacier Developer Guide/.</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glacier.DescribeJob</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier">DescribeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#newDescribeJob"><span class="hs-identifier">newDescribeJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#describeJob_accountId"><span class="hs-identifier">describeJob_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#describeJob_vaultName"><span class="hs-identifier">describeJob_vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#describeJob_jobId"><span class="hs-identifier">describeJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#GlacierJobDescription"><span class="hs-identifier">GlacierJobDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#newGlacierJobDescription"><span class="hs-identifier">newGlacierJobDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_sHA256TreeHash"><span class="hs-identifier">glacierJobDescription_sHA256TreeHash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_archiveId"><span class="hs-identifier">glacierJobDescription_archiveId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_selectParameters"><span class="hs-identifier">glacierJobDescription_selectParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_jobId"><span class="hs-identifier">glacierJobDescription_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_jobOutputPath"><span class="hs-identifier">glacierJobDescription_jobOutputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_retrievalByteRange"><span class="hs-identifier">glacierJobDescription_retrievalByteRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_inventoryRetrievalParameters"><span class="hs-identifier">glacierJobDescription_inventoryRetrievalParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_action"><span class="hs-identifier">glacierJobDescription_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_jobDescription"><span class="hs-identifier">glacierJobDescription_jobDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_sNSTopic"><span class="hs-identifier">glacierJobDescription_sNSTopic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_statusMessage"><span class="hs-identifier">glacierJobDescription_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_vaultARN"><span class="hs-identifier">glacierJobDescription_vaultARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_outputLocation"><span class="hs-identifier">glacierJobDescription_outputLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_tier"><span class="hs-identifier">glacierJobDescription_tier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_archiveSHA256TreeHash"><span class="hs-identifier">glacierJobDescription_archiveSHA256TreeHash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_creationDate"><span class="hs-identifier">glacierJobDescription_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_completed"><span class="hs-identifier">glacierJobDescription_completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_completionDate"><span class="hs-identifier">glacierJobDescription_completionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_inventorySizeInBytes"><span class="hs-identifier">glacierJobDescription_inventorySizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_archiveSizeInBytes"><span class="hs-identifier">glacierJobDescription_archiveSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#glacierJobDescription_statusCode"><span class="hs-identifier">glacierJobDescription_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.html"><span class="hs-identifier">Amazonka.Glacier.Types</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Provides options for retrieving a job description.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- /See:/ 'newDescribeJob' smart constructor.</span><span>
+</span><span id="line-96"></span><span id="local-6989586621679224248"><span id="local-6989586621679224249"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeJob"><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-var">DescribeJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeJob%27"><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-var">DescribeJob'</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AaccountId%3ADescribeJob%27"><span class="annot"><span class="annottext">DescribeJob -&gt; Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AaccountId%3ADescribeJob%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AvaultName%3ADescribeJob%27"><span class="annot"><span class="annottext">DescribeJob -&gt; Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AvaultName%3ADescribeJob%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The ID of the job to describe.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AjobId%3ADescribeJob%27"><span class="annot"><span class="annottext">DescribeJob -&gt; Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AjobId%3ADescribeJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224240"><span id="local-6989586621679224242"><span class="annot"><span class="annottext">DescribeJob -&gt; DescribeJob -&gt; Bool
+(DescribeJob -&gt; DescribeJob -&gt; Bool)
+-&gt; (DescribeJob -&gt; DescribeJob -&gt; Bool) -&gt; Eq DescribeJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeJob -&gt; DescribeJob -&gt; Bool
+$c/= :: DescribeJob -&gt; DescribeJob -&gt; Bool
+== :: DescribeJob -&gt; DescribeJob -&gt; Bool
+$c== :: DescribeJob -&gt; DescribeJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224231"><span id="local-6989586621679224233"><span id="local-6989586621679224235"><span id="local-6989586621679224237"><span class="annot"><span class="annottext">ReadPrec [DescribeJob]
+ReadPrec DescribeJob
+Int -&gt; ReadS DescribeJob
+ReadS [DescribeJob]
+(Int -&gt; ReadS DescribeJob)
+-&gt; ReadS [DescribeJob]
+-&gt; ReadPrec DescribeJob
+-&gt; ReadPrec [DescribeJob]
+-&gt; Read DescribeJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeJob]
+$creadListPrec :: ReadPrec [DescribeJob]
+readPrec :: ReadPrec DescribeJob
+$creadPrec :: ReadPrec DescribeJob
+readList :: ReadS [DescribeJob]
+$creadList :: ReadS [DescribeJob]
+readsPrec :: Int -&gt; ReadS DescribeJob
+$creadsPrec :: Int -&gt; ReadS DescribeJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224224"><span id="local-6989586621679224226"><span id="local-6989586621679224228"><span class="annot"><span class="annottext">Int -&gt; DescribeJob -&gt; ShowS
+[DescribeJob] -&gt; ShowS
+DescribeJob -&gt; String
+(Int -&gt; DescribeJob -&gt; ShowS)
+-&gt; (DescribeJob -&gt; String)
+-&gt; ([DescribeJob] -&gt; ShowS)
+-&gt; Show DescribeJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeJob] -&gt; ShowS
+$cshowList :: [DescribeJob] -&gt; ShowS
+show :: DescribeJob -&gt; String
+$cshow :: DescribeJob -&gt; String
+showsPrec :: Int -&gt; DescribeJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeJob -&gt; Rep DescribeJob x)
+-&gt; (forall x. Rep DescribeJob x -&gt; DescribeJob)
+-&gt; Generic DescribeJob
+forall x. Rep DescribeJob x -&gt; DescribeJob
+forall x. DescribeJob -&gt; Rep DescribeJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeJob x -&gt; DescribeJob
+$cfrom :: forall x. DescribeJob -&gt; Rep DescribeJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'DescribeJob' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'accountId', 'describeJob_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'vaultName', 'describeJob_vaultName' - The name of the vault.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'jobId', 'describeJob_jobId' - The ID of the job to describe.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#newDescribeJob"><span class="hs-identifier hs-type">newDescribeJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'vaultName'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span>
+</span><span id="line-135"></span><span id="newDescribeJob"><span class="annot"><span class="annottext">newDescribeJob :: Text -&gt; Text -&gt; Text -&gt; DescribeJob
+</span><a href="Amazonka.Glacier.DescribeJob.html#newDescribeJob"><span class="hs-identifier hs-var hs-var">newDescribeJob</span></a></span></span><span> </span><span id="local-6989586621679224219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679224218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224218"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679224217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224217"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DescribeJob' :: Text -&gt; Text -&gt; Text -&gt; DescribeJob
+</span><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DescribeJob' :: Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AaccountId%3ADescribeJob%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:DescribeJob' :: Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AvaultName%3ADescribeJob%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224218"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:DescribeJob' :: Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AjobId%3ADescribeJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224217"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#describeJob_accountId"><span class="hs-identifier hs-type">describeJob_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="describeJob_accountId"><span class="annot"><span class="annottext">describeJob_accountId :: (Text -&gt; f Text) -&gt; DescribeJob -&gt; f DescribeJob
+</span><a href="Amazonka.Glacier.DescribeJob.html#describeJob_accountId"><span class="hs-identifier hs-var hs-var">describeJob_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeJob -&gt; Text)
+-&gt; (DescribeJob -&gt; Text -&gt; DescribeJob)
+-&gt; Lens DescribeJob DescribeJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224214"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:DescribeJob' :: DescribeJob -&gt; Text
+</span><a href="#local-6989586621679224214"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224214"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224213"><span class="annot"><span class="annottext">s :: DescribeJob
+</span><a href="#local-6989586621679224213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224212"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJob
+</span><a href="#local-6989586621679224213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DescribeJob' :: Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AaccountId%3ADescribeJob%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#describeJob_vaultName"><span class="hs-identifier hs-type">describeJob_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="describeJob_vaultName"><span class="annot"><span class="annottext">describeJob_vaultName :: (Text -&gt; f Text) -&gt; DescribeJob -&gt; f DescribeJob
+</span><a href="Amazonka.Glacier.DescribeJob.html#describeJob_vaultName"><span class="hs-identifier hs-var hs-var">describeJob_vaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeJob -&gt; Text)
+-&gt; (DescribeJob -&gt; Text -&gt; DescribeJob)
+-&gt; Lens DescribeJob DescribeJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224211"><span class="annot"><span class="annottext">Text
+vaultName :: Text
+$sel:vaultName:DescribeJob' :: DescribeJob -&gt; Text
+</span><a href="#local-6989586621679224211"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224211"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224210"><span class="annot"><span class="annottext">s :: DescribeJob
+</span><a href="#local-6989586621679224210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJob
+</span><a href="#local-6989586621679224210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DescribeJob' :: Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AvaultName%3ADescribeJob%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The ID of the job to describe.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#describeJob_jobId"><span class="hs-identifier hs-type">describeJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="describeJob_jobId"><span class="annot"><span class="annottext">describeJob_jobId :: (Text -&gt; f Text) -&gt; DescribeJob -&gt; f DescribeJob
+</span><a href="Amazonka.Glacier.DescribeJob.html#describeJob_jobId"><span class="hs-identifier hs-var hs-var">describeJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeJob -&gt; Text)
+-&gt; (DescribeJob -&gt; Text -&gt; DescribeJob)
+-&gt; Lens DescribeJob DescribeJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224208"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeJob' :: DescribeJob -&gt; Text
+</span><a href="#local-6989586621679224208"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224208"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224207"><span class="annot"><span class="annottext">s :: DescribeJob
+</span><a href="#local-6989586621679224207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJob
+</span><a href="#local-6989586621679224207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeJob' :: Text
+</span><a href="Amazonka.Glacier.DescribeJob.html#%24sel%3AjobId%3ADescribeJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.GlacierJobDescription.html#GlacierJobDescription"><span class="hs-identifier hs-type">GlacierJobDescription</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679224202"><span class="annot"><span class="annottext">request :: DescribeJob -&gt; Request DescribeJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request DescribeJob -&gt; Request DescribeJob
+forall a. ByteString -&gt; Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.glacierVersionHeader</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var">Core._serviceVersion</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">(Request DescribeJob -&gt; Request DescribeJob)
+-&gt; (DescribeJob -&gt; Request DescribeJob)
+-&gt; DescribeJob
+-&gt; Request DescribeJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeJob -&gt; Request DescribeJob
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679224195"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224192"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224191"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224191"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224190"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String GlacierJobDescription
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224190"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224185"><span id="local-6989586621679224187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679224178"><span class="annot"><span class="annottext">toHeaders :: DescribeJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679224173"><span class="annot"><span class="annottext">toPath :: DescribeJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob%27"><span class="hs-identifier hs-type">DescribeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224169"><span id="local-6989586621679224170"><span id="local-6989586621679224171"><span class="annot"><span class="annottext">Text
+jobId :: Text
+vaultName :: Text
+accountId :: Text
+$sel:jobId:DescribeJob' :: DescribeJob -&gt; Text
+$sel:vaultName:DescribeJob' :: DescribeJob -&gt; Text
+$sel:accountId:DescribeJob' :: DescribeJob -&gt; Text
+</span><a href="#local-6989586621679224169"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224171"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224170"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224169"><span class="hs-identifier hs-var">jobId</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.DescribeJob.html#DescribeJob"><span class="hs-identifier hs-type">DescribeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679224165"><span class="annot"><span class="annottext">toQuery :: DescribeJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-187"></span></pre></body></html>

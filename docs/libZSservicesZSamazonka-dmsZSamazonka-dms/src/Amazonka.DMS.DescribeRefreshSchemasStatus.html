@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DMS.DescribeRefreshSchemasStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the status of the RefreshSchemas operation.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.DescribeRefreshSchemasStatus</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier">DescribeRefreshSchemasStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#newDescribeRefreshSchemasStatus"><span class="hs-identifier">newDescribeRefreshSchemasStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatus_endpointArn"><span class="hs-identifier">describeRefreshSchemasStatus_endpointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier">DescribeRefreshSchemasStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#newDescribeRefreshSchemasStatusResponse"><span class="hs-identifier">newDescribeRefreshSchemasStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatusResponse_refreshSchemasStatus"><span class="hs-identifier">describeRefreshSchemasStatusResponse_refreshSchemasStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatusResponse_httpStatus"><span class="hs-identifier">describeRefreshSchemasStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.html"><span class="hs-identifier">Amazonka.DMS.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDescribeRefreshSchemasStatus' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679449662"><span id="local-6989586621679449663"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRefreshSchemasStatus"><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-var">DescribeRefreshSchemasStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRefreshSchemasStatus%27"><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-var">DescribeRefreshSchemasStatus'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) string that uniquely identifies the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AendpointArn%3ADescribeRefreshSchemasStatus%27"><span class="annot"><span class="annottext">DescribeRefreshSchemasStatus -&gt; Text
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3AendpointArn%3ADescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449656"><span id="local-6989586621679449658"><span class="annot"><span class="annottext">DescribeRefreshSchemasStatus
+-&gt; DescribeRefreshSchemasStatus -&gt; Bool
+(DescribeRefreshSchemasStatus
+ -&gt; DescribeRefreshSchemasStatus -&gt; Bool)
+-&gt; (DescribeRefreshSchemasStatus
+    -&gt; DescribeRefreshSchemasStatus -&gt; Bool)
+-&gt; Eq DescribeRefreshSchemasStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRefreshSchemasStatus
+-&gt; DescribeRefreshSchemasStatus -&gt; Bool
+$c/= :: DescribeRefreshSchemasStatus
+-&gt; DescribeRefreshSchemasStatus -&gt; Bool
+== :: DescribeRefreshSchemasStatus
+-&gt; DescribeRefreshSchemasStatus -&gt; Bool
+$c== :: DescribeRefreshSchemasStatus
+-&gt; DescribeRefreshSchemasStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449647"><span id="local-6989586621679449649"><span id="local-6989586621679449651"><span id="local-6989586621679449653"><span class="annot"><span class="annottext">ReadPrec [DescribeRefreshSchemasStatus]
+ReadPrec DescribeRefreshSchemasStatus
+Int -&gt; ReadS DescribeRefreshSchemasStatus
+ReadS [DescribeRefreshSchemasStatus]
+(Int -&gt; ReadS DescribeRefreshSchemasStatus)
+-&gt; ReadS [DescribeRefreshSchemasStatus]
+-&gt; ReadPrec DescribeRefreshSchemasStatus
+-&gt; ReadPrec [DescribeRefreshSchemasStatus]
+-&gt; Read DescribeRefreshSchemasStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRefreshSchemasStatus]
+$creadListPrec :: ReadPrec [DescribeRefreshSchemasStatus]
+readPrec :: ReadPrec DescribeRefreshSchemasStatus
+$creadPrec :: ReadPrec DescribeRefreshSchemasStatus
+readList :: ReadS [DescribeRefreshSchemasStatus]
+$creadList :: ReadS [DescribeRefreshSchemasStatus]
+readsPrec :: Int -&gt; ReadS DescribeRefreshSchemasStatus
+$creadsPrec :: Int -&gt; ReadS DescribeRefreshSchemasStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449640"><span id="local-6989586621679449642"><span id="local-6989586621679449644"><span class="annot"><span class="annottext">Int -&gt; DescribeRefreshSchemasStatus -&gt; ShowS
+[DescribeRefreshSchemasStatus] -&gt; ShowS
+DescribeRefreshSchemasStatus -&gt; String
+(Int -&gt; DescribeRefreshSchemasStatus -&gt; ShowS)
+-&gt; (DescribeRefreshSchemasStatus -&gt; String)
+-&gt; ([DescribeRefreshSchemasStatus] -&gt; ShowS)
+-&gt; Show DescribeRefreshSchemasStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRefreshSchemasStatus] -&gt; ShowS
+$cshowList :: [DescribeRefreshSchemasStatus] -&gt; ShowS
+show :: DescribeRefreshSchemasStatus -&gt; String
+$cshow :: DescribeRefreshSchemasStatus -&gt; String
+showsPrec :: Int -&gt; DescribeRefreshSchemasStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRefreshSchemasStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeRefreshSchemasStatus -&gt; Rep DescribeRefreshSchemasStatus x)
+-&gt; (forall x.
+    Rep DescribeRefreshSchemasStatus x -&gt; DescribeRefreshSchemasStatus)
+-&gt; Generic DescribeRefreshSchemasStatus
+forall x.
+Rep DescribeRefreshSchemasStatus x -&gt; DescribeRefreshSchemasStatus
+forall x.
+DescribeRefreshSchemasStatus -&gt; Rep DescribeRefreshSchemasStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeRefreshSchemasStatus x -&gt; DescribeRefreshSchemasStatus
+$cfrom :: forall x.
+DescribeRefreshSchemasStatus -&gt; Rep DescribeRefreshSchemasStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DescribeRefreshSchemasStatus' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'endpointArn', 'describeRefreshSchemasStatus_endpointArn' - The Amazon Resource Name (ARN) string that uniquely identifies the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#newDescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">newDescribeRefreshSchemasStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'endpointArn'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span>
+</span><span id="line-73"></span><span id="newDescribeRefreshSchemasStatus"><span class="annot"><span class="annottext">newDescribeRefreshSchemasStatus :: Text -&gt; DescribeRefreshSchemasStatus
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#newDescribeRefreshSchemasStatus"><span class="hs-identifier hs-var hs-var">newDescribeRefreshSchemasStatus</span></a></span></span><span> </span><span id="local-6989586621679449635"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449635"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DescribeRefreshSchemasStatus' :: Text -&gt; DescribeRefreshSchemasStatus
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointArn:DescribeRefreshSchemasStatus' :: Text
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3AendpointArn%3ADescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449635"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) string that uniquely identifies the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatus_endpointArn"><span class="hs-identifier hs-type">describeRefreshSchemasStatus_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="describeRefreshSchemasStatus_endpointArn"><span class="annot"><span class="annottext">describeRefreshSchemasStatus_endpointArn :: (Text -&gt; f Text)
+-&gt; DescribeRefreshSchemasStatus -&gt; f DescribeRefreshSchemasStatus
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatus_endpointArn"><span class="hs-identifier hs-var hs-var">describeRefreshSchemasStatus_endpointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRefreshSchemasStatus -&gt; Text)
+-&gt; (DescribeRefreshSchemasStatus
+    -&gt; Text -&gt; DescribeRefreshSchemasStatus)
+-&gt; Lens
+     DescribeRefreshSchemasStatus DescribeRefreshSchemasStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449632"><span class="annot"><span class="annottext">Text
+endpointArn :: Text
+$sel:endpointArn:DescribeRefreshSchemasStatus' :: DescribeRefreshSchemasStatus -&gt; Text
+</span><a href="#local-6989586621679449632"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449632"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449631"><span class="annot"><span class="annottext">s :: DescribeRefreshSchemasStatus
+</span><a href="#local-6989586621679449631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRefreshSchemasStatus
+</span><a href="#local-6989586621679449631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:DescribeRefreshSchemasStatus' :: Text
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3AendpointArn%3ADescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679449626"><span class="annot"><span class="annottext">request :: DescribeRefreshSchemasStatus
+-&gt; Request DescribeRefreshSchemasStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeRefreshSchemasStatus
+-&gt; Request DescribeRefreshSchemasStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679449622"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeRefreshSchemasStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRefreshSchemasStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeRefreshSchemasStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeRefreshSchemasStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRefreshSchemasStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449619"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449619"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679449618"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679449618"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679449617"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679449617"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe RefreshSchemasStatus
+-&gt; Int -&gt; DescribeRefreshSchemasStatusResponse
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var">DescribeRefreshSchemasStatusResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RefreshSchemasStatus
+ -&gt; Int -&gt; DescribeRefreshSchemasStatusResponse)
+-&gt; Either String (Maybe RefreshSchemasStatus)
+-&gt; Either String (Int -&gt; DescribeRefreshSchemasStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679449617"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RefreshSchemasStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RefreshSchemasStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeRefreshSchemasStatusResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeRefreshSchemasStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449619"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679449609"><span id="local-6989586621679449611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679449602"><span class="annot"><span class="annottext">toHeaders :: DescribeRefreshSchemasStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRefreshSchemasStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonDMSv20160101.DescribeRefreshSchemasStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449592"><span id="local-6989586621679449594"><span id="local-6989586621679449596"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679449590"><span class="annot"><span class="annottext">toJSON :: DescribeRefreshSchemasStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449588"><span class="annot"><span class="annottext">Text
+endpointArn :: Text
+$sel:endpointArn:DescribeRefreshSchemasStatus' :: DescribeRefreshSchemasStatus -&gt; Text
+</span><a href="#local-6989586621679449588"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449588"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679449582"><span class="annot"><span class="annottext">toPath :: DescribeRefreshSchemasStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRefreshSchemasStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatus"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679449578"><span class="annot"><span class="annottext">toQuery :: DescribeRefreshSchemasStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRefreshSchemasStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- /See:/ 'newDescribeRefreshSchemasStatusResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679449575"><span id="local-6989586621679449576"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRefreshSchemasStatusResponse"><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-var">DescribeRefreshSchemasStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRefreshSchemasStatusResponse%27"><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var">DescribeRefreshSchemasStatusResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the schema.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3ArefreshSchemasStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="annot"><span class="annottext">DescribeRefreshSchemasStatusResponse -&gt; Maybe RefreshSchemasStatus
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3ArefreshSchemasStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var hs-var">refreshSchemasStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatus.html#RefreshSchemasStatus"><span class="hs-identifier hs-type">RefreshSchemasStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="annot"><span class="annottext">DescribeRefreshSchemasStatusResponse -&gt; Int
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3AhttpStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449569"><span id="local-6989586621679449571"><span class="annot"><span class="annottext">DescribeRefreshSchemasStatusResponse
+-&gt; DescribeRefreshSchemasStatusResponse -&gt; Bool
+(DescribeRefreshSchemasStatusResponse
+ -&gt; DescribeRefreshSchemasStatusResponse -&gt; Bool)
+-&gt; (DescribeRefreshSchemasStatusResponse
+    -&gt; DescribeRefreshSchemasStatusResponse -&gt; Bool)
+-&gt; Eq DescribeRefreshSchemasStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRefreshSchemasStatusResponse
+-&gt; DescribeRefreshSchemasStatusResponse -&gt; Bool
+$c/= :: DescribeRefreshSchemasStatusResponse
+-&gt; DescribeRefreshSchemasStatusResponse -&gt; Bool
+== :: DescribeRefreshSchemasStatusResponse
+-&gt; DescribeRefreshSchemasStatusResponse -&gt; Bool
+$c== :: DescribeRefreshSchemasStatusResponse
+-&gt; DescribeRefreshSchemasStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449561"><span id="local-6989586621679449563"><span id="local-6989586621679449565"><span id="local-6989586621679449567"><span class="annot"><span class="annottext">ReadPrec [DescribeRefreshSchemasStatusResponse]
+ReadPrec DescribeRefreshSchemasStatusResponse
+Int -&gt; ReadS DescribeRefreshSchemasStatusResponse
+ReadS [DescribeRefreshSchemasStatusResponse]
+(Int -&gt; ReadS DescribeRefreshSchemasStatusResponse)
+-&gt; ReadS [DescribeRefreshSchemasStatusResponse]
+-&gt; ReadPrec DescribeRefreshSchemasStatusResponse
+-&gt; ReadPrec [DescribeRefreshSchemasStatusResponse]
+-&gt; Read DescribeRefreshSchemasStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRefreshSchemasStatusResponse]
+$creadListPrec :: ReadPrec [DescribeRefreshSchemasStatusResponse]
+readPrec :: ReadPrec DescribeRefreshSchemasStatusResponse
+$creadPrec :: ReadPrec DescribeRefreshSchemasStatusResponse
+readList :: ReadS [DescribeRefreshSchemasStatusResponse]
+$creadList :: ReadS [DescribeRefreshSchemasStatusResponse]
+readsPrec :: Int -&gt; ReadS DescribeRefreshSchemasStatusResponse
+$creadsPrec :: Int -&gt; ReadS DescribeRefreshSchemasStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449555"><span id="local-6989586621679449557"><span id="local-6989586621679449559"><span class="annot"><span class="annottext">Int -&gt; DescribeRefreshSchemasStatusResponse -&gt; ShowS
+[DescribeRefreshSchemasStatusResponse] -&gt; ShowS
+DescribeRefreshSchemasStatusResponse -&gt; String
+(Int -&gt; DescribeRefreshSchemasStatusResponse -&gt; ShowS)
+-&gt; (DescribeRefreshSchemasStatusResponse -&gt; String)
+-&gt; ([DescribeRefreshSchemasStatusResponse] -&gt; ShowS)
+-&gt; Show DescribeRefreshSchemasStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRefreshSchemasStatusResponse] -&gt; ShowS
+$cshowList :: [DescribeRefreshSchemasStatusResponse] -&gt; ShowS
+show :: DescribeRefreshSchemasStatusResponse -&gt; String
+$cshow :: DescribeRefreshSchemasStatusResponse -&gt; String
+showsPrec :: Int -&gt; DescribeRefreshSchemasStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRefreshSchemasStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeRefreshSchemasStatusResponse
+ -&gt; Rep DescribeRefreshSchemasStatusResponse x)
+-&gt; (forall x.
+    Rep DescribeRefreshSchemasStatusResponse x
+    -&gt; DescribeRefreshSchemasStatusResponse)
+-&gt; Generic DescribeRefreshSchemasStatusResponse
+forall x.
+Rep DescribeRefreshSchemasStatusResponse x
+-&gt; DescribeRefreshSchemasStatusResponse
+forall x.
+DescribeRefreshSchemasStatusResponse
+-&gt; Rep DescribeRefreshSchemasStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeRefreshSchemasStatusResponse x
+-&gt; DescribeRefreshSchemasStatusResponse
+$cfrom :: forall x.
+DescribeRefreshSchemasStatusResponse
+-&gt; Rep DescribeRefreshSchemasStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'DescribeRefreshSchemasStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'refreshSchemasStatus', 'describeRefreshSchemasStatusResponse_refreshSchemasStatus' - The status of the schema.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'describeRefreshSchemasStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#newDescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">newDescribeRefreshSchemasStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newDescribeRefreshSchemasStatusResponse"><span class="annot"><span class="annottext">newDescribeRefreshSchemasStatusResponse :: Int -&gt; DescribeRefreshSchemasStatusResponse
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#newDescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeRefreshSchemasStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679449552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DescribeRefreshSchemasStatusResponse' :: Maybe RefreshSchemasStatus
+-&gt; Int -&gt; DescribeRefreshSchemasStatusResponse
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:refreshSchemasStatus:DescribeRefreshSchemasStatusResponse' :: Maybe RefreshSchemasStatus
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3ArefreshSchemasStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var">refreshSchemasStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe RefreshSchemasStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRefreshSchemasStatusResponse' :: Int
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3AhttpStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The status of the schema.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatusResponse_refreshSchemasStatus"><span class="hs-identifier hs-type">describeRefreshSchemasStatusResponse_refreshSchemasStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.RefreshSchemasStatus.html#RefreshSchemasStatus"><span class="hs-identifier hs-type">RefreshSchemasStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="describeRefreshSchemasStatusResponse_refreshSchemasStatus"><span class="annot"><span class="annottext">describeRefreshSchemasStatusResponse_refreshSchemasStatus :: (Maybe RefreshSchemasStatus -&gt; f (Maybe RefreshSchemasStatus))
+-&gt; DescribeRefreshSchemasStatusResponse
+-&gt; f DescribeRefreshSchemasStatusResponse
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatusResponse_refreshSchemasStatus"><span class="hs-identifier hs-var hs-var">describeRefreshSchemasStatusResponse_refreshSchemasStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRefreshSchemasStatusResponse
+ -&gt; Maybe RefreshSchemasStatus)
+-&gt; (DescribeRefreshSchemasStatusResponse
+    -&gt; Maybe RefreshSchemasStatus
+    -&gt; DescribeRefreshSchemasStatusResponse)
+-&gt; Lens
+     DescribeRefreshSchemasStatusResponse
+     DescribeRefreshSchemasStatusResponse
+     (Maybe RefreshSchemasStatus)
+     (Maybe RefreshSchemasStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449551"><span class="annot"><span class="annottext">Maybe RefreshSchemasStatus
+refreshSchemasStatus :: Maybe RefreshSchemasStatus
+$sel:refreshSchemasStatus:DescribeRefreshSchemasStatusResponse' :: DescribeRefreshSchemasStatusResponse -&gt; Maybe RefreshSchemasStatus
+</span><a href="#local-6989586621679449551"><span class="hs-identifier hs-var hs-var">refreshSchemasStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RefreshSchemasStatus
+</span><a href="#local-6989586621679449551"><span class="hs-identifier hs-var">refreshSchemasStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449550"><span class="annot"><span class="annottext">s :: DescribeRefreshSchemasStatusResponse
+</span><a href="#local-6989586621679449550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449549"><span class="annot"><span class="annottext">Maybe RefreshSchemasStatus
+</span><a href="#local-6989586621679449549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRefreshSchemasStatusResponse
+</span><a href="#local-6989586621679449550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshSchemasStatus:DescribeRefreshSchemasStatusResponse' :: Maybe RefreshSchemasStatus
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3ArefreshSchemasStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var">refreshSchemasStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RefreshSchemasStatus
+</span><a href="#local-6989586621679449549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeRefreshSchemasStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="describeRefreshSchemasStatusResponse_httpStatus"><span class="annot"><span class="annottext">describeRefreshSchemasStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeRefreshSchemasStatusResponse
+-&gt; f DescribeRefreshSchemasStatusResponse
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#describeRefreshSchemasStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeRefreshSchemasStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRefreshSchemasStatusResponse -&gt; Int)
+-&gt; (DescribeRefreshSchemasStatusResponse
+    -&gt; Int -&gt; DescribeRefreshSchemasStatusResponse)
+-&gt; Lens
+     DescribeRefreshSchemasStatusResponse
+     DescribeRefreshSchemasStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449548"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeRefreshSchemasStatusResponse' :: DescribeRefreshSchemasStatusResponse -&gt; Int
+</span><a href="#local-6989586621679449548"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449548"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449547"><span class="annot"><span class="annottext">s :: DescribeRefreshSchemasStatusResponse
+</span><a href="#local-6989586621679449547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRefreshSchemasStatusResponse
+</span><a href="#local-6989586621679449547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRefreshSchemasStatusResponse' :: Int
+</span><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#%24sel%3AhttpStatus%3ADescribeRefreshSchemasStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679449544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.DescribeRefreshSchemasStatus.html#DescribeRefreshSchemasStatusResponse"><span class="hs-identifier hs-type">DescribeRefreshSchemasStatusResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

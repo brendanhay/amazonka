@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.SetPermission</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Specifies a user\'s permissions. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html Security and Permissions&gt;.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- __Required Permissions__: To use this action, an IAM user must have a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Manage permissions level for the stack, or an attached policy that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- explicitly grants permissions. For more information on user permissions,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.SetPermission</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier">SetPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#newSetPermission"><span class="hs-identifier">newSetPermission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_allowSudo"><span class="hs-identifier">setPermission_allowSudo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_level"><span class="hs-identifier">setPermission_level</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_allowSsh"><span class="hs-identifier">setPermission_allowSsh</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_stackId"><span class="hs-identifier">setPermission_stackId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_iamUserArn"><span class="hs-identifier">setPermission_iamUserArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier">SetPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#newSetPermissionResponse"><span class="hs-identifier">newSetPermissionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.html"><span class="hs-identifier">Amazonka.OpsWorks.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newSetPermission' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679382850"><span id="local-6989586621679382851"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPermission"><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-var">SetPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPermission%27"><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-var">SetPermission'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user is allowed to use __sudo__ to elevate privileges.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AallowSudo%3ASetPermission%27"><span class="annot"><span class="annottext">SetPermission -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AallowSudo%3ASetPermission%27"><span class="hs-identifier hs-var hs-var">allowSudo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The user\'s permission level, which must be set to one of the following</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- strings. You cannot set your own permissions level.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @deny@</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @show@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @deploy@</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @manage@</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @iam_only@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- For more information about the permissions associated with these levels,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Alevel%3ASetPermission%27"><span class="annot"><span class="annottext">SetPermission -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3Alevel%3ASetPermission%27"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The user is allowed to use SSH to communicate with the instance.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AallowSsh%3ASetPermission%27"><span class="annot"><span class="annottext">SetPermission -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AallowSsh%3ASetPermission%27"><span class="hs-identifier hs-var hs-var">allowSsh</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The stack ID.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AstackId%3ASetPermission%27"><span class="annot"><span class="annottext">SetPermission -&gt; Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AstackId%3ASetPermission%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The user\'s IAM ARN. This can also be a federated user\'s ARN.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AiamUserArn%3ASetPermission%27"><span class="annot"><span class="annottext">SetPermission -&gt; Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AiamUserArn%3ASetPermission%27"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382840"><span id="local-6989586621679382842"><span class="annot"><span class="annottext">SetPermission -&gt; SetPermission -&gt; Bool
+(SetPermission -&gt; SetPermission -&gt; Bool)
+-&gt; (SetPermission -&gt; SetPermission -&gt; Bool) -&gt; Eq SetPermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetPermission -&gt; SetPermission -&gt; Bool
+$c/= :: SetPermission -&gt; SetPermission -&gt; Bool
+== :: SetPermission -&gt; SetPermission -&gt; Bool
+$c== :: SetPermission -&gt; SetPermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382831"><span id="local-6989586621679382833"><span id="local-6989586621679382835"><span id="local-6989586621679382837"><span class="annot"><span class="annottext">ReadPrec [SetPermission]
+ReadPrec SetPermission
+Int -&gt; ReadS SetPermission
+ReadS [SetPermission]
+(Int -&gt; ReadS SetPermission)
+-&gt; ReadS [SetPermission]
+-&gt; ReadPrec SetPermission
+-&gt; ReadPrec [SetPermission]
+-&gt; Read SetPermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetPermission]
+$creadListPrec :: ReadPrec [SetPermission]
+readPrec :: ReadPrec SetPermission
+$creadPrec :: ReadPrec SetPermission
+readList :: ReadS [SetPermission]
+$creadList :: ReadS [SetPermission]
+readsPrec :: Int -&gt; ReadS SetPermission
+$creadsPrec :: Int -&gt; ReadS SetPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382824"><span id="local-6989586621679382826"><span id="local-6989586621679382828"><span class="annot"><span class="annottext">Int -&gt; SetPermission -&gt; ShowS
+[SetPermission] -&gt; ShowS
+SetPermission -&gt; String
+(Int -&gt; SetPermission -&gt; ShowS)
+-&gt; (SetPermission -&gt; String)
+-&gt; ([SetPermission] -&gt; ShowS)
+-&gt; Show SetPermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetPermission] -&gt; ShowS
+$cshowList :: [SetPermission] -&gt; ShowS
+show :: SetPermission -&gt; String
+$cshow :: SetPermission -&gt; String
+showsPrec :: Int -&gt; SetPermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetPermission -&gt; Rep SetPermission x)
+-&gt; (forall x. Rep SetPermission x -&gt; SetPermission)
+-&gt; Generic SetPermission
+forall x. Rep SetPermission x -&gt; SetPermission
+forall x. SetPermission -&gt; Rep SetPermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetPermission x -&gt; SetPermission
+$cfrom :: forall x. SetPermission -&gt; Rep SetPermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'SetPermission' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'allowSudo', 'setPermission_allowSudo' - The user is allowed to use __sudo__ to elevate privileges.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'level', 'setPermission_level' - The user\'s permission level, which must be set to one of the following</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- strings. You cannot set your own permissions level.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @deny@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   @show@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   @deploy@</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   @manage@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   @iam_only@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- For more information about the permissions associated with these levels,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'allowSsh', 'setPermission_allowSsh' - The user is allowed to use SSH to communicate with the instance.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'stackId', 'setPermission_stackId' - The stack ID.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'iamUserArn', 'setPermission_iamUserArn' - The user\'s IAM ARN. This can also be a federated user\'s ARN.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#newSetPermission"><span class="hs-identifier hs-type">newSetPermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'stackId'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'iamUserArn'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span>
+</span><span id="line-124"></span><span id="newSetPermission"><span class="annot"><span class="annottext">newSetPermission :: Text -&gt; Text -&gt; SetPermission
+</span><a href="Amazonka.OpsWorks.SetPermission.html#newSetPermission"><span class="hs-identifier hs-var hs-var">newSetPermission</span></a></span></span><span> </span><span id="local-6989586621679382819"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382819"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span id="local-6989586621679382818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382818"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">SetPermission' :: Maybe Bool
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; SetPermission
+</span><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowSudo:SetPermission' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AallowSudo%3ASetPermission%27"><span class="hs-identifier hs-var">allowSudo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:level:SetPermission' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3Alevel%3ASetPermission%27"><span class="hs-identifier hs-var">level</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowSsh:SetPermission' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AallowSsh%3ASetPermission%27"><span class="hs-identifier hs-var">allowSsh</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:SetPermission' :: Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AstackId%3ASetPermission%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382819"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamUserArn:SetPermission' :: Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AiamUserArn%3ASetPermission%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382818"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The user is allowed to use __sudo__ to elevate privileges.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_allowSudo"><span class="hs-identifier hs-type">setPermission_allowSudo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="setPermission_allowSudo"><span class="annot"><span class="annottext">setPermission_allowSudo :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; SetPermission -&gt; f SetPermission
+</span><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_allowSudo"><span class="hs-identifier hs-var hs-var">setPermission_allowSudo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPermission -&gt; Maybe Bool)
+-&gt; (SetPermission -&gt; Maybe Bool -&gt; SetPermission)
+-&gt; Lens SetPermission SetPermission (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382815"><span class="annot"><span class="annottext">Maybe Bool
+allowSudo :: Maybe Bool
+$sel:allowSudo:SetPermission' :: SetPermission -&gt; Maybe Bool
+</span><a href="#local-6989586621679382815"><span class="hs-identifier hs-var hs-var">allowSudo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382815"><span class="hs-identifier hs-var">allowSudo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382814"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679382814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382813"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679382814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSudo:SetPermission' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AallowSudo%3ASetPermission%27"><span class="hs-identifier hs-var">allowSudo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The user\'s permission level, which must be set to one of the following</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- strings. You cannot set your own permissions level.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @deny@</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @show@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @deploy@</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @manage@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @iam_only@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- For more information about the permissions associated with these levels,</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_level"><span class="hs-identifier hs-type">setPermission_level</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="setPermission_level"><span class="annot"><span class="annottext">setPermission_level :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SetPermission -&gt; f SetPermission
+</span><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_level"><span class="hs-identifier hs-var hs-var">setPermission_level</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPermission -&gt; Maybe Text)
+-&gt; (SetPermission -&gt; Maybe Text -&gt; SetPermission)
+-&gt; Lens SetPermission SetPermission (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382812"><span class="annot"><span class="annottext">Maybe Text
+level :: Maybe Text
+$sel:level:SetPermission' :: SetPermission -&gt; Maybe Text
+</span><a href="#local-6989586621679382812"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382812"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382811"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679382811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679382811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:level:SetPermission' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3Alevel%3ASetPermission%27"><span class="hs-identifier hs-var">level</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The user is allowed to use SSH to communicate with the instance.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_allowSsh"><span class="hs-identifier hs-type">setPermission_allowSsh</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="setPermission_allowSsh"><span class="annot"><span class="annottext">setPermission_allowSsh :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; SetPermission -&gt; f SetPermission
+</span><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_allowSsh"><span class="hs-identifier hs-var hs-var">setPermission_allowSsh</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPermission -&gt; Maybe Bool)
+-&gt; (SetPermission -&gt; Maybe Bool -&gt; SetPermission)
+-&gt; Lens SetPermission SetPermission (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382809"><span class="annot"><span class="annottext">Maybe Bool
+allowSsh :: Maybe Bool
+$sel:allowSsh:SetPermission' :: SetPermission -&gt; Maybe Bool
+</span><a href="#local-6989586621679382809"><span class="hs-identifier hs-var hs-var">allowSsh</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382809"><span class="hs-identifier hs-var">allowSsh</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382808"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679382808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382807"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679382808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSsh:SetPermission' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AallowSsh%3ASetPermission%27"><span class="hs-identifier hs-var">allowSsh</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The stack ID.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_stackId"><span class="hs-identifier hs-type">setPermission_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="setPermission_stackId"><span class="annot"><span class="annottext">setPermission_stackId :: (Text -&gt; f Text) -&gt; SetPermission -&gt; f SetPermission
+</span><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_stackId"><span class="hs-identifier hs-var hs-var">setPermission_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPermission -&gt; Text)
+-&gt; (SetPermission -&gt; Text -&gt; SetPermission)
+-&gt; Lens SetPermission SetPermission Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382806"><span class="annot"><span class="annottext">Text
+stackId :: Text
+$sel:stackId:SetPermission' :: SetPermission -&gt; Text
+</span><a href="#local-6989586621679382806"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382806"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382805"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679382805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679382805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:SetPermission' :: Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AstackId%3ASetPermission%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The user\'s IAM ARN. This can also be a federated user\'s ARN.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_iamUserArn"><span class="hs-identifier hs-type">setPermission_iamUserArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-166"></span><span id="setPermission_iamUserArn"><span class="annot"><span class="annottext">setPermission_iamUserArn :: (Text -&gt; f Text) -&gt; SetPermission -&gt; f SetPermission
+</span><a href="Amazonka.OpsWorks.SetPermission.html#setPermission_iamUserArn"><span class="hs-identifier hs-var hs-var">setPermission_iamUserArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetPermission -&gt; Text)
+-&gt; (SetPermission -&gt; Text -&gt; SetPermission)
+-&gt; Lens SetPermission SetPermission Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382803"><span class="annot"><span class="annottext">Text
+iamUserArn :: Text
+$sel:iamUserArn:SetPermission' :: SetPermission -&gt; Text
+</span><a href="#local-6989586621679382803"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382803"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382802"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679382802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382801"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679382802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:SetPermission' :: Text
+</span><a href="Amazonka.OpsWorks.SetPermission.html#%24sel%3AiamUserArn%3ASetPermission%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-170"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-type">SetPermissionResponse</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679382797"><span class="annot"><span class="annottext">request :: SetPermission -&gt; Request SetPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetPermission -&gt; Request SetPermission
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679382793"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SetPermission)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse SetPermission
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SetPermission)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SetPermission
+SetPermissionResponse
+</span><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse%27"><span class="hs-identifier hs-var">SetPermissionResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382786"><span id="local-6989586621679382788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679382779"><span class="annot"><span class="annottext">toHeaders :: SetPermission -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; SetPermission -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpsWorks_20130218.SetPermission&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-187"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382769"><span id="local-6989586621679382771"><span id="local-6989586621679382773"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679382767"><span class="annot"><span class="annottext">toJSON :: SetPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382761"><span id="local-6989586621679382762"><span id="local-6989586621679382763"><span id="local-6989586621679382764"><span id="local-6989586621679382765"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+iamUserArn :: Text
+stackId :: Text
+allowSsh :: Maybe Bool
+level :: Maybe Text
+allowSudo :: Maybe Bool
+$sel:iamUserArn:SetPermission' :: SetPermission -&gt; Text
+$sel:stackId:SetPermission' :: SetPermission -&gt; Text
+$sel:allowSsh:SetPermission' :: SetPermission -&gt; Maybe Bool
+$sel:level:SetPermission' :: SetPermission -&gt; Maybe Text
+$sel:allowSudo:SetPermission' :: SetPermission -&gt; Maybe Bool
+</span><a href="#local-6989586621679382761"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllowSudo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382765"><span class="hs-identifier hs-var">allowSudo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Level&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382764"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllowSsh&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382763"><span class="hs-identifier hs-var">allowSsh</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382762"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamUserArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382761"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679382754"><span class="annot"><span class="annottext">toPath :: SetPermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetPermission -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679382750"><span class="annot"><span class="annottext">toQuery :: SetPermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetPermission -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | /See:/ 'newSetPermissionResponse' smart constructor.</span><span>
+</span><span id="line-214"></span><span id="local-6989586621679382747"><span id="local-6989586621679382748"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPermissionResponse"><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-var">SetPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPermissionResponse%27"><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse%27"><span class="hs-identifier hs-var">SetPermissionResponse'</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382743"><span id="local-6989586621679382745"><span class="annot"><span class="annottext">SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
+(SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool)
+-&gt; (SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool)
+-&gt; Eq SetPermissionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
+$c/= :: SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
+== :: SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
+$c== :: SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382735"><span id="local-6989586621679382737"><span id="local-6989586621679382739"><span id="local-6989586621679382741"><span class="annot"><span class="annottext">ReadPrec [SetPermissionResponse]
+ReadPrec SetPermissionResponse
+Int -&gt; ReadS SetPermissionResponse
+ReadS [SetPermissionResponse]
+(Int -&gt; ReadS SetPermissionResponse)
+-&gt; ReadS [SetPermissionResponse]
+-&gt; ReadPrec SetPermissionResponse
+-&gt; ReadPrec [SetPermissionResponse]
+-&gt; Read SetPermissionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetPermissionResponse]
+$creadListPrec :: ReadPrec [SetPermissionResponse]
+readPrec :: ReadPrec SetPermissionResponse
+$creadPrec :: ReadPrec SetPermissionResponse
+readList :: ReadS [SetPermissionResponse]
+$creadList :: ReadS [SetPermissionResponse]
+readsPrec :: Int -&gt; ReadS SetPermissionResponse
+$creadsPrec :: Int -&gt; ReadS SetPermissionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382729"><span id="local-6989586621679382731"><span id="local-6989586621679382733"><span class="annot"><span class="annottext">Int -&gt; SetPermissionResponse -&gt; ShowS
+[SetPermissionResponse] -&gt; ShowS
+SetPermissionResponse -&gt; String
+(Int -&gt; SetPermissionResponse -&gt; ShowS)
+-&gt; (SetPermissionResponse -&gt; String)
+-&gt; ([SetPermissionResponse] -&gt; ShowS)
+-&gt; Show SetPermissionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetPermissionResponse] -&gt; ShowS
+$cshowList :: [SetPermissionResponse] -&gt; ShowS
+show :: SetPermissionResponse -&gt; String
+$cshow :: SetPermissionResponse -&gt; String
+showsPrec :: Int -&gt; SetPermissionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetPermissionResponse -&gt; Rep SetPermissionResponse x)
+-&gt; (forall x. Rep SetPermissionResponse x -&gt; SetPermissionResponse)
+-&gt; Generic SetPermissionResponse
+forall x. Rep SetPermissionResponse x -&gt; SetPermissionResponse
+forall x. SetPermissionResponse -&gt; Rep SetPermissionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetPermissionResponse x -&gt; SetPermissionResponse
+$cfrom :: forall x. SetPermissionResponse -&gt; Rep SetPermissionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Create a value of 'SetPermissionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#newSetPermissionResponse"><span class="hs-identifier hs-type">newSetPermissionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-type">SetPermissionResponse</span></a></span><span>
+</span><span id="line-225"></span><span id="newSetPermissionResponse"><span class="annot"><span class="annottext">newSetPermissionResponse :: SetPermissionResponse
+</span><a href="Amazonka.OpsWorks.SetPermission.html#newSetPermissionResponse"><span class="hs-identifier hs-var hs-var">newSetPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SetPermissionResponse
+</span><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse%27"><span class="hs-identifier hs-var">SetPermissionResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-type">SetPermissionResponse</span></a></span></span><span>
+</span><span id="line-228"></span></pre></body></html>

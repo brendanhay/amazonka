@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Discovery.Types.DataSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Discovery.Types.DataSource</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier">DataSource</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource_AGENT"><span class="hs-identifier">DataSource_AGENT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679202625"><span id="local-6989586621679202626"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataSource"><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-var">DataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSource%27"><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-var">DataSource'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataSource"><span class="annot"><span class="annottext">DataSource -&gt; Text
+</span><a href="Amazonka.Discovery.Types.DataSource.html#fromDataSource"><span class="hs-identifier hs-var hs-var">fromDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202617"><span id="local-6989586621679202619"><span id="local-6989586621679202621"><span class="annot"><span class="annottext">Int -&gt; DataSource -&gt; ShowS
+[DataSource] -&gt; ShowS
+DataSource -&gt; String
+(Int -&gt; DataSource -&gt; ShowS)
+-&gt; (DataSource -&gt; String)
+-&gt; ([DataSource] -&gt; ShowS)
+-&gt; Show DataSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSource] -&gt; ShowS
+$cshowList :: [DataSource] -&gt; ShowS
+show :: DataSource -&gt; String
+$cshow :: DataSource -&gt; String
+showsPrec :: Int -&gt; DataSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679202608"><span id="local-6989586621679202610"><span id="local-6989586621679202612"><span id="local-6989586621679202614"><span class="annot"><span class="annottext">ReadPrec [DataSource]
+ReadPrec DataSource
+Int -&gt; ReadS DataSource
+ReadS [DataSource]
+(Int -&gt; ReadS DataSource)
+-&gt; ReadS [DataSource]
+-&gt; ReadPrec DataSource
+-&gt; ReadPrec [DataSource]
+-&gt; Read DataSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSource]
+$creadListPrec :: ReadPrec [DataSource]
+readPrec :: ReadPrec DataSource
+$creadPrec :: ReadPrec DataSource
+readList :: ReadS [DataSource]
+$creadList :: ReadS [DataSource]
+readsPrec :: Int -&gt; ReadS DataSource
+$creadsPrec :: Int -&gt; ReadS DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679202603"><span id="local-6989586621679202605"><span class="annot"><span class="annottext">DataSource -&gt; DataSource -&gt; Bool
+(DataSource -&gt; DataSource -&gt; Bool)
+-&gt; (DataSource -&gt; DataSource -&gt; Bool) -&gt; Eq DataSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSource -&gt; DataSource -&gt; Bool
+$c/= :: DataSource -&gt; DataSource -&gt; Bool
+== :: DataSource -&gt; DataSource -&gt; Bool
+$c== :: DataSource -&gt; DataSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679202587"><span id="local-6989586621679202589"><span id="local-6989586621679202591"><span id="local-6989586621679202593"><span id="local-6989586621679202595"><span id="local-6989586621679202597"><span id="local-6989586621679202599"><span class="annot"><span class="annottext">Eq DataSource
+Eq DataSource
+-&gt; (DataSource -&gt; DataSource -&gt; Ordering)
+-&gt; (DataSource -&gt; DataSource -&gt; Bool)
+-&gt; (DataSource -&gt; DataSource -&gt; Bool)
+-&gt; (DataSource -&gt; DataSource -&gt; Bool)
+-&gt; (DataSource -&gt; DataSource -&gt; Bool)
+-&gt; (DataSource -&gt; DataSource -&gt; DataSource)
+-&gt; (DataSource -&gt; DataSource -&gt; DataSource)
+-&gt; Ord DataSource
+DataSource -&gt; DataSource -&gt; Bool
+DataSource -&gt; DataSource -&gt; Ordering
+DataSource -&gt; DataSource -&gt; DataSource
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataSource -&gt; DataSource -&gt; DataSource
+$cmin :: DataSource -&gt; DataSource -&gt; DataSource
+max :: DataSource -&gt; DataSource -&gt; DataSource
+$cmax :: DataSource -&gt; DataSource -&gt; DataSource
+&gt;= :: DataSource -&gt; DataSource -&gt; Bool
+$c&gt;= :: DataSource -&gt; DataSource -&gt; Bool
+&gt; :: DataSource -&gt; DataSource -&gt; Bool
+$c&gt; :: DataSource -&gt; DataSource -&gt; Bool
+&lt;= :: DataSource -&gt; DataSource -&gt; Bool
+$c&lt;= :: DataSource -&gt; DataSource -&gt; Bool
+&lt; :: DataSource -&gt; DataSource -&gt; Bool
+$c&lt; :: DataSource -&gt; DataSource -&gt; Bool
+compare :: DataSource -&gt; DataSource -&gt; Ordering
+$ccompare :: DataSource -&gt; DataSource -&gt; Ordering
+$cp1Ord :: Eq DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DataSource -&gt; Rep DataSource x)
+-&gt; (forall x. Rep DataSource x -&gt; DataSource) -&gt; Generic DataSource
+forall x. Rep DataSource x -&gt; DataSource
+forall x. DataSource -&gt; Rep DataSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSource x -&gt; DataSource
+$cfrom :: forall x. DataSource -&gt; Rep DataSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202579"><span id="local-6989586621679202581"><span class="annot"><span class="annottext">Int -&gt; DataSource -&gt; Int
+DataSource -&gt; Int
+(Int -&gt; DataSource -&gt; Int)
+-&gt; (DataSource -&gt; Int) -&gt; Hashable DataSource
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataSource -&gt; Int
+$chash :: DataSource -&gt; Int
+hashWithSalt :: Int -&gt; DataSource -&gt; Int
+$chashWithSalt :: Int -&gt; DataSource -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679202576"><span class="annot"><span class="annottext">DataSource -&gt; ()
+(DataSource -&gt; ()) -&gt; NFData DataSource
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataSource -&gt; ()
+$crnf :: DataSource -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679202573"><span class="annot"><span class="annottext">Text -&gt; Either String DataSource
+(Text -&gt; Either String DataSource) -&gt; FromText DataSource
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataSource
+$cfromText :: Text -&gt; Either String DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679202570"><span class="annot"><span class="annottext">DataSource -&gt; Text
+(DataSource -&gt; Text) -&gt; ToText DataSource
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataSource -&gt; Text
+$ctoText :: DataSource -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679202567"><span class="annot"><span class="annottext">DataSource -&gt; ByteString
+(DataSource -&gt; ByteString) -&gt; ToByteString DataSource
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataSource -&gt; ByteString
+$ctoBS :: DataSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202564"><span class="annot"><span class="annottext">DataSource -&gt; ByteStringBuilder
+(DataSource -&gt; ByteStringBuilder) -&gt; ToLog DataSource
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataSource -&gt; ByteStringBuilder
+$cbuild :: DataSource -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202561"><span class="annot"><span class="annottext">HeaderName -&gt; DataSource -&gt; [Header]
+(HeaderName -&gt; DataSource -&gt; [Header]) -&gt; ToHeader DataSource
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataSource -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataSource -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202558"><span class="annot"><span class="annottext">DataSource -&gt; QueryString
+(DataSource -&gt; QueryString) -&gt; ToQuery DataSource
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataSource -&gt; QueryString
+$ctoQuery :: DataSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202553"><span id="local-6989586621679202555"><span class="annot"><span class="annottext">Value -&gt; Parser [DataSource]
+Value -&gt; Parser DataSource
+(Value -&gt; Parser DataSource)
+-&gt; (Value -&gt; Parser [DataSource]) -&gt; FromJSON DataSource
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataSource]
+$cparseJSONList :: Value -&gt; Parser [DataSource]
+parseJSON :: Value -&gt; Parser DataSource
+$cparseJSON :: Value -&gt; Parser DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202548"><span id="local-6989586621679202550"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataSource]
+FromJSONKeyFunction DataSource
+FromJSONKeyFunction DataSource
+-&gt; FromJSONKeyFunction [DataSource] -&gt; FromJSONKey DataSource
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataSource]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataSource]
+fromJSONKey :: FromJSONKeyFunction DataSource
+$cfromJSONKey :: FromJSONKeyFunction DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202539"><span id="local-6989586621679202541"><span id="local-6989586621679202543"><span id="local-6989586621679202545"><span class="annot"><span class="annottext">[DataSource] -&gt; Encoding
+[DataSource] -&gt; Value
+DataSource -&gt; Encoding
+DataSource -&gt; Value
+(DataSource -&gt; Value)
+-&gt; (DataSource -&gt; Encoding)
+-&gt; ([DataSource] -&gt; Value)
+-&gt; ([DataSource] -&gt; Encoding)
+-&gt; ToJSON DataSource
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataSource] -&gt; Encoding
+$ctoEncodingList :: [DataSource] -&gt; Encoding
+toJSONList :: [DataSource] -&gt; Value
+$ctoJSONList :: [DataSource] -&gt; Value
+toEncoding :: DataSource -&gt; Encoding
+$ctoEncoding :: DataSource -&gt; Encoding
+toJSON :: DataSource -&gt; Value
+$ctoJSON :: DataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202534"><span id="local-6989586621679202536"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataSource]
+ToJSONKeyFunction DataSource
+ToJSONKeyFunction DataSource
+-&gt; ToJSONKeyFunction [DataSource] -&gt; ToJSONKey DataSource
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataSource]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataSource]
+toJSONKey :: ToJSONKeyFunction DataSource
+$ctoJSONKey :: ToJSONKeyFunction DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202531"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataSource
+([Node] -&gt; Either String DataSource) -&gt; FromXML DataSource
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataSource
+$cparseXML :: [Node] -&gt; Either String DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202528"><span class="annot"><span class="annottext">DataSource -&gt; XML
+(DataSource -&gt; XML) -&gt; ToXML DataSource
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataSource -&gt; XML
+$ctoXML :: DataSource -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource_AGENT"><span class="hs-identifier hs-type">DataSource_AGENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSource_AGENT"><span id="%24mDataSource_AGENT"><span id="DataSource_AGENT"><span class="annot"><span class="annottext">$bDataSource_AGENT :: DataSource
+$mDataSource_AGENT :: forall r. DataSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Discovery.Types.DataSource.html#%24bDataSource_AGENT"><span class="hs-identifier hs-var hs-var hs-var">DataSource_AGENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource%27"><span class="hs-identifier hs-type">DataSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AGENT&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource_AGENT"><span class="hs-pragma hs-type">DataSource_AGENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource%27"><span class="hs-pragma hs-type">DataSource'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

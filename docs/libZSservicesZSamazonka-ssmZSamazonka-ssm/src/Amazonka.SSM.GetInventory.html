@@ -1,0 +1,905 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.GetInventory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Query inventory information. This includes instance status, such as</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @Stopped@ or @Terminated@.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.GetInventory</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier">GetInventory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#newGetInventory"><span class="hs-identifier">newGetInventory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_aggregators"><span class="hs-identifier">getInventory_aggregators</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_filters"><span class="hs-identifier">getInventory_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_resultAttributes"><span class="hs-identifier">getInventory_resultAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_nextToken"><span class="hs-identifier">getInventory_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_maxResults"><span class="hs-identifier">getInventory_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier">GetInventoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#newGetInventoryResponse"><span class="hs-identifier">newGetInventoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_entities"><span class="hs-identifier">getInventoryResponse_entities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_nextToken"><span class="hs-identifier">getInventoryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_httpStatus"><span class="hs-identifier">getInventoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetInventory' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679838049"><span id="local-6989586621679838050"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInventory"><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-var">GetInventory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInventory%27"><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-var">GetInventory'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns counts of inventory types based on one or more expressions. For</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- example, if you aggregate by using an expression that uses the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- many Windows and Linux instances exist in your inventoried fleet.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aaggregators%3AGetInventory%27"><span class="annot"><span class="annottext">GetInventory -&gt; Maybe (NonEmpty InventoryAggregator)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Aaggregators%3AGetInventory%27"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryAggregator.html#InventoryAggregator"><span class="hs-identifier hs-type">InventoryAggregator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Afilters%3AGetInventory%27"><span class="annot"><span class="annottext">GetInventory -&gt; Maybe (NonEmpty InventoryFilter)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Afilters%3AGetInventory%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryFilter.html#InventoryFilter"><span class="hs-identifier hs-type">InventoryFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The list of inventory item types to return.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AresultAttributes%3AGetInventory%27"><span class="annot"><span class="annottext">GetInventory -&gt; Maybe (NonEmpty ResultAttribute)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AresultAttributes%3AGetInventory%27"><span class="hs-identifier hs-var hs-var">resultAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AnextToken%3AGetInventory%27"><span class="annot"><span class="annottext">GetInventory -&gt; Maybe Text
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AnextToken%3AGetInventory%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetInventory%27"><span class="annot"><span class="annottext">GetInventory -&gt; Maybe Natural
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AmaxResults%3AGetInventory%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838039"><span id="local-6989586621679838041"><span class="annot"><span class="annottext">GetInventory -&gt; GetInventory -&gt; Bool
+(GetInventory -&gt; GetInventory -&gt; Bool)
+-&gt; (GetInventory -&gt; GetInventory -&gt; Bool) -&gt; Eq GetInventory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInventory -&gt; GetInventory -&gt; Bool
+$c/= :: GetInventory -&gt; GetInventory -&gt; Bool
+== :: GetInventory -&gt; GetInventory -&gt; Bool
+$c== :: GetInventory -&gt; GetInventory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838030"><span id="local-6989586621679838032"><span id="local-6989586621679838034"><span id="local-6989586621679838036"><span class="annot"><span class="annottext">ReadPrec [GetInventory]
+ReadPrec GetInventory
+Int -&gt; ReadS GetInventory
+ReadS [GetInventory]
+(Int -&gt; ReadS GetInventory)
+-&gt; ReadS [GetInventory]
+-&gt; ReadPrec GetInventory
+-&gt; ReadPrec [GetInventory]
+-&gt; Read GetInventory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInventory]
+$creadListPrec :: ReadPrec [GetInventory]
+readPrec :: ReadPrec GetInventory
+$creadPrec :: ReadPrec GetInventory
+readList :: ReadS [GetInventory]
+$creadList :: ReadS [GetInventory]
+readsPrec :: Int -&gt; ReadS GetInventory
+$creadsPrec :: Int -&gt; ReadS GetInventory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838023"><span id="local-6989586621679838025"><span id="local-6989586621679838027"><span class="annot"><span class="annottext">Int -&gt; GetInventory -&gt; ShowS
+[GetInventory] -&gt; ShowS
+GetInventory -&gt; String
+(Int -&gt; GetInventory -&gt; ShowS)
+-&gt; (GetInventory -&gt; String)
+-&gt; ([GetInventory] -&gt; ShowS)
+-&gt; Show GetInventory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInventory] -&gt; ShowS
+$cshowList :: [GetInventory] -&gt; ShowS
+show :: GetInventory -&gt; String
+$cshow :: GetInventory -&gt; String
+showsPrec :: Int -&gt; GetInventory -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInventory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetInventory -&gt; Rep GetInventory x)
+-&gt; (forall x. Rep GetInventory x -&gt; GetInventory)
+-&gt; Generic GetInventory
+forall x. Rep GetInventory x -&gt; GetInventory
+forall x. GetInventory -&gt; Rep GetInventory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetInventory x -&gt; GetInventory
+$cfrom :: forall x. GetInventory -&gt; Rep GetInventory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'GetInventory' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'aggregators', 'getInventory_aggregators' - Returns counts of inventory types based on one or more expressions. For</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- example, if you aggregate by using an expression that uses the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- many Windows and Linux instances exist in your inventoried fleet.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'filters', 'getInventory_filters' - One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'resultAttributes', 'getInventory_resultAttributes' - The list of inventory item types to return.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'nextToken', 'getInventory_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'maxResults', 'getInventory_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#newGetInventory"><span class="hs-identifier hs-type">newGetInventory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span>
+</span><span id="line-105"></span><span id="newGetInventory"><span class="annot"><span class="annottext">newGetInventory :: GetInventory
+</span><a href="Amazonka.SSM.GetInventory.html#newGetInventory"><span class="hs-identifier hs-var hs-var">newGetInventory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">GetInventory' :: Maybe (NonEmpty InventoryAggregator)
+-&gt; Maybe (NonEmpty InventoryFilter)
+-&gt; Maybe (NonEmpty ResultAttribute)
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; GetInventory
+</span><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aggregators:GetInventory' :: Maybe (NonEmpty InventoryAggregator)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Aaggregators%3AGetInventory%27"><span class="hs-identifier hs-var">aggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryAggregator)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:GetInventory' :: Maybe (NonEmpty InventoryFilter)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Afilters%3AGetInventory%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryFilter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultAttributes:GetInventory' :: Maybe (NonEmpty ResultAttribute)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AresultAttributes%3AGetInventory%27"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResultAttribute)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetInventory' :: Maybe Text
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AnextToken%3AGetInventory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetInventory' :: Maybe Natural
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AmaxResults%3AGetInventory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Returns counts of inventory types based on one or more expressions. For</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- example, if you aggregate by using an expression that uses the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- many Windows and Linux instances exist in your inventoried fleet.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_aggregators"><span class="hs-identifier hs-type">getInventory_aggregators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryAggregator.html#InventoryAggregator"><span class="hs-identifier hs-type">InventoryAggregator</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="getInventory_aggregators"><span class="annot"><span class="annottext">getInventory_aggregators :: (Maybe (NonEmpty InventoryAggregator)
+ -&gt; f (Maybe (NonEmpty InventoryAggregator)))
+-&gt; GetInventory -&gt; f GetInventory
+</span><a href="Amazonka.SSM.GetInventory.html#getInventory_aggregators"><span class="hs-identifier hs-var hs-var">getInventory_aggregators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventory -&gt; Maybe (NonEmpty InventoryAggregator))
+-&gt; (GetInventory
+    -&gt; Maybe (NonEmpty InventoryAggregator) -&gt; GetInventory)
+-&gt; Lens
+     GetInventory
+     GetInventory
+     (Maybe (NonEmpty InventoryAggregator))
+     (Maybe (NonEmpty InventoryAggregator))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838017"><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryAggregator)
+aggregators :: Maybe (NonEmpty InventoryAggregator)
+$sel:aggregators:GetInventory' :: GetInventory -&gt; Maybe (NonEmpty InventoryAggregator)
+</span><a href="#local-6989586621679838017"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryAggregator)
+</span><a href="#local-6989586621679838017"><span class="hs-identifier hs-var">aggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838016"><span class="annot"><span class="annottext">s :: GetInventory
+</span><a href="#local-6989586621679838016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838015"><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryAggregator)
+</span><a href="#local-6989586621679838015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventory
+</span><a href="#local-6989586621679838016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregators:GetInventory' :: Maybe (NonEmpty InventoryAggregator)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Aaggregators%3AGetInventory%27"><span class="hs-identifier hs-var">aggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryAggregator)
+</span><a href="#local-6989586621679838015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty InventoryAggregator)
+  -&gt; f (Maybe (NonEmpty InventoryAggregator)))
+ -&gt; GetInventory -&gt; f GetInventory)
+-&gt; ((Maybe (NonEmpty InventoryAggregator)
+     -&gt; f (Maybe (NonEmpty InventoryAggregator)))
+    -&gt; Maybe (NonEmpty InventoryAggregator)
+    -&gt; f (Maybe (NonEmpty InventoryAggregator)))
+-&gt; (Maybe (NonEmpty InventoryAggregator)
+    -&gt; f (Maybe (NonEmpty InventoryAggregator)))
+-&gt; GetInventory
+-&gt; f GetInventory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty InventoryAggregator)
+  (NonEmpty InventoryAggregator)
+  (NonEmpty InventoryAggregator)
+  (NonEmpty InventoryAggregator)
+-&gt; Iso
+     (Maybe (NonEmpty InventoryAggregator))
+     (Maybe (NonEmpty InventoryAggregator))
+     (Maybe (NonEmpty InventoryAggregator))
+     (Maybe (NonEmpty InventoryAggregator))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty InventoryAggregator)
+  (NonEmpty InventoryAggregator)
+  (NonEmpty InventoryAggregator)
+  (NonEmpty InventoryAggregator)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_filters"><span class="hs-identifier hs-type">getInventory_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryFilter.html#InventoryFilter"><span class="hs-identifier hs-type">InventoryFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="getInventory_filters"><span class="annot"><span class="annottext">getInventory_filters :: (Maybe (NonEmpty InventoryFilter)
+ -&gt; f (Maybe (NonEmpty InventoryFilter)))
+-&gt; GetInventory -&gt; f GetInventory
+</span><a href="Amazonka.SSM.GetInventory.html#getInventory_filters"><span class="hs-identifier hs-var hs-var">getInventory_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventory -&gt; Maybe (NonEmpty InventoryFilter))
+-&gt; (GetInventory
+    -&gt; Maybe (NonEmpty InventoryFilter) -&gt; GetInventory)
+-&gt; Lens
+     GetInventory
+     GetInventory
+     (Maybe (NonEmpty InventoryFilter))
+     (Maybe (NonEmpty InventoryFilter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838011"><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryFilter)
+filters :: Maybe (NonEmpty InventoryFilter)
+$sel:filters:GetInventory' :: GetInventory -&gt; Maybe (NonEmpty InventoryFilter)
+</span><a href="#local-6989586621679838011"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryFilter)
+</span><a href="#local-6989586621679838011"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838010"><span class="annot"><span class="annottext">s :: GetInventory
+</span><a href="#local-6989586621679838010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838009"><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryFilter)
+</span><a href="#local-6989586621679838009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventory
+</span><a href="#local-6989586621679838010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetInventory' :: Maybe (NonEmpty InventoryFilter)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Afilters%3AGetInventory%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryFilter)
+</span><a href="#local-6989586621679838009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty InventoryFilter)
+  -&gt; f (Maybe (NonEmpty InventoryFilter)))
+ -&gt; GetInventory -&gt; f GetInventory)
+-&gt; ((Maybe (NonEmpty InventoryFilter)
+     -&gt; f (Maybe (NonEmpty InventoryFilter)))
+    -&gt; Maybe (NonEmpty InventoryFilter)
+    -&gt; f (Maybe (NonEmpty InventoryFilter)))
+-&gt; (Maybe (NonEmpty InventoryFilter)
+    -&gt; f (Maybe (NonEmpty InventoryFilter)))
+-&gt; GetInventory
+-&gt; f GetInventory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty InventoryFilter)
+  (NonEmpty InventoryFilter)
+  (NonEmpty InventoryFilter)
+  (NonEmpty InventoryFilter)
+-&gt; Iso
+     (Maybe (NonEmpty InventoryFilter))
+     (Maybe (NonEmpty InventoryFilter))
+     (Maybe (NonEmpty InventoryFilter))
+     (Maybe (NonEmpty InventoryFilter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty InventoryFilter)
+  (NonEmpty InventoryFilter)
+  (NonEmpty InventoryFilter)
+  (NonEmpty InventoryFilter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The list of inventory item types to return.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_resultAttributes"><span class="hs-identifier hs-type">getInventory_resultAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="getInventory_resultAttributes"><span class="annot"><span class="annottext">getInventory_resultAttributes :: (Maybe (NonEmpty ResultAttribute)
+ -&gt; f (Maybe (NonEmpty ResultAttribute)))
+-&gt; GetInventory -&gt; f GetInventory
+</span><a href="Amazonka.SSM.GetInventory.html#getInventory_resultAttributes"><span class="hs-identifier hs-var hs-var">getInventory_resultAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventory -&gt; Maybe (NonEmpty ResultAttribute))
+-&gt; (GetInventory
+    -&gt; Maybe (NonEmpty ResultAttribute) -&gt; GetInventory)
+-&gt; Lens
+     GetInventory
+     GetInventory
+     (Maybe (NonEmpty ResultAttribute))
+     (Maybe (NonEmpty ResultAttribute))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838008"><span class="annot"><span class="annottext">Maybe (NonEmpty ResultAttribute)
+resultAttributes :: Maybe (NonEmpty ResultAttribute)
+$sel:resultAttributes:GetInventory' :: GetInventory -&gt; Maybe (NonEmpty ResultAttribute)
+</span><a href="#local-6989586621679838008"><span class="hs-identifier hs-var hs-var">resultAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResultAttribute)
+</span><a href="#local-6989586621679838008"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838007"><span class="annot"><span class="annottext">s :: GetInventory
+</span><a href="#local-6989586621679838007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838006"><span class="annot"><span class="annottext">Maybe (NonEmpty ResultAttribute)
+</span><a href="#local-6989586621679838006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventory
+</span><a href="#local-6989586621679838007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultAttributes:GetInventory' :: Maybe (NonEmpty ResultAttribute)
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AresultAttributes%3AGetInventory%27"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResultAttribute)
+</span><a href="#local-6989586621679838006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResultAttribute)
+  -&gt; f (Maybe (NonEmpty ResultAttribute)))
+ -&gt; GetInventory -&gt; f GetInventory)
+-&gt; ((Maybe (NonEmpty ResultAttribute)
+     -&gt; f (Maybe (NonEmpty ResultAttribute)))
+    -&gt; Maybe (NonEmpty ResultAttribute)
+    -&gt; f (Maybe (NonEmpty ResultAttribute)))
+-&gt; (Maybe (NonEmpty ResultAttribute)
+    -&gt; f (Maybe (NonEmpty ResultAttribute)))
+-&gt; GetInventory
+-&gt; f GetInventory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResultAttribute)
+  (NonEmpty ResultAttribute)
+  (NonEmpty ResultAttribute)
+  (NonEmpty ResultAttribute)
+-&gt; Iso
+     (Maybe (NonEmpty ResultAttribute))
+     (Maybe (NonEmpty ResultAttribute))
+     (Maybe (NonEmpty ResultAttribute))
+     (Maybe (NonEmpty ResultAttribute))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResultAttribute)
+  (NonEmpty ResultAttribute)
+  (NonEmpty ResultAttribute)
+  (NonEmpty ResultAttribute)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_nextToken"><span class="hs-identifier hs-type">getInventory_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="getInventory_nextToken"><span class="annot"><span class="annottext">getInventory_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetInventory -&gt; f GetInventory
+</span><a href="Amazonka.SSM.GetInventory.html#getInventory_nextToken"><span class="hs-identifier hs-var hs-var">getInventory_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventory -&gt; Maybe Text)
+-&gt; (GetInventory -&gt; Maybe Text -&gt; GetInventory)
+-&gt; Lens GetInventory GetInventory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838005"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetInventory' :: GetInventory -&gt; Maybe Text
+</span><a href="#local-6989586621679838005"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679838005"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838004"><span class="annot"><span class="annottext">s :: GetInventory
+</span><a href="#local-6989586621679838004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679838003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventory
+</span><a href="#local-6989586621679838004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInventory' :: Maybe Text
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AnextToken%3AGetInventory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679838003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventory_maxResults"><span class="hs-identifier hs-type">getInventory_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="getInventory_maxResults"><span class="annot"><span class="annottext">getInventory_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetInventory -&gt; f GetInventory
+</span><a href="Amazonka.SSM.GetInventory.html#getInventory_maxResults"><span class="hs-identifier hs-var hs-var">getInventory_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventory -&gt; Maybe Natural)
+-&gt; (GetInventory -&gt; Maybe Natural -&gt; GetInventory)
+-&gt; Lens GetInventory GetInventory (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838002"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetInventory' :: GetInventory -&gt; Maybe Natural
+</span><a href="#local-6989586621679838002"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679838002"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838001"><span class="annot"><span class="annottext">s :: GetInventory
+</span><a href="#local-6989586621679838001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838000"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679838000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventory
+</span><a href="#local-6989586621679838001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetInventory' :: Maybe Natural
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AmaxResults%3AGetInventory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679838000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679837996"><span class="annot"><span class="annottext">page :: GetInventory -&gt; AWSResponse GetInventory -&gt; Maybe GetInventory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679837994"><span class="annot"><span class="annottext">GetInventory
+</span><a href="#local-6989586621679837994"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679837993"><span class="annot"><span class="annottext">AWSResponse GetInventory
+</span><a href="#local-6989586621679837993"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-144"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInventory
+GetInventoryResponse
+</span><a href="#local-6989586621679837993"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">GetInventoryResponse
+-&gt; Getting (First Text) GetInventoryResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetInventoryResponse -&gt; Const (First Text) GetInventoryResponse
+Lens' GetInventoryResponse (Maybe Text)
+</span><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_nextToken"><span class="hs-identifier hs-var">getInventoryResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetInventoryResponse -&gt; Const (First Text) GetInventoryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetInventoryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-146"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetInventory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryResultEntity] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-149"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInventory
+GetInventoryResponse
+</span><a href="#local-6989586621679837993"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">GetInventoryResponse
+-&gt; Getting
+     (First [InventoryResultEntity])
+     GetInventoryResponse
+     [InventoryResultEntity]
+-&gt; Maybe [InventoryResultEntity]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [InventoryResultEntity]
+ -&gt; Const
+      (First [InventoryResultEntity]) (Maybe [InventoryResultEntity]))
+-&gt; GetInventoryResponse
+-&gt; Const (First [InventoryResultEntity]) GetInventoryResponse
+Lens' GetInventoryResponse (Maybe [InventoryResultEntity])
+</span><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_entities"><span class="hs-identifier hs-var">getInventoryResponse_entities</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [InventoryResultEntity]
+  -&gt; Const
+       (First [InventoryResultEntity]) (Maybe [InventoryResultEntity]))
+ -&gt; GetInventoryResponse
+ -&gt; Const (First [InventoryResultEntity]) GetInventoryResponse)
+-&gt; (([InventoryResultEntity]
+     -&gt; Const (First [InventoryResultEntity]) [InventoryResultEntity])
+    -&gt; Maybe [InventoryResultEntity]
+    -&gt; Const
+         (First [InventoryResultEntity]) (Maybe [InventoryResultEntity]))
+-&gt; Getting
+     (First [InventoryResultEntity])
+     GetInventoryResponse
+     [InventoryResultEntity]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InventoryResultEntity]
+ -&gt; Const (First [InventoryResultEntity]) [InventoryResultEntity])
+-&gt; Maybe [InventoryResultEntity]
+-&gt; Const
+     (First [InventoryResultEntity]) (Maybe [InventoryResultEntity])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-151"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetInventory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">GetInventory -&gt; Maybe GetInventory
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetInventory -&gt; Maybe GetInventory)
+-&gt; GetInventory -&gt; Maybe GetInventory
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">GetInventory
+</span><a href="#local-6989586621679837994"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">GetInventory -&gt; (GetInventory -&gt; GetInventory) -&gt; GetInventory
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetInventory -&gt; Identity GetInventory
+Lens GetInventory GetInventory (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.SSM.GetInventory.html#getInventory_nextToken"><span class="hs-identifier hs-var">getInventory_nextToken</span></a></span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetInventory -&gt; Identity GetInventory)
+-&gt; Maybe Text -&gt; GetInventory -&gt; GetInventory
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInventory
+GetInventoryResponse
+</span><a href="#local-6989586621679837993"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">GetInventoryResponse
+-&gt; Getting (First Text) GetInventoryResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetInventoryResponse -&gt; Const (First Text) GetInventoryResponse
+Lens' GetInventoryResponse (Maybe Text)
+</span><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_nextToken"><span class="hs-identifier hs-var">getInventoryResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetInventoryResponse -&gt; Const (First Text) GetInventoryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetInventoryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679837984"><span class="annot"><span class="annottext">request :: GetInventory -&gt; Request GetInventory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInventory -&gt; Request GetInventory
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679837980"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetInventory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInventory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetInventory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetInventory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInventory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679837977"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837977"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679837976"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679837976"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679837975"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InventoryResultEntity]
+-&gt; Maybe Text -&gt; Int -&gt; GetInventoryResponse
+</span><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-var">GetInventoryResponse'</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InventoryResultEntity]
+ -&gt; Maybe Text -&gt; Int -&gt; GetInventoryResponse)
+-&gt; Either String (Maybe [InventoryResultEntity])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetInventoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [InventoryResultEntity]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InventoryResultEntity]))
+-&gt; Maybe [InventoryResultEntity]
+-&gt; Either String (Maybe [InventoryResultEntity])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryResultEntity]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetInventoryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetInventoryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetInventoryResponse)
+-&gt; Either String Int -&gt; Either String GetInventoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837977"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837966"><span id="local-6989586621679837968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679837959"><span class="annot"><span class="annottext">toHeaders :: GetInventory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInventory -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.GetInventory&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837949"><span id="local-6989586621679837951"><span id="local-6989586621679837953"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679837947"><span class="annot"><span class="annottext">toJSON :: GetInventory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory%27"><span class="hs-identifier hs-type">GetInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837941"><span id="local-6989586621679837942"><span id="local-6989586621679837943"><span id="local-6989586621679837944"><span id="local-6989586621679837945"><span class="annot"><span class="annottext">Maybe Natural
+Maybe (NonEmpty InventoryFilter)
+Maybe (NonEmpty InventoryAggregator)
+Maybe (NonEmpty ResultAttribute)
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+resultAttributes :: Maybe (NonEmpty ResultAttribute)
+filters :: Maybe (NonEmpty InventoryFilter)
+aggregators :: Maybe (NonEmpty InventoryAggregator)
+$sel:maxResults:GetInventory' :: GetInventory -&gt; Maybe Natural
+$sel:nextToken:GetInventory' :: GetInventory -&gt; Maybe Text
+$sel:resultAttributes:GetInventory' :: GetInventory -&gt; Maybe (NonEmpty ResultAttribute)
+$sel:filters:GetInventory' :: GetInventory -&gt; Maybe (NonEmpty InventoryFilter)
+$sel:aggregators:GetInventory' :: GetInventory -&gt; Maybe (NonEmpty InventoryAggregator)
+</span><a href="#local-6989586621679837941"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Aggregators&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty InventoryAggregator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty InventoryAggregator -&gt; Pair)
+-&gt; Maybe (NonEmpty InventoryAggregator) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryAggregator)
+</span><a href="#local-6989586621679837945"><span class="hs-identifier hs-var">aggregators</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty InventoryFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty InventoryFilter -&gt; Pair)
+-&gt; Maybe (NonEmpty InventoryFilter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InventoryFilter)
+</span><a href="#local-6989586621679837944"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResultAttribute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ResultAttribute -&gt; Pair)
+-&gt; Maybe (NonEmpty ResultAttribute) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResultAttribute)
+</span><a href="#local-6989586621679837943"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837942"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679837941"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679837935"><span class="annot"><span class="annottext">toPath :: GetInventory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInventory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventory"><span class="hs-identifier hs-type">GetInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679837931"><span class="annot"><span class="annottext">toQuery :: GetInventory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInventory -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | /See:/ 'newGetInventoryResponse' smart constructor.</span><span>
+</span><span id="line-209"></span><span id="local-6989586621679837928"><span id="local-6989586621679837929"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInventoryResponse"><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-var">GetInventoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInventoryResponse%27"><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-var">GetInventoryResponse'</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Collection of inventory entities such as a collection of instance</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- inventory.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3Aentities%3AGetInventoryResponse%27"><span class="annot"><span class="annottext">GetInventoryResponse -&gt; Maybe [InventoryResultEntity]
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Aentities%3AGetInventoryResponse%27"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultEntity.html#InventoryResultEntity"><span class="hs-identifier hs-type">InventoryResultEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AnextToken%3AGetInventoryResponse%27"><span class="annot"><span class="annottext">GetInventoryResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AnextToken%3AGetInventoryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInventoryResponse%27"><span class="annot"><span class="annottext">GetInventoryResponse -&gt; Int
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AhttpStatus%3AGetInventoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837921"><span id="local-6989586621679837923"><span class="annot"><span class="annottext">GetInventoryResponse -&gt; GetInventoryResponse -&gt; Bool
+(GetInventoryResponse -&gt; GetInventoryResponse -&gt; Bool)
+-&gt; (GetInventoryResponse -&gt; GetInventoryResponse -&gt; Bool)
+-&gt; Eq GetInventoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInventoryResponse -&gt; GetInventoryResponse -&gt; Bool
+$c/= :: GetInventoryResponse -&gt; GetInventoryResponse -&gt; Bool
+== :: GetInventoryResponse -&gt; GetInventoryResponse -&gt; Bool
+$c== :: GetInventoryResponse -&gt; GetInventoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837913"><span id="local-6989586621679837915"><span id="local-6989586621679837917"><span id="local-6989586621679837919"><span class="annot"><span class="annottext">ReadPrec [GetInventoryResponse]
+ReadPrec GetInventoryResponse
+Int -&gt; ReadS GetInventoryResponse
+ReadS [GetInventoryResponse]
+(Int -&gt; ReadS GetInventoryResponse)
+-&gt; ReadS [GetInventoryResponse]
+-&gt; ReadPrec GetInventoryResponse
+-&gt; ReadPrec [GetInventoryResponse]
+-&gt; Read GetInventoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInventoryResponse]
+$creadListPrec :: ReadPrec [GetInventoryResponse]
+readPrec :: ReadPrec GetInventoryResponse
+$creadPrec :: ReadPrec GetInventoryResponse
+readList :: ReadS [GetInventoryResponse]
+$creadList :: ReadS [GetInventoryResponse]
+readsPrec :: Int -&gt; ReadS GetInventoryResponse
+$creadsPrec :: Int -&gt; ReadS GetInventoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837907"><span id="local-6989586621679837909"><span id="local-6989586621679837911"><span class="annot"><span class="annottext">Int -&gt; GetInventoryResponse -&gt; ShowS
+[GetInventoryResponse] -&gt; ShowS
+GetInventoryResponse -&gt; String
+(Int -&gt; GetInventoryResponse -&gt; ShowS)
+-&gt; (GetInventoryResponse -&gt; String)
+-&gt; ([GetInventoryResponse] -&gt; ShowS)
+-&gt; Show GetInventoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInventoryResponse] -&gt; ShowS
+$cshowList :: [GetInventoryResponse] -&gt; ShowS
+show :: GetInventoryResponse -&gt; String
+$cshow :: GetInventoryResponse -&gt; String
+showsPrec :: Int -&gt; GetInventoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInventoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetInventoryResponse -&gt; Rep GetInventoryResponse x)
+-&gt; (forall x. Rep GetInventoryResponse x -&gt; GetInventoryResponse)
+-&gt; Generic GetInventoryResponse
+forall x. Rep GetInventoryResponse x -&gt; GetInventoryResponse
+forall x. GetInventoryResponse -&gt; Rep GetInventoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetInventoryResponse x -&gt; GetInventoryResponse
+$cfrom :: forall x. GetInventoryResponse -&gt; Rep GetInventoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Create a value of 'GetInventoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'entities', 'getInventoryResponse_entities' - Collection of inventory entities such as a collection of instance</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- inventory.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'nextToken', 'getInventoryResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'httpStatus', 'getInventoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#newGetInventoryResponse"><span class="hs-identifier hs-type">newGetInventoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span>
+</span><span id="line-240"></span><span id="newGetInventoryResponse"><span class="annot"><span class="annottext">newGetInventoryResponse :: Int -&gt; GetInventoryResponse
+</span><a href="Amazonka.SSM.GetInventory.html#newGetInventoryResponse"><span class="hs-identifier hs-var hs-var">newGetInventoryResponse</span></a></span></span><span> </span><span id="local-6989586621679837904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">GetInventoryResponse' :: Maybe [InventoryResultEntity]
+-&gt; Maybe Text -&gt; Int -&gt; GetInventoryResponse
+</span><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-type">GetInventoryResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entities:GetInventoryResponse' :: Maybe [InventoryResultEntity]
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Aentities%3AGetInventoryResponse%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryResultEntity]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetInventoryResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AnextToken%3AGetInventoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInventoryResponse' :: Int
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AhttpStatus%3AGetInventoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | Collection of inventory entities such as a collection of instance</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- inventory.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_entities"><span class="hs-identifier hs-type">getInventoryResponse_entities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultEntity.html#InventoryResultEntity"><span class="hs-identifier hs-type">InventoryResultEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="getInventoryResponse_entities"><span class="annot"><span class="annottext">getInventoryResponse_entities :: (Maybe [InventoryResultEntity]
+ -&gt; f (Maybe [InventoryResultEntity]))
+-&gt; GetInventoryResponse -&gt; f GetInventoryResponse
+</span><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_entities"><span class="hs-identifier hs-var hs-var">getInventoryResponse_entities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventoryResponse -&gt; Maybe [InventoryResultEntity])
+-&gt; (GetInventoryResponse
+    -&gt; Maybe [InventoryResultEntity] -&gt; GetInventoryResponse)
+-&gt; Lens' GetInventoryResponse (Maybe [InventoryResultEntity])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-type">GetInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837903"><span class="annot"><span class="annottext">Maybe [InventoryResultEntity]
+entities :: Maybe [InventoryResultEntity]
+$sel:entities:GetInventoryResponse' :: GetInventoryResponse -&gt; Maybe [InventoryResultEntity]
+</span><a href="#local-6989586621679837903"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryResultEntity]
+</span><a href="#local-6989586621679837903"><span class="hs-identifier hs-var">entities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837902"><span class="annot"><span class="annottext">s :: GetInventoryResponse
+</span><a href="#local-6989586621679837902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-type">GetInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837901"><span class="annot"><span class="annottext">Maybe [InventoryResultEntity]
+</span><a href="#local-6989586621679837901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventoryResponse
+</span><a href="#local-6989586621679837902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entities:GetInventoryResponse' :: Maybe [InventoryResultEntity]
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3Aentities%3AGetInventoryResponse%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryResultEntity]
+</span><a href="#local-6989586621679837901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InventoryResultEntity]
+  -&gt; f (Maybe [InventoryResultEntity]))
+ -&gt; GetInventoryResponse -&gt; f GetInventoryResponse)
+-&gt; ((Maybe [InventoryResultEntity]
+     -&gt; f (Maybe [InventoryResultEntity]))
+    -&gt; Maybe [InventoryResultEntity]
+    -&gt; f (Maybe [InventoryResultEntity]))
+-&gt; (Maybe [InventoryResultEntity]
+    -&gt; f (Maybe [InventoryResultEntity]))
+-&gt; GetInventoryResponse
+-&gt; f GetInventoryResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InventoryResultEntity]
+  [InventoryResultEntity]
+  [InventoryResultEntity]
+  [InventoryResultEntity]
+-&gt; Iso
+     (Maybe [InventoryResultEntity])
+     (Maybe [InventoryResultEntity])
+     (Maybe [InventoryResultEntity])
+     (Maybe [InventoryResultEntity])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InventoryResultEntity]
+  [InventoryResultEntity]
+  [InventoryResultEntity]
+  [InventoryResultEntity]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_nextToken"><span class="hs-identifier hs-type">getInventoryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="getInventoryResponse_nextToken"><span class="annot"><span class="annottext">getInventoryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetInventoryResponse -&gt; f GetInventoryResponse
+</span><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_nextToken"><span class="hs-identifier hs-var hs-var">getInventoryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventoryResponse -&gt; Maybe Text)
+-&gt; (GetInventoryResponse -&gt; Maybe Text -&gt; GetInventoryResponse)
+-&gt; Lens' GetInventoryResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-type">GetInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837900"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetInventoryResponse' :: GetInventoryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679837900"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837900"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837899"><span class="annot"><span class="annottext">s :: GetInventoryResponse
+</span><a href="#local-6989586621679837899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-type">GetInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventoryResponse
+</span><a href="#local-6989586621679837899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInventoryResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AnextToken%3AGetInventoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_httpStatus"><span class="hs-identifier hs-type">getInventoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="getInventoryResponse_httpStatus"><span class="annot"><span class="annottext">getInventoryResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetInventoryResponse -&gt; f GetInventoryResponse
+</span><a href="Amazonka.SSM.GetInventory.html#getInventoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getInventoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInventoryResponse -&gt; Int)
+-&gt; (GetInventoryResponse -&gt; Int -&gt; GetInventoryResponse)
+-&gt; Lens GetInventoryResponse GetInventoryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-type">GetInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837897"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetInventoryResponse' :: GetInventoryResponse -&gt; Int
+</span><a href="#local-6989586621679837897"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837897"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837896"><span class="annot"><span class="annottext">s :: GetInventoryResponse
+</span><a href="#local-6989586621679837896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse%27"><span class="hs-identifier hs-type">GetInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837895"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInventoryResponse
+</span><a href="#local-6989586621679837896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInventoryResponse' :: Int
+</span><a href="Amazonka.SSM.GetInventory.html#%24sel%3AhttpStatus%3AGetInventoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetInventory.html#GetInventoryResponse"><span class="hs-identifier hs-type">GetInventoryResponse</span></a></span></span><span>
+</span><span id="line-262"></span></pre></body></html>

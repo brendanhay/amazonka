@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.ListAttendeeTags</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the tags applied to an Amazon Chime SDK attendee resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.ListAttendeeTags</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier">ListAttendeeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#newListAttendeeTags"><span class="hs-identifier">newListAttendeeTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTags_meetingId"><span class="hs-identifier">listAttendeeTags_meetingId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTags_attendeeId"><span class="hs-identifier">listAttendeeTags_attendeeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier">ListAttendeeTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#newListAttendeeTagsResponse"><span class="hs-identifier">newListAttendeeTagsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTagsResponse_tags"><span class="hs-identifier">listAttendeeTagsResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTagsResponse_httpStatus"><span class="hs-identifier">listAttendeeTagsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newListAttendeeTags' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679536057"><span id="local-6989586621679536058"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttendeeTags"><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-var">ListAttendeeTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttendeeTags%27"><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags%27"><span class="hs-identifier hs-var">ListAttendeeTags'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AmeetingId%3AListAttendeeTags%27"><span class="annot"><span class="annottext">ListAttendeeTags -&gt; Text
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AmeetingId%3AListAttendeeTags%27"><span class="hs-identifier hs-var hs-var">meetingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Chime SDK attendee ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AattendeeId%3AListAttendeeTags%27"><span class="annot"><span class="annottext">ListAttendeeTags -&gt; Text
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AattendeeId%3AListAttendeeTags%27"><span class="hs-identifier hs-var hs-var">attendeeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679536050"><span id="local-6989586621679536052"><span class="annot"><span class="annottext">ListAttendeeTags -&gt; ListAttendeeTags -&gt; Bool
+(ListAttendeeTags -&gt; ListAttendeeTags -&gt; Bool)
+-&gt; (ListAttendeeTags -&gt; ListAttendeeTags -&gt; Bool)
+-&gt; Eq ListAttendeeTags
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAttendeeTags -&gt; ListAttendeeTags -&gt; Bool
+$c/= :: ListAttendeeTags -&gt; ListAttendeeTags -&gt; Bool
+== :: ListAttendeeTags -&gt; ListAttendeeTags -&gt; Bool
+$c== :: ListAttendeeTags -&gt; ListAttendeeTags -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536041"><span id="local-6989586621679536043"><span id="local-6989586621679536045"><span id="local-6989586621679536047"><span class="annot"><span class="annottext">ReadPrec [ListAttendeeTags]
+ReadPrec ListAttendeeTags
+Int -&gt; ReadS ListAttendeeTags
+ReadS [ListAttendeeTags]
+(Int -&gt; ReadS ListAttendeeTags)
+-&gt; ReadS [ListAttendeeTags]
+-&gt; ReadPrec ListAttendeeTags
+-&gt; ReadPrec [ListAttendeeTags]
+-&gt; Read ListAttendeeTags
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAttendeeTags]
+$creadListPrec :: ReadPrec [ListAttendeeTags]
+readPrec :: ReadPrec ListAttendeeTags
+$creadPrec :: ReadPrec ListAttendeeTags
+readList :: ReadS [ListAttendeeTags]
+$creadList :: ReadS [ListAttendeeTags]
+readsPrec :: Int -&gt; ReadS ListAttendeeTags
+$creadsPrec :: Int -&gt; ReadS ListAttendeeTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536034"><span id="local-6989586621679536036"><span id="local-6989586621679536038"><span class="annot"><span class="annottext">Int -&gt; ListAttendeeTags -&gt; ShowS
+[ListAttendeeTags] -&gt; ShowS
+ListAttendeeTags -&gt; String
+(Int -&gt; ListAttendeeTags -&gt; ShowS)
+-&gt; (ListAttendeeTags -&gt; String)
+-&gt; ([ListAttendeeTags] -&gt; ShowS)
+-&gt; Show ListAttendeeTags
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAttendeeTags] -&gt; ShowS
+$cshowList :: [ListAttendeeTags] -&gt; ShowS
+show :: ListAttendeeTags -&gt; String
+$cshow :: ListAttendeeTags -&gt; String
+showsPrec :: Int -&gt; ListAttendeeTags -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAttendeeTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAttendeeTags -&gt; Rep ListAttendeeTags x)
+-&gt; (forall x. Rep ListAttendeeTags x -&gt; ListAttendeeTags)
+-&gt; Generic ListAttendeeTags
+forall x. Rep ListAttendeeTags x -&gt; ListAttendeeTags
+forall x. ListAttendeeTags -&gt; Rep ListAttendeeTags x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAttendeeTags x -&gt; ListAttendeeTags
+$cfrom :: forall x. ListAttendeeTags -&gt; Rep ListAttendeeTags x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'ListAttendeeTags' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'meetingId', 'listAttendeeTags_meetingId' - The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'attendeeId', 'listAttendeeTags_attendeeId' - The Amazon Chime SDK attendee ID.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#newListAttendeeTags"><span class="hs-identifier hs-type">newListAttendeeTags</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'meetingId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'attendeeId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span>
+</span><span id="line-76"></span><span id="newListAttendeeTags"><span class="annot"><span class="annottext">newListAttendeeTags :: Text -&gt; Text -&gt; ListAttendeeTags
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#newListAttendeeTags"><span class="hs-identifier hs-var hs-var">newListAttendeeTags</span></a></span></span><span> </span><span id="local-6989586621679536029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536029"><span class="hs-identifier hs-var">pMeetingId_</span></a></span></span><span> </span><span id="local-6989586621679536028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536028"><span class="hs-identifier hs-var">pAttendeeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ListAttendeeTags' :: Text -&gt; Text -&gt; ListAttendeeTags
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags%27"><span class="hs-identifier hs-type">ListAttendeeTags'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meetingId:ListAttendeeTags' :: Text
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AmeetingId%3AListAttendeeTags%27"><span class="hs-identifier hs-var">meetingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536029"><span class="hs-identifier hs-var">pMeetingId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:attendeeId:ListAttendeeTags' :: Text
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AattendeeId%3AListAttendeeTags%27"><span class="hs-identifier hs-var">attendeeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536028"><span class="hs-identifier hs-var">pAttendeeId_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTags_meetingId"><span class="hs-identifier hs-type">listAttendeeTags_meetingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="listAttendeeTags_meetingId"><span class="annot"><span class="annottext">listAttendeeTags_meetingId :: (Text -&gt; f Text) -&gt; ListAttendeeTags -&gt; f ListAttendeeTags
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTags_meetingId"><span class="hs-identifier hs-var hs-var">listAttendeeTags_meetingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAttendeeTags -&gt; Text)
+-&gt; (ListAttendeeTags -&gt; Text -&gt; ListAttendeeTags)
+-&gt; Lens ListAttendeeTags ListAttendeeTags Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags%27"><span class="hs-identifier hs-type">ListAttendeeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679536025"><span class="annot"><span class="annottext">Text
+meetingId :: Text
+$sel:meetingId:ListAttendeeTags' :: ListAttendeeTags -&gt; Text
+</span><a href="#local-6989586621679536025"><span class="hs-identifier hs-var hs-var">meetingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536025"><span class="hs-identifier hs-var">meetingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679536024"><span class="annot"><span class="annottext">s :: ListAttendeeTags
+</span><a href="#local-6989586621679536024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags%27"><span class="hs-identifier hs-type">ListAttendeeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679536023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttendeeTags
+</span><a href="#local-6989586621679536024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meetingId:ListAttendeeTags' :: Text
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AmeetingId%3AListAttendeeTags%27"><span class="hs-identifier hs-var">meetingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The Amazon Chime SDK attendee ID.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTags_attendeeId"><span class="hs-identifier hs-type">listAttendeeTags_attendeeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="listAttendeeTags_attendeeId"><span class="annot"><span class="annottext">listAttendeeTags_attendeeId :: (Text -&gt; f Text) -&gt; ListAttendeeTags -&gt; f ListAttendeeTags
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTags_attendeeId"><span class="hs-identifier hs-var hs-var">listAttendeeTags_attendeeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAttendeeTags -&gt; Text)
+-&gt; (ListAttendeeTags -&gt; Text -&gt; ListAttendeeTags)
+-&gt; Lens ListAttendeeTags ListAttendeeTags Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags%27"><span class="hs-identifier hs-type">ListAttendeeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679536022"><span class="annot"><span class="annottext">Text
+attendeeId :: Text
+$sel:attendeeId:ListAttendeeTags' :: ListAttendeeTags -&gt; Text
+</span><a href="#local-6989586621679536022"><span class="hs-identifier hs-var hs-var">attendeeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536022"><span class="hs-identifier hs-var">attendeeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679536021"><span class="annot"><span class="annottext">s :: ListAttendeeTags
+</span><a href="#local-6989586621679536021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags%27"><span class="hs-identifier hs-type">ListAttendeeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679536020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttendeeTags
+</span><a href="#local-6989586621679536021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attendeeId:ListAttendeeTags' :: Text
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AattendeeId%3AListAttendeeTags%27"><span class="hs-identifier hs-var">attendeeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-type">ListAttendeeTagsResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679536016"><span class="annot"><span class="annottext">request :: ListAttendeeTags -&gt; Request ListAttendeeTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAttendeeTags -&gt; Request ListAttendeeTags
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679536012"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAttendeeTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAttendeeTags)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAttendeeTags))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAttendeeTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAttendeeTags)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679536009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679536009"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679536008"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679536008"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679536007"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679536007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag) -&gt; Int -&gt; ListAttendeeTagsResponse
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse%27"><span class="hs-identifier hs-var">ListAttendeeTagsResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Tag) -&gt; Int -&gt; ListAttendeeTagsResponse)
+-&gt; Either String (Maybe (NonEmpty Tag))
+-&gt; Either String (Int -&gt; ListAttendeeTagsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679536007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Tag))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAttendeeTagsResponse)
+-&gt; Either String Int -&gt; Either String ListAttendeeTagsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679536009"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679535999"><span id="local-6989586621679536001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679535996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679535992"><span class="annot"><span class="annottext">toHeaders :: ListAttendeeTags -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAttendeeTags -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679535987"><span class="annot"><span class="annottext">toPath :: ListAttendeeTags -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags%27"><span class="hs-identifier hs-type">ListAttendeeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679535984"><span id="local-6989586621679535985"><span class="annot"><span class="annottext">Text
+attendeeId :: Text
+meetingId :: Text
+$sel:attendeeId:ListAttendeeTags' :: ListAttendeeTags -&gt; Text
+$sel:meetingId:ListAttendeeTags' :: ListAttendeeTags -&gt; Text
+</span><a href="#local-6989586621679535984"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/meetings/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679535985"><span class="hs-identifier hs-var">meetingId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/attendees/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679535984"><span class="hs-identifier hs-var">attendeeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/tags&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTags"><span class="hs-identifier hs-type">ListAttendeeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679535980"><span class="annot"><span class="annottext">toQuery :: ListAttendeeTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAttendeeTags -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newListAttendeeTagsResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679535977"><span id="local-6989586621679535978"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttendeeTagsResponse"><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-var">ListAttendeeTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttendeeTagsResponse%27"><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse%27"><span class="hs-identifier hs-var">ListAttendeeTagsResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tag key-value pairs.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3Atags%3AListAttendeeTagsResponse%27"><span class="annot"><span class="annottext">ListAttendeeTagsResponse -&gt; Maybe (NonEmpty Tag)
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3Atags%3AListAttendeeTagsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAttendeeTagsResponse%27"><span class="annot"><span class="annottext">ListAttendeeTagsResponse -&gt; Int
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AhttpStatus%3AListAttendeeTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679535971"><span id="local-6989586621679535973"><span class="annot"><span class="annottext">ListAttendeeTagsResponse -&gt; ListAttendeeTagsResponse -&gt; Bool
+(ListAttendeeTagsResponse -&gt; ListAttendeeTagsResponse -&gt; Bool)
+-&gt; (ListAttendeeTagsResponse -&gt; ListAttendeeTagsResponse -&gt; Bool)
+-&gt; Eq ListAttendeeTagsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAttendeeTagsResponse -&gt; ListAttendeeTagsResponse -&gt; Bool
+$c/= :: ListAttendeeTagsResponse -&gt; ListAttendeeTagsResponse -&gt; Bool
+== :: ListAttendeeTagsResponse -&gt; ListAttendeeTagsResponse -&gt; Bool
+$c== :: ListAttendeeTagsResponse -&gt; ListAttendeeTagsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679535965"><span id="local-6989586621679535967"><span id="local-6989586621679535969"><span class="annot"><span class="annottext">Int -&gt; ListAttendeeTagsResponse -&gt; ShowS
+[ListAttendeeTagsResponse] -&gt; ShowS
+ListAttendeeTagsResponse -&gt; String
+(Int -&gt; ListAttendeeTagsResponse -&gt; ShowS)
+-&gt; (ListAttendeeTagsResponse -&gt; String)
+-&gt; ([ListAttendeeTagsResponse] -&gt; ShowS)
+-&gt; Show ListAttendeeTagsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAttendeeTagsResponse] -&gt; ShowS
+$cshowList :: [ListAttendeeTagsResponse] -&gt; ShowS
+show :: ListAttendeeTagsResponse -&gt; String
+$cshow :: ListAttendeeTagsResponse -&gt; String
+showsPrec :: Int -&gt; ListAttendeeTagsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAttendeeTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAttendeeTagsResponse -&gt; Rep ListAttendeeTagsResponse x)
+-&gt; (forall x.
+    Rep ListAttendeeTagsResponse x -&gt; ListAttendeeTagsResponse)
+-&gt; Generic ListAttendeeTagsResponse
+forall x.
+Rep ListAttendeeTagsResponse x -&gt; ListAttendeeTagsResponse
+forall x.
+ListAttendeeTagsResponse -&gt; Rep ListAttendeeTagsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAttendeeTagsResponse x -&gt; ListAttendeeTagsResponse
+$cfrom :: forall x.
+ListAttendeeTagsResponse -&gt; Rep ListAttendeeTagsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'ListAttendeeTagsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'tags', 'listAttendeeTagsResponse_tags' - A list of tag key-value pairs.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'listAttendeeTagsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#newListAttendeeTagsResponse"><span class="hs-identifier hs-type">newListAttendeeTagsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-type">ListAttendeeTagsResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newListAttendeeTagsResponse"><span class="annot"><span class="annottext">newListAttendeeTagsResponse :: Int -&gt; ListAttendeeTagsResponse
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#newListAttendeeTagsResponse"><span class="hs-identifier hs-var hs-var">newListAttendeeTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679535962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679535962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">ListAttendeeTagsResponse' :: Maybe (NonEmpty Tag) -&gt; Int -&gt; ListAttendeeTagsResponse
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse%27"><span class="hs-identifier hs-type">ListAttendeeTagsResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:ListAttendeeTagsResponse' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3Atags%3AListAttendeeTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttendeeTagsResponse' :: Int
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AhttpStatus%3AListAttendeeTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679535962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | A list of tag key-value pairs.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTagsResponse_tags"><span class="hs-identifier hs-type">listAttendeeTagsResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-type">ListAttendeeTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listAttendeeTagsResponse_tags"><span class="annot"><span class="annottext">listAttendeeTagsResponse_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; ListAttendeeTagsResponse -&gt; f ListAttendeeTagsResponse
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTagsResponse_tags"><span class="hs-identifier hs-var hs-var">listAttendeeTagsResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAttendeeTagsResponse -&gt; Maybe (NonEmpty Tag))
+-&gt; (ListAttendeeTagsResponse
+    -&gt; Maybe (NonEmpty Tag) -&gt; ListAttendeeTagsResponse)
+-&gt; Lens
+     ListAttendeeTagsResponse
+     ListAttendeeTagsResponse
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse%27"><span class="hs-identifier hs-type">ListAttendeeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679535961"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:ListAttendeeTagsResponse' :: ListAttendeeTagsResponse -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679535961"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679535961"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679535960"><span class="annot"><span class="annottext">s :: ListAttendeeTagsResponse
+</span><a href="#local-6989586621679535960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse%27"><span class="hs-identifier hs-type">ListAttendeeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679535959"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679535959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttendeeTagsResponse
+</span><a href="#local-6989586621679535960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListAttendeeTagsResponse' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3Atags%3AListAttendeeTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679535959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-type">ListAttendeeTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; ListAttendeeTagsResponse -&gt; f ListAttendeeTagsResponse)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; ListAttendeeTagsResponse
+-&gt; f ListAttendeeTagsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTagsResponse_httpStatus"><span class="hs-identifier hs-type">listAttendeeTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-type">ListAttendeeTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="listAttendeeTagsResponse_httpStatus"><span class="annot"><span class="annottext">listAttendeeTagsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAttendeeTagsResponse -&gt; f ListAttendeeTagsResponse
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#listAttendeeTagsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAttendeeTagsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAttendeeTagsResponse -&gt; Int)
+-&gt; (ListAttendeeTagsResponse -&gt; Int -&gt; ListAttendeeTagsResponse)
+-&gt; Lens ListAttendeeTagsResponse ListAttendeeTagsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse%27"><span class="hs-identifier hs-type">ListAttendeeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679535955"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAttendeeTagsResponse' :: ListAttendeeTagsResponse -&gt; Int
+</span><a href="#local-6989586621679535955"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679535955"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679535954"><span class="annot"><span class="annottext">s :: ListAttendeeTagsResponse
+</span><a href="#local-6989586621679535954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse%27"><span class="hs-identifier hs-type">ListAttendeeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679535953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679535953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttendeeTagsResponse
+</span><a href="#local-6989586621679535954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttendeeTagsResponse' :: Int
+</span><a href="Amazonka.Chime.ListAttendeeTags.html#%24sel%3AhttpStatus%3AListAttendeeTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679535953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-type">ListAttendeeTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679535951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListAttendeeTags.html#ListAttendeeTagsResponse"><span class="hs-identifier hs-type">ListAttendeeTagsResponse</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

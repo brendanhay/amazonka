@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the status of a namespace deletion task.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier">GetNamespaceDeletionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#newGetNamespaceDeletionStatus"><span class="hs-identifier">newGetNamespaceDeletionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier">GetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#newGetNamespaceDeletionStatusResponse"><span class="hs-identifier">newGetNamespaceDeletionStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_status"><span class="hs-identifier">getNamespaceDeletionStatusResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_namespaceArn"><span class="hs-identifier">getNamespaceDeletionStatusResponse_namespaceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_namespaceName"><span class="hs-identifier">getNamespaceDeletionStatusResponse_namespaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_errorCode"><span class="hs-identifier">getNamespaceDeletionStatusResponse_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_errorMessage"><span class="hs-identifier">getNamespaceDeletionStatusResponse_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_httpStatus"><span class="hs-identifier">getNamespaceDeletionStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.html"><span class="hs-identifier">Amazonka.IoTThingsGraph.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetNamespaceDeletionStatus' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679223950"><span id="local-6989586621679223951"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNamespaceDeletionStatus"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-var">GetNamespaceDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNamespaceDeletionStatus%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus%27"><span class="hs-identifier hs-var">GetNamespaceDeletionStatus'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223945"><span id="local-6989586621679223947"><span class="annot"><span class="annottext">GetNamespaceDeletionStatus -&gt; GetNamespaceDeletionStatus -&gt; Bool
+(GetNamespaceDeletionStatus -&gt; GetNamespaceDeletionStatus -&gt; Bool)
+-&gt; (GetNamespaceDeletionStatus
+    -&gt; GetNamespaceDeletionStatus -&gt; Bool)
+-&gt; Eq GetNamespaceDeletionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetNamespaceDeletionStatus -&gt; GetNamespaceDeletionStatus -&gt; Bool
+$c/= :: GetNamespaceDeletionStatus -&gt; GetNamespaceDeletionStatus -&gt; Bool
+== :: GetNamespaceDeletionStatus -&gt; GetNamespaceDeletionStatus -&gt; Bool
+$c== :: GetNamespaceDeletionStatus -&gt; GetNamespaceDeletionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223936"><span id="local-6989586621679223938"><span id="local-6989586621679223940"><span id="local-6989586621679223942"><span class="annot"><span class="annottext">ReadPrec [GetNamespaceDeletionStatus]
+ReadPrec GetNamespaceDeletionStatus
+Int -&gt; ReadS GetNamespaceDeletionStatus
+ReadS [GetNamespaceDeletionStatus]
+(Int -&gt; ReadS GetNamespaceDeletionStatus)
+-&gt; ReadS [GetNamespaceDeletionStatus]
+-&gt; ReadPrec GetNamespaceDeletionStatus
+-&gt; ReadPrec [GetNamespaceDeletionStatus]
+-&gt; Read GetNamespaceDeletionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetNamespaceDeletionStatus]
+$creadListPrec :: ReadPrec [GetNamespaceDeletionStatus]
+readPrec :: ReadPrec GetNamespaceDeletionStatus
+$creadPrec :: ReadPrec GetNamespaceDeletionStatus
+readList :: ReadS [GetNamespaceDeletionStatus]
+$creadList :: ReadS [GetNamespaceDeletionStatus]
+readsPrec :: Int -&gt; ReadS GetNamespaceDeletionStatus
+$creadsPrec :: Int -&gt; ReadS GetNamespaceDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223929"><span id="local-6989586621679223931"><span id="local-6989586621679223933"><span class="annot"><span class="annottext">Int -&gt; GetNamespaceDeletionStatus -&gt; ShowS
+[GetNamespaceDeletionStatus] -&gt; ShowS
+GetNamespaceDeletionStatus -&gt; String
+(Int -&gt; GetNamespaceDeletionStatus -&gt; ShowS)
+-&gt; (GetNamespaceDeletionStatus -&gt; String)
+-&gt; ([GetNamespaceDeletionStatus] -&gt; ShowS)
+-&gt; Show GetNamespaceDeletionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetNamespaceDeletionStatus] -&gt; ShowS
+$cshowList :: [GetNamespaceDeletionStatus] -&gt; ShowS
+show :: GetNamespaceDeletionStatus -&gt; String
+$cshow :: GetNamespaceDeletionStatus -&gt; String
+showsPrec :: Int -&gt; GetNamespaceDeletionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetNamespaceDeletionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetNamespaceDeletionStatus -&gt; Rep GetNamespaceDeletionStatus x)
+-&gt; (forall x.
+    Rep GetNamespaceDeletionStatus x -&gt; GetNamespaceDeletionStatus)
+-&gt; Generic GetNamespaceDeletionStatus
+forall x.
+Rep GetNamespaceDeletionStatus x -&gt; GetNamespaceDeletionStatus
+forall x.
+GetNamespaceDeletionStatus -&gt; Rep GetNamespaceDeletionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetNamespaceDeletionStatus x -&gt; GetNamespaceDeletionStatus
+$cfrom :: forall x.
+GetNamespaceDeletionStatus -&gt; Rep GetNamespaceDeletionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetNamespaceDeletionStatus' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#newGetNamespaceDeletionStatus"><span class="hs-identifier hs-type">newGetNamespaceDeletionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span><span>
+</span><span id="line-62"></span><span id="newGetNamespaceDeletionStatus"><span class="annot"><span class="annottext">newGetNamespaceDeletionStatus :: GetNamespaceDeletionStatus
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#newGetNamespaceDeletionStatus"><span class="hs-identifier hs-var hs-var">newGetNamespaceDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatus
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus%27"><span class="hs-identifier hs-var">GetNamespaceDeletionStatus'</span></a></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679223921"><span class="annot"><span class="annottext">request :: GetNamespaceDeletionStatus -&gt; Request GetNamespaceDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetNamespaceDeletionStatus -&gt; Request GetNamespaceDeletionStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTThingsGraph.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679223917"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetNamespaceDeletionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetNamespaceDeletionStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetNamespaceDeletionStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetNamespaceDeletionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetNamespaceDeletionStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223914"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223913"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679223913"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223912"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NamespaceDeletionStatusErrorCodes
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">GetNamespaceDeletionStatusResponse'</span></a></span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NamespaceDeletionStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe NamespaceDeletionStatusErrorCodes
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Either String (Maybe NamespaceDeletionStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NamespaceDeletionStatusErrorCodes
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetNamespaceDeletionStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NamespaceDeletionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NamespaceDeletionStatusErrorCodes
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe NamespaceDeletionStatusErrorCodes
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetNamespaceDeletionStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespaceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe NamespaceDeletionStatusErrorCodes
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe NamespaceDeletionStatusErrorCodes
+      -&gt; Maybe Text -&gt; Int -&gt; GetNamespaceDeletionStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespaceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe NamespaceDeletionStatusErrorCodes
+   -&gt; Maybe Text -&gt; Int -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Either String (Maybe NamespaceDeletionStatusErrorCodes)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetNamespaceDeletionStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe NamespaceDeletionStatusErrorCodes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetNamespaceDeletionStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Either String Int
+-&gt; Either String GetNamespaceDeletionStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223904"><span id="local-6989586621679223906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679223897"><span class="annot"><span class="annottext">toHeaders :: GetNamespaceDeletionStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetNamespaceDeletionStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IotThingsGraphFrontEndService.GetNamespaceDeletionStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-93"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223887"><span id="local-6989586621679223889"><span id="local-6989586621679223891"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679223885"><span class="annot"><span class="annottext">toJSON :: GetNamespaceDeletionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetNamespaceDeletionStatus -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679223880"><span class="annot"><span class="annottext">toPath :: GetNamespaceDeletionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetNamespaceDeletionStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatus"><span class="hs-identifier hs-type">GetNamespaceDeletionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679223876"><span class="annot"><span class="annottext">toQuery :: GetNamespaceDeletionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetNamespaceDeletionStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newGetNamespaceDeletionStatusResponse' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679223873"><span id="local-6989586621679223874"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNamespaceDeletionStatusResponse"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-var">GetNamespaceDeletionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNamespaceDeletionStatusResponse%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">GetNamespaceDeletionStatusResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the deletion request.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Astatus%3AGetNamespaceDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse -&gt; Maybe NamespaceDeletionStatus
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3Astatus%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatus.html#NamespaceDeletionStatus"><span class="hs-identifier hs-type">NamespaceDeletionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The ARN of the namespace that is being deleted.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AnamespaceArn%3AGetNamespaceDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AnamespaceArn%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">namespaceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The name of the namespace that is being deleted.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AnamespaceName%3AGetNamespaceDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AnamespaceName%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">namespaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | An error code returned by the namespace deletion task.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AerrorCode%3AGetNamespaceDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+-&gt; Maybe NamespaceDeletionStatusErrorCodes
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AerrorCode%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes"><span class="hs-identifier hs-type">NamespaceDeletionStatusErrorCodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | An error code returned by the namespace deletion task.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AerrorMessage%3AGetNamespaceDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AerrorMessage%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetNamespaceDeletionStatusResponse%27"><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse -&gt; Int
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AhttpStatus%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223863"><span id="local-6989586621679223865"><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+-&gt; GetNamespaceDeletionStatusResponse -&gt; Bool
+(GetNamespaceDeletionStatusResponse
+ -&gt; GetNamespaceDeletionStatusResponse -&gt; Bool)
+-&gt; (GetNamespaceDeletionStatusResponse
+    -&gt; GetNamespaceDeletionStatusResponse -&gt; Bool)
+-&gt; Eq GetNamespaceDeletionStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetNamespaceDeletionStatusResponse
+-&gt; GetNamespaceDeletionStatusResponse -&gt; Bool
+$c/= :: GetNamespaceDeletionStatusResponse
+-&gt; GetNamespaceDeletionStatusResponse -&gt; Bool
+== :: GetNamespaceDeletionStatusResponse
+-&gt; GetNamespaceDeletionStatusResponse -&gt; Bool
+$c== :: GetNamespaceDeletionStatusResponse
+-&gt; GetNamespaceDeletionStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223855"><span id="local-6989586621679223857"><span id="local-6989586621679223859"><span id="local-6989586621679223861"><span class="annot"><span class="annottext">ReadPrec [GetNamespaceDeletionStatusResponse]
+ReadPrec GetNamespaceDeletionStatusResponse
+Int -&gt; ReadS GetNamespaceDeletionStatusResponse
+ReadS [GetNamespaceDeletionStatusResponse]
+(Int -&gt; ReadS GetNamespaceDeletionStatusResponse)
+-&gt; ReadS [GetNamespaceDeletionStatusResponse]
+-&gt; ReadPrec GetNamespaceDeletionStatusResponse
+-&gt; ReadPrec [GetNamespaceDeletionStatusResponse]
+-&gt; Read GetNamespaceDeletionStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetNamespaceDeletionStatusResponse]
+$creadListPrec :: ReadPrec [GetNamespaceDeletionStatusResponse]
+readPrec :: ReadPrec GetNamespaceDeletionStatusResponse
+$creadPrec :: ReadPrec GetNamespaceDeletionStatusResponse
+readList :: ReadS [GetNamespaceDeletionStatusResponse]
+$creadList :: ReadS [GetNamespaceDeletionStatusResponse]
+readsPrec :: Int -&gt; ReadS GetNamespaceDeletionStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetNamespaceDeletionStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223849"><span id="local-6989586621679223851"><span id="local-6989586621679223853"><span class="annot"><span class="annottext">Int -&gt; GetNamespaceDeletionStatusResponse -&gt; ShowS
+[GetNamespaceDeletionStatusResponse] -&gt; ShowS
+GetNamespaceDeletionStatusResponse -&gt; String
+(Int -&gt; GetNamespaceDeletionStatusResponse -&gt; ShowS)
+-&gt; (GetNamespaceDeletionStatusResponse -&gt; String)
+-&gt; ([GetNamespaceDeletionStatusResponse] -&gt; ShowS)
+-&gt; Show GetNamespaceDeletionStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetNamespaceDeletionStatusResponse] -&gt; ShowS
+$cshowList :: [GetNamespaceDeletionStatusResponse] -&gt; ShowS
+show :: GetNamespaceDeletionStatusResponse -&gt; String
+$cshow :: GetNamespaceDeletionStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetNamespaceDeletionStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetNamespaceDeletionStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetNamespaceDeletionStatusResponse
+ -&gt; Rep GetNamespaceDeletionStatusResponse x)
+-&gt; (forall x.
+    Rep GetNamespaceDeletionStatusResponse x
+    -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Generic GetNamespaceDeletionStatusResponse
+forall x.
+Rep GetNamespaceDeletionStatusResponse x
+-&gt; GetNamespaceDeletionStatusResponse
+forall x.
+GetNamespaceDeletionStatusResponse
+-&gt; Rep GetNamespaceDeletionStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetNamespaceDeletionStatusResponse x
+-&gt; GetNamespaceDeletionStatusResponse
+$cfrom :: forall x.
+GetNamespaceDeletionStatusResponse
+-&gt; Rep GetNamespaceDeletionStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'GetNamespaceDeletionStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'status', 'getNamespaceDeletionStatusResponse_status' - The status of the deletion request.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'namespaceArn', 'getNamespaceDeletionStatusResponse_namespaceArn' - The ARN of the namespace that is being deleted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'namespaceName', 'getNamespaceDeletionStatusResponse_namespaceName' - The name of the namespace that is being deleted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'errorCode', 'getNamespaceDeletionStatusResponse_errorCode' - An error code returned by the namespace deletion task.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'errorMessage', 'getNamespaceDeletionStatusResponse_errorMessage' - An error code returned by the namespace deletion task.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'httpStatus', 'getNamespaceDeletionStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#newGetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">newGetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span>
+</span><span id="line-150"></span><span id="newGetNamespaceDeletionStatusResponse"><span class="annot"><span class="annottext">newGetNamespaceDeletionStatusResponse :: Int -&gt; GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#newGetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-var hs-var">newGetNamespaceDeletionStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679223846"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223846"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse' :: Maybe NamespaceDeletionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NamespaceDeletionStatusErrorCodes
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GetNamespaceDeletionStatusResponse' :: Maybe NamespaceDeletionStatus
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3Astatus%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespaceArn:GetNamespaceDeletionStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AnamespaceArn%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">namespaceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespaceName:GetNamespaceDeletionStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AnamespaceName%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">namespaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:GetNamespaceDeletionStatusResponse' :: Maybe NamespaceDeletionStatusErrorCodes
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AerrorCode%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatusErrorCodes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:GetNamespaceDeletionStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AerrorMessage%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetNamespaceDeletionStatusResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AhttpStatus%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223846"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The status of the deletion request.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_status"><span class="hs-identifier hs-type">getNamespaceDeletionStatusResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatus.html#NamespaceDeletionStatus"><span class="hs-identifier hs-type">NamespaceDeletionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="getNamespaceDeletionStatusResponse_status"><span class="annot"><span class="annottext">getNamespaceDeletionStatusResponse_status :: (Maybe NamespaceDeletionStatus
+ -&gt; f (Maybe NamespaceDeletionStatus))
+-&gt; GetNamespaceDeletionStatusResponse
+-&gt; f GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_status"><span class="hs-identifier hs-var hs-var">getNamespaceDeletionStatusResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamespaceDeletionStatusResponse
+ -&gt; Maybe NamespaceDeletionStatus)
+-&gt; (GetNamespaceDeletionStatusResponse
+    -&gt; Maybe NamespaceDeletionStatus
+    -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Lens
+     GetNamespaceDeletionStatusResponse
+     GetNamespaceDeletionStatusResponse
+     (Maybe NamespaceDeletionStatus)
+     (Maybe NamespaceDeletionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223843"><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatus
+status :: Maybe NamespaceDeletionStatus
+$sel:status:GetNamespaceDeletionStatusResponse' :: GetNamespaceDeletionStatusResponse -&gt; Maybe NamespaceDeletionStatus
+</span><a href="#local-6989586621679223843"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatus
+</span><a href="#local-6989586621679223843"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223842"><span class="annot"><span class="annottext">s :: GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223841"><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatus
+</span><a href="#local-6989586621679223841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetNamespaceDeletionStatusResponse' :: Maybe NamespaceDeletionStatus
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3Astatus%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatus
+</span><a href="#local-6989586621679223841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The ARN of the namespace that is being deleted.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_namespaceArn"><span class="hs-identifier hs-type">getNamespaceDeletionStatusResponse_namespaceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="getNamespaceDeletionStatusResponse_namespaceArn"><span class="annot"><span class="annottext">getNamespaceDeletionStatusResponse_namespaceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetNamespaceDeletionStatusResponse
+-&gt; f GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_namespaceArn"><span class="hs-identifier hs-var hs-var">getNamespaceDeletionStatusResponse_namespaceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamespaceDeletionStatusResponse -&gt; Maybe Text)
+-&gt; (GetNamespaceDeletionStatusResponse
+    -&gt; Maybe Text -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Lens
+     GetNamespaceDeletionStatusResponse
+     GetNamespaceDeletionStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223840"><span class="annot"><span class="annottext">Maybe Text
+namespaceArn :: Maybe Text
+$sel:namespaceArn:GetNamespaceDeletionStatusResponse' :: GetNamespaceDeletionStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var hs-var">namespaceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var">namespaceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223839"><span class="annot"><span class="annottext">s :: GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223838"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceArn:GetNamespaceDeletionStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AnamespaceArn%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">namespaceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The name of the namespace that is being deleted.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_namespaceName"><span class="hs-identifier hs-type">getNamespaceDeletionStatusResponse_namespaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="getNamespaceDeletionStatusResponse_namespaceName"><span class="annot"><span class="annottext">getNamespaceDeletionStatusResponse_namespaceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetNamespaceDeletionStatusResponse
+-&gt; f GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_namespaceName"><span class="hs-identifier hs-var hs-var">getNamespaceDeletionStatusResponse_namespaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamespaceDeletionStatusResponse -&gt; Maybe Text)
+-&gt; (GetNamespaceDeletionStatusResponse
+    -&gt; Maybe Text -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Lens
+     GetNamespaceDeletionStatusResponse
+     GetNamespaceDeletionStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223837"><span class="annot"><span class="annottext">Maybe Text
+namespaceName :: Maybe Text
+$sel:namespaceName:GetNamespaceDeletionStatusResponse' :: GetNamespaceDeletionStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679223837"><span class="hs-identifier hs-var hs-var">namespaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223837"><span class="hs-identifier hs-var">namespaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223836"><span class="annot"><span class="annottext">s :: GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceName:GetNamespaceDeletionStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AnamespaceName%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">namespaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | An error code returned by the namespace deletion task.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_errorCode"><span class="hs-identifier hs-type">getNamespaceDeletionStatusResponse_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes.html#NamespaceDeletionStatusErrorCodes"><span class="hs-identifier hs-type">NamespaceDeletionStatusErrorCodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="getNamespaceDeletionStatusResponse_errorCode"><span class="annot"><span class="annottext">getNamespaceDeletionStatusResponse_errorCode :: (Maybe NamespaceDeletionStatusErrorCodes
+ -&gt; f (Maybe NamespaceDeletionStatusErrorCodes))
+-&gt; GetNamespaceDeletionStatusResponse
+-&gt; f GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_errorCode"><span class="hs-identifier hs-var hs-var">getNamespaceDeletionStatusResponse_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamespaceDeletionStatusResponse
+ -&gt; Maybe NamespaceDeletionStatusErrorCodes)
+-&gt; (GetNamespaceDeletionStatusResponse
+    -&gt; Maybe NamespaceDeletionStatusErrorCodes
+    -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Lens
+     GetNamespaceDeletionStatusResponse
+     GetNamespaceDeletionStatusResponse
+     (Maybe NamespaceDeletionStatusErrorCodes)
+     (Maybe NamespaceDeletionStatusErrorCodes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223834"><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatusErrorCodes
+errorCode :: Maybe NamespaceDeletionStatusErrorCodes
+$sel:errorCode:GetNamespaceDeletionStatusResponse' :: GetNamespaceDeletionStatusResponse
+-&gt; Maybe NamespaceDeletionStatusErrorCodes
+</span><a href="#local-6989586621679223834"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatusErrorCodes
+</span><a href="#local-6989586621679223834"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223833"><span class="annot"><span class="annottext">s :: GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223832"><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatusErrorCodes
+</span><a href="#local-6989586621679223832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:GetNamespaceDeletionStatusResponse' :: Maybe NamespaceDeletionStatusErrorCodes
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AerrorCode%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceDeletionStatusErrorCodes
+</span><a href="#local-6989586621679223832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | An error code returned by the namespace deletion task.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_errorMessage"><span class="hs-identifier hs-type">getNamespaceDeletionStatusResponse_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="getNamespaceDeletionStatusResponse_errorMessage"><span class="annot"><span class="annottext">getNamespaceDeletionStatusResponse_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetNamespaceDeletionStatusResponse
+-&gt; f GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_errorMessage"><span class="hs-identifier hs-var hs-var">getNamespaceDeletionStatusResponse_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamespaceDeletionStatusResponse -&gt; Maybe Text)
+-&gt; (GetNamespaceDeletionStatusResponse
+    -&gt; Maybe Text -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Lens
+     GetNamespaceDeletionStatusResponse
+     GetNamespaceDeletionStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223831"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:GetNamespaceDeletionStatusResponse' :: GetNamespaceDeletionStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679223831"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223831"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223830"><span class="annot"><span class="annottext">s :: GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:GetNamespaceDeletionStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AerrorMessage%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_httpStatus"><span class="hs-identifier hs-type">getNamespaceDeletionStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="getNamespaceDeletionStatusResponse_httpStatus"><span class="annot"><span class="annottext">getNamespaceDeletionStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetNamespaceDeletionStatusResponse
+-&gt; f GetNamespaceDeletionStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#getNamespaceDeletionStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getNamespaceDeletionStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamespaceDeletionStatusResponse -&gt; Int)
+-&gt; (GetNamespaceDeletionStatusResponse
+    -&gt; Int -&gt; GetNamespaceDeletionStatusResponse)
+-&gt; Lens
+     GetNamespaceDeletionStatusResponse
+     GetNamespaceDeletionStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223828"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetNamespaceDeletionStatusResponse' :: GetNamespaceDeletionStatusResponse -&gt; Int
+</span><a href="#local-6989586621679223828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223827"><span class="annot"><span class="annottext">s :: GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamespaceDeletionStatusResponse
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetNamespaceDeletionStatusResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#%24sel%3AhttpStatus%3AGetNamespaceDeletionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679223824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus.html#GetNamespaceDeletionStatusResponse"><span class="hs-identifier hs-type">GetNamespaceDeletionStatusResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

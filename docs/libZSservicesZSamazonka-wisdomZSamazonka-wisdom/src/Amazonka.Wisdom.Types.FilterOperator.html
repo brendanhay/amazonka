@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Wisdom.Types.FilterOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Wisdom.Types.FilterOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator"><span class="hs-identifier">FilterOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator_EQUALS"><span class="hs-identifier">FilterOperator_EQUALS</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679220239"><span id="local-6989586621679220240"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FilterOperator"><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator"><span class="hs-identifier hs-var">FilterOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterOperator%27"><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator%27"><span class="hs-identifier hs-var">FilterOperator'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFilterOperator"><span class="annot"><span class="annottext">FilterOperator -&gt; Text
+</span><a href="Amazonka.Wisdom.Types.FilterOperator.html#fromFilterOperator"><span class="hs-identifier hs-var hs-var">fromFilterOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220231"><span id="local-6989586621679220233"><span id="local-6989586621679220235"><span class="annot"><span class="annottext">Int -&gt; FilterOperator -&gt; ShowS
+[FilterOperator] -&gt; ShowS
+FilterOperator -&gt; String
+(Int -&gt; FilterOperator -&gt; ShowS)
+-&gt; (FilterOperator -&gt; String)
+-&gt; ([FilterOperator] -&gt; ShowS)
+-&gt; Show FilterOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FilterOperator] -&gt; ShowS
+$cshowList :: [FilterOperator] -&gt; ShowS
+show :: FilterOperator -&gt; String
+$cshow :: FilterOperator -&gt; String
+showsPrec :: Int -&gt; FilterOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; FilterOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679220222"><span id="local-6989586621679220224"><span id="local-6989586621679220226"><span id="local-6989586621679220228"><span class="annot"><span class="annottext">ReadPrec [FilterOperator]
+ReadPrec FilterOperator
+Int -&gt; ReadS FilterOperator
+ReadS [FilterOperator]
+(Int -&gt; ReadS FilterOperator)
+-&gt; ReadS [FilterOperator]
+-&gt; ReadPrec FilterOperator
+-&gt; ReadPrec [FilterOperator]
+-&gt; Read FilterOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FilterOperator]
+$creadListPrec :: ReadPrec [FilterOperator]
+readPrec :: ReadPrec FilterOperator
+$creadPrec :: ReadPrec FilterOperator
+readList :: ReadS [FilterOperator]
+$creadList :: ReadS [FilterOperator]
+readsPrec :: Int -&gt; ReadS FilterOperator
+$creadsPrec :: Int -&gt; ReadS FilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679220217"><span id="local-6989586621679220219"><span class="annot"><span class="annottext">FilterOperator -&gt; FilterOperator -&gt; Bool
+(FilterOperator -&gt; FilterOperator -&gt; Bool)
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; Bool) -&gt; Eq FilterOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FilterOperator -&gt; FilterOperator -&gt; Bool
+$c/= :: FilterOperator -&gt; FilterOperator -&gt; Bool
+== :: FilterOperator -&gt; FilterOperator -&gt; Bool
+$c== :: FilterOperator -&gt; FilterOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679220201"><span id="local-6989586621679220203"><span id="local-6989586621679220205"><span id="local-6989586621679220207"><span id="local-6989586621679220209"><span id="local-6989586621679220211"><span id="local-6989586621679220213"><span class="annot"><span class="annottext">Eq FilterOperator
+Eq FilterOperator
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; Ordering)
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; Bool)
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; Bool)
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; Bool)
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; Bool)
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; FilterOperator)
+-&gt; (FilterOperator -&gt; FilterOperator -&gt; FilterOperator)
+-&gt; Ord FilterOperator
+FilterOperator -&gt; FilterOperator -&gt; Bool
+FilterOperator -&gt; FilterOperator -&gt; Ordering
+FilterOperator -&gt; FilterOperator -&gt; FilterOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FilterOperator -&gt; FilterOperator -&gt; FilterOperator
+$cmin :: FilterOperator -&gt; FilterOperator -&gt; FilterOperator
+max :: FilterOperator -&gt; FilterOperator -&gt; FilterOperator
+$cmax :: FilterOperator -&gt; FilterOperator -&gt; FilterOperator
+&gt;= :: FilterOperator -&gt; FilterOperator -&gt; Bool
+$c&gt;= :: FilterOperator -&gt; FilterOperator -&gt; Bool
+&gt; :: FilterOperator -&gt; FilterOperator -&gt; Bool
+$c&gt; :: FilterOperator -&gt; FilterOperator -&gt; Bool
+&lt;= :: FilterOperator -&gt; FilterOperator -&gt; Bool
+$c&lt;= :: FilterOperator -&gt; FilterOperator -&gt; Bool
+&lt; :: FilterOperator -&gt; FilterOperator -&gt; Bool
+$c&lt; :: FilterOperator -&gt; FilterOperator -&gt; Bool
+compare :: FilterOperator -&gt; FilterOperator -&gt; Ordering
+$ccompare :: FilterOperator -&gt; FilterOperator -&gt; Ordering
+$cp1Ord :: Eq FilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FilterOperator -&gt; Rep FilterOperator x)
+-&gt; (forall x. Rep FilterOperator x -&gt; FilterOperator)
+-&gt; Generic FilterOperator
+forall x. Rep FilterOperator x -&gt; FilterOperator
+forall x. FilterOperator -&gt; Rep FilterOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FilterOperator x -&gt; FilterOperator
+$cfrom :: forall x. FilterOperator -&gt; Rep FilterOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220193"><span id="local-6989586621679220195"><span class="annot"><span class="annottext">Int -&gt; FilterOperator -&gt; Int
+FilterOperator -&gt; Int
+(Int -&gt; FilterOperator -&gt; Int)
+-&gt; (FilterOperator -&gt; Int) -&gt; Hashable FilterOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FilterOperator -&gt; Int
+$chash :: FilterOperator -&gt; Int
+hashWithSalt :: Int -&gt; FilterOperator -&gt; Int
+$chashWithSalt :: Int -&gt; FilterOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679220190"><span class="annot"><span class="annottext">FilterOperator -&gt; ()
+(FilterOperator -&gt; ()) -&gt; NFData FilterOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FilterOperator -&gt; ()
+$crnf :: FilterOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679220187"><span class="annot"><span class="annottext">Text -&gt; Either String FilterOperator
+(Text -&gt; Either String FilterOperator) -&gt; FromText FilterOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FilterOperator
+$cfromText :: Text -&gt; Either String FilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679220184"><span class="annot"><span class="annottext">FilterOperator -&gt; Text
+(FilterOperator -&gt; Text) -&gt; ToText FilterOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FilterOperator -&gt; Text
+$ctoText :: FilterOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679220181"><span class="annot"><span class="annottext">FilterOperator -&gt; ByteString
+(FilterOperator -&gt; ByteString) -&gt; ToByteString FilterOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FilterOperator -&gt; ByteString
+$ctoBS :: FilterOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679220178"><span class="annot"><span class="annottext">FilterOperator -&gt; ByteStringBuilder
+(FilterOperator -&gt; ByteStringBuilder) -&gt; ToLog FilterOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FilterOperator -&gt; ByteStringBuilder
+$cbuild :: FilterOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220175"><span class="annot"><span class="annottext">HeaderName -&gt; FilterOperator -&gt; [Header]
+(HeaderName -&gt; FilterOperator -&gt; [Header])
+-&gt; ToHeader FilterOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FilterOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FilterOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220172"><span class="annot"><span class="annottext">FilterOperator -&gt; QueryString
+(FilterOperator -&gt; QueryString) -&gt; ToQuery FilterOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FilterOperator -&gt; QueryString
+$ctoQuery :: FilterOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220167"><span id="local-6989586621679220169"><span class="annot"><span class="annottext">Value -&gt; Parser [FilterOperator]
+Value -&gt; Parser FilterOperator
+(Value -&gt; Parser FilterOperator)
+-&gt; (Value -&gt; Parser [FilterOperator]) -&gt; FromJSON FilterOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FilterOperator]
+$cparseJSONList :: Value -&gt; Parser [FilterOperator]
+parseJSON :: Value -&gt; Parser FilterOperator
+$cparseJSON :: Value -&gt; Parser FilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220162"><span id="local-6989586621679220164"><span class="annot"><span class="annottext">FromJSONKeyFunction [FilterOperator]
+FromJSONKeyFunction FilterOperator
+FromJSONKeyFunction FilterOperator
+-&gt; FromJSONKeyFunction [FilterOperator]
+-&gt; FromJSONKey FilterOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FilterOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [FilterOperator]
+fromJSONKey :: FromJSONKeyFunction FilterOperator
+$cfromJSONKey :: FromJSONKeyFunction FilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679220153"><span id="local-6989586621679220155"><span id="local-6989586621679220157"><span id="local-6989586621679220159"><span class="annot"><span class="annottext">[FilterOperator] -&gt; Encoding
+[FilterOperator] -&gt; Value
+FilterOperator -&gt; Encoding
+FilterOperator -&gt; Value
+(FilterOperator -&gt; Value)
+-&gt; (FilterOperator -&gt; Encoding)
+-&gt; ([FilterOperator] -&gt; Value)
+-&gt; ([FilterOperator] -&gt; Encoding)
+-&gt; ToJSON FilterOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FilterOperator] -&gt; Encoding
+$ctoEncodingList :: [FilterOperator] -&gt; Encoding
+toJSONList :: [FilterOperator] -&gt; Value
+$ctoJSONList :: [FilterOperator] -&gt; Value
+toEncoding :: FilterOperator -&gt; Encoding
+$ctoEncoding :: FilterOperator -&gt; Encoding
+toJSON :: FilterOperator -&gt; Value
+$ctoJSON :: FilterOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679220148"><span id="local-6989586621679220150"><span class="annot"><span class="annottext">ToJSONKeyFunction [FilterOperator]
+ToJSONKeyFunction FilterOperator
+ToJSONKeyFunction FilterOperator
+-&gt; ToJSONKeyFunction [FilterOperator] -&gt; ToJSONKey FilterOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FilterOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [FilterOperator]
+toJSONKey :: ToJSONKeyFunction FilterOperator
+$ctoJSONKey :: ToJSONKeyFunction FilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679220145"><span class="annot"><span class="annottext">[Node] -&gt; Either String FilterOperator
+([Node] -&gt; Either String FilterOperator) -&gt; FromXML FilterOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FilterOperator
+$cparseXML :: [Node] -&gt; Either String FilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679220142"><span class="annot"><span class="annottext">FilterOperator -&gt; XML
+(FilterOperator -&gt; XML) -&gt; ToXML FilterOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FilterOperator -&gt; XML
+$ctoXML :: FilterOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator_EQUALS"><span class="hs-identifier hs-type">FilterOperator_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator"><span class="hs-identifier hs-type">FilterOperator</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterOperator_EQUALS"><span id="%24mFilterOperator_EQUALS"><span id="FilterOperator_EQUALS"><span class="annot"><span class="annottext">$bFilterOperator_EQUALS :: FilterOperator
+$mFilterOperator_EQUALS :: forall r. FilterOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Wisdom.Types.FilterOperator.html#%24bFilterOperator_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">FilterOperator_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator%27"><span class="hs-identifier hs-type">FilterOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUALS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator_EQUALS"><span class="hs-pragma hs-type">FilterOperator_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterOperator.html#FilterOperator%27"><span class="hs-pragma hs-type">FilterOperator'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

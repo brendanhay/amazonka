@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.CreateArtifact</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an /artifact/. An artifact is a lineage tracking entity that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- represents a URI addressable object or data. Some examples are the S3</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- URI of a dataset and the ECR registry path of an image. For more</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html Amazon SageMaker ML Lineage Tracking&gt;.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.CreateArtifact</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier">CreateArtifact</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#newCreateArtifact"><span class="hs-identifier">newCreateArtifact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_metadataProperties"><span class="hs-identifier">createArtifact_metadataProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_artifactName"><span class="hs-identifier">createArtifact_artifactName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_tags"><span class="hs-identifier">createArtifact_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_properties"><span class="hs-identifier">createArtifact_properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_source"><span class="hs-identifier">createArtifact_source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_artifactType"><span class="hs-identifier">createArtifact_artifactType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier">CreateArtifactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#newCreateArtifactResponse"><span class="hs-identifier">newCreateArtifactResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifactResponse_artifactArn"><span class="hs-identifier">createArtifactResponse_artifactArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifactResponse_httpStatus"><span class="hs-identifier">createArtifactResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateArtifact' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621680422818"><span id="local-6989586621680422819"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateArtifact"><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-var">CreateArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateArtifact%27"><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-var">CreateArtifact'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AmetadataProperties%3ACreateArtifact%27"><span class="annot"><span class="annottext">CreateArtifact -&gt; Maybe MetadataProperties
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AmetadataProperties%3ACreateArtifact%27"><span class="hs-identifier hs-var hs-var">metadataProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MetadataProperties.html#MetadataProperties"><span class="hs-identifier hs-type">MetadataProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the artifact. Must be unique to your account in an Amazon</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Web Services Region.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AartifactName%3ACreateArtifact%27"><span class="annot"><span class="annottext">CreateArtifact -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactName%3ACreateArtifact%27"><span class="hs-identifier hs-var hs-var">artifactName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A list of tags to apply to the artifact.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ACreateArtifact%27"><span class="annot"><span class="annottext">CreateArtifact -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Atags%3ACreateArtifact%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A list of properties to add to the artifact.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aproperties%3ACreateArtifact%27"><span class="annot"><span class="annottext">CreateArtifact -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Aproperties%3ACreateArtifact%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ID, ID type, and URI of the source.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Asource%3ACreateArtifact%27"><span class="annot"><span class="annottext">CreateArtifact -&gt; ArtifactSource
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Asource%3ACreateArtifact%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ArtifactSource.html#ArtifactSource"><span class="hs-identifier hs-type">ArtifactSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The artifact type.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AartifactType%3ACreateArtifact%27"><span class="annot"><span class="annottext">CreateArtifact -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactType%3ACreateArtifact%27"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680422807"><span id="local-6989586621680422809"><span class="annot"><span class="annottext">CreateArtifact -&gt; CreateArtifact -&gt; Bool
+(CreateArtifact -&gt; CreateArtifact -&gt; Bool)
+-&gt; (CreateArtifact -&gt; CreateArtifact -&gt; Bool) -&gt; Eq CreateArtifact
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateArtifact -&gt; CreateArtifact -&gt; Bool
+$c/= :: CreateArtifact -&gt; CreateArtifact -&gt; Bool
+== :: CreateArtifact -&gt; CreateArtifact -&gt; Bool
+$c== :: CreateArtifact -&gt; CreateArtifact -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422798"><span id="local-6989586621680422800"><span id="local-6989586621680422802"><span id="local-6989586621680422804"><span class="annot"><span class="annottext">ReadPrec [CreateArtifact]
+ReadPrec CreateArtifact
+Int -&gt; ReadS CreateArtifact
+ReadS [CreateArtifact]
+(Int -&gt; ReadS CreateArtifact)
+-&gt; ReadS [CreateArtifact]
+-&gt; ReadPrec CreateArtifact
+-&gt; ReadPrec [CreateArtifact]
+-&gt; Read CreateArtifact
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateArtifact]
+$creadListPrec :: ReadPrec [CreateArtifact]
+readPrec :: ReadPrec CreateArtifact
+$creadPrec :: ReadPrec CreateArtifact
+readList :: ReadS [CreateArtifact]
+$creadList :: ReadS [CreateArtifact]
+readsPrec :: Int -&gt; ReadS CreateArtifact
+$creadsPrec :: Int -&gt; ReadS CreateArtifact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422791"><span id="local-6989586621680422793"><span id="local-6989586621680422795"><span class="annot"><span class="annottext">Int -&gt; CreateArtifact -&gt; ShowS
+[CreateArtifact] -&gt; ShowS
+CreateArtifact -&gt; String
+(Int -&gt; CreateArtifact -&gt; ShowS)
+-&gt; (CreateArtifact -&gt; String)
+-&gt; ([CreateArtifact] -&gt; ShowS)
+-&gt; Show CreateArtifact
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateArtifact] -&gt; ShowS
+$cshowList :: [CreateArtifact] -&gt; ShowS
+show :: CreateArtifact -&gt; String
+$cshow :: CreateArtifact -&gt; String
+showsPrec :: Int -&gt; CreateArtifact -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateArtifact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateArtifact -&gt; Rep CreateArtifact x)
+-&gt; (forall x. Rep CreateArtifact x -&gt; CreateArtifact)
+-&gt; Generic CreateArtifact
+forall x. Rep CreateArtifact x -&gt; CreateArtifact
+forall x. CreateArtifact -&gt; Rep CreateArtifact x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateArtifact x -&gt; CreateArtifact
+$cfrom :: forall x. CreateArtifact -&gt; Rep CreateArtifact x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'CreateArtifact' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'metadataProperties', 'createArtifact_metadataProperties' - Undocumented member.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'artifactName', 'createArtifact_artifactName' - The name of the artifact. Must be unique to your account in an Amazon</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Web Services Region.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'tags', 'createArtifact_tags' - A list of tags to apply to the artifact.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'properties', 'createArtifact_properties' - A list of properties to add to the artifact.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'source', 'createArtifact_source' - The ID, ID type, and URI of the source.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'artifactType', 'createArtifact_artifactType' - The artifact type.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#newCreateArtifact"><span class="hs-identifier hs-type">newCreateArtifact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'source'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ArtifactSource.html#ArtifactSource"><span class="hs-identifier hs-type">ArtifactSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'artifactType'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span>
+</span><span id="line-101"></span><span id="newCreateArtifact"><span class="annot"><span class="annottext">newCreateArtifact :: ArtifactSource -&gt; Text -&gt; CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#newCreateArtifact"><span class="hs-identifier hs-var hs-var">newCreateArtifact</span></a></span></span><span> </span><span id="local-6989586621680422786"><span class="annot"><span class="annottext">ArtifactSource
+</span><a href="#local-6989586621680422786"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span id="local-6989586621680422785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422785"><span class="hs-identifier hs-var">pArtifactType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">CreateArtifact' :: Maybe MetadataProperties
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Maybe (HashMap Text Text)
+-&gt; ArtifactSource
+-&gt; Text
+-&gt; CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metadataProperties:CreateArtifact' :: Maybe MetadataProperties
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AmetadataProperties%3ACreateArtifact%27"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactName:CreateArtifact' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactName%3ACreateArtifact%27"><span class="hs-identifier hs-var">artifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateArtifact' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Atags%3ACreateArtifact%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:properties:CreateArtifact' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Aproperties%3ACreateArtifact%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:CreateArtifact' :: ArtifactSource
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Asource%3ACreateArtifact%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactSource
+</span><a href="#local-6989586621680422786"><span class="hs-identifier hs-var">pSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactType:CreateArtifact' :: Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactType%3ACreateArtifact%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422785"><span class="hs-identifier hs-var">pArtifactType_</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_metadataProperties"><span class="hs-identifier hs-type">createArtifact_metadataProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MetadataProperties.html#MetadataProperties"><span class="hs-identifier hs-type">MetadataProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="createArtifact_metadataProperties"><span class="annot"><span class="annottext">createArtifact_metadataProperties :: (Maybe MetadataProperties -&gt; f (Maybe MetadataProperties))
+-&gt; CreateArtifact -&gt; f CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_metadataProperties"><span class="hs-identifier hs-var hs-var">createArtifact_metadataProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifact -&gt; Maybe MetadataProperties)
+-&gt; (CreateArtifact -&gt; Maybe MetadataProperties -&gt; CreateArtifact)
+-&gt; Lens
+     CreateArtifact
+     CreateArtifact
+     (Maybe MetadataProperties)
+     (Maybe MetadataProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422782"><span class="annot"><span class="annottext">Maybe MetadataProperties
+metadataProperties :: Maybe MetadataProperties
+$sel:metadataProperties:CreateArtifact' :: CreateArtifact -&gt; Maybe MetadataProperties
+</span><a href="#local-6989586621680422782"><span class="hs-identifier hs-var hs-var">metadataProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680422782"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422781"><span class="annot"><span class="annottext">s :: CreateArtifact
+</span><a href="#local-6989586621680422781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422780"><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680422780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifact
+</span><a href="#local-6989586621680422781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataProperties:CreateArtifact' :: Maybe MetadataProperties
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AmetadataProperties%3ACreateArtifact%27"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680422780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the artifact. Must be unique to your account in an Amazon</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Web Services Region.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_artifactName"><span class="hs-identifier hs-type">createArtifact_artifactName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="createArtifact_artifactName"><span class="annot"><span class="annottext">createArtifact_artifactName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateArtifact -&gt; f CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_artifactName"><span class="hs-identifier hs-var hs-var">createArtifact_artifactName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifact -&gt; Maybe Text)
+-&gt; (CreateArtifact -&gt; Maybe Text -&gt; CreateArtifact)
+-&gt; Lens CreateArtifact CreateArtifact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422779"><span class="annot"><span class="annottext">Maybe Text
+artifactName :: Maybe Text
+$sel:artifactName:CreateArtifact' :: CreateArtifact -&gt; Maybe Text
+</span><a href="#local-6989586621680422779"><span class="hs-identifier hs-var hs-var">artifactName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680422779"><span class="hs-identifier hs-var">artifactName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422778"><span class="annot"><span class="annottext">s :: CreateArtifact
+</span><a href="#local-6989586621680422778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680422777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifact
+</span><a href="#local-6989586621680422778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactName:CreateArtifact' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactName%3ACreateArtifact%27"><span class="hs-identifier hs-var">artifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680422777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A list of tags to apply to the artifact.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_tags"><span class="hs-identifier hs-type">createArtifact_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="createArtifact_tags"><span class="annot"><span class="annottext">createArtifact_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateArtifact -&gt; f CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_tags"><span class="hs-identifier hs-var hs-var">createArtifact_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifact -&gt; Maybe [Tag])
+-&gt; (CreateArtifact -&gt; Maybe [Tag] -&gt; CreateArtifact)
+-&gt; Lens CreateArtifact CreateArtifact (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422776"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateArtifact' :: CreateArtifact -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680422776"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422776"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422775"><span class="annot"><span class="annottext">s :: CreateArtifact
+</span><a href="#local-6989586621680422775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422774"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifact
+</span><a href="#local-6989586621680422775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateArtifact' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Atags%3ACreateArtifact%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateArtifact -&gt; f CreateArtifact)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateArtifact
+-&gt; f CreateArtifact
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A list of properties to add to the artifact.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_properties"><span class="hs-identifier hs-type">createArtifact_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="createArtifact_properties"><span class="annot"><span class="annottext">createArtifact_properties :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateArtifact -&gt; f CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_properties"><span class="hs-identifier hs-var hs-var">createArtifact_properties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifact -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateArtifact -&gt; Maybe (HashMap Text Text) -&gt; CreateArtifact)
+-&gt; Lens
+     CreateArtifact
+     CreateArtifact
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422770"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+properties :: Maybe (HashMap Text Text)
+$sel:properties:CreateArtifact' :: CreateArtifact -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680422770"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680422770"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422769"><span class="annot"><span class="annottext">s :: CreateArtifact
+</span><a href="#local-6989586621680422769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422768"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680422768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifact
+</span><a href="#local-6989586621680422769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:CreateArtifact' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Aproperties%3ACreateArtifact%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680422768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateArtifact -&gt; f CreateArtifact)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateArtifact
+-&gt; f CreateArtifact
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ID, ID type, and URI of the source.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_source"><span class="hs-identifier hs-type">createArtifact_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ArtifactSource.html#ArtifactSource"><span class="hs-identifier hs-type">ArtifactSource</span></a></span><span>
+</span><span id="line-131"></span><span id="createArtifact_source"><span class="annot"><span class="annottext">createArtifact_source :: (ArtifactSource -&gt; f ArtifactSource)
+-&gt; CreateArtifact -&gt; f CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_source"><span class="hs-identifier hs-var hs-var">createArtifact_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifact -&gt; ArtifactSource)
+-&gt; (CreateArtifact -&gt; ArtifactSource -&gt; CreateArtifact)
+-&gt; Lens CreateArtifact CreateArtifact ArtifactSource ArtifactSource
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422767"><span class="annot"><span class="annottext">ArtifactSource
+source :: ArtifactSource
+$sel:source:CreateArtifact' :: CreateArtifact -&gt; ArtifactSource
+</span><a href="#local-6989586621680422767"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSource
+</span><a href="#local-6989586621680422767"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422766"><span class="annot"><span class="annottext">s :: CreateArtifact
+</span><a href="#local-6989586621680422766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422765"><span class="annot"><span class="annottext">ArtifactSource
+</span><a href="#local-6989586621680422765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifact
+</span><a href="#local-6989586621680422766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:CreateArtifact' :: ArtifactSource
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3Asource%3ACreateArtifact%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactSource
+</span><a href="#local-6989586621680422765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The artifact type.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_artifactType"><span class="hs-identifier hs-type">createArtifact_artifactType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="createArtifact_artifactType"><span class="annot"><span class="annottext">createArtifact_artifactType :: (Text -&gt; f Text) -&gt; CreateArtifact -&gt; f CreateArtifact
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifact_artifactType"><span class="hs-identifier hs-var hs-var">createArtifact_artifactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifact -&gt; Text)
+-&gt; (CreateArtifact -&gt; Text -&gt; CreateArtifact)
+-&gt; Lens CreateArtifact CreateArtifact Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422764"><span class="annot"><span class="annottext">Text
+artifactType :: Text
+$sel:artifactType:CreateArtifact' :: CreateArtifact -&gt; Text
+</span><a href="#local-6989586621680422764"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422764"><span class="hs-identifier hs-var">artifactType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422763"><span class="annot"><span class="annottext">s :: CreateArtifact
+</span><a href="#local-6989586621680422763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifact
+</span><a href="#local-6989586621680422763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactType:CreateArtifact' :: Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactType%3ACreateArtifact%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-type">CreateArtifactResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621680422758"><span class="annot"><span class="annottext">request :: CreateArtifact -&gt; Request CreateArtifact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateArtifact -&gt; Request CreateArtifact
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621680422754"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateArtifact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateArtifact)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateArtifact))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateArtifact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateArtifact)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680422751"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422751"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680422750"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680422750"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680422749"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680422749"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateArtifactResponse
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse%27"><span class="hs-identifier hs-var">CreateArtifactResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateArtifactResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateArtifactResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680422749"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateArtifactResponse)
+-&gt; Either String Int -&gt; Either String CreateArtifactResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422751"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422741"><span id="local-6989586621680422743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621680422734"><span class="annot"><span class="annottext">toHeaders :: CreateArtifact -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateArtifact -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateArtifact&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422724"><span id="local-6989586621680422726"><span id="local-6989586621680422728"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621680422722"><span class="annot"><span class="annottext">toJSON :: CreateArtifact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact%27"><span class="hs-identifier hs-type">CreateArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422715"><span id="local-6989586621680422716"><span id="local-6989586621680422717"><span id="local-6989586621680422718"><span id="local-6989586621680422719"><span id="local-6989586621680422720"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe MetadataProperties
+Text
+ArtifactSource
+artifactType :: Text
+source :: ArtifactSource
+properties :: Maybe (HashMap Text Text)
+tags :: Maybe [Tag]
+artifactName :: Maybe Text
+metadataProperties :: Maybe MetadataProperties
+$sel:artifactType:CreateArtifact' :: CreateArtifact -&gt; Text
+$sel:source:CreateArtifact' :: CreateArtifact -&gt; ArtifactSource
+$sel:properties:CreateArtifact' :: CreateArtifact -&gt; Maybe (HashMap Text Text)
+$sel:tags:CreateArtifact' :: CreateArtifact -&gt; Maybe [Tag]
+$sel:artifactName:CreateArtifact' :: CreateArtifact -&gt; Maybe Text
+$sel:metadataProperties:CreateArtifact' :: CreateArtifact -&gt; Maybe MetadataProperties
+</span><a href="#local-6989586621680422715"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetadataProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetadataProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">(MetadataProperties -&gt; Pair)
+-&gt; Maybe MetadataProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680422720"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680422719"><span class="hs-identifier hs-var">artifactName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422718"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680422717"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactSource
+</span><a href="#local-6989586621680422716"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422715"><span class="hs-identifier hs-var">artifactType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621680422709"><span class="annot"><span class="annottext">toPath :: CreateArtifact -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateArtifact -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifact"><span class="hs-identifier hs-type">CreateArtifact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621680422705"><span class="annot"><span class="annottext">toQuery :: CreateArtifact -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateArtifact -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newCreateArtifactResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621680422702"><span id="local-6989586621680422703"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateArtifactResponse"><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-var">CreateArtifactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateArtifactResponse%27"><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse%27"><span class="hs-identifier hs-var">CreateArtifactResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the artifact.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AartifactArn%3ACreateArtifactResponse%27"><span class="annot"><span class="annottext">CreateArtifactResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactArn%3ACreateArtifactResponse%27"><span class="hs-identifier hs-var hs-var">artifactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateArtifactResponse%27"><span class="annot"><span class="annottext">CreateArtifactResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AhttpStatus%3ACreateArtifactResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680422696"><span id="local-6989586621680422698"><span class="annot"><span class="annottext">CreateArtifactResponse -&gt; CreateArtifactResponse -&gt; Bool
+(CreateArtifactResponse -&gt; CreateArtifactResponse -&gt; Bool)
+-&gt; (CreateArtifactResponse -&gt; CreateArtifactResponse -&gt; Bool)
+-&gt; Eq CreateArtifactResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateArtifactResponse -&gt; CreateArtifactResponse -&gt; Bool
+$c/= :: CreateArtifactResponse -&gt; CreateArtifactResponse -&gt; Bool
+== :: CreateArtifactResponse -&gt; CreateArtifactResponse -&gt; Bool
+$c== :: CreateArtifactResponse -&gt; CreateArtifactResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422688"><span id="local-6989586621680422690"><span id="local-6989586621680422692"><span id="local-6989586621680422694"><span class="annot"><span class="annottext">ReadPrec [CreateArtifactResponse]
+ReadPrec CreateArtifactResponse
+Int -&gt; ReadS CreateArtifactResponse
+ReadS [CreateArtifactResponse]
+(Int -&gt; ReadS CreateArtifactResponse)
+-&gt; ReadS [CreateArtifactResponse]
+-&gt; ReadPrec CreateArtifactResponse
+-&gt; ReadPrec [CreateArtifactResponse]
+-&gt; Read CreateArtifactResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateArtifactResponse]
+$creadListPrec :: ReadPrec [CreateArtifactResponse]
+readPrec :: ReadPrec CreateArtifactResponse
+$creadPrec :: ReadPrec CreateArtifactResponse
+readList :: ReadS [CreateArtifactResponse]
+$creadList :: ReadS [CreateArtifactResponse]
+readsPrec :: Int -&gt; ReadS CreateArtifactResponse
+$creadsPrec :: Int -&gt; ReadS CreateArtifactResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422682"><span id="local-6989586621680422684"><span id="local-6989586621680422686"><span class="annot"><span class="annottext">Int -&gt; CreateArtifactResponse -&gt; ShowS
+[CreateArtifactResponse] -&gt; ShowS
+CreateArtifactResponse -&gt; String
+(Int -&gt; CreateArtifactResponse -&gt; ShowS)
+-&gt; (CreateArtifactResponse -&gt; String)
+-&gt; ([CreateArtifactResponse] -&gt; ShowS)
+-&gt; Show CreateArtifactResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateArtifactResponse] -&gt; ShowS
+$cshowList :: [CreateArtifactResponse] -&gt; ShowS
+show :: CreateArtifactResponse -&gt; String
+$cshow :: CreateArtifactResponse -&gt; String
+showsPrec :: Int -&gt; CreateArtifactResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateArtifactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateArtifactResponse -&gt; Rep CreateArtifactResponse x)
+-&gt; (forall x.
+    Rep CreateArtifactResponse x -&gt; CreateArtifactResponse)
+-&gt; Generic CreateArtifactResponse
+forall x. Rep CreateArtifactResponse x -&gt; CreateArtifactResponse
+forall x. CreateArtifactResponse -&gt; Rep CreateArtifactResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateArtifactResponse x -&gt; CreateArtifactResponse
+$cfrom :: forall x. CreateArtifactResponse -&gt; Rep CreateArtifactResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'CreateArtifactResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'artifactArn', 'createArtifactResponse_artifactArn' - The Amazon Resource Name (ARN) of the artifact.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'createArtifactResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#newCreateArtifactResponse"><span class="hs-identifier hs-type">newCreateArtifactResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-type">CreateArtifactResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newCreateArtifactResponse"><span class="annot"><span class="annottext">newCreateArtifactResponse :: Int -&gt; CreateArtifactResponse
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#newCreateArtifactResponse"><span class="hs-identifier hs-var hs-var">newCreateArtifactResponse</span></a></span></span><span> </span><span id="local-6989586621680422679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">CreateArtifactResponse' :: Maybe Text -&gt; Int -&gt; CreateArtifactResponse
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse%27"><span class="hs-identifier hs-type">CreateArtifactResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:artifactArn:CreateArtifactResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactArn%3ACreateArtifactResponse%27"><span class="hs-identifier hs-var">artifactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateArtifactResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AhttpStatus%3ACreateArtifactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the artifact.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifactResponse_artifactArn"><span class="hs-identifier hs-type">createArtifactResponse_artifactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-type">CreateArtifactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="createArtifactResponse_artifactArn"><span class="annot"><span class="annottext">createArtifactResponse_artifactArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateArtifactResponse -&gt; f CreateArtifactResponse
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifactResponse_artifactArn"><span class="hs-identifier hs-var hs-var">createArtifactResponse_artifactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifactResponse -&gt; Maybe Text)
+-&gt; (CreateArtifactResponse -&gt; Maybe Text -&gt; CreateArtifactResponse)
+-&gt; Lens
+     CreateArtifactResponse
+     CreateArtifactResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse%27"><span class="hs-identifier hs-type">CreateArtifactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422678"><span class="annot"><span class="annottext">Maybe Text
+artifactArn :: Maybe Text
+$sel:artifactArn:CreateArtifactResponse' :: CreateArtifactResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680422678"><span class="hs-identifier hs-var hs-var">artifactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680422678"><span class="hs-identifier hs-var">artifactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422677"><span class="annot"><span class="annottext">s :: CreateArtifactResponse
+</span><a href="#local-6989586621680422677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse%27"><span class="hs-identifier hs-type">CreateArtifactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422676"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680422676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifactResponse
+</span><a href="#local-6989586621680422677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactArn:CreateArtifactResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AartifactArn%3ACreateArtifactResponse%27"><span class="hs-identifier hs-var">artifactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680422676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-type">CreateArtifactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifactResponse_httpStatus"><span class="hs-identifier hs-type">createArtifactResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-type">CreateArtifactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="createArtifactResponse_httpStatus"><span class="annot"><span class="annottext">createArtifactResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateArtifactResponse -&gt; f CreateArtifactResponse
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#createArtifactResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createArtifactResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArtifactResponse -&gt; Int)
+-&gt; (CreateArtifactResponse -&gt; Int -&gt; CreateArtifactResponse)
+-&gt; Lens CreateArtifactResponse CreateArtifactResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse%27"><span class="hs-identifier hs-type">CreateArtifactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422675"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateArtifactResponse' :: CreateArtifactResponse -&gt; Int
+</span><a href="#local-6989586621680422675"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422675"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422674"><span class="annot"><span class="annottext">s :: CreateArtifactResponse
+</span><a href="#local-6989586621680422674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse%27"><span class="hs-identifier hs-type">CreateArtifactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422673"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArtifactResponse
+</span><a href="#local-6989586621680422674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateArtifactResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateArtifact.html#%24sel%3AhttpStatus%3ACreateArtifactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-type">CreateArtifactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateArtifact.html#CreateArtifactResponse"><span class="hs-identifier hs-type">CreateArtifactResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

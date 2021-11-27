@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.AssumedRole</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.AssumedRole</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SessionContext.html"><span class="hs-identifier">Amazonka.MacieV2.Types.SessionContext</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides information about an identity that performed an action on an</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- affected resource by using temporary security credentials. The</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- credentials were obtained using the AssumeRole operation of the Security</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Token Service (STS) API.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAssumedRole' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679396859"><span id="local-6989586621679396860"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssumedRole"><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-var">AssumedRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssumedRole%27"><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-var">AssumedRole'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the entity that was used to get the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AprincipalId%3AAssumedRole%27"><span class="annot"><span class="annottext">AssumedRole -&gt; Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AprincipalId%3AAssumedRole%27"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the entity that was used to get the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aarn%3AAssumedRole%27"><span class="annot"><span class="annottext">AssumedRole -&gt; Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3Aarn%3AAssumedRole%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The details of the session that was created for the credentials,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- including the entity that issued the session.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsessionContext%3AAssumedRole%27"><span class="annot"><span class="annottext">AssumedRole -&gt; Maybe SessionContext
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AsessionContext%3AAssumedRole%27"><span class="hs-identifier hs-var hs-var">sessionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SessionContext.html#SessionContext"><span class="hs-identifier hs-type">SessionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the Amazon Web Services account that owns the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- entity that was used to get the credentials.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AaccountId%3AAssumedRole%27"><span class="annot"><span class="annottext">AssumedRole -&gt; Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AaccountId%3AAssumedRole%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services access key ID that identifies the credentials.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AaccessKeyId%3AAssumedRole%27"><span class="annot"><span class="annottext">AssumedRole -&gt; Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AaccessKeyId%3AAssumedRole%27"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396849"><span id="local-6989586621679396851"><span class="annot"><span class="annottext">AssumedRole -&gt; AssumedRole -&gt; Bool
+(AssumedRole -&gt; AssumedRole -&gt; Bool)
+-&gt; (AssumedRole -&gt; AssumedRole -&gt; Bool) -&gt; Eq AssumedRole
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssumedRole -&gt; AssumedRole -&gt; Bool
+$c/= :: AssumedRole -&gt; AssumedRole -&gt; Bool
+== :: AssumedRole -&gt; AssumedRole -&gt; Bool
+$c== :: AssumedRole -&gt; AssumedRole -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396840"><span id="local-6989586621679396842"><span id="local-6989586621679396844"><span id="local-6989586621679396846"><span class="annot"><span class="annottext">ReadPrec [AssumedRole]
+ReadPrec AssumedRole
+Int -&gt; ReadS AssumedRole
+ReadS [AssumedRole]
+(Int -&gt; ReadS AssumedRole)
+-&gt; ReadS [AssumedRole]
+-&gt; ReadPrec AssumedRole
+-&gt; ReadPrec [AssumedRole]
+-&gt; Read AssumedRole
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssumedRole]
+$creadListPrec :: ReadPrec [AssumedRole]
+readPrec :: ReadPrec AssumedRole
+$creadPrec :: ReadPrec AssumedRole
+readList :: ReadS [AssumedRole]
+$creadList :: ReadS [AssumedRole]
+readsPrec :: Int -&gt; ReadS AssumedRole
+$creadsPrec :: Int -&gt; ReadS AssumedRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396833"><span id="local-6989586621679396835"><span id="local-6989586621679396837"><span class="annot"><span class="annottext">Int -&gt; AssumedRole -&gt; ShowS
+[AssumedRole] -&gt; ShowS
+AssumedRole -&gt; String
+(Int -&gt; AssumedRole -&gt; ShowS)
+-&gt; (AssumedRole -&gt; String)
+-&gt; ([AssumedRole] -&gt; ShowS)
+-&gt; Show AssumedRole
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssumedRole] -&gt; ShowS
+$cshowList :: [AssumedRole] -&gt; ShowS
+show :: AssumedRole -&gt; String
+$cshow :: AssumedRole -&gt; String
+showsPrec :: Int -&gt; AssumedRole -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssumedRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssumedRole -&gt; Rep AssumedRole x)
+-&gt; (forall x. Rep AssumedRole x -&gt; AssumedRole)
+-&gt; Generic AssumedRole
+forall x. Rep AssumedRole x -&gt; AssumedRole
+forall x. AssumedRole -&gt; Rep AssumedRole x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssumedRole x -&gt; AssumedRole
+$cfrom :: forall x. AssumedRole -&gt; Rep AssumedRole x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'AssumedRole' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'principalId', 'assumedRole_principalId' - The unique identifier for the entity that was used to get the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'arn', 'assumedRole_arn' - The Amazon Resource Name (ARN) of the entity that was used to get the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'sessionContext', 'assumedRole_sessionContext' - The details of the session that was created for the credentials,</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- including the entity that issued the session.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'accountId', 'assumedRole_accountId' - The unique identifier for the Amazon Web Services account that owns the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- entity that was used to get the credentials.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'accessKeyId', 'assumedRole_accessKeyId' - The Amazon Web Services access key ID that identifies the credentials.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#newAssumedRole"><span class="hs-identifier hs-type">newAssumedRole</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span>
+</span><span id="line-74"></span><span id="newAssumedRole"><span class="annot"><span class="annottext">newAssumedRole :: AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#newAssumedRole"><span class="hs-identifier hs-var hs-var">newAssumedRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">AssumedRole' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SessionContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principalId:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AprincipalId%3AAssumedRole%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3Aarn%3AAssumedRole%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionContext:AssumedRole' :: Maybe SessionContext
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AsessionContext%3AAssumedRole%27"><span class="hs-identifier hs-var">sessionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AaccountId%3AAssumedRole%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessKeyId:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AaccessKeyId%3AAssumedRole%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The unique identifier for the entity that was used to get the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_principalId"><span class="hs-identifier hs-type">assumedRole_principalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="assumedRole_principalId"><span class="annot"><span class="annottext">assumedRole_principalId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssumedRole -&gt; f AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_principalId"><span class="hs-identifier hs-var hs-var">assumedRole_principalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssumedRole -&gt; Maybe Text)
+-&gt; (AssumedRole -&gt; Maybe Text -&gt; AssumedRole)
+-&gt; Lens AssumedRole AssumedRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396824"><span class="annot"><span class="annottext">Maybe Text
+principalId :: Maybe Text
+$sel:principalId:AssumedRole' :: AssumedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679396824"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396824"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396823"><span class="annot"><span class="annottext">s :: AssumedRole
+</span><a href="#local-6989586621679396823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumedRole
+</span><a href="#local-6989586621679396823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AprincipalId%3AAssumedRole%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the entity that was used to get the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_arn"><span class="hs-identifier hs-type">assumedRole_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="assumedRole_arn"><span class="annot"><span class="annottext">assumedRole_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssumedRole -&gt; f AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_arn"><span class="hs-identifier hs-var hs-var">assumedRole_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssumedRole -&gt; Maybe Text)
+-&gt; (AssumedRole -&gt; Maybe Text -&gt; AssumedRole)
+-&gt; Lens AssumedRole AssumedRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396820"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:AssumedRole' :: AssumedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679396820"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396820"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396819"><span class="annot"><span class="annottext">s :: AssumedRole
+</span><a href="#local-6989586621679396819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396818"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumedRole
+</span><a href="#local-6989586621679396819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3Aarn%3AAssumedRole%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The details of the session that was created for the credentials,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- including the entity that issued the session.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_sessionContext"><span class="hs-identifier hs-type">assumedRole_sessionContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SessionContext.html#SessionContext"><span class="hs-identifier hs-type">SessionContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="assumedRole_sessionContext"><span class="annot"><span class="annottext">assumedRole_sessionContext :: (Maybe SessionContext -&gt; f (Maybe SessionContext))
+-&gt; AssumedRole -&gt; f AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_sessionContext"><span class="hs-identifier hs-var hs-var">assumedRole_sessionContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssumedRole -&gt; Maybe SessionContext)
+-&gt; (AssumedRole -&gt; Maybe SessionContext -&gt; AssumedRole)
+-&gt; Lens
+     AssumedRole
+     AssumedRole
+     (Maybe SessionContext)
+     (Maybe SessionContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396816"><span class="annot"><span class="annottext">Maybe SessionContext
+sessionContext :: Maybe SessionContext
+$sel:sessionContext:AssumedRole' :: AssumedRole -&gt; Maybe SessionContext
+</span><a href="#local-6989586621679396816"><span class="hs-identifier hs-var hs-var">sessionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SessionContext
+</span><a href="#local-6989586621679396816"><span class="hs-identifier hs-var">sessionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396815"><span class="annot"><span class="annottext">s :: AssumedRole
+</span><a href="#local-6989586621679396815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396814"><span class="annot"><span class="annottext">Maybe SessionContext
+</span><a href="#local-6989586621679396814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumedRole
+</span><a href="#local-6989586621679396815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionContext:AssumedRole' :: Maybe SessionContext
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AsessionContext%3AAssumedRole%27"><span class="hs-identifier hs-var">sessionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionContext
+</span><a href="#local-6989586621679396814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The unique identifier for the Amazon Web Services account that owns the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- entity that was used to get the credentials.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_accountId"><span class="hs-identifier hs-type">assumedRole_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="assumedRole_accountId"><span class="annot"><span class="annottext">assumedRole_accountId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssumedRole -&gt; f AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_accountId"><span class="hs-identifier hs-var hs-var">assumedRole_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssumedRole -&gt; Maybe Text)
+-&gt; (AssumedRole -&gt; Maybe Text -&gt; AssumedRole)
+-&gt; Lens AssumedRole AssumedRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396812"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:AssumedRole' :: AssumedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679396812"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396812"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396811"><span class="annot"><span class="annottext">s :: AssumedRole
+</span><a href="#local-6989586621679396811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumedRole
+</span><a href="#local-6989586621679396811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AaccountId%3AAssumedRole%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The Amazon Web Services access key ID that identifies the credentials.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_accessKeyId"><span class="hs-identifier hs-type">assumedRole_accessKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="assumedRole_accessKeyId"><span class="annot"><span class="annottext">assumedRole_accessKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssumedRole -&gt; f AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#assumedRole_accessKeyId"><span class="hs-identifier hs-var hs-var">assumedRole_accessKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssumedRole -&gt; Maybe Text)
+-&gt; (AssumedRole -&gt; Maybe Text -&gt; AssumedRole)
+-&gt; Lens AssumedRole AssumedRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396808"><span class="annot"><span class="annottext">Maybe Text
+accessKeyId :: Maybe Text
+$sel:accessKeyId:AssumedRole' :: AssumedRole -&gt; Maybe Text
+</span><a href="#local-6989586621679396808"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396808"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396807"><span class="annot"><span class="annottext">s :: AssumedRole
+</span><a href="#local-6989586621679396807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-type">AssumedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumedRole
+</span><a href="#local-6989586621679396807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessKeyId:AssumedRole' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#%24sel%3AaccessKeyId%3AAssumedRole%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396803"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679396801"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssumedRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssumedRole) -&gt; Value -&gt; Parser AssumedRole
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssumedRole&quot;</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396798"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SessionContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssumedRole
+</span><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole%27"><span class="hs-identifier hs-var">AssumedRole'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe SessionContext
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AssumedRole)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe SessionContext -&gt; Maybe Text -&gt; Maybe Text -&gt; AssumedRole)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;principalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe SessionContext -&gt; Maybe Text -&gt; Maybe Text -&gt; AssumedRole)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe SessionContext -&gt; Maybe Text -&gt; Maybe Text -&gt; AssumedRole)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SessionContext -&gt; Maybe Text -&gt; Maybe Text -&gt; AssumedRole)
+-&gt; Parser (Maybe SessionContext)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AssumedRole)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SessionContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sessionContext&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AssumedRole)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AssumedRole)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AssumedRole)
+-&gt; Parser (Maybe Text) -&gt; Parser AssumedRole
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accessKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396792"><span id="local-6989586621679396794"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.AssumedRole.html#AssumedRole"><span class="hs-identifier hs-type">AssumedRole</span></a></span></span><span>
+</span><span id="line-123"></span></pre></body></html>

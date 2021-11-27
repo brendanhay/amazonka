@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Panorama.Types.NodeInterface</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Panorama.Types.NodeInterface</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInputPort.html"><span class="hs-identifier">Amazonka.Panorama.Types.NodeInputPort</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeOutputPort.html"><span class="hs-identifier">Amazonka.Panorama.Types.NodeOutputPort</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A node interface.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNodeInterface' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679258641"><span id="local-6989586621679258642"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeInterface"><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-var">NodeInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeInterface%27"><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface%27"><span class="hs-identifier hs-var">NodeInterface'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The node interface\'s inputs.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Ainputs%3ANodeInterface%27"><span class="annot"><span class="annottext">NodeInterface -&gt; [NodeInputPort]
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#%24sel%3Ainputs%3ANodeInterface%27"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInputPort.html#NodeInputPort"><span class="hs-identifier hs-type">NodeInputPort</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The node interface\'s outputs.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aoutputs%3ANodeInterface%27"><span class="annot"><span class="annottext">NodeInterface -&gt; [NodeOutputPort]
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#%24sel%3Aoutputs%3ANodeInterface%27"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeOutputPort.html#NodeOutputPort"><span class="hs-identifier hs-type">NodeOutputPort</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258634"><span id="local-6989586621679258636"><span class="annot"><span class="annottext">NodeInterface -&gt; NodeInterface -&gt; Bool
+(NodeInterface -&gt; NodeInterface -&gt; Bool)
+-&gt; (NodeInterface -&gt; NodeInterface -&gt; Bool) -&gt; Eq NodeInterface
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeInterface -&gt; NodeInterface -&gt; Bool
+$c/= :: NodeInterface -&gt; NodeInterface -&gt; Bool
+== :: NodeInterface -&gt; NodeInterface -&gt; Bool
+$c== :: NodeInterface -&gt; NodeInterface -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258625"><span id="local-6989586621679258627"><span id="local-6989586621679258629"><span id="local-6989586621679258631"><span class="annot"><span class="annottext">ReadPrec [NodeInterface]
+ReadPrec NodeInterface
+Int -&gt; ReadS NodeInterface
+ReadS [NodeInterface]
+(Int -&gt; ReadS NodeInterface)
+-&gt; ReadS [NodeInterface]
+-&gt; ReadPrec NodeInterface
+-&gt; ReadPrec [NodeInterface]
+-&gt; Read NodeInterface
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeInterface]
+$creadListPrec :: ReadPrec [NodeInterface]
+readPrec :: ReadPrec NodeInterface
+$creadPrec :: ReadPrec NodeInterface
+readList :: ReadS [NodeInterface]
+$creadList :: ReadS [NodeInterface]
+readsPrec :: Int -&gt; ReadS NodeInterface
+$creadsPrec :: Int -&gt; ReadS NodeInterface
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258618"><span id="local-6989586621679258620"><span id="local-6989586621679258622"><span class="annot"><span class="annottext">Int -&gt; NodeInterface -&gt; ShowS
+[NodeInterface] -&gt; ShowS
+NodeInterface -&gt; String
+(Int -&gt; NodeInterface -&gt; ShowS)
+-&gt; (NodeInterface -&gt; String)
+-&gt; ([NodeInterface] -&gt; ShowS)
+-&gt; Show NodeInterface
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeInterface] -&gt; ShowS
+$cshowList :: [NodeInterface] -&gt; ShowS
+show :: NodeInterface -&gt; String
+$cshow :: NodeInterface -&gt; String
+showsPrec :: Int -&gt; NodeInterface -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NodeInterface -&gt; Rep NodeInterface x)
+-&gt; (forall x. Rep NodeInterface x -&gt; NodeInterface)
+-&gt; Generic NodeInterface
+forall x. Rep NodeInterface x -&gt; NodeInterface
+forall x. NodeInterface -&gt; Rep NodeInterface x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeInterface x -&gt; NodeInterface
+$cfrom :: forall x. NodeInterface -&gt; Rep NodeInterface x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'NodeInterface' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'inputs', 'nodeInterface_inputs' - The node interface\'s inputs.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'outputs', 'nodeInterface_outputs' - The node interface\'s outputs.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#newNodeInterface"><span class="hs-identifier hs-type">newNodeInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span><span>
+</span><span id="line-52"></span><span id="newNodeInterface"><span class="annot"><span class="annottext">newNodeInterface :: NodeInterface
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#newNodeInterface"><span class="hs-identifier hs-var hs-var">newNodeInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">NodeInterface' :: [NodeInputPort] -&gt; [NodeOutputPort] -&gt; NodeInterface
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface%27"><span class="hs-identifier hs-type">NodeInterface'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputs:NodeInterface' :: [NodeInputPort]
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#%24sel%3Ainputs%3ANodeInterface%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[NodeInputPort]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputs:NodeInterface' :: [NodeOutputPort]
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#%24sel%3Aoutputs%3ANodeInterface%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[NodeOutputPort]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The node interface\'s inputs.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#nodeInterface_inputs"><span class="hs-identifier hs-type">nodeInterface_inputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInputPort.html#NodeInputPort"><span class="hs-identifier hs-type">NodeInputPort</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-60"></span><span id="nodeInterface_inputs"><span class="annot"><span class="annottext">nodeInterface_inputs :: ([NodeInputPort] -&gt; f [NodeInputPort])
+-&gt; NodeInterface -&gt; f NodeInterface
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#nodeInterface_inputs"><span class="hs-identifier hs-var hs-var">nodeInterface_inputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInterface -&gt; [NodeInputPort])
+-&gt; (NodeInterface -&gt; [NodeInputPort] -&gt; NodeInterface)
+-&gt; Lens NodeInterface NodeInterface [NodeInputPort] [NodeInputPort]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface%27"><span class="hs-identifier hs-type">NodeInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258609"><span class="annot"><span class="annottext">[NodeInputPort]
+inputs :: [NodeInputPort]
+$sel:inputs:NodeInterface' :: NodeInterface -&gt; [NodeInputPort]
+</span><a href="#local-6989586621679258609"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[NodeInputPort]
+</span><a href="#local-6989586621679258609"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258608"><span class="annot"><span class="annottext">s :: NodeInterface
+</span><a href="#local-6989586621679258608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface%27"><span class="hs-identifier hs-type">NodeInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258607"><span class="annot"><span class="annottext">[NodeInputPort]
+</span><a href="#local-6989586621679258607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInterface
+</span><a href="#local-6989586621679258608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:NodeInterface' :: [NodeInputPort]
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#%24sel%3Ainputs%3ANodeInterface%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[NodeInputPort]
+</span><a href="#local-6989586621679258607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([NodeInputPort] -&gt; f [NodeInputPort])
+ -&gt; NodeInterface -&gt; f NodeInterface)
+-&gt; (([NodeInputPort] -&gt; f [NodeInputPort])
+    -&gt; [NodeInputPort] -&gt; f [NodeInputPort])
+-&gt; ([NodeInputPort] -&gt; f [NodeInputPort])
+-&gt; NodeInterface
+-&gt; f NodeInterface
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([NodeInputPort] -&gt; f [NodeInputPort])
+-&gt; [NodeInputPort] -&gt; f [NodeInputPort]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The node interface\'s outputs.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#nodeInterface_outputs"><span class="hs-identifier hs-type">nodeInterface_outputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeOutputPort.html#NodeOutputPort"><span class="hs-identifier hs-type">NodeOutputPort</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span id="nodeInterface_outputs"><span class="annot"><span class="annottext">nodeInterface_outputs :: ([NodeOutputPort] -&gt; f [NodeOutputPort])
+-&gt; NodeInterface -&gt; f NodeInterface
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#nodeInterface_outputs"><span class="hs-identifier hs-var hs-var">nodeInterface_outputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInterface -&gt; [NodeOutputPort])
+-&gt; (NodeInterface -&gt; [NodeOutputPort] -&gt; NodeInterface)
+-&gt; Lens
+     NodeInterface NodeInterface [NodeOutputPort] [NodeOutputPort]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface%27"><span class="hs-identifier hs-type">NodeInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258603"><span class="annot"><span class="annottext">[NodeOutputPort]
+outputs :: [NodeOutputPort]
+$sel:outputs:NodeInterface' :: NodeInterface -&gt; [NodeOutputPort]
+</span><a href="#local-6989586621679258603"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[NodeOutputPort]
+</span><a href="#local-6989586621679258603"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258602"><span class="annot"><span class="annottext">s :: NodeInterface
+</span><a href="#local-6989586621679258602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface%27"><span class="hs-identifier hs-type">NodeInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258601"><span class="annot"><span class="annottext">[NodeOutputPort]
+</span><a href="#local-6989586621679258601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInterface
+</span><a href="#local-6989586621679258602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:NodeInterface' :: [NodeOutputPort]
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#%24sel%3Aoutputs%3ANodeInterface%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[NodeOutputPort]
+</span><a href="#local-6989586621679258601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([NodeOutputPort] -&gt; f [NodeOutputPort])
+ -&gt; NodeInterface -&gt; f NodeInterface)
+-&gt; (([NodeOutputPort] -&gt; f [NodeOutputPort])
+    -&gt; [NodeOutputPort] -&gt; f [NodeOutputPort])
+-&gt; ([NodeOutputPort] -&gt; f [NodeOutputPort])
+-&gt; NodeInterface
+-&gt; f NodeInterface
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([NodeOutputPort] -&gt; f [NodeOutputPort])
+-&gt; [NodeOutputPort] -&gt; f [NodeOutputPort]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258598"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679258596"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodeInterface
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NodeInterface)
+-&gt; Value
+-&gt; Parser NodeInterface
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NodeInterface&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258593"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258593"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">[NodeInputPort] -&gt; [NodeOutputPort] -&gt; NodeInterface
+</span><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface%27"><span class="hs-identifier hs-var">NodeInterface'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">([NodeInputPort] -&gt; [NodeOutputPort] -&gt; NodeInterface)
+-&gt; Parser [NodeInputPort]
+-&gt; Parser ([NodeOutputPort] -&gt; NodeInterface)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [NodeInputPort])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [NodeInputPort])
+-&gt; [NodeInputPort] -&gt; Parser [NodeInputPort]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[NodeInputPort]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser ([NodeOutputPort] -&gt; NodeInterface)
+-&gt; Parser [NodeOutputPort] -&gt; Parser NodeInterface
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [NodeOutputPort])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [NodeOutputPort])
+-&gt; [NodeOutputPort] -&gt; Parser [NodeOutputPort]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[NodeOutputPort]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258586"><span id="local-6989586621679258588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.NodeInterface.html#NodeInterface"><span class="hs-identifier hs-type">NodeInterface</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

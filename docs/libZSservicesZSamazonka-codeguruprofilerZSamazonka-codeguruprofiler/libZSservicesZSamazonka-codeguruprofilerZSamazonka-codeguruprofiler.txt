@@ -5,33 +5,33 @@
 @version 2.0
 
 
-module Network.AWS.CodeGuruProfiler.Types.ActionGroup
+module Amazonka.CodeGuruProfiler.Types.ActionGroup
 newtype ActionGroup
 ActionGroup' :: Text -> ActionGroup
 [fromActionGroup] :: ActionGroup -> Text
 pattern ActionGroup_AgentPermissions :: ActionGroup
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.ActionGroup.ActionGroup
 
 
-module Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig
+module Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig
 
 -- | Specifies whether profiling is enabled or disabled for a profiling
 --   group. It is used by <a>ConfigureAgent</a> to enable or disable
@@ -63,17 +63,17 @@ newAgentOrchestrationConfig :: Bool -> AgentOrchestrationConfig
 -- | A <tt>Boolean</tt> that specifies whether the profiling agent collects
 --   profiling data or not. Set to <tt>true</tt> to enable profiling.
 agentOrchestrationConfig_profilingEnabled :: Lens' AgentOrchestrationConfig Bool
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.AgentOrchestrationConfig
 
 
-module Network.AWS.CodeGuruProfiler.Types.AgentParameterField
+module Amazonka.CodeGuruProfiler.Types.AgentParameterField
 newtype AgentParameterField
 AgentParameterField' :: Text -> AgentParameterField
 [fromAgentParameterField] :: AgentParameterField -> Text
@@ -82,28 +82,28 @@ pattern AgentParameterField_MemoryUsageLimitPercent :: AgentParameterField
 pattern AgentParameterField_MinimumTimeForReportingInMilliseconds :: AgentParameterField
 pattern AgentParameterField_ReportingIntervalInMilliseconds :: AgentParameterField
 pattern AgentParameterField_SamplingIntervalInMilliseconds :: AgentParameterField
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.AgentParameterField.AgentParameterField
 
 
-module Network.AWS.CodeGuruProfiler.Types.AgentConfiguration
+module Amazonka.CodeGuruProfiler.Types.AgentConfiguration
 
 -- | The response of <a>ConfigureAgent</a> that specifies if an agent
 --   profiles or not and for how long to return profiling data.
@@ -214,44 +214,44 @@ agentConfiguration_periodInSeconds :: Lens' AgentConfiguration Int
 -- | A <tt>Boolean</tt> that specifies whether the profiling agent collects
 --   profiling data or not. Set to <tt>true</tt> to enable profiling.
 agentConfiguration_shouldProfile :: Lens' AgentConfiguration Bool
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.AgentConfiguration.AgentConfiguration
 
 
-module Network.AWS.CodeGuruProfiler.Types.AggregationPeriod
+module Amazonka.CodeGuruProfiler.Types.AggregationPeriod
 newtype AggregationPeriod
 AggregationPeriod' :: Text -> AggregationPeriod
 [fromAggregationPeriod] :: AggregationPeriod -> Text
 pattern AggregationPeriod_P1D :: AggregationPeriod
 pattern AggregationPeriod_PT1H :: AggregationPeriod
 pattern AggregationPeriod_PT5M :: AggregationPeriod
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.AggregationPeriod.AggregationPeriod
 
 
-module Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime
+module Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime
 
 -- | Specifies the aggregation period and aggregation start time for an
 --   aggregated profile. An aggregated profile is used to collect posted
@@ -338,69 +338,69 @@ aggregatedProfileTime_period :: Lens' AggregatedProfileTime (Maybe AggregationPe
 --   2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 --   1:15:02 PM UTC.
 aggregatedProfileTime_start :: Lens' AggregatedProfileTime (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime.AggregatedProfileTime
 
 
-module Network.AWS.CodeGuruProfiler.Types.ComputePlatform
+module Amazonka.CodeGuruProfiler.Types.ComputePlatform
 newtype ComputePlatform
 ComputePlatform' :: Text -> ComputePlatform
 [fromComputePlatform] :: ComputePlatform -> Text
 pattern ComputePlatform_AWSLambda :: ComputePlatform
 pattern ComputePlatform_Default :: ComputePlatform
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.ComputePlatform.ComputePlatform
 
 
-module Network.AWS.CodeGuruProfiler.Types.EventPublisher
+module Amazonka.CodeGuruProfiler.Types.EventPublisher
 newtype EventPublisher
 EventPublisher' :: Text -> EventPublisher
 [fromEventPublisher] :: EventPublisher -> Text
 pattern EventPublisher_AnomalyDetection :: EventPublisher
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.EventPublisher.EventPublisher
 
 
-module Network.AWS.CodeGuruProfiler.Types.Channel
+module Amazonka.CodeGuruProfiler.Types.Channel
 
 -- | Notification medium for users to get alerted for events that occur in
 --   application profile. We support SNS topic as a notification channel.
@@ -461,44 +461,44 @@ channel_eventPublishers :: Lens' Channel (NonEmpty EventPublisher)
 -- | Unique arn of the resource to be used for notifications. We support a
 --   valid SNS topic arn as a channel uri.
 channel_uri :: Lens' Channel Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.Channel.Channel
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.Channel.Channel
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.Channel.Channel
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.Channel.Channel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.Channel.Channel
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.Channel.Channel
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.Channel.Channel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.Channel.Channel
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.Channel.Channel
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.Channel.Channel
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.Channel.Channel
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.Channel.Channel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.Channel.Channel
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.Channel.Channel
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.Channel.Channel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.Channel.Channel
 
 
-module Network.AWS.CodeGuruProfiler.Types.FeedbackType
+module Amazonka.CodeGuruProfiler.Types.FeedbackType
 newtype FeedbackType
 FeedbackType' :: Text -> FeedbackType
 [fromFeedbackType] :: FeedbackType -> Text
 pattern FeedbackType_Negative :: FeedbackType
 pattern FeedbackType_Positive :: FeedbackType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.FeedbackType.FeedbackType
 
 
-module Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary
+module Amazonka.CodeGuruProfiler.Types.FindingsReportSummary
 
 -- | Information about potential recommendations that might be created from
 --   the analysis of profiling data.
@@ -587,16 +587,16 @@ findingsReportSummary_profilingGroupName :: Lens' FindingsReportSummary (Maybe T
 -- | The total number of different recommendations that were found by the
 --   analysis.
 findingsReportSummary_totalNumberOfFindings :: Lens' FindingsReportSummary (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.FindingsReportSummary
 
 
-module Network.AWS.CodeGuruProfiler.Types.Match
+module Amazonka.CodeGuruProfiler.Types.Match
 
 -- | The part of a profile that contains a recommendation found during
 --   analysis.
@@ -646,16 +646,16 @@ match_frameAddress :: Lens' Match (Maybe Text)
 
 -- | The target frame that triggered a match.
 match_targetFramesIndex :: Lens' Match (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.Match.Match
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.Match.Match
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.Match.Match
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.Match.Match
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.Match.Match
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.Match.Match
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.Match.Match
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.Match.Match
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.Match.Match
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.Match.Match
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.Match.Match
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.Match.Match
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.Match.Match
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.Match.Match
 
 
-module Network.AWS.CodeGuruProfiler.Types.MetadataField
+module Amazonka.CodeGuruProfiler.Types.MetadataField
 newtype MetadataField
 MetadataField' :: Text -> MetadataField
 [fromMetadataField] :: MetadataField -> Text
@@ -668,54 +668,54 @@ pattern MetadataField_LambdaMemoryLimitInMB :: MetadataField
 pattern MetadataField_LambdaPreviousExecutionTimeInMilliseconds :: MetadataField
 pattern MetadataField_LambdaRemainingTimeInMilliseconds :: MetadataField
 pattern MetadataField_LambdaTimeGapBetweenInvokesInMilliseconds :: MetadataField
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.MetadataField.MetadataField
 
 
-module Network.AWS.CodeGuruProfiler.Types.MetricType
+module Amazonka.CodeGuruProfiler.Types.MetricType
 newtype MetricType
 MetricType' :: Text -> MetricType
 [fromMetricType] :: MetricType -> Text
 pattern MetricType_AggregatedRelativeTotalTime :: MetricType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.MetricType.MetricType
 
 
-module Network.AWS.CodeGuruProfiler.Types.Metric
+module Amazonka.CodeGuruProfiler.Types.Metric
 
 -- | Details about the metric that the analysis used when it detected the
 --   anomaly. The metric what is analyzed to create recommendations. It
@@ -775,16 +775,16 @@ metric_threadStates :: Lens' Metric [Text]
 --   of the metric value for one frame that is calculated across the
 --   occurences of all frames in a profile.
 metric_type :: Lens' Metric MetricType
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.Metric.Metric
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.Metric.Metric
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.Metric.Metric
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.Metric.Metric
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.Metric.Metric
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.Metric.Metric
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.Metric.Metric
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.Metric.Metric
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.Metric.Metric
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.Metric.Metric
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.Metric.Metric
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.Metric.Metric
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.Metric.Metric
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.Metric.Metric
 
 
-module Network.AWS.CodeGuruProfiler.Types.FrameMetric
+module Amazonka.CodeGuruProfiler.Types.FrameMetric
 
 -- | The frame name, metric type, and thread states. These are used to
 --   derive the value of the metric for the frame.
@@ -843,17 +843,17 @@ frameMetric_threadStates :: Lens' FrameMetric [Text]
 --   an aggregation of the metric value for one frame that is calculated
 --   across the occurrences of all frames in a profile.
 frameMetric_type :: Lens' FrameMetric MetricType
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.FrameMetric.FrameMetric
 
 
-module Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum
+module Amazonka.CodeGuruProfiler.Types.FrameMetricDatum
 
 -- | Information about a frame metric and its values.
 --   
@@ -886,16 +886,16 @@ frameMetricDatum_frameMetric :: Lens' FrameMetricDatum FrameMetric
 
 -- | A list of values that are associated with a frame metric.
 frameMetricDatum_values :: Lens' FrameMetricDatum [Double]
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.FrameMetricDatum.FrameMetricDatum
 
 
-module Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration
+module Amazonka.CodeGuruProfiler.Types.NotificationConfiguration
 
 -- | The configuration for notifications stored for each profiling group.
 --   This includes up to to two channels and a list of event publishers
@@ -927,43 +927,43 @@ newNotificationConfiguration :: NotificationConfiguration
 -- | List of up to two channels to be used for sending notifications for
 --   events detected from the application profile.
 notificationConfiguration_channels :: Lens' NotificationConfiguration (Maybe (NonEmpty Channel))
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.NotificationConfiguration
 
 
-module Network.AWS.CodeGuruProfiler.Types.OrderBy
+module Amazonka.CodeGuruProfiler.Types.OrderBy
 newtype OrderBy
 OrderBy' :: Text -> OrderBy
 [fromOrderBy] :: OrderBy -> Text
 pattern OrderBy_TimestampAscending :: OrderBy
 pattern OrderBy_TimestampDescending :: OrderBy
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance GHC.Classes.Ord Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance GHC.Classes.Ord Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.OrderBy.OrderBy
 
 
-module Network.AWS.CodeGuruProfiler.Types.Pattern
+module Amazonka.CodeGuruProfiler.Types.Pattern
 
 -- | A set of rules used to make a recommendation during an analysis.
 --   
@@ -1060,16 +1060,16 @@ pattern_id :: Lens' Pattern (Maybe Text)
 -- | The description of the recommendation. This explains a potential
 --   inefficiency in a profiled application.
 pattern_description :: Lens' Pattern (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.Pattern.Pattern
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.Pattern.Pattern
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.Pattern.Pattern
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.Pattern.Pattern
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.Pattern.Pattern
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.Pattern.Pattern
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.Pattern.Pattern
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.Pattern.Pattern
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.Pattern.Pattern
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.Pattern.Pattern
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.Pattern.Pattern
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.Pattern.Pattern
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.Pattern.Pattern
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.Pattern.Pattern
 
 
-module Network.AWS.CodeGuruProfiler.Types.ProfileTime
+module Amazonka.CodeGuruProfiler.Types.ProfileTime
 
 -- | Contains the start time of a profile.
 --   
@@ -1100,16 +1100,16 @@ newProfileTime :: ProfileTime
 --   format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
 --   past June 1, 2020 1:15:02 PM UTC.
 profileTime_start :: Lens' ProfileTime (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.ProfileTime.ProfileTime
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.ProfileTime.ProfileTime
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.ProfileTime.ProfileTime
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.ProfileTime.ProfileTime
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.ProfileTime.ProfileTime
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.ProfileTime.ProfileTime
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.ProfileTime.ProfileTime
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.ProfileTime.ProfileTime
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.ProfileTime.ProfileTime
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.ProfileTime.ProfileTime
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.ProfileTime.ProfileTime
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.ProfileTime.ProfileTime
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.ProfileTime.ProfileTime
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.ProfileTime.ProfileTime
 
 
-module Network.AWS.CodeGuruProfiler.Types.ProfilingStatus
+module Amazonka.CodeGuruProfiler.Types.ProfilingStatus
 
 -- | Profiling status includes information about the last time a profile
 --   agent pinged back, the last time a profile was received, and the
@@ -1176,16 +1176,16 @@ profilingStatus_latestAgentProfileReportedAt :: Lens' ProfilingStatus (Maybe UTC
 -- | An <a>AggregatedProfileTime</a> object that contains the aggregation
 --   period and start time for an aggregated profile.
 profilingStatus_latestAggregatedProfile :: Lens' ProfilingStatus (Maybe AggregatedProfileTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.ProfilingStatus.ProfilingStatus
 
 
-module Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription
+module Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription
 
 -- | Contains information about a profiling group.
 --   
@@ -1323,16 +1323,16 @@ profilingGroupDescription_agentOrchestrationConfig :: Lens' ProfilingGroupDescri
 
 -- | A list of the tags that belong to this profiling group.
 profilingGroupDescription_tags :: Lens' ProfilingGroupDescription (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.ProfilingGroupDescription
 
 
-module Network.AWS.CodeGuruProfiler.Types.Recommendation
+module Amazonka.CodeGuruProfiler.Types.Recommendation
 
 -- | A potential improvement that was found from analyzing the profiling
 --   data.
@@ -1428,16 +1428,16 @@ recommendation_startTime :: Lens' Recommendation UTCTime
 
 -- | List of the matches with most impact.
 recommendation_topMatches :: Lens' Recommendation [Match]
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.Recommendation.Recommendation
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.Recommendation.Recommendation
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.Recommendation.Recommendation
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.Recommendation.Recommendation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.Recommendation.Recommendation
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.Recommendation.Recommendation
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.Recommendation.Recommendation
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.Recommendation.Recommendation
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.Recommendation.Recommendation
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.Recommendation.Recommendation
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.Recommendation.Recommendation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.Recommendation.Recommendation
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.Recommendation.Recommendation
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.Recommendation.Recommendation
 
 
-module Network.AWS.CodeGuruProfiler.Types.TimestampStructure
+module Amazonka.CodeGuruProfiler.Types.TimestampStructure
 
 -- | A data type that contains a <tt>Timestamp</tt> object. This is
 --   specified using the ISO 8601 format. For example,
@@ -1472,16 +1472,16 @@ newTimestampStructure :: UTCTime -> TimestampStructure
 --   example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
 --   1, 2020 1:15:02 PM UTC.
 timestampStructure_value :: Lens' TimestampStructure UTCTime
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.TimestampStructure.TimestampStructure
 
 
-module Network.AWS.CodeGuruProfiler.Types.UserFeedback
+module Amazonka.CodeGuruProfiler.Types.UserFeedback
 
 -- | Feedback that can be submitted for each instance of an anomaly by the
 --   user. Feedback is be used for improvements in generating
@@ -1512,16 +1512,16 @@ newUserFeedback :: FeedbackType -> UserFeedback
 -- | Optional <tt>Positive</tt> or <tt>Negative</tt> feedback submitted by
 --   the user about whether the recommendation is useful or not.
 userFeedback_type :: Lens' UserFeedback FeedbackType
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.UserFeedback.UserFeedback
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.UserFeedback.UserFeedback
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.UserFeedback.UserFeedback
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.UserFeedback.UserFeedback
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.UserFeedback.UserFeedback
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.UserFeedback.UserFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.UserFeedback.UserFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.UserFeedback.UserFeedback
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.UserFeedback.UserFeedback
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.UserFeedback.UserFeedback
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.UserFeedback.UserFeedback
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.UserFeedback.UserFeedback
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.UserFeedback.UserFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.UserFeedback.UserFeedback
 
 
-module Network.AWS.CodeGuruProfiler.Types.AnomalyInstance
+module Amazonka.CodeGuruProfiler.Types.AnomalyInstance
 
 -- | The specific duration in which the metric is flagged as anomalous.
 --   
@@ -1596,16 +1596,16 @@ anomalyInstance_id :: Lens' AnomalyInstance Text
 --   2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 --   1:15:02 PM UTC.
 anomalyInstance_startTime :: Lens' AnomalyInstance UTCTime
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.AnomalyInstance.AnomalyInstance
 
 
-module Network.AWS.CodeGuruProfiler.Types.Anomaly
+module Amazonka.CodeGuruProfiler.Types.Anomaly
 
 -- | Details about an anomaly in a specific metric of application profile.
 --   The anomaly is detected using analysis of the metric data over a
@@ -1660,16 +1660,16 @@ anomaly_metric :: Lens' Anomaly Metric
 
 -- | The reason for which metric was flagged as anomalous.
 anomaly_reason :: Lens' Anomaly Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.Types.Anomaly.Anomaly
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.Types.Anomaly.Anomaly
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.Types.Anomaly.Anomaly
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.Types.Anomaly.Anomaly
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruProfiler.Types.Anomaly.Anomaly
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.Types.Anomaly.Anomaly
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.Types.Anomaly.Anomaly
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.Types.Anomaly.Anomaly
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.Types.Anomaly.Anomaly
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.Types.Anomaly.Anomaly
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.Types.Anomaly.Anomaly
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruProfiler.Types.Anomaly.Anomaly
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.Types.Anomaly.Anomaly
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.Types.Anomaly.Anomaly
 
 
-module Network.AWS.CodeGuruProfiler.Types
+module Amazonka.CodeGuruProfiler.Types
 
 -- | API version <tt>2019-07-18</tt> of the Amazon CodeGuru Profiler SDK
 --   configuration.
@@ -2973,7 +2973,7 @@ userFeedback_type :: Lens' UserFeedback FeedbackType
 
 
 -- | Use to assign one or more tags to a resource.
-module Network.AWS.CodeGuruProfiler.TagResource
+module Amazonka.CodeGuruProfiler.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -3032,27 +3032,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.TagResource.TagResource
 
 
 -- | Sends feedback to CodeGuru Profiler about whether the anomaly detected
 --   by the analysis is useful or not.
-module Network.AWS.CodeGuruProfiler.SubmitFeedback
+module Amazonka.CodeGuruProfiler.SubmitFeedback
 
 -- | The structure representing the SubmitFeedbackRequest.
 --   
@@ -3141,22 +3141,22 @@ newSubmitFeedbackResponse :: Int -> SubmitFeedbackResponse
 
 -- | The response's http status code.
 submitFeedbackResponse_httpStatus :: Lens' SubmitFeedbackResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedbackResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.SubmitFeedback.SubmitFeedback
 
 
 -- | Removes permissions from a profiling group's resource-based policy
@@ -3166,7 +3166,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.SubmitFeedb
 --   information, see <a>Resource-based policies in CodeGuru Profiler</a>
 --   in the <i>Amazon CodeGuru Profiler User Guide</i>,
 --   <a>ConfigureAgent</a> , and <a>PostAgentProfile</a> .
-module Network.AWS.CodeGuruProfiler.RemovePermission
+module Amazonka.CodeGuruProfiler.RemovePermission
 
 -- | <pre>
 --   The structure representing the &lt;code&gt;removePermissionRequest&lt;/code&gt;.&lt;/p&gt;
@@ -3284,25 +3284,25 @@ removePermissionResponse_policy :: Lens' RemovePermissionResponse Text
 --   The updated JSON-formatted policy is in the <tt>policy</tt> element of
 --   the response.
 removePermissionResponse_revisionId :: Lens' RemovePermissionResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.RemovePermission.RemovePermission
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.RemovePermission.RemovePermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.RemovePermission.RemovePermission
 
 
 -- | Remove one anomaly notifications channel for a profiling group.
-module Network.AWS.CodeGuruProfiler.RemoveNotificationChannel
+module Amazonka.CodeGuruProfiler.RemoveNotificationChannel
 
 -- | The structure representing the RemoveNotificationChannelRequest.
 --   
@@ -3379,21 +3379,21 @@ removeNotificationChannelResponse_notificationConfiguration :: Lens' RemoveNotif
 
 -- | The response's http status code.
 removeNotificationChannelResponse_httpStatus :: Lens' RemoveNotificationChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.RemoveNotificationChannel.RemoveNotificationChannel
 
 
 -- | Adds permissions to a profiling group's resource-based policy that are
@@ -3405,7 +3405,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.RemoveNotif
 --   <pre>
 --   &lt;p&gt; The one supported action group that can be added is &lt;code&gt;agentPermission&lt;/code&gt; which grants &lt;code&gt;ConfigureAgent&lt;/code&gt; and &lt;code&gt;PostAgent&lt;/code&gt; permissions. For more information, see &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html"&gt;Resource-based policies in CodeGuru Profiler&lt;/a&gt; in the &lt;i&gt;Amazon CodeGuru Profiler User Guide&lt;/i&gt;, &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html"&gt; &lt;code&gt;ConfigureAgent&lt;/code&gt; &lt;/a&gt;, and &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html"&gt; &lt;code&gt;PostAgentProfile&lt;/code&gt; &lt;/a&gt;. &lt;/p&gt; &lt;p&gt; The first time you call &lt;code&gt;PutPermission&lt;/code&gt; on a profiling group, do not specify a &lt;code&gt;revisionId&lt;/code&gt; because it doesn't have a resource-based policy. Subsequent calls must provide a &lt;code&gt;revisionId&lt;/code&gt; to specify which revision of the resource-based policy to add the permissions to. &lt;/p&gt; &lt;p&gt; The response contains the profiling group's JSON-formatted resource policy. &lt;/p&gt;
 --   </pre>
-module Network.AWS.CodeGuruProfiler.PutPermission
+module Amazonka.CodeGuruProfiler.PutPermission
 
 -- | The structure representing the <tt>putPermissionRequest</tt>.
 --   
@@ -3543,28 +3543,28 @@ putPermissionResponse_policy :: Lens' PutPermissionResponse Text
 --   JSON-formatted policy is in the <tt>policy</tt> element of the
 --   response.
 putPermissionResponse_revisionId :: Lens' PutPermissionResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.PutPermission.PutPermissionResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.PutPermission.PutPermissionResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.PutPermission.PutPermissionResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.PutPermission.PutPermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.PutPermission.PutPermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.PutPermission.PutPermission
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.PutPermission.PutPermissionResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.PutPermission.PutPermissionResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.PutPermission.PutPermissionResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.PutPermission.PutPermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.PutPermission.PutPermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.PutPermission.PutPermission
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.PutPermission.PutPermission
 
 
 -- | Submits profiling data to an aggregated profile of a profiling group.
 --   To get an aggregated profile that is created with this profiling data,
 --   use <a>GetProfile</a> .
-module Network.AWS.CodeGuruProfiler.PostAgentProfile
+module Amazonka.CodeGuruProfiler.PostAgentProfile
 
 -- | The structure representing the postAgentProfileRequest.
 --   
@@ -3673,26 +3673,26 @@ newPostAgentProfileResponse :: Int -> PostAgentProfileResponse
 
 -- | The response's http status code.
 postAgentProfileResponse_httpStatus :: Lens' PostAgentProfileResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance Network.AWS.Data.Body.ToBody Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance Amazonka.Data.Body.ToBody Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.PostAgentProfile.PostAgentProfile
 
 
 -- | Returns a list of the tags that are assigned to a specified resource.
-module Network.AWS.CodeGuruProfiler.ListTagsForResource
+module Amazonka.CodeGuruProfiler.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3756,26 +3756,26 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a list of profiling groups. The profiling groups are returned
 --   as <a>ProfilingGroupDescription</a> objects.
-module Network.AWS.CodeGuruProfiler.ListProfilingGroups
+module Amazonka.CodeGuruProfiler.ListProfilingGroups
 
 -- | The structure representing the listProfilingGroupsRequest.
 --   
@@ -3959,21 +3959,21 @@ listProfilingGroupsResponse_httpStatus :: Lens' ListProfilingGroupsResponse Int
 --   otherwise a list of <a>ProfilingGroupDescription</a> objects is
 --   returned.
 listProfilingGroupsResponse_profilingGroupNames :: Lens' ListProfilingGroupsResponse [Text]
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroupsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.ListProfilingGroups.ListProfilingGroups
 
 
 -- | Lists the start times of the available aggregated profiles of a
@@ -3981,7 +3981,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.ListProfili
 --   range.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeGuruProfiler.ListProfileTimes
+module Amazonka.CodeGuruProfiler.ListProfileTimes
 
 -- | The structure representing the listProfileTimesRequest.
 --   
@@ -4194,26 +4194,26 @@ listProfileTimesResponse_httpStatus :: Lens' ListProfileTimesResponse Int
 -- | The list of start times of the available profiles for the aggregation
 --   period in the specified time range.
 listProfileTimesResponse_profileTimes :: Lens' ListProfileTimesResponse [ProfileTime]
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimesResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.ListProfileTimes.ListProfileTimes
 
 
 -- | List the available reports for a given profiling group and time range.
-module Network.AWS.CodeGuruProfiler.ListFindingsReports
+module Amazonka.CodeGuruProfiler.ListFindingsReports
 
 -- | The structure representing the ListFindingsReportsRequest.
 --   
@@ -4418,21 +4418,21 @@ listFindingsReportsResponse_httpStatus :: Lens' ListFindingsReportsResponse Int
 
 -- | The list of analysis results summaries.
 listFindingsReportsResponse_findingsReportSummaries :: Lens' ListFindingsReportsResponse [FindingsReportSummary]
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReportsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.ListFindingsReports.ListFindingsReports
 
 
 -- | Returns a list of <a>Recommendation</a> objects that contain
@@ -4440,7 +4440,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.ListFinding
 --   of <a>Anomaly</a> objects that contains details about anomalies
 --   detected in the profiling group for the same time period is also
 --   returned.
-module Network.AWS.CodeGuruProfiler.GetRecommendations
+module Amazonka.CodeGuruProfiler.GetRecommendations
 
 -- | The structure representing the GetRecommendationsRequest.
 --   
@@ -4652,21 +4652,21 @@ getRecommendationsResponse_profilingGroupName :: Lens' GetRecommendationsRespons
 
 -- | The list of recommendations that the analysis found for this profile.
 getRecommendationsResponse_recommendations :: Lens' GetRecommendationsResponse [Recommendation]
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.GetRecommendations.GetRecommendations
 
 
 -- | Gets the aggregated profile of a profiling group for a specified time
@@ -4676,7 +4676,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.GetRecommen
 --   <pre>
 --   &lt;note&gt; &lt;p&gt; Because aggregated profiles expire over time &lt;code&gt;GetProfile&lt;/code&gt; is not idempotent. &lt;/p&gt; &lt;/note&gt; &lt;p&gt; Specify the time range for the requested aggregated profile using 1 or 2 of the following parameters: &lt;code&gt;startTime&lt;/code&gt;, &lt;code&gt;endTime&lt;/code&gt;, &lt;code&gt;period&lt;/code&gt;. The maximum time range allowed is 7 days. If you specify all 3 parameters, an exception is thrown. If you specify only &lt;code&gt;period&lt;/code&gt;, the latest aggregated profile is returned. &lt;/p&gt; &lt;p&gt; Aggregated profiles are available with aggregation periods of 5 minutes, 1 hour, and 1 day, aligned to UTC. The aggregation period of an aggregated profile determines how long it is retained. For more information, see &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AggregatedProfileTime.html"&gt; &lt;code&gt;AggregatedProfileTime&lt;/code&gt; &lt;/a&gt;. The aggregated profile's aggregation period determines how long it is retained by CodeGuru Profiler. &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; If the aggregation period is 5 minutes, the aggregated profile is retained for 15 days. &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; If the aggregation period is 1 hour, the aggregated profile is retained for 60 days. &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; If the aggregation period is 1 day, the aggregated profile is retained for 3 years. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;There are two use cases for calling &lt;code&gt;GetProfile&lt;/code&gt;.&lt;/p&gt; &lt;ol&gt; &lt;li&gt; &lt;p&gt; If you want to return an aggregated profile that already exists, use &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ListProfileTimes.html"&gt; &lt;code&gt;ListProfileTimes&lt;/code&gt; &lt;/a&gt; to view the time ranges of existing aggregated profiles. Use them in a &lt;code&gt;GetProfile&lt;/code&gt; request to return a specific, existing aggregated profile. &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; If you want to return an aggregated profile for a time range that doesn't align with an existing aggregated profile, then CodeGuru Profiler makes a best effort to combine existing aggregated profiles from the requested time range and return them as one aggregated profile. &lt;/p&gt; &lt;p&gt; If aggregated profiles do not exist for the full time range requested, then aggregated profiles for a smaller time range are returned. For example, if the requested time range is from 00:00 to 00:20, and the existing aggregated profiles are from 00:15 and 00:25, then the aggregated profiles from 00:15 to 00:20 are returned. &lt;/p&gt; &lt;/li&gt; &lt;/ol&gt;
 --   </pre>
-module Network.AWS.CodeGuruProfiler.GetProfile
+module Amazonka.CodeGuruProfiler.GetProfile
 
 -- | The structure representing the getProfileRequest.
 --   
@@ -4891,25 +4891,25 @@ getProfileResponse_contentType :: Lens' GetProfileResponse Text
 
 -- | Information about the profile.
 getProfileResponse_profile :: Lens' GetProfileResponse ByteString
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetProfile.GetProfileResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetProfile.GetProfileResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetProfile.GetProfileResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetProfile.GetProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetProfile.GetProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.GetProfile.GetProfile
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetProfile.GetProfileResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetProfile.GetProfileResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetProfile.GetProfileResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetProfile.GetProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetProfile.GetProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.GetProfile.GetProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.GetProfile.GetProfile
 
 
 -- | Returns the JSON-formatted resource-based policy on a profiling group.
-module Network.AWS.CodeGuruProfiler.GetPolicy
+module Amazonka.CodeGuruProfiler.GetPolicy
 
 -- | The structure representing the <tt>getPolicyRequest</tt>.
 --   
@@ -4981,26 +4981,26 @@ getPolicyResponse_policy :: Lens' GetPolicyResponse Text
 
 -- | A unique identifier for the current revision of the returned policy.
 getPolicyResponse_revisionId :: Lens' GetPolicyResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicyResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicyResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicyResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.GetPolicy.GetPolicy
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetPolicy.GetPolicyResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetPolicy.GetPolicyResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetPolicy.GetPolicyResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetPolicy.GetPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetPolicy.GetPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.GetPolicy.GetPolicy
 
 
 -- | Get the current configuration for anomaly notifications for a
 --   profiling group.
-module Network.AWS.CodeGuruProfiler.GetNotificationConfiguration
+module Amazonka.CodeGuruProfiler.GetNotificationConfiguration
 
 -- | The structure representing the GetNotificationConfigurationRequest.
 --   
@@ -5067,26 +5067,26 @@ getNotificationConfigurationResponse_httpStatus :: Lens' GetNotificationConfigur
 
 -- | The current notification configuration for this profiling group.
 getNotificationConfigurationResponse_notificationConfiguration :: Lens' GetNotificationConfigurationResponse NotificationConfiguration
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.GetNotificationConfiguration.GetNotificationConfiguration
 
 
 -- | Returns a list of <a>FindingsReportSummary</a> objects that contain
 --   analysis results for all profiling groups in your AWS account.
-module Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary
+module Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary
 
 -- | The structure representing the GetFindingsReportAccountSummaryRequest.
 --   
@@ -5257,26 +5257,26 @@ getFindingsReportAccountSummaryResponse_httpStatus :: Lens' GetFindingsReportAcc
 --   summaries of analysis results for all profiling groups in your AWS
 --   account.
 getFindingsReportAccountSummaryResponse_reportSummaries :: Lens' GetFindingsReportAccountSummaryResponse [FindingsReportSummary]
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary.GetFindingsReportAccountSummary
 
 
 -- | Returns a <a>ProfilingGroupDescription</a> object that contains
 --   information about the requested profiling group.
-module Network.AWS.CodeGuruProfiler.DescribeProfilingGroup
+module Amazonka.CodeGuruProfiler.DescribeProfilingGroup
 
 -- | The structure representing the describeProfilingGroupRequest.
 --   
@@ -5343,25 +5343,25 @@ describeProfilingGroupResponse_httpStatus :: Lens' DescribeProfilingGroupRespons
 -- | The returned <a>ProfilingGroupDescription</a> object that contains
 --   information about the requested profiling group.
 describeProfilingGroupResponse_profilingGroup :: Lens' DescribeProfilingGroupResponse ProfilingGroupDescription
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.DescribeProfilingGroup.DescribeProfilingGroup
 
 
 -- | Deletes a profiling group.
-module Network.AWS.CodeGuruProfiler.DeleteProfilingGroup
+module Amazonka.CodeGuruProfiler.DeleteProfilingGroup
 
 -- | The structure representing the deleteProfilingGroupRequest.
 --   
@@ -5414,25 +5414,25 @@ newDeleteProfilingGroupResponse :: Int -> DeleteProfilingGroupResponse
 
 -- | The response's http status code.
 deleteProfilingGroupResponse_httpStatus :: Lens' DeleteProfilingGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.DeleteProfilingGroup.DeleteProfilingGroup
 
 
 -- | Creates a profiling group.
-module Network.AWS.CodeGuruProfiler.CreateProfilingGroup
+module Amazonka.CodeGuruProfiler.CreateProfilingGroup
 
 -- | The structure representing the createProfiliingGroupRequest.
 --   
@@ -5559,29 +5559,29 @@ createProfilingGroupResponse_httpStatus :: Lens' CreateProfilingGroupResponse In
 -- | The returned <a>ProfilingGroupDescription</a> object that contains
 --   information about the created profiling group.
 createProfilingGroupResponse_profilingGroup :: Lens' CreateProfilingGroupResponse ProfilingGroupDescription
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.CreateProfilingGroup.CreateProfilingGroup
 
 
 -- | Used by profiler agents to report their current state and to receive
 --   remote configuration updates. For example, <tt>ConfigureAgent</tt> can
 --   be used to tell an agent whether to profile or not and for how long to
 --   return profiling data.
-module Network.AWS.CodeGuruProfiler.ConfigureAgent
+module Amazonka.CodeGuruProfiler.ConfigureAgent
 
 -- | The structure representing the configureAgentRequest.
 --   
@@ -5745,27 +5745,27 @@ configureAgentResponse_httpStatus :: Lens' ConfigureAgentResponse Int
 -- | An <a>AgentConfiguration</a> object that specifies if an agent
 --   profiles or not and for how long to return profiling data.
 configureAgentResponse_configuration :: Lens' ConfigureAgentResponse AgentConfiguration
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgentResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.ConfigureAgent.ConfigureAgent
 
 
 -- | Returns the time series of values for a requested list of frame
 --   metrics from a time period.
-module Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData
+module Amazonka.CodeGuruProfiler.BatchGetFrameMetricData
 
 -- | The structure representing the BatchGetFrameMetricDataRequest.
 --   
@@ -6055,26 +6055,26 @@ batchGetFrameMetricDataResponse_startTime :: Lens' BatchGetFrameMetricDataRespon
 -- | List of instances which remained unprocessed. This will create a
 --   missing time step in the list of end times.
 batchGetFrameMetricDataResponse_unprocessedEndTimes :: Lens' BatchGetFrameMetricDataResponse (HashMap Text [TimestampStructure])
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.BatchGetFrameMetricData.BatchGetFrameMetricData
 
 
 -- | Add up to 2 anomaly notifications channels for a profiling group.
-module Network.AWS.CodeGuruProfiler.AddNotificationChannels
+module Amazonka.CodeGuruProfiler.AddNotificationChannels
 
 -- | The structure representing the AddNotificationChannelsRequest.
 --   
@@ -6151,26 +6151,26 @@ addNotificationChannelsResponse_notificationConfiguration :: Lens' AddNotificati
 
 -- | The response's http status code.
 addNotificationChannelsResponse_httpStatus :: Lens' AddNotificationChannelsResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannelsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.AddNotificationChannels.AddNotificationChannels
 
 
 -- | Use to remove one or more tags from a resource.
-module Network.AWS.CodeGuruProfiler.UntagResource
+module Amazonka.CodeGuruProfiler.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6233,25 +6233,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.UntagResource.UntagResource
 
 
 -- | Updates a profiling group.
-module Network.AWS.CodeGuruProfiler.UpdateProfilingGroup
+module Amazonka.CodeGuruProfiler.UpdateProfilingGroup
 
 -- | The structure representing the updateProfilingGroupRequest.
 --   
@@ -6329,25 +6329,25 @@ updateProfilingGroupResponse_httpStatus :: Lens' UpdateProfilingGroupResponse In
 -- | A <a>ProfilingGroupDescription</a> that contains information about the
 --   returned updated profiling group.
 updateProfilingGroupResponse_profilingGroup :: Lens' UpdateProfilingGroupResponse ProfilingGroupDescription
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance GHC.Generics.Generic Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
-instance GHC.Show.Show Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
-instance GHC.Read.Read Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance GHC.Generics.Generic Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
+instance GHC.Show.Show Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
+instance GHC.Read.Read Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance Control.DeepSeq.NFData Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruProfiler.UpdateProfilingGroup.UpdateProfilingGroup
 
 
-module Network.AWS.CodeGuruProfiler.Lens
+module Amazonka.CodeGuruProfiler.Lens
 
 -- | The language used to provide analysis. Specify using a string that is
 --   one of the following <tt>BCP 47</tt> language codes.
@@ -7333,7 +7333,7 @@ timestampStructure_value :: Lens' TimestampStructure UTCTime
 userFeedback_type :: Lens' UserFeedback FeedbackType
 
 
-module Network.AWS.CodeGuruProfiler.Waiters
+module Amazonka.CodeGuruProfiler.Waiters
 
 
 -- | Derived from API version <tt>2019-07-18</tt> of the AWS service
@@ -7363,7 +7363,7 @@ module Network.AWS.CodeGuruProfiler.Waiters
 --   
 --   For more information, see <a>What is Amazon CodeGuru Profiler</a> in
 --   the <i>Amazon CodeGuru Profiler User Guide</i>.
-module Network.AWS.CodeGuruProfiler
+module Amazonka.CodeGuruProfiler
 
 -- | API version <tt>2019-07-18</tt> of the Amazon CodeGuru Profiler SDK
 --   configuration.

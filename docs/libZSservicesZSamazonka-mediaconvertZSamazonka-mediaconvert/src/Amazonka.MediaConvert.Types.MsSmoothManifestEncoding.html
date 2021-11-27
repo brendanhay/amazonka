@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.MsSmoothManifestEncoding</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.MsSmoothManifestEncoding</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding"><span class="hs-identifier">MsSmoothManifestEncoding</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding_UTF16"><span class="hs-identifier">MsSmoothManifestEncoding_UTF16</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding_UTF8"><span class="hs-identifier">MsSmoothManifestEncoding_UTF8</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- format for the server and client manifest. Valid options are utf8 and</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- utf16.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679995960"><span id="local-6989586621679995961"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MsSmoothManifestEncoding"><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding"><span class="hs-identifier hs-var">MsSmoothManifestEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothManifestEncoding%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding%27"><span class="hs-identifier hs-var">MsSmoothManifestEncoding'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMsSmoothManifestEncoding"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#fromMsSmoothManifestEncoding"><span class="hs-identifier hs-var hs-var">fromMsSmoothManifestEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995952"><span id="local-6989586621679995954"><span id="local-6989586621679995956"><span class="annot"><span class="annottext">Int -&gt; MsSmoothManifestEncoding -&gt; ShowS
+[MsSmoothManifestEncoding] -&gt; ShowS
+MsSmoothManifestEncoding -&gt; String
+(Int -&gt; MsSmoothManifestEncoding -&gt; ShowS)
+-&gt; (MsSmoothManifestEncoding -&gt; String)
+-&gt; ([MsSmoothManifestEncoding] -&gt; ShowS)
+-&gt; Show MsSmoothManifestEncoding
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MsSmoothManifestEncoding] -&gt; ShowS
+$cshowList :: [MsSmoothManifestEncoding] -&gt; ShowS
+show :: MsSmoothManifestEncoding -&gt; String
+$cshow :: MsSmoothManifestEncoding -&gt; String
+showsPrec :: Int -&gt; MsSmoothManifestEncoding -&gt; ShowS
+$cshowsPrec :: Int -&gt; MsSmoothManifestEncoding -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679995943"><span id="local-6989586621679995945"><span id="local-6989586621679995947"><span id="local-6989586621679995949"><span class="annot"><span class="annottext">ReadPrec [MsSmoothManifestEncoding]
+ReadPrec MsSmoothManifestEncoding
+Int -&gt; ReadS MsSmoothManifestEncoding
+ReadS [MsSmoothManifestEncoding]
+(Int -&gt; ReadS MsSmoothManifestEncoding)
+-&gt; ReadS [MsSmoothManifestEncoding]
+-&gt; ReadPrec MsSmoothManifestEncoding
+-&gt; ReadPrec [MsSmoothManifestEncoding]
+-&gt; Read MsSmoothManifestEncoding
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MsSmoothManifestEncoding]
+$creadListPrec :: ReadPrec [MsSmoothManifestEncoding]
+readPrec :: ReadPrec MsSmoothManifestEncoding
+$creadPrec :: ReadPrec MsSmoothManifestEncoding
+readList :: ReadS [MsSmoothManifestEncoding]
+$creadList :: ReadS [MsSmoothManifestEncoding]
+readsPrec :: Int -&gt; ReadS MsSmoothManifestEncoding
+$creadsPrec :: Int -&gt; ReadS MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679995938"><span id="local-6989586621679995940"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+(MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool)
+-&gt; (MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool)
+-&gt; Eq MsSmoothManifestEncoding
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+$c/= :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+== :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+$c== :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679995922"><span id="local-6989586621679995924"><span id="local-6989586621679995926"><span id="local-6989586621679995928"><span id="local-6989586621679995930"><span id="local-6989586621679995932"><span id="local-6989586621679995934"><span class="annot"><span class="annottext">Eq MsSmoothManifestEncoding
+Eq MsSmoothManifestEncoding
+-&gt; (MsSmoothManifestEncoding
+    -&gt; MsSmoothManifestEncoding -&gt; Ordering)
+-&gt; (MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool)
+-&gt; (MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool)
+-&gt; (MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool)
+-&gt; (MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool)
+-&gt; (MsSmoothManifestEncoding
+    -&gt; MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding)
+-&gt; (MsSmoothManifestEncoding
+    -&gt; MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding)
+-&gt; Ord MsSmoothManifestEncoding
+MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Ordering
+MsSmoothManifestEncoding
+-&gt; MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MsSmoothManifestEncoding
+-&gt; MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding
+$cmin :: MsSmoothManifestEncoding
+-&gt; MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding
+max :: MsSmoothManifestEncoding
+-&gt; MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding
+$cmax :: MsSmoothManifestEncoding
+-&gt; MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding
+&gt;= :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+$c&gt;= :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+&gt; :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+$c&gt; :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+&lt;= :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+$c&lt;= :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+&lt; :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+$c&lt; :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Bool
+compare :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Ordering
+$ccompare :: MsSmoothManifestEncoding -&gt; MsSmoothManifestEncoding -&gt; Ordering
+$cp1Ord :: Eq MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MsSmoothManifestEncoding -&gt; Rep MsSmoothManifestEncoding x)
+-&gt; (forall x.
+    Rep MsSmoothManifestEncoding x -&gt; MsSmoothManifestEncoding)
+-&gt; Generic MsSmoothManifestEncoding
+forall x.
+Rep MsSmoothManifestEncoding x -&gt; MsSmoothManifestEncoding
+forall x.
+MsSmoothManifestEncoding -&gt; Rep MsSmoothManifestEncoding x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MsSmoothManifestEncoding x -&gt; MsSmoothManifestEncoding
+$cfrom :: forall x.
+MsSmoothManifestEncoding -&gt; Rep MsSmoothManifestEncoding x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995914"><span id="local-6989586621679995916"><span class="annot"><span class="annottext">Int -&gt; MsSmoothManifestEncoding -&gt; Int
+MsSmoothManifestEncoding -&gt; Int
+(Int -&gt; MsSmoothManifestEncoding -&gt; Int)
+-&gt; (MsSmoothManifestEncoding -&gt; Int)
+-&gt; Hashable MsSmoothManifestEncoding
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MsSmoothManifestEncoding -&gt; Int
+$chash :: MsSmoothManifestEncoding -&gt; Int
+hashWithSalt :: Int -&gt; MsSmoothManifestEncoding -&gt; Int
+$chashWithSalt :: Int -&gt; MsSmoothManifestEncoding -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679995911"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; ()
+(MsSmoothManifestEncoding -&gt; ()) -&gt; NFData MsSmoothManifestEncoding
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MsSmoothManifestEncoding -&gt; ()
+$crnf :: MsSmoothManifestEncoding -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679995908"><span class="annot"><span class="annottext">Text -&gt; Either String MsSmoothManifestEncoding
+(Text -&gt; Either String MsSmoothManifestEncoding)
+-&gt; FromText MsSmoothManifestEncoding
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MsSmoothManifestEncoding
+$cfromText :: Text -&gt; Either String MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679995905"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; Text
+(MsSmoothManifestEncoding -&gt; Text)
+-&gt; ToText MsSmoothManifestEncoding
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MsSmoothManifestEncoding -&gt; Text
+$ctoText :: MsSmoothManifestEncoding -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679995902"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; ByteString
+(MsSmoothManifestEncoding -&gt; ByteString)
+-&gt; ToByteString MsSmoothManifestEncoding
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MsSmoothManifestEncoding -&gt; ByteString
+$ctoBS :: MsSmoothManifestEncoding -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679995899"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; ByteStringBuilder
+(MsSmoothManifestEncoding -&gt; ByteStringBuilder)
+-&gt; ToLog MsSmoothManifestEncoding
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MsSmoothManifestEncoding -&gt; ByteStringBuilder
+$cbuild :: MsSmoothManifestEncoding -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679995896"><span class="annot"><span class="annottext">HeaderName -&gt; MsSmoothManifestEncoding -&gt; [Header]
+(HeaderName -&gt; MsSmoothManifestEncoding -&gt; [Header])
+-&gt; ToHeader MsSmoothManifestEncoding
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MsSmoothManifestEncoding -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MsSmoothManifestEncoding -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679995893"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; QueryString
+(MsSmoothManifestEncoding -&gt; QueryString)
+-&gt; ToQuery MsSmoothManifestEncoding
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MsSmoothManifestEncoding -&gt; QueryString
+$ctoQuery :: MsSmoothManifestEncoding -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679995888"><span id="local-6989586621679995890"><span class="annot"><span class="annottext">Value -&gt; Parser [MsSmoothManifestEncoding]
+Value -&gt; Parser MsSmoothManifestEncoding
+(Value -&gt; Parser MsSmoothManifestEncoding)
+-&gt; (Value -&gt; Parser [MsSmoothManifestEncoding])
+-&gt; FromJSON MsSmoothManifestEncoding
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MsSmoothManifestEncoding]
+$cparseJSONList :: Value -&gt; Parser [MsSmoothManifestEncoding]
+parseJSON :: Value -&gt; Parser MsSmoothManifestEncoding
+$cparseJSON :: Value -&gt; Parser MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679995883"><span id="local-6989586621679995885"><span class="annot"><span class="annottext">FromJSONKeyFunction [MsSmoothManifestEncoding]
+FromJSONKeyFunction MsSmoothManifestEncoding
+FromJSONKeyFunction MsSmoothManifestEncoding
+-&gt; FromJSONKeyFunction [MsSmoothManifestEncoding]
+-&gt; FromJSONKey MsSmoothManifestEncoding
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MsSmoothManifestEncoding]
+$cfromJSONKeyList :: FromJSONKeyFunction [MsSmoothManifestEncoding]
+fromJSONKey :: FromJSONKeyFunction MsSmoothManifestEncoding
+$cfromJSONKey :: FromJSONKeyFunction MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679995874"><span id="local-6989586621679995876"><span id="local-6989586621679995878"><span id="local-6989586621679995880"><span class="annot"><span class="annottext">[MsSmoothManifestEncoding] -&gt; Encoding
+[MsSmoothManifestEncoding] -&gt; Value
+MsSmoothManifestEncoding -&gt; Encoding
+MsSmoothManifestEncoding -&gt; Value
+(MsSmoothManifestEncoding -&gt; Value)
+-&gt; (MsSmoothManifestEncoding -&gt; Encoding)
+-&gt; ([MsSmoothManifestEncoding] -&gt; Value)
+-&gt; ([MsSmoothManifestEncoding] -&gt; Encoding)
+-&gt; ToJSON MsSmoothManifestEncoding
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MsSmoothManifestEncoding] -&gt; Encoding
+$ctoEncodingList :: [MsSmoothManifestEncoding] -&gt; Encoding
+toJSONList :: [MsSmoothManifestEncoding] -&gt; Value
+$ctoJSONList :: [MsSmoothManifestEncoding] -&gt; Value
+toEncoding :: MsSmoothManifestEncoding -&gt; Encoding
+$ctoEncoding :: MsSmoothManifestEncoding -&gt; Encoding
+toJSON :: MsSmoothManifestEncoding -&gt; Value
+$ctoJSON :: MsSmoothManifestEncoding -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679995869"><span id="local-6989586621679995871"><span class="annot"><span class="annottext">ToJSONKeyFunction [MsSmoothManifestEncoding]
+ToJSONKeyFunction MsSmoothManifestEncoding
+ToJSONKeyFunction MsSmoothManifestEncoding
+-&gt; ToJSONKeyFunction [MsSmoothManifestEncoding]
+-&gt; ToJSONKey MsSmoothManifestEncoding
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MsSmoothManifestEncoding]
+$ctoJSONKeyList :: ToJSONKeyFunction [MsSmoothManifestEncoding]
+toJSONKey :: ToJSONKeyFunction MsSmoothManifestEncoding
+$ctoJSONKey :: ToJSONKeyFunction MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679995866"><span class="annot"><span class="annottext">[Node] -&gt; Either String MsSmoothManifestEncoding
+([Node] -&gt; Either String MsSmoothManifestEncoding)
+-&gt; FromXML MsSmoothManifestEncoding
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MsSmoothManifestEncoding
+$cparseXML :: [Node] -&gt; Either String MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679995863"><span class="annot"><span class="annottext">MsSmoothManifestEncoding -&gt; XML
+(MsSmoothManifestEncoding -&gt; XML) -&gt; ToXML MsSmoothManifestEncoding
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MsSmoothManifestEncoding -&gt; XML
+$ctoXML :: MsSmoothManifestEncoding -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding_UTF16"><span class="hs-identifier hs-type">MsSmoothManifestEncoding_UTF16</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding"><span class="hs-identifier hs-type">MsSmoothManifestEncoding</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMsSmoothManifestEncoding_UTF16"><span id="%24mMsSmoothManifestEncoding_UTF16"><span id="MsSmoothManifestEncoding_UTF16"><span class="annot"><span class="annottext">$bMsSmoothManifestEncoding_UTF16 :: MsSmoothManifestEncoding
+$mMsSmoothManifestEncoding_UTF16 :: forall r.
+MsSmoothManifestEncoding -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#%24bMsSmoothManifestEncoding_UTF16"><span class="hs-identifier hs-var hs-var hs-var">MsSmoothManifestEncoding_UTF16</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding%27"><span class="hs-identifier hs-type">MsSmoothManifestEncoding'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UTF16&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding_UTF8"><span class="hs-identifier hs-type">MsSmoothManifestEncoding_UTF8</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding"><span class="hs-identifier hs-type">MsSmoothManifestEncoding</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMsSmoothManifestEncoding_UTF8"><span id="%24mMsSmoothManifestEncoding_UTF8"><span id="MsSmoothManifestEncoding_UTF8"><span class="annot"><span class="annottext">$bMsSmoothManifestEncoding_UTF8 :: MsSmoothManifestEncoding
+$mMsSmoothManifestEncoding_UTF8 :: forall r.
+MsSmoothManifestEncoding -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#%24bMsSmoothManifestEncoding_UTF8"><span class="hs-identifier hs-var hs-var hs-var">MsSmoothManifestEncoding_UTF8</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding%27"><span class="hs-identifier hs-type">MsSmoothManifestEncoding'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UTF8&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding_UTF16"><span class="hs-pragma hs-type">MsSmoothManifestEncoding_UTF16</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding_UTF8"><span class="hs-pragma hs-type">MsSmoothManifestEncoding_UTF8</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MsSmoothManifestEncoding.html#MsSmoothManifestEncoding%27"><span class="hs-pragma hs-type">MsSmoothManifestEncoding'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

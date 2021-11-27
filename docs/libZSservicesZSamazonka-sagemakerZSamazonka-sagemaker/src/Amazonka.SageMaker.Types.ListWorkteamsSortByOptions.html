@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.ListWorkteamsSortByOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.ListWorkteamsSortByOptions</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions"><span class="hs-identifier">ListWorkteamsSortByOptions</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions_CreateDate"><span class="hs-identifier">ListWorkteamsSortByOptions_CreateDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions_Name"><span class="hs-identifier">ListWorkteamsSortByOptions_Name</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680315325"><span id="local-6989586621680315326"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListWorkteamsSortByOptions"><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions"><span class="hs-identifier hs-var">ListWorkteamsSortByOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkteamsSortByOptions%27"><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions%27"><span class="hs-identifier hs-var">ListWorkteamsSortByOptions'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromListWorkteamsSortByOptions"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#fromListWorkteamsSortByOptions"><span class="hs-identifier hs-var hs-var">fromListWorkteamsSortByOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680315317"><span id="local-6989586621680315319"><span id="local-6989586621680315321"><span class="annot"><span class="annottext">Int -&gt; ListWorkteamsSortByOptions -&gt; ShowS
+[ListWorkteamsSortByOptions] -&gt; ShowS
+ListWorkteamsSortByOptions -&gt; String
+(Int -&gt; ListWorkteamsSortByOptions -&gt; ShowS)
+-&gt; (ListWorkteamsSortByOptions -&gt; String)
+-&gt; ([ListWorkteamsSortByOptions] -&gt; ShowS)
+-&gt; Show ListWorkteamsSortByOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListWorkteamsSortByOptions] -&gt; ShowS
+$cshowList :: [ListWorkteamsSortByOptions] -&gt; ShowS
+show :: ListWorkteamsSortByOptions -&gt; String
+$cshow :: ListWorkteamsSortByOptions -&gt; String
+showsPrec :: Int -&gt; ListWorkteamsSortByOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListWorkteamsSortByOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680315308"><span id="local-6989586621680315310"><span id="local-6989586621680315312"><span id="local-6989586621680315314"><span class="annot"><span class="annottext">ReadPrec [ListWorkteamsSortByOptions]
+ReadPrec ListWorkteamsSortByOptions
+Int -&gt; ReadS ListWorkteamsSortByOptions
+ReadS [ListWorkteamsSortByOptions]
+(Int -&gt; ReadS ListWorkteamsSortByOptions)
+-&gt; ReadS [ListWorkteamsSortByOptions]
+-&gt; ReadPrec ListWorkteamsSortByOptions
+-&gt; ReadPrec [ListWorkteamsSortByOptions]
+-&gt; Read ListWorkteamsSortByOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListWorkteamsSortByOptions]
+$creadListPrec :: ReadPrec [ListWorkteamsSortByOptions]
+readPrec :: ReadPrec ListWorkteamsSortByOptions
+$creadPrec :: ReadPrec ListWorkteamsSortByOptions
+readList :: ReadS [ListWorkteamsSortByOptions]
+$creadList :: ReadS [ListWorkteamsSortByOptions]
+readsPrec :: Int -&gt; ReadS ListWorkteamsSortByOptions
+$creadsPrec :: Int -&gt; ReadS ListWorkteamsSortByOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680315303"><span id="local-6989586621680315305"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+(ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool)
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; Bool)
+-&gt; Eq ListWorkteamsSortByOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+$c/= :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+== :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+$c== :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680315287"><span id="local-6989586621680315289"><span id="local-6989586621680315291"><span id="local-6989586621680315293"><span id="local-6989586621680315295"><span id="local-6989586621680315297"><span id="local-6989586621680315299"><span class="annot"><span class="annottext">Eq ListWorkteamsSortByOptions
+Eq ListWorkteamsSortByOptions
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; Ordering)
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; Bool)
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; Bool)
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; Bool)
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; Bool)
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions)
+-&gt; (ListWorkteamsSortByOptions
+    -&gt; ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions)
+-&gt; Ord ListWorkteamsSortByOptions
+ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; Ordering
+ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions
+$cmin :: ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions
+max :: ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions
+$cmax :: ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions
+&gt;= :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+$c&gt;= :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+&gt; :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+$c&gt; :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+&lt;= :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+$c&lt;= :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+&lt; :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+$c&lt; :: ListWorkteamsSortByOptions -&gt; ListWorkteamsSortByOptions -&gt; Bool
+compare :: ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; Ordering
+$ccompare :: ListWorkteamsSortByOptions
+-&gt; ListWorkteamsSortByOptions -&gt; Ordering
+$cp1Ord :: Eq ListWorkteamsSortByOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ListWorkteamsSortByOptions -&gt; Rep ListWorkteamsSortByOptions x)
+-&gt; (forall x.
+    Rep ListWorkteamsSortByOptions x -&gt; ListWorkteamsSortByOptions)
+-&gt; Generic ListWorkteamsSortByOptions
+forall x.
+Rep ListWorkteamsSortByOptions x -&gt; ListWorkteamsSortByOptions
+forall x.
+ListWorkteamsSortByOptions -&gt; Rep ListWorkteamsSortByOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListWorkteamsSortByOptions x -&gt; ListWorkteamsSortByOptions
+$cfrom :: forall x.
+ListWorkteamsSortByOptions -&gt; Rep ListWorkteamsSortByOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680315279"><span id="local-6989586621680315281"><span class="annot"><span class="annottext">Int -&gt; ListWorkteamsSortByOptions -&gt; Int
+ListWorkteamsSortByOptions -&gt; Int
+(Int -&gt; ListWorkteamsSortByOptions -&gt; Int)
+-&gt; (ListWorkteamsSortByOptions -&gt; Int)
+-&gt; Hashable ListWorkteamsSortByOptions
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ListWorkteamsSortByOptions -&gt; Int
+$chash :: ListWorkteamsSortByOptions -&gt; Int
+hashWithSalt :: Int -&gt; ListWorkteamsSortByOptions -&gt; Int
+$chashWithSalt :: Int -&gt; ListWorkteamsSortByOptions -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680315276"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; ()
+(ListWorkteamsSortByOptions -&gt; ())
+-&gt; NFData ListWorkteamsSortByOptions
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ListWorkteamsSortByOptions -&gt; ()
+$crnf :: ListWorkteamsSortByOptions -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680315273"><span class="annot"><span class="annottext">Text -&gt; Either String ListWorkteamsSortByOptions
+(Text -&gt; Either String ListWorkteamsSortByOptions)
+-&gt; FromText ListWorkteamsSortByOptions
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ListWorkteamsSortByOptions
+$cfromText :: Text -&gt; Either String ListWorkteamsSortByOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680315270"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; Text
+(ListWorkteamsSortByOptions -&gt; Text)
+-&gt; ToText ListWorkteamsSortByOptions
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ListWorkteamsSortByOptions -&gt; Text
+$ctoText :: ListWorkteamsSortByOptions -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680315267"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; ByteString
+(ListWorkteamsSortByOptions -&gt; ByteString)
+-&gt; ToByteString ListWorkteamsSortByOptions
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ListWorkteamsSortByOptions -&gt; ByteString
+$ctoBS :: ListWorkteamsSortByOptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680315264"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; ByteStringBuilder
+(ListWorkteamsSortByOptions -&gt; ByteStringBuilder)
+-&gt; ToLog ListWorkteamsSortByOptions
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ListWorkteamsSortByOptions -&gt; ByteStringBuilder
+$cbuild :: ListWorkteamsSortByOptions -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680315261"><span class="annot"><span class="annottext">HeaderName -&gt; ListWorkteamsSortByOptions -&gt; [Header]
+(HeaderName -&gt; ListWorkteamsSortByOptions -&gt; [Header])
+-&gt; ToHeader ListWorkteamsSortByOptions
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ListWorkteamsSortByOptions -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ListWorkteamsSortByOptions -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680315258"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; QueryString
+(ListWorkteamsSortByOptions -&gt; QueryString)
+-&gt; ToQuery ListWorkteamsSortByOptions
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ListWorkteamsSortByOptions -&gt; QueryString
+$ctoQuery :: ListWorkteamsSortByOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680315253"><span id="local-6989586621680315255"><span class="annot"><span class="annottext">Value -&gt; Parser [ListWorkteamsSortByOptions]
+Value -&gt; Parser ListWorkteamsSortByOptions
+(Value -&gt; Parser ListWorkteamsSortByOptions)
+-&gt; (Value -&gt; Parser [ListWorkteamsSortByOptions])
+-&gt; FromJSON ListWorkteamsSortByOptions
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ListWorkteamsSortByOptions]
+$cparseJSONList :: Value -&gt; Parser [ListWorkteamsSortByOptions]
+parseJSON :: Value -&gt; Parser ListWorkteamsSortByOptions
+$cparseJSON :: Value -&gt; Parser ListWorkteamsSortByOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680315248"><span id="local-6989586621680315250"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListWorkteamsSortByOptions]
+FromJSONKeyFunction ListWorkteamsSortByOptions
+FromJSONKeyFunction ListWorkteamsSortByOptions
+-&gt; FromJSONKeyFunction [ListWorkteamsSortByOptions]
+-&gt; FromJSONKey ListWorkteamsSortByOptions
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ListWorkteamsSortByOptions]
+$cfromJSONKeyList :: FromJSONKeyFunction [ListWorkteamsSortByOptions]
+fromJSONKey :: FromJSONKeyFunction ListWorkteamsSortByOptions
+$cfromJSONKey :: FromJSONKeyFunction ListWorkteamsSortByOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680315239"><span id="local-6989586621680315241"><span id="local-6989586621680315243"><span id="local-6989586621680315245"><span class="annot"><span class="annottext">[ListWorkteamsSortByOptions] -&gt; Encoding
+[ListWorkteamsSortByOptions] -&gt; Value
+ListWorkteamsSortByOptions -&gt; Encoding
+ListWorkteamsSortByOptions -&gt; Value
+(ListWorkteamsSortByOptions -&gt; Value)
+-&gt; (ListWorkteamsSortByOptions -&gt; Encoding)
+-&gt; ([ListWorkteamsSortByOptions] -&gt; Value)
+-&gt; ([ListWorkteamsSortByOptions] -&gt; Encoding)
+-&gt; ToJSON ListWorkteamsSortByOptions
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ListWorkteamsSortByOptions] -&gt; Encoding
+$ctoEncodingList :: [ListWorkteamsSortByOptions] -&gt; Encoding
+toJSONList :: [ListWorkteamsSortByOptions] -&gt; Value
+$ctoJSONList :: [ListWorkteamsSortByOptions] -&gt; Value
+toEncoding :: ListWorkteamsSortByOptions -&gt; Encoding
+$ctoEncoding :: ListWorkteamsSortByOptions -&gt; Encoding
+toJSON :: ListWorkteamsSortByOptions -&gt; Value
+$ctoJSON :: ListWorkteamsSortByOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680315234"><span id="local-6989586621680315236"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListWorkteamsSortByOptions]
+ToJSONKeyFunction ListWorkteamsSortByOptions
+ToJSONKeyFunction ListWorkteamsSortByOptions
+-&gt; ToJSONKeyFunction [ListWorkteamsSortByOptions]
+-&gt; ToJSONKey ListWorkteamsSortByOptions
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ListWorkteamsSortByOptions]
+$ctoJSONKeyList :: ToJSONKeyFunction [ListWorkteamsSortByOptions]
+toJSONKey :: ToJSONKeyFunction ListWorkteamsSortByOptions
+$ctoJSONKey :: ToJSONKeyFunction ListWorkteamsSortByOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680315231"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListWorkteamsSortByOptions
+([Node] -&gt; Either String ListWorkteamsSortByOptions)
+-&gt; FromXML ListWorkteamsSortByOptions
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ListWorkteamsSortByOptions
+$cparseXML :: [Node] -&gt; Either String ListWorkteamsSortByOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680315228"><span class="annot"><span class="annottext">ListWorkteamsSortByOptions -&gt; XML
+(ListWorkteamsSortByOptions -&gt; XML)
+-&gt; ToXML ListWorkteamsSortByOptions
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ListWorkteamsSortByOptions -&gt; XML
+$ctoXML :: ListWorkteamsSortByOptions -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions_CreateDate"><span class="hs-identifier hs-type">ListWorkteamsSortByOptions_CreateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions"><span class="hs-identifier hs-type">ListWorkteamsSortByOptions</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListWorkteamsSortByOptions_CreateDate"><span id="%24mListWorkteamsSortByOptions_CreateDate"><span id="ListWorkteamsSortByOptions_CreateDate"><span class="annot"><span class="annottext">$bListWorkteamsSortByOptions_CreateDate :: ListWorkteamsSortByOptions
+$mListWorkteamsSortByOptions_CreateDate :: forall r.
+ListWorkteamsSortByOptions -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#%24bListWorkteamsSortByOptions_CreateDate"><span class="hs-identifier hs-var hs-var hs-var">ListWorkteamsSortByOptions_CreateDate</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions%27"><span class="hs-identifier hs-type">ListWorkteamsSortByOptions'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreateDate&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions_Name"><span class="hs-identifier hs-type">ListWorkteamsSortByOptions_Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions"><span class="hs-identifier hs-type">ListWorkteamsSortByOptions</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListWorkteamsSortByOptions_Name"><span id="%24mListWorkteamsSortByOptions_Name"><span id="ListWorkteamsSortByOptions_Name"><span class="annot"><span class="annottext">$bListWorkteamsSortByOptions_Name :: ListWorkteamsSortByOptions
+$mListWorkteamsSortByOptions_Name :: forall r.
+ListWorkteamsSortByOptions -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#%24bListWorkteamsSortByOptions_Name"><span class="hs-identifier hs-var hs-var hs-var">ListWorkteamsSortByOptions_Name</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions%27"><span class="hs-identifier hs-type">ListWorkteamsSortByOptions'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Name&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions_CreateDate"><span class="hs-pragma hs-type">ListWorkteamsSortByOptions_CreateDate</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions_Name"><span class="hs-pragma hs-type">ListWorkteamsSortByOptions_Name</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ListWorkteamsSortByOptions.html#ListWorkteamsSortByOptions%27"><span class="hs-pragma hs-type">ListWorkteamsSortByOptions'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

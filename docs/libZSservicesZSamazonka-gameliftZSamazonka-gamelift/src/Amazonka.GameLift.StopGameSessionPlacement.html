@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.StopGameSessionPlacement</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels a game session placement that is in @PENDING@ status. To stop a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- placement, provide the placement ID values. If successful, the placement</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- is moved to @CANCELLED@ status.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- StartGameSessionPlacement | DescribeGameSessionPlacement |</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- StopGameSessionPlacement |</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.StopGameSessionPlacement</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier">StopGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#newStopGameSessionPlacement"><span class="hs-identifier">newStopGameSessionPlacement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacement_placementId"><span class="hs-identifier">stopGameSessionPlacement_placementId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier">StopGameSessionPlacementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#newStopGameSessionPlacementResponse"><span class="hs-identifier">newStopGameSessionPlacementResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacementResponse_gameSessionPlacement"><span class="hs-identifier">stopGameSessionPlacementResponse_gameSessionPlacement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacementResponse_httpStatus"><span class="hs-identifier">stopGameSessionPlacementResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.html"><span class="hs-identifier">Amazonka.GameLift.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newStopGameSessionPlacement' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679444185"><span id="local-6989586621679444186"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopGameSessionPlacement"><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-var">StopGameSessionPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopGameSessionPlacement%27"><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement%27"><span class="hs-identifier hs-var">StopGameSessionPlacement'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for a game session placement to cancel.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AplacementId%3AStopGameSessionPlacement%27"><span class="annot"><span class="annottext">StopGameSessionPlacement -&gt; Text
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AplacementId%3AStopGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">placementId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444179"><span id="local-6989586621679444181"><span class="annot"><span class="annottext">StopGameSessionPlacement -&gt; StopGameSessionPlacement -&gt; Bool
+(StopGameSessionPlacement -&gt; StopGameSessionPlacement -&gt; Bool)
+-&gt; (StopGameSessionPlacement -&gt; StopGameSessionPlacement -&gt; Bool)
+-&gt; Eq StopGameSessionPlacement
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopGameSessionPlacement -&gt; StopGameSessionPlacement -&gt; Bool
+$c/= :: StopGameSessionPlacement -&gt; StopGameSessionPlacement -&gt; Bool
+== :: StopGameSessionPlacement -&gt; StopGameSessionPlacement -&gt; Bool
+$c== :: StopGameSessionPlacement -&gt; StopGameSessionPlacement -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444170"><span id="local-6989586621679444172"><span id="local-6989586621679444174"><span id="local-6989586621679444176"><span class="annot"><span class="annottext">ReadPrec [StopGameSessionPlacement]
+ReadPrec StopGameSessionPlacement
+Int -&gt; ReadS StopGameSessionPlacement
+ReadS [StopGameSessionPlacement]
+(Int -&gt; ReadS StopGameSessionPlacement)
+-&gt; ReadS [StopGameSessionPlacement]
+-&gt; ReadPrec StopGameSessionPlacement
+-&gt; ReadPrec [StopGameSessionPlacement]
+-&gt; Read StopGameSessionPlacement
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopGameSessionPlacement]
+$creadListPrec :: ReadPrec [StopGameSessionPlacement]
+readPrec :: ReadPrec StopGameSessionPlacement
+$creadPrec :: ReadPrec StopGameSessionPlacement
+readList :: ReadS [StopGameSessionPlacement]
+$creadList :: ReadS [StopGameSessionPlacement]
+readsPrec :: Int -&gt; ReadS StopGameSessionPlacement
+$creadsPrec :: Int -&gt; ReadS StopGameSessionPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444163"><span id="local-6989586621679444165"><span id="local-6989586621679444167"><span class="annot"><span class="annottext">Int -&gt; StopGameSessionPlacement -&gt; ShowS
+[StopGameSessionPlacement] -&gt; ShowS
+StopGameSessionPlacement -&gt; String
+(Int -&gt; StopGameSessionPlacement -&gt; ShowS)
+-&gt; (StopGameSessionPlacement -&gt; String)
+-&gt; ([StopGameSessionPlacement] -&gt; ShowS)
+-&gt; Show StopGameSessionPlacement
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopGameSessionPlacement] -&gt; ShowS
+$cshowList :: [StopGameSessionPlacement] -&gt; ShowS
+show :: StopGameSessionPlacement -&gt; String
+$cshow :: StopGameSessionPlacement -&gt; String
+showsPrec :: Int -&gt; StopGameSessionPlacement -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopGameSessionPlacement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StopGameSessionPlacement -&gt; Rep StopGameSessionPlacement x)
+-&gt; (forall x.
+    Rep StopGameSessionPlacement x -&gt; StopGameSessionPlacement)
+-&gt; Generic StopGameSessionPlacement
+forall x.
+Rep StopGameSessionPlacement x -&gt; StopGameSessionPlacement
+forall x.
+StopGameSessionPlacement -&gt; Rep StopGameSessionPlacement x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StopGameSessionPlacement x -&gt; StopGameSessionPlacement
+$cfrom :: forall x.
+StopGameSessionPlacement -&gt; Rep StopGameSessionPlacement x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'StopGameSessionPlacement' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'placementId', 'stopGameSessionPlacement_placementId' - A unique identifier for a game session placement to cancel.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#newStopGameSessionPlacement"><span class="hs-identifier hs-type">newStopGameSessionPlacement</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'placementId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span>
+</span><span id="line-81"></span><span id="newStopGameSessionPlacement"><span class="annot"><span class="annottext">newStopGameSessionPlacement :: Text -&gt; StopGameSessionPlacement
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#newStopGameSessionPlacement"><span class="hs-identifier hs-var hs-var">newStopGameSessionPlacement</span></a></span></span><span> </span><span id="local-6989586621679444158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444158"><span class="hs-identifier hs-var">pPlacementId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">StopGameSessionPlacement' :: Text -&gt; StopGameSessionPlacement
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement%27"><span class="hs-identifier hs-type">StopGameSessionPlacement'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:placementId:StopGameSessionPlacement' :: Text
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AplacementId%3AStopGameSessionPlacement%27"><span class="hs-identifier hs-var">placementId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444158"><span class="hs-identifier hs-var">pPlacementId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A unique identifier for a game session placement to cancel.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacement_placementId"><span class="hs-identifier hs-type">stopGameSessionPlacement_placementId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="stopGameSessionPlacement_placementId"><span class="annot"><span class="annottext">stopGameSessionPlacement_placementId :: (Text -&gt; f Text)
+-&gt; StopGameSessionPlacement -&gt; f StopGameSessionPlacement
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacement_placementId"><span class="hs-identifier hs-var hs-var">stopGameSessionPlacement_placementId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopGameSessionPlacement -&gt; Text)
+-&gt; (StopGameSessionPlacement -&gt; Text -&gt; StopGameSessionPlacement)
+-&gt; Lens StopGameSessionPlacement StopGameSessionPlacement Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement%27"><span class="hs-identifier hs-type">StopGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444155"><span class="annot"><span class="annottext">Text
+placementId :: Text
+$sel:placementId:StopGameSessionPlacement' :: StopGameSessionPlacement -&gt; Text
+</span><a href="#local-6989586621679444155"><span class="hs-identifier hs-var hs-var">placementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444155"><span class="hs-identifier hs-var">placementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444154"><span class="annot"><span class="annottext">s :: StopGameSessionPlacement
+</span><a href="#local-6989586621679444154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement%27"><span class="hs-identifier hs-type">StopGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopGameSessionPlacement
+</span><a href="#local-6989586621679444154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementId:StopGameSessionPlacement' :: Text
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AplacementId%3AStopGameSessionPlacement%27"><span class="hs-identifier hs-var">placementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679444149"><span class="annot"><span class="annottext">request :: StopGameSessionPlacement -&gt; Request StopGameSessionPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StopGameSessionPlacement -&gt; Request StopGameSessionPlacement
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679444145"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopGameSessionPlacement
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopGameSessionPlacement)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StopGameSessionPlacement))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopGameSessionPlacement
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopGameSessionPlacement)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444142"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444142"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444141"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679444141"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444140"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679444140"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+-&gt; Int -&gt; StopGameSessionPlacementResponse
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">StopGameSessionPlacementResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameSessionPlacement
+ -&gt; Int -&gt; StopGameSessionPlacementResponse)
+-&gt; Either String (Maybe GameSessionPlacement)
+-&gt; Either String (Int -&gt; StopGameSessionPlacementResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679444140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSessionPlacement)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameSessionPlacement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopGameSessionPlacementResponse)
+-&gt; Either String Int
+-&gt; Either String StopGameSessionPlacementResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444142"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444132"><span id="local-6989586621679444134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679444125"><span class="annot"><span class="annottext">toHeaders :: StopGameSessionPlacement -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopGameSessionPlacement -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.StopGameSessionPlacement&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444115"><span id="local-6989586621679444117"><span id="local-6989586621679444119"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679444113"><span class="annot"><span class="annottext">toJSON :: StopGameSessionPlacement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement%27"><span class="hs-identifier hs-type">StopGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444111"><span class="annot"><span class="annottext">Text
+placementId :: Text
+$sel:placementId:StopGameSessionPlacement' :: StopGameSessionPlacement -&gt; Text
+</span><a href="#local-6989586621679444111"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlacementId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444111"><span class="hs-identifier hs-var">placementId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679444105"><span class="annot"><span class="annottext">toPath :: StopGameSessionPlacement -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopGameSessionPlacement -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacement"><span class="hs-identifier hs-type">StopGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679444101"><span class="annot"><span class="annottext">toQuery :: StopGameSessionPlacement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopGameSessionPlacement -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- /See:/ 'newStopGameSessionPlacementResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679444098"><span id="local-6989586621679444099"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopGameSessionPlacementResponse"><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-var">StopGameSessionPlacementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopGameSessionPlacementResponse%27"><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">StopGameSessionPlacementResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Object that describes the canceled game session placement, with</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- @CANCELLED@ status and an end time stamp.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AgameSessionPlacement%3AStopGameSessionPlacementResponse%27"><span class="annot"><span class="annottext">StopGameSessionPlacementResponse -&gt; Maybe GameSessionPlacement
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AgameSessionPlacement%3AStopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var hs-var">gameSessionPlacement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameSessionPlacement.html#GameSessionPlacement"><span class="hs-identifier hs-type">GameSessionPlacement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopGameSessionPlacementResponse%27"><span class="annot"><span class="annottext">StopGameSessionPlacementResponse -&gt; Int
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AhttpStatus%3AStopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444092"><span id="local-6989586621679444094"><span class="annot"><span class="annottext">StopGameSessionPlacementResponse
+-&gt; StopGameSessionPlacementResponse -&gt; Bool
+(StopGameSessionPlacementResponse
+ -&gt; StopGameSessionPlacementResponse -&gt; Bool)
+-&gt; (StopGameSessionPlacementResponse
+    -&gt; StopGameSessionPlacementResponse -&gt; Bool)
+-&gt; Eq StopGameSessionPlacementResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopGameSessionPlacementResponse
+-&gt; StopGameSessionPlacementResponse -&gt; Bool
+$c/= :: StopGameSessionPlacementResponse
+-&gt; StopGameSessionPlacementResponse -&gt; Bool
+== :: StopGameSessionPlacementResponse
+-&gt; StopGameSessionPlacementResponse -&gt; Bool
+$c== :: StopGameSessionPlacementResponse
+-&gt; StopGameSessionPlacementResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444084"><span id="local-6989586621679444086"><span id="local-6989586621679444088"><span id="local-6989586621679444090"><span class="annot"><span class="annottext">ReadPrec [StopGameSessionPlacementResponse]
+ReadPrec StopGameSessionPlacementResponse
+Int -&gt; ReadS StopGameSessionPlacementResponse
+ReadS [StopGameSessionPlacementResponse]
+(Int -&gt; ReadS StopGameSessionPlacementResponse)
+-&gt; ReadS [StopGameSessionPlacementResponse]
+-&gt; ReadPrec StopGameSessionPlacementResponse
+-&gt; ReadPrec [StopGameSessionPlacementResponse]
+-&gt; Read StopGameSessionPlacementResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopGameSessionPlacementResponse]
+$creadListPrec :: ReadPrec [StopGameSessionPlacementResponse]
+readPrec :: ReadPrec StopGameSessionPlacementResponse
+$creadPrec :: ReadPrec StopGameSessionPlacementResponse
+readList :: ReadS [StopGameSessionPlacementResponse]
+$creadList :: ReadS [StopGameSessionPlacementResponse]
+readsPrec :: Int -&gt; ReadS StopGameSessionPlacementResponse
+$creadsPrec :: Int -&gt; ReadS StopGameSessionPlacementResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444078"><span id="local-6989586621679444080"><span id="local-6989586621679444082"><span class="annot"><span class="annottext">Int -&gt; StopGameSessionPlacementResponse -&gt; ShowS
+[StopGameSessionPlacementResponse] -&gt; ShowS
+StopGameSessionPlacementResponse -&gt; String
+(Int -&gt; StopGameSessionPlacementResponse -&gt; ShowS)
+-&gt; (StopGameSessionPlacementResponse -&gt; String)
+-&gt; ([StopGameSessionPlacementResponse] -&gt; ShowS)
+-&gt; Show StopGameSessionPlacementResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopGameSessionPlacementResponse] -&gt; ShowS
+$cshowList :: [StopGameSessionPlacementResponse] -&gt; ShowS
+show :: StopGameSessionPlacementResponse -&gt; String
+$cshow :: StopGameSessionPlacementResponse -&gt; String
+showsPrec :: Int -&gt; StopGameSessionPlacementResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopGameSessionPlacementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StopGameSessionPlacementResponse
+ -&gt; Rep StopGameSessionPlacementResponse x)
+-&gt; (forall x.
+    Rep StopGameSessionPlacementResponse x
+    -&gt; StopGameSessionPlacementResponse)
+-&gt; Generic StopGameSessionPlacementResponse
+forall x.
+Rep StopGameSessionPlacementResponse x
+-&gt; StopGameSessionPlacementResponse
+forall x.
+StopGameSessionPlacementResponse
+-&gt; Rep StopGameSessionPlacementResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StopGameSessionPlacementResponse x
+-&gt; StopGameSessionPlacementResponse
+$cfrom :: forall x.
+StopGameSessionPlacementResponse
+-&gt; Rep StopGameSessionPlacementResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'StopGameSessionPlacementResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'gameSessionPlacement', 'stopGameSessionPlacementResponse_gameSessionPlacement' - Object that describes the canceled game session placement, with</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- @CANCELLED@ status and an end time stamp.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'httpStatus', 'stopGameSessionPlacementResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#newStopGameSessionPlacementResponse"><span class="hs-identifier hs-type">newStopGameSessionPlacementResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse</span></a></span><span>
+</span><span id="line-164"></span><span id="newStopGameSessionPlacementResponse"><span class="annot"><span class="annottext">newStopGameSessionPlacementResponse :: Int -&gt; StopGameSessionPlacementResponse
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#newStopGameSessionPlacementResponse"><span class="hs-identifier hs-var hs-var">newStopGameSessionPlacementResponse</span></a></span></span><span> </span><span id="local-6989586621679444075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">StopGameSessionPlacementResponse' :: Maybe GameSessionPlacement
+-&gt; Int -&gt; StopGameSessionPlacementResponse
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameSessionPlacement:StopGameSessionPlacementResponse' :: Maybe GameSessionPlacement
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AgameSessionPlacement%3AStopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">gameSessionPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopGameSessionPlacementResponse' :: Int
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AhttpStatus%3AStopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Object that describes the canceled game session placement, with</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @CANCELLED@ status and an end time stamp.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacementResponse_gameSessionPlacement"><span class="hs-identifier hs-type">stopGameSessionPlacementResponse_gameSessionPlacement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameSessionPlacement.html#GameSessionPlacement"><span class="hs-identifier hs-type">GameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="stopGameSessionPlacementResponse_gameSessionPlacement"><span class="annot"><span class="annottext">stopGameSessionPlacementResponse_gameSessionPlacement :: (Maybe GameSessionPlacement -&gt; f (Maybe GameSessionPlacement))
+-&gt; StopGameSessionPlacementResponse
+-&gt; f StopGameSessionPlacementResponse
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacementResponse_gameSessionPlacement"><span class="hs-identifier hs-var hs-var">stopGameSessionPlacementResponse_gameSessionPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopGameSessionPlacementResponse -&gt; Maybe GameSessionPlacement)
+-&gt; (StopGameSessionPlacementResponse
+    -&gt; Maybe GameSessionPlacement -&gt; StopGameSessionPlacementResponse)
+-&gt; Lens
+     StopGameSessionPlacementResponse
+     StopGameSessionPlacementResponse
+     (Maybe GameSessionPlacement)
+     (Maybe GameSessionPlacement)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444074"><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+gameSessionPlacement :: Maybe GameSessionPlacement
+$sel:gameSessionPlacement:StopGameSessionPlacementResponse' :: StopGameSessionPlacementResponse -&gt; Maybe GameSessionPlacement
+</span><a href="#local-6989586621679444074"><span class="hs-identifier hs-var hs-var">gameSessionPlacement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+</span><a href="#local-6989586621679444074"><span class="hs-identifier hs-var">gameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444073"><span class="annot"><span class="annottext">s :: StopGameSessionPlacementResponse
+</span><a href="#local-6989586621679444073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444072"><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+</span><a href="#local-6989586621679444072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopGameSessionPlacementResponse
+</span><a href="#local-6989586621679444073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionPlacement:StopGameSessionPlacementResponse' :: Maybe GameSessionPlacement
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AgameSessionPlacement%3AStopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">gameSessionPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+</span><a href="#local-6989586621679444072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacementResponse_httpStatus"><span class="hs-identifier hs-type">stopGameSessionPlacementResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span id="stopGameSessionPlacementResponse_httpStatus"><span class="annot"><span class="annottext">stopGameSessionPlacementResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StopGameSessionPlacementResponse
+-&gt; f StopGameSessionPlacementResponse
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#stopGameSessionPlacementResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopGameSessionPlacementResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopGameSessionPlacementResponse -&gt; Int)
+-&gt; (StopGameSessionPlacementResponse
+    -&gt; Int -&gt; StopGameSessionPlacementResponse)
+-&gt; Lens
+     StopGameSessionPlacementResponse
+     StopGameSessionPlacementResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444071"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopGameSessionPlacementResponse' :: StopGameSessionPlacementResponse -&gt; Int
+</span><a href="#local-6989586621679444071"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444071"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444070"><span class="annot"><span class="annottext">s :: StopGameSessionPlacementResponse
+</span><a href="#local-6989586621679444070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopGameSessionPlacementResponse
+</span><a href="#local-6989586621679444070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopGameSessionPlacementResponse' :: Int
+</span><a href="Amazonka.GameLift.StopGameSessionPlacement.html#%24sel%3AhttpStatus%3AStopGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679444067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StopGameSessionPlacement.html#StopGameSessionPlacementResponse"><span class="hs-identifier hs-type">StopGameSessionPlacementResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

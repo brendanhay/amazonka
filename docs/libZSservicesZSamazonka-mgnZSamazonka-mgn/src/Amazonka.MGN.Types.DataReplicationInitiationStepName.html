@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MGN.Types.DataReplicationInitiationStepName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MGN.Types.DataReplicationInitiationStepName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_ATTACH_STAGING_DISKS"><span class="hs-identifier">DataReplicationInitiationStepName_ATTACH_STAGING_DISKS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE"><span class="hs-identifier">DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER"><span class="hs-identifier">DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-identifier">DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CREATE_SECURITY_GROUP"><span class="hs-identifier">DataReplicationInitiationStepName_CREATE_SECURITY_GROUP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CREATE_STAGING_DISKS"><span class="hs-identifier">DataReplicationInitiationStepName_CREATE_STAGING_DISKS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-identifier">DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER"><span class="hs-identifier">DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-identifier">DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_START_DATA_TRANSFER"><span class="hs-identifier">DataReplicationInitiationStepName_START_DATA_TRANSFER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_WAIT"><span class="hs-identifier">DataReplicationInitiationStepName_WAIT</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679224191"><span id="local-6989586621679224192"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataReplicationInitiationStepName"><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-var">DataReplicationInitiationStepName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataReplicationInitiationStepName%27"><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-var">DataReplicationInitiationStepName'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataReplicationInitiationStepName"><span class="annot"><span class="annottext">DataReplicationInitiationStepName -&gt; Text
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#fromDataReplicationInitiationStepName"><span class="hs-identifier hs-var hs-var">fromDataReplicationInitiationStepName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224183"><span id="local-6989586621679224185"><span id="local-6989586621679224187"><span class="annot"><span class="annottext">Int -&gt; DataReplicationInitiationStepName -&gt; ShowS
+[DataReplicationInitiationStepName] -&gt; ShowS
+DataReplicationInitiationStepName -&gt; String
+(Int -&gt; DataReplicationInitiationStepName -&gt; ShowS)
+-&gt; (DataReplicationInitiationStepName -&gt; String)
+-&gt; ([DataReplicationInitiationStepName] -&gt; ShowS)
+-&gt; Show DataReplicationInitiationStepName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataReplicationInitiationStepName] -&gt; ShowS
+$cshowList :: [DataReplicationInitiationStepName] -&gt; ShowS
+show :: DataReplicationInitiationStepName -&gt; String
+$cshow :: DataReplicationInitiationStepName -&gt; String
+showsPrec :: Int -&gt; DataReplicationInitiationStepName -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataReplicationInitiationStepName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679224174"><span id="local-6989586621679224176"><span id="local-6989586621679224178"><span id="local-6989586621679224180"><span class="annot"><span class="annottext">ReadPrec [DataReplicationInitiationStepName]
+ReadPrec DataReplicationInitiationStepName
+Int -&gt; ReadS DataReplicationInitiationStepName
+ReadS [DataReplicationInitiationStepName]
+(Int -&gt; ReadS DataReplicationInitiationStepName)
+-&gt; ReadS [DataReplicationInitiationStepName]
+-&gt; ReadPrec DataReplicationInitiationStepName
+-&gt; ReadPrec [DataReplicationInitiationStepName]
+-&gt; Read DataReplicationInitiationStepName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataReplicationInitiationStepName]
+$creadListPrec :: ReadPrec [DataReplicationInitiationStepName]
+readPrec :: ReadPrec DataReplicationInitiationStepName
+$creadPrec :: ReadPrec DataReplicationInitiationStepName
+readList :: ReadS [DataReplicationInitiationStepName]
+$creadList :: ReadS [DataReplicationInitiationStepName]
+readsPrec :: Int -&gt; ReadS DataReplicationInitiationStepName
+$creadsPrec :: Int -&gt; ReadS DataReplicationInitiationStepName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679224169"><span id="local-6989586621679224171"><span class="annot"><span class="annottext">DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+(DataReplicationInitiationStepName
+ -&gt; DataReplicationInitiationStepName -&gt; Bool)
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName -&gt; Bool)
+-&gt; Eq DataReplicationInitiationStepName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+$c/= :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+== :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+$c== :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679224153"><span id="local-6989586621679224155"><span id="local-6989586621679224157"><span id="local-6989586621679224159"><span id="local-6989586621679224161"><span id="local-6989586621679224163"><span id="local-6989586621679224165"><span class="annot"><span class="annottext">Eq DataReplicationInitiationStepName
+Eq DataReplicationInitiationStepName
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName -&gt; Ordering)
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName -&gt; Bool)
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName -&gt; Bool)
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName -&gt; Bool)
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName -&gt; Bool)
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName)
+-&gt; (DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName
+    -&gt; DataReplicationInitiationStepName)
+-&gt; Ord DataReplicationInitiationStepName
+DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Ordering
+DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+$cmin :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+max :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+$cmax :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName
+&gt;= :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+$c&gt;= :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+&gt; :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+$c&gt; :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+&lt;= :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+$c&lt;= :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+&lt; :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+$c&lt; :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Bool
+compare :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Ordering
+$ccompare :: DataReplicationInitiationStepName
+-&gt; DataReplicationInitiationStepName -&gt; Ordering
+$cp1Ord :: Eq DataReplicationInitiationStepName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DataReplicationInitiationStepName
+ -&gt; Rep DataReplicationInitiationStepName x)
+-&gt; (forall x.
+    Rep DataReplicationInitiationStepName x
+    -&gt; DataReplicationInitiationStepName)
+-&gt; Generic DataReplicationInitiationStepName
+forall x.
+Rep DataReplicationInitiationStepName x
+-&gt; DataReplicationInitiationStepName
+forall x.
+DataReplicationInitiationStepName
+-&gt; Rep DataReplicationInitiationStepName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DataReplicationInitiationStepName x
+-&gt; DataReplicationInitiationStepName
+$cfrom :: forall x.
+DataReplicationInitiationStepName
+-&gt; Rep DataReplicationInitiationStepName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224145"><span id="local-6989586621679224147"><span class="annot"><span class="annottext">Int -&gt; DataReplicationInitiationStepName -&gt; Int
+DataReplicationInitiationStepName -&gt; Int
+(Int -&gt; DataReplicationInitiationStepName -&gt; Int)
+-&gt; (DataReplicationInitiationStepName -&gt; Int)
+-&gt; Hashable DataReplicationInitiationStepName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataReplicationInitiationStepName -&gt; Int
+$chash :: DataReplicationInitiationStepName -&gt; Int
+hashWithSalt :: Int -&gt; DataReplicationInitiationStepName -&gt; Int
+$chashWithSalt :: Int -&gt; DataReplicationInitiationStepName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679224142"><span class="annot"><span class="annottext">DataReplicationInitiationStepName -&gt; ()
+(DataReplicationInitiationStepName -&gt; ())
+-&gt; NFData DataReplicationInitiationStepName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataReplicationInitiationStepName -&gt; ()
+$crnf :: DataReplicationInitiationStepName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679224139"><span class="annot"><span class="annottext">Text -&gt; Either String DataReplicationInitiationStepName
+(Text -&gt; Either String DataReplicationInitiationStepName)
+-&gt; FromText DataReplicationInitiationStepName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataReplicationInitiationStepName
+$cfromText :: Text -&gt; Either String DataReplicationInitiationStepName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679224136"><span class="annot"><span class="annottext">DataReplicationInitiationStepName -&gt; Text
+(DataReplicationInitiationStepName -&gt; Text)
+-&gt; ToText DataReplicationInitiationStepName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataReplicationInitiationStepName -&gt; Text
+$ctoText :: DataReplicationInitiationStepName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679224133"><span class="annot"><span class="annottext">DataReplicationInitiationStepName -&gt; ByteString
+(DataReplicationInitiationStepName -&gt; ByteString)
+-&gt; ToByteString DataReplicationInitiationStepName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataReplicationInitiationStepName -&gt; ByteString
+$ctoBS :: DataReplicationInitiationStepName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679224130"><span class="annot"><span class="annottext">DataReplicationInitiationStepName -&gt; ByteStringBuilder
+(DataReplicationInitiationStepName -&gt; ByteStringBuilder)
+-&gt; ToLog DataReplicationInitiationStepName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataReplicationInitiationStepName -&gt; ByteStringBuilder
+$cbuild :: DataReplicationInitiationStepName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679224127"><span class="annot"><span class="annottext">HeaderName -&gt; DataReplicationInitiationStepName -&gt; [Header]
+(HeaderName -&gt; DataReplicationInitiationStepName -&gt; [Header])
+-&gt; ToHeader DataReplicationInitiationStepName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataReplicationInitiationStepName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataReplicationInitiationStepName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679224124"><span class="annot"><span class="annottext">DataReplicationInitiationStepName -&gt; QueryString
+(DataReplicationInitiationStepName -&gt; QueryString)
+-&gt; ToQuery DataReplicationInitiationStepName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataReplicationInitiationStepName -&gt; QueryString
+$ctoQuery :: DataReplicationInitiationStepName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679224119"><span id="local-6989586621679224121"><span class="annot"><span class="annottext">Value -&gt; Parser [DataReplicationInitiationStepName]
+Value -&gt; Parser DataReplicationInitiationStepName
+(Value -&gt; Parser DataReplicationInitiationStepName)
+-&gt; (Value -&gt; Parser [DataReplicationInitiationStepName])
+-&gt; FromJSON DataReplicationInitiationStepName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataReplicationInitiationStepName]
+$cparseJSONList :: Value -&gt; Parser [DataReplicationInitiationStepName]
+parseJSON :: Value -&gt; Parser DataReplicationInitiationStepName
+$cparseJSON :: Value -&gt; Parser DataReplicationInitiationStepName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679224114"><span id="local-6989586621679224116"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataReplicationInitiationStepName]
+FromJSONKeyFunction DataReplicationInitiationStepName
+FromJSONKeyFunction DataReplicationInitiationStepName
+-&gt; FromJSONKeyFunction [DataReplicationInitiationStepName]
+-&gt; FromJSONKey DataReplicationInitiationStepName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataReplicationInitiationStepName]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataReplicationInitiationStepName]
+fromJSONKey :: FromJSONKeyFunction DataReplicationInitiationStepName
+$cfromJSONKey :: FromJSONKeyFunction DataReplicationInitiationStepName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679224105"><span id="local-6989586621679224107"><span id="local-6989586621679224109"><span id="local-6989586621679224111"><span class="annot"><span class="annottext">[DataReplicationInitiationStepName] -&gt; Encoding
+[DataReplicationInitiationStepName] -&gt; Value
+DataReplicationInitiationStepName -&gt; Encoding
+DataReplicationInitiationStepName -&gt; Value
+(DataReplicationInitiationStepName -&gt; Value)
+-&gt; (DataReplicationInitiationStepName -&gt; Encoding)
+-&gt; ([DataReplicationInitiationStepName] -&gt; Value)
+-&gt; ([DataReplicationInitiationStepName] -&gt; Encoding)
+-&gt; ToJSON DataReplicationInitiationStepName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataReplicationInitiationStepName] -&gt; Encoding
+$ctoEncodingList :: [DataReplicationInitiationStepName] -&gt; Encoding
+toJSONList :: [DataReplicationInitiationStepName] -&gt; Value
+$ctoJSONList :: [DataReplicationInitiationStepName] -&gt; Value
+toEncoding :: DataReplicationInitiationStepName -&gt; Encoding
+$ctoEncoding :: DataReplicationInitiationStepName -&gt; Encoding
+toJSON :: DataReplicationInitiationStepName -&gt; Value
+$ctoJSON :: DataReplicationInitiationStepName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679224100"><span id="local-6989586621679224102"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataReplicationInitiationStepName]
+ToJSONKeyFunction DataReplicationInitiationStepName
+ToJSONKeyFunction DataReplicationInitiationStepName
+-&gt; ToJSONKeyFunction [DataReplicationInitiationStepName]
+-&gt; ToJSONKey DataReplicationInitiationStepName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataReplicationInitiationStepName]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataReplicationInitiationStepName]
+toJSONKey :: ToJSONKeyFunction DataReplicationInitiationStepName
+$ctoJSONKey :: ToJSONKeyFunction DataReplicationInitiationStepName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679224097"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataReplicationInitiationStepName
+([Node] -&gt; Either String DataReplicationInitiationStepName)
+-&gt; FromXML DataReplicationInitiationStepName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataReplicationInitiationStepName
+$cparseXML :: [Node] -&gt; Either String DataReplicationInitiationStepName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679224094"><span class="annot"><span class="annottext">DataReplicationInitiationStepName -&gt; XML
+(DataReplicationInitiationStepName -&gt; XML)
+-&gt; ToXML DataReplicationInitiationStepName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataReplicationInitiationStepName -&gt; XML
+$ctoXML :: DataReplicationInitiationStepName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_ATTACH_STAGING_DISKS"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_ATTACH_STAGING_DISKS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_ATTACH_STAGING_DISKS"><span id="%24mDataReplicationInitiationStepName_ATTACH_STAGING_DISKS"><span id="DataReplicationInitiationStepName_ATTACH_STAGING_DISKS"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_ATTACH_STAGING_DISKS :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_ATTACH_STAGING_DISKS :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_ATTACH_STAGING_DISKS"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_ATTACH_STAGING_DISKS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ATTACH_STAGING_DISKS&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE"><span id="%24mDataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE"><span id="DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTHENTICATE_WITH_SERVICE&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_BOOT_REPLICATION_SERVER"><span id="%24mDataReplicationInitiationStepName_BOOT_REPLICATION_SERVER"><span id="DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_BOOT_REPLICATION_SERVER :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_BOOT_REPLICATION_SERVER :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_BOOT_REPLICATION_SERVER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BOOT_REPLICATION_SERVER&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER"><span id="%24mDataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER"><span id="DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECT_AGENT_TO_REPLICATION_SERVER&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CREATE_SECURITY_GROUP"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_CREATE_SECURITY_GROUP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_CREATE_SECURITY_GROUP"><span id="%24mDataReplicationInitiationStepName_CREATE_SECURITY_GROUP"><span id="DataReplicationInitiationStepName_CREATE_SECURITY_GROUP"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_CREATE_SECURITY_GROUP :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_CREATE_SECURITY_GROUP :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_CREATE_SECURITY_GROUP"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_CREATE_SECURITY_GROUP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_SECURITY_GROUP&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CREATE_STAGING_DISKS"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_CREATE_STAGING_DISKS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_CREATE_STAGING_DISKS"><span id="%24mDataReplicationInitiationStepName_CREATE_STAGING_DISKS"><span id="DataReplicationInitiationStepName_CREATE_STAGING_DISKS"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_CREATE_STAGING_DISKS :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_CREATE_STAGING_DISKS :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_CREATE_STAGING_DISKS"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_CREATE_STAGING_DISKS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_STAGING_DISKS&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE"><span id="%24mDataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE"><span id="DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOWNLOAD_REPLICATION_SOFTWARE&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER"><span id="%24mDataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER"><span id="DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCH_REPLICATION_SERVER&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT"><span id="%24mDataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT"><span id="DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PAIR_REPLICATION_SERVER_WITH_AGENT&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_START_DATA_TRANSFER"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_START_DATA_TRANSFER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_START_DATA_TRANSFER"><span id="%24mDataReplicationInitiationStepName_START_DATA_TRANSFER"><span id="DataReplicationInitiationStepName_START_DATA_TRANSFER"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_START_DATA_TRANSFER :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_START_DATA_TRANSFER :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_START_DATA_TRANSFER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_START_DATA_TRANSFER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;START_DATA_TRANSFER&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_WAIT"><span class="hs-identifier hs-type">DataReplicationInitiationStepName_WAIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName"><span class="hs-identifier hs-type">DataReplicationInitiationStepName</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepName_WAIT"><span id="%24mDataReplicationInitiationStepName_WAIT"><span id="DataReplicationInitiationStepName_WAIT"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepName_WAIT :: DataReplicationInitiationStepName
+$mDataReplicationInitiationStepName_WAIT :: forall r.
+DataReplicationInitiationStepName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#%24bDataReplicationInitiationStepName_WAIT"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepName_WAIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WAIT&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_ATTACH_STAGING_DISKS"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_ATTACH_STAGING_DISKS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_AUTHENTICATE_WITH_SERVICE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_BOOT_REPLICATION_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CREATE_SECURITY_GROUP"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_CREATE_SECURITY_GROUP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_CREATE_STAGING_DISKS"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_CREATE_STAGING_DISKS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_LAUNCH_REPLICATION_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_START_DATA_TRANSFER"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_START_DATA_TRANSFER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName_WAIT"><span class="hs-pragma hs-type">DataReplicationInitiationStepName_WAIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationInitiationStepName.html#DataReplicationInitiationStepName%27"><span class="hs-pragma hs-type">DataReplicationInitiationStepName'</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-116"></span></pre></body></html>

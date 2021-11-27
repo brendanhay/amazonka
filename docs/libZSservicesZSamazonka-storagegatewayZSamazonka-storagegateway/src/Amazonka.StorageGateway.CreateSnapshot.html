@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.CreateSnapshot</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates a snapshot of a volume.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Storage Gateway provides the ability to back up point-in-time snapshots</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- of your data to Amazon Simple Storage (Amazon S3) for durable off-site</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- recovery, and also import the data to an Amazon Elastic Block Store</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can take</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- snapshots of your gateway volume on a scheduled or ad hoc basis. This</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- API enables you to take an ad hoc snapshot. For more information, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot Editing a snapshot schedule&gt;.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- In the @CreateSnapshot@ request, you identify the volume by providing</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- its Amazon Resource Name (ARN). You must also provide description for</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the snapshot. When Storage Gateway takes the snapshot of specified</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- volume, the snapshot and description appears in the Storage Gateway</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- console. In response, Storage Gateway returns you a snapshot ID. You can</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- use this snapshot ID to check the snapshot progress or later use it when</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- you want to create a volume from a snapshot. This operation is only</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- supported in stored and cached volume gateway type.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- To list or delete a snapshot, you must use the Amazon EC2 API. For more</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html DescribeSnapshots&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html DeleteSnapshot&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud API Reference/.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Volume and snapshot IDs are changing to a longer length ID format. For</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- more information, see the important note on the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html Welcome&gt;</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- page.</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.CreateSnapshot</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier">CreateSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#newCreateSnapshot"><span class="hs-identifier">newCreateSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_tags"><span class="hs-identifier">createSnapshot_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_volumeARN"><span class="hs-identifier">createSnapshot_volumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_snapshotDescription"><span class="hs-identifier">createSnapshot_snapshotDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier">CreateSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#newCreateSnapshotResponse"><span class="hs-identifier">newCreateSnapshotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_volumeARN"><span class="hs-identifier">createSnapshotResponse_volumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_snapshotId"><span class="hs-identifier">createSnapshotResponse_snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_httpStatus"><span class="hs-identifier">createSnapshotResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.html"><span class="hs-identifier">Amazonka.StorageGateway.Types</span></a></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | A JSON object containing one or more of the following fields:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   CreateSnapshotInput$SnapshotDescription</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   CreateSnapshotInput$VolumeARN</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- /See:/ 'newCreateSnapshot' smart constructor.</span><span>
+</span><span id="line-88"></span><span id="local-6989586621679391628"><span id="local-6989586621679391629"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshot"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-var">CreateSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshot%27"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-var">CreateSnapshot'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- representable in UTF-8 format, and the following special characters: + -</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the maximum length for a tag\'s value is 256.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Atags%3ACreateSnapshot%27"><span class="annot"><span class="annottext">CreateSnapshot -&gt; Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3Atags%3ACreateSnapshot%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- operation to return a list of gateway volumes.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AvolumeARN%3ACreateSnapshot%27"><span class="annot"><span class="annottext">CreateSnapshot -&gt; Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AvolumeARN%3ACreateSnapshot%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Textual description of the snapshot that appears in the Amazon EC2</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- console, Elastic Block Store snapshots panel in the __Description__</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- field, and in the Storage Gateway snapshot __Details__ pane,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- __Description__ field.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AsnapshotDescription%3ACreateSnapshot%27"><span class="annot"><span class="annottext">CreateSnapshot -&gt; Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AsnapshotDescription%3ACreateSnapshot%27"><span class="hs-identifier hs-var hs-var">snapshotDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391620"><span id="local-6989586621679391622"><span class="annot"><span class="annottext">CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
+(CreateSnapshot -&gt; CreateSnapshot -&gt; Bool)
+-&gt; (CreateSnapshot -&gt; CreateSnapshot -&gt; Bool) -&gt; Eq CreateSnapshot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
+$c/= :: CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
+== :: CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
+$c== :: CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391611"><span id="local-6989586621679391613"><span id="local-6989586621679391615"><span id="local-6989586621679391617"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshot]
+ReadPrec CreateSnapshot
+Int -&gt; ReadS CreateSnapshot
+ReadS [CreateSnapshot]
+(Int -&gt; ReadS CreateSnapshot)
+-&gt; ReadS [CreateSnapshot]
+-&gt; ReadPrec CreateSnapshot
+-&gt; ReadPrec [CreateSnapshot]
+-&gt; Read CreateSnapshot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSnapshot]
+$creadListPrec :: ReadPrec [CreateSnapshot]
+readPrec :: ReadPrec CreateSnapshot
+$creadPrec :: ReadPrec CreateSnapshot
+readList :: ReadS [CreateSnapshot]
+$creadList :: ReadS [CreateSnapshot]
+readsPrec :: Int -&gt; ReadS CreateSnapshot
+$creadsPrec :: Int -&gt; ReadS CreateSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391604"><span id="local-6989586621679391606"><span id="local-6989586621679391608"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshot -&gt; ShowS
+[CreateSnapshot] -&gt; ShowS
+CreateSnapshot -&gt; String
+(Int -&gt; CreateSnapshot -&gt; ShowS)
+-&gt; (CreateSnapshot -&gt; String)
+-&gt; ([CreateSnapshot] -&gt; ShowS)
+-&gt; Show CreateSnapshot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSnapshot] -&gt; ShowS
+$cshowList :: [CreateSnapshot] -&gt; ShowS
+show :: CreateSnapshot -&gt; String
+$cshow :: CreateSnapshot -&gt; String
+showsPrec :: Int -&gt; CreateSnapshot -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSnapshot -&gt; Rep CreateSnapshot x)
+-&gt; (forall x. Rep CreateSnapshot x -&gt; CreateSnapshot)
+-&gt; Generic CreateSnapshot
+forall x. Rep CreateSnapshot x -&gt; CreateSnapshot
+forall x. CreateSnapshot -&gt; Rep CreateSnapshot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSnapshot x -&gt; CreateSnapshot
+$cfrom :: forall x. CreateSnapshot -&gt; Rep CreateSnapshot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Create a value of 'CreateSnapshot' with all optional fields omitted.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'tags', 'createSnapshot_tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- representable in UTF-8 format, and the following special characters: + -</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- the maximum length for a tag\'s value is 256.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'volumeARN', 'createSnapshot_volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the ListVolumes</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- operation to return a list of gateway volumes.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'snapshotDescription', 'createSnapshot_snapshotDescription' - Textual description of the snapshot that appears in the Amazon EC2</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- console, Elastic Block Store snapshots panel in the __Description__</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- field, and in the Storage Gateway snapshot __Details__ pane,</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- __Description__ field.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#newCreateSnapshot"><span class="hs-identifier hs-type">newCreateSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'volumeARN'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'snapshotDescription'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span>
+</span><span id="line-137"></span><span id="newCreateSnapshot"><span class="annot"><span class="annottext">newCreateSnapshot :: Text -&gt; Text -&gt; CreateSnapshot
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#newCreateSnapshot"><span class="hs-identifier hs-var hs-var">newCreateSnapshot</span></a></span></span><span> </span><span id="local-6989586621679391599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391599"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span></span><span> </span><span id="local-6989586621679391598"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391598"><span class="hs-identifier hs-var">pSnapshotDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">CreateSnapshot' :: Maybe [Tag] -&gt; Text -&gt; Text -&gt; CreateSnapshot
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateSnapshot' :: Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3Atags%3ACreateSnapshot%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshot' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AvolumeARN%3ACreateSnapshot%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391599"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotDescription:CreateSnapshot' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AsnapshotDescription%3ACreateSnapshot%27"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391598"><span class="hs-identifier hs-var">pSnapshotDescription_</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- representable in UTF-8 format, and the following special characters: + -</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the maximum length for a tag\'s value is 256.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_tags"><span class="hs-identifier hs-type">createSnapshot_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="createSnapshot_tags"><span class="annot"><span class="annottext">createSnapshot_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSnapshot -&gt; f CreateSnapshot
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_tags"><span class="hs-identifier hs-var hs-var">createSnapshot_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshot -&gt; Maybe [Tag])
+-&gt; (CreateSnapshot -&gt; Maybe [Tag] -&gt; CreateSnapshot)
+-&gt; Lens CreateSnapshot CreateSnapshot (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391595"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateSnapshot' :: CreateSnapshot -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679391595"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391595"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391594"><span class="annot"><span class="annottext">s :: CreateSnapshot
+</span><a href="#local-6989586621679391594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391593"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshot
+</span><a href="#local-6989586621679391594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateSnapshot' :: Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3Atags%3ACreateSnapshot%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateSnapshot -&gt; f CreateSnapshot)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSnapshot
+-&gt; f CreateSnapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- operation to return a list of gateway volumes.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_volumeARN"><span class="hs-identifier hs-type">createSnapshot_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="createSnapshot_volumeARN"><span class="annot"><span class="annottext">createSnapshot_volumeARN :: (Text -&gt; f Text) -&gt; CreateSnapshot -&gt; f CreateSnapshot
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_volumeARN"><span class="hs-identifier hs-var hs-var">createSnapshot_volumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshot -&gt; Text)
+-&gt; (CreateSnapshot -&gt; Text -&gt; CreateSnapshot)
+-&gt; Lens CreateSnapshot CreateSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391589"><span class="annot"><span class="annottext">Text
+volumeARN :: Text
+$sel:volumeARN:CreateSnapshot' :: CreateSnapshot -&gt; Text
+</span><a href="#local-6989586621679391589"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391589"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391588"><span class="annot"><span class="annottext">s :: CreateSnapshot
+</span><a href="#local-6989586621679391588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshot
+</span><a href="#local-6989586621679391588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshot' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AvolumeARN%3ACreateSnapshot%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Textual description of the snapshot that appears in the Amazon EC2</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- console, Elastic Block Store snapshots panel in the __Description__</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- field, and in the Storage Gateway snapshot __Details__ pane,</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- __Description__ field.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_snapshotDescription"><span class="hs-identifier hs-type">createSnapshot_snapshotDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-164"></span><span id="createSnapshot_snapshotDescription"><span class="annot"><span class="annottext">createSnapshot_snapshotDescription :: (Text -&gt; f Text) -&gt; CreateSnapshot -&gt; f CreateSnapshot
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshot_snapshotDescription"><span class="hs-identifier hs-var hs-var">createSnapshot_snapshotDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshot -&gt; Text)
+-&gt; (CreateSnapshot -&gt; Text -&gt; CreateSnapshot)
+-&gt; Lens CreateSnapshot CreateSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391586"><span class="annot"><span class="annottext">Text
+snapshotDescription :: Text
+$sel:snapshotDescription:CreateSnapshot' :: CreateSnapshot -&gt; Text
+</span><a href="#local-6989586621679391586"><span class="hs-identifier hs-var hs-var">snapshotDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391586"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391585"><span class="annot"><span class="annottext">s :: CreateSnapshot
+</span><a href="#local-6989586621679391585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshot
+</span><a href="#local-6989586621679391585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotDescription:CreateSnapshot' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AsnapshotDescription%3ACreateSnapshot%27"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-168"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679391580"><span class="annot"><span class="annottext">request :: CreateSnapshot -&gt; Request CreateSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSnapshot -&gt; Request CreateSnapshot
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679391576"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateSnapshot)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateSnapshot))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateSnapshot)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391572"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateSnapshotResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-var">CreateSnapshotResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateSnapshotResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateSnapshotResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateSnapshotResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateSnapshotResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateSnapshotResponse)
+-&gt; Either String Int -&gt; Either String CreateSnapshotResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391563"><span id="local-6989586621679391565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679391556"><span class="annot"><span class="annottext">toHeaders :: CreateSnapshot -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSnapshot -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.CreateSnapshot&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-195"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391546"><span id="local-6989586621679391548"><span id="local-6989586621679391550"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679391544"><span class="annot"><span class="annottext">toJSON :: CreateSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391540"><span id="local-6989586621679391541"><span id="local-6989586621679391542"><span class="annot"><span class="annottext">Maybe [Tag]
+Text
+snapshotDescription :: Text
+volumeARN :: Text
+tags :: Maybe [Tag]
+$sel:snapshotDescription:CreateSnapshot' :: CreateSnapshot -&gt; Text
+$sel:volumeARN:CreateSnapshot' :: CreateSnapshot -&gt; Text
+$sel:tags:CreateSnapshot' :: CreateSnapshot -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679391540"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391542"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391541"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-206"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391540"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679391534"><span class="annot"><span class="annottext">toPath :: CreateSnapshot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSnapshot -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679391530"><span class="annot"><span class="annottext">toQuery :: CreateSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSnapshot -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | A JSON object containing the following fields:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- /See:/ 'newCreateSnapshotResponse' smart constructor.</span><span>
+</span><span id="line-219"></span><span id="local-6989586621679391527"><span id="local-6989586621679391528"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshotResponse"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-var">CreateSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshotResponse%27"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-var">CreateSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume of which the snapshot was</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- taken.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AvolumeARN%3ACreateSnapshotResponse%27"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AvolumeARN%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The snapshot ID that is used to refer to the snapshot in future</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- operations such as describing snapshots (Amazon Elastic Compute Cloud</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- API @DescribeSnapshots@) or creating a volume from a snapshot</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- (CreateStorediSCSIVolume).</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AsnapshotId%3ACreateSnapshotResponse%27"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AsnapshotId%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; Int
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391520"><span id="local-6989586621679391522"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
+(CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool)
+-&gt; (CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool)
+-&gt; Eq CreateSnapshotResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
+$c/= :: CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
+== :: CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
+$c== :: CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391512"><span id="local-6989586621679391514"><span id="local-6989586621679391516"><span id="local-6989586621679391518"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshotResponse]
+ReadPrec CreateSnapshotResponse
+Int -&gt; ReadS CreateSnapshotResponse
+ReadS [CreateSnapshotResponse]
+(Int -&gt; ReadS CreateSnapshotResponse)
+-&gt; ReadS [CreateSnapshotResponse]
+-&gt; ReadPrec CreateSnapshotResponse
+-&gt; ReadPrec [CreateSnapshotResponse]
+-&gt; Read CreateSnapshotResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSnapshotResponse]
+$creadListPrec :: ReadPrec [CreateSnapshotResponse]
+readPrec :: ReadPrec CreateSnapshotResponse
+$creadPrec :: ReadPrec CreateSnapshotResponse
+readList :: ReadS [CreateSnapshotResponse]
+$creadList :: ReadS [CreateSnapshotResponse]
+readsPrec :: Int -&gt; ReadS CreateSnapshotResponse
+$creadsPrec :: Int -&gt; ReadS CreateSnapshotResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391506"><span id="local-6989586621679391508"><span id="local-6989586621679391510"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshotResponse -&gt; ShowS
+[CreateSnapshotResponse] -&gt; ShowS
+CreateSnapshotResponse -&gt; String
+(Int -&gt; CreateSnapshotResponse -&gt; ShowS)
+-&gt; (CreateSnapshotResponse -&gt; String)
+-&gt; ([CreateSnapshotResponse] -&gt; ShowS)
+-&gt; Show CreateSnapshotResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSnapshotResponse] -&gt; ShowS
+$cshowList :: [CreateSnapshotResponse] -&gt; ShowS
+show :: CreateSnapshotResponse -&gt; String
+$cshow :: CreateSnapshotResponse -&gt; String
+showsPrec :: Int -&gt; CreateSnapshotResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSnapshotResponse -&gt; Rep CreateSnapshotResponse x)
+-&gt; (forall x.
+    Rep CreateSnapshotResponse x -&gt; CreateSnapshotResponse)
+-&gt; Generic CreateSnapshotResponse
+forall x. Rep CreateSnapshotResponse x -&gt; CreateSnapshotResponse
+forall x. CreateSnapshotResponse -&gt; Rep CreateSnapshotResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSnapshotResponse x -&gt; CreateSnapshotResponse
+$cfrom :: forall x. CreateSnapshotResponse -&gt; Rep CreateSnapshotResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Create a value of 'CreateSnapshotResponse' with all optional fields omitted.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'volumeARN', 'createSnapshotResponse_volumeARN' - The Amazon Resource Name (ARN) of the volume of which the snapshot was</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- taken.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'snapshotId', 'createSnapshotResponse_snapshotId' - The snapshot ID that is used to refer to the snapshot in future</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- operations such as describing snapshots (Amazon Elastic Compute Cloud</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- API @DescribeSnapshots@) or creating a volume from a snapshot</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- (CreateStorediSCSIVolume).</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'httpStatus', 'createSnapshotResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#newCreateSnapshotResponse"><span class="hs-identifier hs-type">newCreateSnapshotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span>
+</span><span id="line-254"></span><span id="newCreateSnapshotResponse"><span class="annot"><span class="annottext">newCreateSnapshotResponse :: Int -&gt; CreateSnapshotResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#newCreateSnapshotResponse"><span class="hs-identifier hs-var hs-var">newCreateSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679391503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><span class="annottext">CreateSnapshotResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateSnapshotResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AvolumeARN%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotId:CreateSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AsnapshotId%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSnapshotResponse' :: Int
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume of which the snapshot was</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- taken.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_volumeARN"><span class="hs-identifier hs-type">createSnapshotResponse_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="createSnapshotResponse_volumeARN"><span class="annot"><span class="annottext">createSnapshotResponse_volumeARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSnapshotResponse -&gt; f CreateSnapshotResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_volumeARN"><span class="hs-identifier hs-var hs-var">createSnapshotResponse_volumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotResponse -&gt; Maybe Text)
+-&gt; (CreateSnapshotResponse -&gt; Maybe Text -&gt; CreateSnapshotResponse)
+-&gt; Lens
+     CreateSnapshotResponse
+     CreateSnapshotResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391502"><span class="annot"><span class="annottext">Maybe Text
+volumeARN :: Maybe Text
+$sel:volumeARN:CreateSnapshotResponse' :: CreateSnapshotResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391502"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391502"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391501"><span class="annot"><span class="annottext">s :: CreateSnapshotResponse
+</span><a href="#local-6989586621679391501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotResponse
+</span><a href="#local-6989586621679391501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AvolumeARN%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The snapshot ID that is used to refer to the snapshot in future</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- operations such as describing snapshots (Amazon Elastic Compute Cloud</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- API @DescribeSnapshots@) or creating a volume from a snapshot</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- (CreateStorediSCSIVolume).</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_snapshotId"><span class="hs-identifier hs-type">createSnapshotResponse_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="createSnapshotResponse_snapshotId"><span class="annot"><span class="annottext">createSnapshotResponse_snapshotId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSnapshotResponse -&gt; f CreateSnapshotResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_snapshotId"><span class="hs-identifier hs-var hs-var">createSnapshotResponse_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotResponse -&gt; Maybe Text)
+-&gt; (CreateSnapshotResponse -&gt; Maybe Text -&gt; CreateSnapshotResponse)
+-&gt; Lens
+     CreateSnapshotResponse
+     CreateSnapshotResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391499"><span class="annot"><span class="annottext">Maybe Text
+snapshotId :: Maybe Text
+$sel:snapshotId:CreateSnapshotResponse' :: CreateSnapshotResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391499"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391499"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391498"><span class="annot"><span class="annottext">s :: CreateSnapshotResponse
+</span><a href="#local-6989586621679391498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotResponse
+</span><a href="#local-6989586621679391498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:CreateSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AsnapshotId%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">createSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-276"></span><span id="createSnapshotResponse_httpStatus"><span class="annot"><span class="annottext">createSnapshotResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSnapshotResponse -&gt; f CreateSnapshotResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#createSnapshotResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSnapshotResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotResponse -&gt; Int)
+-&gt; (CreateSnapshotResponse -&gt; Int -&gt; CreateSnapshotResponse)
+-&gt; Lens CreateSnapshotResponse CreateSnapshotResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391496"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSnapshotResponse' :: CreateSnapshotResponse -&gt; Int
+</span><a href="#local-6989586621679391496"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391496"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391495"><span class="annot"><span class="annottext">s :: CreateSnapshotResponse
+</span><a href="#local-6989586621679391495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391494"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotResponse
+</span><a href="#local-6989586621679391495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSnapshotResponse' :: Int
+</span><a href="Amazonka.StorageGateway.CreateSnapshot.html#%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span></span><span>
+</span><span id="line-279"></span></pre></body></html>

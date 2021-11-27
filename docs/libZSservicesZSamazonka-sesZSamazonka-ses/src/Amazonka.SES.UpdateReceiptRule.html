@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.UpdateReceiptRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a receipt rule.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For information about managing receipt rules, see the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.UpdateReceiptRule</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier">UpdateReceiptRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#newUpdateReceiptRule"><span class="hs-identifier">newUpdateReceiptRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRule_ruleSetName"><span class="hs-identifier">updateReceiptRule_ruleSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRule_rule"><span class="hs-identifier">updateReceiptRule_rule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse"><span class="hs-identifier">UpdateReceiptRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#newUpdateReceiptRuleResponse"><span class="hs-identifier">newUpdateReceiptRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRuleResponse_httpStatus"><span class="hs-identifier">updateReceiptRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Represents a request to update a receipt rule. You use receipt rules to</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- receive email with Amazon SES. For more information, see the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newUpdateReceiptRule' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679290479"><span id="local-6989586621679290480"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateReceiptRule"><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-var">UpdateReceiptRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateReceiptRule%27"><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule%27"><span class="hs-identifier hs-var">UpdateReceiptRule'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the receipt rule set that the receipt rule belongs to.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AruleSetName%3AUpdateReceiptRule%27"><span class="annot"><span class="annottext">UpdateReceiptRule -&gt; Text
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3AruleSetName%3AUpdateReceiptRule%27"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A data structure that contains the updated receipt rule information.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Arule%3AUpdateReceiptRule%27"><span class="annot"><span class="annottext">UpdateReceiptRule -&gt; ReceiptRule
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3Arule%3AUpdateReceiptRule%27"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290472"><span id="local-6989586621679290474"><span class="annot"><span class="annottext">UpdateReceiptRule -&gt; UpdateReceiptRule -&gt; Bool
+(UpdateReceiptRule -&gt; UpdateReceiptRule -&gt; Bool)
+-&gt; (UpdateReceiptRule -&gt; UpdateReceiptRule -&gt; Bool)
+-&gt; Eq UpdateReceiptRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateReceiptRule -&gt; UpdateReceiptRule -&gt; Bool
+$c/= :: UpdateReceiptRule -&gt; UpdateReceiptRule -&gt; Bool
+== :: UpdateReceiptRule -&gt; UpdateReceiptRule -&gt; Bool
+$c== :: UpdateReceiptRule -&gt; UpdateReceiptRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290463"><span id="local-6989586621679290465"><span id="local-6989586621679290467"><span id="local-6989586621679290469"><span class="annot"><span class="annottext">ReadPrec [UpdateReceiptRule]
+ReadPrec UpdateReceiptRule
+Int -&gt; ReadS UpdateReceiptRule
+ReadS [UpdateReceiptRule]
+(Int -&gt; ReadS UpdateReceiptRule)
+-&gt; ReadS [UpdateReceiptRule]
+-&gt; ReadPrec UpdateReceiptRule
+-&gt; ReadPrec [UpdateReceiptRule]
+-&gt; Read UpdateReceiptRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateReceiptRule]
+$creadListPrec :: ReadPrec [UpdateReceiptRule]
+readPrec :: ReadPrec UpdateReceiptRule
+$creadPrec :: ReadPrec UpdateReceiptRule
+readList :: ReadS [UpdateReceiptRule]
+$creadList :: ReadS [UpdateReceiptRule]
+readsPrec :: Int -&gt; ReadS UpdateReceiptRule
+$creadsPrec :: Int -&gt; ReadS UpdateReceiptRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290456"><span id="local-6989586621679290458"><span id="local-6989586621679290460"><span class="annot"><span class="annottext">Int -&gt; UpdateReceiptRule -&gt; ShowS
+[UpdateReceiptRule] -&gt; ShowS
+UpdateReceiptRule -&gt; String
+(Int -&gt; UpdateReceiptRule -&gt; ShowS)
+-&gt; (UpdateReceiptRule -&gt; String)
+-&gt; ([UpdateReceiptRule] -&gt; ShowS)
+-&gt; Show UpdateReceiptRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateReceiptRule] -&gt; ShowS
+$cshowList :: [UpdateReceiptRule] -&gt; ShowS
+show :: UpdateReceiptRule -&gt; String
+$cshow :: UpdateReceiptRule -&gt; String
+showsPrec :: Int -&gt; UpdateReceiptRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateReceiptRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateReceiptRule -&gt; Rep UpdateReceiptRule x)
+-&gt; (forall x. Rep UpdateReceiptRule x -&gt; UpdateReceiptRule)
+-&gt; Generic UpdateReceiptRule
+forall x. Rep UpdateReceiptRule x -&gt; UpdateReceiptRule
+forall x. UpdateReceiptRule -&gt; Rep UpdateReceiptRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateReceiptRule x -&gt; UpdateReceiptRule
+$cfrom :: forall x. UpdateReceiptRule -&gt; Rep UpdateReceiptRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateReceiptRule' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'ruleSetName', 'updateReceiptRule_ruleSetName' - The name of the receipt rule set that the receipt rule belongs to.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'rule', 'updateReceiptRule_rule' - A data structure that contains the updated receipt rule information.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#newUpdateReceiptRule"><span class="hs-identifier hs-type">newUpdateReceiptRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'ruleSetName'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'rule'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span>
+</span><span id="line-84"></span><span id="newUpdateReceiptRule"><span class="annot"><span class="annottext">newUpdateReceiptRule :: Text -&gt; ReceiptRule -&gt; UpdateReceiptRule
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#newUpdateReceiptRule"><span class="hs-identifier hs-var hs-var">newUpdateReceiptRule</span></a></span></span><span> </span><span id="local-6989586621679290451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290451"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span></span><span> </span><span id="local-6989586621679290450"><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679290450"><span class="hs-identifier hs-var">pRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">UpdateReceiptRule' :: Text -&gt; ReceiptRule -&gt; UpdateReceiptRule
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule%27"><span class="hs-identifier hs-type">UpdateReceiptRule'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleSetName:UpdateReceiptRule' :: Text
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3AruleSetName%3AUpdateReceiptRule%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290451"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:rule:UpdateReceiptRule' :: ReceiptRule
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3Arule%3AUpdateReceiptRule%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679290450"><span class="hs-identifier hs-var">pRule_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the receipt rule set that the receipt rule belongs to.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRule_ruleSetName"><span class="hs-identifier hs-type">updateReceiptRule_ruleSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="updateReceiptRule_ruleSetName"><span class="annot"><span class="annottext">updateReceiptRule_ruleSetName :: (Text -&gt; f Text) -&gt; UpdateReceiptRule -&gt; f UpdateReceiptRule
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRule_ruleSetName"><span class="hs-identifier hs-var hs-var">updateReceiptRule_ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReceiptRule -&gt; Text)
+-&gt; (UpdateReceiptRule -&gt; Text -&gt; UpdateReceiptRule)
+-&gt; Lens UpdateReceiptRule UpdateReceiptRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule%27"><span class="hs-identifier hs-type">UpdateReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290447"><span class="annot"><span class="annottext">Text
+ruleSetName :: Text
+$sel:ruleSetName:UpdateReceiptRule' :: UpdateReceiptRule -&gt; Text
+</span><a href="#local-6989586621679290447"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290447"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290446"><span class="annot"><span class="annottext">s :: UpdateReceiptRule
+</span><a href="#local-6989586621679290446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule%27"><span class="hs-identifier hs-type">UpdateReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReceiptRule
+</span><a href="#local-6989586621679290446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:UpdateReceiptRule' :: Text
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3AruleSetName%3AUpdateReceiptRule%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | A data structure that contains the updated receipt rule information.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRule_rule"><span class="hs-identifier hs-type">updateReceiptRule_rule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span>
+</span><span id="line-96"></span><span id="updateReceiptRule_rule"><span class="annot"><span class="annottext">updateReceiptRule_rule :: (ReceiptRule -&gt; f ReceiptRule)
+-&gt; UpdateReceiptRule -&gt; f UpdateReceiptRule
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRule_rule"><span class="hs-identifier hs-var hs-var">updateReceiptRule_rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReceiptRule -&gt; ReceiptRule)
+-&gt; (UpdateReceiptRule -&gt; ReceiptRule -&gt; UpdateReceiptRule)
+-&gt; Lens UpdateReceiptRule UpdateReceiptRule ReceiptRule ReceiptRule
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule%27"><span class="hs-identifier hs-type">UpdateReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290444"><span class="annot"><span class="annottext">ReceiptRule
+rule :: ReceiptRule
+$sel:rule:UpdateReceiptRule' :: UpdateReceiptRule -&gt; ReceiptRule
+</span><a href="#local-6989586621679290444"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679290444"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290443"><span class="annot"><span class="annottext">s :: UpdateReceiptRule
+</span><a href="#local-6989586621679290443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule%27"><span class="hs-identifier hs-type">UpdateReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290442"><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679290442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReceiptRule
+</span><a href="#local-6989586621679290443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:UpdateReceiptRule' :: ReceiptRule
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3Arule%3AUpdateReceiptRule%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679290442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679290438"><span class="annot"><span class="annottext">request :: UpdateReceiptRule -&gt; Request UpdateReceiptRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateReceiptRule -&gt; Request UpdateReceiptRule
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679290434"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateReceiptRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateReceiptRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse UpdateReceiptRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateReceiptRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateReceiptRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateReceiptRuleResult&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290431"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290430"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679290430"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290429"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679290429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateReceiptRuleResponse
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse%27"><span class="hs-identifier hs-var">UpdateReceiptRuleResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateReceiptRuleResponse)
+-&gt; Either String Int -&gt; Either String UpdateReceiptRuleResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290431"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290422"><span id="local-6989586621679290424"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679290415"><span class="annot"><span class="annottext">toHeaders :: UpdateReceiptRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateReceiptRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679290410"><span class="annot"><span class="annottext">toPath :: UpdateReceiptRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateReceiptRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule"><span class="hs-identifier hs-type">UpdateReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679290406"><span class="annot"><span class="annottext">toQuery :: UpdateReceiptRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRule%27"><span class="hs-identifier hs-type">UpdateReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290403"><span id="local-6989586621679290404"><span class="annot"><span class="annottext">Text
+ReceiptRule
+rule :: ReceiptRule
+ruleSetName :: Text
+$sel:rule:UpdateReceiptRule' :: UpdateReceiptRule -&gt; ReceiptRule
+$sel:ruleSetName:UpdateReceiptRule' :: UpdateReceiptRule -&gt; Text
+</span><a href="#local-6989586621679290403"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UpdateReceiptRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290404"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReceiptRule -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679290403"><span class="hs-identifier hs-var">rule</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- /See:/ 'newUpdateReceiptRuleResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679290400"><span id="local-6989586621679290401"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateReceiptRuleResponse"><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse"><span class="hs-identifier hs-var">UpdateReceiptRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateReceiptRuleResponse%27"><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse%27"><span class="hs-identifier hs-var">UpdateReceiptRuleResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateReceiptRuleResponse%27"><span class="annot"><span class="annottext">UpdateReceiptRuleResponse -&gt; Int
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3AhttpStatus%3AUpdateReceiptRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290395"><span id="local-6989586621679290397"><span class="annot"><span class="annottext">UpdateReceiptRuleResponse -&gt; UpdateReceiptRuleResponse -&gt; Bool
+(UpdateReceiptRuleResponse -&gt; UpdateReceiptRuleResponse -&gt; Bool)
+-&gt; (UpdateReceiptRuleResponse -&gt; UpdateReceiptRuleResponse -&gt; Bool)
+-&gt; Eq UpdateReceiptRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateReceiptRuleResponse -&gt; UpdateReceiptRuleResponse -&gt; Bool
+$c/= :: UpdateReceiptRuleResponse -&gt; UpdateReceiptRuleResponse -&gt; Bool
+== :: UpdateReceiptRuleResponse -&gt; UpdateReceiptRuleResponse -&gt; Bool
+$c== :: UpdateReceiptRuleResponse -&gt; UpdateReceiptRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290387"><span id="local-6989586621679290389"><span id="local-6989586621679290391"><span id="local-6989586621679290393"><span class="annot"><span class="annottext">ReadPrec [UpdateReceiptRuleResponse]
+ReadPrec UpdateReceiptRuleResponse
+Int -&gt; ReadS UpdateReceiptRuleResponse
+ReadS [UpdateReceiptRuleResponse]
+(Int -&gt; ReadS UpdateReceiptRuleResponse)
+-&gt; ReadS [UpdateReceiptRuleResponse]
+-&gt; ReadPrec UpdateReceiptRuleResponse
+-&gt; ReadPrec [UpdateReceiptRuleResponse]
+-&gt; Read UpdateReceiptRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateReceiptRuleResponse]
+$creadListPrec :: ReadPrec [UpdateReceiptRuleResponse]
+readPrec :: ReadPrec UpdateReceiptRuleResponse
+$creadPrec :: ReadPrec UpdateReceiptRuleResponse
+readList :: ReadS [UpdateReceiptRuleResponse]
+$creadList :: ReadS [UpdateReceiptRuleResponse]
+readsPrec :: Int -&gt; ReadS UpdateReceiptRuleResponse
+$creadsPrec :: Int -&gt; ReadS UpdateReceiptRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290381"><span id="local-6989586621679290383"><span id="local-6989586621679290385"><span class="annot"><span class="annottext">Int -&gt; UpdateReceiptRuleResponse -&gt; ShowS
+[UpdateReceiptRuleResponse] -&gt; ShowS
+UpdateReceiptRuleResponse -&gt; String
+(Int -&gt; UpdateReceiptRuleResponse -&gt; ShowS)
+-&gt; (UpdateReceiptRuleResponse -&gt; String)
+-&gt; ([UpdateReceiptRuleResponse] -&gt; ShowS)
+-&gt; Show UpdateReceiptRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateReceiptRuleResponse] -&gt; ShowS
+$cshowList :: [UpdateReceiptRuleResponse] -&gt; ShowS
+show :: UpdateReceiptRuleResponse -&gt; String
+$cshow :: UpdateReceiptRuleResponse -&gt; String
+showsPrec :: Int -&gt; UpdateReceiptRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateReceiptRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateReceiptRuleResponse -&gt; Rep UpdateReceiptRuleResponse x)
+-&gt; (forall x.
+    Rep UpdateReceiptRuleResponse x -&gt; UpdateReceiptRuleResponse)
+-&gt; Generic UpdateReceiptRuleResponse
+forall x.
+Rep UpdateReceiptRuleResponse x -&gt; UpdateReceiptRuleResponse
+forall x.
+UpdateReceiptRuleResponse -&gt; Rep UpdateReceiptRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateReceiptRuleResponse x -&gt; UpdateReceiptRuleResponse
+$cfrom :: forall x.
+UpdateReceiptRuleResponse -&gt; Rep UpdateReceiptRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'UpdateReceiptRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'updateReceiptRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#newUpdateReceiptRuleResponse"><span class="hs-identifier hs-type">newUpdateReceiptRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newUpdateReceiptRuleResponse"><span class="annot"><span class="annottext">newUpdateReceiptRuleResponse :: Int -&gt; UpdateReceiptRuleResponse
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#newUpdateReceiptRuleResponse"><span class="hs-identifier hs-var hs-var">newUpdateReceiptRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679290378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290378"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">UpdateReceiptRuleResponse' :: Int -&gt; UpdateReceiptRuleResponse
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse%27"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateReceiptRuleResponse' :: Int
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3AhttpStatus%3AUpdateReceiptRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290378"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRuleResponse_httpStatus"><span class="hs-identifier hs-type">updateReceiptRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="updateReceiptRuleResponse_httpStatus"><span class="annot"><span class="annottext">updateReceiptRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateReceiptRuleResponse -&gt; f UpdateReceiptRuleResponse
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#updateReceiptRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateReceiptRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReceiptRuleResponse -&gt; Int)
+-&gt; (UpdateReceiptRuleResponse -&gt; Int -&gt; UpdateReceiptRuleResponse)
+-&gt; Lens UpdateReceiptRuleResponse UpdateReceiptRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse%27"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290377"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateReceiptRuleResponse' :: UpdateReceiptRuleResponse -&gt; Int
+</span><a href="#local-6989586621679290377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290376"><span class="annot"><span class="annottext">s :: UpdateReceiptRuleResponse
+</span><a href="#local-6989586621679290376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse%27"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReceiptRuleResponse
+</span><a href="#local-6989586621679290376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateReceiptRuleResponse' :: Int
+</span><a href="Amazonka.SES.UpdateReceiptRule.html#%24sel%3AhttpStatus%3AUpdateReceiptRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.UpdateReceiptRule.html#UpdateReceiptRuleResponse"><span class="hs-identifier hs-type">UpdateReceiptRuleResponse</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.WorkflowType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.WorkflowType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Represents a workflow type.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newWorkflowType' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679354100"><span id="local-6989586621679354101"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowType"><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-var">WorkflowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowType%27"><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-var">WorkflowType'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the workflow type.</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- The combination of workflow type name and version must be unique with in</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- a domain.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AWorkflowType%27"><span class="annot"><span class="annottext">WorkflowType -&gt; Text
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#%24sel%3Aname%3AWorkflowType%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The version of the workflow type.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- The combination of workflow type name and version must be unique with in</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- a domain.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aversion%3AWorkflowType%27"><span class="annot"><span class="annottext">WorkflowType -&gt; Text
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#%24sel%3Aversion%3AWorkflowType%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354093"><span id="local-6989586621679354095"><span class="annot"><span class="annottext">WorkflowType -&gt; WorkflowType -&gt; Bool
+(WorkflowType -&gt; WorkflowType -&gt; Bool)
+-&gt; (WorkflowType -&gt; WorkflowType -&gt; Bool) -&gt; Eq WorkflowType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkflowType -&gt; WorkflowType -&gt; Bool
+$c/= :: WorkflowType -&gt; WorkflowType -&gt; Bool
+== :: WorkflowType -&gt; WorkflowType -&gt; Bool
+$c== :: WorkflowType -&gt; WorkflowType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354084"><span id="local-6989586621679354086"><span id="local-6989586621679354088"><span id="local-6989586621679354090"><span class="annot"><span class="annottext">ReadPrec [WorkflowType]
+ReadPrec WorkflowType
+Int -&gt; ReadS WorkflowType
+ReadS [WorkflowType]
+(Int -&gt; ReadS WorkflowType)
+-&gt; ReadS [WorkflowType]
+-&gt; ReadPrec WorkflowType
+-&gt; ReadPrec [WorkflowType]
+-&gt; Read WorkflowType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkflowType]
+$creadListPrec :: ReadPrec [WorkflowType]
+readPrec :: ReadPrec WorkflowType
+$creadPrec :: ReadPrec WorkflowType
+readList :: ReadS [WorkflowType]
+$creadList :: ReadS [WorkflowType]
+readsPrec :: Int -&gt; ReadS WorkflowType
+$creadsPrec :: Int -&gt; ReadS WorkflowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354077"><span id="local-6989586621679354079"><span id="local-6989586621679354081"><span class="annot"><span class="annottext">Int -&gt; WorkflowType -&gt; ShowS
+[WorkflowType] -&gt; ShowS
+WorkflowType -&gt; String
+(Int -&gt; WorkflowType -&gt; ShowS)
+-&gt; (WorkflowType -&gt; String)
+-&gt; ([WorkflowType] -&gt; ShowS)
+-&gt; Show WorkflowType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkflowType] -&gt; ShowS
+$cshowList :: [WorkflowType] -&gt; ShowS
+show :: WorkflowType -&gt; String
+$cshow :: WorkflowType -&gt; String
+showsPrec :: Int -&gt; WorkflowType -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkflowType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WorkflowType -&gt; Rep WorkflowType x)
+-&gt; (forall x. Rep WorkflowType x -&gt; WorkflowType)
+-&gt; Generic WorkflowType
+forall x. Rep WorkflowType x -&gt; WorkflowType
+forall x. WorkflowType -&gt; Rep WorkflowType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkflowType x -&gt; WorkflowType
+$cfrom :: forall x. WorkflowType -&gt; Rep WorkflowType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'WorkflowType' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'name', 'workflowType_name' - The name of the workflow type.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The combination of workflow type name and version must be unique with in</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- a domain.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'version', 'workflowType_version' - The version of the workflow type.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The combination of workflow type name and version must be unique with in</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- a domain.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#newWorkflowType"><span class="hs-identifier hs-type">newWorkflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
+</span><span id="line-66"></span><span id="newWorkflowType"><span class="annot"><span class="annottext">newWorkflowType :: Text -&gt; Text -&gt; WorkflowType
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#newWorkflowType"><span class="hs-identifier hs-var hs-var">newWorkflowType</span></a></span></span><span> </span><span id="local-6989586621679354071"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354071"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679354070"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354070"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">WorkflowType' :: Text -&gt; Text -&gt; WorkflowType
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-type">WorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WorkflowType' :: Text
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#%24sel%3Aname%3AWorkflowType%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354071"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:version:WorkflowType' :: Text
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#%24sel%3Aversion%3AWorkflowType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354070"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The name of the workflow type.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The combination of workflow type name and version must be unique with in</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- a domain.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#workflowType_name"><span class="hs-identifier hs-type">workflowType_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="workflowType_name"><span class="annot"><span class="annottext">workflowType_name :: (Text -&gt; f Text) -&gt; WorkflowType -&gt; f WorkflowType
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#workflowType_name"><span class="hs-identifier hs-var hs-var">workflowType_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowType -&gt; Text)
+-&gt; (WorkflowType -&gt; Text -&gt; WorkflowType)
+-&gt; Lens WorkflowType WorkflowType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-type">WorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354066"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:WorkflowType' :: WorkflowType -&gt; Text
+</span><a href="#local-6989586621679354066"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354066"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354065"><span class="annot"><span class="annottext">s :: WorkflowType
+</span><a href="#local-6989586621679354065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-type">WorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679354065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WorkflowType' :: Text
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#%24sel%3Aname%3AWorkflowType%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The version of the workflow type.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The combination of workflow type name and version must be unique with in</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- a domain.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#workflowType_version"><span class="hs-identifier hs-type">workflowType_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="workflowType_version"><span class="annot"><span class="annottext">workflowType_version :: (Text -&gt; f Text) -&gt; WorkflowType -&gt; f WorkflowType
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#workflowType_version"><span class="hs-identifier hs-var hs-var">workflowType_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowType -&gt; Text)
+-&gt; (WorkflowType -&gt; Text -&gt; WorkflowType)
+-&gt; Lens WorkflowType WorkflowType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-type">WorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354062"><span class="annot"><span class="annottext">Text
+version :: Text
+$sel:version:WorkflowType' :: WorkflowType -&gt; Text
+</span><a href="#local-6989586621679354062"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354062"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354061"><span class="annot"><span class="annottext">s :: WorkflowType
+</span><a href="#local-6989586621679354061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-type">WorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354060"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679354061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:WorkflowType' :: Text
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#%24sel%3Aversion%3AWorkflowType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354057"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679354055"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WorkflowType) -&gt; Value -&gt; Parser WorkflowType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WorkflowType&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354052"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; WorkflowType
+</span><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-var">WorkflowType'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; WorkflowType)
+-&gt; Parser Text -&gt; Parser (Text -&gt; WorkflowType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; WorkflowType) -&gt; Parser Text -&gt; Parser WorkflowType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354046"><span id="local-6989586621679354048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354035"><span id="local-6989586621679354037"><span id="local-6989586621679354039"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679354033"><span class="annot"><span class="annottext">toJSON :: WorkflowType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType%27"><span class="hs-identifier hs-type">WorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354030"><span id="local-6989586621679354031"><span class="annot"><span class="annottext">Text
+version :: Text
+name :: Text
+$sel:version:WorkflowType' :: WorkflowType -&gt; Text
+$sel:name:WorkflowType' :: WorkflowType -&gt; Text
+</span><a href="#local-6989586621679354030"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354031"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354030"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span></pre></body></html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.S3.PutBucketPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- using an identity other than the root user of the Amazon Web Services</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- account that owns the bucket, the calling identity must have the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @PutBucketPolicy@ permissions on the specified bucket and belong to the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- bucket owner\'s account in order to use this operation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- If you don\'t have @PutBucketPolicy@ permissions, Amazon S3 returns a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @403 Access Denied@ error. If you have the correct permissions, but</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- you\'re not using an identity that belongs to the bucket owner\'s</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- account, Amazon S3 returns a @405 Method Not Allowed@ error.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- As a security precaution, the root user of the Amazon Web Services</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- account that owns a bucket can always use this operation, even if the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- policy explicitly denies the root user the ability to perform this</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html Bucket policy examples&gt;.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following operations are related to @PutBucketPolicy@:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html DeleteBucket&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.PutBucketPolicy</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier">PutBucketPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#newPutBucketPolicy"><span class="hs-identifier">newPutBucketPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_confirmRemoveSelfBucketAccess"><span class="hs-identifier">putBucketPolicy_confirmRemoveSelfBucketAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_contentMD5"><span class="hs-identifier">putBucketPolicy_contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_expectedBucketOwner"><span class="hs-identifier">putBucketPolicy_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_bucket"><span class="hs-identifier">putBucketPolicy_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_policy"><span class="hs-identifier">putBucketPolicy_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse"><span class="hs-identifier">PutBucketPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#newPutBucketPolicyResponse"><span class="hs-identifier">newPutBucketPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.html"><span class="hs-identifier">Amazonka.S3.Types</span></a></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newPutBucketPolicy' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621679565194"><span id="local-6989586621679565195"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketPolicy"><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-var">PutBucketPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketPolicy%27"><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-var">PutBucketPolicy'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set this parameter to true to confirm that you want to remove your</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- permissions to change this bucket policy in the future.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AconfirmRemoveSelfBucketAccess%3APutBucketPolicy%27"><span class="annot"><span class="annottext">PutBucketPolicy -&gt; Maybe Bool
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AconfirmRemoveSelfBucketAccess%3APutBucketPolicy%27"><span class="hs-identifier hs-var hs-var">confirmRemoveSelfBucketAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The MD5 hash of the request body.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AcontentMD5%3APutBucketPolicy%27"><span class="annot"><span class="annottext">PutBucketPolicy -&gt; Maybe Text
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AcontentMD5%3APutBucketPolicy%27"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3APutBucketPolicy%27"><span class="annot"><span class="annottext">PutBucketPolicy -&gt; Maybe Text
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AexpectedBucketOwner%3APutBucketPolicy%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The name of the bucket.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Abucket%3APutBucketPolicy%27"><span class="annot"><span class="annottext">PutBucketPolicy -&gt; BucketName
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3Abucket%3APutBucketPolicy%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The bucket policy as a JSON document.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Apolicy%3APutBucketPolicy%27"><span class="annot"><span class="annottext">PutBucketPolicy -&gt; ByteString
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3Apolicy%3APutBucketPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565184"><span id="local-6989586621679565186"><span class="annot"><span class="annottext">PutBucketPolicy -&gt; PutBucketPolicy -&gt; Bool
+(PutBucketPolicy -&gt; PutBucketPolicy -&gt; Bool)
+-&gt; (PutBucketPolicy -&gt; PutBucketPolicy -&gt; Bool)
+-&gt; Eq PutBucketPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketPolicy -&gt; PutBucketPolicy -&gt; Bool
+$c/= :: PutBucketPolicy -&gt; PutBucketPolicy -&gt; Bool
+== :: PutBucketPolicy -&gt; PutBucketPolicy -&gt; Bool
+$c== :: PutBucketPolicy -&gt; PutBucketPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565177"><span id="local-6989586621679565179"><span id="local-6989586621679565181"><span class="annot"><span class="annottext">Int -&gt; PutBucketPolicy -&gt; ShowS
+[PutBucketPolicy] -&gt; ShowS
+PutBucketPolicy -&gt; String
+(Int -&gt; PutBucketPolicy -&gt; ShowS)
+-&gt; (PutBucketPolicy -&gt; String)
+-&gt; ([PutBucketPolicy] -&gt; ShowS)
+-&gt; Show PutBucketPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketPolicy] -&gt; ShowS
+$cshowList :: [PutBucketPolicy] -&gt; ShowS
+show :: PutBucketPolicy -&gt; String
+$cshow :: PutBucketPolicy -&gt; String
+showsPrec :: Int -&gt; PutBucketPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutBucketPolicy -&gt; Rep PutBucketPolicy x)
+-&gt; (forall x. Rep PutBucketPolicy x -&gt; PutBucketPolicy)
+-&gt; Generic PutBucketPolicy
+forall x. Rep PutBucketPolicy x -&gt; PutBucketPolicy
+forall x. PutBucketPolicy -&gt; Rep PutBucketPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutBucketPolicy x -&gt; PutBucketPolicy
+$cfrom :: forall x. PutBucketPolicy -&gt; Rep PutBucketPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'PutBucketPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'confirmRemoveSelfBucketAccess', 'putBucketPolicy_confirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- permissions to change this bucket policy in the future.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'contentMD5', 'putBucketPolicy_contentMD5' - The MD5 hash of the request body.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'expectedBucketOwner', 'putBucketPolicy_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'bucket', 'putBucketPolicy_bucket' - The name of the bucket.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'policy', 'putBucketPolicy_policy' - The bucket policy as a JSON document.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#newPutBucketPolicy"><span class="hs-identifier hs-type">newPutBucketPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'policy'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span>
+</span><span id="line-124"></span><span id="newPutBucketPolicy"><span class="annot"><span class="annottext">newPutBucketPolicy :: BucketName -&gt; ByteString -&gt; PutBucketPolicy
+</span><a href="Amazonka.S3.PutBucketPolicy.html#newPutBucketPolicy"><span class="hs-identifier hs-var hs-var">newPutBucketPolicy</span></a></span></span><span> </span><span id="local-6989586621679565172"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565172"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679565171"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679565171"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">PutBucketPolicy' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; BucketName
+-&gt; ByteString
+-&gt; PutBucketPolicy
+</span><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:confirmRemoveSelfBucketAccess:PutBucketPolicy' :: Maybe Bool
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AconfirmRemoveSelfBucketAccess%3APutBucketPolicy%27"><span class="hs-identifier hs-var">confirmRemoveSelfBucketAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketPolicy' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AcontentMD5%3APutBucketPolicy%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketPolicy' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AexpectedBucketOwner%3APutBucketPolicy%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketPolicy' :: BucketName
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3Abucket%3APutBucketPolicy%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565172"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:PutBucketPolicy' :: ByteString
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3Apolicy%3APutBucketPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679565171"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Set this parameter to true to confirm that you want to remove your</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- permissions to change this bucket policy in the future.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_confirmRemoveSelfBucketAccess"><span class="hs-identifier hs-type">putBucketPolicy_confirmRemoveSelfBucketAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="putBucketPolicy_confirmRemoveSelfBucketAccess"><span class="annot"><span class="annottext">putBucketPolicy_confirmRemoveSelfBucketAccess :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; PutBucketPolicy -&gt; f PutBucketPolicy
+</span><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_confirmRemoveSelfBucketAccess"><span class="hs-identifier hs-var hs-var">putBucketPolicy_confirmRemoveSelfBucketAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketPolicy -&gt; Maybe Bool)
+-&gt; (PutBucketPolicy -&gt; Maybe Bool -&gt; PutBucketPolicy)
+-&gt; Lens PutBucketPolicy PutBucketPolicy (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565168"><span class="annot"><span class="annottext">Maybe Bool
+confirmRemoveSelfBucketAccess :: Maybe Bool
+$sel:confirmRemoveSelfBucketAccess:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Bool
+</span><a href="#local-6989586621679565168"><span class="hs-identifier hs-var hs-var">confirmRemoveSelfBucketAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679565168"><span class="hs-identifier hs-var">confirmRemoveSelfBucketAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565167"><span class="annot"><span class="annottext">s :: PutBucketPolicy
+</span><a href="#local-6989586621679565167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565166"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679565166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketPolicy
+</span><a href="#local-6989586621679565167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmRemoveSelfBucketAccess:PutBucketPolicy' :: Maybe Bool
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AconfirmRemoveSelfBucketAccess%3APutBucketPolicy%27"><span class="hs-identifier hs-var">confirmRemoveSelfBucketAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679565166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The MD5 hash of the request body.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_contentMD5"><span class="hs-identifier hs-type">putBucketPolicy_contentMD5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="putBucketPolicy_contentMD5"><span class="annot"><span class="annottext">putBucketPolicy_contentMD5 :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketPolicy -&gt; f PutBucketPolicy
+</span><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_contentMD5"><span class="hs-identifier hs-var hs-var">putBucketPolicy_contentMD5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketPolicy -&gt; Maybe Text)
+-&gt; (PutBucketPolicy -&gt; Maybe Text -&gt; PutBucketPolicy)
+-&gt; Lens PutBucketPolicy PutBucketPolicy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565165"><span class="annot"><span class="annottext">Maybe Text
+contentMD5 :: Maybe Text
+$sel:contentMD5:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679565165"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565165"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565164"><span class="annot"><span class="annottext">s :: PutBucketPolicy
+</span><a href="#local-6989586621679565164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketPolicy
+</span><a href="#local-6989586621679565164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketPolicy' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AcontentMD5%3APutBucketPolicy%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_expectedBucketOwner"><span class="hs-identifier hs-type">putBucketPolicy_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="putBucketPolicy_expectedBucketOwner"><span class="annot"><span class="annottext">putBucketPolicy_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketPolicy -&gt; f PutBucketPolicy
+</span><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">putBucketPolicy_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketPolicy -&gt; Maybe Text)
+-&gt; (PutBucketPolicy -&gt; Maybe Text -&gt; PutBucketPolicy)
+-&gt; Lens PutBucketPolicy PutBucketPolicy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565162"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679565162"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565162"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565161"><span class="annot"><span class="annottext">s :: PutBucketPolicy
+</span><a href="#local-6989586621679565161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565160"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketPolicy
+</span><a href="#local-6989586621679565161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketPolicy' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3AexpectedBucketOwner%3APutBucketPolicy%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The name of the bucket.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_bucket"><span class="hs-identifier hs-type">putBucketPolicy_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-155"></span><span id="putBucketPolicy_bucket"><span class="annot"><span class="annottext">putBucketPolicy_bucket :: (BucketName -&gt; f BucketName)
+-&gt; PutBucketPolicy -&gt; f PutBucketPolicy
+</span><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_bucket"><span class="hs-identifier hs-var hs-var">putBucketPolicy_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketPolicy -&gt; BucketName)
+-&gt; (PutBucketPolicy -&gt; BucketName -&gt; PutBucketPolicy)
+-&gt; Lens PutBucketPolicy PutBucketPolicy BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565159"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:PutBucketPolicy' :: PutBucketPolicy -&gt; BucketName
+</span><a href="#local-6989586621679565159"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565159"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565158"><span class="annot"><span class="annottext">s :: PutBucketPolicy
+</span><a href="#local-6989586621679565158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565157"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketPolicy
+</span><a href="#local-6989586621679565158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketPolicy' :: BucketName
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3Abucket%3APutBucketPolicy%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The bucket policy as a JSON document.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_policy"><span class="hs-identifier hs-type">putBucketPolicy_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span id="putBucketPolicy_policy"><span class="annot"><span class="annottext">putBucketPolicy_policy :: (ByteString -&gt; f ByteString)
+-&gt; PutBucketPolicy -&gt; f PutBucketPolicy
+</span><a href="Amazonka.S3.PutBucketPolicy.html#putBucketPolicy_policy"><span class="hs-identifier hs-var hs-var">putBucketPolicy_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketPolicy -&gt; ByteString)
+-&gt; (PutBucketPolicy -&gt; ByteString -&gt; PutBucketPolicy)
+-&gt; Lens PutBucketPolicy PutBucketPolicy ByteString ByteString
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565156"><span class="annot"><span class="annottext">ByteString
+policy :: ByteString
+$sel:policy:PutBucketPolicy' :: PutBucketPolicy -&gt; ByteString
+</span><a href="#local-6989586621679565156"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679565156"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565155"><span class="annot"><span class="annottext">s :: PutBucketPolicy
+</span><a href="#local-6989586621679565155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565154"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679565154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketPolicy
+</span><a href="#local-6989586621679565155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutBucketPolicy' :: ByteString
+</span><a href="Amazonka.S3.PutBucketPolicy.html#%24sel%3Apolicy%3APutBucketPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679565154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse"><span class="hs-identifier hs-type">PutBucketPolicyResponse</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679565150"><span class="annot"><span class="annottext">request :: PutBucketPolicy -&gt; Request PutBucketPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">Request PutBucketPolicy -&gt; Request PutBucketPolicy
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.contentMD5Header</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">(Request PutBucketPolicy -&gt; Request PutBucketPolicy)
+-&gt; (PutBucketPolicy -&gt; Request PutBucketPolicy)
+-&gt; PutBucketPolicy
+-&gt; Request PutBucketPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Request PutBucketPolicy -&gt; Request PutBucketPolicy
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">(Request PutBucketPolicy -&gt; Request PutBucketPolicy)
+-&gt; (PutBucketPolicy -&gt; Request PutBucketPolicy)
+-&gt; PutBucketPolicy
+-&gt; Request PutBucketPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutBucketPolicy -&gt; Request PutBucketPolicy
+forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putBody</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679565143"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutBucketPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutBucketPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketPolicy
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutBucketPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutBucketPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse PutBucketPolicy
+PutBucketPolicyResponse
+</span><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse%27"><span class="hs-identifier hs-var">PutBucketPolicyResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565136"><span id="local-6989586621679565138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679565129"><span class="annot"><span class="annottext">toBody :: PutBucketPolicy -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565123"><span id="local-6989586621679565124"><span id="local-6989586621679565125"><span id="local-6989586621679565126"><span id="local-6989586621679565127"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+ByteString
+BucketName
+policy :: ByteString
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
+confirmRemoveSelfBucketAccess :: Maybe Bool
+$sel:policy:PutBucketPolicy' :: PutBucketPolicy -&gt; ByteString
+$sel:bucket:PutBucketPolicy' :: PutBucketPolicy -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+$sel:contentMD5:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+$sel:confirmRemoveSelfBucketAccess:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Bool
+</span><a href="#local-6989586621679565123"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestBody
+forall a. ToBody a =&gt; a -&gt; RequestBody
+</span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679565123"><span class="hs-identifier hs-var">policy</span></a></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679565120"><span class="annot"><span class="annottext">toHeaders :: PutBucketPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565114"><span id="local-6989586621679565115"><span id="local-6989586621679565116"><span id="local-6989586621679565117"><span id="local-6989586621679565118"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+ByteString
+BucketName
+policy :: ByteString
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
+confirmRemoveSelfBucketAccess :: Maybe Bool
+$sel:policy:PutBucketPolicy' :: PutBucketPolicy -&gt; ByteString
+$sel:bucket:PutBucketPolicy' :: PutBucketPolicy -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+$sel:contentMD5:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+$sel:confirmRemoveSelfBucketAccess:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Bool
+</span><a href="#local-6989586621679565114"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-confirm-remove-self-bucket-access&quot;</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Bool -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679565118"><span class="hs-identifier hs-var">confirmRemoveSelfBucketAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-MD5&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565117"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565116"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679565110"><span class="annot"><span class="annottext">toPath :: PutBucketPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy%27"><span class="hs-identifier hs-type">PutBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565104"><span id="local-6989586621679565105"><span id="local-6989586621679565106"><span id="local-6989586621679565107"><span id="local-6989586621679565108"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+ByteString
+BucketName
+policy :: ByteString
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
+confirmRemoveSelfBucketAccess :: Maybe Bool
+$sel:policy:PutBucketPolicy' :: PutBucketPolicy -&gt; ByteString
+$sel:bucket:PutBucketPolicy' :: PutBucketPolicy -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+$sel:contentMD5:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Text
+$sel:confirmRemoveSelfBucketAccess:PutBucketPolicy' :: PutBucketPolicy -&gt; Maybe Bool
+</span><a href="#local-6989586621679565104"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565105"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicy"><span class="hs-identifier hs-type">PutBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679565100"><span class="annot"><span class="annottext">toQuery :: PutBucketPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newPutBucketPolicyResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679565096"><span id="local-6989586621679565097"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketPolicyResponse"><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse"><span class="hs-identifier hs-var">PutBucketPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketPolicyResponse%27"><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse%27"><span class="hs-identifier hs-var">PutBucketPolicyResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565092"><span id="local-6989586621679565094"><span class="annot"><span class="annottext">PutBucketPolicyResponse -&gt; PutBucketPolicyResponse -&gt; Bool
+(PutBucketPolicyResponse -&gt; PutBucketPolicyResponse -&gt; Bool)
+-&gt; (PutBucketPolicyResponse -&gt; PutBucketPolicyResponse -&gt; Bool)
+-&gt; Eq PutBucketPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketPolicyResponse -&gt; PutBucketPolicyResponse -&gt; Bool
+$c/= :: PutBucketPolicyResponse -&gt; PutBucketPolicyResponse -&gt; Bool
+== :: PutBucketPolicyResponse -&gt; PutBucketPolicyResponse -&gt; Bool
+$c== :: PutBucketPolicyResponse -&gt; PutBucketPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565084"><span id="local-6989586621679565086"><span id="local-6989586621679565088"><span id="local-6989586621679565090"><span class="annot"><span class="annottext">ReadPrec [PutBucketPolicyResponse]
+ReadPrec PutBucketPolicyResponse
+Int -&gt; ReadS PutBucketPolicyResponse
+ReadS [PutBucketPolicyResponse]
+(Int -&gt; ReadS PutBucketPolicyResponse)
+-&gt; ReadS [PutBucketPolicyResponse]
+-&gt; ReadPrec PutBucketPolicyResponse
+-&gt; ReadPrec [PutBucketPolicyResponse]
+-&gt; Read PutBucketPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketPolicyResponse]
+$creadListPrec :: ReadPrec [PutBucketPolicyResponse]
+readPrec :: ReadPrec PutBucketPolicyResponse
+$creadPrec :: ReadPrec PutBucketPolicyResponse
+readList :: ReadS [PutBucketPolicyResponse]
+$creadList :: ReadS [PutBucketPolicyResponse]
+readsPrec :: Int -&gt; ReadS PutBucketPolicyResponse
+$creadsPrec :: Int -&gt; ReadS PutBucketPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565077"><span id="local-6989586621679565079"><span id="local-6989586621679565081"><span class="annot"><span class="annottext">Int -&gt; PutBucketPolicyResponse -&gt; ShowS
+[PutBucketPolicyResponse] -&gt; ShowS
+PutBucketPolicyResponse -&gt; String
+(Int -&gt; PutBucketPolicyResponse -&gt; ShowS)
+-&gt; (PutBucketPolicyResponse -&gt; String)
+-&gt; ([PutBucketPolicyResponse] -&gt; ShowS)
+-&gt; Show PutBucketPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketPolicyResponse] -&gt; ShowS
+$cshowList :: [PutBucketPolicyResponse] -&gt; ShowS
+show :: PutBucketPolicyResponse -&gt; String
+$cshow :: PutBucketPolicyResponse -&gt; String
+showsPrec :: Int -&gt; PutBucketPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBucketPolicyResponse -&gt; Rep PutBucketPolicyResponse x)
+-&gt; (forall x.
+    Rep PutBucketPolicyResponse x -&gt; PutBucketPolicyResponse)
+-&gt; Generic PutBucketPolicyResponse
+forall x. Rep PutBucketPolicyResponse x -&gt; PutBucketPolicyResponse
+forall x. PutBucketPolicyResponse -&gt; Rep PutBucketPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutBucketPolicyResponse x -&gt; PutBucketPolicyResponse
+$cfrom :: forall x. PutBucketPolicyResponse -&gt; Rep PutBucketPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'PutBucketPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#newPutBucketPolicyResponse"><span class="hs-identifier hs-type">newPutBucketPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse"><span class="hs-identifier hs-type">PutBucketPolicyResponse</span></a></span><span>
+</span><span id="line-208"></span><span id="newPutBucketPolicyResponse"><span class="annot"><span class="annottext">newPutBucketPolicyResponse :: PutBucketPolicyResponse
+</span><a href="Amazonka.S3.PutBucketPolicy.html#newPutBucketPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutBucketPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutBucketPolicyResponse
+</span><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse%27"><span class="hs-identifier hs-var">PutBucketPolicyResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketPolicy.html#PutBucketPolicyResponse"><span class="hs-identifier hs-type">PutBucketPolicyResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

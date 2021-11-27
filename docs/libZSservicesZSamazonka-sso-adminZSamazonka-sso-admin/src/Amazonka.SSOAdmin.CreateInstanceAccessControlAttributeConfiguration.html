@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables the attributes-based access control (ABAC) feature for the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified Amazon Web Services SSO instance. You can also specify new</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- attributes to add to your ABAC configuration during the enabling</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- process. For more information about ABAC, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;/singlesignon/latest/userguide/abac.html Attribute-Based Access Control&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /Amazon Web Services SSO User Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#newCreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier">newCreateInstanceAccessControlAttributeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfiguration_instanceArn"><span class="hs-identifier">createInstanceAccessControlAttributeConfiguration_instanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration"><span class="hs-identifier">createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier">CreateInstanceAccessControlAttributeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#newCreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier">newCreateInstanceAccessControlAttributeConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfigurationResponse_httpStatus"><span class="hs-identifier">createInstanceAccessControlAttributeConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.html"><span class="hs-identifier">Amazonka.SSOAdmin.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateInstanceAccessControlAttributeConfiguration' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679206738"><span id="local-6989586621679206739"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInstanceAccessControlAttributeConfiguration"><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-var">CreateInstanceAccessControlAttributeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInstanceAccessControlAttributeConfiguration%27"><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-var">CreateInstanceAccessControlAttributeConfiguration'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceArn%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfiguration -&gt; Text
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AinstanceArn%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Specifies the Amazon Web Services SSO identity store attributes to add</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- to your ABAC configuration. When using an external identity provider as</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- an identity source, you can pass attributes through the SAML assertion.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Doing so provides an alternative to configuring attributes from the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Amazon Web Services SSO identity store. If a SAML assertion passes any</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- of these attributes, Amazon Web Services SSO will replace the attribute</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- value with the value from the Amazon Web Services SSO identity store.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AinstanceAccessControlAttributeConfiguration%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfiguration
+-&gt; InstanceAccessControlAttributeConfiguration
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AinstanceAccessControlAttributeConfiguration%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceAccessControlAttributeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.html#InstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">InstanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206731"><span id="local-6989586621679206733"><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfiguration
+-&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; Bool
+(CreateInstanceAccessControlAttributeConfiguration
+ -&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; Bool)
+-&gt; (CreateInstanceAccessControlAttributeConfiguration
+    -&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; Bool)
+-&gt; Eq CreateInstanceAccessControlAttributeConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; Bool
+$c/= :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; Bool
+== :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; Bool
+$c== :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206722"><span id="local-6989586621679206724"><span id="local-6989586621679206726"><span id="local-6989586621679206728"><span class="annot"><span class="annottext">ReadPrec [CreateInstanceAccessControlAttributeConfiguration]
+ReadPrec CreateInstanceAccessControlAttributeConfiguration
+Int -&gt; ReadS CreateInstanceAccessControlAttributeConfiguration
+ReadS [CreateInstanceAccessControlAttributeConfiguration]
+(Int -&gt; ReadS CreateInstanceAccessControlAttributeConfiguration)
+-&gt; ReadS [CreateInstanceAccessControlAttributeConfiguration]
+-&gt; ReadPrec CreateInstanceAccessControlAttributeConfiguration
+-&gt; ReadPrec [CreateInstanceAccessControlAttributeConfiguration]
+-&gt; Read CreateInstanceAccessControlAttributeConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateInstanceAccessControlAttributeConfiguration]
+$creadListPrec :: ReadPrec [CreateInstanceAccessControlAttributeConfiguration]
+readPrec :: ReadPrec CreateInstanceAccessControlAttributeConfiguration
+$creadPrec :: ReadPrec CreateInstanceAccessControlAttributeConfiguration
+readList :: ReadS [CreateInstanceAccessControlAttributeConfiguration]
+$creadList :: ReadS [CreateInstanceAccessControlAttributeConfiguration]
+readsPrec :: Int -&gt; ReadS CreateInstanceAccessControlAttributeConfiguration
+$creadsPrec :: Int -&gt; ReadS CreateInstanceAccessControlAttributeConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206715"><span id="local-6989586621679206717"><span id="local-6989586621679206719"><span class="annot"><span class="annottext">Int -&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; ShowS
+[CreateInstanceAccessControlAttributeConfiguration] -&gt; ShowS
+CreateInstanceAccessControlAttributeConfiguration -&gt; String
+(Int -&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; ShowS)
+-&gt; (CreateInstanceAccessControlAttributeConfiguration -&gt; String)
+-&gt; ([CreateInstanceAccessControlAttributeConfiguration] -&gt; ShowS)
+-&gt; Show CreateInstanceAccessControlAttributeConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateInstanceAccessControlAttributeConfiguration] -&gt; ShowS
+$cshowList :: [CreateInstanceAccessControlAttributeConfiguration] -&gt; ShowS
+show :: CreateInstanceAccessControlAttributeConfiguration -&gt; String
+$cshow :: CreateInstanceAccessControlAttributeConfiguration -&gt; String
+showsPrec :: Int -&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateInstanceAccessControlAttributeConfiguration
+ -&gt; Rep CreateInstanceAccessControlAttributeConfiguration x)
+-&gt; (forall x.
+    Rep CreateInstanceAccessControlAttributeConfiguration x
+    -&gt; CreateInstanceAccessControlAttributeConfiguration)
+-&gt; Generic CreateInstanceAccessControlAttributeConfiguration
+forall x.
+Rep CreateInstanceAccessControlAttributeConfiguration x
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+forall x.
+CreateInstanceAccessControlAttributeConfiguration
+-&gt; Rep CreateInstanceAccessControlAttributeConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateInstanceAccessControlAttributeConfiguration x
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+$cfrom :: forall x.
+CreateInstanceAccessControlAttributeConfiguration
+-&gt; Rep CreateInstanceAccessControlAttributeConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'CreateInstanceAccessControlAttributeConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'instanceArn', 'createInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'instanceAccessControlAttributeConfiguration', 'createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration' - Specifies the Amazon Web Services SSO identity store attributes to add</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- to your ABAC configuration. When using an external identity provider as</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- an identity source, you can pass attributes through the SAML assertion.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Doing so provides an alternative to configuring attributes from the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Amazon Web Services SSO identity store. If a SAML assertion passes any</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- of these attributes, Amazon Web Services SSO will replace the attribute</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- value with the value from the Amazon Web Services SSO identity store.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#newCreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">newCreateInstanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'instanceArn'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'instanceAccessControlAttributeConfiguration'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.html#InstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">InstanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-92"></span><span id="newCreateInstanceAccessControlAttributeConfiguration"><span class="annot"><span class="annottext">newCreateInstanceAccessControlAttributeConfiguration :: Text
+-&gt; InstanceAccessControlAttributeConfiguration
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#newCreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-var hs-var">newCreateInstanceAccessControlAttributeConfiguration</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679206710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206710"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679206709"><span class="annot"><span class="annottext">InstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206709"><span class="hs-identifier hs-var">pInstanceAccessControlAttributeConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfiguration' :: Text
+-&gt; InstanceAccessControlAttributeConfiguration
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceArn:CreateInstanceAccessControlAttributeConfiguration' :: Text
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AinstanceArn%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206710"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceAccessControlAttributeConfiguration:CreateInstanceAccessControlAttributeConfiguration' :: InstanceAccessControlAttributeConfiguration
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AinstanceAccessControlAttributeConfiguration%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-var">instanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">InstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206709"><span class="hs-identifier hs-var">pInstanceAccessControlAttributeConfiguration_</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfiguration_instanceArn"><span class="hs-identifier hs-type">createInstanceAccessControlAttributeConfiguration_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="createInstanceAccessControlAttributeConfiguration_instanceArn"><span class="annot"><span class="annottext">createInstanceAccessControlAttributeConfiguration_instanceArn :: (Text -&gt; f Text)
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+-&gt; f CreateInstanceAccessControlAttributeConfiguration
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfiguration_instanceArn"><span class="hs-identifier hs-var hs-var">createInstanceAccessControlAttributeConfiguration_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceAccessControlAttributeConfiguration -&gt; Text)
+-&gt; (CreateInstanceAccessControlAttributeConfiguration
+    -&gt; Text -&gt; CreateInstanceAccessControlAttributeConfiguration)
+-&gt; Lens
+     CreateInstanceAccessControlAttributeConfiguration
+     CreateInstanceAccessControlAttributeConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206706"><span class="annot"><span class="annottext">Text
+instanceArn :: Text
+$sel:instanceArn:CreateInstanceAccessControlAttributeConfiguration' :: CreateInstanceAccessControlAttributeConfiguration -&gt; Text
+</span><a href="#local-6989586621679206706"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206706"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206705"><span class="annot"><span class="annottext">s :: CreateInstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:CreateInstanceAccessControlAttributeConfiguration' :: Text
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AinstanceArn%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Specifies the Amazon Web Services SSO identity store attributes to add</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- to your ABAC configuration. When using an external identity provider as</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- an identity source, you can pass attributes through the SAML assertion.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Doing so provides an alternative to configuring attributes from the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Amazon Web Services SSO identity store. If a SAML assertion passes any</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- of these attributes, Amazon Web Services SSO will replace the attribute</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- value with the value from the Amazon Web Services SSO identity store.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.html#InstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">InstanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-114"></span><span id="createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration"><span class="annot"><span class="annottext">createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration :: (InstanceAccessControlAttributeConfiguration
+ -&gt; f InstanceAccessControlAttributeConfiguration)
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+-&gt; f CreateInstanceAccessControlAttributeConfiguration
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-var hs-var">createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceAccessControlAttributeConfiguration
+ -&gt; InstanceAccessControlAttributeConfiguration)
+-&gt; (CreateInstanceAccessControlAttributeConfiguration
+    -&gt; InstanceAccessControlAttributeConfiguration
+    -&gt; CreateInstanceAccessControlAttributeConfiguration)
+-&gt; Lens
+     CreateInstanceAccessControlAttributeConfiguration
+     CreateInstanceAccessControlAttributeConfiguration
+     InstanceAccessControlAttributeConfiguration
+     InstanceAccessControlAttributeConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206703"><span class="annot"><span class="annottext">InstanceAccessControlAttributeConfiguration
+instanceAccessControlAttributeConfiguration :: InstanceAccessControlAttributeConfiguration
+$sel:instanceAccessControlAttributeConfiguration:CreateInstanceAccessControlAttributeConfiguration' :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; InstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206703"><span class="hs-identifier hs-var hs-var">instanceAccessControlAttributeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206703"><span class="hs-identifier hs-var">instanceAccessControlAttributeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206702"><span class="annot"><span class="annottext">s :: CreateInstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206701"><span class="annot"><span class="annottext">InstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceAccessControlAttributeConfiguration:CreateInstanceAccessControlAttributeConfiguration' :: InstanceAccessControlAttributeConfiguration
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AinstanceAccessControlAttributeConfiguration%3ACreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-var">instanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679206697"><span class="annot"><span class="annottext">request :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; Request CreateInstanceAccessControlAttributeConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+-&gt; Request CreateInstanceAccessControlAttributeConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSOAdmin.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679206693"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateInstanceAccessControlAttributeConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateInstanceAccessControlAttributeConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either
+      String
+      (AWSResponse CreateInstanceAccessControlAttributeConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateInstanceAccessControlAttributeConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateInstanceAccessControlAttributeConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206690"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206689"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206689"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206688"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679206688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-var">CreateInstanceAccessControlAttributeConfigurationResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateInstanceAccessControlAttributeConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either
+     String CreateInstanceAccessControlAttributeConfigurationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206690"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679206681"><span id="local-6989586621679206683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679206678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679206674"><span class="annot"><span class="annottext">toHeaders :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateInstanceAccessControlAttributeConfiguration
+-&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SWBExternalService.CreateInstanceAccessControlAttributeConfiguration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679206664"><span id="local-6989586621679206666"><span id="local-6989586621679206668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679206662"><span class="annot"><span class="annottext">toJSON :: CreateInstanceAccessControlAttributeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206659"><span id="local-6989586621679206660"><span class="annot"><span class="annottext">Text
+InstanceAccessControlAttributeConfiguration
+instanceAccessControlAttributeConfiguration :: InstanceAccessControlAttributeConfiguration
+instanceArn :: Text
+$sel:instanceAccessControlAttributeConfiguration:CreateInstanceAccessControlAttributeConfiguration' :: CreateInstanceAccessControlAttributeConfiguration
+-&gt; InstanceAccessControlAttributeConfiguration
+$sel:instanceArn:CreateInstanceAccessControlAttributeConfiguration' :: CreateInstanceAccessControlAttributeConfiguration -&gt; Text
+</span><a href="#local-6989586621679206659"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206660"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-168"></span><span>                </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceAccessControlAttributeConfiguration&quot;</span></span><span>
+</span><span id="line-169"></span><span>                    </span><span class="annot"><span class="annottext">Text -&gt; InstanceAccessControlAttributeConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InstanceAccessControlAttributeConfiguration
+</span><a href="#local-6989586621679206659"><span class="hs-identifier hs-var">instanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-170"></span><span>                </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679206653"><span class="annot"><span class="annottext">toPath :: CreateInstanceAccessControlAttributeConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfiguration"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfiguration</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679206649"><span class="annot"><span class="annottext">toQuery :: CreateInstanceAccessControlAttributeConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; CreateInstanceAccessControlAttributeConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newCreateInstanceAccessControlAttributeConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-187"></span><span id="local-6989586621679206646"><span id="local-6989586621679206647"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInstanceAccessControlAttributeConfigurationResponse"><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-var">CreateInstanceAccessControlAttributeConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-var">CreateInstanceAccessControlAttributeConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfigurationResponse -&gt; Int
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AhttpStatus%3ACreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206641"><span id="local-6989586621679206643"><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; Bool
+(CreateInstanceAccessControlAttributeConfigurationResponse
+ -&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+ -&gt; Bool)
+-&gt; (CreateInstanceAccessControlAttributeConfigurationResponse
+    -&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+    -&gt; Bool)
+-&gt; Eq CreateInstanceAccessControlAttributeConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; Bool
+$c/= :: CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; Bool
+== :: CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; Bool
+$c== :: CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206633"><span id="local-6989586621679206635"><span id="local-6989586621679206637"><span id="local-6989586621679206639"><span class="annot"><span class="annottext">ReadPrec
+  [CreateInstanceAccessControlAttributeConfigurationResponse]
+ReadPrec CreateInstanceAccessControlAttributeConfigurationResponse
+Int
+-&gt; ReadS CreateInstanceAccessControlAttributeConfigurationResponse
+ReadS [CreateInstanceAccessControlAttributeConfigurationResponse]
+(Int
+ -&gt; ReadS CreateInstanceAccessControlAttributeConfigurationResponse)
+-&gt; ReadS
+     [CreateInstanceAccessControlAttributeConfigurationResponse]
+-&gt; ReadPrec
+     CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; ReadPrec
+     [CreateInstanceAccessControlAttributeConfigurationResponse]
+-&gt; Read CreateInstanceAccessControlAttributeConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec
+  [CreateInstanceAccessControlAttributeConfigurationResponse]
+$creadListPrec :: ReadPrec
+  [CreateInstanceAccessControlAttributeConfigurationResponse]
+readPrec :: ReadPrec CreateInstanceAccessControlAttributeConfigurationResponse
+$creadPrec :: ReadPrec CreateInstanceAccessControlAttributeConfigurationResponse
+readList :: ReadS [CreateInstanceAccessControlAttributeConfigurationResponse]
+$creadList :: ReadS [CreateInstanceAccessControlAttributeConfigurationResponse]
+readsPrec :: Int
+-&gt; ReadS CreateInstanceAccessControlAttributeConfigurationResponse
+$creadsPrec :: Int
+-&gt; ReadS CreateInstanceAccessControlAttributeConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206627"><span id="local-6989586621679206629"><span id="local-6989586621679206631"><span class="annot"><span class="annottext">Int
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; ShowS
+[CreateInstanceAccessControlAttributeConfigurationResponse]
+-&gt; ShowS
+CreateInstanceAccessControlAttributeConfigurationResponse -&gt; String
+(Int
+ -&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+ -&gt; ShowS)
+-&gt; (CreateInstanceAccessControlAttributeConfigurationResponse
+    -&gt; String)
+-&gt; ([CreateInstanceAccessControlAttributeConfigurationResponse]
+    -&gt; ShowS)
+-&gt; Show CreateInstanceAccessControlAttributeConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateInstanceAccessControlAttributeConfigurationResponse]
+-&gt; ShowS
+$cshowList :: [CreateInstanceAccessControlAttributeConfigurationResponse]
+-&gt; ShowS
+show :: CreateInstanceAccessControlAttributeConfigurationResponse -&gt; String
+$cshow :: CreateInstanceAccessControlAttributeConfigurationResponse -&gt; String
+showsPrec :: Int
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; ShowS
+$cshowsPrec :: Int
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateInstanceAccessControlAttributeConfigurationResponse
+ -&gt; Rep CreateInstanceAccessControlAttributeConfigurationResponse x)
+-&gt; (forall x.
+    Rep CreateInstanceAccessControlAttributeConfigurationResponse x
+    -&gt; CreateInstanceAccessControlAttributeConfigurationResponse)
+-&gt; Generic
+     CreateInstanceAccessControlAttributeConfigurationResponse
+forall x.
+Rep CreateInstanceAccessControlAttributeConfigurationResponse x
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+forall x.
+CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; Rep CreateInstanceAccessControlAttributeConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateInstanceAccessControlAttributeConfigurationResponse x
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+$cfrom :: forall x.
+CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; Rep CreateInstanceAccessControlAttributeConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Create a value of 'CreateInstanceAccessControlAttributeConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'httpStatus', 'createInstanceAccessControlAttributeConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#newCreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-type">newCreateInstanceAccessControlAttributeConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse</span></a></span><span>
+</span><span id="line-206"></span><span id="newCreateInstanceAccessControlAttributeConfigurationResponse"><span class="annot"><span class="annottext">newCreateInstanceAccessControlAttributeConfigurationResponse :: Int -&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#newCreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-var hs-var">newCreateInstanceAccessControlAttributeConfigurationResponse</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679206624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfigurationResponse' :: Int -&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInstanceAccessControlAttributeConfigurationResponse' :: Int
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AhttpStatus%3ACreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">createInstanceAccessControlAttributeConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span id="createInstanceAccessControlAttributeConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">createInstanceAccessControlAttributeConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateInstanceAccessControlAttributeConfigurationResponse
+-&gt; f CreateInstanceAccessControlAttributeConfigurationResponse
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#createInstanceAccessControlAttributeConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createInstanceAccessControlAttributeConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceAccessControlAttributeConfigurationResponse -&gt; Int)
+-&gt; (CreateInstanceAccessControlAttributeConfigurationResponse
+    -&gt; Int
+    -&gt; CreateInstanceAccessControlAttributeConfigurationResponse)
+-&gt; Lens
+     CreateInstanceAccessControlAttributeConfigurationResponse
+     CreateInstanceAccessControlAttributeConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206623"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateInstanceAccessControlAttributeConfigurationResponse' :: CreateInstanceAccessControlAttributeConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679206623"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206623"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206622"><span class="annot"><span class="annottext">s :: CreateInstanceAccessControlAttributeConfigurationResponse
+</span><a href="#local-6989586621679206622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceAccessControlAttributeConfigurationResponse
+</span><a href="#local-6989586621679206622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInstanceAccessControlAttributeConfigurationResponse' :: Int
+</span><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#%24sel%3AhttpStatus%3ACreateInstanceAccessControlAttributeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679206619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.html#CreateInstanceAccessControlAttributeConfigurationResponse"><span class="hs-identifier hs-type">CreateInstanceAccessControlAttributeConfigurationResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

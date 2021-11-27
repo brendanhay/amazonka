@@ -1,0 +1,914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AmplifyBackend.ImportBackendAuth</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Imports an existing backend authentication resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AmplifyBackend.ImportBackendAuth</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier">ImportBackendAuth</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#newImportBackendAuth"><span class="hs-identifier">newImportBackendAuth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_identityPoolId"><span class="hs-identifier">importBackendAuth_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_appId"><span class="hs-identifier">importBackendAuth_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_backendEnvironmentName"><span class="hs-identifier">importBackendAuth_backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_userPoolId"><span class="hs-identifier">importBackendAuth_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_nativeClientId"><span class="hs-identifier">importBackendAuth_nativeClientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_webClientId"><span class="hs-identifier">importBackendAuth_webClientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier">ImportBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#newImportBackendAuthResponse"><span class="hs-identifier">newImportBackendAuthResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_status"><span class="hs-identifier">importBackendAuthResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_jobId"><span class="hs-identifier">importBackendAuthResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_operation"><span class="hs-identifier">importBackendAuthResponse_operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_error"><span class="hs-identifier">importBackendAuthResponse_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_appId"><span class="hs-identifier">importBackendAuthResponse_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_backendEnvironmentName"><span class="hs-identifier">importBackendAuthResponse_backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_httpStatus"><span class="hs-identifier">importBackendAuthResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.html"><span class="hs-identifier">Amazonka.AmplifyBackend.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The request body for ImportBackendAuth.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newImportBackendAuth' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679235823"><span id="local-6989586621679235824"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportBackendAuth"><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-var">ImportBackendAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportBackendAuth%27"><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-var">ImportBackendAuth'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Cognito identity pool.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AidentityPoolId%3AImportBackendAuth%27"><span class="annot"><span class="annottext">ImportBackendAuth -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AidentityPoolId%3AImportBackendAuth%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AappId%3AImportBackendAuth%27"><span class="annot"><span class="annottext">ImportBackendAuth -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AappId%3AImportBackendAuth%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3AImportBackendAuth%27"><span class="annot"><span class="annottext">ImportBackendAuth -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AbackendEnvironmentName%3AImportBackendAuth%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Cognito user pool.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AuserPoolId%3AImportBackendAuth%27"><span class="annot"><span class="annottext">ImportBackendAuth -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AuserPoolId%3AImportBackendAuth%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Cognito native client.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AnativeClientId%3AImportBackendAuth%27"><span class="annot"><span class="annottext">ImportBackendAuth -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AnativeClientId%3AImportBackendAuth%27"><span class="hs-identifier hs-var hs-var">nativeClientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Cognito web client.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AwebClientId%3AImportBackendAuth%27"><span class="annot"><span class="annottext">ImportBackendAuth -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AwebClientId%3AImportBackendAuth%27"><span class="hs-identifier hs-var hs-var">webClientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235812"><span id="local-6989586621679235814"><span class="annot"><span class="annottext">ImportBackendAuth -&gt; ImportBackendAuth -&gt; Bool
+(ImportBackendAuth -&gt; ImportBackendAuth -&gt; Bool)
+-&gt; (ImportBackendAuth -&gt; ImportBackendAuth -&gt; Bool)
+-&gt; Eq ImportBackendAuth
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportBackendAuth -&gt; ImportBackendAuth -&gt; Bool
+$c/= :: ImportBackendAuth -&gt; ImportBackendAuth -&gt; Bool
+== :: ImportBackendAuth -&gt; ImportBackendAuth -&gt; Bool
+$c== :: ImportBackendAuth -&gt; ImportBackendAuth -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235803"><span id="local-6989586621679235805"><span id="local-6989586621679235807"><span id="local-6989586621679235809"><span class="annot"><span class="annottext">ReadPrec [ImportBackendAuth]
+ReadPrec ImportBackendAuth
+Int -&gt; ReadS ImportBackendAuth
+ReadS [ImportBackendAuth]
+(Int -&gt; ReadS ImportBackendAuth)
+-&gt; ReadS [ImportBackendAuth]
+-&gt; ReadPrec ImportBackendAuth
+-&gt; ReadPrec [ImportBackendAuth]
+-&gt; Read ImportBackendAuth
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportBackendAuth]
+$creadListPrec :: ReadPrec [ImportBackendAuth]
+readPrec :: ReadPrec ImportBackendAuth
+$creadPrec :: ReadPrec ImportBackendAuth
+readList :: ReadS [ImportBackendAuth]
+$creadList :: ReadS [ImportBackendAuth]
+readsPrec :: Int -&gt; ReadS ImportBackendAuth
+$creadsPrec :: Int -&gt; ReadS ImportBackendAuth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235796"><span id="local-6989586621679235798"><span id="local-6989586621679235800"><span class="annot"><span class="annottext">Int -&gt; ImportBackendAuth -&gt; ShowS
+[ImportBackendAuth] -&gt; ShowS
+ImportBackendAuth -&gt; String
+(Int -&gt; ImportBackendAuth -&gt; ShowS)
+-&gt; (ImportBackendAuth -&gt; String)
+-&gt; ([ImportBackendAuth] -&gt; ShowS)
+-&gt; Show ImportBackendAuth
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportBackendAuth] -&gt; ShowS
+$cshowList :: [ImportBackendAuth] -&gt; ShowS
+show :: ImportBackendAuth -&gt; String
+$cshow :: ImportBackendAuth -&gt; String
+showsPrec :: Int -&gt; ImportBackendAuth -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportBackendAuth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportBackendAuth -&gt; Rep ImportBackendAuth x)
+-&gt; (forall x. Rep ImportBackendAuth x -&gt; ImportBackendAuth)
+-&gt; Generic ImportBackendAuth
+forall x. Rep ImportBackendAuth x -&gt; ImportBackendAuth
+forall x. ImportBackendAuth -&gt; Rep ImportBackendAuth x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportBackendAuth x -&gt; ImportBackendAuth
+$cfrom :: forall x. ImportBackendAuth -&gt; Rep ImportBackendAuth x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'ImportBackendAuth' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'identityPoolId', 'importBackendAuth_identityPoolId' - The ID of the Amazon Cognito identity pool.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'appId', 'importBackendAuth_appId' - The app ID.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'backendEnvironmentName', 'importBackendAuth_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'userPoolId', 'importBackendAuth_userPoolId' - The ID of the Amazon Cognito user pool.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'nativeClientId', 'importBackendAuth_nativeClientId' - The ID of the Amazon Cognito native client.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'webClientId', 'importBackendAuth_webClientId' - The ID of the Amazon Cognito web client.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#newImportBackendAuth"><span class="hs-identifier hs-type">newImportBackendAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'backendEnvironmentName'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'userPoolId'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'nativeClientId'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'webClientId'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span>
+</span><span id="line-109"></span><span id="newImportBackendAuth"><span class="annot"><span class="annottext">newImportBackendAuth :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#newImportBackendAuth"><span class="hs-identifier hs-var hs-var">newImportBackendAuth</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679235791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235791"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679235790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235790"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679235789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235789"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679235788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235788"><span class="hs-identifier hs-var">pNativeClientId_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679235787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235787"><span class="hs-identifier hs-var">pWebClientId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ImportBackendAuth' :: Maybe Text
+-&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:ImportBackendAuth' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AidentityPoolId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:appId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AappId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235791"><span class="hs-identifier hs-var">pAppId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AbackendEnvironmentName%3AImportBackendAuth%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235790"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:userPoolId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AuserPoolId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235789"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:nativeClientId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AnativeClientId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">nativeClientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235788"><span class="hs-identifier hs-var">pNativeClientId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:webClientId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AwebClientId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">webClientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235787"><span class="hs-identifier hs-var">pWebClientId_</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The ID of the Amazon Cognito identity pool.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_identityPoolId"><span class="hs-identifier hs-type">importBackendAuth_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="importBackendAuth_identityPoolId"><span class="annot"><span class="annottext">importBackendAuth_identityPoolId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportBackendAuth -&gt; f ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_identityPoolId"><span class="hs-identifier hs-var hs-var">importBackendAuth_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuth -&gt; Maybe Text)
+-&gt; (ImportBackendAuth -&gt; Maybe Text -&gt; ImportBackendAuth)
+-&gt; Lens
+     ImportBackendAuth ImportBackendAuth (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235784"><span class="annot"><span class="annottext">Maybe Text
+identityPoolId :: Maybe Text
+$sel:identityPoolId:ImportBackendAuth' :: ImportBackendAuth -&gt; Maybe Text
+</span><a href="#local-6989586621679235784"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235784"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235783"><span class="annot"><span class="annottext">s :: ImportBackendAuth
+</span><a href="#local-6989586621679235783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235782"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuth
+</span><a href="#local-6989586621679235783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:ImportBackendAuth' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AidentityPoolId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_appId"><span class="hs-identifier hs-type">importBackendAuth_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="importBackendAuth_appId"><span class="annot"><span class="annottext">importBackendAuth_appId :: (Text -&gt; f Text) -&gt; ImportBackendAuth -&gt; f ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_appId"><span class="hs-identifier hs-var hs-var">importBackendAuth_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuth -&gt; Text)
+-&gt; (ImportBackendAuth -&gt; Text -&gt; ImportBackendAuth)
+-&gt; Lens ImportBackendAuth ImportBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235781"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+</span><a href="#local-6989586621679235781"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235781"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235780"><span class="annot"><span class="annottext">s :: ImportBackendAuth
+</span><a href="#local-6989586621679235780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuth
+</span><a href="#local-6989586621679235780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AappId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_backendEnvironmentName"><span class="hs-identifier hs-type">importBackendAuth_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="importBackendAuth_backendEnvironmentName"><span class="annot"><span class="annottext">importBackendAuth_backendEnvironmentName :: (Text -&gt; f Text) -&gt; ImportBackendAuth -&gt; f ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">importBackendAuth_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuth -&gt; Text)
+-&gt; (ImportBackendAuth -&gt; Text -&gt; ImportBackendAuth)
+-&gt; Lens ImportBackendAuth ImportBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235778"><span class="annot"><span class="annottext">Text
+backendEnvironmentName :: Text
+$sel:backendEnvironmentName:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+</span><a href="#local-6989586621679235778"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235778"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235777"><span class="annot"><span class="annottext">s :: ImportBackendAuth
+</span><a href="#local-6989586621679235777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuth
+</span><a href="#local-6989586621679235777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AbackendEnvironmentName%3AImportBackendAuth%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The ID of the Amazon Cognito user pool.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_userPoolId"><span class="hs-identifier hs-type">importBackendAuth_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="importBackendAuth_userPoolId"><span class="annot"><span class="annottext">importBackendAuth_userPoolId :: (Text -&gt; f Text) -&gt; ImportBackendAuth -&gt; f ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_userPoolId"><span class="hs-identifier hs-var hs-var">importBackendAuth_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuth -&gt; Text)
+-&gt; (ImportBackendAuth -&gt; Text -&gt; ImportBackendAuth)
+-&gt; Lens ImportBackendAuth ImportBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235775"><span class="annot"><span class="annottext">Text
+userPoolId :: Text
+$sel:userPoolId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+</span><a href="#local-6989586621679235775"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235775"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235774"><span class="annot"><span class="annottext">s :: ImportBackendAuth
+</span><a href="#local-6989586621679235774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuth
+</span><a href="#local-6989586621679235774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AuserPoolId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The ID of the Amazon Cognito native client.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_nativeClientId"><span class="hs-identifier hs-type">importBackendAuth_nativeClientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="importBackendAuth_nativeClientId"><span class="annot"><span class="annottext">importBackendAuth_nativeClientId :: (Text -&gt; f Text) -&gt; ImportBackendAuth -&gt; f ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_nativeClientId"><span class="hs-identifier hs-var hs-var">importBackendAuth_nativeClientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuth -&gt; Text)
+-&gt; (ImportBackendAuth -&gt; Text -&gt; ImportBackendAuth)
+-&gt; Lens ImportBackendAuth ImportBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235772"><span class="annot"><span class="annottext">Text
+nativeClientId :: Text
+$sel:nativeClientId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+</span><a href="#local-6989586621679235772"><span class="hs-identifier hs-var hs-var">nativeClientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235772"><span class="hs-identifier hs-var">nativeClientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235771"><span class="annot"><span class="annottext">s :: ImportBackendAuth
+</span><a href="#local-6989586621679235771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235770"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuth
+</span><a href="#local-6989586621679235771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nativeClientId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AnativeClientId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">nativeClientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The ID of the Amazon Cognito web client.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_webClientId"><span class="hs-identifier hs-type">importBackendAuth_webClientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-147"></span><span id="importBackendAuth_webClientId"><span class="annot"><span class="annottext">importBackendAuth_webClientId :: (Text -&gt; f Text) -&gt; ImportBackendAuth -&gt; f ImportBackendAuth
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuth_webClientId"><span class="hs-identifier hs-var hs-var">importBackendAuth_webClientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuth -&gt; Text)
+-&gt; (ImportBackendAuth -&gt; Text -&gt; ImportBackendAuth)
+-&gt; Lens ImportBackendAuth ImportBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235769"><span class="annot"><span class="annottext">Text
+webClientId :: Text
+$sel:webClientId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+</span><a href="#local-6989586621679235769"><span class="hs-identifier hs-var hs-var">webClientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235769"><span class="hs-identifier hs-var">webClientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235768"><span class="annot"><span class="annottext">s :: ImportBackendAuth
+</span><a href="#local-6989586621679235768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuth
+</span><a href="#local-6989586621679235768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webClientId:ImportBackendAuth' :: Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AwebClientId%3AImportBackendAuth%27"><span class="hs-identifier hs-var">webClientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679235763"><span class="annot"><span class="annottext">request :: ImportBackendAuth -&gt; Request ImportBackendAuth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportBackendAuth -&gt; Request ImportBackendAuth
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AmplifyBackend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679235759"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ImportBackendAuth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ImportBackendAuth)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ImportBackendAuth))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ImportBackendAuth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ImportBackendAuth)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235756"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235756"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679235755"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679235755"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679235754"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235754"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-var">ImportBackendAuthResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ImportBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ImportBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ImportBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ImportBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ImportBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ImportBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ImportBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ImportBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ImportBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ImportBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ImportBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ImportBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backendEnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ImportBackendAuthResponse)
+-&gt; Either String Int -&gt; Either String ImportBackendAuthResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235756"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235746"><span id="local-6989586621679235748"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235743"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679235739"><span class="annot"><span class="annottext">toHeaders :: ImportBackendAuth -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportBackendAuth -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-178"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235729"><span id="local-6989586621679235731"><span id="local-6989586621679235733"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679235727"><span class="annot"><span class="annottext">toJSON :: ImportBackendAuth -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235720"><span id="local-6989586621679235721"><span id="local-6989586621679235722"><span id="local-6989586621679235723"><span id="local-6989586621679235724"><span id="local-6989586621679235725"><span class="annot"><span class="annottext">Maybe Text
+Text
+webClientId :: Text
+nativeClientId :: Text
+userPoolId :: Text
+backendEnvironmentName :: Text
+appId :: Text
+identityPoolId :: Maybe Text
+$sel:webClientId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:nativeClientId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:userPoolId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:backendEnvironmentName:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:appId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:identityPoolId:ImportBackendAuth' :: ImportBackendAuth -&gt; Maybe Text
+</span><a href="#local-6989586621679235720"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235725"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235722"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nativeClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235721"><span class="hs-identifier hs-var">nativeClientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;webClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235720"><span class="hs-identifier hs-var">webClientId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679235714"><span class="annot"><span class="annottext">toPath :: ImportBackendAuth -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth%27"><span class="hs-identifier hs-type">ImportBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235707"><span id="local-6989586621679235708"><span id="local-6989586621679235709"><span id="local-6989586621679235710"><span id="local-6989586621679235711"><span id="local-6989586621679235712"><span class="annot"><span class="annottext">Maybe Text
+Text
+webClientId :: Text
+nativeClientId :: Text
+userPoolId :: Text
+backendEnvironmentName :: Text
+appId :: Text
+identityPoolId :: Maybe Text
+$sel:webClientId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:nativeClientId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:userPoolId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:backendEnvironmentName:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:appId:ImportBackendAuth' :: ImportBackendAuth -&gt; Text
+$sel:identityPoolId:ImportBackendAuth' :: ImportBackendAuth -&gt; Maybe Text
+</span><a href="#local-6989586621679235707"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backend/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235711"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/auth/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235710"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/import&quot;</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuth"><span class="hs-identifier hs-type">ImportBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679235703"><span class="annot"><span class="annottext">toQuery :: ImportBackendAuth -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ImportBackendAuth -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | /See:/ 'newImportBackendAuthResponse' smart constructor.</span><span>
+</span><span id="line-209"></span><span id="local-6989586621679235700"><span id="local-6989586621679235701"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportBackendAuthResponse"><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-var">ImportBackendAuthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportBackendAuthResponse%27"><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-var">ImportBackendAuthResponse'</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the request.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3Astatus%3AImportBackendAuthResponse%27"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Astatus%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AjobId%3AImportBackendAuthResponse%27"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AjobId%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | The name of the operation.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3Aoperation%3AImportBackendAuthResponse%27"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Aoperation%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3Aerror%3AImportBackendAuthResponse%27"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Aerror%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AappId%3AImportBackendAuthResponse%27"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AappId%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3AImportBackendAuthResponse%27"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AbackendEnvironmentName%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportBackendAuthResponse%27"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; Int
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AhttpStatus%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235689"><span id="local-6989586621679235691"><span class="annot"><span class="annottext">ImportBackendAuthResponse -&gt; ImportBackendAuthResponse -&gt; Bool
+(ImportBackendAuthResponse -&gt; ImportBackendAuthResponse -&gt; Bool)
+-&gt; (ImportBackendAuthResponse -&gt; ImportBackendAuthResponse -&gt; Bool)
+-&gt; Eq ImportBackendAuthResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportBackendAuthResponse -&gt; ImportBackendAuthResponse -&gt; Bool
+$c/= :: ImportBackendAuthResponse -&gt; ImportBackendAuthResponse -&gt; Bool
+== :: ImportBackendAuthResponse -&gt; ImportBackendAuthResponse -&gt; Bool
+$c== :: ImportBackendAuthResponse -&gt; ImportBackendAuthResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235681"><span id="local-6989586621679235683"><span id="local-6989586621679235685"><span id="local-6989586621679235687"><span class="annot"><span class="annottext">ReadPrec [ImportBackendAuthResponse]
+ReadPrec ImportBackendAuthResponse
+Int -&gt; ReadS ImportBackendAuthResponse
+ReadS [ImportBackendAuthResponse]
+(Int -&gt; ReadS ImportBackendAuthResponse)
+-&gt; ReadS [ImportBackendAuthResponse]
+-&gt; ReadPrec ImportBackendAuthResponse
+-&gt; ReadPrec [ImportBackendAuthResponse]
+-&gt; Read ImportBackendAuthResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportBackendAuthResponse]
+$creadListPrec :: ReadPrec [ImportBackendAuthResponse]
+readPrec :: ReadPrec ImportBackendAuthResponse
+$creadPrec :: ReadPrec ImportBackendAuthResponse
+readList :: ReadS [ImportBackendAuthResponse]
+$creadList :: ReadS [ImportBackendAuthResponse]
+readsPrec :: Int -&gt; ReadS ImportBackendAuthResponse
+$creadsPrec :: Int -&gt; ReadS ImportBackendAuthResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235675"><span id="local-6989586621679235677"><span id="local-6989586621679235679"><span class="annot"><span class="annottext">Int -&gt; ImportBackendAuthResponse -&gt; ShowS
+[ImportBackendAuthResponse] -&gt; ShowS
+ImportBackendAuthResponse -&gt; String
+(Int -&gt; ImportBackendAuthResponse -&gt; ShowS)
+-&gt; (ImportBackendAuthResponse -&gt; String)
+-&gt; ([ImportBackendAuthResponse] -&gt; ShowS)
+-&gt; Show ImportBackendAuthResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportBackendAuthResponse] -&gt; ShowS
+$cshowList :: [ImportBackendAuthResponse] -&gt; ShowS
+show :: ImportBackendAuthResponse -&gt; String
+$cshow :: ImportBackendAuthResponse -&gt; String
+showsPrec :: Int -&gt; ImportBackendAuthResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportBackendAuthResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ImportBackendAuthResponse -&gt; Rep ImportBackendAuthResponse x)
+-&gt; (forall x.
+    Rep ImportBackendAuthResponse x -&gt; ImportBackendAuthResponse)
+-&gt; Generic ImportBackendAuthResponse
+forall x.
+Rep ImportBackendAuthResponse x -&gt; ImportBackendAuthResponse
+forall x.
+ImportBackendAuthResponse -&gt; Rep ImportBackendAuthResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ImportBackendAuthResponse x -&gt; ImportBackendAuthResponse
+$cfrom :: forall x.
+ImportBackendAuthResponse -&gt; Rep ImportBackendAuthResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Create a value of 'ImportBackendAuthResponse' with all optional fields omitted.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'status', 'importBackendAuthResponse_status' - The current status of the request.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'jobId', 'importBackendAuthResponse_jobId' - The ID for the job.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'operation', 'importBackendAuthResponse_operation' - The name of the operation.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'error', 'importBackendAuthResponse_error' - If the request fails, this error is returned.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'appId', 'importBackendAuthResponse_appId' - The app ID.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'backendEnvironmentName', 'importBackendAuthResponse_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'httpStatus', 'importBackendAuthResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#newImportBackendAuthResponse"><span class="hs-identifier hs-type">newImportBackendAuthResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span>
+</span><span id="line-252"></span><span id="newImportBackendAuthResponse"><span class="annot"><span class="annottext">newImportBackendAuthResponse :: Int -&gt; ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#newImportBackendAuthResponse"><span class="hs-identifier hs-var hs-var">newImportBackendAuthResponse</span></a></span></span><span> </span><span id="local-6989586621679235672"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">ImportBackendAuthResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Astatus%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AjobId%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:operation:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Aoperation%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Aerror%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AappId%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AbackendEnvironmentName%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportBackendAuthResponse' :: Int
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AhttpStatus%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The current status of the request.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_status"><span class="hs-identifier hs-type">importBackendAuthResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="importBackendAuthResponse_status"><span class="annot"><span class="annottext">importBackendAuthResponse_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportBackendAuthResponse -&gt; f ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_status"><span class="hs-identifier hs-var hs-var">importBackendAuthResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuthResponse -&gt; Maybe Text)
+-&gt; (ImportBackendAuthResponse
+    -&gt; Maybe Text -&gt; ImportBackendAuthResponse)
+-&gt; Lens
+     ImportBackendAuthResponse
+     ImportBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235671"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:ImportBackendAuthResponse' :: ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235671"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235671"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235670"><span class="annot"><span class="annottext">s :: ImportBackendAuthResponse
+</span><a href="#local-6989586621679235670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuthResponse
+</span><a href="#local-6989586621679235670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Astatus%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_jobId"><span class="hs-identifier hs-type">importBackendAuthResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="importBackendAuthResponse_jobId"><span class="annot"><span class="annottext">importBackendAuthResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportBackendAuthResponse -&gt; f ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_jobId"><span class="hs-identifier hs-var hs-var">importBackendAuthResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuthResponse -&gt; Maybe Text)
+-&gt; (ImportBackendAuthResponse
+    -&gt; Maybe Text -&gt; ImportBackendAuthResponse)
+-&gt; Lens
+     ImportBackendAuthResponse
+     ImportBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235668"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:ImportBackendAuthResponse' :: ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235668"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235668"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235667"><span class="annot"><span class="annottext">s :: ImportBackendAuthResponse
+</span><a href="#local-6989586621679235667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuthResponse
+</span><a href="#local-6989586621679235667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AjobId%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The name of the operation.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_operation"><span class="hs-identifier hs-type">importBackendAuthResponse_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="importBackendAuthResponse_operation"><span class="annot"><span class="annottext">importBackendAuthResponse_operation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportBackendAuthResponse -&gt; f ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_operation"><span class="hs-identifier hs-var hs-var">importBackendAuthResponse_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuthResponse -&gt; Maybe Text)
+-&gt; (ImportBackendAuthResponse
+    -&gt; Maybe Text -&gt; ImportBackendAuthResponse)
+-&gt; Lens
+     ImportBackendAuthResponse
+     ImportBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235665"><span class="annot"><span class="annottext">Maybe Text
+operation :: Maybe Text
+$sel:operation:ImportBackendAuthResponse' :: ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235665"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235665"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235664"><span class="annot"><span class="annottext">s :: ImportBackendAuthResponse
+</span><a href="#local-6989586621679235664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuthResponse
+</span><a href="#local-6989586621679235664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Aoperation%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_error"><span class="hs-identifier hs-type">importBackendAuthResponse_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="importBackendAuthResponse_error"><span class="annot"><span class="annottext">importBackendAuthResponse_error :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportBackendAuthResponse -&gt; f ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_error"><span class="hs-identifier hs-var hs-var">importBackendAuthResponse_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuthResponse -&gt; Maybe Text)
+-&gt; (ImportBackendAuthResponse
+    -&gt; Maybe Text -&gt; ImportBackendAuthResponse)
+-&gt; Lens
+     ImportBackendAuthResponse
+     ImportBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235662"><span class="annot"><span class="annottext">Maybe Text
+error :: Maybe Text
+$sel:error:ImportBackendAuthResponse' :: ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235662"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235662"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235661"><span class="annot"><span class="annottext">s :: ImportBackendAuthResponse
+</span><a href="#local-6989586621679235661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuthResponse
+</span><a href="#local-6989586621679235661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3Aerror%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_appId"><span class="hs-identifier hs-type">importBackendAuthResponse_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="importBackendAuthResponse_appId"><span class="annot"><span class="annottext">importBackendAuthResponse_appId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportBackendAuthResponse -&gt; f ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_appId"><span class="hs-identifier hs-var hs-var">importBackendAuthResponse_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuthResponse -&gt; Maybe Text)
+-&gt; (ImportBackendAuthResponse
+    -&gt; Maybe Text -&gt; ImportBackendAuthResponse)
+-&gt; Lens
+     ImportBackendAuthResponse
+     ImportBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235659"><span class="annot"><span class="annottext">Maybe Text
+appId :: Maybe Text
+$sel:appId:ImportBackendAuthResponse' :: ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235659"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235659"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235658"><span class="annot"><span class="annottext">s :: ImportBackendAuthResponse
+</span><a href="#local-6989586621679235658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuthResponse
+</span><a href="#local-6989586621679235658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AappId%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_backendEnvironmentName"><span class="hs-identifier hs-type">importBackendAuthResponse_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="importBackendAuthResponse_backendEnvironmentName"><span class="annot"><span class="annottext">importBackendAuthResponse_backendEnvironmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportBackendAuthResponse -&gt; f ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">importBackendAuthResponse_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuthResponse -&gt; Maybe Text)
+-&gt; (ImportBackendAuthResponse
+    -&gt; Maybe Text -&gt; ImportBackendAuthResponse)
+-&gt; Lens
+     ImportBackendAuthResponse
+     ImportBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235656"><span class="annot"><span class="annottext">Maybe Text
+backendEnvironmentName :: Maybe Text
+$sel:backendEnvironmentName:ImportBackendAuthResponse' :: ImportBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235656"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235656"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235655"><span class="annot"><span class="annottext">s :: ImportBackendAuthResponse
+</span><a href="#local-6989586621679235655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuthResponse
+</span><a href="#local-6989586621679235655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:ImportBackendAuthResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AbackendEnvironmentName%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_httpStatus"><span class="hs-identifier hs-type">importBackendAuthResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-290"></span><span id="importBackendAuthResponse_httpStatus"><span class="annot"><span class="annottext">importBackendAuthResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ImportBackendAuthResponse -&gt; f ImportBackendAuthResponse
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#importBackendAuthResponse_httpStatus"><span class="hs-identifier hs-var hs-var">importBackendAuthResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportBackendAuthResponse -&gt; Int)
+-&gt; (ImportBackendAuthResponse -&gt; Int -&gt; ImportBackendAuthResponse)
+-&gt; Lens ImportBackendAuthResponse ImportBackendAuthResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235653"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ImportBackendAuthResponse' :: ImportBackendAuthResponse -&gt; Int
+</span><a href="#local-6989586621679235653"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235653"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235652"><span class="annot"><span class="annottext">s :: ImportBackendAuthResponse
+</span><a href="#local-6989586621679235652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse%27"><span class="hs-identifier hs-type">ImportBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235651"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportBackendAuthResponse
+</span><a href="#local-6989586621679235652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportBackendAuthResponse' :: Int
+</span><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#%24sel%3AhttpStatus%3AImportBackendAuthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ImportBackendAuth.html#ImportBackendAuthResponse"><span class="hs-identifier hs-type">ImportBackendAuthResponse</span></a></span></span><span>
+</span><span id="line-293"></span></pre></body></html>

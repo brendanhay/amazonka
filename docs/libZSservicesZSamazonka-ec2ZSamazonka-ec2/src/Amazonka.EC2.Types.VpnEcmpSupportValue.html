@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.VpnEcmpSupportValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.VpnEcmpSupportValue</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue"><span class="hs-identifier">VpnEcmpSupportValue</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue_Disable"><span class="hs-identifier">VpnEcmpSupportValue_Disable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue_Enable"><span class="hs-identifier">VpnEcmpSupportValue_Enable</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681189170"><span id="local-6989586621681189171"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpnEcmpSupportValue"><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue"><span class="hs-identifier hs-var">VpnEcmpSupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpnEcmpSupportValue%27"><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue%27"><span class="hs-identifier hs-var">VpnEcmpSupportValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpnEcmpSupportValue"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; Text
+</span><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#fromVpnEcmpSupportValue"><span class="hs-identifier hs-var hs-var">fromVpnEcmpSupportValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681189162"><span id="local-6989586621681189164"><span id="local-6989586621681189166"><span class="annot"><span class="annottext">Int -&gt; VpnEcmpSupportValue -&gt; ShowS
+[VpnEcmpSupportValue] -&gt; ShowS
+VpnEcmpSupportValue -&gt; String
+(Int -&gt; VpnEcmpSupportValue -&gt; ShowS)
+-&gt; (VpnEcmpSupportValue -&gt; String)
+-&gt; ([VpnEcmpSupportValue] -&gt; ShowS)
+-&gt; Show VpnEcmpSupportValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VpnEcmpSupportValue] -&gt; ShowS
+$cshowList :: [VpnEcmpSupportValue] -&gt; ShowS
+show :: VpnEcmpSupportValue -&gt; String
+$cshow :: VpnEcmpSupportValue -&gt; String
+showsPrec :: Int -&gt; VpnEcmpSupportValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; VpnEcmpSupportValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681189153"><span id="local-6989586621681189155"><span id="local-6989586621681189157"><span id="local-6989586621681189159"><span class="annot"><span class="annottext">ReadPrec [VpnEcmpSupportValue]
+ReadPrec VpnEcmpSupportValue
+Int -&gt; ReadS VpnEcmpSupportValue
+ReadS [VpnEcmpSupportValue]
+(Int -&gt; ReadS VpnEcmpSupportValue)
+-&gt; ReadS [VpnEcmpSupportValue]
+-&gt; ReadPrec VpnEcmpSupportValue
+-&gt; ReadPrec [VpnEcmpSupportValue]
+-&gt; Read VpnEcmpSupportValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VpnEcmpSupportValue]
+$creadListPrec :: ReadPrec [VpnEcmpSupportValue]
+readPrec :: ReadPrec VpnEcmpSupportValue
+$creadPrec :: ReadPrec VpnEcmpSupportValue
+readList :: ReadS [VpnEcmpSupportValue]
+$creadList :: ReadS [VpnEcmpSupportValue]
+readsPrec :: Int -&gt; ReadS VpnEcmpSupportValue
+$creadsPrec :: Int -&gt; ReadS VpnEcmpSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681189148"><span id="local-6989586621681189150"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+(VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool)
+-&gt; (VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool)
+-&gt; Eq VpnEcmpSupportValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+$c/= :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+== :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+$c== :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681189132"><span id="local-6989586621681189134"><span id="local-6989586621681189136"><span id="local-6989586621681189138"><span id="local-6989586621681189140"><span id="local-6989586621681189142"><span id="local-6989586621681189144"><span class="annot"><span class="annottext">Eq VpnEcmpSupportValue
+Eq VpnEcmpSupportValue
+-&gt; (VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Ordering)
+-&gt; (VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool)
+-&gt; (VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool)
+-&gt; (VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool)
+-&gt; (VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool)
+-&gt; (VpnEcmpSupportValue
+    -&gt; VpnEcmpSupportValue -&gt; VpnEcmpSupportValue)
+-&gt; (VpnEcmpSupportValue
+    -&gt; VpnEcmpSupportValue -&gt; VpnEcmpSupportValue)
+-&gt; Ord VpnEcmpSupportValue
+VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Ordering
+VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; VpnEcmpSupportValue
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; VpnEcmpSupportValue
+$cmin :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; VpnEcmpSupportValue
+max :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; VpnEcmpSupportValue
+$cmax :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; VpnEcmpSupportValue
+&gt;= :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+$c&gt;= :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+&gt; :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+$c&gt; :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+&lt;= :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+$c&lt;= :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+&lt; :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+$c&lt; :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Bool
+compare :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Ordering
+$ccompare :: VpnEcmpSupportValue -&gt; VpnEcmpSupportValue -&gt; Ordering
+$cp1Ord :: Eq VpnEcmpSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. VpnEcmpSupportValue -&gt; Rep VpnEcmpSupportValue x)
+-&gt; (forall x. Rep VpnEcmpSupportValue x -&gt; VpnEcmpSupportValue)
+-&gt; Generic VpnEcmpSupportValue
+forall x. Rep VpnEcmpSupportValue x -&gt; VpnEcmpSupportValue
+forall x. VpnEcmpSupportValue -&gt; Rep VpnEcmpSupportValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VpnEcmpSupportValue x -&gt; VpnEcmpSupportValue
+$cfrom :: forall x. VpnEcmpSupportValue -&gt; Rep VpnEcmpSupportValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681189124"><span id="local-6989586621681189126"><span class="annot"><span class="annottext">Int -&gt; VpnEcmpSupportValue -&gt; Int
+VpnEcmpSupportValue -&gt; Int
+(Int -&gt; VpnEcmpSupportValue -&gt; Int)
+-&gt; (VpnEcmpSupportValue -&gt; Int) -&gt; Hashable VpnEcmpSupportValue
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VpnEcmpSupportValue -&gt; Int
+$chash :: VpnEcmpSupportValue -&gt; Int
+hashWithSalt :: Int -&gt; VpnEcmpSupportValue -&gt; Int
+$chashWithSalt :: Int -&gt; VpnEcmpSupportValue -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681189121"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; ()
+(VpnEcmpSupportValue -&gt; ()) -&gt; NFData VpnEcmpSupportValue
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VpnEcmpSupportValue -&gt; ()
+$crnf :: VpnEcmpSupportValue -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681189118"><span class="annot"><span class="annottext">Text -&gt; Either String VpnEcmpSupportValue
+(Text -&gt; Either String VpnEcmpSupportValue)
+-&gt; FromText VpnEcmpSupportValue
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VpnEcmpSupportValue
+$cfromText :: Text -&gt; Either String VpnEcmpSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681189115"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; Text
+(VpnEcmpSupportValue -&gt; Text) -&gt; ToText VpnEcmpSupportValue
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VpnEcmpSupportValue -&gt; Text
+$ctoText :: VpnEcmpSupportValue -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681189112"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; ByteString
+(VpnEcmpSupportValue -&gt; ByteString)
+-&gt; ToByteString VpnEcmpSupportValue
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VpnEcmpSupportValue -&gt; ByteString
+$ctoBS :: VpnEcmpSupportValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681189109"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; ByteStringBuilder
+(VpnEcmpSupportValue -&gt; ByteStringBuilder)
+-&gt; ToLog VpnEcmpSupportValue
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VpnEcmpSupportValue -&gt; ByteStringBuilder
+$cbuild :: VpnEcmpSupportValue -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681189106"><span class="annot"><span class="annottext">HeaderName -&gt; VpnEcmpSupportValue -&gt; [Header]
+(HeaderName -&gt; VpnEcmpSupportValue -&gt; [Header])
+-&gt; ToHeader VpnEcmpSupportValue
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VpnEcmpSupportValue -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VpnEcmpSupportValue -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681189103"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; QueryString
+(VpnEcmpSupportValue -&gt; QueryString) -&gt; ToQuery VpnEcmpSupportValue
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VpnEcmpSupportValue -&gt; QueryString
+$ctoQuery :: VpnEcmpSupportValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681189098"><span id="local-6989586621681189100"><span class="annot"><span class="annottext">Value -&gt; Parser [VpnEcmpSupportValue]
+Value -&gt; Parser VpnEcmpSupportValue
+(Value -&gt; Parser VpnEcmpSupportValue)
+-&gt; (Value -&gt; Parser [VpnEcmpSupportValue])
+-&gt; FromJSON VpnEcmpSupportValue
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VpnEcmpSupportValue]
+$cparseJSONList :: Value -&gt; Parser [VpnEcmpSupportValue]
+parseJSON :: Value -&gt; Parser VpnEcmpSupportValue
+$cparseJSON :: Value -&gt; Parser VpnEcmpSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681189093"><span id="local-6989586621681189095"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpnEcmpSupportValue]
+FromJSONKeyFunction VpnEcmpSupportValue
+FromJSONKeyFunction VpnEcmpSupportValue
+-&gt; FromJSONKeyFunction [VpnEcmpSupportValue]
+-&gt; FromJSONKey VpnEcmpSupportValue
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VpnEcmpSupportValue]
+$cfromJSONKeyList :: FromJSONKeyFunction [VpnEcmpSupportValue]
+fromJSONKey :: FromJSONKeyFunction VpnEcmpSupportValue
+$cfromJSONKey :: FromJSONKeyFunction VpnEcmpSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681189084"><span id="local-6989586621681189086"><span id="local-6989586621681189088"><span id="local-6989586621681189090"><span class="annot"><span class="annottext">[VpnEcmpSupportValue] -&gt; Encoding
+[VpnEcmpSupportValue] -&gt; Value
+VpnEcmpSupportValue -&gt; Encoding
+VpnEcmpSupportValue -&gt; Value
+(VpnEcmpSupportValue -&gt; Value)
+-&gt; (VpnEcmpSupportValue -&gt; Encoding)
+-&gt; ([VpnEcmpSupportValue] -&gt; Value)
+-&gt; ([VpnEcmpSupportValue] -&gt; Encoding)
+-&gt; ToJSON VpnEcmpSupportValue
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VpnEcmpSupportValue] -&gt; Encoding
+$ctoEncodingList :: [VpnEcmpSupportValue] -&gt; Encoding
+toJSONList :: [VpnEcmpSupportValue] -&gt; Value
+$ctoJSONList :: [VpnEcmpSupportValue] -&gt; Value
+toEncoding :: VpnEcmpSupportValue -&gt; Encoding
+$ctoEncoding :: VpnEcmpSupportValue -&gt; Encoding
+toJSON :: VpnEcmpSupportValue -&gt; Value
+$ctoJSON :: VpnEcmpSupportValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681189079"><span id="local-6989586621681189081"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpnEcmpSupportValue]
+ToJSONKeyFunction VpnEcmpSupportValue
+ToJSONKeyFunction VpnEcmpSupportValue
+-&gt; ToJSONKeyFunction [VpnEcmpSupportValue]
+-&gt; ToJSONKey VpnEcmpSupportValue
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VpnEcmpSupportValue]
+$ctoJSONKeyList :: ToJSONKeyFunction [VpnEcmpSupportValue]
+toJSONKey :: ToJSONKeyFunction VpnEcmpSupportValue
+$ctoJSONKey :: ToJSONKeyFunction VpnEcmpSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681189076"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpnEcmpSupportValue
+([Node] -&gt; Either String VpnEcmpSupportValue)
+-&gt; FromXML VpnEcmpSupportValue
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VpnEcmpSupportValue
+$cparseXML :: [Node] -&gt; Either String VpnEcmpSupportValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681189073"><span class="annot"><span class="annottext">VpnEcmpSupportValue -&gt; XML
+(VpnEcmpSupportValue -&gt; XML) -&gt; ToXML VpnEcmpSupportValue
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VpnEcmpSupportValue -&gt; XML
+$ctoXML :: VpnEcmpSupportValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue_Disable"><span class="hs-identifier hs-type">VpnEcmpSupportValue_Disable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue"><span class="hs-identifier hs-type">VpnEcmpSupportValue</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpnEcmpSupportValue_Disable"><span id="%24mVpnEcmpSupportValue_Disable"><span id="VpnEcmpSupportValue_Disable"><span class="annot"><span class="annottext">$bVpnEcmpSupportValue_Disable :: VpnEcmpSupportValue
+$mVpnEcmpSupportValue_Disable :: forall r. VpnEcmpSupportValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#%24bVpnEcmpSupportValue_Disable"><span class="hs-identifier hs-var hs-var hs-var">VpnEcmpSupportValue_Disable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue%27"><span class="hs-identifier hs-type">VpnEcmpSupportValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disable&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue_Enable"><span class="hs-identifier hs-type">VpnEcmpSupportValue_Enable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue"><span class="hs-identifier hs-type">VpnEcmpSupportValue</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpnEcmpSupportValue_Enable"><span id="%24mVpnEcmpSupportValue_Enable"><span id="VpnEcmpSupportValue_Enable"><span class="annot"><span class="annottext">$bVpnEcmpSupportValue_Enable :: VpnEcmpSupportValue
+$mVpnEcmpSupportValue_Enable :: forall r. VpnEcmpSupportValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#%24bVpnEcmpSupportValue_Enable"><span class="hs-identifier hs-var hs-var hs-var">VpnEcmpSupportValue_Enable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue%27"><span class="hs-identifier hs-type">VpnEcmpSupportValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;enable&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue_Disable"><span class="hs-pragma hs-type">VpnEcmpSupportValue_Disable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue_Enable"><span class="hs-pragma hs-type">VpnEcmpSupportValue_Enable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpnEcmpSupportValue.html#VpnEcmpSupportValue%27"><span class="hs-pragma hs-type">VpnEcmpSupportValue'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

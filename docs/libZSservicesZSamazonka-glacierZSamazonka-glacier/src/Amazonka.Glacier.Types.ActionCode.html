@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glacier.Types.ActionCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glacier.Types.ActionCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode"><span class="hs-identifier">ActionCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_ArchiveRetrieval"><span class="hs-identifier">ActionCode_ArchiveRetrieval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_InventoryRetrieval"><span class="hs-identifier">ActionCode_InventoryRetrieval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_Select"><span class="hs-identifier">ActionCode_Select</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679214519"><span id="local-6989586621679214520"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionCode"><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode"><span class="hs-identifier hs-var">ActionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionCode%27"><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode%27"><span class="hs-identifier hs-var">ActionCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionCode"><span class="annot"><span class="annottext">ActionCode -&gt; Text
+</span><a href="Amazonka.Glacier.Types.ActionCode.html#fromActionCode"><span class="hs-identifier hs-var hs-var">fromActionCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679214511"><span id="local-6989586621679214513"><span id="local-6989586621679214515"><span class="annot"><span class="annottext">Int -&gt; ActionCode -&gt; ShowS
+[ActionCode] -&gt; ShowS
+ActionCode -&gt; String
+(Int -&gt; ActionCode -&gt; ShowS)
+-&gt; (ActionCode -&gt; String)
+-&gt; ([ActionCode] -&gt; ShowS)
+-&gt; Show ActionCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActionCode] -&gt; ShowS
+$cshowList :: [ActionCode] -&gt; ShowS
+show :: ActionCode -&gt; String
+$cshow :: ActionCode -&gt; String
+showsPrec :: Int -&gt; ActionCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActionCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679214502"><span id="local-6989586621679214504"><span id="local-6989586621679214506"><span id="local-6989586621679214508"><span class="annot"><span class="annottext">ReadPrec [ActionCode]
+ReadPrec ActionCode
+Int -&gt; ReadS ActionCode
+ReadS [ActionCode]
+(Int -&gt; ReadS ActionCode)
+-&gt; ReadS [ActionCode]
+-&gt; ReadPrec ActionCode
+-&gt; ReadPrec [ActionCode]
+-&gt; Read ActionCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActionCode]
+$creadListPrec :: ReadPrec [ActionCode]
+readPrec :: ReadPrec ActionCode
+$creadPrec :: ReadPrec ActionCode
+readList :: ReadS [ActionCode]
+$creadList :: ReadS [ActionCode]
+readsPrec :: Int -&gt; ReadS ActionCode
+$creadsPrec :: Int -&gt; ReadS ActionCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679214497"><span id="local-6989586621679214499"><span class="annot"><span class="annottext">ActionCode -&gt; ActionCode -&gt; Bool
+(ActionCode -&gt; ActionCode -&gt; Bool)
+-&gt; (ActionCode -&gt; ActionCode -&gt; Bool) -&gt; Eq ActionCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActionCode -&gt; ActionCode -&gt; Bool
+$c/= :: ActionCode -&gt; ActionCode -&gt; Bool
+== :: ActionCode -&gt; ActionCode -&gt; Bool
+$c== :: ActionCode -&gt; ActionCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679214481"><span id="local-6989586621679214483"><span id="local-6989586621679214485"><span id="local-6989586621679214487"><span id="local-6989586621679214489"><span id="local-6989586621679214491"><span id="local-6989586621679214493"><span class="annot"><span class="annottext">Eq ActionCode
+Eq ActionCode
+-&gt; (ActionCode -&gt; ActionCode -&gt; Ordering)
+-&gt; (ActionCode -&gt; ActionCode -&gt; Bool)
+-&gt; (ActionCode -&gt; ActionCode -&gt; Bool)
+-&gt; (ActionCode -&gt; ActionCode -&gt; Bool)
+-&gt; (ActionCode -&gt; ActionCode -&gt; Bool)
+-&gt; (ActionCode -&gt; ActionCode -&gt; ActionCode)
+-&gt; (ActionCode -&gt; ActionCode -&gt; ActionCode)
+-&gt; Ord ActionCode
+ActionCode -&gt; ActionCode -&gt; Bool
+ActionCode -&gt; ActionCode -&gt; Ordering
+ActionCode -&gt; ActionCode -&gt; ActionCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ActionCode -&gt; ActionCode -&gt; ActionCode
+$cmin :: ActionCode -&gt; ActionCode -&gt; ActionCode
+max :: ActionCode -&gt; ActionCode -&gt; ActionCode
+$cmax :: ActionCode -&gt; ActionCode -&gt; ActionCode
+&gt;= :: ActionCode -&gt; ActionCode -&gt; Bool
+$c&gt;= :: ActionCode -&gt; ActionCode -&gt; Bool
+&gt; :: ActionCode -&gt; ActionCode -&gt; Bool
+$c&gt; :: ActionCode -&gt; ActionCode -&gt; Bool
+&lt;= :: ActionCode -&gt; ActionCode -&gt; Bool
+$c&lt;= :: ActionCode -&gt; ActionCode -&gt; Bool
+&lt; :: ActionCode -&gt; ActionCode -&gt; Bool
+$c&lt; :: ActionCode -&gt; ActionCode -&gt; Bool
+compare :: ActionCode -&gt; ActionCode -&gt; Ordering
+$ccompare :: ActionCode -&gt; ActionCode -&gt; Ordering
+$cp1Ord :: Eq ActionCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ActionCode -&gt; Rep ActionCode x)
+-&gt; (forall x. Rep ActionCode x -&gt; ActionCode) -&gt; Generic ActionCode
+forall x. Rep ActionCode x -&gt; ActionCode
+forall x. ActionCode -&gt; Rep ActionCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActionCode x -&gt; ActionCode
+$cfrom :: forall x. ActionCode -&gt; Rep ActionCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679214473"><span id="local-6989586621679214475"><span class="annot"><span class="annottext">Int -&gt; ActionCode -&gt; Int
+ActionCode -&gt; Int
+(Int -&gt; ActionCode -&gt; Int)
+-&gt; (ActionCode -&gt; Int) -&gt; Hashable ActionCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ActionCode -&gt; Int
+$chash :: ActionCode -&gt; Int
+hashWithSalt :: Int -&gt; ActionCode -&gt; Int
+$chashWithSalt :: Int -&gt; ActionCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679214470"><span class="annot"><span class="annottext">ActionCode -&gt; ()
+(ActionCode -&gt; ()) -&gt; NFData ActionCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ActionCode -&gt; ()
+$crnf :: ActionCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679214467"><span class="annot"><span class="annottext">Text -&gt; Either String ActionCode
+(Text -&gt; Either String ActionCode) -&gt; FromText ActionCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ActionCode
+$cfromText :: Text -&gt; Either String ActionCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679214464"><span class="annot"><span class="annottext">ActionCode -&gt; Text
+(ActionCode -&gt; Text) -&gt; ToText ActionCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ActionCode -&gt; Text
+$ctoText :: ActionCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679214461"><span class="annot"><span class="annottext">ActionCode -&gt; ByteString
+(ActionCode -&gt; ByteString) -&gt; ToByteString ActionCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ActionCode -&gt; ByteString
+$ctoBS :: ActionCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679214458"><span class="annot"><span class="annottext">ActionCode -&gt; ByteStringBuilder
+(ActionCode -&gt; ByteStringBuilder) -&gt; ToLog ActionCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ActionCode -&gt; ByteStringBuilder
+$cbuild :: ActionCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679214455"><span class="annot"><span class="annottext">HeaderName -&gt; ActionCode -&gt; [Header]
+(HeaderName -&gt; ActionCode -&gt; [Header]) -&gt; ToHeader ActionCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ActionCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ActionCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679214452"><span class="annot"><span class="annottext">ActionCode -&gt; QueryString
+(ActionCode -&gt; QueryString) -&gt; ToQuery ActionCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ActionCode -&gt; QueryString
+$ctoQuery :: ActionCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679214447"><span id="local-6989586621679214449"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionCode]
+Value -&gt; Parser ActionCode
+(Value -&gt; Parser ActionCode)
+-&gt; (Value -&gt; Parser [ActionCode]) -&gt; FromJSON ActionCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ActionCode]
+$cparseJSONList :: Value -&gt; Parser [ActionCode]
+parseJSON :: Value -&gt; Parser ActionCode
+$cparseJSON :: Value -&gt; Parser ActionCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679214442"><span id="local-6989586621679214444"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionCode]
+FromJSONKeyFunction ActionCode
+FromJSONKeyFunction ActionCode
+-&gt; FromJSONKeyFunction [ActionCode] -&gt; FromJSONKey ActionCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ActionCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ActionCode]
+fromJSONKey :: FromJSONKeyFunction ActionCode
+$cfromJSONKey :: FromJSONKeyFunction ActionCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679214433"><span id="local-6989586621679214435"><span id="local-6989586621679214437"><span id="local-6989586621679214439"><span class="annot"><span class="annottext">[ActionCode] -&gt; Encoding
+[ActionCode] -&gt; Value
+ActionCode -&gt; Encoding
+ActionCode -&gt; Value
+(ActionCode -&gt; Value)
+-&gt; (ActionCode -&gt; Encoding)
+-&gt; ([ActionCode] -&gt; Value)
+-&gt; ([ActionCode] -&gt; Encoding)
+-&gt; ToJSON ActionCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ActionCode] -&gt; Encoding
+$ctoEncodingList :: [ActionCode] -&gt; Encoding
+toJSONList :: [ActionCode] -&gt; Value
+$ctoJSONList :: [ActionCode] -&gt; Value
+toEncoding :: ActionCode -&gt; Encoding
+$ctoEncoding :: ActionCode -&gt; Encoding
+toJSON :: ActionCode -&gt; Value
+$ctoJSON :: ActionCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679214428"><span id="local-6989586621679214430"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionCode]
+ToJSONKeyFunction ActionCode
+ToJSONKeyFunction ActionCode
+-&gt; ToJSONKeyFunction [ActionCode] -&gt; ToJSONKey ActionCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ActionCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ActionCode]
+toJSONKey :: ToJSONKeyFunction ActionCode
+$ctoJSONKey :: ToJSONKeyFunction ActionCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679214425"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionCode
+([Node] -&gt; Either String ActionCode) -&gt; FromXML ActionCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ActionCode
+$cparseXML :: [Node] -&gt; Either String ActionCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679214422"><span class="annot"><span class="annottext">ActionCode -&gt; XML
+(ActionCode -&gt; XML) -&gt; ToXML ActionCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ActionCode -&gt; XML
+$ctoXML :: ActionCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_ArchiveRetrieval"><span class="hs-identifier hs-type">ActionCode_ArchiveRetrieval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode"><span class="hs-identifier hs-type">ActionCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActionCode_ArchiveRetrieval"><span id="%24mActionCode_ArchiveRetrieval"><span id="ActionCode_ArchiveRetrieval"><span class="annot"><span class="annottext">$bActionCode_ArchiveRetrieval :: ActionCode
+$mActionCode_ArchiveRetrieval :: forall r. ActionCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glacier.Types.ActionCode.html#%24bActionCode_ArchiveRetrieval"><span class="hs-identifier hs-var hs-var hs-var">ActionCode_ArchiveRetrieval</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode%27"><span class="hs-identifier hs-type">ActionCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ArchiveRetrieval&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_InventoryRetrieval"><span class="hs-identifier hs-type">ActionCode_InventoryRetrieval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode"><span class="hs-identifier hs-type">ActionCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActionCode_InventoryRetrieval"><span id="%24mActionCode_InventoryRetrieval"><span id="ActionCode_InventoryRetrieval"><span class="annot"><span class="annottext">$bActionCode_InventoryRetrieval :: ActionCode
+$mActionCode_InventoryRetrieval :: forall r. ActionCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glacier.Types.ActionCode.html#%24bActionCode_InventoryRetrieval"><span class="hs-identifier hs-var hs-var hs-var">ActionCode_InventoryRetrieval</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode%27"><span class="hs-identifier hs-type">ActionCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InventoryRetrieval&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_Select"><span class="hs-identifier hs-type">ActionCode_Select</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode"><span class="hs-identifier hs-type">ActionCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bActionCode_Select"><span id="%24mActionCode_Select"><span id="ActionCode_Select"><span class="annot"><span class="annottext">$bActionCode_Select :: ActionCode
+$mActionCode_Select :: forall r. ActionCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glacier.Types.ActionCode.html#%24bActionCode_Select"><span class="hs-identifier hs-var hs-var hs-var">ActionCode_Select</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode%27"><span class="hs-identifier hs-type">ActionCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Select&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_ArchiveRetrieval"><span class="hs-pragma hs-type">ActionCode_ArchiveRetrieval</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_InventoryRetrieval"><span class="hs-pragma hs-type">ActionCode_InventoryRetrieval</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode_Select"><span class="hs-pragma hs-type">ActionCode_Select</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.Types.ActionCode.html#ActionCode%27"><span class="hs-pragma hs-type">ActionCode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

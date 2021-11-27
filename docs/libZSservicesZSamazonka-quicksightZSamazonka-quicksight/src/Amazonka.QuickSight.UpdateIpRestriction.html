@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.UpdateIpRestriction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates content and status of IP Rules.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.UpdateIpRestriction</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier">UpdateIpRestriction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#newUpdateIpRestriction"><span class="hs-identifier">newUpdateIpRestriction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_ipRestrictionRuleMap"><span class="hs-identifier">updateIpRestriction_ipRestrictionRuleMap</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_enabled"><span class="hs-identifier">updateIpRestriction_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_awsAccountId"><span class="hs-identifier">updateIpRestriction_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier">UpdateIpRestrictionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#newUpdateIpRestrictionResponse"><span class="hs-identifier">newUpdateIpRestrictionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_requestId"><span class="hs-identifier">updateIpRestrictionResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_awsAccountId"><span class="hs-identifier">updateIpRestrictionResponse_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_status"><span class="hs-identifier">updateIpRestrictionResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateIpRestriction' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679601511"><span id="local-6989586621679601512"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIpRestriction"><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-var">UpdateIpRestriction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIpRestriction%27"><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-var">UpdateIpRestriction'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes updated IP rules.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AipRestrictionRuleMap%3AUpdateIpRestriction%27"><span class="annot"><span class="annottext">UpdateIpRestriction -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AipRestrictionRuleMap%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var hs-var">ipRestrictionRuleMap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Whether or not IP rules are enabled.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aenabled%3AUpdateIpRestriction%27"><span class="annot"><span class="annottext">UpdateIpRestriction -&gt; Maybe Bool
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3Aenabled%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Your AWS account ID.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AawsAccountId%3AUpdateIpRestriction%27"><span class="annot"><span class="annottext">UpdateIpRestriction -&gt; Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AawsAccountId%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601503"><span id="local-6989586621679601505"><span class="annot"><span class="annottext">UpdateIpRestriction -&gt; UpdateIpRestriction -&gt; Bool
+(UpdateIpRestriction -&gt; UpdateIpRestriction -&gt; Bool)
+-&gt; (UpdateIpRestriction -&gt; UpdateIpRestriction -&gt; Bool)
+-&gt; Eq UpdateIpRestriction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateIpRestriction -&gt; UpdateIpRestriction -&gt; Bool
+$c/= :: UpdateIpRestriction -&gt; UpdateIpRestriction -&gt; Bool
+== :: UpdateIpRestriction -&gt; UpdateIpRestriction -&gt; Bool
+$c== :: UpdateIpRestriction -&gt; UpdateIpRestriction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601494"><span id="local-6989586621679601496"><span id="local-6989586621679601498"><span id="local-6989586621679601500"><span class="annot"><span class="annottext">ReadPrec [UpdateIpRestriction]
+ReadPrec UpdateIpRestriction
+Int -&gt; ReadS UpdateIpRestriction
+ReadS [UpdateIpRestriction]
+(Int -&gt; ReadS UpdateIpRestriction)
+-&gt; ReadS [UpdateIpRestriction]
+-&gt; ReadPrec UpdateIpRestriction
+-&gt; ReadPrec [UpdateIpRestriction]
+-&gt; Read UpdateIpRestriction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateIpRestriction]
+$creadListPrec :: ReadPrec [UpdateIpRestriction]
+readPrec :: ReadPrec UpdateIpRestriction
+$creadPrec :: ReadPrec UpdateIpRestriction
+readList :: ReadS [UpdateIpRestriction]
+$creadList :: ReadS [UpdateIpRestriction]
+readsPrec :: Int -&gt; ReadS UpdateIpRestriction
+$creadsPrec :: Int -&gt; ReadS UpdateIpRestriction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601487"><span id="local-6989586621679601489"><span id="local-6989586621679601491"><span class="annot"><span class="annottext">Int -&gt; UpdateIpRestriction -&gt; ShowS
+[UpdateIpRestriction] -&gt; ShowS
+UpdateIpRestriction -&gt; String
+(Int -&gt; UpdateIpRestriction -&gt; ShowS)
+-&gt; (UpdateIpRestriction -&gt; String)
+-&gt; ([UpdateIpRestriction] -&gt; ShowS)
+-&gt; Show UpdateIpRestriction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateIpRestriction] -&gt; ShowS
+$cshowList :: [UpdateIpRestriction] -&gt; ShowS
+show :: UpdateIpRestriction -&gt; String
+$cshow :: UpdateIpRestriction -&gt; String
+showsPrec :: Int -&gt; UpdateIpRestriction -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateIpRestriction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateIpRestriction -&gt; Rep UpdateIpRestriction x)
+-&gt; (forall x. Rep UpdateIpRestriction x -&gt; UpdateIpRestriction)
+-&gt; Generic UpdateIpRestriction
+forall x. Rep UpdateIpRestriction x -&gt; UpdateIpRestriction
+forall x. UpdateIpRestriction -&gt; Rep UpdateIpRestriction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateIpRestriction x -&gt; UpdateIpRestriction
+$cfrom :: forall x. UpdateIpRestriction -&gt; Rep UpdateIpRestriction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'UpdateIpRestriction' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'ipRestrictionRuleMap', 'updateIpRestriction_ipRestrictionRuleMap' - Describes updated IP rules.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'enabled', 'updateIpRestriction_enabled' - Whether or not IP rules are enabled.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'awsAccountId', 'updateIpRestriction_awsAccountId' - Your AWS account ID.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#newUpdateIpRestriction"><span class="hs-identifier hs-type">newUpdateIpRestriction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdateIpRestriction"><span class="annot"><span class="annottext">newUpdateIpRestriction :: Text -&gt; UpdateIpRestriction
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#newUpdateIpRestriction"><span class="hs-identifier hs-var hs-var">newUpdateIpRestriction</span></a></span></span><span> </span><span id="local-6989586621679601482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601482"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">UpdateIpRestriction' :: Maybe (HashMap Text Text)
+-&gt; Maybe Bool -&gt; Text -&gt; UpdateIpRestriction
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipRestrictionRuleMap:UpdateIpRestriction' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AipRestrictionRuleMap%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var">ipRestrictionRuleMap</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:UpdateIpRestriction' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3Aenabled%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateIpRestriction' :: Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AawsAccountId%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601482"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Describes updated IP rules.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_ipRestrictionRuleMap"><span class="hs-identifier hs-type">updateIpRestriction_ipRestrictionRuleMap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="updateIpRestriction_ipRestrictionRuleMap"><span class="annot"><span class="annottext">updateIpRestriction_ipRestrictionRuleMap :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIpRestriction -&gt; f UpdateIpRestriction
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_ipRestrictionRuleMap"><span class="hs-identifier hs-var hs-var">updateIpRestriction_ipRestrictionRuleMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIpRestriction -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateIpRestriction
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateIpRestriction)
+-&gt; Lens
+     UpdateIpRestriction
+     UpdateIpRestriction
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601479"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+ipRestrictionRuleMap :: Maybe (HashMap Text Text)
+$sel:ipRestrictionRuleMap:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679601479"><span class="hs-identifier hs-var hs-var">ipRestrictionRuleMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679601479"><span class="hs-identifier hs-var">ipRestrictionRuleMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601478"><span class="annot"><span class="annottext">s :: UpdateIpRestriction
+</span><a href="#local-6989586621679601478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601477"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679601477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIpRestriction
+</span><a href="#local-6989586621679601478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRestrictionRuleMap:UpdateIpRestriction' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AipRestrictionRuleMap%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var">ipRestrictionRuleMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679601477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateIpRestriction -&gt; f UpdateIpRestriction)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIpRestriction
+-&gt; f UpdateIpRestriction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Whether or not IP rules are enabled.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_enabled"><span class="hs-identifier hs-type">updateIpRestriction_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="updateIpRestriction_enabled"><span class="annot"><span class="annottext">updateIpRestriction_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateIpRestriction -&gt; f UpdateIpRestriction
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_enabled"><span class="hs-identifier hs-var hs-var">updateIpRestriction_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIpRestriction -&gt; Maybe Bool)
+-&gt; (UpdateIpRestriction -&gt; Maybe Bool -&gt; UpdateIpRestriction)
+-&gt; Lens
+     UpdateIpRestriction UpdateIpRestriction (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601473"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Maybe Bool
+</span><a href="#local-6989586621679601473"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679601473"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601472"><span class="annot"><span class="annottext">s :: UpdateIpRestriction
+</span><a href="#local-6989586621679601472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601471"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679601471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIpRestriction
+</span><a href="#local-6989586621679601472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:UpdateIpRestriction' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3Aenabled%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679601471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Your AWS account ID.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_awsAccountId"><span class="hs-identifier hs-type">updateIpRestriction_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="updateIpRestriction_awsAccountId"><span class="annot"><span class="annottext">updateIpRestriction_awsAccountId :: (Text -&gt; f Text) -&gt; UpdateIpRestriction -&gt; f UpdateIpRestriction
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestriction_awsAccountId"><span class="hs-identifier hs-var hs-var">updateIpRestriction_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIpRestriction -&gt; Text)
+-&gt; (UpdateIpRestriction -&gt; Text -&gt; UpdateIpRestriction)
+-&gt; Lens UpdateIpRestriction UpdateIpRestriction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601470"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Text
+</span><a href="#local-6989586621679601470"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601470"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601469"><span class="annot"><span class="annottext">s :: UpdateIpRestriction
+</span><a href="#local-6989586621679601469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIpRestriction
+</span><a href="#local-6989586621679601469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateIpRestriction' :: Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AawsAccountId%3AUpdateIpRestriction%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679601464"><span class="annot"><span class="annottext">request :: UpdateIpRestriction -&gt; Request UpdateIpRestriction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateIpRestriction -&gt; Request UpdateIpRestriction
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679601460"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateIpRestriction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateIpRestriction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateIpRestriction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateIpRestriction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateIpRestriction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679601457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679601456"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679601456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679601455"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateIpRestrictionResponse
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">UpdateIpRestrictionResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateIpRestrictionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateIpRestrictionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateIpRestrictionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateIpRestrictionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateIpRestrictionResponse)
+-&gt; Either String Int -&gt; Either String UpdateIpRestrictionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601447"><span id="local-6989586621679601449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679601440"><span class="annot"><span class="annottext">toHeaders :: UpdateIpRestriction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateIpRestriction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601430"><span id="local-6989586621679601432"><span id="local-6989586621679601434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679601428"><span class="annot"><span class="annottext">toJSON :: UpdateIpRestriction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601424"><span id="local-6989586621679601425"><span id="local-6989586621679601426"><span class="annot"><span class="annottext">Maybe Bool
+Maybe (HashMap Text Text)
+Text
+awsAccountId :: Text
+enabled :: Maybe Bool
+ipRestrictionRuleMap :: Maybe (HashMap Text Text)
+$sel:awsAccountId:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Text
+$sel:enabled:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Maybe Bool
+$sel:ipRestrictionRuleMap:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679601424"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpRestrictionRuleMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679601426"><span class="hs-identifier hs-var">ipRestrictionRuleMap</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679601425"><span class="hs-identifier hs-var">enabled</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679601418"><span class="annot"><span class="annottext">toPath :: UpdateIpRestriction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction%27"><span class="hs-identifier hs-type">UpdateIpRestriction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601414"><span id="local-6989586621679601415"><span id="local-6989586621679601416"><span class="annot"><span class="annottext">Maybe Bool
+Maybe (HashMap Text Text)
+Text
+awsAccountId :: Text
+enabled :: Maybe Bool
+ipRestrictionRuleMap :: Maybe (HashMap Text Text)
+$sel:awsAccountId:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Text
+$sel:enabled:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Maybe Bool
+$sel:ipRestrictionRuleMap:UpdateIpRestriction' :: UpdateIpRestriction -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679601414"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601414"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ip-restriction&quot;</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestriction"><span class="hs-identifier hs-type">UpdateIpRestriction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679601410"><span class="annot"><span class="annottext">toQuery :: UpdateIpRestriction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateIpRestriction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newUpdateIpRestrictionResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679601407"><span id="local-6989586621679601408"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIpRestrictionResponse"><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-var">UpdateIpRestrictionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIpRestrictionResponse%27"><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">UpdateIpRestrictionResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the update request.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3ArequestId%3AUpdateIpRestrictionResponse%27"><span class="annot"><span class="annottext">UpdateIpRestrictionResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3ArequestId%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | Your AWS account ID.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AawsAccountId%3AUpdateIpRestrictionResponse%27"><span class="annot"><span class="annottext">UpdateIpRestrictionResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AawsAccountId%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The status of the updated IP rules. A successful request returns a 200</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateIpRestrictionResponse%27"><span class="annot"><span class="annottext">UpdateIpRestrictionResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3Astatus%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601400"><span id="local-6989586621679601402"><span class="annot"><span class="annottext">UpdateIpRestrictionResponse -&gt; UpdateIpRestrictionResponse -&gt; Bool
+(UpdateIpRestrictionResponse
+ -&gt; UpdateIpRestrictionResponse -&gt; Bool)
+-&gt; (UpdateIpRestrictionResponse
+    -&gt; UpdateIpRestrictionResponse -&gt; Bool)
+-&gt; Eq UpdateIpRestrictionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateIpRestrictionResponse -&gt; UpdateIpRestrictionResponse -&gt; Bool
+$c/= :: UpdateIpRestrictionResponse -&gt; UpdateIpRestrictionResponse -&gt; Bool
+== :: UpdateIpRestrictionResponse -&gt; UpdateIpRestrictionResponse -&gt; Bool
+$c== :: UpdateIpRestrictionResponse -&gt; UpdateIpRestrictionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601392"><span id="local-6989586621679601394"><span id="local-6989586621679601396"><span id="local-6989586621679601398"><span class="annot"><span class="annottext">ReadPrec [UpdateIpRestrictionResponse]
+ReadPrec UpdateIpRestrictionResponse
+Int -&gt; ReadS UpdateIpRestrictionResponse
+ReadS [UpdateIpRestrictionResponse]
+(Int -&gt; ReadS UpdateIpRestrictionResponse)
+-&gt; ReadS [UpdateIpRestrictionResponse]
+-&gt; ReadPrec UpdateIpRestrictionResponse
+-&gt; ReadPrec [UpdateIpRestrictionResponse]
+-&gt; Read UpdateIpRestrictionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateIpRestrictionResponse]
+$creadListPrec :: ReadPrec [UpdateIpRestrictionResponse]
+readPrec :: ReadPrec UpdateIpRestrictionResponse
+$creadPrec :: ReadPrec UpdateIpRestrictionResponse
+readList :: ReadS [UpdateIpRestrictionResponse]
+$creadList :: ReadS [UpdateIpRestrictionResponse]
+readsPrec :: Int -&gt; ReadS UpdateIpRestrictionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateIpRestrictionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601386"><span id="local-6989586621679601388"><span id="local-6989586621679601390"><span class="annot"><span class="annottext">Int -&gt; UpdateIpRestrictionResponse -&gt; ShowS
+[UpdateIpRestrictionResponse] -&gt; ShowS
+UpdateIpRestrictionResponse -&gt; String
+(Int -&gt; UpdateIpRestrictionResponse -&gt; ShowS)
+-&gt; (UpdateIpRestrictionResponse -&gt; String)
+-&gt; ([UpdateIpRestrictionResponse] -&gt; ShowS)
+-&gt; Show UpdateIpRestrictionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateIpRestrictionResponse] -&gt; ShowS
+$cshowList :: [UpdateIpRestrictionResponse] -&gt; ShowS
+show :: UpdateIpRestrictionResponse -&gt; String
+$cshow :: UpdateIpRestrictionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateIpRestrictionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateIpRestrictionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateIpRestrictionResponse -&gt; Rep UpdateIpRestrictionResponse x)
+-&gt; (forall x.
+    Rep UpdateIpRestrictionResponse x -&gt; UpdateIpRestrictionResponse)
+-&gt; Generic UpdateIpRestrictionResponse
+forall x.
+Rep UpdateIpRestrictionResponse x -&gt; UpdateIpRestrictionResponse
+forall x.
+UpdateIpRestrictionResponse -&gt; Rep UpdateIpRestrictionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateIpRestrictionResponse x -&gt; UpdateIpRestrictionResponse
+$cfrom :: forall x.
+UpdateIpRestrictionResponse -&gt; Rep UpdateIpRestrictionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'UpdateIpRestrictionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'requestId', 'updateIpRestrictionResponse_requestId' - The ID of the update request.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'awsAccountId', 'updateIpRestrictionResponse_awsAccountId' - Your AWS account ID.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'status', 'updateIpRestrictionResponse_status' - The status of the updated IP rules. A successful request returns a 200</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#newUpdateIpRestrictionResponse"><span class="hs-identifier hs-type">newUpdateIpRestrictionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newUpdateIpRestrictionResponse"><span class="annot"><span class="annottext">newUpdateIpRestrictionResponse :: Int -&gt; UpdateIpRestrictionResponse
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#newUpdateIpRestrictionResponse"><span class="hs-identifier hs-var hs-var">newUpdateIpRestrictionResponse</span></a></span></span><span> </span><span id="local-6989586621679601383"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601383"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">UpdateIpRestrictionResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateIpRestrictionResponse
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:UpdateIpRestrictionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3ArequestId%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateIpRestrictionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AawsAccountId%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:UpdateIpRestrictionResponse' :: Int
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3Astatus%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601383"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The ID of the update request.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_requestId"><span class="hs-identifier hs-type">updateIpRestrictionResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="updateIpRestrictionResponse_requestId"><span class="annot"><span class="annottext">updateIpRestrictionResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateIpRestrictionResponse -&gt; f UpdateIpRestrictionResponse
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_requestId"><span class="hs-identifier hs-var hs-var">updateIpRestrictionResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIpRestrictionResponse -&gt; Maybe Text)
+-&gt; (UpdateIpRestrictionResponse
+    -&gt; Maybe Text -&gt; UpdateIpRestrictionResponse)
+-&gt; Lens
+     UpdateIpRestrictionResponse
+     UpdateIpRestrictionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601382"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:UpdateIpRestrictionResponse' :: UpdateIpRestrictionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679601382"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601382"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601381"><span class="annot"><span class="annottext">s :: UpdateIpRestrictionResponse
+</span><a href="#local-6989586621679601381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIpRestrictionResponse
+</span><a href="#local-6989586621679601381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateIpRestrictionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3ArequestId%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Your AWS account ID.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_awsAccountId"><span class="hs-identifier hs-type">updateIpRestrictionResponse_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="updateIpRestrictionResponse_awsAccountId"><span class="annot"><span class="annottext">updateIpRestrictionResponse_awsAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateIpRestrictionResponse -&gt; f UpdateIpRestrictionResponse
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_awsAccountId"><span class="hs-identifier hs-var hs-var">updateIpRestrictionResponse_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIpRestrictionResponse -&gt; Maybe Text)
+-&gt; (UpdateIpRestrictionResponse
+    -&gt; Maybe Text -&gt; UpdateIpRestrictionResponse)
+-&gt; Lens
+     UpdateIpRestrictionResponse
+     UpdateIpRestrictionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601379"><span class="annot"><span class="annottext">Maybe Text
+awsAccountId :: Maybe Text
+$sel:awsAccountId:UpdateIpRestrictionResponse' :: UpdateIpRestrictionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679601379"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601379"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601378"><span class="annot"><span class="annottext">s :: UpdateIpRestrictionResponse
+</span><a href="#local-6989586621679601378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIpRestrictionResponse
+</span><a href="#local-6989586621679601378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateIpRestrictionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3AawsAccountId%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The status of the updated IP rules. A successful request returns a 200</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_status"><span class="hs-identifier hs-type">updateIpRestrictionResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span id="updateIpRestrictionResponse_status"><span class="annot"><span class="annottext">updateIpRestrictionResponse_status :: (Int -&gt; f Int)
+-&gt; UpdateIpRestrictionResponse -&gt; f UpdateIpRestrictionResponse
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#updateIpRestrictionResponse_status"><span class="hs-identifier hs-var hs-var">updateIpRestrictionResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIpRestrictionResponse -&gt; Int)
+-&gt; (UpdateIpRestrictionResponse
+    -&gt; Int -&gt; UpdateIpRestrictionResponse)
+-&gt; Lens
+     UpdateIpRestrictionResponse UpdateIpRestrictionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601376"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:UpdateIpRestrictionResponse' :: UpdateIpRestrictionResponse -&gt; Int
+</span><a href="#local-6989586621679601376"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601376"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601375"><span class="annot"><span class="annottext">s :: UpdateIpRestrictionResponse
+</span><a href="#local-6989586621679601375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse%27"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIpRestrictionResponse
+</span><a href="#local-6989586621679601375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateIpRestrictionResponse' :: Int
+</span><a href="Amazonka.QuickSight.UpdateIpRestriction.html#%24sel%3Astatus%3AUpdateIpRestrictionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateIpRestriction.html#UpdateIpRestrictionResponse"><span class="hs-identifier hs-type">UpdateIpRestrictionResponse</span></a></span></span><span>
+</span><span id="line-202"></span></pre></body></html>

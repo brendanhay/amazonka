@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.AvailabilityZoneOptInStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.AvailabilityZoneOptInStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus"><span class="hs-identifier">AvailabilityZoneOptInStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Not_opted_in"><span class="hs-identifier">AvailabilityZoneOptInStatus_Not_opted_in</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Opt_in_not_required"><span class="hs-identifier">AvailabilityZoneOptInStatus_Opt_in_not_required</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Opted_in"><span class="hs-identifier">AvailabilityZoneOptInStatus_Opted_in</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681088140"><span id="local-6989586621681088141"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvailabilityZoneOptInStatus"><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus"><span class="hs-identifier hs-var">AvailabilityZoneOptInStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZoneOptInStatus%27"><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus%27"><span class="hs-identifier hs-var">AvailabilityZoneOptInStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvailabilityZoneOptInStatus"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; Text
+</span><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#fromAvailabilityZoneOptInStatus"><span class="hs-identifier hs-var hs-var">fromAvailabilityZoneOptInStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088132"><span id="local-6989586621681088134"><span id="local-6989586621681088136"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS
+[AvailabilityZoneOptInStatus] -&gt; ShowS
+AvailabilityZoneOptInStatus -&gt; String
+(Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS)
+-&gt; (AvailabilityZoneOptInStatus -&gt; String)
+-&gt; ([AvailabilityZoneOptInStatus] -&gt; ShowS)
+-&gt; Show AvailabilityZoneOptInStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AvailabilityZoneOptInStatus] -&gt; ShowS
+$cshowList :: [AvailabilityZoneOptInStatus] -&gt; ShowS
+show :: AvailabilityZoneOptInStatus -&gt; String
+$cshow :: AvailabilityZoneOptInStatus -&gt; String
+showsPrec :: Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681088123"><span id="local-6989586621681088125"><span id="local-6989586621681088127"><span id="local-6989586621681088129"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZoneOptInStatus]
+ReadPrec AvailabilityZoneOptInStatus
+Int -&gt; ReadS AvailabilityZoneOptInStatus
+ReadS [AvailabilityZoneOptInStatus]
+(Int -&gt; ReadS AvailabilityZoneOptInStatus)
+-&gt; ReadS [AvailabilityZoneOptInStatus]
+-&gt; ReadPrec AvailabilityZoneOptInStatus
+-&gt; ReadPrec [AvailabilityZoneOptInStatus]
+-&gt; Read AvailabilityZoneOptInStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AvailabilityZoneOptInStatus]
+$creadListPrec :: ReadPrec [AvailabilityZoneOptInStatus]
+readPrec :: ReadPrec AvailabilityZoneOptInStatus
+$creadPrec :: ReadPrec AvailabilityZoneOptInStatus
+readList :: ReadS [AvailabilityZoneOptInStatus]
+$creadList :: ReadS [AvailabilityZoneOptInStatus]
+readsPrec :: Int -&gt; ReadS AvailabilityZoneOptInStatus
+$creadsPrec :: Int -&gt; ReadS AvailabilityZoneOptInStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681088118"><span id="local-6989586621681088120"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+(AvailabilityZoneOptInStatus
+ -&gt; AvailabilityZoneOptInStatus -&gt; Bool)
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; Bool)
+-&gt; Eq AvailabilityZoneOptInStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+$c/= :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+== :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+$c== :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681088102"><span id="local-6989586621681088104"><span id="local-6989586621681088106"><span id="local-6989586621681088108"><span id="local-6989586621681088110"><span id="local-6989586621681088112"><span id="local-6989586621681088114"><span class="annot"><span class="annottext">Eq AvailabilityZoneOptInStatus
+Eq AvailabilityZoneOptInStatus
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; Ordering)
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; Bool)
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; Bool)
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; Bool)
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; Bool)
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus)
+-&gt; (AvailabilityZoneOptInStatus
+    -&gt; AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus)
+-&gt; Ord AvailabilityZoneOptInStatus
+AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; Ordering
+AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus
+$cmin :: AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus
+max :: AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus
+$cmax :: AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus
+&gt;= :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+$c&gt;= :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+&gt; :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+$c&gt; :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+&lt;= :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+$c&lt;= :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+&lt; :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+$c&lt; :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+compare :: AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; Ordering
+$ccompare :: AvailabilityZoneOptInStatus
+-&gt; AvailabilityZoneOptInStatus -&gt; Ordering
+$cp1Ord :: Eq AvailabilityZoneOptInStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AvailabilityZoneOptInStatus -&gt; Rep AvailabilityZoneOptInStatus x)
+-&gt; (forall x.
+    Rep AvailabilityZoneOptInStatus x -&gt; AvailabilityZoneOptInStatus)
+-&gt; Generic AvailabilityZoneOptInStatus
+forall x.
+Rep AvailabilityZoneOptInStatus x -&gt; AvailabilityZoneOptInStatus
+forall x.
+AvailabilityZoneOptInStatus -&gt; Rep AvailabilityZoneOptInStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AvailabilityZoneOptInStatus x -&gt; AvailabilityZoneOptInStatus
+$cfrom :: forall x.
+AvailabilityZoneOptInStatus -&gt; Rep AvailabilityZoneOptInStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088094"><span id="local-6989586621681088096"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneOptInStatus -&gt; Int
+AvailabilityZoneOptInStatus -&gt; Int
+(Int -&gt; AvailabilityZoneOptInStatus -&gt; Int)
+-&gt; (AvailabilityZoneOptInStatus -&gt; Int)
+-&gt; Hashable AvailabilityZoneOptInStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AvailabilityZoneOptInStatus -&gt; Int
+$chash :: AvailabilityZoneOptInStatus -&gt; Int
+hashWithSalt :: Int -&gt; AvailabilityZoneOptInStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AvailabilityZoneOptInStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681088091"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ()
+(AvailabilityZoneOptInStatus -&gt; ())
+-&gt; NFData AvailabilityZoneOptInStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AvailabilityZoneOptInStatus -&gt; ()
+$crnf :: AvailabilityZoneOptInStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681088088"><span class="annot"><span class="annottext">Text -&gt; Either String AvailabilityZoneOptInStatus
+(Text -&gt; Either String AvailabilityZoneOptInStatus)
+-&gt; FromText AvailabilityZoneOptInStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AvailabilityZoneOptInStatus
+$cfromText :: Text -&gt; Either String AvailabilityZoneOptInStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681088085"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; Text
+(AvailabilityZoneOptInStatus -&gt; Text)
+-&gt; ToText AvailabilityZoneOptInStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AvailabilityZoneOptInStatus -&gt; Text
+$ctoText :: AvailabilityZoneOptInStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681088082"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ByteString
+(AvailabilityZoneOptInStatus -&gt; ByteString)
+-&gt; ToByteString AvailabilityZoneOptInStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AvailabilityZoneOptInStatus -&gt; ByteString
+$ctoBS :: AvailabilityZoneOptInStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681088079"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ByteStringBuilder
+(AvailabilityZoneOptInStatus -&gt; ByteStringBuilder)
+-&gt; ToLog AvailabilityZoneOptInStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AvailabilityZoneOptInStatus -&gt; ByteStringBuilder
+$cbuild :: AvailabilityZoneOptInStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681088076"><span class="annot"><span class="annottext">HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header]
+(HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header])
+-&gt; ToHeader AvailabilityZoneOptInStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681088073"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; QueryString
+(AvailabilityZoneOptInStatus -&gt; QueryString)
+-&gt; ToQuery AvailabilityZoneOptInStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AvailabilityZoneOptInStatus -&gt; QueryString
+$ctoQuery :: AvailabilityZoneOptInStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681088068"><span id="local-6989586621681088070"><span class="annot"><span class="annottext">Value -&gt; Parser [AvailabilityZoneOptInStatus]
+Value -&gt; Parser AvailabilityZoneOptInStatus
+(Value -&gt; Parser AvailabilityZoneOptInStatus)
+-&gt; (Value -&gt; Parser [AvailabilityZoneOptInStatus])
+-&gt; FromJSON AvailabilityZoneOptInStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AvailabilityZoneOptInStatus]
+$cparseJSONList :: Value -&gt; Parser [AvailabilityZoneOptInStatus]
+parseJSON :: Value -&gt; Parser AvailabilityZoneOptInStatus
+$cparseJSON :: Value -&gt; Parser AvailabilityZoneOptInStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681088063"><span id="local-6989586621681088065"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvailabilityZoneOptInStatus]
+FromJSONKeyFunction AvailabilityZoneOptInStatus
+FromJSONKeyFunction AvailabilityZoneOptInStatus
+-&gt; FromJSONKeyFunction [AvailabilityZoneOptInStatus]
+-&gt; FromJSONKey AvailabilityZoneOptInStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AvailabilityZoneOptInStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AvailabilityZoneOptInStatus]
+fromJSONKey :: FromJSONKeyFunction AvailabilityZoneOptInStatus
+$cfromJSONKey :: FromJSONKeyFunction AvailabilityZoneOptInStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681088054"><span id="local-6989586621681088056"><span id="local-6989586621681088058"><span id="local-6989586621681088060"><span class="annot"><span class="annottext">[AvailabilityZoneOptInStatus] -&gt; Encoding
+[AvailabilityZoneOptInStatus] -&gt; Value
+AvailabilityZoneOptInStatus -&gt; Encoding
+AvailabilityZoneOptInStatus -&gt; Value
+(AvailabilityZoneOptInStatus -&gt; Value)
+-&gt; (AvailabilityZoneOptInStatus -&gt; Encoding)
+-&gt; ([AvailabilityZoneOptInStatus] -&gt; Value)
+-&gt; ([AvailabilityZoneOptInStatus] -&gt; Encoding)
+-&gt; ToJSON AvailabilityZoneOptInStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AvailabilityZoneOptInStatus] -&gt; Encoding
+$ctoEncodingList :: [AvailabilityZoneOptInStatus] -&gt; Encoding
+toJSONList :: [AvailabilityZoneOptInStatus] -&gt; Value
+$ctoJSONList :: [AvailabilityZoneOptInStatus] -&gt; Value
+toEncoding :: AvailabilityZoneOptInStatus -&gt; Encoding
+$ctoEncoding :: AvailabilityZoneOptInStatus -&gt; Encoding
+toJSON :: AvailabilityZoneOptInStatus -&gt; Value
+$ctoJSON :: AvailabilityZoneOptInStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681088049"><span id="local-6989586621681088051"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvailabilityZoneOptInStatus]
+ToJSONKeyFunction AvailabilityZoneOptInStatus
+ToJSONKeyFunction AvailabilityZoneOptInStatus
+-&gt; ToJSONKeyFunction [AvailabilityZoneOptInStatus]
+-&gt; ToJSONKey AvailabilityZoneOptInStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AvailabilityZoneOptInStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AvailabilityZoneOptInStatus]
+toJSONKey :: ToJSONKeyFunction AvailabilityZoneOptInStatus
+$ctoJSONKey :: ToJSONKeyFunction AvailabilityZoneOptInStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681088046"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvailabilityZoneOptInStatus
+([Node] -&gt; Either String AvailabilityZoneOptInStatus)
+-&gt; FromXML AvailabilityZoneOptInStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AvailabilityZoneOptInStatus
+$cparseXML :: [Node] -&gt; Either String AvailabilityZoneOptInStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681088043"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; XML
+(AvailabilityZoneOptInStatus -&gt; XML)
+-&gt; ToXML AvailabilityZoneOptInStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AvailabilityZoneOptInStatus -&gt; XML
+$ctoXML :: AvailabilityZoneOptInStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Not_opted_in"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus_Not_opted_in</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAvailabilityZoneOptInStatus_Not_opted_in"><span id="%24mAvailabilityZoneOptInStatus_Not_opted_in"><span id="AvailabilityZoneOptInStatus_Not_opted_in"><span class="annot"><span class="annottext">$bAvailabilityZoneOptInStatus_Not_opted_in :: AvailabilityZoneOptInStatus
+$mAvailabilityZoneOptInStatus_Not_opted_in :: forall r.
+AvailabilityZoneOptInStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#%24bAvailabilityZoneOptInStatus_Not_opted_in"><span class="hs-identifier hs-var hs-var hs-var">AvailabilityZoneOptInStatus_Not_opted_in</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus%27"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;not-opted-in&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Opt_in_not_required"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus_Opt_in_not_required</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAvailabilityZoneOptInStatus_Opt_in_not_required"><span id="%24mAvailabilityZoneOptInStatus_Opt_in_not_required"><span id="AvailabilityZoneOptInStatus_Opt_in_not_required"><span class="annot"><span class="annottext">$bAvailabilityZoneOptInStatus_Opt_in_not_required :: AvailabilityZoneOptInStatus
+$mAvailabilityZoneOptInStatus_Opt_in_not_required :: forall r.
+AvailabilityZoneOptInStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#%24bAvailabilityZoneOptInStatus_Opt_in_not_required"><span class="hs-identifier hs-var hs-var hs-var">AvailabilityZoneOptInStatus_Opt_in_not_required</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus%27"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;opt-in-not-required&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Opted_in"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus_Opted_in</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAvailabilityZoneOptInStatus_Opted_in"><span id="%24mAvailabilityZoneOptInStatus_Opted_in"><span id="AvailabilityZoneOptInStatus_Opted_in"><span class="annot"><span class="annottext">$bAvailabilityZoneOptInStatus_Opted_in :: AvailabilityZoneOptInStatus
+$mAvailabilityZoneOptInStatus_Opted_in :: forall r.
+AvailabilityZoneOptInStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#%24bAvailabilityZoneOptInStatus_Opted_in"><span class="hs-identifier hs-var hs-var hs-var">AvailabilityZoneOptInStatus_Opted_in</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus%27"><span class="hs-identifier hs-type">AvailabilityZoneOptInStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;opted-in&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Not_opted_in"><span class="hs-pragma hs-type">AvailabilityZoneOptInStatus_Not_opted_in</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Opt_in_not_required"><span class="hs-pragma hs-type">AvailabilityZoneOptInStatus_Opt_in_not_required</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus_Opted_in"><span class="hs-pragma hs-type">AvailabilityZoneOptInStatus_Opted_in</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus%27"><span class="hs-pragma hs-type">AvailabilityZoneOptInStatus'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

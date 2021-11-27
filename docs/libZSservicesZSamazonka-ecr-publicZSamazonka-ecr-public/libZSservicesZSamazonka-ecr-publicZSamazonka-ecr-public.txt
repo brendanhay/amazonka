@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ECRPublic.Types.AuthorizationData
+module Amazonka.ECRPublic.Types.AuthorizationData
 
 -- | An authorization token data object that corresponds to a public
 --   registry.
@@ -55,16 +55,16 @@ authorizationData_expiresAt :: Lens' AuthorizationData (Maybe UTCTime)
 --   the format <tt>user:password</tt> for public registry authentication
 --   using <tt>docker login</tt>.
 authorizationData_authorizationToken :: Lens' AuthorizationData (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.AuthorizationData.AuthorizationData
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.AuthorizationData.AuthorizationData
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.AuthorizationData.AuthorizationData
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.AuthorizationData.AuthorizationData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.AuthorizationData.AuthorizationData
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.AuthorizationData.AuthorizationData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.AuthorizationData.AuthorizationData
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.AuthorizationData.AuthorizationData
+instance GHC.Show.Show Amazonka.ECRPublic.Types.AuthorizationData.AuthorizationData
+instance GHC.Read.Read Amazonka.ECRPublic.Types.AuthorizationData.AuthorizationData
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.AuthorizationData.AuthorizationData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.AuthorizationData.AuthorizationData
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.AuthorizationData.AuthorizationData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.AuthorizationData.AuthorizationData
 
 
-module Network.AWS.ECRPublic.Types.ImageDetail
+module Amazonka.ECRPublic.Types.ImageDetail
 
 -- | An object that describes an image returned by a DescribeImages
 --   operation.
@@ -191,16 +191,16 @@ imageDetail_imagePushedAt :: Lens' ImageDetail (Maybe UTCTime)
 
 -- | The name of the repository to which this image belongs.
 imageDetail_repositoryName :: Lens' ImageDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.ImageDetail.ImageDetail
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.ImageDetail.ImageDetail
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.ImageDetail.ImageDetail
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.ImageDetail.ImageDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.ImageDetail.ImageDetail
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.ImageDetail.ImageDetail
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.ImageDetail.ImageDetail
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.ImageDetail.ImageDetail
+instance GHC.Show.Show Amazonka.ECRPublic.Types.ImageDetail.ImageDetail
+instance GHC.Read.Read Amazonka.ECRPublic.Types.ImageDetail.ImageDetail
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.ImageDetail.ImageDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.ImageDetail.ImageDetail
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.ImageDetail.ImageDetail
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.ImageDetail.ImageDetail
 
 
-module Network.AWS.ECRPublic.Types.ImageFailureCode
+module Amazonka.ECRPublic.Types.ImageFailureCode
 newtype ImageFailureCode
 ImageFailureCode' :: Text -> ImageFailureCode
 [fromImageFailureCode] :: ImageFailureCode -> Text
@@ -211,28 +211,28 @@ pattern ImageFailureCode_InvalidImageDigest :: ImageFailureCode
 pattern ImageFailureCode_InvalidImageTag :: ImageFailureCode
 pattern ImageFailureCode_KmsError :: ImageFailureCode
 pattern ImageFailureCode_MissingDigestAndTag :: ImageFailureCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Network.AWS.Data.Text.ToText Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Network.AWS.Data.Text.FromText Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance GHC.Classes.Ord Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.XML.ToXML Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.XML.FromXML Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.Log.ToLog Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.Text.ToText Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Amazonka.Data.Text.FromText Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance GHC.Classes.Ord Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance GHC.Read.Read Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
+instance GHC.Show.Show Amazonka.ECRPublic.Types.ImageFailureCode.ImageFailureCode
 
 
-module Network.AWS.ECRPublic.Types.ImageIdentifier
+module Amazonka.ECRPublic.Types.ImageIdentifier
 
 -- | An object with identifying information for an Amazon ECR image.
 --   
@@ -268,17 +268,17 @@ imageIdentifier_imageDigest :: Lens' ImageIdentifier (Maybe Text)
 
 -- | The tag used for the image.
 imageIdentifier_imageTag :: Lens' ImageIdentifier (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance GHC.Show.Show Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance GHC.Read.Read Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.Types.ImageIdentifier.ImageIdentifier
 
 
-module Network.AWS.ECRPublic.Types.ImageFailure
+module Amazonka.ECRPublic.Types.ImageFailure
 
 -- | An object representing an Amazon ECR image failure.
 --   
@@ -322,16 +322,16 @@ imageFailure_failureCode :: Lens' ImageFailure (Maybe ImageFailureCode)
 
 -- | The image ID associated with the failure.
 imageFailure_imageId :: Lens' ImageFailure (Maybe ImageIdentifier)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.ImageFailure.ImageFailure
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.ImageFailure.ImageFailure
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.ImageFailure.ImageFailure
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.ImageFailure.ImageFailure
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.ImageFailure.ImageFailure
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.ImageFailure.ImageFailure
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.ImageFailure.ImageFailure
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.ImageFailure.ImageFailure
+instance GHC.Show.Show Amazonka.ECRPublic.Types.ImageFailure.ImageFailure
+instance GHC.Read.Read Amazonka.ECRPublic.Types.ImageFailure.ImageFailure
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.ImageFailure.ImageFailure
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.ImageFailure.ImageFailure
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.ImageFailure.ImageFailure
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.ImageFailure.ImageFailure
 
 
-module Network.AWS.ECRPublic.Types.Image
+module Amazonka.ECRPublic.Types.Image
 
 -- | An object representing an Amazon ECR image.
 --   
@@ -395,43 +395,43 @@ image_repositoryName :: Lens' Image (Maybe Text)
 
 -- | The image manifest associated with the image.
 image_imageManifest :: Lens' Image (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.Image.Image
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.Image.Image
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.Image.Image
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.Image.Image
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.Image.Image
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.Image.Image
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.Image.Image
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.Image.Image
+instance GHC.Show.Show Amazonka.ECRPublic.Types.Image.Image
+instance GHC.Read.Read Amazonka.ECRPublic.Types.Image.Image
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.Image.Image
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.Image.Image
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.Image.Image
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.Image.Image
 
 
-module Network.AWS.ECRPublic.Types.LayerAvailability
+module Amazonka.ECRPublic.Types.LayerAvailability
 newtype LayerAvailability
 LayerAvailability' :: Text -> LayerAvailability
 [fromLayerAvailability] :: LayerAvailability -> Text
 pattern LayerAvailability_AVAILABLE :: LayerAvailability
 pattern LayerAvailability_UNAVAILABLE :: LayerAvailability
-instance Network.AWS.Data.XML.ToXML Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Network.AWS.Data.XML.FromXML Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Network.AWS.Data.Log.ToLog Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Network.AWS.Data.Text.ToText Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Network.AWS.Data.Text.FromText Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance GHC.Classes.Ord Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.XML.ToXML Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.XML.FromXML Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.Headers.ToHeader Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.Log.ToLog Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.Text.ToText Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Amazonka.Data.Text.FromText Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance GHC.Classes.Ord Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance GHC.Read.Read Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
+instance GHC.Show.Show Amazonka.ECRPublic.Types.LayerAvailability.LayerAvailability
 
 
-module Network.AWS.ECRPublic.Types.Layer
+module Amazonka.ECRPublic.Types.Layer
 
 -- | An object representing an Amazon ECR image layer.
 --   
@@ -489,43 +489,43 @@ layer_layerSize :: Lens' Layer (Maybe Integer)
 
 -- | The availability status of the image layer.
 layer_layerAvailability :: Lens' Layer (Maybe LayerAvailability)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.Layer.Layer
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.Layer.Layer
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.Layer.Layer
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.Layer.Layer
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.Layer.Layer
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.Layer.Layer
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.Layer.Layer
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.Layer.Layer
+instance GHC.Show.Show Amazonka.ECRPublic.Types.Layer.Layer
+instance GHC.Read.Read Amazonka.ECRPublic.Types.Layer.Layer
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.Layer.Layer
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.Layer.Layer
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.Layer.Layer
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.Layer.Layer
 
 
-module Network.AWS.ECRPublic.Types.LayerFailureCode
+module Amazonka.ECRPublic.Types.LayerFailureCode
 newtype LayerFailureCode
 LayerFailureCode' :: Text -> LayerFailureCode
 [fromLayerFailureCode] :: LayerFailureCode -> Text
 pattern LayerFailureCode_InvalidLayerDigest :: LayerFailureCode
 pattern LayerFailureCode_MissingLayerDigest :: LayerFailureCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Network.AWS.Data.Text.ToText Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Network.AWS.Data.Text.FromText Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance GHC.Classes.Ord Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.XML.ToXML Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.XML.FromXML Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.Log.ToLog Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.Text.ToText Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Amazonka.Data.Text.FromText Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance GHC.Classes.Ord Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance GHC.Read.Read Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
+instance GHC.Show.Show Amazonka.ECRPublic.Types.LayerFailureCode.LayerFailureCode
 
 
-module Network.AWS.ECRPublic.Types.LayerFailure
+module Amazonka.ECRPublic.Types.LayerFailure
 
 -- | An object representing an Amazon ECR image layer failure.
 --   
@@ -569,16 +569,16 @@ layerFailure_failureCode :: Lens' LayerFailure (Maybe LayerFailureCode)
 
 -- | The layer digest associated with the failure.
 layerFailure_layerDigest :: Lens' LayerFailure (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.LayerFailure.LayerFailure
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.LayerFailure.LayerFailure
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.LayerFailure.LayerFailure
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.LayerFailure.LayerFailure
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.LayerFailure.LayerFailure
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.LayerFailure.LayerFailure
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.LayerFailure.LayerFailure
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.LayerFailure.LayerFailure
+instance GHC.Show.Show Amazonka.ECRPublic.Types.LayerFailure.LayerFailure
+instance GHC.Read.Read Amazonka.ECRPublic.Types.LayerFailure.LayerFailure
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.LayerFailure.LayerFailure
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.LayerFailure.LayerFailure
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.LayerFailure.LayerFailure
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.LayerFailure.LayerFailure
 
 
-module Network.AWS.ECRPublic.Types.ReferencedImageDetail
+module Amazonka.ECRPublic.Types.ReferencedImageDetail
 
 -- | An object that describes the image tag details returned by a
 --   DescribeImageTags action.
@@ -676,16 +676,16 @@ referencedImageDetail_artifactMediaType :: Lens' ReferencedImageDetail (Maybe Te
 -- | The date and time, expressed in standard JavaScript date format, at
 --   which the current image tag was pushed to the repository.
 referencedImageDetail_imagePushedAt :: Lens' ReferencedImageDetail (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
+instance GHC.Show.Show Amazonka.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
+instance GHC.Read.Read Amazonka.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.ReferencedImageDetail.ReferencedImageDetail
 
 
-module Network.AWS.ECRPublic.Types.ImageTagDetail
+module Amazonka.ECRPublic.Types.ImageTagDetail
 
 -- | An object representing the image tag details for an image.
 --   
@@ -730,44 +730,44 @@ imageTagDetail_imageDetail :: Lens' ImageTagDetail (Maybe ReferencedImageDetail)
 
 -- | The tag associated with the image.
 imageTagDetail_imageTag :: Lens' ImageTagDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.ImageTagDetail.ImageTagDetail
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.ImageTagDetail.ImageTagDetail
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.ImageTagDetail.ImageTagDetail
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.ImageTagDetail.ImageTagDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.ImageTagDetail.ImageTagDetail
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.ImageTagDetail.ImageTagDetail
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.ImageTagDetail.ImageTagDetail
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.ImageTagDetail.ImageTagDetail
+instance GHC.Show.Show Amazonka.ECRPublic.Types.ImageTagDetail.ImageTagDetail
+instance GHC.Read.Read Amazonka.ECRPublic.Types.ImageTagDetail.ImageTagDetail
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.ImageTagDetail.ImageTagDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.ImageTagDetail.ImageTagDetail
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.ImageTagDetail.ImageTagDetail
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.ImageTagDetail.ImageTagDetail
 
 
-module Network.AWS.ECRPublic.Types.RegistryAliasStatus
+module Amazonka.ECRPublic.Types.RegistryAliasStatus
 newtype RegistryAliasStatus
 RegistryAliasStatus' :: Text -> RegistryAliasStatus
 [fromRegistryAliasStatus] :: RegistryAliasStatus -> Text
 pattern RegistryAliasStatus_ACTIVE :: RegistryAliasStatus
 pattern RegistryAliasStatus_PENDING :: RegistryAliasStatus
 pattern RegistryAliasStatus_REJECTED :: RegistryAliasStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance GHC.Classes.Ord Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.XML.ToXML Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.XML.FromXML Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.Log.ToLog Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.Text.ToText Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Amazonka.Data.Text.FromText Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance GHC.Classes.Ord Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance GHC.Read.Read Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
+instance GHC.Show.Show Amazonka.ECRPublic.Types.RegistryAliasStatus.RegistryAliasStatus
 
 
-module Network.AWS.ECRPublic.Types.RegistryAlias
+module Amazonka.ECRPublic.Types.RegistryAlias
 
 -- | An object representing the aliases for a public registry. A public
 --   registry is given an alias upon creation but a custom alias can be set
@@ -850,16 +850,16 @@ registryAlias_primaryRegistryAlias :: Lens' RegistryAlias Bool
 --   registry. When the first public repository is created, your public
 --   registry is assigned a default registry alias.
 registryAlias_defaultRegistryAlias :: Lens' RegistryAlias Bool
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.RegistryAlias.RegistryAlias
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.RegistryAlias.RegistryAlias
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.RegistryAlias.RegistryAlias
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.RegistryAlias.RegistryAlias
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.RegistryAlias.RegistryAlias
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.RegistryAlias.RegistryAlias
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.RegistryAlias.RegistryAlias
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.RegistryAlias.RegistryAlias
+instance GHC.Show.Show Amazonka.ECRPublic.Types.RegistryAlias.RegistryAlias
+instance GHC.Read.Read Amazonka.ECRPublic.Types.RegistryAlias.RegistryAlias
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.RegistryAlias.RegistryAlias
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.RegistryAlias.RegistryAlias
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.RegistryAlias.RegistryAlias
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.RegistryAlias.RegistryAlias
 
 
-module Network.AWS.ECRPublic.Types.Registry
+module Amazonka.ECRPublic.Types.Registry
 
 -- | The details of a public registry.
 --   
@@ -935,16 +935,16 @@ registry_verified :: Lens' Registry Bool
 
 -- | An array of objects representing the aliases for a public registry.
 registry_aliases :: Lens' Registry [RegistryAlias]
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.Registry.Registry
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.Registry.Registry
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.Registry.Registry
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.Registry.Registry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.Registry.Registry
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.Registry.Registry
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.Registry.Registry
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.Registry.Registry
+instance GHC.Show.Show Amazonka.ECRPublic.Types.Registry.Registry
+instance GHC.Read.Read Amazonka.ECRPublic.Types.Registry.Registry
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.Registry.Registry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.Registry.Registry
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.Registry.Registry
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.Registry.Registry
 
 
-module Network.AWS.ECRPublic.Types.RegistryCatalogData
+module Amazonka.ECRPublic.Types.RegistryCatalogData
 
 -- | The metadata for a public registry.
 --   
@@ -982,16 +982,16 @@ newRegistryCatalogData :: RegistryCatalogData
 --   Only accounts that have the verified account badge can have a registry
 --   display name.
 registryCatalogData_displayName :: Lens' RegistryCatalogData (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
+instance GHC.Show.Show Amazonka.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
+instance GHC.Read.Read Amazonka.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.RegistryCatalogData.RegistryCatalogData
 
 
-module Network.AWS.ECRPublic.Types.Repository
+module Amazonka.ECRPublic.Types.Repository
 
 -- | An object representing a repository.
 --   
@@ -1073,16 +1073,16 @@ repository_repositoryUri :: Lens' Repository (Maybe Text)
 
 -- | The name of the repository.
 repository_repositoryName :: Lens' Repository (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.Repository.Repository
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.Repository.Repository
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.Repository.Repository
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.Repository.Repository
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.Repository.Repository
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.Repository.Repository
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.Repository.Repository
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.Repository.Repository
+instance GHC.Show.Show Amazonka.ECRPublic.Types.Repository.Repository
+instance GHC.Read.Read Amazonka.ECRPublic.Types.Repository.Repository
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.Repository.Repository
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.Repository.Repository
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.Repository.Repository
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.Repository.Repository
 
 
-module Network.AWS.ECRPublic.Types.RepositoryCatalogData
+module Amazonka.ECRPublic.Types.RepositoryCatalogData
 
 -- | The catalog data for a repository. This data is publicly visible in
 --   the Amazon ECR Public Gallery.
@@ -1194,16 +1194,16 @@ repositoryCatalogData_operatingSystems :: Lens' RepositoryCatalogData (Maybe [Te
 
 -- | The short description of the repository.
 repositoryCatalogData_description :: Lens' RepositoryCatalogData (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
+instance GHC.Show.Show Amazonka.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
+instance GHC.Read.Read Amazonka.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.RepositoryCatalogData.RepositoryCatalogData
 
 
-module Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput
+module Amazonka.ECRPublic.Types.RepositoryCatalogDataInput
 
 -- | An object containing the catalog data for a repository. This data is
 --   publicly visible in the Amazon ECR Public Gallery.
@@ -1398,16 +1398,16 @@ repositoryCatalogDataInput_operatingSystems :: Lens' RepositoryCatalogDataInput 
 --   appears in both the image details and also when searching for
 --   repositories on the Amazon ECR Public Gallery.
 repositoryCatalogDataInput_description :: Lens' RepositoryCatalogDataInput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
+instance GHC.Show.Show Amazonka.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
+instance GHC.Read.Read Amazonka.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.Types.RepositoryCatalogDataInput.RepositoryCatalogDataInput
 
 
-module Network.AWS.ECRPublic.Types.Tag
+module Amazonka.ECRPublic.Types.Tag
 
 -- | The metadata that you apply to a resource to help you categorize and
 --   organize them. Each tag consists of a key and an optional value, both
@@ -1451,17 +1451,17 @@ tag_value :: Lens' Tag (Maybe Text)
 -- | One part of a key-value pair that make up a tag. A <tt>key</tt> is a
 --   general label that acts like a category for more specific tag values.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ECRPublic.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.ECRPublic.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.ECRPublic.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ECRPublic.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ECRPublic.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ECRPublic.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.ECRPublic.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.ECRPublic.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ECRPublic.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ECRPublic.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.Types.Tag.Tag
 
 
-module Network.AWS.ECRPublic.Types
+module Amazonka.ECRPublic.Types
 
 -- | API version <tt>2020-10-30</tt> of the Amazon Elastic Container
 --   Registry Public SDK configuration.
@@ -2766,7 +2766,7 @@ tag_key :: Lens' Tag (Maybe Text)
 --   <tt>resourceArn</tt>. If existing tags on a resource are not specified
 --   in the request parameters, they are not changed. When a resource is
 --   deleted, the tags associated with that resource are deleted as well.
-module Network.AWS.ECRPublic.TagResource
+module Amazonka.ECRPublic.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2831,29 +2831,29 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.ECRPublic.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.ECRPublic.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.ECRPublic.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.ECRPublic.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ECRPublic.TagResource.TagResource
+instance GHC.Show.Show Amazonka.ECRPublic.TagResource.TagResource
+instance GHC.Read.Read Amazonka.ECRPublic.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.ECRPublic.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ECRPublic.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.ECRPublic.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.ECRPublic.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.TagResource.TagResource
 
 
 -- | Applies a repository policy to the specified public repository to
 --   control access permissions. For more information, see <a>Amazon ECR
 --   Repository Policies</a> in the <i>Amazon Elastic Container Registry
 --   User Guide</i>.
-module Network.AWS.ECRPublic.SetRepositoryPolicy
+module Amazonka.ECRPublic.SetRepositoryPolicy
 
 -- | <i>See:</i> <a>newSetRepositoryPolicy</a> smart constructor.
 data SetRepositoryPolicy
@@ -2982,27 +2982,27 @@ setRepositoryPolicyResponse_policyText :: Lens' SetRepositoryPolicyResponse (May
 
 -- | The response's http status code.
 setRepositoryPolicyResponse_httpStatus :: Lens' SetRepositoryPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance GHC.Show.Show Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance GHC.Read.Read Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance GHC.Classes.Eq Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance GHC.Generics.Generic Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance GHC.Generics.Generic Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance GHC.Show.Show Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance GHC.Read.Read Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance GHC.Classes.Eq Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance GHC.Generics.Generic Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
+instance GHC.Show.Show Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
+instance GHC.Read.Read Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.SetRepositoryPolicy.SetRepositoryPolicy
 
 
 -- | Creates or updates the catalog data for a repository in a public
 --   registry.
-module Network.AWS.ECRPublic.PutRepositoryCatalogData
+module Amazonka.ECRPublic.PutRepositoryCatalogData
 
 -- | <i>See:</i> <a>newPutRepositoryCatalogData</a> smart constructor.
 data PutRepositoryCatalogData
@@ -3090,26 +3090,26 @@ putRepositoryCatalogDataResponse_catalogData :: Lens' PutRepositoryCatalogDataRe
 
 -- | The response's http status code.
 putRepositoryCatalogDataResponse_httpStatus :: Lens' PutRepositoryCatalogDataResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance GHC.Show.Show Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance GHC.Read.Read Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance GHC.Classes.Eq Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance GHC.Generics.Generic Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance GHC.Show.Show Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance GHC.Read.Read Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance GHC.Classes.Eq Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
+instance GHC.Show.Show Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
+instance GHC.Read.Read Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.PutRepositoryCatalogData.PutRepositoryCatalogData
 
 
 -- | Create or updates the catalog data for a public registry.
-module Network.AWS.ECRPublic.PutRegistryCatalogData
+module Amazonka.ECRPublic.PutRegistryCatalogData
 
 -- | <i>See:</i> <a>newPutRegistryCatalogData</a> smart constructor.
 data PutRegistryCatalogData
@@ -3181,22 +3181,22 @@ putRegistryCatalogDataResponse_httpStatus :: Lens' PutRegistryCatalogDataRespons
 
 -- | The catalog data for the public registry.
 putRegistryCatalogDataResponse_registryCatalogData :: Lens' PutRegistryCatalogDataResponse RegistryCatalogData
-instance GHC.Generics.Generic Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance GHC.Show.Show Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance GHC.Read.Read Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance GHC.Classes.Eq Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance GHC.Generics.Generic Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance GHC.Show.Show Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance GHC.Read.Read Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance GHC.Classes.Eq Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
+instance GHC.Show.Show Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
+instance GHC.Read.Read Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.PutRegistryCatalogData.PutRegistryCatalogData
 
 
 -- | Creates or updates the image manifest and tags associated with an
@@ -3209,7 +3209,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.PutRegistryCatalog
 --   This operation is used by the Amazon ECR proxy and is not generally
 --   used by customers for pulling and pushing images. In most cases, you
 --   should use the <tt>docker</tt> CLI to pull, tag, and push images.
-module Network.AWS.ECRPublic.PutImage
+module Amazonka.ECRPublic.PutImage
 
 -- | <i>See:</i> <a>newPutImage</a> smart constructor.
 data PutImage
@@ -3328,26 +3328,26 @@ putImageResponse_image :: Lens' PutImageResponse (Maybe Image)
 
 -- | The response's http status code.
 putImageResponse_httpStatus :: Lens' PutImageResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.PutImage.PutImage
-instance GHC.Show.Show Network.AWS.ECRPublic.PutImage.PutImage
-instance GHC.Read.Read Network.AWS.ECRPublic.PutImage.PutImage
-instance GHC.Classes.Eq Network.AWS.ECRPublic.PutImage.PutImage
-instance GHC.Generics.Generic Network.AWS.ECRPublic.PutImage.PutImageResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.PutImage.PutImageResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.PutImage.PutImageResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.PutImage.PutImageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.PutImage.PutImage
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.PutImage.PutImageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.PutImage.PutImage
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.PutImage.PutImage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.PutImage.PutImage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.PutImage.PutImage
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.PutImage.PutImage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.PutImage.PutImage
+instance GHC.Generics.Generic Amazonka.ECRPublic.PutImage.PutImage
+instance GHC.Show.Show Amazonka.ECRPublic.PutImage.PutImage
+instance GHC.Read.Read Amazonka.ECRPublic.PutImage.PutImage
+instance GHC.Classes.Eq Amazonka.ECRPublic.PutImage.PutImage
+instance GHC.Generics.Generic Amazonka.ECRPublic.PutImage.PutImageResponse
+instance GHC.Show.Show Amazonka.ECRPublic.PutImage.PutImageResponse
+instance GHC.Read.Read Amazonka.ECRPublic.PutImage.PutImageResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.PutImage.PutImageResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.PutImage.PutImage
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.PutImage.PutImageResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.PutImage.PutImage
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.PutImage.PutImage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.PutImage.PutImage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.PutImage.PutImage
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.PutImage.PutImage
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.PutImage.PutImage
 
 
 -- | List the tags for an Amazon ECR Public resource.
-module Network.AWS.ECRPublic.ListTagsForResource
+module Amazonka.ECRPublic.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3410,22 +3410,22 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.ListTagsForResource.ListTagsForResource
 
 
 -- | Notifies Amazon ECR that you intend to upload an image layer.
@@ -3438,7 +3438,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.ListTagsForResourc
 --   This operation is used by the Amazon ECR proxy and is not generally
 --   used by customers for pulling and pushing images. In most cases, you
 --   should use the <tt>docker</tt> CLI to pull, tag, and push images.
-module Network.AWS.ECRPublic.InitiateLayerUpload
+module Amazonka.ECRPublic.InitiateLayerUpload
 
 -- | <i>See:</i> <a>newInitiateLayerUpload</a> smart constructor.
 data InitiateLayerUpload
@@ -3527,26 +3527,26 @@ initiateLayerUploadResponse_uploadId :: Lens' InitiateLayerUploadResponse (Maybe
 
 -- | The response's http status code.
 initiateLayerUploadResponse_httpStatus :: Lens' InitiateLayerUploadResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance GHC.Show.Show Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance GHC.Read.Read Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance GHC.Classes.Eq Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance GHC.Generics.Generic Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance GHC.Generics.Generic Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance GHC.Show.Show Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance GHC.Read.Read Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance GHC.Classes.Eq Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance GHC.Generics.Generic Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
+instance GHC.Show.Show Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
+instance GHC.Read.Read Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUploadResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.InitiateLayerUpload.InitiateLayerUpload
 
 
 -- | Retrieves the repository policy for the specified repository.
-module Network.AWS.ECRPublic.GetRepositoryPolicy
+module Amazonka.ECRPublic.GetRepositoryPolicy
 
 -- | <i>See:</i> <a>newGetRepositoryPolicy</a> smart constructor.
 data GetRepositoryPolicy
@@ -3643,27 +3643,27 @@ getRepositoryPolicyResponse_policyText :: Lens' GetRepositoryPolicyResponse (May
 
 -- | The response's http status code.
 getRepositoryPolicyResponse_httpStatus :: Lens' GetRepositoryPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance GHC.Show.Show Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance GHC.Read.Read Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance GHC.Show.Show Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance GHC.Read.Read Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
+instance GHC.Show.Show Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
+instance GHC.Read.Read Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.GetRepositoryPolicy.GetRepositoryPolicy
 
 
 -- | Retrieve catalog metadata for a repository in a public registry. This
 --   metadata is displayed publicly in the Amazon ECR Public Gallery.
-module Network.AWS.ECRPublic.GetRepositoryCatalogData
+module Amazonka.ECRPublic.GetRepositoryCatalogData
 
 -- | <i>See:</i> <a>newGetRepositoryCatalogData</a> smart constructor.
 data GetRepositoryCatalogData
@@ -3739,26 +3739,26 @@ getRepositoryCatalogDataResponse_catalogData :: Lens' GetRepositoryCatalogDataRe
 
 -- | The response's http status code.
 getRepositoryCatalogDataResponse_httpStatus :: Lens' GetRepositoryCatalogDataResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance GHC.Show.Show Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance GHC.Read.Read Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance GHC.Show.Show Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance GHC.Read.Read Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
+instance GHC.Show.Show Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
+instance GHC.Read.Read Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.GetRepositoryCatalogData.GetRepositoryCatalogData
 
 
 -- | Retrieves catalog metadata for a public registry.
-module Network.AWS.ECRPublic.GetRegistryCatalogData
+module Amazonka.ECRPublic.GetRegistryCatalogData
 
 -- | <i>See:</i> <a>newGetRegistryCatalogData</a> smart constructor.
 data GetRegistryCatalogData
@@ -3805,22 +3805,22 @@ getRegistryCatalogDataResponse_httpStatus :: Lens' GetRegistryCatalogDataRespons
 
 -- | The catalog metadata for the public registry.
 getRegistryCatalogDataResponse_registryCatalogData :: Lens' GetRegistryCatalogDataResponse RegistryCatalogData
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance GHC.Show.Show Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance GHC.Read.Read Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance GHC.Show.Show Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance GHC.Read.Read Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
+instance GHC.Show.Show Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
+instance GHC.Read.Read Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.GetRegistryCatalogData.GetRegistryCatalogData
 
 
 -- | Retrieves an authorization token. An authorization token represents
@@ -3829,7 +3829,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.GetRegistryCatalog
 --   authorization token is valid for 12 hours. This API requires the
 --   <tt>ecr-public:GetAuthorizationToken</tt> and
 --   <tt>sts:GetServiceBearerToken</tt> permissions.
-module Network.AWS.ECRPublic.GetAuthorizationToken
+module Amazonka.ECRPublic.GetAuthorizationToken
 
 -- | <i>See:</i> <a>newGetAuthorizationToken</a> smart constructor.
 data GetAuthorizationToken
@@ -3877,28 +3877,28 @@ getAuthorizationTokenResponse_authorizationData :: Lens' GetAuthorizationTokenRe
 
 -- | The response's http status code.
 getAuthorizationTokenResponse_httpStatus :: Lens' GetAuthorizationTokenResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance GHC.Show.Show Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance GHC.Read.Read Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance GHC.Generics.Generic Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance GHC.Show.Show Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance GHC.Read.Read Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance GHC.Generics.Generic Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
+instance GHC.Show.Show Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
+instance GHC.Read.Read Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationTokenResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.GetAuthorizationToken.GetAuthorizationToken
 
 
 -- | Describes repositories in a public registry.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ECRPublic.DescribeRepositories
+module Amazonka.ECRPublic.DescribeRepositories
 
 -- | <i>See:</i> <a>newDescribeRepositories</a> smart constructor.
 data DescribeRepositories
@@ -4079,29 +4079,29 @@ describeRepositoriesResponse_nextToken :: Lens' DescribeRepositoriesResponse (Ma
 
 -- | The response's http status code.
 describeRepositoriesResponse_httpStatus :: Lens' DescribeRepositoriesResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.DescribeRepositories.DescribeRepositories
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeRepositories.DescribeRepositoriesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.DescribeRepositories.DescribeRepositories
 
 
 -- | Returns details for a public registry.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ECRPublic.DescribeRegistries
+module Amazonka.ECRPublic.DescribeRegistries
 
 -- | <i>See:</i> <a>newDescribeRegistries</a> smart constructor.
 data DescribeRegistries
@@ -4242,23 +4242,23 @@ describeRegistriesResponse_httpStatus :: Lens' DescribeRegistriesResponse Int
 
 -- | An object containing the details for a public registry.
 describeRegistriesResponse_registries :: Lens' DescribeRegistriesResponse [Registry]
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.DescribeRegistries.DescribeRegistries
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeRegistries.DescribeRegistriesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.DescribeRegistries.DescribeRegistries
 
 
 -- | Returns metadata about the images in a repository in a public
@@ -4271,7 +4271,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.DescribeRegistries
 --   DescribeImages.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ECRPublic.DescribeImages
+module Amazonka.ECRPublic.DescribeImages
 
 -- | <i>See:</i> <a>newDescribeImages</a> smart constructor.
 data DescribeImages
@@ -4441,29 +4441,29 @@ describeImagesResponse_nextToken :: Lens' DescribeImagesResponse (Maybe Text)
 
 -- | The response's http status code.
 describeImagesResponse_httpStatus :: Lens' DescribeImagesResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeImages.DescribeImagesResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeImages.DescribeImagesResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeImages.DescribeImagesResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeImages.DescribeImagesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeImages.DescribeImagesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.DescribeImages.DescribeImages
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.DescribeImages.DescribeImages
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeImages.DescribeImagesResponse
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeImages.DescribeImagesResponse
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeImages.DescribeImagesResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeImages.DescribeImagesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeImages.DescribeImagesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.DescribeImages.DescribeImages
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.DescribeImages.DescribeImages
 
 
 -- | Returns the image tag details for a repository in a public registry.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ECRPublic.DescribeImageTags
+module Amazonka.ECRPublic.DescribeImageTags
 
 -- | <i>See:</i> <a>newDescribeImageTags</a> smart constructor.
 data DescribeImageTags
@@ -4626,28 +4626,28 @@ describeImageTagsResponse_imageTagDetails :: Lens' DescribeImageTagsResponse (Ma
 
 -- | The response's http status code.
 describeImageTagsResponse_httpStatus :: Lens' DescribeImageTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.DescribeImageTags.DescribeImageTags
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance GHC.Generics.Generic Amazonka.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
+instance GHC.Show.Show Amazonka.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
+instance GHC.Read.Read Amazonka.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeImageTags.DescribeImageTagsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.DescribeImageTags.DescribeImageTags
 
 
 -- | Deletes the repository policy associated with the specified
 --   repository.
-module Network.AWS.ECRPublic.DeleteRepositoryPolicy
+module Amazonka.ECRPublic.DeleteRepositoryPolicy
 
 -- | <i>See:</i> <a>newDeleteRepositoryPolicy</a> smart constructor.
 data DeleteRepositoryPolicy
@@ -4745,29 +4745,29 @@ deleteRepositoryPolicyResponse_policyText :: Lens' DeleteRepositoryPolicyRespons
 
 -- | The response's http status code.
 deleteRepositoryPolicyResponse_httpStatus :: Lens' DeleteRepositoryPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance GHC.Show.Show Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance GHC.Read.Read Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance GHC.Generics.Generic Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance GHC.Show.Show Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance GHC.Read.Read Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance GHC.Classes.Eq Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance GHC.Generics.Generic Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
+instance GHC.Show.Show Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
+instance GHC.Read.Read Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.DeleteRepositoryPolicy.DeleteRepositoryPolicy
 
 
 -- | Deletes a repository in a public registry. If the repository contains
 --   images, you must either delete all images in the repository or use the
 --   <tt>force</tt> option which deletes all images on your behalf before
 --   deleting the repository.
-module Network.AWS.ECRPublic.DeleteRepository
+module Amazonka.ECRPublic.DeleteRepository
 
 -- | <i>See:</i> <a>newDeleteRepository</a> smart constructor.
 data DeleteRepository
@@ -4850,28 +4850,28 @@ deleteRepositoryResponse_repository :: Lens' DeleteRepositoryResponse (Maybe Rep
 
 -- | The response's http status code.
 deleteRepositoryResponse_httpStatus :: Lens' DeleteRepositoryResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance GHC.Show.Show Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance GHC.Read.Read Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance GHC.Generics.Generic Network.AWS.ECRPublic.DeleteRepository.DeleteRepositoryResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.DeleteRepository.DeleteRepositoryResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.DeleteRepository.DeleteRepositoryResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.DeleteRepository.DeleteRepositoryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DeleteRepository.DeleteRepositoryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.DeleteRepository.DeleteRepository
+instance GHC.Generics.Generic Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance GHC.Show.Show Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance GHC.Read.Read Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance GHC.Classes.Eq Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance GHC.Generics.Generic Amazonka.ECRPublic.DeleteRepository.DeleteRepositoryResponse
+instance GHC.Show.Show Amazonka.ECRPublic.DeleteRepository.DeleteRepositoryResponse
+instance GHC.Read.Read Amazonka.ECRPublic.DeleteRepository.DeleteRepositoryResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.DeleteRepository.DeleteRepositoryResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DeleteRepository.DeleteRepositoryResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.DeleteRepository.DeleteRepository
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.DeleteRepository.DeleteRepository
 
 
 -- | Creates a repository in a public registry. For more information, see
 --   <a>Amazon ECR repositories</a> in the <i>Amazon Elastic Container
 --   Registry User Guide</i>.
-module Network.AWS.ECRPublic.CreateRepository
+module Amazonka.ECRPublic.CreateRepository
 
 -- | <i>See:</i> <a>newCreateRepository</a> smart constructor.
 data CreateRepository
@@ -4982,22 +4982,22 @@ createRepositoryResponse_catalogData :: Lens' CreateRepositoryResponse (Maybe Re
 
 -- | The response's http status code.
 createRepositoryResponse_httpStatus :: Lens' CreateRepositoryResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance GHC.Show.Show Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance GHC.Read.Read Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance GHC.Classes.Eq Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance GHC.Generics.Generic Network.AWS.ECRPublic.CreateRepository.CreateRepositoryResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.CreateRepository.CreateRepositoryResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.CreateRepository.CreateRepositoryResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.CreateRepository.CreateRepositoryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.CreateRepository.CreateRepositoryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.CreateRepository.CreateRepository
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.CreateRepository.CreateRepository
+instance GHC.Generics.Generic Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance GHC.Show.Show Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance GHC.Read.Read Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance GHC.Classes.Eq Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance GHC.Generics.Generic Amazonka.ECRPublic.CreateRepository.CreateRepositoryResponse
+instance GHC.Show.Show Amazonka.ECRPublic.CreateRepository.CreateRepositoryResponse
+instance GHC.Read.Read Amazonka.ECRPublic.CreateRepository.CreateRepositoryResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.CreateRepository.CreateRepositoryResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.CreateRepository.CreateRepositoryResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.CreateRepository.CreateRepository
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.CreateRepository.CreateRepository
 
 
 -- | Informs Amazon ECR that the image layer upload has completed for a
@@ -5011,7 +5011,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.CreateRepository.C
 --   This operation is used by the Amazon ECR proxy and is not generally
 --   used by customers for pulling and pushing images. In most cases, you
 --   should use the <tt>docker</tt> CLI to pull, tag, and push images.
-module Network.AWS.ECRPublic.CompleteLayerUpload
+module Amazonka.ECRPublic.CompleteLayerUpload
 
 -- | <i>See:</i> <a>newCompleteLayerUpload</a> smart constructor.
 data CompleteLayerUpload
@@ -5139,22 +5139,22 @@ completeLayerUploadResponse_uploadId :: Lens' CompleteLayerUploadResponse (Maybe
 
 -- | The response's http status code.
 completeLayerUploadResponse_httpStatus :: Lens' CompleteLayerUploadResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance GHC.Show.Show Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance GHC.Read.Read Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance GHC.Classes.Eq Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance GHC.Generics.Generic Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance GHC.Generics.Generic Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance GHC.Show.Show Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance GHC.Read.Read Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance GHC.Classes.Eq Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance GHC.Generics.Generic Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
+instance GHC.Show.Show Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
+instance GHC.Read.Read Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUploadResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.CompleteLayerUpload.CompleteLayerUpload
 
 
 -- | Deletes a list of specified images within a repository in a public
@@ -5167,7 +5167,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.CompleteLayerUploa
 --   
 --   You can completely delete an image (and all of its tags) by specifying
 --   the image's digest in your request.
-module Network.AWS.ECRPublic.BatchDeleteImage
+module Amazonka.ECRPublic.BatchDeleteImage
 
 -- | <i>See:</i> <a>newBatchDeleteImage</a> smart constructor.
 data BatchDeleteImage
@@ -5266,22 +5266,22 @@ batchDeleteImageResponse_imageIds :: Lens' BatchDeleteImageResponse (Maybe (NonE
 
 -- | The response's http status code.
 batchDeleteImageResponse_httpStatus :: Lens' BatchDeleteImageResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance GHC.Show.Show Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance GHC.Read.Read Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance GHC.Classes.Eq Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance GHC.Generics.Generic Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance GHC.Generics.Generic Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance GHC.Show.Show Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance GHC.Read.Read Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance GHC.Classes.Eq Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance GHC.Generics.Generic Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
+instance GHC.Show.Show Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
+instance GHC.Read.Read Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImageResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.BatchDeleteImage.BatchDeleteImage
 
 
 -- | Checks the availability of one or more image layers within a
@@ -5293,7 +5293,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.BatchDeleteImage.B
 --   This operation is used by the Amazon ECR proxy and is not generally
 --   used by customers for pulling and pushing images. In most cases, you
 --   should use the <tt>docker</tt> CLI to pull, tag, and push images.
-module Network.AWS.ECRPublic.BatchCheckLayerAvailability
+module Amazonka.ECRPublic.BatchCheckLayerAvailability
 
 -- | <i>See:</i> <a>newBatchCheckLayerAvailability</a> smart constructor.
 data BatchCheckLayerAvailability
@@ -5394,26 +5394,26 @@ batchCheckLayerAvailabilityResponse_layers :: Lens' BatchCheckLayerAvailabilityR
 
 -- | The response's http status code.
 batchCheckLayerAvailabilityResponse_httpStatus :: Lens' BatchCheckLayerAvailabilityResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance GHC.Show.Show Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance GHC.Read.Read Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance GHC.Classes.Eq Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance GHC.Generics.Generic Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance GHC.Generics.Generic Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance GHC.Show.Show Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance GHC.Read.Read Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance GHC.Classes.Eq Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance GHC.Generics.Generic Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
+instance GHC.Show.Show Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
+instance GHC.Read.Read Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailabilityResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.BatchCheckLayerAvailability.BatchCheckLayerAvailability
 
 
 -- | Deletes specified tags from a resource.
-module Network.AWS.ECRPublic.UntagResource
+module Amazonka.ECRPublic.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -5476,22 +5476,22 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.ECRPublic.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.ECRPublic.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.ECRPublic.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.ECRPublic.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ECRPublic.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.ECRPublic.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.ECRPublic.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.ECRPublic.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ECRPublic.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.ECRPublic.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.ECRPublic.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.UntagResource.UntagResource
 
 
 -- | Uploads an image layer part to Amazon ECR.
@@ -5504,7 +5504,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.UntagResource.Unta
 --   This operation is used by the Amazon ECR proxy and is not generally
 --   used by customers for pulling and pushing images. In most cases, you
 --   should use the <tt>docker</tt> CLI to pull, tag, and push images.
-module Network.AWS.ECRPublic.UploadLayerPart
+module Amazonka.ECRPublic.UploadLayerPart
 
 -- | <i>See:</i> <a>newUploadLayerPart</a> smart constructor.
 data UploadLayerPart
@@ -5663,25 +5663,25 @@ uploadLayerPartResponse_uploadId :: Lens' UploadLayerPartResponse (Maybe Text)
 
 -- | The response's http status code.
 uploadLayerPartResponse_httpStatus :: Lens' UploadLayerPartResponse Int
-instance GHC.Generics.Generic Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance GHC.Show.Show Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance GHC.Read.Read Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance GHC.Classes.Eq Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance GHC.Generics.Generic Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPartResponse
-instance GHC.Show.Show Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPartResponse
-instance GHC.Read.Read Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPartResponse
-instance GHC.Classes.Eq Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPartResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPartResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance Control.DeepSeq.NFData Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance Network.AWS.Data.Path.ToPath Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ECRPublic.UploadLayerPart.UploadLayerPart
+instance GHC.Generics.Generic Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance GHC.Show.Show Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance GHC.Read.Read Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance GHC.Classes.Eq Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance GHC.Generics.Generic Amazonka.ECRPublic.UploadLayerPart.UploadLayerPartResponse
+instance GHC.Show.Show Amazonka.ECRPublic.UploadLayerPart.UploadLayerPartResponse
+instance GHC.Read.Read Amazonka.ECRPublic.UploadLayerPart.UploadLayerPartResponse
+instance GHC.Classes.Eq Amazonka.ECRPublic.UploadLayerPart.UploadLayerPartResponse
+instance Amazonka.Types.AWSRequest Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.UploadLayerPart.UploadLayerPartResponse
+instance Data.Hashable.Class.Hashable Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance Control.DeepSeq.NFData Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance Amazonka.Data.Path.ToPath Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
+instance Amazonka.Data.Query.ToQuery Amazonka.ECRPublic.UploadLayerPart.UploadLayerPart
 
 
-module Network.AWS.ECRPublic.Lens
+module Amazonka.ECRPublic.Lens
 
 -- | The AWS account ID associated with the public registry that contains
 --   the repository. If you do not specify a registry, the default public
@@ -6531,7 +6531,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag (Maybe Text)
 
 
-module Network.AWS.ECRPublic.Waiters
+module Amazonka.ECRPublic.Waiters
 
 
 -- | Derived from API version <tt>2020-10-30</tt> of the AWS service
@@ -6548,7 +6548,7 @@ module Network.AWS.ECRPublic.Waiters
 --   supports public repositories with this API. For information about the
 --   Amazon ECR API for private repositories, see <a>Amazon Elastic
 --   Container Registry API Reference</a>.
-module Network.AWS.ECRPublic
+module Amazonka.ECRPublic
 
 -- | API version <tt>2020-10-30</tt> of the Amazon Elastic Container
 --   Registry Public SDK configuration.

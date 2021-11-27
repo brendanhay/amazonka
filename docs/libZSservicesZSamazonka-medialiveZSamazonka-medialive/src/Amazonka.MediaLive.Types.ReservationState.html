@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.ReservationState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState"><span class="hs-identifier">ReservationState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_ACTIVE"><span class="hs-identifier">ReservationState_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_CANCELED"><span class="hs-identifier">ReservationState_CANCELED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_DELETED"><span class="hs-identifier">ReservationState_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_EXPIRED"><span class="hs-identifier">ReservationState_EXPIRED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Current reservation state</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679913333"><span id="local-6989586621679913334"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationState"><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState"><span class="hs-identifier hs-var">ReservationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationState%27"><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState%27"><span class="hs-identifier hs-var">ReservationState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservationState"><span class="annot"><span class="annottext">ReservationState -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.ReservationState.html#fromReservationState"><span class="hs-identifier hs-var hs-var">fromReservationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679913325"><span id="local-6989586621679913327"><span id="local-6989586621679913329"><span class="annot"><span class="annottext">Int -&gt; ReservationState -&gt; ShowS
+[ReservationState] -&gt; ShowS
+ReservationState -&gt; String
+(Int -&gt; ReservationState -&gt; ShowS)
+-&gt; (ReservationState -&gt; String)
+-&gt; ([ReservationState] -&gt; ShowS)
+-&gt; Show ReservationState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReservationState] -&gt; ShowS
+$cshowList :: [ReservationState] -&gt; ShowS
+show :: ReservationState -&gt; String
+$cshow :: ReservationState -&gt; String
+showsPrec :: Int -&gt; ReservationState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReservationState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679913316"><span id="local-6989586621679913318"><span id="local-6989586621679913320"><span id="local-6989586621679913322"><span class="annot"><span class="annottext">ReadPrec [ReservationState]
+ReadPrec ReservationState
+Int -&gt; ReadS ReservationState
+ReadS [ReservationState]
+(Int -&gt; ReadS ReservationState)
+-&gt; ReadS [ReservationState]
+-&gt; ReadPrec ReservationState
+-&gt; ReadPrec [ReservationState]
+-&gt; Read ReservationState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReservationState]
+$creadListPrec :: ReadPrec [ReservationState]
+readPrec :: ReadPrec ReservationState
+$creadPrec :: ReadPrec ReservationState
+readList :: ReadS [ReservationState]
+$creadList :: ReadS [ReservationState]
+readsPrec :: Int -&gt; ReadS ReservationState
+$creadsPrec :: Int -&gt; ReadS ReservationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679913311"><span id="local-6989586621679913313"><span class="annot"><span class="annottext">ReservationState -&gt; ReservationState -&gt; Bool
+(ReservationState -&gt; ReservationState -&gt; Bool)
+-&gt; (ReservationState -&gt; ReservationState -&gt; Bool)
+-&gt; Eq ReservationState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReservationState -&gt; ReservationState -&gt; Bool
+$c/= :: ReservationState -&gt; ReservationState -&gt; Bool
+== :: ReservationState -&gt; ReservationState -&gt; Bool
+$c== :: ReservationState -&gt; ReservationState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679913295"><span id="local-6989586621679913297"><span id="local-6989586621679913299"><span id="local-6989586621679913301"><span id="local-6989586621679913303"><span id="local-6989586621679913305"><span id="local-6989586621679913307"><span class="annot"><span class="annottext">Eq ReservationState
+Eq ReservationState
+-&gt; (ReservationState -&gt; ReservationState -&gt; Ordering)
+-&gt; (ReservationState -&gt; ReservationState -&gt; Bool)
+-&gt; (ReservationState -&gt; ReservationState -&gt; Bool)
+-&gt; (ReservationState -&gt; ReservationState -&gt; Bool)
+-&gt; (ReservationState -&gt; ReservationState -&gt; Bool)
+-&gt; (ReservationState -&gt; ReservationState -&gt; ReservationState)
+-&gt; (ReservationState -&gt; ReservationState -&gt; ReservationState)
+-&gt; Ord ReservationState
+ReservationState -&gt; ReservationState -&gt; Bool
+ReservationState -&gt; ReservationState -&gt; Ordering
+ReservationState -&gt; ReservationState -&gt; ReservationState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReservationState -&gt; ReservationState -&gt; ReservationState
+$cmin :: ReservationState -&gt; ReservationState -&gt; ReservationState
+max :: ReservationState -&gt; ReservationState -&gt; ReservationState
+$cmax :: ReservationState -&gt; ReservationState -&gt; ReservationState
+&gt;= :: ReservationState -&gt; ReservationState -&gt; Bool
+$c&gt;= :: ReservationState -&gt; ReservationState -&gt; Bool
+&gt; :: ReservationState -&gt; ReservationState -&gt; Bool
+$c&gt; :: ReservationState -&gt; ReservationState -&gt; Bool
+&lt;= :: ReservationState -&gt; ReservationState -&gt; Bool
+$c&lt;= :: ReservationState -&gt; ReservationState -&gt; Bool
+&lt; :: ReservationState -&gt; ReservationState -&gt; Bool
+$c&lt; :: ReservationState -&gt; ReservationState -&gt; Bool
+compare :: ReservationState -&gt; ReservationState -&gt; Ordering
+$ccompare :: ReservationState -&gt; ReservationState -&gt; Ordering
+$cp1Ord :: Eq ReservationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReservationState -&gt; Rep ReservationState x)
+-&gt; (forall x. Rep ReservationState x -&gt; ReservationState)
+-&gt; Generic ReservationState
+forall x. Rep ReservationState x -&gt; ReservationState
+forall x. ReservationState -&gt; Rep ReservationState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReservationState x -&gt; ReservationState
+$cfrom :: forall x. ReservationState -&gt; Rep ReservationState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679913287"><span id="local-6989586621679913289"><span class="annot"><span class="annottext">Int -&gt; ReservationState -&gt; Int
+ReservationState -&gt; Int
+(Int -&gt; ReservationState -&gt; Int)
+-&gt; (ReservationState -&gt; Int) -&gt; Hashable ReservationState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReservationState -&gt; Int
+$chash :: ReservationState -&gt; Int
+hashWithSalt :: Int -&gt; ReservationState -&gt; Int
+$chashWithSalt :: Int -&gt; ReservationState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679913284"><span class="annot"><span class="annottext">ReservationState -&gt; ()
+(ReservationState -&gt; ()) -&gt; NFData ReservationState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReservationState -&gt; ()
+$crnf :: ReservationState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679913281"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationState
+(Text -&gt; Either String ReservationState)
+-&gt; FromText ReservationState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReservationState
+$cfromText :: Text -&gt; Either String ReservationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679913278"><span class="annot"><span class="annottext">ReservationState -&gt; Text
+(ReservationState -&gt; Text) -&gt; ToText ReservationState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReservationState -&gt; Text
+$ctoText :: ReservationState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679913275"><span class="annot"><span class="annottext">ReservationState -&gt; ByteString
+(ReservationState -&gt; ByteString) -&gt; ToByteString ReservationState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReservationState -&gt; ByteString
+$ctoBS :: ReservationState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679913272"><span class="annot"><span class="annottext">ReservationState -&gt; ByteStringBuilder
+(ReservationState -&gt; ByteStringBuilder) -&gt; ToLog ReservationState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReservationState -&gt; ByteStringBuilder
+$cbuild :: ReservationState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679913269"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationState -&gt; [Header]
+(HeaderName -&gt; ReservationState -&gt; [Header])
+-&gt; ToHeader ReservationState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReservationState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReservationState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679913266"><span class="annot"><span class="annottext">ReservationState -&gt; QueryString
+(ReservationState -&gt; QueryString) -&gt; ToQuery ReservationState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReservationState -&gt; QueryString
+$ctoQuery :: ReservationState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679913261"><span id="local-6989586621679913263"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationState]
+Value -&gt; Parser ReservationState
+(Value -&gt; Parser ReservationState)
+-&gt; (Value -&gt; Parser [ReservationState])
+-&gt; FromJSON ReservationState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReservationState]
+$cparseJSONList :: Value -&gt; Parser [ReservationState]
+parseJSON :: Value -&gt; Parser ReservationState
+$cparseJSON :: Value -&gt; Parser ReservationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679913256"><span id="local-6989586621679913258"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationState]
+FromJSONKeyFunction ReservationState
+FromJSONKeyFunction ReservationState
+-&gt; FromJSONKeyFunction [ReservationState]
+-&gt; FromJSONKey ReservationState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReservationState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReservationState]
+fromJSONKey :: FromJSONKeyFunction ReservationState
+$cfromJSONKey :: FromJSONKeyFunction ReservationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679913247"><span id="local-6989586621679913249"><span id="local-6989586621679913251"><span id="local-6989586621679913253"><span class="annot"><span class="annottext">[ReservationState] -&gt; Encoding
+[ReservationState] -&gt; Value
+ReservationState -&gt; Encoding
+ReservationState -&gt; Value
+(ReservationState -&gt; Value)
+-&gt; (ReservationState -&gt; Encoding)
+-&gt; ([ReservationState] -&gt; Value)
+-&gt; ([ReservationState] -&gt; Encoding)
+-&gt; ToJSON ReservationState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReservationState] -&gt; Encoding
+$ctoEncodingList :: [ReservationState] -&gt; Encoding
+toJSONList :: [ReservationState] -&gt; Value
+$ctoJSONList :: [ReservationState] -&gt; Value
+toEncoding :: ReservationState -&gt; Encoding
+$ctoEncoding :: ReservationState -&gt; Encoding
+toJSON :: ReservationState -&gt; Value
+$ctoJSON :: ReservationState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679913242"><span id="local-6989586621679913244"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationState]
+ToJSONKeyFunction ReservationState
+ToJSONKeyFunction ReservationState
+-&gt; ToJSONKeyFunction [ReservationState]
+-&gt; ToJSONKey ReservationState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReservationState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReservationState]
+toJSONKey :: ToJSONKeyFunction ReservationState
+$ctoJSONKey :: ToJSONKeyFunction ReservationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679913239"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationState
+([Node] -&gt; Either String ReservationState)
+-&gt; FromXML ReservationState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReservationState
+$cparseXML :: [Node] -&gt; Either String ReservationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679913236"><span class="annot"><span class="annottext">ReservationState -&gt; XML
+(ReservationState -&gt; XML) -&gt; ToXML ReservationState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReservationState -&gt; XML
+$ctoXML :: ReservationState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_ACTIVE"><span class="hs-identifier hs-type">ReservationState_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState"><span class="hs-identifier hs-type">ReservationState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservationState_ACTIVE"><span id="%24mReservationState_ACTIVE"><span id="ReservationState_ACTIVE"><span class="annot"><span class="annottext">$bReservationState_ACTIVE :: ReservationState
+$mReservationState_ACTIVE :: forall r. ReservationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.ReservationState.html#%24bReservationState_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ReservationState_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState%27"><span class="hs-identifier hs-type">ReservationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_CANCELED"><span class="hs-identifier hs-type">ReservationState_CANCELED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState"><span class="hs-identifier hs-type">ReservationState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservationState_CANCELED"><span id="%24mReservationState_CANCELED"><span id="ReservationState_CANCELED"><span class="annot"><span class="annottext">$bReservationState_CANCELED :: ReservationState
+$mReservationState_CANCELED :: forall r. ReservationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.ReservationState.html#%24bReservationState_CANCELED"><span class="hs-identifier hs-var hs-var hs-var">ReservationState_CANCELED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState%27"><span class="hs-identifier hs-type">ReservationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_DELETED"><span class="hs-identifier hs-type">ReservationState_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState"><span class="hs-identifier hs-type">ReservationState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservationState_DELETED"><span id="%24mReservationState_DELETED"><span id="ReservationState_DELETED"><span class="annot"><span class="annottext">$bReservationState_DELETED :: ReservationState
+$mReservationState_DELETED :: forall r. ReservationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.ReservationState.html#%24bReservationState_DELETED"><span class="hs-identifier hs-var hs-var hs-var">ReservationState_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState%27"><span class="hs-identifier hs-type">ReservationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_EXPIRED"><span class="hs-identifier hs-type">ReservationState_EXPIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState"><span class="hs-identifier hs-type">ReservationState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservationState_EXPIRED"><span id="%24mReservationState_EXPIRED"><span id="ReservationState_EXPIRED"><span class="annot"><span class="annottext">$bReservationState_EXPIRED :: ReservationState
+$mReservationState_EXPIRED :: forall r. ReservationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.ReservationState.html#%24bReservationState_EXPIRED"><span class="hs-identifier hs-var hs-var hs-var">ReservationState_EXPIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState%27"><span class="hs-identifier hs-type">ReservationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPIRED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_ACTIVE"><span class="hs-pragma hs-type">ReservationState_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_CANCELED"><span class="hs-pragma hs-type">ReservationState_CANCELED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_DELETED"><span class="hs-pragma hs-type">ReservationState_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState_EXPIRED"><span class="hs-pragma hs-type">ReservationState_EXPIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationState.html#ReservationState%27"><span class="hs-pragma hs-type">ReservationState'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

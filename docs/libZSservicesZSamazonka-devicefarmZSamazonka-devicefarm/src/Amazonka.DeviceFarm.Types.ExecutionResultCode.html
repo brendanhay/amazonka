@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.ExecutionResultCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.ExecutionResultCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode"><span class="hs-identifier">ExecutionResultCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode_PARSING_FAILED"><span class="hs-identifier">ExecutionResultCode_PARSING_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED"><span class="hs-identifier">ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679362957"><span id="local-6989586621679362958"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionResultCode"><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode"><span class="hs-identifier hs-var">ExecutionResultCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionResultCode%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode%27"><span class="hs-identifier hs-var">ExecutionResultCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutionResultCode"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; Text
+</span><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#fromExecutionResultCode"><span class="hs-identifier hs-var hs-var">fromExecutionResultCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362949"><span id="local-6989586621679362951"><span id="local-6989586621679362953"><span class="annot"><span class="annottext">Int -&gt; ExecutionResultCode -&gt; ShowS
+[ExecutionResultCode] -&gt; ShowS
+ExecutionResultCode -&gt; String
+(Int -&gt; ExecutionResultCode -&gt; ShowS)
+-&gt; (ExecutionResultCode -&gt; String)
+-&gt; ([ExecutionResultCode] -&gt; ShowS)
+-&gt; Show ExecutionResultCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutionResultCode] -&gt; ShowS
+$cshowList :: [ExecutionResultCode] -&gt; ShowS
+show :: ExecutionResultCode -&gt; String
+$cshow :: ExecutionResultCode -&gt; String
+showsPrec :: Int -&gt; ExecutionResultCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutionResultCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679362940"><span id="local-6989586621679362942"><span id="local-6989586621679362944"><span id="local-6989586621679362946"><span class="annot"><span class="annottext">ReadPrec [ExecutionResultCode]
+ReadPrec ExecutionResultCode
+Int -&gt; ReadS ExecutionResultCode
+ReadS [ExecutionResultCode]
+(Int -&gt; ReadS ExecutionResultCode)
+-&gt; ReadS [ExecutionResultCode]
+-&gt; ReadPrec ExecutionResultCode
+-&gt; ReadPrec [ExecutionResultCode]
+-&gt; Read ExecutionResultCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutionResultCode]
+$creadListPrec :: ReadPrec [ExecutionResultCode]
+readPrec :: ReadPrec ExecutionResultCode
+$creadPrec :: ReadPrec ExecutionResultCode
+readList :: ReadS [ExecutionResultCode]
+$creadList :: ReadS [ExecutionResultCode]
+readsPrec :: Int -&gt; ReadS ExecutionResultCode
+$creadsPrec :: Int -&gt; ReadS ExecutionResultCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679362935"><span id="local-6989586621679362937"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+(ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool)
+-&gt; (ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool)
+-&gt; Eq ExecutionResultCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+$c/= :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+== :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+$c== :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679362919"><span id="local-6989586621679362921"><span id="local-6989586621679362923"><span id="local-6989586621679362925"><span id="local-6989586621679362927"><span id="local-6989586621679362929"><span id="local-6989586621679362931"><span class="annot"><span class="annottext">Eq ExecutionResultCode
+Eq ExecutionResultCode
+-&gt; (ExecutionResultCode -&gt; ExecutionResultCode -&gt; Ordering)
+-&gt; (ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool)
+-&gt; (ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool)
+-&gt; (ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool)
+-&gt; (ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool)
+-&gt; (ExecutionResultCode
+    -&gt; ExecutionResultCode -&gt; ExecutionResultCode)
+-&gt; (ExecutionResultCode
+    -&gt; ExecutionResultCode -&gt; ExecutionResultCode)
+-&gt; Ord ExecutionResultCode
+ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+ExecutionResultCode -&gt; ExecutionResultCode -&gt; Ordering
+ExecutionResultCode -&gt; ExecutionResultCode -&gt; ExecutionResultCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; ExecutionResultCode
+$cmin :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; ExecutionResultCode
+max :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; ExecutionResultCode
+$cmax :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; ExecutionResultCode
+&gt;= :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+$c&gt;= :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+&gt; :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+$c&gt; :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+&lt;= :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+$c&lt;= :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+&lt; :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+$c&lt; :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Bool
+compare :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Ordering
+$ccompare :: ExecutionResultCode -&gt; ExecutionResultCode -&gt; Ordering
+$cp1Ord :: Eq ExecutionResultCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExecutionResultCode -&gt; Rep ExecutionResultCode x)
+-&gt; (forall x. Rep ExecutionResultCode x -&gt; ExecutionResultCode)
+-&gt; Generic ExecutionResultCode
+forall x. Rep ExecutionResultCode x -&gt; ExecutionResultCode
+forall x. ExecutionResultCode -&gt; Rep ExecutionResultCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutionResultCode x -&gt; ExecutionResultCode
+$cfrom :: forall x. ExecutionResultCode -&gt; Rep ExecutionResultCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362911"><span id="local-6989586621679362913"><span class="annot"><span class="annottext">Int -&gt; ExecutionResultCode -&gt; Int
+ExecutionResultCode -&gt; Int
+(Int -&gt; ExecutionResultCode -&gt; Int)
+-&gt; (ExecutionResultCode -&gt; Int) -&gt; Hashable ExecutionResultCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExecutionResultCode -&gt; Int
+$chash :: ExecutionResultCode -&gt; Int
+hashWithSalt :: Int -&gt; ExecutionResultCode -&gt; Int
+$chashWithSalt :: Int -&gt; ExecutionResultCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679362908"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; ()
+(ExecutionResultCode -&gt; ()) -&gt; NFData ExecutionResultCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExecutionResultCode -&gt; ()
+$crnf :: ExecutionResultCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679362905"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionResultCode
+(Text -&gt; Either String ExecutionResultCode)
+-&gt; FromText ExecutionResultCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExecutionResultCode
+$cfromText :: Text -&gt; Either String ExecutionResultCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679362902"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; Text
+(ExecutionResultCode -&gt; Text) -&gt; ToText ExecutionResultCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExecutionResultCode -&gt; Text
+$ctoText :: ExecutionResultCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679362899"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; ByteString
+(ExecutionResultCode -&gt; ByteString)
+-&gt; ToByteString ExecutionResultCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExecutionResultCode -&gt; ByteString
+$ctoBS :: ExecutionResultCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679362896"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; ByteStringBuilder
+(ExecutionResultCode -&gt; ByteStringBuilder)
+-&gt; ToLog ExecutionResultCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExecutionResultCode -&gt; ByteStringBuilder
+$cbuild :: ExecutionResultCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362893"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionResultCode -&gt; [Header]
+(HeaderName -&gt; ExecutionResultCode -&gt; [Header])
+-&gt; ToHeader ExecutionResultCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExecutionResultCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExecutionResultCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679362890"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; QueryString
+(ExecutionResultCode -&gt; QueryString) -&gt; ToQuery ExecutionResultCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExecutionResultCode -&gt; QueryString
+$ctoQuery :: ExecutionResultCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679362885"><span id="local-6989586621679362887"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionResultCode]
+Value -&gt; Parser ExecutionResultCode
+(Value -&gt; Parser ExecutionResultCode)
+-&gt; (Value -&gt; Parser [ExecutionResultCode])
+-&gt; FromJSON ExecutionResultCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExecutionResultCode]
+$cparseJSONList :: Value -&gt; Parser [ExecutionResultCode]
+parseJSON :: Value -&gt; Parser ExecutionResultCode
+$cparseJSON :: Value -&gt; Parser ExecutionResultCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679362880"><span id="local-6989586621679362882"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionResultCode]
+FromJSONKeyFunction ExecutionResultCode
+FromJSONKeyFunction ExecutionResultCode
+-&gt; FromJSONKeyFunction [ExecutionResultCode]
+-&gt; FromJSONKey ExecutionResultCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExecutionResultCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExecutionResultCode]
+fromJSONKey :: FromJSONKeyFunction ExecutionResultCode
+$cfromJSONKey :: FromJSONKeyFunction ExecutionResultCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679362871"><span id="local-6989586621679362873"><span id="local-6989586621679362875"><span id="local-6989586621679362877"><span class="annot"><span class="annottext">[ExecutionResultCode] -&gt; Encoding
+[ExecutionResultCode] -&gt; Value
+ExecutionResultCode -&gt; Encoding
+ExecutionResultCode -&gt; Value
+(ExecutionResultCode -&gt; Value)
+-&gt; (ExecutionResultCode -&gt; Encoding)
+-&gt; ([ExecutionResultCode] -&gt; Value)
+-&gt; ([ExecutionResultCode] -&gt; Encoding)
+-&gt; ToJSON ExecutionResultCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExecutionResultCode] -&gt; Encoding
+$ctoEncodingList :: [ExecutionResultCode] -&gt; Encoding
+toJSONList :: [ExecutionResultCode] -&gt; Value
+$ctoJSONList :: [ExecutionResultCode] -&gt; Value
+toEncoding :: ExecutionResultCode -&gt; Encoding
+$ctoEncoding :: ExecutionResultCode -&gt; Encoding
+toJSON :: ExecutionResultCode -&gt; Value
+$ctoJSON :: ExecutionResultCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362866"><span id="local-6989586621679362868"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionResultCode]
+ToJSONKeyFunction ExecutionResultCode
+ToJSONKeyFunction ExecutionResultCode
+-&gt; ToJSONKeyFunction [ExecutionResultCode]
+-&gt; ToJSONKey ExecutionResultCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExecutionResultCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExecutionResultCode]
+toJSONKey :: ToJSONKeyFunction ExecutionResultCode
+$ctoJSONKey :: ToJSONKeyFunction ExecutionResultCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362863"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionResultCode
+([Node] -&gt; Either String ExecutionResultCode)
+-&gt; FromXML ExecutionResultCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExecutionResultCode
+$cparseXML :: [Node] -&gt; Either String ExecutionResultCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362860"><span class="annot"><span class="annottext">ExecutionResultCode -&gt; XML
+(ExecutionResultCode -&gt; XML) -&gt; ToXML ExecutionResultCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExecutionResultCode -&gt; XML
+$ctoXML :: ExecutionResultCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode_PARSING_FAILED"><span class="hs-identifier hs-type">ExecutionResultCode_PARSING_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode"><span class="hs-identifier hs-type">ExecutionResultCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionResultCode_PARSING_FAILED"><span id="%24mExecutionResultCode_PARSING_FAILED"><span id="ExecutionResultCode_PARSING_FAILED"><span class="annot"><span class="annottext">$bExecutionResultCode_PARSING_FAILED :: ExecutionResultCode
+$mExecutionResultCode_PARSING_FAILED :: forall r. ExecutionResultCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#%24bExecutionResultCode_PARSING_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ExecutionResultCode_PARSING_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode%27"><span class="hs-identifier hs-type">ExecutionResultCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARSING_FAILED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED"><span class="hs-identifier hs-type">ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode"><span class="hs-identifier hs-type">ExecutionResultCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED"><span id="%24mExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED"><span id="ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED"><span class="annot"><span class="annottext">$bExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED :: ExecutionResultCode
+$mExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED :: forall r. ExecutionResultCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#%24bExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode%27"><span class="hs-identifier hs-type">ExecutionResultCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VPC_ENDPOINT_SETUP_FAILED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode_PARSING_FAILED"><span class="hs-pragma hs-type">ExecutionResultCode_PARSING_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED"><span class="hs-pragma hs-type">ExecutionResultCode_VPC_ENDPOINT_SETUP_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResultCode.html#ExecutionResultCode%27"><span class="hs-pragma hs-type">ExecutionResultCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

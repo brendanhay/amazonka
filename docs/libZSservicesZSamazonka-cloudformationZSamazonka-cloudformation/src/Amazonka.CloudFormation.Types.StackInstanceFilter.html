@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.Types.StackInstanceFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.Types.StackInstanceFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilterName.html"><span class="hs-identifier">Amazonka.CloudFormation.Types.StackInstanceFilterName</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The status that stack instances are filtered by.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStackInstanceFilter' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679422281"><span id="local-6989586621679422282"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackInstanceFilter"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-var">StackInstanceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackInstanceFilter%27"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter%27"><span class="hs-identifier hs-var">StackInstanceFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status to filter by.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalues%3AStackInstanceFilter%27"><span class="annot"><span class="annottext">StackInstanceFilter -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#%24sel%3Avalues%3AStackInstanceFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The type of filter to apply.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AStackInstanceFilter%27"><span class="annot"><span class="annottext">StackInstanceFilter -&gt; Maybe StackInstanceFilterName
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#%24sel%3Aname%3AStackInstanceFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName"><span class="hs-identifier hs-type">StackInstanceFilterName</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422274"><span id="local-6989586621679422276"><span class="annot"><span class="annottext">StackInstanceFilter -&gt; StackInstanceFilter -&gt; Bool
+(StackInstanceFilter -&gt; StackInstanceFilter -&gt; Bool)
+-&gt; (StackInstanceFilter -&gt; StackInstanceFilter -&gt; Bool)
+-&gt; Eq StackInstanceFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackInstanceFilter -&gt; StackInstanceFilter -&gt; Bool
+$c/= :: StackInstanceFilter -&gt; StackInstanceFilter -&gt; Bool
+== :: StackInstanceFilter -&gt; StackInstanceFilter -&gt; Bool
+$c== :: StackInstanceFilter -&gt; StackInstanceFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422265"><span id="local-6989586621679422267"><span id="local-6989586621679422269"><span id="local-6989586621679422271"><span class="annot"><span class="annottext">ReadPrec [StackInstanceFilter]
+ReadPrec StackInstanceFilter
+Int -&gt; ReadS StackInstanceFilter
+ReadS [StackInstanceFilter]
+(Int -&gt; ReadS StackInstanceFilter)
+-&gt; ReadS [StackInstanceFilter]
+-&gt; ReadPrec StackInstanceFilter
+-&gt; ReadPrec [StackInstanceFilter]
+-&gt; Read StackInstanceFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackInstanceFilter]
+$creadListPrec :: ReadPrec [StackInstanceFilter]
+readPrec :: ReadPrec StackInstanceFilter
+$creadPrec :: ReadPrec StackInstanceFilter
+readList :: ReadS [StackInstanceFilter]
+$creadList :: ReadS [StackInstanceFilter]
+readsPrec :: Int -&gt; ReadS StackInstanceFilter
+$creadsPrec :: Int -&gt; ReadS StackInstanceFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422258"><span id="local-6989586621679422260"><span id="local-6989586621679422262"><span class="annot"><span class="annottext">Int -&gt; StackInstanceFilter -&gt; ShowS
+[StackInstanceFilter] -&gt; ShowS
+StackInstanceFilter -&gt; String
+(Int -&gt; StackInstanceFilter -&gt; ShowS)
+-&gt; (StackInstanceFilter -&gt; String)
+-&gt; ([StackInstanceFilter] -&gt; ShowS)
+-&gt; Show StackInstanceFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackInstanceFilter] -&gt; ShowS
+$cshowList :: [StackInstanceFilter] -&gt; ShowS
+show :: StackInstanceFilter -&gt; String
+$cshow :: StackInstanceFilter -&gt; String
+showsPrec :: Int -&gt; StackInstanceFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackInstanceFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StackInstanceFilter -&gt; Rep StackInstanceFilter x)
+-&gt; (forall x. Rep StackInstanceFilter x -&gt; StackInstanceFilter)
+-&gt; Generic StackInstanceFilter
+forall x. Rep StackInstanceFilter x -&gt; StackInstanceFilter
+forall x. StackInstanceFilter -&gt; Rep StackInstanceFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackInstanceFilter x -&gt; StackInstanceFilter
+$cfrom :: forall x. StackInstanceFilter -&gt; Rep StackInstanceFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'StackInstanceFilter' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'values', 'stackInstanceFilter_values' - The status to filter by.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'stackInstanceFilter_name' - The type of filter to apply.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#newStackInstanceFilter"><span class="hs-identifier hs-type">newStackInstanceFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span><span>
+</span><span id="line-51"></span><span id="newStackInstanceFilter"><span class="annot"><span class="annottext">newStackInstanceFilter :: StackInstanceFilter
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#newStackInstanceFilter"><span class="hs-identifier hs-var hs-var">newStackInstanceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">StackInstanceFilter' :: Maybe Text -&gt; Maybe StackInstanceFilterName -&gt; StackInstanceFilter
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter%27"><span class="hs-identifier hs-type">StackInstanceFilter'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:StackInstanceFilter' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#%24sel%3Avalues%3AStackInstanceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:StackInstanceFilter' :: Maybe StackInstanceFilterName
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#%24sel%3Aname%3AStackInstanceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceFilterName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The status to filter by.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#stackInstanceFilter_values"><span class="hs-identifier hs-type">stackInstanceFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="stackInstanceFilter_values"><span class="annot"><span class="annottext">stackInstanceFilter_values :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackInstanceFilter -&gt; f StackInstanceFilter
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#stackInstanceFilter_values"><span class="hs-identifier hs-var hs-var">stackInstanceFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstanceFilter -&gt; Maybe Text)
+-&gt; (StackInstanceFilter -&gt; Maybe Text -&gt; StackInstanceFilter)
+-&gt; Lens
+     StackInstanceFilter StackInstanceFilter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter%27"><span class="hs-identifier hs-type">StackInstanceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422249"><span class="annot"><span class="annottext">Maybe Text
+values :: Maybe Text
+$sel:values:StackInstanceFilter' :: StackInstanceFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679422249"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422249"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422248"><span class="annot"><span class="annottext">s :: StackInstanceFilter
+</span><a href="#local-6989586621679422248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter%27"><span class="hs-identifier hs-type">StackInstanceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstanceFilter
+</span><a href="#local-6989586621679422248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:StackInstanceFilter' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#%24sel%3Avalues%3AStackInstanceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The type of filter to apply.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#stackInstanceFilter_name"><span class="hs-identifier hs-type">stackInstanceFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName"><span class="hs-identifier hs-type">StackInstanceFilterName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="stackInstanceFilter_name"><span class="annot"><span class="annottext">stackInstanceFilter_name :: (Maybe StackInstanceFilterName
+ -&gt; f (Maybe StackInstanceFilterName))
+-&gt; StackInstanceFilter -&gt; f StackInstanceFilter
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#stackInstanceFilter_name"><span class="hs-identifier hs-var hs-var">stackInstanceFilter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstanceFilter -&gt; Maybe StackInstanceFilterName)
+-&gt; (StackInstanceFilter
+    -&gt; Maybe StackInstanceFilterName -&gt; StackInstanceFilter)
+-&gt; Lens
+     StackInstanceFilter
+     StackInstanceFilter
+     (Maybe StackInstanceFilterName)
+     (Maybe StackInstanceFilterName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter%27"><span class="hs-identifier hs-type">StackInstanceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422245"><span class="annot"><span class="annottext">Maybe StackInstanceFilterName
+name :: Maybe StackInstanceFilterName
+$sel:name:StackInstanceFilter' :: StackInstanceFilter -&gt; Maybe StackInstanceFilterName
+</span><a href="#local-6989586621679422245"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceFilterName
+</span><a href="#local-6989586621679422245"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422244"><span class="annot"><span class="annottext">s :: StackInstanceFilter
+</span><a href="#local-6989586621679422244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter%27"><span class="hs-identifier hs-type">StackInstanceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422243"><span class="annot"><span class="annottext">Maybe StackInstanceFilterName
+</span><a href="#local-6989586621679422243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstanceFilter
+</span><a href="#local-6989586621679422244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StackInstanceFilter' :: Maybe StackInstanceFilterName
+</span><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#%24sel%3Aname%3AStackInstanceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceFilterName
+</span><a href="#local-6989586621679422243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422239"><span id="local-6989586621679422241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter"><span class="hs-identifier hs-type">StackInstanceFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679422232"><span class="annot"><span class="annottext">toQuery :: StackInstanceFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackInstanceFilter.html#StackInstanceFilter%27"><span class="hs-identifier hs-type">StackInstanceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422229"><span id="local-6989586621679422230"><span class="annot"><span class="annottext">Maybe Text
+Maybe StackInstanceFilterName
+name :: Maybe StackInstanceFilterName
+values :: Maybe Text
+$sel:name:StackInstanceFilter' :: StackInstanceFilter -&gt; Maybe StackInstanceFilterName
+$sel:values:StackInstanceFilter' :: StackInstanceFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679422229"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422230"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe StackInstanceFilterName -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceFilterName
+</span><a href="#local-6989586621679422229"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-73"></span></pre></body></html>

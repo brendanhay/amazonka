@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ServiceCatalog.DescribeRecord</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about the specified request operation.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Use this operation after calling a request operation (for example,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- ProvisionProduct, TerminateProvisionedProduct, or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- UpdateProvisionedProduct).</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- If a provisioned product was transferred to a new owner using</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- UpdateProvisionedProductProperties, the new owner will be able to</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- describe all past records for that product. The previous owner will no</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- longer be able to describe the records, but will be able to use</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- ListRecordHistory to see the product\'s history from when he was the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- owner.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceCatalog.DescribeRecord</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier">DescribeRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#newDescribeRecord"><span class="hs-identifier">newDescribeRecord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_acceptLanguage"><span class="hs-identifier">describeRecord_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_pageToken"><span class="hs-identifier">describeRecord_pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_pageSize"><span class="hs-identifier">describeRecord_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_id"><span class="hs-identifier">describeRecord_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier">DescribeRecordResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#newDescribeRecordResponse"><span class="hs-identifier">newDescribeRecordResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_recordDetail"><span class="hs-identifier">describeRecordResponse_recordDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_nextPageToken"><span class="hs-identifier">describeRecordResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_recordOutputs"><span class="hs-identifier">describeRecordResponse_recordOutputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_httpStatus"><span class="hs-identifier">describeRecordResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.html"><span class="hs-identifier">Amazonka.ServiceCatalog.Types</span></a></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newDescribeRecord' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679420791"><span id="local-6989586621679420792"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRecord"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-var">DescribeRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRecord%27"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-var">DescribeRecord'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AacceptLanguage%3ADescribeRecord%27"><span class="annot"><span class="annottext">DescribeRecord -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AacceptLanguage%3ADescribeRecord%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApageToken%3ADescribeRecord%27"><span class="annot"><span class="annottext">DescribeRecord -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ApageToken%3ADescribeRecord%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3ApageSize%3ADescribeRecord%27"><span class="annot"><span class="annottext">DescribeRecord -&gt; Maybe Natural
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ApageSize%3ADescribeRecord%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The record identifier of the provisioned product. This identifier is</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- returned by the request operation.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aid%3ADescribeRecord%27"><span class="annot"><span class="annottext">DescribeRecord -&gt; Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3Aid%3ADescribeRecord%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420782"><span id="local-6989586621679420784"><span class="annot"><span class="annottext">DescribeRecord -&gt; DescribeRecord -&gt; Bool
+(DescribeRecord -&gt; DescribeRecord -&gt; Bool)
+-&gt; (DescribeRecord -&gt; DescribeRecord -&gt; Bool) -&gt; Eq DescribeRecord
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRecord -&gt; DescribeRecord -&gt; Bool
+$c/= :: DescribeRecord -&gt; DescribeRecord -&gt; Bool
+== :: DescribeRecord -&gt; DescribeRecord -&gt; Bool
+$c== :: DescribeRecord -&gt; DescribeRecord -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420773"><span id="local-6989586621679420775"><span id="local-6989586621679420777"><span id="local-6989586621679420779"><span class="annot"><span class="annottext">ReadPrec [DescribeRecord]
+ReadPrec DescribeRecord
+Int -&gt; ReadS DescribeRecord
+ReadS [DescribeRecord]
+(Int -&gt; ReadS DescribeRecord)
+-&gt; ReadS [DescribeRecord]
+-&gt; ReadPrec DescribeRecord
+-&gt; ReadPrec [DescribeRecord]
+-&gt; Read DescribeRecord
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRecord]
+$creadListPrec :: ReadPrec [DescribeRecord]
+readPrec :: ReadPrec DescribeRecord
+$creadPrec :: ReadPrec DescribeRecord
+readList :: ReadS [DescribeRecord]
+$creadList :: ReadS [DescribeRecord]
+readsPrec :: Int -&gt; ReadS DescribeRecord
+$creadsPrec :: Int -&gt; ReadS DescribeRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420766"><span id="local-6989586621679420768"><span id="local-6989586621679420770"><span class="annot"><span class="annottext">Int -&gt; DescribeRecord -&gt; ShowS
+[DescribeRecord] -&gt; ShowS
+DescribeRecord -&gt; String
+(Int -&gt; DescribeRecord -&gt; ShowS)
+-&gt; (DescribeRecord -&gt; String)
+-&gt; ([DescribeRecord] -&gt; ShowS)
+-&gt; Show DescribeRecord
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRecord] -&gt; ShowS
+$cshowList :: [DescribeRecord] -&gt; ShowS
+show :: DescribeRecord -&gt; String
+$cshow :: DescribeRecord -&gt; String
+showsPrec :: Int -&gt; DescribeRecord -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeRecord -&gt; Rep DescribeRecord x)
+-&gt; (forall x. Rep DescribeRecord x -&gt; DescribeRecord)
+-&gt; Generic DescribeRecord
+forall x. Rep DescribeRecord x -&gt; DescribeRecord
+forall x. DescribeRecord -&gt; Rep DescribeRecord x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeRecord x -&gt; DescribeRecord
+$cfrom :: forall x. DescribeRecord -&gt; Rep DescribeRecord x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'DescribeRecord' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'acceptLanguage', 'describeRecord_acceptLanguage' - The language code.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'pageToken', 'describeRecord_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'pageSize', 'describeRecord_pageSize' - The maximum number of items to return with this call.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'id', 'describeRecord_id' - The record identifier of the provisioned product. This identifier is</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- returned by the request operation.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#newDescribeRecord"><span class="hs-identifier hs-type">newDescribeRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span>
+</span><span id="line-113"></span><span id="newDescribeRecord"><span class="annot"><span class="annottext">newDescribeRecord :: Text -&gt; DescribeRecord
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#newDescribeRecord"><span class="hs-identifier hs-var hs-var">newDescribeRecord</span></a></span></span><span> </span><span id="local-6989586621679420761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420761"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">DescribeRecord' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; DescribeRecord
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceptLanguage:DescribeRecord' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AacceptLanguage%3ADescribeRecord%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageToken:DescribeRecord' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ApageToken%3ADescribeRecord%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:DescribeRecord' :: Maybe Natural
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ApageSize%3ADescribeRecord%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DescribeRecord' :: Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3Aid%3ADescribeRecord%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420761"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_acceptLanguage"><span class="hs-identifier hs-type">describeRecord_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="describeRecord_acceptLanguage"><span class="annot"><span class="annottext">describeRecord_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeRecord -&gt; f DescribeRecord
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_acceptLanguage"><span class="hs-identifier hs-var hs-var">describeRecord_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecord -&gt; Maybe Text)
+-&gt; (DescribeRecord -&gt; Maybe Text -&gt; DescribeRecord)
+-&gt; Lens DescribeRecord DescribeRecord (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420758"><span class="annot"><span class="annottext">Maybe Text
+acceptLanguage :: Maybe Text
+$sel:acceptLanguage:DescribeRecord' :: DescribeRecord -&gt; Maybe Text
+</span><a href="#local-6989586621679420758"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420758"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420757"><span class="annot"><span class="annottext">s :: DescribeRecord
+</span><a href="#local-6989586621679420757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420756"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecord
+</span><a href="#local-6989586621679420757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:DescribeRecord' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AacceptLanguage%3ADescribeRecord%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_pageToken"><span class="hs-identifier hs-type">describeRecord_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="describeRecord_pageToken"><span class="annot"><span class="annottext">describeRecord_pageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeRecord -&gt; f DescribeRecord
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_pageToken"><span class="hs-identifier hs-var hs-var">describeRecord_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecord -&gt; Maybe Text)
+-&gt; (DescribeRecord -&gt; Maybe Text -&gt; DescribeRecord)
+-&gt; Lens DescribeRecord DescribeRecord (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420755"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:DescribeRecord' :: DescribeRecord -&gt; Maybe Text
+</span><a href="#local-6989586621679420755"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420755"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420754"><span class="annot"><span class="annottext">s :: DescribeRecord
+</span><a href="#local-6989586621679420754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecord
+</span><a href="#local-6989586621679420754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:DescribeRecord' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ApageToken%3ADescribeRecord%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_pageSize"><span class="hs-identifier hs-type">describeRecord_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="describeRecord_pageSize"><span class="annot"><span class="annottext">describeRecord_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeRecord -&gt; f DescribeRecord
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_pageSize"><span class="hs-identifier hs-var hs-var">describeRecord_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecord -&gt; Maybe Natural)
+-&gt; (DescribeRecord -&gt; Maybe Natural -&gt; DescribeRecord)
+-&gt; Lens
+     DescribeRecord DescribeRecord (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420752"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:DescribeRecord' :: DescribeRecord -&gt; Maybe Natural
+</span><a href="#local-6989586621679420752"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420752"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420751"><span class="annot"><span class="annottext">s :: DescribeRecord
+</span><a href="#local-6989586621679420751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420750"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecord
+</span><a href="#local-6989586621679420751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:DescribeRecord' :: Maybe Natural
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ApageSize%3ADescribeRecord%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The record identifier of the provisioned product. This identifier is</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- returned by the request operation.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_id"><span class="hs-identifier hs-type">describeRecord_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="describeRecord_id"><span class="annot"><span class="annottext">describeRecord_id :: (Text -&gt; f Text) -&gt; DescribeRecord -&gt; f DescribeRecord
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecord_id"><span class="hs-identifier hs-var hs-var">describeRecord_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecord -&gt; Text)
+-&gt; (DescribeRecord -&gt; Text -&gt; DescribeRecord)
+-&gt; Lens DescribeRecord DescribeRecord Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420749"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeRecord' :: DescribeRecord -&gt; Text
+</span><a href="#local-6989586621679420749"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420749"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420748"><span class="annot"><span class="annottext">s :: DescribeRecord
+</span><a href="#local-6989586621679420748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecord
+</span><a href="#local-6989586621679420748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeRecord' :: Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3Aid%3ADescribeRecord%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679420743"><span class="annot"><span class="annottext">request :: DescribeRecord -&gt; Request DescribeRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeRecord -&gt; Request DescribeRecord
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679420739"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeRecord
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeRecord)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeRecord))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeRecord
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeRecord)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679420736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420736"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679420735"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420735"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679420734"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679420734"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe RecordDetail
+-&gt; Maybe Text
+-&gt; Maybe [RecordOutput]
+-&gt; Int
+-&gt; DescribeRecordResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-var">DescribeRecordResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RecordDetail
+ -&gt; Maybe Text
+ -&gt; Maybe [RecordOutput]
+ -&gt; Int
+ -&gt; DescribeRecordResponse)
+-&gt; Either String (Maybe RecordDetail)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [RecordOutput] -&gt; Int -&gt; DescribeRecordResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679420734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RecordDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [RecordOutput] -&gt; Int -&gt; DescribeRecordResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [RecordOutput] -&gt; Int -&gt; DescribeRecordResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679420734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [RecordOutput] -&gt; Int -&gt; DescribeRecordResponse)
+-&gt; Either String (Maybe [RecordOutput])
+-&gt; Either String (Int -&gt; DescribeRecordResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679420734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RecordOutput]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordOutputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RecordOutput]))
+-&gt; Maybe [RecordOutput] -&gt; Either String (Maybe [RecordOutput])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RecordOutput]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeRecordResponse)
+-&gt; Either String Int -&gt; Either String DescribeRecordResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420736"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420725"><span id="local-6989586621679420727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679420718"><span class="annot"><span class="annottext">toHeaders :: DescribeRecord -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRecord -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS242ServiceCatalogService.DescribeRecord&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-171"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-175"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420708"><span id="local-6989586621679420710"><span id="local-6989586621679420712"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679420706"><span class="annot"><span class="annottext">toJSON :: DescribeRecord -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord%27"><span class="hs-identifier hs-type">DescribeRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420701"><span id="local-6989586621679420702"><span id="local-6989586621679420703"><span id="local-6989586621679420704"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+id :: Text
+pageSize :: Maybe Natural
+pageToken :: Maybe Text
+acceptLanguage :: Maybe Text
+$sel:id:DescribeRecord' :: DescribeRecord -&gt; Text
+$sel:pageSize:DescribeRecord' :: DescribeRecord -&gt; Maybe Natural
+$sel:pageToken:DescribeRecord' :: DescribeRecord -&gt; Maybe Text
+$sel:acceptLanguage:DescribeRecord' :: DescribeRecord -&gt; Maybe Text
+</span><a href="#local-6989586621679420701"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420704"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420703"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679420702"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420701"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679420695"><span class="annot"><span class="annottext">toPath :: DescribeRecord -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRecord -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecord"><span class="hs-identifier hs-type">DescribeRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679420691"><span class="annot"><span class="annottext">toQuery :: DescribeRecord -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRecord -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newDescribeRecordResponse' smart constructor.</span><span>
+</span><span id="line-198"></span><span id="local-6989586621679420688"><span id="local-6989586621679420689"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRecordResponse"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-var">DescribeRecordResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRecordResponse%27"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-var">DescribeRecordResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the product.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3ArecordDetail%3ADescribeRecordResponse%27"><span class="annot"><span class="annottext">DescribeRecordResponse -&gt; Maybe RecordDetail
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ArecordDetail%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var hs-var">recordDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AnextPageToken%3ADescribeRecordResponse%27"><span class="annot"><span class="annottext">DescribeRecordResponse -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AnextPageToken%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | Information about the product created as the result of a request. For</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- example, the output for a CloudFormation-backed product that creates an</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- S3 bucket would include the S3 bucket URL.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3ArecordOutputs%3ADescribeRecordResponse%27"><span class="annot"><span class="annottext">DescribeRecordResponse -&gt; Maybe [RecordOutput]
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ArecordOutputs%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var hs-var">recordOutputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.RecordOutput.html#RecordOutput"><span class="hs-identifier hs-type">RecordOutput</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRecordResponse%27"><span class="annot"><span class="annottext">DescribeRecordResponse -&gt; Int
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AhttpStatus%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420680"><span id="local-6989586621679420682"><span class="annot"><span class="annottext">DescribeRecordResponse -&gt; DescribeRecordResponse -&gt; Bool
+(DescribeRecordResponse -&gt; DescribeRecordResponse -&gt; Bool)
+-&gt; (DescribeRecordResponse -&gt; DescribeRecordResponse -&gt; Bool)
+-&gt; Eq DescribeRecordResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRecordResponse -&gt; DescribeRecordResponse -&gt; Bool
+$c/= :: DescribeRecordResponse -&gt; DescribeRecordResponse -&gt; Bool
+== :: DescribeRecordResponse -&gt; DescribeRecordResponse -&gt; Bool
+$c== :: DescribeRecordResponse -&gt; DescribeRecordResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420672"><span id="local-6989586621679420674"><span id="local-6989586621679420676"><span id="local-6989586621679420678"><span class="annot"><span class="annottext">ReadPrec [DescribeRecordResponse]
+ReadPrec DescribeRecordResponse
+Int -&gt; ReadS DescribeRecordResponse
+ReadS [DescribeRecordResponse]
+(Int -&gt; ReadS DescribeRecordResponse)
+-&gt; ReadS [DescribeRecordResponse]
+-&gt; ReadPrec DescribeRecordResponse
+-&gt; ReadPrec [DescribeRecordResponse]
+-&gt; Read DescribeRecordResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRecordResponse]
+$creadListPrec :: ReadPrec [DescribeRecordResponse]
+readPrec :: ReadPrec DescribeRecordResponse
+$creadPrec :: ReadPrec DescribeRecordResponse
+readList :: ReadS [DescribeRecordResponse]
+$creadList :: ReadS [DescribeRecordResponse]
+readsPrec :: Int -&gt; ReadS DescribeRecordResponse
+$creadsPrec :: Int -&gt; ReadS DescribeRecordResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420666"><span id="local-6989586621679420668"><span id="local-6989586621679420670"><span class="annot"><span class="annottext">Int -&gt; DescribeRecordResponse -&gt; ShowS
+[DescribeRecordResponse] -&gt; ShowS
+DescribeRecordResponse -&gt; String
+(Int -&gt; DescribeRecordResponse -&gt; ShowS)
+-&gt; (DescribeRecordResponse -&gt; String)
+-&gt; ([DescribeRecordResponse] -&gt; ShowS)
+-&gt; Show DescribeRecordResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRecordResponse] -&gt; ShowS
+$cshowList :: [DescribeRecordResponse] -&gt; ShowS
+show :: DescribeRecordResponse -&gt; String
+$cshow :: DescribeRecordResponse -&gt; String
+showsPrec :: Int -&gt; DescribeRecordResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRecordResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeRecordResponse -&gt; Rep DescribeRecordResponse x)
+-&gt; (forall x.
+    Rep DescribeRecordResponse x -&gt; DescribeRecordResponse)
+-&gt; Generic DescribeRecordResponse
+forall x. Rep DescribeRecordResponse x -&gt; DescribeRecordResponse
+forall x. DescribeRecordResponse -&gt; Rep DescribeRecordResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeRecordResponse x -&gt; DescribeRecordResponse
+$cfrom :: forall x. DescribeRecordResponse -&gt; Rep DescribeRecordResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Create a value of 'DescribeRecordResponse' with all optional fields omitted.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'recordDetail', 'describeRecordResponse_recordDetail' - Information about the product.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'nextPageToken', 'describeRecordResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'recordOutputs', 'describeRecordResponse_recordOutputs' - Information about the product created as the result of a request. For</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- example, the output for a CloudFormation-backed product that creates an</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- S3 bucket would include the S3 bucket URL.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'httpStatus', 'describeRecordResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#newDescribeRecordResponse"><span class="hs-identifier hs-type">newDescribeRecordResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span>
+</span><span id="line-235"></span><span id="newDescribeRecordResponse"><span class="annot"><span class="annottext">newDescribeRecordResponse :: Int -&gt; DescribeRecordResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#newDescribeRecordResponse"><span class="hs-identifier hs-var hs-var">newDescribeRecordResponse</span></a></span></span><span> </span><span id="local-6989586621679420663"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420663"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><span class="annottext">DescribeRecordResponse' :: Maybe RecordDetail
+-&gt; Maybe Text
+-&gt; Maybe [RecordOutput]
+-&gt; Int
+-&gt; DescribeRecordResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recordDetail:DescribeRecordResponse' :: Maybe RecordDetail
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ArecordDetail%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">recordDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">Maybe RecordDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextPageToken:DescribeRecordResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AnextPageToken%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordOutputs:DescribeRecordResponse' :: Maybe [RecordOutput]
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ArecordOutputs%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">recordOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordOutput]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRecordResponse' :: Int
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AhttpStatus%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420663"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Information about the product.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_recordDetail"><span class="hs-identifier hs-type">describeRecordResponse_recordDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.RecordDetail.html#RecordDetail"><span class="hs-identifier hs-type">RecordDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="describeRecordResponse_recordDetail"><span class="annot"><span class="annottext">describeRecordResponse_recordDetail :: (Maybe RecordDetail -&gt; f (Maybe RecordDetail))
+-&gt; DescribeRecordResponse -&gt; f DescribeRecordResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_recordDetail"><span class="hs-identifier hs-var hs-var">describeRecordResponse_recordDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecordResponse -&gt; Maybe RecordDetail)
+-&gt; (DescribeRecordResponse
+    -&gt; Maybe RecordDetail -&gt; DescribeRecordResponse)
+-&gt; Lens
+     DescribeRecordResponse
+     DescribeRecordResponse
+     (Maybe RecordDetail)
+     (Maybe RecordDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420662"><span class="annot"><span class="annottext">Maybe RecordDetail
+recordDetail :: Maybe RecordDetail
+$sel:recordDetail:DescribeRecordResponse' :: DescribeRecordResponse -&gt; Maybe RecordDetail
+</span><a href="#local-6989586621679420662"><span class="hs-identifier hs-var hs-var">recordDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecordDetail
+</span><a href="#local-6989586621679420662"><span class="hs-identifier hs-var">recordDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420661"><span class="annot"><span class="annottext">s :: DescribeRecordResponse
+</span><a href="#local-6989586621679420661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420660"><span class="annot"><span class="annottext">Maybe RecordDetail
+</span><a href="#local-6989586621679420660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecordResponse
+</span><a href="#local-6989586621679420661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordDetail:DescribeRecordResponse' :: Maybe RecordDetail
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ArecordDetail%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">recordDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordDetail
+</span><a href="#local-6989586621679420660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_nextPageToken"><span class="hs-identifier hs-type">describeRecordResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="describeRecordResponse_nextPageToken"><span class="annot"><span class="annottext">describeRecordResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeRecordResponse -&gt; f DescribeRecordResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">describeRecordResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecordResponse -&gt; Maybe Text)
+-&gt; (DescribeRecordResponse -&gt; Maybe Text -&gt; DescribeRecordResponse)
+-&gt; Lens
+     DescribeRecordResponse
+     DescribeRecordResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420659"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:DescribeRecordResponse' :: DescribeRecordResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679420659"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420659"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420658"><span class="annot"><span class="annottext">s :: DescribeRecordResponse
+</span><a href="#local-6989586621679420658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecordResponse
+</span><a href="#local-6989586621679420658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:DescribeRecordResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AnextPageToken%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | Information about the product created as the result of a request. For</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- example, the output for a CloudFormation-backed product that creates an</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- S3 bucket would include the S3 bucket URL.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_recordOutputs"><span class="hs-identifier hs-type">describeRecordResponse_recordOutputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.RecordOutput.html#RecordOutput"><span class="hs-identifier hs-type">RecordOutput</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="describeRecordResponse_recordOutputs"><span class="annot"><span class="annottext">describeRecordResponse_recordOutputs :: (Maybe [RecordOutput] -&gt; f (Maybe [RecordOutput]))
+-&gt; DescribeRecordResponse -&gt; f DescribeRecordResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_recordOutputs"><span class="hs-identifier hs-var hs-var">describeRecordResponse_recordOutputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecordResponse -&gt; Maybe [RecordOutput])
+-&gt; (DescribeRecordResponse
+    -&gt; Maybe [RecordOutput] -&gt; DescribeRecordResponse)
+-&gt; Lens
+     DescribeRecordResponse
+     DescribeRecordResponse
+     (Maybe [RecordOutput])
+     (Maybe [RecordOutput])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420656"><span class="annot"><span class="annottext">Maybe [RecordOutput]
+recordOutputs :: Maybe [RecordOutput]
+$sel:recordOutputs:DescribeRecordResponse' :: DescribeRecordResponse -&gt; Maybe [RecordOutput]
+</span><a href="#local-6989586621679420656"><span class="hs-identifier hs-var hs-var">recordOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordOutput]
+</span><a href="#local-6989586621679420656"><span class="hs-identifier hs-var">recordOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420655"><span class="annot"><span class="annottext">s :: DescribeRecordResponse
+</span><a href="#local-6989586621679420655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420654"><span class="annot"><span class="annottext">Maybe [RecordOutput]
+</span><a href="#local-6989586621679420654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecordResponse
+</span><a href="#local-6989586621679420655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordOutputs:DescribeRecordResponse' :: Maybe [RecordOutput]
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3ArecordOutputs%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">recordOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecordOutput]
+</span><a href="#local-6989586621679420654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecordOutput] -&gt; f (Maybe [RecordOutput]))
+ -&gt; DescribeRecordResponse -&gt; f DescribeRecordResponse)
+-&gt; ((Maybe [RecordOutput] -&gt; f (Maybe [RecordOutput]))
+    -&gt; Maybe [RecordOutput] -&gt; f (Maybe [RecordOutput]))
+-&gt; (Maybe [RecordOutput] -&gt; f (Maybe [RecordOutput]))
+-&gt; DescribeRecordResponse
+-&gt; f DescribeRecordResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RecordOutput] [RecordOutput] [RecordOutput] [RecordOutput]
+-&gt; Iso
+     (Maybe [RecordOutput])
+     (Maybe [RecordOutput])
+     (Maybe [RecordOutput])
+     (Maybe [RecordOutput])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RecordOutput] [RecordOutput] [RecordOutput] [RecordOutput]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_httpStatus"><span class="hs-identifier hs-type">describeRecordResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-261"></span><span id="describeRecordResponse_httpStatus"><span class="annot"><span class="annottext">describeRecordResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeRecordResponse -&gt; f DescribeRecordResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#describeRecordResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeRecordResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRecordResponse -&gt; Int)
+-&gt; (DescribeRecordResponse -&gt; Int -&gt; DescribeRecordResponse)
+-&gt; Lens DescribeRecordResponse DescribeRecordResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420650"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeRecordResponse' :: DescribeRecordResponse -&gt; Int
+</span><a href="#local-6989586621679420650"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420650"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420649"><span class="annot"><span class="annottext">s :: DescribeRecordResponse
+</span><a href="#local-6989586621679420649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse%27"><span class="hs-identifier hs-type">DescribeRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRecordResponse
+</span><a href="#local-6989586621679420649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRecordResponse' :: Int
+</span><a href="Amazonka.ServiceCatalog.DescribeRecord.html#%24sel%3AhttpStatus%3ADescribeRecordResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeRecord.html#DescribeRecordResponse"><span class="hs-identifier hs-type">DescribeRecordResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

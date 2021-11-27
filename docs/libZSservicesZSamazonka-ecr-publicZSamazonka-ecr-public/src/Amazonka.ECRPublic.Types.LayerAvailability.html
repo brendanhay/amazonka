@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECRPublic.Types.LayerAvailability</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECRPublic.Types.LayerAvailability</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability"><span class="hs-identifier">LayerAvailability</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability_AVAILABLE"><span class="hs-identifier">LayerAvailability_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability_UNAVAILABLE"><span class="hs-identifier">LayerAvailability_UNAVAILABLE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679191388"><span id="local-6989586621679191389"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LayerAvailability"><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability"><span class="hs-identifier hs-var">LayerAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LayerAvailability%27"><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability%27"><span class="hs-identifier hs-var">LayerAvailability'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLayerAvailability"><span class="annot"><span class="annottext">LayerAvailability -&gt; Text
+</span><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#fromLayerAvailability"><span class="hs-identifier hs-var hs-var">fromLayerAvailability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191380"><span id="local-6989586621679191382"><span id="local-6989586621679191384"><span class="annot"><span class="annottext">Int -&gt; LayerAvailability -&gt; ShowS
+[LayerAvailability] -&gt; ShowS
+LayerAvailability -&gt; String
+(Int -&gt; LayerAvailability -&gt; ShowS)
+-&gt; (LayerAvailability -&gt; String)
+-&gt; ([LayerAvailability] -&gt; ShowS)
+-&gt; Show LayerAvailability
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LayerAvailability] -&gt; ShowS
+$cshowList :: [LayerAvailability] -&gt; ShowS
+show :: LayerAvailability -&gt; String
+$cshow :: LayerAvailability -&gt; String
+showsPrec :: Int -&gt; LayerAvailability -&gt; ShowS
+$cshowsPrec :: Int -&gt; LayerAvailability -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679191371"><span id="local-6989586621679191373"><span id="local-6989586621679191375"><span id="local-6989586621679191377"><span class="annot"><span class="annottext">ReadPrec [LayerAvailability]
+ReadPrec LayerAvailability
+Int -&gt; ReadS LayerAvailability
+ReadS [LayerAvailability]
+(Int -&gt; ReadS LayerAvailability)
+-&gt; ReadS [LayerAvailability]
+-&gt; ReadPrec LayerAvailability
+-&gt; ReadPrec [LayerAvailability]
+-&gt; Read LayerAvailability
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LayerAvailability]
+$creadListPrec :: ReadPrec [LayerAvailability]
+readPrec :: ReadPrec LayerAvailability
+$creadPrec :: ReadPrec LayerAvailability
+readList :: ReadS [LayerAvailability]
+$creadList :: ReadS [LayerAvailability]
+readsPrec :: Int -&gt; ReadS LayerAvailability
+$creadsPrec :: Int -&gt; ReadS LayerAvailability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679191366"><span id="local-6989586621679191368"><span class="annot"><span class="annottext">LayerAvailability -&gt; LayerAvailability -&gt; Bool
+(LayerAvailability -&gt; LayerAvailability -&gt; Bool)
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; Bool)
+-&gt; Eq LayerAvailability
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+$c/= :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+== :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+$c== :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679191350"><span id="local-6989586621679191352"><span id="local-6989586621679191354"><span id="local-6989586621679191356"><span id="local-6989586621679191358"><span id="local-6989586621679191360"><span id="local-6989586621679191362"><span class="annot"><span class="annottext">Eq LayerAvailability
+Eq LayerAvailability
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; Ordering)
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; Bool)
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; Bool)
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; Bool)
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; Bool)
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; LayerAvailability)
+-&gt; (LayerAvailability -&gt; LayerAvailability -&gt; LayerAvailability)
+-&gt; Ord LayerAvailability
+LayerAvailability -&gt; LayerAvailability -&gt; Bool
+LayerAvailability -&gt; LayerAvailability -&gt; Ordering
+LayerAvailability -&gt; LayerAvailability -&gt; LayerAvailability
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LayerAvailability -&gt; LayerAvailability -&gt; LayerAvailability
+$cmin :: LayerAvailability -&gt; LayerAvailability -&gt; LayerAvailability
+max :: LayerAvailability -&gt; LayerAvailability -&gt; LayerAvailability
+$cmax :: LayerAvailability -&gt; LayerAvailability -&gt; LayerAvailability
+&gt;= :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+$c&gt;= :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+&gt; :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+$c&gt; :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+&lt;= :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+$c&lt;= :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+&lt; :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+$c&lt; :: LayerAvailability -&gt; LayerAvailability -&gt; Bool
+compare :: LayerAvailability -&gt; LayerAvailability -&gt; Ordering
+$ccompare :: LayerAvailability -&gt; LayerAvailability -&gt; Ordering
+$cp1Ord :: Eq LayerAvailability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LayerAvailability -&gt; Rep LayerAvailability x)
+-&gt; (forall x. Rep LayerAvailability x -&gt; LayerAvailability)
+-&gt; Generic LayerAvailability
+forall x. Rep LayerAvailability x -&gt; LayerAvailability
+forall x. LayerAvailability -&gt; Rep LayerAvailability x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LayerAvailability x -&gt; LayerAvailability
+$cfrom :: forall x. LayerAvailability -&gt; Rep LayerAvailability x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191342"><span id="local-6989586621679191344"><span class="annot"><span class="annottext">Int -&gt; LayerAvailability -&gt; Int
+LayerAvailability -&gt; Int
+(Int -&gt; LayerAvailability -&gt; Int)
+-&gt; (LayerAvailability -&gt; Int) -&gt; Hashable LayerAvailability
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LayerAvailability -&gt; Int
+$chash :: LayerAvailability -&gt; Int
+hashWithSalt :: Int -&gt; LayerAvailability -&gt; Int
+$chashWithSalt :: Int -&gt; LayerAvailability -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679191339"><span class="annot"><span class="annottext">LayerAvailability -&gt; ()
+(LayerAvailability -&gt; ()) -&gt; NFData LayerAvailability
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LayerAvailability -&gt; ()
+$crnf :: LayerAvailability -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679191336"><span class="annot"><span class="annottext">Text -&gt; Either String LayerAvailability
+(Text -&gt; Either String LayerAvailability)
+-&gt; FromText LayerAvailability
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LayerAvailability
+$cfromText :: Text -&gt; Either String LayerAvailability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679191333"><span class="annot"><span class="annottext">LayerAvailability -&gt; Text
+(LayerAvailability -&gt; Text) -&gt; ToText LayerAvailability
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LayerAvailability -&gt; Text
+$ctoText :: LayerAvailability -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679191330"><span class="annot"><span class="annottext">LayerAvailability -&gt; ByteString
+(LayerAvailability -&gt; ByteString) -&gt; ToByteString LayerAvailability
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LayerAvailability -&gt; ByteString
+$ctoBS :: LayerAvailability -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679191327"><span class="annot"><span class="annottext">LayerAvailability -&gt; ByteStringBuilder
+(LayerAvailability -&gt; ByteStringBuilder) -&gt; ToLog LayerAvailability
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LayerAvailability -&gt; ByteStringBuilder
+$cbuild :: LayerAvailability -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679191324"><span class="annot"><span class="annottext">HeaderName -&gt; LayerAvailability -&gt; [Header]
+(HeaderName -&gt; LayerAvailability -&gt; [Header])
+-&gt; ToHeader LayerAvailability
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LayerAvailability -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LayerAvailability -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679191321"><span class="annot"><span class="annottext">LayerAvailability -&gt; QueryString
+(LayerAvailability -&gt; QueryString) -&gt; ToQuery LayerAvailability
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LayerAvailability -&gt; QueryString
+$ctoQuery :: LayerAvailability -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679191316"><span id="local-6989586621679191318"><span class="annot"><span class="annottext">Value -&gt; Parser [LayerAvailability]
+Value -&gt; Parser LayerAvailability
+(Value -&gt; Parser LayerAvailability)
+-&gt; (Value -&gt; Parser [LayerAvailability])
+-&gt; FromJSON LayerAvailability
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LayerAvailability]
+$cparseJSONList :: Value -&gt; Parser [LayerAvailability]
+parseJSON :: Value -&gt; Parser LayerAvailability
+$cparseJSON :: Value -&gt; Parser LayerAvailability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679191311"><span id="local-6989586621679191313"><span class="annot"><span class="annottext">FromJSONKeyFunction [LayerAvailability]
+FromJSONKeyFunction LayerAvailability
+FromJSONKeyFunction LayerAvailability
+-&gt; FromJSONKeyFunction [LayerAvailability]
+-&gt; FromJSONKey LayerAvailability
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LayerAvailability]
+$cfromJSONKeyList :: FromJSONKeyFunction [LayerAvailability]
+fromJSONKey :: FromJSONKeyFunction LayerAvailability
+$cfromJSONKey :: FromJSONKeyFunction LayerAvailability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679191302"><span id="local-6989586621679191304"><span id="local-6989586621679191306"><span id="local-6989586621679191308"><span class="annot"><span class="annottext">[LayerAvailability] -&gt; Encoding
+[LayerAvailability] -&gt; Value
+LayerAvailability -&gt; Encoding
+LayerAvailability -&gt; Value
+(LayerAvailability -&gt; Value)
+-&gt; (LayerAvailability -&gt; Encoding)
+-&gt; ([LayerAvailability] -&gt; Value)
+-&gt; ([LayerAvailability] -&gt; Encoding)
+-&gt; ToJSON LayerAvailability
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LayerAvailability] -&gt; Encoding
+$ctoEncodingList :: [LayerAvailability] -&gt; Encoding
+toJSONList :: [LayerAvailability] -&gt; Value
+$ctoJSONList :: [LayerAvailability] -&gt; Value
+toEncoding :: LayerAvailability -&gt; Encoding
+$ctoEncoding :: LayerAvailability -&gt; Encoding
+toJSON :: LayerAvailability -&gt; Value
+$ctoJSON :: LayerAvailability -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679191297"><span id="local-6989586621679191299"><span class="annot"><span class="annottext">ToJSONKeyFunction [LayerAvailability]
+ToJSONKeyFunction LayerAvailability
+ToJSONKeyFunction LayerAvailability
+-&gt; ToJSONKeyFunction [LayerAvailability]
+-&gt; ToJSONKey LayerAvailability
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LayerAvailability]
+$ctoJSONKeyList :: ToJSONKeyFunction [LayerAvailability]
+toJSONKey :: ToJSONKeyFunction LayerAvailability
+$ctoJSONKey :: ToJSONKeyFunction LayerAvailability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679191294"><span class="annot"><span class="annottext">[Node] -&gt; Either String LayerAvailability
+([Node] -&gt; Either String LayerAvailability)
+-&gt; FromXML LayerAvailability
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LayerAvailability
+$cparseXML :: [Node] -&gt; Either String LayerAvailability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679191291"><span class="annot"><span class="annottext">LayerAvailability -&gt; XML
+(LayerAvailability -&gt; XML) -&gt; ToXML LayerAvailability
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LayerAvailability -&gt; XML
+$ctoXML :: LayerAvailability -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability_AVAILABLE"><span class="hs-identifier hs-type">LayerAvailability_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability"><span class="hs-identifier hs-type">LayerAvailability</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerAvailability_AVAILABLE"><span id="%24mLayerAvailability_AVAILABLE"><span id="LayerAvailability_AVAILABLE"><span class="annot"><span class="annottext">$bLayerAvailability_AVAILABLE :: LayerAvailability
+$mLayerAvailability_AVAILABLE :: forall r. LayerAvailability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#%24bLayerAvailability_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">LayerAvailability_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability%27"><span class="hs-identifier hs-type">LayerAvailability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABLE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability_UNAVAILABLE"><span class="hs-identifier hs-type">LayerAvailability_UNAVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability"><span class="hs-identifier hs-type">LayerAvailability</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLayerAvailability_UNAVAILABLE"><span id="%24mLayerAvailability_UNAVAILABLE"><span id="LayerAvailability_UNAVAILABLE"><span class="annot"><span class="annottext">$bLayerAvailability_UNAVAILABLE :: LayerAvailability
+$mLayerAvailability_UNAVAILABLE :: forall r. LayerAvailability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#%24bLayerAvailability_UNAVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">LayerAvailability_UNAVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability%27"><span class="hs-identifier hs-type">LayerAvailability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNAVAILABLE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability_AVAILABLE"><span class="hs-pragma hs-type">LayerAvailability_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability_UNAVAILABLE"><span class="hs-pragma hs-type">LayerAvailability_UNAVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ECRPublic.Types.LayerAvailability.html#LayerAvailability%27"><span class="hs-pragma hs-type">LayerAvailability'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

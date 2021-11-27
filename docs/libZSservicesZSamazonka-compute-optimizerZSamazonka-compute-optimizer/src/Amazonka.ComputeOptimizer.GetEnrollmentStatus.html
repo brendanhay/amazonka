@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.GetEnrollmentStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the enrollment (opt in) status of an account to the Compute</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Optimizer service.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If the account is the management account of an organization, this action</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- also confirms the enrollment status of member accounts of the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- organization. Use the GetEnrollmentStatusesForOrganization action to get</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- detailed information about the enrollment status of member accounts of</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- an organization.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.GetEnrollmentStatus</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier">GetEnrollmentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#newGetEnrollmentStatus"><span class="hs-identifier">newGetEnrollmentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier">GetEnrollmentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#newGetEnrollmentStatusResponse"><span class="hs-identifier">newGetEnrollmentStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_status"><span class="hs-identifier">getEnrollmentStatusResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn"><span class="hs-identifier">getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_memberAccountsEnrolled"><span class="hs-identifier">getEnrollmentStatusResponse_memberAccountsEnrolled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_statusReason"><span class="hs-identifier">getEnrollmentStatusResponse_statusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_lastUpdatedTimestamp"><span class="hs-identifier">getEnrollmentStatusResponse_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_httpStatus"><span class="hs-identifier">getEnrollmentStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetEnrollmentStatus' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679245865"><span id="local-6989586621679245866"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEnrollmentStatus"><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-var">GetEnrollmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEnrollmentStatus%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus%27"><span class="hs-identifier hs-var">GetEnrollmentStatus'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245860"><span id="local-6989586621679245862"><span class="annot"><span class="annottext">GetEnrollmentStatus -&gt; GetEnrollmentStatus -&gt; Bool
+(GetEnrollmentStatus -&gt; GetEnrollmentStatus -&gt; Bool)
+-&gt; (GetEnrollmentStatus -&gt; GetEnrollmentStatus -&gt; Bool)
+-&gt; Eq GetEnrollmentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEnrollmentStatus -&gt; GetEnrollmentStatus -&gt; Bool
+$c/= :: GetEnrollmentStatus -&gt; GetEnrollmentStatus -&gt; Bool
+== :: GetEnrollmentStatus -&gt; GetEnrollmentStatus -&gt; Bool
+$c== :: GetEnrollmentStatus -&gt; GetEnrollmentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245851"><span id="local-6989586621679245853"><span id="local-6989586621679245855"><span id="local-6989586621679245857"><span class="annot"><span class="annottext">ReadPrec [GetEnrollmentStatus]
+ReadPrec GetEnrollmentStatus
+Int -&gt; ReadS GetEnrollmentStatus
+ReadS [GetEnrollmentStatus]
+(Int -&gt; ReadS GetEnrollmentStatus)
+-&gt; ReadS [GetEnrollmentStatus]
+-&gt; ReadPrec GetEnrollmentStatus
+-&gt; ReadPrec [GetEnrollmentStatus]
+-&gt; Read GetEnrollmentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEnrollmentStatus]
+$creadListPrec :: ReadPrec [GetEnrollmentStatus]
+readPrec :: ReadPrec GetEnrollmentStatus
+$creadPrec :: ReadPrec GetEnrollmentStatus
+readList :: ReadS [GetEnrollmentStatus]
+$creadList :: ReadS [GetEnrollmentStatus]
+readsPrec :: Int -&gt; ReadS GetEnrollmentStatus
+$creadsPrec :: Int -&gt; ReadS GetEnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245844"><span id="local-6989586621679245846"><span id="local-6989586621679245848"><span class="annot"><span class="annottext">Int -&gt; GetEnrollmentStatus -&gt; ShowS
+[GetEnrollmentStatus] -&gt; ShowS
+GetEnrollmentStatus -&gt; String
+(Int -&gt; GetEnrollmentStatus -&gt; ShowS)
+-&gt; (GetEnrollmentStatus -&gt; String)
+-&gt; ([GetEnrollmentStatus] -&gt; ShowS)
+-&gt; Show GetEnrollmentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEnrollmentStatus] -&gt; ShowS
+$cshowList :: [GetEnrollmentStatus] -&gt; ShowS
+show :: GetEnrollmentStatus -&gt; String
+$cshow :: GetEnrollmentStatus -&gt; String
+showsPrec :: Int -&gt; GetEnrollmentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEnrollmentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEnrollmentStatus -&gt; Rep GetEnrollmentStatus x)
+-&gt; (forall x. Rep GetEnrollmentStatus x -&gt; GetEnrollmentStatus)
+-&gt; Generic GetEnrollmentStatus
+forall x. Rep GetEnrollmentStatus x -&gt; GetEnrollmentStatus
+forall x. GetEnrollmentStatus -&gt; Rep GetEnrollmentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEnrollmentStatus x -&gt; GetEnrollmentStatus
+$cfrom :: forall x. GetEnrollmentStatus -&gt; Rep GetEnrollmentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'GetEnrollmentStatus' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#newGetEnrollmentStatus"><span class="hs-identifier hs-type">newGetEnrollmentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetEnrollmentStatus"><span class="annot"><span class="annottext">newGetEnrollmentStatus :: GetEnrollmentStatus
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#newGetEnrollmentStatus"><span class="hs-identifier hs-var hs-var">newGetEnrollmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatus
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus%27"><span class="hs-identifier hs-var">GetEnrollmentStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-73"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679245836"><span class="annot"><span class="annottext">request :: GetEnrollmentStatus -&gt; Request GetEnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEnrollmentStatus -&gt; Request GetEnrollmentStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ComputeOptimizer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679245832"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEnrollmentStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEnrollmentStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetEnrollmentStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEnrollmentStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEnrollmentStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245829"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245829"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245828"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679245828"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245827"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Status
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">GetEnrollmentStatusResponse'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Status
+ -&gt; Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Int
+ -&gt; GetEnrollmentStatusResponse)
+-&gt; Either String (Maybe Status)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; GetEnrollmentStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Status)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; GetEnrollmentStatusResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; GetEnrollmentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;numberOfMemberAccountsOptedIn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; GetEnrollmentStatusResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; GetEnrollmentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;memberAccountsEnrolled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; GetEnrollmentStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe POSIX -&gt; Int -&gt; GetEnrollmentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; GetEnrollmentStatusResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; GetEnrollmentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetEnrollmentStatusResponse)
+-&gt; Either String Int -&gt; Either String GetEnrollmentStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245829"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245819"><span id="local-6989586621679245821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679245812"><span class="annot"><span class="annottext">toHeaders :: GetEnrollmentStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEnrollmentStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ComputeOptimizerService.GetEnrollmentStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245802"><span id="local-6989586621679245804"><span id="local-6989586621679245806"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679245800"><span class="annot"><span class="annottext">toJSON :: GetEnrollmentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetEnrollmentStatus -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679245795"><span class="annot"><span class="annottext">toPath :: GetEnrollmentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetEnrollmentStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatus"><span class="hs-identifier hs-type">GetEnrollmentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679245791"><span class="annot"><span class="annottext">toQuery :: GetEnrollmentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEnrollmentStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newGetEnrollmentStatusResponse' smart constructor.</span><span>
+</span><span id="line-117"></span><span id="local-6989586621679245788"><span id="local-6989586621679245789"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEnrollmentStatusResponse"><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-var">GetEnrollmentStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEnrollmentStatusResponse%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">GetEnrollmentStatusResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The enrollment status of the account.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3Astatus%3AGetEnrollmentStatusResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusResponse -&gt; Maybe Status
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3Astatus%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The count of organization member accounts that are opted in to the</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- service, if your account is an organization management account.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AnumberOfMemberAccountsOptedIn%3AGetEnrollmentStatusResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusResponse -&gt; Maybe Int
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AnumberOfMemberAccountsOptedIn%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var hs-var">numberOfMemberAccountsOptedIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | Confirms the enrollment status of member accounts of the organization,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- if the account is a management account of an organization.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AmemberAccountsEnrolled%3AGetEnrollmentStatusResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusResponse -&gt; Maybe Bool
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AmemberAccountsEnrolled%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var hs-var">memberAccountsEnrolled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The reason for the enrollment status of the account.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- For example, an account might show a status of @Pending@ because member</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- accounts of an organization require more time to be enrolled in the</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AstatusReason%3AGetEnrollmentStatusResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AstatusReason%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp, in seconds, of when the account enrollment</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- status was last updated.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3AGetEnrollmentStatusResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AlastUpdatedTimestamp%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEnrollmentStatusResponse%27"><span class="annot"><span class="annottext">GetEnrollmentStatusResponse -&gt; Int
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AhttpStatus%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245778"><span id="local-6989586621679245780"><span class="annot"><span class="annottext">GetEnrollmentStatusResponse -&gt; GetEnrollmentStatusResponse -&gt; Bool
+(GetEnrollmentStatusResponse
+ -&gt; GetEnrollmentStatusResponse -&gt; Bool)
+-&gt; (GetEnrollmentStatusResponse
+    -&gt; GetEnrollmentStatusResponse -&gt; Bool)
+-&gt; Eq GetEnrollmentStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEnrollmentStatusResponse -&gt; GetEnrollmentStatusResponse -&gt; Bool
+$c/= :: GetEnrollmentStatusResponse -&gt; GetEnrollmentStatusResponse -&gt; Bool
+== :: GetEnrollmentStatusResponse -&gt; GetEnrollmentStatusResponse -&gt; Bool
+$c== :: GetEnrollmentStatusResponse -&gt; GetEnrollmentStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245770"><span id="local-6989586621679245772"><span id="local-6989586621679245774"><span id="local-6989586621679245776"><span class="annot"><span class="annottext">ReadPrec [GetEnrollmentStatusResponse]
+ReadPrec GetEnrollmentStatusResponse
+Int -&gt; ReadS GetEnrollmentStatusResponse
+ReadS [GetEnrollmentStatusResponse]
+(Int -&gt; ReadS GetEnrollmentStatusResponse)
+-&gt; ReadS [GetEnrollmentStatusResponse]
+-&gt; ReadPrec GetEnrollmentStatusResponse
+-&gt; ReadPrec [GetEnrollmentStatusResponse]
+-&gt; Read GetEnrollmentStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEnrollmentStatusResponse]
+$creadListPrec :: ReadPrec [GetEnrollmentStatusResponse]
+readPrec :: ReadPrec GetEnrollmentStatusResponse
+$creadPrec :: ReadPrec GetEnrollmentStatusResponse
+readList :: ReadS [GetEnrollmentStatusResponse]
+$creadList :: ReadS [GetEnrollmentStatusResponse]
+readsPrec :: Int -&gt; ReadS GetEnrollmentStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetEnrollmentStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245764"><span id="local-6989586621679245766"><span id="local-6989586621679245768"><span class="annot"><span class="annottext">Int -&gt; GetEnrollmentStatusResponse -&gt; ShowS
+[GetEnrollmentStatusResponse] -&gt; ShowS
+GetEnrollmentStatusResponse -&gt; String
+(Int -&gt; GetEnrollmentStatusResponse -&gt; ShowS)
+-&gt; (GetEnrollmentStatusResponse -&gt; String)
+-&gt; ([GetEnrollmentStatusResponse] -&gt; ShowS)
+-&gt; Show GetEnrollmentStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEnrollmentStatusResponse] -&gt; ShowS
+$cshowList :: [GetEnrollmentStatusResponse] -&gt; ShowS
+show :: GetEnrollmentStatusResponse -&gt; String
+$cshow :: GetEnrollmentStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetEnrollmentStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEnrollmentStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetEnrollmentStatusResponse -&gt; Rep GetEnrollmentStatusResponse x)
+-&gt; (forall x.
+    Rep GetEnrollmentStatusResponse x -&gt; GetEnrollmentStatusResponse)
+-&gt; Generic GetEnrollmentStatusResponse
+forall x.
+Rep GetEnrollmentStatusResponse x -&gt; GetEnrollmentStatusResponse
+forall x.
+GetEnrollmentStatusResponse -&gt; Rep GetEnrollmentStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetEnrollmentStatusResponse x -&gt; GetEnrollmentStatusResponse
+$cfrom :: forall x.
+GetEnrollmentStatusResponse -&gt; Rep GetEnrollmentStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'GetEnrollmentStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'status', 'getEnrollmentStatusResponse_status' - The enrollment status of the account.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'numberOfMemberAccountsOptedIn', 'getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn' - The count of organization member accounts that are opted in to the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- service, if your account is an organization management account.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'memberAccountsEnrolled', 'getEnrollmentStatusResponse_memberAccountsEnrolled' - Confirms the enrollment status of member accounts of the organization,</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- if the account is a management account of an organization.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'statusReason', 'getEnrollmentStatusResponse_statusReason' - The reason for the enrollment status of the account.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- For example, an account might show a status of @Pending@ because member</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- accounts of an organization require more time to be enrolled in the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'getEnrollmentStatusResponse_lastUpdatedTimestamp' - The Unix epoch timestamp, in seconds, of when the account enrollment</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- status was last updated.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'getEnrollmentStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#newGetEnrollmentStatusResponse"><span class="hs-identifier hs-type">newGetEnrollmentStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span>
+</span><span id="line-170"></span><span id="newGetEnrollmentStatusResponse"><span class="annot"><span class="annottext">newGetEnrollmentStatusResponse :: Int -&gt; GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#newGetEnrollmentStatusResponse"><span class="hs-identifier hs-var hs-var">newGetEnrollmentStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679245761"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245761"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">GetEnrollmentStatusResponse' :: Maybe Status
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GetEnrollmentStatusResponse' :: Maybe Status
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3Astatus%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe Status
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfMemberAccountsOptedIn:GetEnrollmentStatusResponse' :: Maybe Int
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AnumberOfMemberAccountsOptedIn%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">numberOfMemberAccountsOptedIn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:memberAccountsEnrolled:GetEnrollmentStatusResponse' :: Maybe Bool
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AmemberAccountsEnrolled%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">memberAccountsEnrolled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReason:GetEnrollmentStatusResponse' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AstatusReason%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetEnrollmentStatusResponse' :: Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AlastUpdatedTimestamp%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEnrollmentStatusResponse' :: Int
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AhttpStatus%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245761"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The enrollment status of the account.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_status"><span class="hs-identifier hs-type">getEnrollmentStatusResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="getEnrollmentStatusResponse_status"><span class="annot"><span class="annottext">getEnrollmentStatusResponse_status :: (Maybe Status -&gt; f (Maybe Status))
+-&gt; GetEnrollmentStatusResponse -&gt; f GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_status"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusResponse -&gt; Maybe Status)
+-&gt; (GetEnrollmentStatusResponse
+    -&gt; Maybe Status -&gt; GetEnrollmentStatusResponse)
+-&gt; Lens
+     GetEnrollmentStatusResponse
+     GetEnrollmentStatusResponse
+     (Maybe Status)
+     (Maybe Status)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245758"><span class="annot"><span class="annottext">Maybe Status
+status :: Maybe Status
+$sel:status:GetEnrollmentStatusResponse' :: GetEnrollmentStatusResponse -&gt; Maybe Status
+</span><a href="#local-6989586621679245758"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679245758"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245757"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245756"><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679245756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetEnrollmentStatusResponse' :: Maybe Status
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3Astatus%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679245756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The count of organization member accounts that are opted in to the</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- service, if your account is an organization management account.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn"><span class="hs-identifier hs-type">getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn"><span class="annot"><span class="annottext">getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetEnrollmentStatusResponse -&gt; f GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusResponse -&gt; Maybe Int)
+-&gt; (GetEnrollmentStatusResponse
+    -&gt; Maybe Int -&gt; GetEnrollmentStatusResponse)
+-&gt; Lens
+     GetEnrollmentStatusResponse
+     GetEnrollmentStatusResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245755"><span class="annot"><span class="annottext">Maybe Int
+numberOfMemberAccountsOptedIn :: Maybe Int
+$sel:numberOfMemberAccountsOptedIn:GetEnrollmentStatusResponse' :: GetEnrollmentStatusResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679245755"><span class="hs-identifier hs-var hs-var">numberOfMemberAccountsOptedIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245755"><span class="hs-identifier hs-var">numberOfMemberAccountsOptedIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245754"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245753"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfMemberAccountsOptedIn:GetEnrollmentStatusResponse' :: Maybe Int
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AnumberOfMemberAccountsOptedIn%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">numberOfMemberAccountsOptedIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | Confirms the enrollment status of member accounts of the organization,</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- if the account is a management account of an organization.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_memberAccountsEnrolled"><span class="hs-identifier hs-type">getEnrollmentStatusResponse_memberAccountsEnrolled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="getEnrollmentStatusResponse_memberAccountsEnrolled"><span class="annot"><span class="annottext">getEnrollmentStatusResponse_memberAccountsEnrolled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetEnrollmentStatusResponse -&gt; f GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_memberAccountsEnrolled"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusResponse_memberAccountsEnrolled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusResponse -&gt; Maybe Bool)
+-&gt; (GetEnrollmentStatusResponse
+    -&gt; Maybe Bool -&gt; GetEnrollmentStatusResponse)
+-&gt; Lens
+     GetEnrollmentStatusResponse
+     GetEnrollmentStatusResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245752"><span class="annot"><span class="annottext">Maybe Bool
+memberAccountsEnrolled :: Maybe Bool
+$sel:memberAccountsEnrolled:GetEnrollmentStatusResponse' :: GetEnrollmentStatusResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679245752"><span class="hs-identifier hs-var hs-var">memberAccountsEnrolled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679245752"><span class="hs-identifier hs-var">memberAccountsEnrolled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245751"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245750"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679245750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccountsEnrolled:GetEnrollmentStatusResponse' :: Maybe Bool
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AmemberAccountsEnrolled%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">memberAccountsEnrolled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679245750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The reason for the enrollment status of the account.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- For example, an account might show a status of @Pending@ because member</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- accounts of an organization require more time to be enrolled in the</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_statusReason"><span class="hs-identifier hs-type">getEnrollmentStatusResponse_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="getEnrollmentStatusResponse_statusReason"><span class="annot"><span class="annottext">getEnrollmentStatusResponse_statusReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetEnrollmentStatusResponse -&gt; f GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_statusReason"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusResponse_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusResponse -&gt; Maybe Text)
+-&gt; (GetEnrollmentStatusResponse
+    -&gt; Maybe Text -&gt; GetEnrollmentStatusResponse)
+-&gt; Lens
+     GetEnrollmentStatusResponse
+     GetEnrollmentStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245749"><span class="annot"><span class="annottext">Maybe Text
+statusReason :: Maybe Text
+$sel:statusReason:GetEnrollmentStatusResponse' :: GetEnrollmentStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679245749"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245749"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245748"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245747"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:GetEnrollmentStatusResponse' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AstatusReason%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The Unix epoch timestamp, in seconds, of when the account enrollment</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- status was last updated.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-type">getEnrollmentStatusResponse_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="getEnrollmentStatusResponse_lastUpdatedTimestamp"><span class="annot"><span class="annottext">getEnrollmentStatusResponse_lastUpdatedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetEnrollmentStatusResponse -&gt; f GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusResponse_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusResponse -&gt; Maybe POSIX)
+-&gt; (GetEnrollmentStatusResponse
+    -&gt; Maybe POSIX -&gt; GetEnrollmentStatusResponse)
+-&gt; Lens
+     GetEnrollmentStatusResponse
+     GetEnrollmentStatusResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245746"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTimestamp :: Maybe POSIX
+$sel:lastUpdatedTimestamp:GetEnrollmentStatusResponse' :: GetEnrollmentStatusResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679245746"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679245746"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245745"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245744"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679245744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetEnrollmentStatusResponse' :: Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AlastUpdatedTimestamp%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679245744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetEnrollmentStatusResponse -&gt; f GetEnrollmentStatusResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetEnrollmentStatusResponse
+-&gt; f GetEnrollmentStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_httpStatus"><span class="hs-identifier hs-type">getEnrollmentStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="getEnrollmentStatusResponse_httpStatus"><span class="annot"><span class="annottext">getEnrollmentStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetEnrollmentStatusResponse -&gt; f GetEnrollmentStatusResponse
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#getEnrollmentStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getEnrollmentStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnrollmentStatusResponse -&gt; Int)
+-&gt; (GetEnrollmentStatusResponse
+    -&gt; Int -&gt; GetEnrollmentStatusResponse)
+-&gt; Lens
+     GetEnrollmentStatusResponse GetEnrollmentStatusResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245740"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetEnrollmentStatusResponse' :: GetEnrollmentStatusResponse -&gt; Int
+</span><a href="#local-6989586621679245740"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245740"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245739"><span class="annot"><span class="annottext">s :: GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse%27"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245738"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnrollmentStatusResponse
+</span><a href="#local-6989586621679245739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEnrollmentStatusResponse' :: Int
+</span><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#%24sel%3AhttpStatus%3AGetEnrollmentStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.GetEnrollmentStatus.html#GetEnrollmentStatusResponse"><span class="hs-identifier hs-type">GetEnrollmentStatusResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.Types.Delete</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.Types.Delete</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html"><span class="hs-identifier">Amazonka.DynamoDB.Types.AttributeValue</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html"><span class="hs-identifier">Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a request to perform a @DeleteItem@ operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDelete' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679379819"><span id="local-6989586621679379820"></span></span><span class="hs-keyword">data</span><span> </span><span id="Delete"><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-var">Delete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Delete%27"><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-var">Delete'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AexpressionAttributeNames%3ADelete%27"><span class="annot"><span class="annottext">Delete -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AexpressionAttributeNames%3ADelete%27"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AexpressionAttributeValues%3ADelete%27"><span class="annot"><span class="annottext">Delete -&gt; Maybe (HashMap Text AttributeValue)
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AexpressionAttributeValues%3ADelete%27"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the valid values are: NONE and ALL_OLD.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AreturnValuesOnConditionCheckFailure%3ADelete%27"><span class="annot"><span class="annottext">Delete -&gt; Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AreturnValuesOnConditionCheckFailure%3ADelete%27"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional delete to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AconditionExpression%3ADelete%27"><span class="annot"><span class="annottext">Delete -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AconditionExpression%3ADelete%27"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The primary key of the item to be deleted. Each element consists of an</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Akey%3ADelete%27"><span class="annot"><span class="annottext">Delete -&gt; HashMap Text AttributeValue
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3Akey%3ADelete%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Name of the table in which the item to be deleted resides.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtableName%3ADelete%27"><span class="annot"><span class="annottext">Delete -&gt; Text
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AtableName%3ADelete%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379808"><span id="local-6989586621679379810"><span class="annot"><span class="annottext">Delete -&gt; Delete -&gt; Bool
+(Delete -&gt; Delete -&gt; Bool)
+-&gt; (Delete -&gt; Delete -&gt; Bool) -&gt; Eq Delete
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Delete -&gt; Delete -&gt; Bool
+$c/= :: Delete -&gt; Delete -&gt; Bool
+== :: Delete -&gt; Delete -&gt; Bool
+$c== :: Delete -&gt; Delete -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379799"><span id="local-6989586621679379801"><span id="local-6989586621679379803"><span id="local-6989586621679379805"><span class="annot"><span class="annottext">ReadPrec [Delete]
+ReadPrec Delete
+Int -&gt; ReadS Delete
+ReadS [Delete]
+(Int -&gt; ReadS Delete)
+-&gt; ReadS [Delete]
+-&gt; ReadPrec Delete
+-&gt; ReadPrec [Delete]
+-&gt; Read Delete
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Delete]
+$creadListPrec :: ReadPrec [Delete]
+readPrec :: ReadPrec Delete
+$creadPrec :: ReadPrec Delete
+readList :: ReadS [Delete]
+$creadList :: ReadS [Delete]
+readsPrec :: Int -&gt; ReadS Delete
+$creadsPrec :: Int -&gt; ReadS Delete
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379792"><span id="local-6989586621679379794"><span id="local-6989586621679379796"><span class="annot"><span class="annottext">Int -&gt; Delete -&gt; ShowS
+[Delete] -&gt; ShowS
+Delete -&gt; String
+(Int -&gt; Delete -&gt; ShowS)
+-&gt; (Delete -&gt; String) -&gt; ([Delete] -&gt; ShowS) -&gt; Show Delete
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Delete] -&gt; ShowS
+$cshowList :: [Delete] -&gt; ShowS
+show :: Delete -&gt; String
+$cshow :: Delete -&gt; String
+showsPrec :: Int -&gt; Delete -&gt; ShowS
+$cshowsPrec :: Int -&gt; Delete -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Delete -&gt; Rep Delete x)
+-&gt; (forall x. Rep Delete x -&gt; Delete) -&gt; Generic Delete
+forall x. Rep Delete x -&gt; Delete
+forall x. Delete -&gt; Rep Delete x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Delete x -&gt; Delete
+$cfrom :: forall x. Delete -&gt; Rep Delete x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'Delete' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'expressionAttributeNames', 'delete_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'expressionAttributeValues', 'delete_expressionAttributeValues' - One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'returnValuesOnConditionCheckFailure', 'delete_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- the valid values are: NONE and ALL_OLD.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'conditionExpression', 'delete_conditionExpression' - A condition that must be satisfied in order for a conditional delete to</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'key', 'delete_key' - The primary key of the item to be deleted. Each element consists of an</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'tableName', 'delete_tableName' - Name of the table in which the item to be deleted resides.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#newDelete"><span class="hs-identifier hs-type">newDelete</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span>
+</span><span id="line-78"></span><span id="newDelete"><span class="annot"><span class="annottext">newDelete :: Text -&gt; Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#newDelete"><span class="hs-identifier hs-var hs-var">newDelete</span></a></span></span><span> </span><span id="local-6989586621679379786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379786"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">Delete' :: Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text AttributeValue)
+-&gt; Maybe ReturnValuesOnConditionCheckFailure
+-&gt; Maybe Text
+-&gt; HashMap Text AttributeValue
+-&gt; Text
+-&gt; Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Delete' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AexpressionAttributeNames%3ADelete%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Delete' :: Maybe (HashMap Text AttributeValue)
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AexpressionAttributeValues%3ADelete%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:Delete' :: Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AreturnValuesOnConditionCheckFailure%3ADelete%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:conditionExpression:Delete' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AconditionExpression%3ADelete%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:Delete' :: HashMap Text AttributeValue
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3Akey%3ADelete%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:Delete' :: Text
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AtableName%3ADelete%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379786"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#delete_expressionAttributeNames"><span class="hs-identifier hs-type">delete_expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="delete_expressionAttributeNames"><span class="annot"><span class="annottext">delete_expressionAttributeNames :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Delete -&gt; f Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#delete_expressionAttributeNames"><span class="hs-identifier hs-var hs-var">delete_expressionAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delete -&gt; Maybe (HashMap Text Text))
+-&gt; (Delete -&gt; Maybe (HashMap Text Text) -&gt; Delete)
+-&gt; Lens
+     Delete
+     Delete
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379782"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+expressionAttributeNames :: Maybe (HashMap Text Text)
+$sel:expressionAttributeNames:Delete' :: Delete -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379782"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379782"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379781"><span class="annot"><span class="annottext">s :: Delete
+</span><a href="#local-6989586621679379781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379780"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679379781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Delete' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AexpressionAttributeNames%3ADelete%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Delete -&gt; f Delete)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Delete
+-&gt; f Delete
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#delete_expressionAttributeValues"><span class="hs-identifier hs-type">delete_expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="delete_expressionAttributeValues"><span class="annot"><span class="annottext">delete_expressionAttributeValues :: (Maybe (HashMap Text AttributeValue)
+ -&gt; f (Maybe (HashMap Text AttributeValue)))
+-&gt; Delete -&gt; f Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#delete_expressionAttributeValues"><span class="hs-identifier hs-var hs-var">delete_expressionAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delete -&gt; Maybe (HashMap Text AttributeValue))
+-&gt; (Delete -&gt; Maybe (HashMap Text AttributeValue) -&gt; Delete)
+-&gt; Lens
+     Delete
+     Delete
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379775"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
+$sel:expressionAttributeValues:Delete' :: Delete -&gt; Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679379775"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679379775"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379774"><span class="annot"><span class="annottext">s :: Delete
+</span><a href="#local-6989586621679379774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379773"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679379773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679379774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Delete' :: Maybe (HashMap Text AttributeValue)
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AexpressionAttributeValues%3ADelete%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679379773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+  -&gt; f (Maybe (HashMap Text AttributeValue)))
+ -&gt; Delete -&gt; f Delete)
+-&gt; ((Maybe (HashMap Text AttributeValue)
+     -&gt; f (Maybe (HashMap Text AttributeValue)))
+    -&gt; Maybe (HashMap Text AttributeValue)
+    -&gt; f (Maybe (HashMap Text AttributeValue)))
+-&gt; (Maybe (HashMap Text AttributeValue)
+    -&gt; f (Maybe (HashMap Text AttributeValue)))
+-&gt; Delete
+-&gt; f Delete
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+-&gt; Iso
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the valid values are: NONE and ALL_OLD.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#delete_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">delete_returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="delete_returnValuesOnConditionCheckFailure"><span class="annot"><span class="annottext">delete_returnValuesOnConditionCheckFailure :: (Maybe ReturnValuesOnConditionCheckFailure
+ -&gt; f (Maybe ReturnValuesOnConditionCheckFailure))
+-&gt; Delete -&gt; f Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#delete_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-var hs-var">delete_returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delete -&gt; Maybe ReturnValuesOnConditionCheckFailure)
+-&gt; (Delete -&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; Delete)
+-&gt; Lens
+     Delete
+     Delete
+     (Maybe ReturnValuesOnConditionCheckFailure)
+     (Maybe ReturnValuesOnConditionCheckFailure)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379771"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+returnValuesOnConditionCheckFailure :: Maybe ReturnValuesOnConditionCheckFailure
+$sel:returnValuesOnConditionCheckFailure:Delete' :: Delete -&gt; Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679379771"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679379771"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379770"><span class="annot"><span class="annottext">s :: Delete
+</span><a href="#local-6989586621679379770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379769"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679379769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679379770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:Delete' :: Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AreturnValuesOnConditionCheckFailure%3ADelete%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679379769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional delete to</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#delete_conditionExpression"><span class="hs-identifier hs-type">delete_conditionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="delete_conditionExpression"><span class="annot"><span class="annottext">delete_conditionExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Delete -&gt; f Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#delete_conditionExpression"><span class="hs-identifier hs-var hs-var">delete_conditionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delete -&gt; Maybe Text)
+-&gt; (Delete -&gt; Maybe Text -&gt; Delete)
+-&gt; Lens Delete Delete (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379767"><span class="annot"><span class="annottext">Maybe Text
+conditionExpression :: Maybe Text
+$sel:conditionExpression:Delete' :: Delete -&gt; Maybe Text
+</span><a href="#local-6989586621679379767"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379767"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379766"><span class="annot"><span class="annottext">s :: Delete
+</span><a href="#local-6989586621679379766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379765"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679379766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:Delete' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AconditionExpression%3ADelete%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The primary key of the item to be deleted. Each element consists of an</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#delete_key"><span class="hs-identifier hs-type">delete_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="delete_key"><span class="annot"><span class="annottext">delete_key :: (HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; Delete -&gt; f Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#delete_key"><span class="hs-identifier hs-var hs-var">delete_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delete -&gt; HashMap Text AttributeValue)
+-&gt; (Delete -&gt; HashMap Text AttributeValue -&gt; Delete)
+-&gt; Lens
+     Delete
+     Delete
+     (HashMap Text AttributeValue)
+     (HashMap Text AttributeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379763"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+key :: HashMap Text AttributeValue
+$sel:key:Delete' :: Delete -&gt; HashMap Text AttributeValue
+</span><a href="#local-6989586621679379763"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679379763"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379762"><span class="annot"><span class="annottext">s :: Delete
+</span><a href="#local-6989586621679379762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379761"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679379761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679379762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Delete' :: HashMap Text AttributeValue
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3Akey%3ADelete%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679379761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+ -&gt; Delete -&gt; f Delete)
+-&gt; ((HashMap Text AttributeValue
+     -&gt; f (HashMap Text AttributeValue))
+    -&gt; HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; (HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; Delete
+-&gt; f Delete
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Name of the table in which the item to be deleted resides.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#delete_tableName"><span class="hs-identifier hs-type">delete_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="delete_tableName"><span class="annot"><span class="annottext">delete_tableName :: (Text -&gt; f Text) -&gt; Delete -&gt; f Delete
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#delete_tableName"><span class="hs-identifier hs-var hs-var">delete_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delete -&gt; Text)
+-&gt; (Delete -&gt; Text -&gt; Delete) -&gt; Lens Delete Delete Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379759"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:Delete' :: Delete -&gt; Text
+</span><a href="#local-6989586621679379759"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379759"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379758"><span class="annot"><span class="annottext">s :: Delete
+</span><a href="#local-6989586621679379758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379757"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679379758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Delete' :: Text
+</span><a href="Amazonka.DynamoDB.Types.Delete.html#%24sel%3AtableName%3ADelete%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379753"><span id="local-6989586621679379755"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379742"><span id="local-6989586621679379744"><span id="local-6989586621679379746"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679379740"><span class="annot"><span class="annottext">toJSON :: Delete -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Delete.html#Delete%27"><span class="hs-identifier hs-type">Delete'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379733"><span id="local-6989586621679379734"><span id="local-6989586621679379735"><span id="local-6989586621679379736"><span id="local-6989586621679379737"><span id="local-6989586621679379738"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe (HashMap Text AttributeValue)
+Maybe ReturnValuesOnConditionCheckFailure
+Text
+HashMap Text AttributeValue
+tableName :: Text
+key :: HashMap Text AttributeValue
+conditionExpression :: Maybe Text
+returnValuesOnConditionCheckFailure :: Maybe ReturnValuesOnConditionCheckFailure
+expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
+expressionAttributeNames :: Maybe (HashMap Text Text)
+$sel:tableName:Delete' :: Delete -&gt; Text
+$sel:key:Delete' :: Delete -&gt; HashMap Text AttributeValue
+$sel:conditionExpression:Delete' :: Delete -&gt; Maybe Text
+$sel:returnValuesOnConditionCheckFailure:Delete' :: Delete -&gt; Maybe ReturnValuesOnConditionCheckFailure
+$sel:expressionAttributeValues:Delete' :: Delete -&gt; Maybe (HashMap Text AttributeValue)
+$sel:expressionAttributeNames:Delete' :: Delete -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpressionAttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379738"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text AttributeValue -&gt; Pair)
+-&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679379737"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReturnValuesOnConditionCheckFailure&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnValuesOnConditionCheckFailure -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(ReturnValuesOnConditionCheckFailure -&gt; Pair)
+-&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679379736"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConditionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379735"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679379734"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379733"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span></pre></body></html>

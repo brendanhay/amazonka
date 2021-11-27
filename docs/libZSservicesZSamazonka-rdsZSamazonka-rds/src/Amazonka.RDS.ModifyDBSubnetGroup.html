@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.ModifyDBSubnetGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies an existing DB subnet group. DB subnet groups must contain at</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- least one subnet in at least two AZs in the Amazon Web Services Region.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.ModifyDBSubnetGroup</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#newModifyDBSubnetGroup"><span class="hs-identifier">newModifyDBSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_dbSubnetGroupDescription"><span class="hs-identifier">modifyDBSubnetGroup_dbSubnetGroupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_dbSubnetGroupName"><span class="hs-identifier">modifyDBSubnetGroup_dbSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_subnetIds"><span class="hs-identifier">modifyDBSubnetGroup_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier">ModifyDBSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#newModifyDBSubnetGroupResponse"><span class="hs-identifier">newModifyDBSubnetGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroupResponse_dbSubnetGroup"><span class="hs-identifier">modifyDBSubnetGroupResponse_dbSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroupResponse_httpStatus"><span class="hs-identifier">modifyDBSubnetGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newModifyDBSubnetGroup' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679781181"><span id="local-6989586621679781182"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBSubnetGroup"><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-var">ModifyDBSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBSubnetGroup%27"><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-var">ModifyDBSubnetGroup'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description for the DB subnet group.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdbSubnetGroupDescription%3AModifyDBSubnetGroup%27"><span class="annot"><span class="annottext">ModifyDBSubnetGroup -&gt; Maybe Text
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name for the DB subnet group. This value is stored as a lowercase</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- string. You can\'t modify the default subnet group.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Constraints: Must match the name of an existing DBSubnetGroup. Must not</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- be default.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Example: @mySubnetgroup@</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdbSubnetGroupName%3AModifyDBSubnetGroup%27"><span class="annot"><span class="annottext">ModifyDBSubnetGroup -&gt; Text
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The EC2 subnet IDs for the DB subnet group.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsubnetIds%3AModifyDBSubnetGroup%27"><span class="annot"><span class="annottext">ModifyDBSubnetGroup -&gt; [Text]
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AsubnetIds%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781173"><span id="local-6989586621679781175"><span class="annot"><span class="annottext">ModifyDBSubnetGroup -&gt; ModifyDBSubnetGroup -&gt; Bool
+(ModifyDBSubnetGroup -&gt; ModifyDBSubnetGroup -&gt; Bool)
+-&gt; (ModifyDBSubnetGroup -&gt; ModifyDBSubnetGroup -&gt; Bool)
+-&gt; Eq ModifyDBSubnetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyDBSubnetGroup -&gt; ModifyDBSubnetGroup -&gt; Bool
+$c/= :: ModifyDBSubnetGroup -&gt; ModifyDBSubnetGroup -&gt; Bool
+== :: ModifyDBSubnetGroup -&gt; ModifyDBSubnetGroup -&gt; Bool
+$c== :: ModifyDBSubnetGroup -&gt; ModifyDBSubnetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781164"><span id="local-6989586621679781166"><span id="local-6989586621679781168"><span id="local-6989586621679781170"><span class="annot"><span class="annottext">ReadPrec [ModifyDBSubnetGroup]
+ReadPrec ModifyDBSubnetGroup
+Int -&gt; ReadS ModifyDBSubnetGroup
+ReadS [ModifyDBSubnetGroup]
+(Int -&gt; ReadS ModifyDBSubnetGroup)
+-&gt; ReadS [ModifyDBSubnetGroup]
+-&gt; ReadPrec ModifyDBSubnetGroup
+-&gt; ReadPrec [ModifyDBSubnetGroup]
+-&gt; Read ModifyDBSubnetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyDBSubnetGroup]
+$creadListPrec :: ReadPrec [ModifyDBSubnetGroup]
+readPrec :: ReadPrec ModifyDBSubnetGroup
+$creadPrec :: ReadPrec ModifyDBSubnetGroup
+readList :: ReadS [ModifyDBSubnetGroup]
+$creadList :: ReadS [ModifyDBSubnetGroup]
+readsPrec :: Int -&gt; ReadS ModifyDBSubnetGroup
+$creadsPrec :: Int -&gt; ReadS ModifyDBSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781157"><span id="local-6989586621679781159"><span id="local-6989586621679781161"><span class="annot"><span class="annottext">Int -&gt; ModifyDBSubnetGroup -&gt; ShowS
+[ModifyDBSubnetGroup] -&gt; ShowS
+ModifyDBSubnetGroup -&gt; String
+(Int -&gt; ModifyDBSubnetGroup -&gt; ShowS)
+-&gt; (ModifyDBSubnetGroup -&gt; String)
+-&gt; ([ModifyDBSubnetGroup] -&gt; ShowS)
+-&gt; Show ModifyDBSubnetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyDBSubnetGroup] -&gt; ShowS
+$cshowList :: [ModifyDBSubnetGroup] -&gt; ShowS
+show :: ModifyDBSubnetGroup -&gt; String
+$cshow :: ModifyDBSubnetGroup -&gt; String
+showsPrec :: Int -&gt; ModifyDBSubnetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyDBSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyDBSubnetGroup -&gt; Rep ModifyDBSubnetGroup x)
+-&gt; (forall x. Rep ModifyDBSubnetGroup x -&gt; ModifyDBSubnetGroup)
+-&gt; Generic ModifyDBSubnetGroup
+forall x. Rep ModifyDBSubnetGroup x -&gt; ModifyDBSubnetGroup
+forall x. ModifyDBSubnetGroup -&gt; Rep ModifyDBSubnetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyDBSubnetGroup x -&gt; ModifyDBSubnetGroup
+$cfrom :: forall x. ModifyDBSubnetGroup -&gt; Rep ModifyDBSubnetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'ModifyDBSubnetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'dbSubnetGroupDescription', 'modifyDBSubnetGroup_dbSubnetGroupDescription' - The description for the DB subnet group.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'dbSubnetGroupName', 'modifyDBSubnetGroup_dbSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- string. You can\'t modify the default subnet group.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Constraints: Must match the name of an existing DBSubnetGroup. Must not</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- be default.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Example: @mySubnetgroup@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'subnetIds', 'modifyDBSubnetGroup_subnetIds' - The EC2 subnet IDs for the DB subnet group.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#newModifyDBSubnetGroup"><span class="hs-identifier hs-type">newModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'dbSubnetGroupName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span>
+</span><span id="line-94"></span><span id="newModifyDBSubnetGroup"><span class="annot"><span class="annottext">newModifyDBSubnetGroup :: Text -&gt; ModifyDBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#newModifyDBSubnetGroup"><span class="hs-identifier hs-var hs-var">newModifyDBSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679781152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781152"><span class="hs-identifier hs-var">pDBSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBSubnetGroup' :: Maybe Text -&gt; Text -&gt; [Text] -&gt; ModifyDBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupDescription:ModifyDBSubnetGroup' :: Maybe Text
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:ModifyDBSubnetGroup' :: Text
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781152"><span class="hs-identifier hs-var">pDBSubnetGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:ModifyDBSubnetGroup' :: [Text]
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AsubnetIds%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The description for the DB subnet group.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_dbSubnetGroupDescription"><span class="hs-identifier hs-type">modifyDBSubnetGroup_dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="modifyDBSubnetGroup_dbSubnetGroupDescription"><span class="annot"><span class="annottext">modifyDBSubnetGroup_dbSubnetGroupDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBSubnetGroup -&gt; f ModifyDBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_dbSubnetGroupDescription"><span class="hs-identifier hs-var hs-var">modifyDBSubnetGroup_dbSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSubnetGroup -&gt; Maybe Text)
+-&gt; (ModifyDBSubnetGroup -&gt; Maybe Text -&gt; ModifyDBSubnetGroup)
+-&gt; Lens
+     ModifyDBSubnetGroup ModifyDBSubnetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781149"><span class="annot"><span class="annottext">Maybe Text
+dbSubnetGroupDescription :: Maybe Text
+$sel:dbSubnetGroupDescription:ModifyDBSubnetGroup' :: ModifyDBSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679781149"><span class="hs-identifier hs-var hs-var">dbSubnetGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781149"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781148"><span class="annot"><span class="annottext">s :: ModifyDBSubnetGroup
+</span><a href="#local-6989586621679781148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSubnetGroup
+</span><a href="#local-6989586621679781148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupDescription:ModifyDBSubnetGroup' :: Maybe Text
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name for the DB subnet group. This value is stored as a lowercase</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- string. You can\'t modify the default subnet group.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Constraints: Must match the name of an existing DBSubnetGroup. Must not</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- be default.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Example: @mySubnetgroup@</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_dbSubnetGroupName"><span class="hs-identifier hs-type">modifyDBSubnetGroup_dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="modifyDBSubnetGroup_dbSubnetGroupName"><span class="annot"><span class="annottext">modifyDBSubnetGroup_dbSubnetGroupName :: (Text -&gt; f Text) -&gt; ModifyDBSubnetGroup -&gt; f ModifyDBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_dbSubnetGroupName"><span class="hs-identifier hs-var hs-var">modifyDBSubnetGroup_dbSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSubnetGroup -&gt; Text)
+-&gt; (ModifyDBSubnetGroup -&gt; Text -&gt; ModifyDBSubnetGroup)
+-&gt; Lens ModifyDBSubnetGroup ModifyDBSubnetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781146"><span class="annot"><span class="annottext">Text
+dbSubnetGroupName :: Text
+$sel:dbSubnetGroupName:ModifyDBSubnetGroup' :: ModifyDBSubnetGroup -&gt; Text
+</span><a href="#local-6989586621679781146"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781146"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781145"><span class="annot"><span class="annottext">s :: ModifyDBSubnetGroup
+</span><a href="#local-6989586621679781145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSubnetGroup
+</span><a href="#local-6989586621679781145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:ModifyDBSubnetGroup' :: Text
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The EC2 subnet IDs for the DB subnet group.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_subnetIds"><span class="hs-identifier hs-type">modifyDBSubnetGroup_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span id="modifyDBSubnetGroup_subnetIds"><span class="annot"><span class="annottext">modifyDBSubnetGroup_subnetIds :: ([Text] -&gt; f [Text])
+-&gt; ModifyDBSubnetGroup -&gt; f ModifyDBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroup_subnetIds"><span class="hs-identifier hs-var hs-var">modifyDBSubnetGroup_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSubnetGroup -&gt; [Text])
+-&gt; (ModifyDBSubnetGroup -&gt; [Text] -&gt; ModifyDBSubnetGroup)
+-&gt; Lens ModifyDBSubnetGroup ModifyDBSubnetGroup [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781143"><span class="annot"><span class="annottext">[Text]
+subnetIds :: [Text]
+$sel:subnetIds:ModifyDBSubnetGroup' :: ModifyDBSubnetGroup -&gt; [Text]
+</span><a href="#local-6989586621679781143"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679781143"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781142"><span class="annot"><span class="annottext">s :: ModifyDBSubnetGroup
+</span><a href="#local-6989586621679781142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781141"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679781141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSubnetGroup
+</span><a href="#local-6989586621679781142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:ModifyDBSubnetGroup' :: [Text]
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AsubnetIds%3AModifyDBSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679781141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; ModifyDBSubnetGroup -&gt; f ModifyDBSubnetGroup)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; ModifyDBSubnetGroup
+-&gt; f ModifyDBSubnetGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679781135"><span class="annot"><span class="annottext">request :: ModifyDBSubnetGroup -&gt; Request ModifyDBSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyDBSubnetGroup -&gt; Request ModifyDBSubnetGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679781131"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyDBSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyDBSubnetGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ModifyDBSubnetGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyDBSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyDBSubnetGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifyDBSubnetGroupResult&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781128"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781128"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679781127"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679781127"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679781126"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679781126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup -&gt; Int -&gt; ModifyDBSubnetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">ModifyDBSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBSubnetGroup -&gt; Int -&gt; ModifyDBSubnetGroupResponse)
+-&gt; Either String (Maybe DBSubnetGroup)
+-&gt; Either String (Int -&gt; ModifyDBSubnetGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679781126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSubnetGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBSubnetGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyDBSubnetGroupResponse)
+-&gt; Either String Int -&gt; Either String ModifyDBSubnetGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781128"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781118"><span id="local-6989586621679781120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679781111"><span class="annot"><span class="annottext">toHeaders :: ModifyDBSubnetGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyDBSubnetGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679781106"><span class="annot"><span class="annottext">toPath :: ModifyDBSubnetGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyDBSubnetGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup"><span class="hs-identifier hs-type">ModifyDBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679781102"><span class="annot"><span class="annottext">toQuery :: ModifyDBSubnetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroup%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781098"><span id="local-6989586621679781099"><span id="local-6989586621679781100"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Text
+subnetIds :: [Text]
+dbSubnetGroupName :: Text
+dbSubnetGroupDescription :: Maybe Text
+$sel:subnetIds:ModifyDBSubnetGroup' :: ModifyDBSubnetGroup -&gt; [Text]
+$sel:dbSubnetGroupName:ModifyDBSubnetGroup' :: ModifyDBSubnetGroup -&gt; Text
+$sel:dbSubnetGroupDescription:ModifyDBSubnetGroup' :: ModifyDBSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679781098"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyDBSubnetGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBSubnetGroupDescription&quot;</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781100"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBSubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781099"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SubnetIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679781098"><span class="hs-identifier hs-var">subnetIds</span></a></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newModifyDBSubnetGroupResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679781094"><span id="local-6989586621679781095"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBSubnetGroupResponse"><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-var">ModifyDBSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBSubnetGroupResponse%27"><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">ModifyDBSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbSubnetGroup%3AModifyDBSubnetGroupResponse%27"><span class="annot"><span class="annottext">ModifyDBSubnetGroupResponse -&gt; Maybe DBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroup%3AModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyDBSubnetGroupResponse%27"><span class="annot"><span class="annottext">ModifyDBSubnetGroupResponse -&gt; Int
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AhttpStatus%3AModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781088"><span id="local-6989586621679781090"><span class="annot"><span class="annottext">ModifyDBSubnetGroupResponse -&gt; ModifyDBSubnetGroupResponse -&gt; Bool
+(ModifyDBSubnetGroupResponse
+ -&gt; ModifyDBSubnetGroupResponse -&gt; Bool)
+-&gt; (ModifyDBSubnetGroupResponse
+    -&gt; ModifyDBSubnetGroupResponse -&gt; Bool)
+-&gt; Eq ModifyDBSubnetGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyDBSubnetGroupResponse -&gt; ModifyDBSubnetGroupResponse -&gt; Bool
+$c/= :: ModifyDBSubnetGroupResponse -&gt; ModifyDBSubnetGroupResponse -&gt; Bool
+== :: ModifyDBSubnetGroupResponse -&gt; ModifyDBSubnetGroupResponse -&gt; Bool
+$c== :: ModifyDBSubnetGroupResponse -&gt; ModifyDBSubnetGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781080"><span id="local-6989586621679781082"><span id="local-6989586621679781084"><span id="local-6989586621679781086"><span class="annot"><span class="annottext">ReadPrec [ModifyDBSubnetGroupResponse]
+ReadPrec ModifyDBSubnetGroupResponse
+Int -&gt; ReadS ModifyDBSubnetGroupResponse
+ReadS [ModifyDBSubnetGroupResponse]
+(Int -&gt; ReadS ModifyDBSubnetGroupResponse)
+-&gt; ReadS [ModifyDBSubnetGroupResponse]
+-&gt; ReadPrec ModifyDBSubnetGroupResponse
+-&gt; ReadPrec [ModifyDBSubnetGroupResponse]
+-&gt; Read ModifyDBSubnetGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyDBSubnetGroupResponse]
+$creadListPrec :: ReadPrec [ModifyDBSubnetGroupResponse]
+readPrec :: ReadPrec ModifyDBSubnetGroupResponse
+$creadPrec :: ReadPrec ModifyDBSubnetGroupResponse
+readList :: ReadS [ModifyDBSubnetGroupResponse]
+$creadList :: ReadS [ModifyDBSubnetGroupResponse]
+readsPrec :: Int -&gt; ReadS ModifyDBSubnetGroupResponse
+$creadsPrec :: Int -&gt; ReadS ModifyDBSubnetGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781074"><span id="local-6989586621679781076"><span id="local-6989586621679781078"><span class="annot"><span class="annottext">Int -&gt; ModifyDBSubnetGroupResponse -&gt; ShowS
+[ModifyDBSubnetGroupResponse] -&gt; ShowS
+ModifyDBSubnetGroupResponse -&gt; String
+(Int -&gt; ModifyDBSubnetGroupResponse -&gt; ShowS)
+-&gt; (ModifyDBSubnetGroupResponse -&gt; String)
+-&gt; ([ModifyDBSubnetGroupResponse] -&gt; ShowS)
+-&gt; Show ModifyDBSubnetGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyDBSubnetGroupResponse] -&gt; ShowS
+$cshowList :: [ModifyDBSubnetGroupResponse] -&gt; ShowS
+show :: ModifyDBSubnetGroupResponse -&gt; String
+$cshow :: ModifyDBSubnetGroupResponse -&gt; String
+showsPrec :: Int -&gt; ModifyDBSubnetGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyDBSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyDBSubnetGroupResponse -&gt; Rep ModifyDBSubnetGroupResponse x)
+-&gt; (forall x.
+    Rep ModifyDBSubnetGroupResponse x -&gt; ModifyDBSubnetGroupResponse)
+-&gt; Generic ModifyDBSubnetGroupResponse
+forall x.
+Rep ModifyDBSubnetGroupResponse x -&gt; ModifyDBSubnetGroupResponse
+forall x.
+ModifyDBSubnetGroupResponse -&gt; Rep ModifyDBSubnetGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyDBSubnetGroupResponse x -&gt; ModifyDBSubnetGroupResponse
+$cfrom :: forall x.
+ModifyDBSubnetGroupResponse -&gt; Rep ModifyDBSubnetGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'ModifyDBSubnetGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'dbSubnetGroup', 'modifyDBSubnetGroupResponse_dbSubnetGroup' - Undocumented member.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'httpStatus', 'modifyDBSubnetGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#newModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">newModifyDBSubnetGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse</span></a></span><span>
+</span><span id="line-181"></span><span id="newModifyDBSubnetGroupResponse"><span class="annot"><span class="annottext">newModifyDBSubnetGroupResponse :: Int -&gt; ModifyDBSubnetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#newModifyDBSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newModifyDBSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679781071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781071"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBSubnetGroupResponse' :: Maybe DBSubnetGroup -&gt; Int -&gt; ModifyDBSubnetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSubnetGroup:ModifyDBSubnetGroupResponse' :: Maybe DBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroup%3AModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">dbSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBSubnetGroupResponse' :: Int
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AhttpStatus%3AModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781071"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroupResponse_dbSubnetGroup"><span class="hs-identifier hs-type">modifyDBSubnetGroupResponse_dbSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="modifyDBSubnetGroupResponse_dbSubnetGroup"><span class="annot"><span class="annottext">modifyDBSubnetGroupResponse_dbSubnetGroup :: (Maybe DBSubnetGroup -&gt; f (Maybe DBSubnetGroup))
+-&gt; ModifyDBSubnetGroupResponse -&gt; f ModifyDBSubnetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroupResponse_dbSubnetGroup"><span class="hs-identifier hs-var hs-var">modifyDBSubnetGroupResponse_dbSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSubnetGroupResponse -&gt; Maybe DBSubnetGroup)
+-&gt; (ModifyDBSubnetGroupResponse
+    -&gt; Maybe DBSubnetGroup -&gt; ModifyDBSubnetGroupResponse)
+-&gt; Lens
+     ModifyDBSubnetGroupResponse
+     ModifyDBSubnetGroupResponse
+     (Maybe DBSubnetGroup)
+     (Maybe DBSubnetGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781070"><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+dbSubnetGroup :: Maybe DBSubnetGroup
+$sel:dbSubnetGroup:ModifyDBSubnetGroupResponse' :: ModifyDBSubnetGroupResponse -&gt; Maybe DBSubnetGroup
+</span><a href="#local-6989586621679781070"><span class="hs-identifier hs-var hs-var">dbSubnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+</span><a href="#local-6989586621679781070"><span class="hs-identifier hs-var">dbSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781069"><span class="annot"><span class="annottext">s :: ModifyDBSubnetGroupResponse
+</span><a href="#local-6989586621679781069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781068"><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+</span><a href="#local-6989586621679781068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSubnetGroupResponse
+</span><a href="#local-6989586621679781069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroup:ModifyDBSubnetGroupResponse' :: Maybe DBSubnetGroup
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AdbSubnetGroup%3AModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">dbSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+</span><a href="#local-6989586621679781068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-type">modifyDBSubnetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="modifyDBSubnetGroupResponse_httpStatus"><span class="annot"><span class="annottext">modifyDBSubnetGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyDBSubnetGroupResponse -&gt; f ModifyDBSubnetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#modifyDBSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyDBSubnetGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSubnetGroupResponse -&gt; Int)
+-&gt; (ModifyDBSubnetGroupResponse
+    -&gt; Int -&gt; ModifyDBSubnetGroupResponse)
+-&gt; Lens
+     ModifyDBSubnetGroupResponse ModifyDBSubnetGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781067"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyDBSubnetGroupResponse' :: ModifyDBSubnetGroupResponse -&gt; Int
+</span><a href="#local-6989586621679781067"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781067"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781066"><span class="annot"><span class="annottext">s :: ModifyDBSubnetGroupResponse
+</span><a href="#local-6989586621679781066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSubnetGroupResponse
+</span><a href="#local-6989586621679781066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBSubnetGroupResponse' :: Int
+</span><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#%24sel%3AhttpStatus%3AModifyDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBSubnetGroup.html#ModifyDBSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyDBSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.Types.GameServerGroupStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.Types.GameServerGroupStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ACTIVATING"><span class="hs-identifier">GameServerGroupStatus_ACTIVATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ACTIVE"><span class="hs-identifier">GameServerGroupStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETED"><span class="hs-identifier">GameServerGroupStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETE_SCHEDULED"><span class="hs-identifier">GameServerGroupStatus_DELETE_SCHEDULED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETING"><span class="hs-identifier">GameServerGroupStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ERROR"><span class="hs-identifier">GameServerGroupStatus_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_NEW"><span class="hs-identifier">GameServerGroupStatus_NEW</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679432090"><span id="local-6989586621679432091"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerGroupStatus"><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-var">GameServerGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerGroupStatus%27"><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-var">GameServerGroupStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerGroupStatus"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; Text
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#fromGameServerGroupStatus"><span class="hs-identifier hs-var hs-var">fromGameServerGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432082"><span id="local-6989586621679432084"><span id="local-6989586621679432086"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupStatus -&gt; ShowS
+[GameServerGroupStatus] -&gt; ShowS
+GameServerGroupStatus -&gt; String
+(Int -&gt; GameServerGroupStatus -&gt; ShowS)
+-&gt; (GameServerGroupStatus -&gt; String)
+-&gt; ([GameServerGroupStatus] -&gt; ShowS)
+-&gt; Show GameServerGroupStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GameServerGroupStatus] -&gt; ShowS
+$cshowList :: [GameServerGroupStatus] -&gt; ShowS
+show :: GameServerGroupStatus -&gt; String
+$cshow :: GameServerGroupStatus -&gt; String
+showsPrec :: Int -&gt; GameServerGroupStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GameServerGroupStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679432073"><span id="local-6989586621679432075"><span id="local-6989586621679432077"><span id="local-6989586621679432079"><span class="annot"><span class="annottext">ReadPrec [GameServerGroupStatus]
+ReadPrec GameServerGroupStatus
+Int -&gt; ReadS GameServerGroupStatus
+ReadS [GameServerGroupStatus]
+(Int -&gt; ReadS GameServerGroupStatus)
+-&gt; ReadS [GameServerGroupStatus]
+-&gt; ReadPrec GameServerGroupStatus
+-&gt; ReadPrec [GameServerGroupStatus]
+-&gt; Read GameServerGroupStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GameServerGroupStatus]
+$creadListPrec :: ReadPrec [GameServerGroupStatus]
+readPrec :: ReadPrec GameServerGroupStatus
+$creadPrec :: ReadPrec GameServerGroupStatus
+readList :: ReadS [GameServerGroupStatus]
+$creadList :: ReadS [GameServerGroupStatus]
+readsPrec :: Int -&gt; ReadS GameServerGroupStatus
+$creadsPrec :: Int -&gt; ReadS GameServerGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679432068"><span id="local-6989586621679432070"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+(GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool)
+-&gt; (GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool)
+-&gt; Eq GameServerGroupStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+$c/= :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+== :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+$c== :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679432052"><span id="local-6989586621679432054"><span id="local-6989586621679432056"><span id="local-6989586621679432058"><span id="local-6989586621679432060"><span id="local-6989586621679432062"><span id="local-6989586621679432064"><span class="annot"><span class="annottext">Eq GameServerGroupStatus
+Eq GameServerGroupStatus
+-&gt; (GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Ordering)
+-&gt; (GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool)
+-&gt; (GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool)
+-&gt; (GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool)
+-&gt; (GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool)
+-&gt; (GameServerGroupStatus
+    -&gt; GameServerGroupStatus -&gt; GameServerGroupStatus)
+-&gt; (GameServerGroupStatus
+    -&gt; GameServerGroupStatus -&gt; GameServerGroupStatus)
+-&gt; Ord GameServerGroupStatus
+GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Ordering
+GameServerGroupStatus
+-&gt; GameServerGroupStatus -&gt; GameServerGroupStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GameServerGroupStatus
+-&gt; GameServerGroupStatus -&gt; GameServerGroupStatus
+$cmin :: GameServerGroupStatus
+-&gt; GameServerGroupStatus -&gt; GameServerGroupStatus
+max :: GameServerGroupStatus
+-&gt; GameServerGroupStatus -&gt; GameServerGroupStatus
+$cmax :: GameServerGroupStatus
+-&gt; GameServerGroupStatus -&gt; GameServerGroupStatus
+&gt;= :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+$c&gt;= :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+&gt; :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+$c&gt; :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+&lt;= :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+$c&lt;= :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+&lt; :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+$c&lt; :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Bool
+compare :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Ordering
+$ccompare :: GameServerGroupStatus -&gt; GameServerGroupStatus -&gt; Ordering
+$cp1Ord :: Eq GameServerGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GameServerGroupStatus -&gt; Rep GameServerGroupStatus x)
+-&gt; (forall x. Rep GameServerGroupStatus x -&gt; GameServerGroupStatus)
+-&gt; Generic GameServerGroupStatus
+forall x. Rep GameServerGroupStatus x -&gt; GameServerGroupStatus
+forall x. GameServerGroupStatus -&gt; Rep GameServerGroupStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GameServerGroupStatus x -&gt; GameServerGroupStatus
+$cfrom :: forall x. GameServerGroupStatus -&gt; Rep GameServerGroupStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432044"><span id="local-6989586621679432046"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupStatus -&gt; Int
+GameServerGroupStatus -&gt; Int
+(Int -&gt; GameServerGroupStatus -&gt; Int)
+-&gt; (GameServerGroupStatus -&gt; Int) -&gt; Hashable GameServerGroupStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GameServerGroupStatus -&gt; Int
+$chash :: GameServerGroupStatus -&gt; Int
+hashWithSalt :: Int -&gt; GameServerGroupStatus -&gt; Int
+$chashWithSalt :: Int -&gt; GameServerGroupStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432041"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; ()
+(GameServerGroupStatus -&gt; ()) -&gt; NFData GameServerGroupStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GameServerGroupStatus -&gt; ()
+$crnf :: GameServerGroupStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432038"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerGroupStatus
+(Text -&gt; Either String GameServerGroupStatus)
+-&gt; FromText GameServerGroupStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GameServerGroupStatus
+$cfromText :: Text -&gt; Either String GameServerGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432035"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; Text
+(GameServerGroupStatus -&gt; Text) -&gt; ToText GameServerGroupStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GameServerGroupStatus -&gt; Text
+$ctoText :: GameServerGroupStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432032"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; ByteString
+(GameServerGroupStatus -&gt; ByteString)
+-&gt; ToByteString GameServerGroupStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GameServerGroupStatus -&gt; ByteString
+$ctoBS :: GameServerGroupStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432029"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; ByteStringBuilder
+(GameServerGroupStatus -&gt; ByteStringBuilder)
+-&gt; ToLog GameServerGroupStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GameServerGroupStatus -&gt; ByteStringBuilder
+$cbuild :: GameServerGroupStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432026"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerGroupStatus -&gt; [Header]
+(HeaderName -&gt; GameServerGroupStatus -&gt; [Header])
+-&gt; ToHeader GameServerGroupStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GameServerGroupStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GameServerGroupStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432023"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; QueryString
+(GameServerGroupStatus -&gt; QueryString)
+-&gt; ToQuery GameServerGroupStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GameServerGroupStatus -&gt; QueryString
+$ctoQuery :: GameServerGroupStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432018"><span id="local-6989586621679432020"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerGroupStatus]
+Value -&gt; Parser GameServerGroupStatus
+(Value -&gt; Parser GameServerGroupStatus)
+-&gt; (Value -&gt; Parser [GameServerGroupStatus])
+-&gt; FromJSON GameServerGroupStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GameServerGroupStatus]
+$cparseJSONList :: Value -&gt; Parser [GameServerGroupStatus]
+parseJSON :: Value -&gt; Parser GameServerGroupStatus
+$cparseJSON :: Value -&gt; Parser GameServerGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679432013"><span id="local-6989586621679432015"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerGroupStatus]
+FromJSONKeyFunction GameServerGroupStatus
+FromJSONKeyFunction GameServerGroupStatus
+-&gt; FromJSONKeyFunction [GameServerGroupStatus]
+-&gt; FromJSONKey GameServerGroupStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GameServerGroupStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [GameServerGroupStatus]
+fromJSONKey :: FromJSONKeyFunction GameServerGroupStatus
+$cfromJSONKey :: FromJSONKeyFunction GameServerGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679432004"><span id="local-6989586621679432006"><span id="local-6989586621679432008"><span id="local-6989586621679432010"><span class="annot"><span class="annottext">[GameServerGroupStatus] -&gt; Encoding
+[GameServerGroupStatus] -&gt; Value
+GameServerGroupStatus -&gt; Encoding
+GameServerGroupStatus -&gt; Value
+(GameServerGroupStatus -&gt; Value)
+-&gt; (GameServerGroupStatus -&gt; Encoding)
+-&gt; ([GameServerGroupStatus] -&gt; Value)
+-&gt; ([GameServerGroupStatus] -&gt; Encoding)
+-&gt; ToJSON GameServerGroupStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GameServerGroupStatus] -&gt; Encoding
+$ctoEncodingList :: [GameServerGroupStatus] -&gt; Encoding
+toJSONList :: [GameServerGroupStatus] -&gt; Value
+$ctoJSONList :: [GameServerGroupStatus] -&gt; Value
+toEncoding :: GameServerGroupStatus -&gt; Encoding
+$ctoEncoding :: GameServerGroupStatus -&gt; Encoding
+toJSON :: GameServerGroupStatus -&gt; Value
+$ctoJSON :: GameServerGroupStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679431999"><span id="local-6989586621679432001"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerGroupStatus]
+ToJSONKeyFunction GameServerGroupStatus
+ToJSONKeyFunction GameServerGroupStatus
+-&gt; ToJSONKeyFunction [GameServerGroupStatus]
+-&gt; ToJSONKey GameServerGroupStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GameServerGroupStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [GameServerGroupStatus]
+toJSONKey :: ToJSONKeyFunction GameServerGroupStatus
+$ctoJSONKey :: ToJSONKeyFunction GameServerGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679431996"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerGroupStatus
+([Node] -&gt; Either String GameServerGroupStatus)
+-&gt; FromXML GameServerGroupStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GameServerGroupStatus
+$cparseXML :: [Node] -&gt; Either String GameServerGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679431993"><span class="annot"><span class="annottext">GameServerGroupStatus -&gt; XML
+(GameServerGroupStatus -&gt; XML) -&gt; ToXML GameServerGroupStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GameServerGroupStatus -&gt; XML
+$ctoXML :: GameServerGroupStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ACTIVATING"><span class="hs-identifier hs-type">GameServerGroupStatus_ACTIVATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-type">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerGroupStatus_ACTIVATING"><span id="%24mGameServerGroupStatus_ACTIVATING"><span id="GameServerGroupStatus_ACTIVATING"><span class="annot"><span class="annottext">$bGameServerGroupStatus_ACTIVATING :: GameServerGroupStatus
+$mGameServerGroupStatus_ACTIVATING :: forall r.
+GameServerGroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#%24bGameServerGroupStatus_ACTIVATING"><span class="hs-identifier hs-var hs-var hs-var">GameServerGroupStatus_ACTIVATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-type">GameServerGroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVATING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ACTIVE"><span class="hs-identifier hs-type">GameServerGroupStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-type">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerGroupStatus_ACTIVE"><span id="%24mGameServerGroupStatus_ACTIVE"><span id="GameServerGroupStatus_ACTIVE"><span class="annot"><span class="annottext">$bGameServerGroupStatus_ACTIVE :: GameServerGroupStatus
+$mGameServerGroupStatus_ACTIVE :: forall r.
+GameServerGroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#%24bGameServerGroupStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">GameServerGroupStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-type">GameServerGroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETED"><span class="hs-identifier hs-type">GameServerGroupStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-type">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerGroupStatus_DELETED"><span id="%24mGameServerGroupStatus_DELETED"><span id="GameServerGroupStatus_DELETED"><span class="annot"><span class="annottext">$bGameServerGroupStatus_DELETED :: GameServerGroupStatus
+$mGameServerGroupStatus_DELETED :: forall r.
+GameServerGroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#%24bGameServerGroupStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">GameServerGroupStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-type">GameServerGroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETE_SCHEDULED"><span class="hs-identifier hs-type">GameServerGroupStatus_DELETE_SCHEDULED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-type">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerGroupStatus_DELETE_SCHEDULED"><span id="%24mGameServerGroupStatus_DELETE_SCHEDULED"><span id="GameServerGroupStatus_DELETE_SCHEDULED"><span class="annot"><span class="annottext">$bGameServerGroupStatus_DELETE_SCHEDULED :: GameServerGroupStatus
+$mGameServerGroupStatus_DELETE_SCHEDULED :: forall r.
+GameServerGroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#%24bGameServerGroupStatus_DELETE_SCHEDULED"><span class="hs-identifier hs-var hs-var hs-var">GameServerGroupStatus_DELETE_SCHEDULED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-type">GameServerGroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_SCHEDULED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETING"><span class="hs-identifier hs-type">GameServerGroupStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-type">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerGroupStatus_DELETING"><span id="%24mGameServerGroupStatus_DELETING"><span id="GameServerGroupStatus_DELETING"><span class="annot"><span class="annottext">$bGameServerGroupStatus_DELETING :: GameServerGroupStatus
+$mGameServerGroupStatus_DELETING :: forall r.
+GameServerGroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#%24bGameServerGroupStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">GameServerGroupStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-type">GameServerGroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ERROR"><span class="hs-identifier hs-type">GameServerGroupStatus_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-type">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerGroupStatus_ERROR"><span id="%24mGameServerGroupStatus_ERROR"><span id="GameServerGroupStatus_ERROR"><span class="annot"><span class="annottext">$bGameServerGroupStatus_ERROR :: GameServerGroupStatus
+$mGameServerGroupStatus_ERROR :: forall r.
+GameServerGroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#%24bGameServerGroupStatus_ERROR"><span class="hs-identifier hs-var hs-var hs-var">GameServerGroupStatus_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-type">GameServerGroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_NEW"><span class="hs-identifier hs-type">GameServerGroupStatus_NEW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus"><span class="hs-identifier hs-type">GameServerGroupStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerGroupStatus_NEW"><span id="%24mGameServerGroupStatus_NEW"><span id="GameServerGroupStatus_NEW"><span class="annot"><span class="annottext">$bGameServerGroupStatus_NEW :: GameServerGroupStatus
+$mGameServerGroupStatus_NEW :: forall r.
+GameServerGroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#%24bGameServerGroupStatus_NEW"><span class="hs-identifier hs-var hs-var hs-var">GameServerGroupStatus_NEW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-identifier hs-type">GameServerGroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NEW&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ACTIVATING"><span class="hs-pragma hs-type">GameServerGroupStatus_ACTIVATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ACTIVE"><span class="hs-pragma hs-type">GameServerGroupStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETED"><span class="hs-pragma hs-type">GameServerGroupStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETE_SCHEDULED"><span class="hs-pragma hs-type">GameServerGroupStatus_DELETE_SCHEDULED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_DELETING"><span class="hs-pragma hs-type">GameServerGroupStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_ERROR"><span class="hs-pragma hs-type">GameServerGroupStatus_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus_NEW"><span class="hs-pragma hs-type">GameServerGroupStatus_NEW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupStatus.html#GameServerGroupStatus%27"><span class="hs-pragma hs-type">GameServerGroupStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

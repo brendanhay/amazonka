@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Amazonka.MediaStoreData</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2017-09-01@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- An AWS Elemental MediaStore asset is an object, similar to an object in</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- the Amazon S3 service. Objects are the fundamental entities that are</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- stored in AWS Elemental MediaStore.</span><span>
+</span><span id="line-17"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaStoreData</span><span>
+</span><span id="line-18"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-23"></span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** RequestedRangeNotSatisfiableException</span></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.html#_RequestedRangeNotSatisfiableException"><span class="hs-identifier">_RequestedRangeNotSatisfiableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InternalServerError</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.html#_InternalServerError"><span class="hs-identifier">_InternalServerError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ContainerNotFoundException</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.html#_ContainerNotFoundException"><span class="hs-identifier">_ContainerNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ObjectNotFoundException</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.html#_ObjectNotFoundException"><span class="hs-identifier">_ObjectNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutObject</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#PutObject"><span class="hs-identifier">PutObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#PutObject%27"><span class="hs-identifier">PutObject'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#newPutObject"><span class="hs-identifier">newPutObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#PutObjectResponse"><span class="hs-identifier">PutObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#PutObjectResponse%27"><span class="hs-identifier">PutObjectResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#newPutObjectResponse"><span class="hs-identifier">newPutObjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteObject</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#DeleteObject"><span class="hs-identifier">DeleteObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#DeleteObject%27"><span class="hs-identifier">DeleteObject'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#newDeleteObject"><span class="hs-identifier">newDeleteObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#DeleteObjectResponse"><span class="hs-identifier">DeleteObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#DeleteObjectResponse%27"><span class="hs-identifier">DeleteObjectResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#newDeleteObjectResponse"><span class="hs-identifier">newDeleteObjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DescribeObject</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#DescribeObject"><span class="hs-identifier">DescribeObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#DescribeObject%27"><span class="hs-identifier">DescribeObject'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#newDescribeObject"><span class="hs-identifier">newDescribeObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#DescribeObjectResponse"><span class="hs-identifier">DescribeObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#DescribeObjectResponse%27"><span class="hs-identifier">DescribeObjectResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#newDescribeObjectResponse"><span class="hs-identifier">newDescribeObjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetObject</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#GetObject"><span class="hs-identifier">GetObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#GetObject%27"><span class="hs-identifier">GetObject'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#newGetObject"><span class="hs-identifier">newGetObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#GetObjectResponse"><span class="hs-identifier">GetObjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#GetObjectResponse%27"><span class="hs-identifier">GetObjectResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#newGetObjectResponse"><span class="hs-identifier">newGetObjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListItems (Paginated)</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier">ListItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier">ListItems'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#newListItems"><span class="hs-identifier">newListItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier">ListItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier">ListItemsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#newListItemsResponse"><span class="hs-identifier">newListItemsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ItemType</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.ItemType.html#ItemType"><span class="hs-identifier">ItemType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StorageClass</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.StorageClass.html#StorageClass"><span class="hs-identifier">StorageClass</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UploadAvailability</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.UploadAvailability.html#UploadAvailability"><span class="hs-identifier">UploadAvailability</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Item</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier">Item'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#newItem"><span class="hs-identifier">newItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.DeleteObject</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.DescribeObject</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.GetObject</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Lens.html"><span class="hs-identifier">Amazonka.MediaStoreData.Lens</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html"><span class="hs-identifier">Amazonka.MediaStoreData.ListItems</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.PutObject</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.html"><span class="hs-identifier">Amazonka.MediaStoreData.Types</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Waiters.html"><span class="hs-identifier">Amazonka.MediaStoreData.Waiters</span></a></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- by 'MediaStoreData'.</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-124"></span></pre></body></html>

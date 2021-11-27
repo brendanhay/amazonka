@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.FMS.Types.DependentServiceName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FMS.Types.DependentServiceName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier">DependentServiceName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSCONFIG"><span class="hs-identifier">DependentServiceName_AWSCONFIG</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSSHIELD_ADVANCED"><span class="hs-identifier">DependentServiceName_AWSSHIELD_ADVANCED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSVPC"><span class="hs-identifier">DependentServiceName_AWSVPC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSWAF"><span class="hs-identifier">DependentServiceName_AWSWAF</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679244541"><span id="local-6989586621679244542"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DependentServiceName"><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-var">DependentServiceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DependentServiceName%27"><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-identifier hs-var">DependentServiceName'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDependentServiceName"><span class="annot"><span class="annottext">DependentServiceName -&gt; Text
+</span><a href="Amazonka.FMS.Types.DependentServiceName.html#fromDependentServiceName"><span class="hs-identifier hs-var hs-var">fromDependentServiceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244533"><span id="local-6989586621679244535"><span id="local-6989586621679244537"><span class="annot"><span class="annottext">Int -&gt; DependentServiceName -&gt; ShowS
+[DependentServiceName] -&gt; ShowS
+DependentServiceName -&gt; String
+(Int -&gt; DependentServiceName -&gt; ShowS)
+-&gt; (DependentServiceName -&gt; String)
+-&gt; ([DependentServiceName] -&gt; ShowS)
+-&gt; Show DependentServiceName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DependentServiceName] -&gt; ShowS
+$cshowList :: [DependentServiceName] -&gt; ShowS
+show :: DependentServiceName -&gt; String
+$cshow :: DependentServiceName -&gt; String
+showsPrec :: Int -&gt; DependentServiceName -&gt; ShowS
+$cshowsPrec :: Int -&gt; DependentServiceName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679244524"><span id="local-6989586621679244526"><span id="local-6989586621679244528"><span id="local-6989586621679244530"><span class="annot"><span class="annottext">ReadPrec [DependentServiceName]
+ReadPrec DependentServiceName
+Int -&gt; ReadS DependentServiceName
+ReadS [DependentServiceName]
+(Int -&gt; ReadS DependentServiceName)
+-&gt; ReadS [DependentServiceName]
+-&gt; ReadPrec DependentServiceName
+-&gt; ReadPrec [DependentServiceName]
+-&gt; Read DependentServiceName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DependentServiceName]
+$creadListPrec :: ReadPrec [DependentServiceName]
+readPrec :: ReadPrec DependentServiceName
+$creadPrec :: ReadPrec DependentServiceName
+readList :: ReadS [DependentServiceName]
+$creadList :: ReadS [DependentServiceName]
+readsPrec :: Int -&gt; ReadS DependentServiceName
+$creadsPrec :: Int -&gt; ReadS DependentServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679244519"><span id="local-6989586621679244521"><span class="annot"><span class="annottext">DependentServiceName -&gt; DependentServiceName -&gt; Bool
+(DependentServiceName -&gt; DependentServiceName -&gt; Bool)
+-&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
+-&gt; Eq DependentServiceName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+$c/= :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+== :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+$c== :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244503"><span id="local-6989586621679244505"><span id="local-6989586621679244507"><span id="local-6989586621679244509"><span id="local-6989586621679244511"><span id="local-6989586621679244513"><span id="local-6989586621679244515"><span class="annot"><span class="annottext">Eq DependentServiceName
+Eq DependentServiceName
+-&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Ordering)
+-&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
+-&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
+-&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
+-&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
+-&gt; (DependentServiceName
+    -&gt; DependentServiceName -&gt; DependentServiceName)
+-&gt; (DependentServiceName
+    -&gt; DependentServiceName -&gt; DependentServiceName)
+-&gt; Ord DependentServiceName
+DependentServiceName -&gt; DependentServiceName -&gt; Bool
+DependentServiceName -&gt; DependentServiceName -&gt; Ordering
+DependentServiceName
+-&gt; DependentServiceName -&gt; DependentServiceName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DependentServiceName
+-&gt; DependentServiceName -&gt; DependentServiceName
+$cmin :: DependentServiceName
+-&gt; DependentServiceName -&gt; DependentServiceName
+max :: DependentServiceName
+-&gt; DependentServiceName -&gt; DependentServiceName
+$cmax :: DependentServiceName
+-&gt; DependentServiceName -&gt; DependentServiceName
+&gt;= :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+$c&gt;= :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+&gt; :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+$c&gt; :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+&lt;= :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+$c&lt;= :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+&lt; :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+$c&lt; :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
+compare :: DependentServiceName -&gt; DependentServiceName -&gt; Ordering
+$ccompare :: DependentServiceName -&gt; DependentServiceName -&gt; Ordering
+$cp1Ord :: Eq DependentServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DependentServiceName -&gt; Rep DependentServiceName x)
+-&gt; (forall x. Rep DependentServiceName x -&gt; DependentServiceName)
+-&gt; Generic DependentServiceName
+forall x. Rep DependentServiceName x -&gt; DependentServiceName
+forall x. DependentServiceName -&gt; Rep DependentServiceName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DependentServiceName x -&gt; DependentServiceName
+$cfrom :: forall x. DependentServiceName -&gt; Rep DependentServiceName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244495"><span id="local-6989586621679244497"><span class="annot"><span class="annottext">Int -&gt; DependentServiceName -&gt; Int
+DependentServiceName -&gt; Int
+(Int -&gt; DependentServiceName -&gt; Int)
+-&gt; (DependentServiceName -&gt; Int) -&gt; Hashable DependentServiceName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DependentServiceName -&gt; Int
+$chash :: DependentServiceName -&gt; Int
+hashWithSalt :: Int -&gt; DependentServiceName -&gt; Int
+$chashWithSalt :: Int -&gt; DependentServiceName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244492"><span class="annot"><span class="annottext">DependentServiceName -&gt; ()
+(DependentServiceName -&gt; ()) -&gt; NFData DependentServiceName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DependentServiceName -&gt; ()
+$crnf :: DependentServiceName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244489"><span class="annot"><span class="annottext">Text -&gt; Either String DependentServiceName
+(Text -&gt; Either String DependentServiceName)
+-&gt; FromText DependentServiceName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DependentServiceName
+$cfromText :: Text -&gt; Either String DependentServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244486"><span class="annot"><span class="annottext">DependentServiceName -&gt; Text
+(DependentServiceName -&gt; Text) -&gt; ToText DependentServiceName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DependentServiceName -&gt; Text
+$ctoText :: DependentServiceName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244483"><span class="annot"><span class="annottext">DependentServiceName -&gt; ByteString
+(DependentServiceName -&gt; ByteString)
+-&gt; ToByteString DependentServiceName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DependentServiceName -&gt; ByteString
+$ctoBS :: DependentServiceName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244480"><span class="annot"><span class="annottext">DependentServiceName -&gt; ByteStringBuilder
+(DependentServiceName -&gt; ByteStringBuilder)
+-&gt; ToLog DependentServiceName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DependentServiceName -&gt; ByteStringBuilder
+$cbuild :: DependentServiceName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244477"><span class="annot"><span class="annottext">HeaderName -&gt; DependentServiceName -&gt; [Header]
+(HeaderName -&gt; DependentServiceName -&gt; [Header])
+-&gt; ToHeader DependentServiceName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DependentServiceName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DependentServiceName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244474"><span class="annot"><span class="annottext">DependentServiceName -&gt; QueryString
+(DependentServiceName -&gt; QueryString)
+-&gt; ToQuery DependentServiceName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DependentServiceName -&gt; QueryString
+$ctoQuery :: DependentServiceName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244469"><span id="local-6989586621679244471"><span class="annot"><span class="annottext">Value -&gt; Parser [DependentServiceName]
+Value -&gt; Parser DependentServiceName
+(Value -&gt; Parser DependentServiceName)
+-&gt; (Value -&gt; Parser [DependentServiceName])
+-&gt; FromJSON DependentServiceName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DependentServiceName]
+$cparseJSONList :: Value -&gt; Parser [DependentServiceName]
+parseJSON :: Value -&gt; Parser DependentServiceName
+$cparseJSON :: Value -&gt; Parser DependentServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244464"><span id="local-6989586621679244466"><span class="annot"><span class="annottext">FromJSONKeyFunction [DependentServiceName]
+FromJSONKeyFunction DependentServiceName
+FromJSONKeyFunction DependentServiceName
+-&gt; FromJSONKeyFunction [DependentServiceName]
+-&gt; FromJSONKey DependentServiceName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DependentServiceName]
+$cfromJSONKeyList :: FromJSONKeyFunction [DependentServiceName]
+fromJSONKey :: FromJSONKeyFunction DependentServiceName
+$cfromJSONKey :: FromJSONKeyFunction DependentServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244455"><span id="local-6989586621679244457"><span id="local-6989586621679244459"><span id="local-6989586621679244461"><span class="annot"><span class="annottext">[DependentServiceName] -&gt; Encoding
+[DependentServiceName] -&gt; Value
+DependentServiceName -&gt; Encoding
+DependentServiceName -&gt; Value
+(DependentServiceName -&gt; Value)
+-&gt; (DependentServiceName -&gt; Encoding)
+-&gt; ([DependentServiceName] -&gt; Value)
+-&gt; ([DependentServiceName] -&gt; Encoding)
+-&gt; ToJSON DependentServiceName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DependentServiceName] -&gt; Encoding
+$ctoEncodingList :: [DependentServiceName] -&gt; Encoding
+toJSONList :: [DependentServiceName] -&gt; Value
+$ctoJSONList :: [DependentServiceName] -&gt; Value
+toEncoding :: DependentServiceName -&gt; Encoding
+$ctoEncoding :: DependentServiceName -&gt; Encoding
+toJSON :: DependentServiceName -&gt; Value
+$ctoJSON :: DependentServiceName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244450"><span id="local-6989586621679244452"><span class="annot"><span class="annottext">ToJSONKeyFunction [DependentServiceName]
+ToJSONKeyFunction DependentServiceName
+ToJSONKeyFunction DependentServiceName
+-&gt; ToJSONKeyFunction [DependentServiceName]
+-&gt; ToJSONKey DependentServiceName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DependentServiceName]
+$ctoJSONKeyList :: ToJSONKeyFunction [DependentServiceName]
+toJSONKey :: ToJSONKeyFunction DependentServiceName
+$ctoJSONKey :: ToJSONKeyFunction DependentServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244447"><span class="annot"><span class="annottext">[Node] -&gt; Either String DependentServiceName
+([Node] -&gt; Either String DependentServiceName)
+-&gt; FromXML DependentServiceName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DependentServiceName
+$cparseXML :: [Node] -&gt; Either String DependentServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244444"><span class="annot"><span class="annottext">DependentServiceName -&gt; XML
+(DependentServiceName -&gt; XML) -&gt; ToXML DependentServiceName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DependentServiceName -&gt; XML
+$ctoXML :: DependentServiceName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSCONFIG"><span class="hs-identifier hs-type">DependentServiceName_AWSCONFIG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-type">DependentServiceName</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDependentServiceName_AWSCONFIG"><span id="%24mDependentServiceName_AWSCONFIG"><span id="DependentServiceName_AWSCONFIG"><span class="annot"><span class="annottext">$bDependentServiceName_AWSCONFIG :: DependentServiceName
+$mDependentServiceName_AWSCONFIG :: forall r. DependentServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.DependentServiceName.html#%24bDependentServiceName_AWSCONFIG"><span class="hs-identifier hs-var hs-var hs-var">DependentServiceName_AWSCONFIG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-identifier hs-type">DependentServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWSCONFIG&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSSHIELD_ADVANCED"><span class="hs-identifier hs-type">DependentServiceName_AWSSHIELD_ADVANCED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-type">DependentServiceName</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDependentServiceName_AWSSHIELD_ADVANCED"><span id="%24mDependentServiceName_AWSSHIELD_ADVANCED"><span id="DependentServiceName_AWSSHIELD_ADVANCED"><span class="annot"><span class="annottext">$bDependentServiceName_AWSSHIELD_ADVANCED :: DependentServiceName
+$mDependentServiceName_AWSSHIELD_ADVANCED :: forall r. DependentServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.DependentServiceName.html#%24bDependentServiceName_AWSSHIELD_ADVANCED"><span class="hs-identifier hs-var hs-var hs-var">DependentServiceName_AWSSHIELD_ADVANCED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-identifier hs-type">DependentServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWSSHIELD_ADVANCED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSVPC"><span class="hs-identifier hs-type">DependentServiceName_AWSVPC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-type">DependentServiceName</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDependentServiceName_AWSVPC"><span id="%24mDependentServiceName_AWSVPC"><span id="DependentServiceName_AWSVPC"><span class="annot"><span class="annottext">$bDependentServiceName_AWSVPC :: DependentServiceName
+$mDependentServiceName_AWSVPC :: forall r. DependentServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.DependentServiceName.html#%24bDependentServiceName_AWSVPC"><span class="hs-identifier hs-var hs-var hs-var">DependentServiceName_AWSVPC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-identifier hs-type">DependentServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWSVPC&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSWAF"><span class="hs-identifier hs-type">DependentServiceName_AWSWAF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-type">DependentServiceName</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDependentServiceName_AWSWAF"><span id="%24mDependentServiceName_AWSWAF"><span id="DependentServiceName_AWSWAF"><span class="annot"><span class="annottext">$bDependentServiceName_AWSWAF :: DependentServiceName
+$mDependentServiceName_AWSWAF :: forall r. DependentServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FMS.Types.DependentServiceName.html#%24bDependentServiceName_AWSWAF"><span class="hs-identifier hs-var hs-var hs-var">DependentServiceName_AWSWAF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-identifier hs-type">DependentServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWSWAF&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSCONFIG"><span class="hs-pragma hs-type">DependentServiceName_AWSCONFIG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSSHIELD_ADVANCED"><span class="hs-pragma hs-type">DependentServiceName_AWSSHIELD_ADVANCED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSVPC"><span class="hs-pragma hs-type">DependentServiceName_AWSVPC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName_AWSWAF"><span class="hs-pragma hs-type">DependentServiceName_AWSWAF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-pragma hs-type">DependentServiceName'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

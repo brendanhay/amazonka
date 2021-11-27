@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppStream.Types.UsageReportSchedule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppStream.Types.UsageReportSchedule</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier">UsageReportSchedule</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule_DAILY"><span class="hs-identifier">UsageReportSchedule_DAILY</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679290235"><span id="local-6989586621679290236"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageReportSchedule"><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-var">UsageReportSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageReportSchedule%27"><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule%27"><span class="hs-identifier hs-var">UsageReportSchedule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageReportSchedule"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; Text
+</span><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#fromUsageReportSchedule"><span class="hs-identifier hs-var hs-var">fromUsageReportSchedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290227"><span id="local-6989586621679290229"><span id="local-6989586621679290231"><span class="annot"><span class="annottext">Int -&gt; UsageReportSchedule -&gt; ShowS
+[UsageReportSchedule] -&gt; ShowS
+UsageReportSchedule -&gt; String
+(Int -&gt; UsageReportSchedule -&gt; ShowS)
+-&gt; (UsageReportSchedule -&gt; String)
+-&gt; ([UsageReportSchedule] -&gt; ShowS)
+-&gt; Show UsageReportSchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UsageReportSchedule] -&gt; ShowS
+$cshowList :: [UsageReportSchedule] -&gt; ShowS
+show :: UsageReportSchedule -&gt; String
+$cshow :: UsageReportSchedule -&gt; String
+showsPrec :: Int -&gt; UsageReportSchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; UsageReportSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679290218"><span id="local-6989586621679290220"><span id="local-6989586621679290222"><span id="local-6989586621679290224"><span class="annot"><span class="annottext">ReadPrec [UsageReportSchedule]
+ReadPrec UsageReportSchedule
+Int -&gt; ReadS UsageReportSchedule
+ReadS [UsageReportSchedule]
+(Int -&gt; ReadS UsageReportSchedule)
+-&gt; ReadS [UsageReportSchedule]
+-&gt; ReadPrec UsageReportSchedule
+-&gt; ReadPrec [UsageReportSchedule]
+-&gt; Read UsageReportSchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UsageReportSchedule]
+$creadListPrec :: ReadPrec [UsageReportSchedule]
+readPrec :: ReadPrec UsageReportSchedule
+$creadPrec :: ReadPrec UsageReportSchedule
+readList :: ReadS [UsageReportSchedule]
+$creadList :: ReadS [UsageReportSchedule]
+readsPrec :: Int -&gt; ReadS UsageReportSchedule
+$creadsPrec :: Int -&gt; ReadS UsageReportSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679290213"><span id="local-6989586621679290215"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+(UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
+-&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
+-&gt; Eq UsageReportSchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+$c/= :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+== :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+$c== :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679290197"><span id="local-6989586621679290199"><span id="local-6989586621679290201"><span id="local-6989586621679290203"><span id="local-6989586621679290205"><span id="local-6989586621679290207"><span id="local-6989586621679290209"><span class="annot"><span class="annottext">Eq UsageReportSchedule
+Eq UsageReportSchedule
+-&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Ordering)
+-&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
+-&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
+-&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
+-&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
+-&gt; (UsageReportSchedule
+    -&gt; UsageReportSchedule -&gt; UsageReportSchedule)
+-&gt; (UsageReportSchedule
+    -&gt; UsageReportSchedule -&gt; UsageReportSchedule)
+-&gt; Ord UsageReportSchedule
+UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+UsageReportSchedule -&gt; UsageReportSchedule -&gt; Ordering
+UsageReportSchedule -&gt; UsageReportSchedule -&gt; UsageReportSchedule
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; UsageReportSchedule
+$cmin :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; UsageReportSchedule
+max :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; UsageReportSchedule
+$cmax :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; UsageReportSchedule
+&gt;= :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+$c&gt;= :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+&gt; :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+$c&gt; :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+&lt;= :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+$c&lt;= :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+&lt; :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+$c&lt; :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+compare :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Ordering
+$ccompare :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Ordering
+$cp1Ord :: Eq UsageReportSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UsageReportSchedule -&gt; Rep UsageReportSchedule x)
+-&gt; (forall x. Rep UsageReportSchedule x -&gt; UsageReportSchedule)
+-&gt; Generic UsageReportSchedule
+forall x. Rep UsageReportSchedule x -&gt; UsageReportSchedule
+forall x. UsageReportSchedule -&gt; Rep UsageReportSchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UsageReportSchedule x -&gt; UsageReportSchedule
+$cfrom :: forall x. UsageReportSchedule -&gt; Rep UsageReportSchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290189"><span id="local-6989586621679290191"><span class="annot"><span class="annottext">Int -&gt; UsageReportSchedule -&gt; Int
+UsageReportSchedule -&gt; Int
+(Int -&gt; UsageReportSchedule -&gt; Int)
+-&gt; (UsageReportSchedule -&gt; Int) -&gt; Hashable UsageReportSchedule
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UsageReportSchedule -&gt; Int
+$chash :: UsageReportSchedule -&gt; Int
+hashWithSalt :: Int -&gt; UsageReportSchedule -&gt; Int
+$chashWithSalt :: Int -&gt; UsageReportSchedule -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679290186"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ()
+(UsageReportSchedule -&gt; ()) -&gt; NFData UsageReportSchedule
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UsageReportSchedule -&gt; ()
+$crnf :: UsageReportSchedule -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679290183"><span class="annot"><span class="annottext">Text -&gt; Either String UsageReportSchedule
+(Text -&gt; Either String UsageReportSchedule)
+-&gt; FromText UsageReportSchedule
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UsageReportSchedule
+$cfromText :: Text -&gt; Either String UsageReportSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679290180"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; Text
+(UsageReportSchedule -&gt; Text) -&gt; ToText UsageReportSchedule
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UsageReportSchedule -&gt; Text
+$ctoText :: UsageReportSchedule -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679290177"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ByteString
+(UsageReportSchedule -&gt; ByteString)
+-&gt; ToByteString UsageReportSchedule
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UsageReportSchedule -&gt; ByteString
+$ctoBS :: UsageReportSchedule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679290174"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ByteStringBuilder
+(UsageReportSchedule -&gt; ByteStringBuilder)
+-&gt; ToLog UsageReportSchedule
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UsageReportSchedule -&gt; ByteStringBuilder
+$cbuild :: UsageReportSchedule -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679290171"><span class="annot"><span class="annottext">HeaderName -&gt; UsageReportSchedule -&gt; [Header]
+(HeaderName -&gt; UsageReportSchedule -&gt; [Header])
+-&gt; ToHeader UsageReportSchedule
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UsageReportSchedule -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UsageReportSchedule -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679290168"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; QueryString
+(UsageReportSchedule -&gt; QueryString) -&gt; ToQuery UsageReportSchedule
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UsageReportSchedule -&gt; QueryString
+$ctoQuery :: UsageReportSchedule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679290163"><span id="local-6989586621679290165"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageReportSchedule]
+Value -&gt; Parser UsageReportSchedule
+(Value -&gt; Parser UsageReportSchedule)
+-&gt; (Value -&gt; Parser [UsageReportSchedule])
+-&gt; FromJSON UsageReportSchedule
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UsageReportSchedule]
+$cparseJSONList :: Value -&gt; Parser [UsageReportSchedule]
+parseJSON :: Value -&gt; Parser UsageReportSchedule
+$cparseJSON :: Value -&gt; Parser UsageReportSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679290158"><span id="local-6989586621679290160"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageReportSchedule]
+FromJSONKeyFunction UsageReportSchedule
+FromJSONKeyFunction UsageReportSchedule
+-&gt; FromJSONKeyFunction [UsageReportSchedule]
+-&gt; FromJSONKey UsageReportSchedule
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UsageReportSchedule]
+$cfromJSONKeyList :: FromJSONKeyFunction [UsageReportSchedule]
+fromJSONKey :: FromJSONKeyFunction UsageReportSchedule
+$cfromJSONKey :: FromJSONKeyFunction UsageReportSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679290149"><span id="local-6989586621679290151"><span id="local-6989586621679290153"><span id="local-6989586621679290155"><span class="annot"><span class="annottext">[UsageReportSchedule] -&gt; Encoding
+[UsageReportSchedule] -&gt; Value
+UsageReportSchedule -&gt; Encoding
+UsageReportSchedule -&gt; Value
+(UsageReportSchedule -&gt; Value)
+-&gt; (UsageReportSchedule -&gt; Encoding)
+-&gt; ([UsageReportSchedule] -&gt; Value)
+-&gt; ([UsageReportSchedule] -&gt; Encoding)
+-&gt; ToJSON UsageReportSchedule
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UsageReportSchedule] -&gt; Encoding
+$ctoEncodingList :: [UsageReportSchedule] -&gt; Encoding
+toJSONList :: [UsageReportSchedule] -&gt; Value
+$ctoJSONList :: [UsageReportSchedule] -&gt; Value
+toEncoding :: UsageReportSchedule -&gt; Encoding
+$ctoEncoding :: UsageReportSchedule -&gt; Encoding
+toJSON :: UsageReportSchedule -&gt; Value
+$ctoJSON :: UsageReportSchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679290144"><span id="local-6989586621679290146"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageReportSchedule]
+ToJSONKeyFunction UsageReportSchedule
+ToJSONKeyFunction UsageReportSchedule
+-&gt; ToJSONKeyFunction [UsageReportSchedule]
+-&gt; ToJSONKey UsageReportSchedule
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UsageReportSchedule]
+$ctoJSONKeyList :: ToJSONKeyFunction [UsageReportSchedule]
+toJSONKey :: ToJSONKeyFunction UsageReportSchedule
+$ctoJSONKey :: ToJSONKeyFunction UsageReportSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679290141"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageReportSchedule
+([Node] -&gt; Either String UsageReportSchedule)
+-&gt; FromXML UsageReportSchedule
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UsageReportSchedule
+$cparseXML :: [Node] -&gt; Either String UsageReportSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679290138"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; XML
+(UsageReportSchedule -&gt; XML) -&gt; ToXML UsageReportSchedule
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UsageReportSchedule -&gt; XML
+$ctoXML :: UsageReportSchedule -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule_DAILY"><span class="hs-identifier hs-type">UsageReportSchedule_DAILY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-type">UsageReportSchedule</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUsageReportSchedule_DAILY"><span id="%24mUsageReportSchedule_DAILY"><span id="UsageReportSchedule_DAILY"><span class="annot"><span class="annottext">$bUsageReportSchedule_DAILY :: UsageReportSchedule
+$mUsageReportSchedule_DAILY :: forall r. UsageReportSchedule -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#%24bUsageReportSchedule_DAILY"><span class="hs-identifier hs-var hs-var hs-var">UsageReportSchedule_DAILY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule%27"><span class="hs-identifier hs-type">UsageReportSchedule'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAILY&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule_DAILY"><span class="hs-pragma hs-type">UsageReportSchedule_DAILY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule%27"><span class="hs-pragma hs-type">UsageReportSchedule'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

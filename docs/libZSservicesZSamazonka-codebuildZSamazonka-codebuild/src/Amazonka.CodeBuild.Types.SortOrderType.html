@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.Types.SortOrderType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.Types.SortOrderType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType"><span class="hs-identifier">SortOrderType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType_ASCENDING"><span class="hs-identifier">SortOrderType_ASCENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType_DESCENDING"><span class="hs-identifier">SortOrderType_DESCENDING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679377390"><span id="local-6989586621679377391"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortOrderType"><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType"><span class="hs-identifier hs-var">SortOrderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortOrderType%27"><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType%27"><span class="hs-identifier hs-var">SortOrderType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortOrderType"><span class="annot"><span class="annottext">SortOrderType -&gt; Text
+</span><a href="Amazonka.CodeBuild.Types.SortOrderType.html#fromSortOrderType"><span class="hs-identifier hs-var hs-var">fromSortOrderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377382"><span id="local-6989586621679377384"><span id="local-6989586621679377386"><span class="annot"><span class="annottext">Int -&gt; SortOrderType -&gt; ShowS
+[SortOrderType] -&gt; ShowS
+SortOrderType -&gt; String
+(Int -&gt; SortOrderType -&gt; ShowS)
+-&gt; (SortOrderType -&gt; String)
+-&gt; ([SortOrderType] -&gt; ShowS)
+-&gt; Show SortOrderType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SortOrderType] -&gt; ShowS
+$cshowList :: [SortOrderType] -&gt; ShowS
+show :: SortOrderType -&gt; String
+$cshow :: SortOrderType -&gt; String
+showsPrec :: Int -&gt; SortOrderType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SortOrderType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377373"><span id="local-6989586621679377375"><span id="local-6989586621679377377"><span id="local-6989586621679377379"><span class="annot"><span class="annottext">ReadPrec [SortOrderType]
+ReadPrec SortOrderType
+Int -&gt; ReadS SortOrderType
+ReadS [SortOrderType]
+(Int -&gt; ReadS SortOrderType)
+-&gt; ReadS [SortOrderType]
+-&gt; ReadPrec SortOrderType
+-&gt; ReadPrec [SortOrderType]
+-&gt; Read SortOrderType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SortOrderType]
+$creadListPrec :: ReadPrec [SortOrderType]
+readPrec :: ReadPrec SortOrderType
+$creadPrec :: ReadPrec SortOrderType
+readList :: ReadS [SortOrderType]
+$creadList :: ReadS [SortOrderType]
+readsPrec :: Int -&gt; ReadS SortOrderType
+$creadsPrec :: Int -&gt; ReadS SortOrderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377368"><span id="local-6989586621679377370"><span class="annot"><span class="annottext">SortOrderType -&gt; SortOrderType -&gt; Bool
+(SortOrderType -&gt; SortOrderType -&gt; Bool)
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; Bool) -&gt; Eq SortOrderType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SortOrderType -&gt; SortOrderType -&gt; Bool
+$c/= :: SortOrderType -&gt; SortOrderType -&gt; Bool
+== :: SortOrderType -&gt; SortOrderType -&gt; Bool
+$c== :: SortOrderType -&gt; SortOrderType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679377352"><span id="local-6989586621679377354"><span id="local-6989586621679377356"><span id="local-6989586621679377358"><span id="local-6989586621679377360"><span id="local-6989586621679377362"><span id="local-6989586621679377364"><span class="annot"><span class="annottext">Eq SortOrderType
+Eq SortOrderType
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; Ordering)
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; Bool)
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; Bool)
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; Bool)
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; Bool)
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; SortOrderType)
+-&gt; (SortOrderType -&gt; SortOrderType -&gt; SortOrderType)
+-&gt; Ord SortOrderType
+SortOrderType -&gt; SortOrderType -&gt; Bool
+SortOrderType -&gt; SortOrderType -&gt; Ordering
+SortOrderType -&gt; SortOrderType -&gt; SortOrderType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SortOrderType -&gt; SortOrderType -&gt; SortOrderType
+$cmin :: SortOrderType -&gt; SortOrderType -&gt; SortOrderType
+max :: SortOrderType -&gt; SortOrderType -&gt; SortOrderType
+$cmax :: SortOrderType -&gt; SortOrderType -&gt; SortOrderType
+&gt;= :: SortOrderType -&gt; SortOrderType -&gt; Bool
+$c&gt;= :: SortOrderType -&gt; SortOrderType -&gt; Bool
+&gt; :: SortOrderType -&gt; SortOrderType -&gt; Bool
+$c&gt; :: SortOrderType -&gt; SortOrderType -&gt; Bool
+&lt;= :: SortOrderType -&gt; SortOrderType -&gt; Bool
+$c&lt;= :: SortOrderType -&gt; SortOrderType -&gt; Bool
+&lt; :: SortOrderType -&gt; SortOrderType -&gt; Bool
+$c&lt; :: SortOrderType -&gt; SortOrderType -&gt; Bool
+compare :: SortOrderType -&gt; SortOrderType -&gt; Ordering
+$ccompare :: SortOrderType -&gt; SortOrderType -&gt; Ordering
+$cp1Ord :: Eq SortOrderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SortOrderType -&gt; Rep SortOrderType x)
+-&gt; (forall x. Rep SortOrderType x -&gt; SortOrderType)
+-&gt; Generic SortOrderType
+forall x. Rep SortOrderType x -&gt; SortOrderType
+forall x. SortOrderType -&gt; Rep SortOrderType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SortOrderType x -&gt; SortOrderType
+$cfrom :: forall x. SortOrderType -&gt; Rep SortOrderType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377344"><span id="local-6989586621679377346"><span class="annot"><span class="annottext">Int -&gt; SortOrderType -&gt; Int
+SortOrderType -&gt; Int
+(Int -&gt; SortOrderType -&gt; Int)
+-&gt; (SortOrderType -&gt; Int) -&gt; Hashable SortOrderType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SortOrderType -&gt; Int
+$chash :: SortOrderType -&gt; Int
+hashWithSalt :: Int -&gt; SortOrderType -&gt; Int
+$chashWithSalt :: Int -&gt; SortOrderType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377341"><span class="annot"><span class="annottext">SortOrderType -&gt; ()
+(SortOrderType -&gt; ()) -&gt; NFData SortOrderType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SortOrderType -&gt; ()
+$crnf :: SortOrderType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377338"><span class="annot"><span class="annottext">Text -&gt; Either String SortOrderType
+(Text -&gt; Either String SortOrderType) -&gt; FromText SortOrderType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SortOrderType
+$cfromText :: Text -&gt; Either String SortOrderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377335"><span class="annot"><span class="annottext">SortOrderType -&gt; Text
+(SortOrderType -&gt; Text) -&gt; ToText SortOrderType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SortOrderType -&gt; Text
+$ctoText :: SortOrderType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377332"><span class="annot"><span class="annottext">SortOrderType -&gt; ByteString
+(SortOrderType -&gt; ByteString) -&gt; ToByteString SortOrderType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SortOrderType -&gt; ByteString
+$ctoBS :: SortOrderType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377329"><span class="annot"><span class="annottext">SortOrderType -&gt; ByteStringBuilder
+(SortOrderType -&gt; ByteStringBuilder) -&gt; ToLog SortOrderType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SortOrderType -&gt; ByteStringBuilder
+$cbuild :: SortOrderType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377326"><span class="annot"><span class="annottext">HeaderName -&gt; SortOrderType -&gt; [Header]
+(HeaderName -&gt; SortOrderType -&gt; [Header]) -&gt; ToHeader SortOrderType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SortOrderType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SortOrderType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377323"><span class="annot"><span class="annottext">SortOrderType -&gt; QueryString
+(SortOrderType -&gt; QueryString) -&gt; ToQuery SortOrderType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SortOrderType -&gt; QueryString
+$ctoQuery :: SortOrderType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377318"><span id="local-6989586621679377320"><span class="annot"><span class="annottext">Value -&gt; Parser [SortOrderType]
+Value -&gt; Parser SortOrderType
+(Value -&gt; Parser SortOrderType)
+-&gt; (Value -&gt; Parser [SortOrderType]) -&gt; FromJSON SortOrderType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SortOrderType]
+$cparseJSONList :: Value -&gt; Parser [SortOrderType]
+parseJSON :: Value -&gt; Parser SortOrderType
+$cparseJSON :: Value -&gt; Parser SortOrderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377313"><span id="local-6989586621679377315"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortOrderType]
+FromJSONKeyFunction SortOrderType
+FromJSONKeyFunction SortOrderType
+-&gt; FromJSONKeyFunction [SortOrderType] -&gt; FromJSONKey SortOrderType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SortOrderType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SortOrderType]
+fromJSONKey :: FromJSONKeyFunction SortOrderType
+$cfromJSONKey :: FromJSONKeyFunction SortOrderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377304"><span id="local-6989586621679377306"><span id="local-6989586621679377308"><span id="local-6989586621679377310"><span class="annot"><span class="annottext">[SortOrderType] -&gt; Encoding
+[SortOrderType] -&gt; Value
+SortOrderType -&gt; Encoding
+SortOrderType -&gt; Value
+(SortOrderType -&gt; Value)
+-&gt; (SortOrderType -&gt; Encoding)
+-&gt; ([SortOrderType] -&gt; Value)
+-&gt; ([SortOrderType] -&gt; Encoding)
+-&gt; ToJSON SortOrderType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SortOrderType] -&gt; Encoding
+$ctoEncodingList :: [SortOrderType] -&gt; Encoding
+toJSONList :: [SortOrderType] -&gt; Value
+$ctoJSONList :: [SortOrderType] -&gt; Value
+toEncoding :: SortOrderType -&gt; Encoding
+$ctoEncoding :: SortOrderType -&gt; Encoding
+toJSON :: SortOrderType -&gt; Value
+$ctoJSON :: SortOrderType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377299"><span id="local-6989586621679377301"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortOrderType]
+ToJSONKeyFunction SortOrderType
+ToJSONKeyFunction SortOrderType
+-&gt; ToJSONKeyFunction [SortOrderType] -&gt; ToJSONKey SortOrderType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SortOrderType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SortOrderType]
+toJSONKey :: ToJSONKeyFunction SortOrderType
+$ctoJSONKey :: ToJSONKeyFunction SortOrderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377296"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortOrderType
+([Node] -&gt; Either String SortOrderType) -&gt; FromXML SortOrderType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SortOrderType
+$cparseXML :: [Node] -&gt; Either String SortOrderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377293"><span class="annot"><span class="annottext">SortOrderType -&gt; XML
+(SortOrderType -&gt; XML) -&gt; ToXML SortOrderType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SortOrderType -&gt; XML
+$ctoXML :: SortOrderType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType_ASCENDING"><span class="hs-identifier hs-type">SortOrderType_ASCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType"><span class="hs-identifier hs-type">SortOrderType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortOrderType_ASCENDING"><span id="%24mSortOrderType_ASCENDING"><span id="SortOrderType_ASCENDING"><span class="annot"><span class="annottext">$bSortOrderType_ASCENDING :: SortOrderType
+$mSortOrderType_ASCENDING :: forall r. SortOrderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeBuild.Types.SortOrderType.html#%24bSortOrderType_ASCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortOrderType_ASCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType%27"><span class="hs-identifier hs-type">SortOrderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASCENDING&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType_DESCENDING"><span class="hs-identifier hs-type">SortOrderType_DESCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType"><span class="hs-identifier hs-type">SortOrderType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortOrderType_DESCENDING"><span id="%24mSortOrderType_DESCENDING"><span id="SortOrderType_DESCENDING"><span class="annot"><span class="annottext">$bSortOrderType_DESCENDING :: SortOrderType
+$mSortOrderType_DESCENDING :: forall r. SortOrderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeBuild.Types.SortOrderType.html#%24bSortOrderType_DESCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortOrderType_DESCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType%27"><span class="hs-identifier hs-type">SortOrderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DESCENDING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType_ASCENDING"><span class="hs-pragma hs-type">SortOrderType_ASCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType_DESCENDING"><span class="hs-pragma hs-type">SortOrderType_DESCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SortOrderType.html#SortOrderType%27"><span class="hs-pragma hs-type">SortOrderType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

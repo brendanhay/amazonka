@@ -5,90 +5,90 @@
 @version 2.0
 
 
-module Network.AWS.QLDB.Types.EncryptionStatus
+module Amazonka.QLDB.Types.EncryptionStatus
 newtype EncryptionStatus
 EncryptionStatus' :: Text -> EncryptionStatus
 [fromEncryptionStatus] :: EncryptionStatus -> Text
 pattern EncryptionStatus_ENABLED :: EncryptionStatus
 pattern EncryptionStatus_KMS_KEY_INACCESSIBLE :: EncryptionStatus
 pattern EncryptionStatus_UPDATING :: EncryptionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance GHC.Classes.Ord Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance GHC.Read.Read Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
-instance GHC.Show.Show Network.AWS.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.Text.ToText Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Amazonka.Data.Text.FromText Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance GHC.Generics.Generic Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance GHC.Classes.Ord Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance GHC.Classes.Eq Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance GHC.Read.Read Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
+instance GHC.Show.Show Amazonka.QLDB.Types.EncryptionStatus.EncryptionStatus
 
 
-module Network.AWS.QLDB.Types.ErrorCause
+module Amazonka.QLDB.Types.ErrorCause
 newtype ErrorCause
 ErrorCause' :: Text -> ErrorCause
 [fromErrorCause] :: ErrorCause -> Text
 pattern ErrorCause_IAM_PERMISSION_REVOKED :: ErrorCause
 pattern ErrorCause_KINESIS_STREAM_NOT_FOUND :: ErrorCause
-instance Network.AWS.Data.XML.ToXML Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Network.AWS.Data.XML.FromXML Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Network.AWS.Data.Log.ToLog Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Network.AWS.Data.Text.ToText Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Network.AWS.Data.Text.FromText Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance GHC.Classes.Ord Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance GHC.Read.Read Network.AWS.QLDB.Types.ErrorCause.ErrorCause
-instance GHC.Show.Show Network.AWS.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.XML.ToXML Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.XML.FromXML Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.Headers.ToHeader Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.Log.ToLog Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.ByteString.ToByteString Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.Text.ToText Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Amazonka.Data.Text.FromText Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance GHC.Generics.Generic Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance GHC.Classes.Ord Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance GHC.Classes.Eq Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance GHC.Read.Read Amazonka.QLDB.Types.ErrorCause.ErrorCause
+instance GHC.Show.Show Amazonka.QLDB.Types.ErrorCause.ErrorCause
 
 
-module Network.AWS.QLDB.Types.ExportStatus
+module Amazonka.QLDB.Types.ExportStatus
 newtype ExportStatus
 ExportStatus' :: Text -> ExportStatus
 [fromExportStatus] :: ExportStatus -> Text
 pattern ExportStatus_CANCELLED :: ExportStatus
 pattern ExportStatus_COMPLETED :: ExportStatus
 pattern ExportStatus_IN_PROGRESS :: ExportStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance GHC.Classes.Ord Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance GHC.Read.Read Network.AWS.QLDB.Types.ExportStatus.ExportStatus
-instance GHC.Show.Show Network.AWS.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.XML.ToXML Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.XML.FromXML Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Log.ToLog Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Text.ToText Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Text.FromText Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance GHC.Generics.Generic Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance GHC.Classes.Ord Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance GHC.Classes.Eq Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance GHC.Read.Read Amazonka.QLDB.Types.ExportStatus.ExportStatus
+instance GHC.Show.Show Amazonka.QLDB.Types.ExportStatus.ExportStatus
 
 
-module Network.AWS.QLDB.Types.KinesisConfiguration
+module Amazonka.QLDB.Types.KinesisConfiguration
 
 -- | The configuration settings of the Amazon Kinesis Data Streams
 --   destination for an Amazon QLDB journal stream.
@@ -147,17 +147,17 @@ kinesisConfiguration_aggregationEnabled :: Lens' KinesisConfiguration (Maybe Boo
 
 -- | The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
 kinesisConfiguration_streamArn :: Lens' KinesisConfiguration Text
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
-instance GHC.Show.Show Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
-instance GHC.Read.Read Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance GHC.Generics.Generic Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance GHC.Show.Show Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance GHC.Read.Read Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance GHC.Classes.Eq Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.KinesisConfiguration.KinesisConfiguration
 
 
-module Network.AWS.QLDB.Types.LedgerEncryptionDescription
+module Amazonka.QLDB.Types.LedgerEncryptionDescription
 
 -- | Information about the encryption of data at rest in an Amazon QLDB
 --   ledger. This includes the current status, the key in Key Management
@@ -296,16 +296,16 @@ ledgerEncryptionDescription_kmsKeyArn :: Lens' LedgerEncryptionDescription Text
 --   unrecoverable permanently.</li>
 --   </ul>
 ledgerEncryptionDescription_encryptionStatus :: Lens' LedgerEncryptionDescription EncryptionStatus
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
-instance GHC.Show.Show Network.AWS.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
-instance GHC.Read.Read Network.AWS.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
+instance GHC.Generics.Generic Amazonka.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
+instance GHC.Show.Show Amazonka.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
+instance GHC.Read.Read Amazonka.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
+instance GHC.Classes.Eq Amazonka.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.LedgerEncryptionDescription.LedgerEncryptionDescription
 
 
-module Network.AWS.QLDB.Types.LedgerState
+module Amazonka.QLDB.Types.LedgerState
 newtype LedgerState
 LedgerState' :: Text -> LedgerState
 [fromLedgerState] :: LedgerState -> Text
@@ -313,28 +313,28 @@ pattern LedgerState_ACTIVE :: LedgerState
 pattern LedgerState_CREATING :: LedgerState
 pattern LedgerState_DELETED :: LedgerState
 pattern LedgerState_DELETING :: LedgerState
-instance Network.AWS.Data.XML.ToXML Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Network.AWS.Data.XML.FromXML Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Network.AWS.Data.Log.ToLog Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Network.AWS.Data.Text.ToText Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Network.AWS.Data.Text.FromText Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance GHC.Classes.Ord Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance GHC.Read.Read Network.AWS.QLDB.Types.LedgerState.LedgerState
-instance GHC.Show.Show Network.AWS.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.XML.ToXML Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.XML.FromXML Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.Headers.ToHeader Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.Log.ToLog Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.Text.ToText Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Amazonka.Data.Text.FromText Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.LedgerState.LedgerState
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.LedgerState.LedgerState
+instance GHC.Generics.Generic Amazonka.QLDB.Types.LedgerState.LedgerState
+instance GHC.Classes.Ord Amazonka.QLDB.Types.LedgerState.LedgerState
+instance GHC.Classes.Eq Amazonka.QLDB.Types.LedgerState.LedgerState
+instance GHC.Read.Read Amazonka.QLDB.Types.LedgerState.LedgerState
+instance GHC.Show.Show Amazonka.QLDB.Types.LedgerState.LedgerState
 
 
-module Network.AWS.QLDB.Types.LedgerSummary
+module Amazonka.QLDB.Types.LedgerSummary
 
 -- | Information about a ledger, including its name, state, and when it was
 --   created.
@@ -385,71 +385,71 @@ ledgerSummary_name :: Lens' LedgerSummary (Maybe Text)
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 ledgerSummary_creationDateTime :: Lens' LedgerSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.LedgerSummary.LedgerSummary
-instance GHC.Show.Show Network.AWS.QLDB.Types.LedgerSummary.LedgerSummary
-instance GHC.Read.Read Network.AWS.QLDB.Types.LedgerSummary.LedgerSummary
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.LedgerSummary.LedgerSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.LedgerSummary.LedgerSummary
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.LedgerSummary.LedgerSummary
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.LedgerSummary.LedgerSummary
+instance GHC.Generics.Generic Amazonka.QLDB.Types.LedgerSummary.LedgerSummary
+instance GHC.Show.Show Amazonka.QLDB.Types.LedgerSummary.LedgerSummary
+instance GHC.Read.Read Amazonka.QLDB.Types.LedgerSummary.LedgerSummary
+instance GHC.Classes.Eq Amazonka.QLDB.Types.LedgerSummary.LedgerSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.LedgerSummary.LedgerSummary
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.LedgerSummary.LedgerSummary
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.LedgerSummary.LedgerSummary
 
 
-module Network.AWS.QLDB.Types.PermissionsMode
+module Amazonka.QLDB.Types.PermissionsMode
 newtype PermissionsMode
 PermissionsMode' :: Text -> PermissionsMode
 [fromPermissionsMode] :: PermissionsMode -> Text
 pattern PermissionsMode_ALLOW_ALL :: PermissionsMode
 pattern PermissionsMode_STANDARD :: PermissionsMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Network.AWS.Data.Text.ToText Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Network.AWS.Data.Text.FromText Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance GHC.Classes.Ord Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance GHC.Read.Read Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
-instance GHC.Show.Show Network.AWS.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.XML.ToXML Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.XML.FromXML Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.Log.ToLog Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.Text.ToText Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Amazonka.Data.Text.FromText Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance GHC.Generics.Generic Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance GHC.Classes.Ord Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance GHC.Classes.Eq Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance GHC.Read.Read Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
+instance GHC.Show.Show Amazonka.QLDB.Types.PermissionsMode.PermissionsMode
 
 
-module Network.AWS.QLDB.Types.S3ObjectEncryptionType
+module Amazonka.QLDB.Types.S3ObjectEncryptionType
 newtype S3ObjectEncryptionType
 S3ObjectEncryptionType' :: Text -> S3ObjectEncryptionType
 [fromS3ObjectEncryptionType] :: S3ObjectEncryptionType -> Text
 pattern S3ObjectEncryptionType_NO_ENCRYPTION :: S3ObjectEncryptionType
 pattern S3ObjectEncryptionType_SSE_KMS :: S3ObjectEncryptionType
 pattern S3ObjectEncryptionType_SSE_S3 :: S3ObjectEncryptionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Network.AWS.Data.Text.ToText Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Network.AWS.Data.Text.FromText Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance GHC.Classes.Ord Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance GHC.Read.Read Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
-instance GHC.Show.Show Network.AWS.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.XML.ToXML Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.XML.FromXML Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.Log.ToLog Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.Text.ToText Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Amazonka.Data.Text.FromText Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance GHC.Generics.Generic Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance GHC.Classes.Ord Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance GHC.Classes.Eq Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance GHC.Read.Read Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
+instance GHC.Show.Show Amazonka.QLDB.Types.S3ObjectEncryptionType.S3ObjectEncryptionType
 
 
-module Network.AWS.QLDB.Types.S3EncryptionConfiguration
+module Amazonka.QLDB.Types.S3EncryptionConfiguration
 
 -- | The encryption settings that are used by a journal export job to write
 --   data in an Amazon Simple Storage Service (Amazon S3) bucket.
@@ -522,17 +522,17 @@ s3EncryptionConfiguration_kmsKeyArn :: Lens' S3EncryptionConfiguration (Maybe Te
 --   <a>Protecting Data Using Server-Side Encryption</a> in the <i>Amazon
 --   S3 Developer Guide</i>.
 s3EncryptionConfiguration_objectEncryptionType :: Lens' S3EncryptionConfiguration S3ObjectEncryptionType
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
-instance GHC.Show.Show Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
-instance GHC.Read.Read Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance GHC.Generics.Generic Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance GHC.Show.Show Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance GHC.Read.Read Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance GHC.Classes.Eq Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.S3EncryptionConfiguration.S3EncryptionConfiguration
 
 
-module Network.AWS.QLDB.Types.S3ExportConfiguration
+module Amazonka.QLDB.Types.S3ExportConfiguration
 
 -- | The Amazon Simple Storage Service (Amazon S3) bucket location in which
 --   a journal export job writes the journal contents.
@@ -635,17 +635,17 @@ s3ExportConfiguration_prefix :: Lens' S3ExportConfiguration Text
 -- | The encryption settings that are used by a journal export job to write
 --   data in an Amazon S3 bucket.
 s3ExportConfiguration_encryptionConfiguration :: Lens' S3ExportConfiguration S3EncryptionConfiguration
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
-instance GHC.Show.Show Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
-instance GHC.Read.Read Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance GHC.Generics.Generic Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance GHC.Show.Show Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance GHC.Read.Read Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance GHC.Classes.Eq Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.S3ExportConfiguration.S3ExportConfiguration
 
 
-module Network.AWS.QLDB.Types.JournalS3ExportDescription
+module Amazonka.QLDB.Types.JournalS3ExportDescription
 
 -- | Information about a journal export job, including the ledger name,
 --   export ID, creation time, current status, and the parameters of the
@@ -779,16 +779,16 @@ journalS3ExportDescription_s3ExportConfiguration :: Lens' JournalS3ExportDescrip
 --   Service (KMS) for server-side encryption of your exported data.</li>
 --   </ul>
 journalS3ExportDescription_roleArn :: Lens' JournalS3ExportDescription Text
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
-instance GHC.Show.Show Network.AWS.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
-instance GHC.Read.Read Network.AWS.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
+instance GHC.Generics.Generic Amazonka.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
+instance GHC.Show.Show Amazonka.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
+instance GHC.Read.Read Amazonka.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
+instance GHC.Classes.Eq Amazonka.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.JournalS3ExportDescription.JournalS3ExportDescription
 
 
-module Network.AWS.QLDB.Types.StreamStatus
+module Amazonka.QLDB.Types.StreamStatus
 newtype StreamStatus
 StreamStatus' :: Text -> StreamStatus
 [fromStreamStatus] :: StreamStatus -> Text
@@ -797,28 +797,28 @@ pattern StreamStatus_CANCELED :: StreamStatus
 pattern StreamStatus_COMPLETED :: StreamStatus
 pattern StreamStatus_FAILED :: StreamStatus
 pattern StreamStatus_IMPAIRED :: StreamStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Ord Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance GHC.Read.Read Network.AWS.QLDB.Types.StreamStatus.StreamStatus
-instance GHC.Show.Show Network.AWS.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.ToXML Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.FromXML Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Log.ToLog Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.ToText Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.FromText Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance GHC.Generics.Generic Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Ord Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Eq Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance GHC.Read.Read Amazonka.QLDB.Types.StreamStatus.StreamStatus
+instance GHC.Show.Show Amazonka.QLDB.Types.StreamStatus.StreamStatus
 
 
-module Network.AWS.QLDB.Types.JournalKinesisStreamDescription
+module Amazonka.QLDB.Types.JournalKinesisStreamDescription
 
 -- | Information about an Amazon QLDB journal stream, including the Amazon
 --   Resource Name (ARN), stream name, creation time, current status, and
@@ -979,16 +979,16 @@ journalKinesisStreamDescription_kinesisConfiguration :: Lens' JournalKinesisStre
 
 -- | The user-defined name of the QLDB journal stream.
 journalKinesisStreamDescription_streamName :: Lens' JournalKinesisStreamDescription Text
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
-instance GHC.Show.Show Network.AWS.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
-instance GHC.Read.Read Network.AWS.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
+instance GHC.Generics.Generic Amazonka.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
+instance GHC.Show.Show Amazonka.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
+instance GHC.Read.Read Amazonka.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
+instance GHC.Classes.Eq Amazonka.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.JournalKinesisStreamDescription.JournalKinesisStreamDescription
 
 
-module Network.AWS.QLDB.Types.ValueHolder
+module Amazonka.QLDB.Types.ValueHolder
 
 -- | A structure that can contain a value in multiple encoding formats.
 --   
@@ -1016,16 +1016,16 @@ newValueHolder :: ValueHolder
 -- | An Amazon Ion plaintext value contained in a <tt>ValueHolder</tt>
 --   structure.
 valueHolder_ionText :: Lens' ValueHolder (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.QLDB.Types.ValueHolder.ValueHolder
-instance GHC.Show.Show Network.AWS.QLDB.Types.ValueHolder.ValueHolder
-instance GHC.Classes.Eq Network.AWS.QLDB.Types.ValueHolder.ValueHolder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDB.Types.ValueHolder.ValueHolder
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.Types.ValueHolder.ValueHolder
-instance Control.DeepSeq.NFData Network.AWS.QLDB.Types.ValueHolder.ValueHolder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.Types.ValueHolder.ValueHolder
+instance GHC.Generics.Generic Amazonka.QLDB.Types.ValueHolder.ValueHolder
+instance GHC.Show.Show Amazonka.QLDB.Types.ValueHolder.ValueHolder
+instance GHC.Classes.Eq Amazonka.QLDB.Types.ValueHolder.ValueHolder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDB.Types.ValueHolder.ValueHolder
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.Types.ValueHolder.ValueHolder
+instance Control.DeepSeq.NFData Amazonka.QLDB.Types.ValueHolder.ValueHolder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.Types.ValueHolder.ValueHolder
 
 
-module Network.AWS.QLDB.Types
+module Amazonka.QLDB.Types
 
 -- | API version <tt>2019-01-02</tt> of the Amazon QLDB SDK configuration.
 defaultService :: Service
@@ -1836,7 +1836,7 @@ valueHolder_ionText :: Lens' ValueHolder (Maybe Text)
 --   
 --   A resource can have up to 50 tags. If you try to create more than 50
 --   tags for a resource, your request fails and returns an error.
-module Network.AWS.QLDB.TagResource
+module Amazonka.QLDB.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1916,29 +1916,29 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.QLDB.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.QLDB.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.QLDB.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.QLDB.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.QLDB.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.QLDB.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.QLDB.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.QLDB.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.QLDB.TagResource.TagResource
+instance GHC.Show.Show Amazonka.QLDB.TagResource.TagResource
+instance GHC.Read.Read Amazonka.QLDB.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.QLDB.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.QLDB.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.QLDB.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.QLDB.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.QLDB.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.QLDB.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.QLDB.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.TagResource.TagResource
 
 
 -- | Creates a journal stream for a given Amazon QLDB ledger. The stream
 --   captures every document revision that is committed to the ledger's
 --   journal and delivers the data to a specified Amazon Kinesis Data
 --   Streams resource.
-module Network.AWS.QLDB.StreamJournalToKinesis
+module Amazonka.QLDB.StreamJournalToKinesis
 
 -- | <i>See:</i> <a>newStreamJournalToKinesis</a> smart constructor.
 data StreamJournalToKinesis
@@ -2139,26 +2139,26 @@ streamJournalToKinesisResponse_streamId :: Lens' StreamJournalToKinesisResponse 
 
 -- | The response's http status code.
 streamJournalToKinesisResponse_httpStatus :: Lens' StreamJournalToKinesisResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance GHC.Show.Show Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance GHC.Read.Read Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance GHC.Classes.Eq Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance GHC.Generics.Generic Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
-instance GHC.Show.Show Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
-instance GHC.Read.Read Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance Control.DeepSeq.NFData Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance Control.DeepSeq.NFData Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance GHC.Generics.Generic Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance GHC.Show.Show Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance GHC.Read.Read Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance GHC.Classes.Eq Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance GHC.Generics.Generic Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
+instance GHC.Show.Show Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
+instance GHC.Read.Read Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
+instance GHC.Classes.Eq Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance Control.DeepSeq.NFData Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesisResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance Control.DeepSeq.NFData Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.StreamJournalToKinesis.StreamJournalToKinesis
 
 
 -- | Returns all tags for a specified Amazon QLDB resource.
-module Network.AWS.QLDB.ListTagsForResource
+module Amazonka.QLDB.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2233,21 +2233,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.QLDB.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.QLDB.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.QLDB.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.QLDB.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.QLDB.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.QLDB.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.QLDB.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns an array of ledger summaries that are associated with the
@@ -2256,7 +2256,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListTagsForResource.Lis
 --   This action returns a maximum of 100 items and is paginated so that
 --   you can retrieve all the items by calling <tt>ListLedgers</tt>
 --   multiple times.
-module Network.AWS.QLDB.ListLedgers
+module Amazonka.QLDB.ListLedgers
 
 -- | <i>See:</i> <a>newListLedgers</a> smart constructor.
 data ListLedgers
@@ -2375,21 +2375,21 @@ listLedgersResponse_nextToken :: Lens' ListLedgersResponse (Maybe Text)
 
 -- | The response's http status code.
 listLedgersResponse_httpStatus :: Lens' ListLedgersResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.ListLedgers.ListLedgers
-instance GHC.Show.Show Network.AWS.QLDB.ListLedgers.ListLedgers
-instance GHC.Read.Read Network.AWS.QLDB.ListLedgers.ListLedgers
-instance GHC.Classes.Eq Network.AWS.QLDB.ListLedgers.ListLedgers
-instance GHC.Generics.Generic Network.AWS.QLDB.ListLedgers.ListLedgersResponse
-instance GHC.Show.Show Network.AWS.QLDB.ListLedgers.ListLedgersResponse
-instance GHC.Read.Read Network.AWS.QLDB.ListLedgers.ListLedgersResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.ListLedgers.ListLedgersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ListLedgers.ListLedgers
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListLedgers.ListLedgersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ListLedgers.ListLedgers
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListLedgers.ListLedgers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ListLedgers.ListLedgers
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ListLedgers.ListLedgers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListLedgers.ListLedgers
+instance GHC.Generics.Generic Amazonka.QLDB.ListLedgers.ListLedgers
+instance GHC.Show.Show Amazonka.QLDB.ListLedgers.ListLedgers
+instance GHC.Read.Read Amazonka.QLDB.ListLedgers.ListLedgers
+instance GHC.Classes.Eq Amazonka.QLDB.ListLedgers.ListLedgers
+instance GHC.Generics.Generic Amazonka.QLDB.ListLedgers.ListLedgersResponse
+instance GHC.Show.Show Amazonka.QLDB.ListLedgers.ListLedgersResponse
+instance GHC.Read.Read Amazonka.QLDB.ListLedgers.ListLedgersResponse
+instance GHC.Classes.Eq Amazonka.QLDB.ListLedgers.ListLedgersResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.ListLedgers.ListLedgers
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListLedgers.ListLedgersResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.ListLedgers.ListLedgers
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListLedgers.ListLedgers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.ListLedgers.ListLedgers
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.ListLedgers.ListLedgers
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.ListLedgers.ListLedgers
 
 
 -- | Returns an array of journal export job descriptions for a specified
@@ -2402,7 +2402,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListLedgers.ListLedgers
 --   This action does not return any expired export jobs. For more
 --   information, see <a>Export job expiration</a> in the <i>Amazon QLDB
 --   Developer Guide</i>.
-module Network.AWS.QLDB.ListJournalS3ExportsForLedger
+module Amazonka.QLDB.ListJournalS3ExportsForLedger
 
 -- | <i>See:</i> <a>newListJournalS3ExportsForLedger</a> smart constructor.
 data ListJournalS3ExportsForLedger
@@ -2531,21 +2531,21 @@ listJournalS3ExportsForLedgerResponse_nextToken :: Lens' ListJournalS3ExportsFor
 
 -- | The response's http status code.
 listJournalS3ExportsForLedgerResponse_httpStatus :: Lens' ListJournalS3ExportsForLedgerResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance GHC.Show.Show Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance GHC.Read.Read Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance GHC.Classes.Eq Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance GHC.Generics.Generic Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
-instance GHC.Show.Show Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
-instance GHC.Read.Read Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance GHC.Generics.Generic Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance GHC.Show.Show Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance GHC.Read.Read Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance GHC.Classes.Eq Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance GHC.Generics.Generic Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
+instance GHC.Show.Show Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
+instance GHC.Read.Read Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
+instance GHC.Classes.Eq Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedgerResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.ListJournalS3ExportsForLedger.ListJournalS3ExportsForLedger
 
 
 -- | Returns an array of journal export job descriptions for all ledgers
@@ -2558,7 +2558,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListJournalS3ExportsFor
 --   This action does not return any expired export jobs. For more
 --   information, see <a>Export job expiration</a> in the <i>Amazon QLDB
 --   Developer Guide</i>.
-module Network.AWS.QLDB.ListJournalS3Exports
+module Amazonka.QLDB.ListJournalS3Exports
 
 -- | <i>See:</i> <a>newListJournalS3Exports</a> smart constructor.
 data ListJournalS3Exports
@@ -2676,21 +2676,21 @@ listJournalS3ExportsResponse_nextToken :: Lens' ListJournalS3ExportsResponse (Ma
 
 -- | The response's http status code.
 listJournalS3ExportsResponse_httpStatus :: Lens' ListJournalS3ExportsResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance GHC.Show.Show Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance GHC.Read.Read Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance GHC.Classes.Eq Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance GHC.Generics.Generic Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
-instance GHC.Show.Show Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
-instance GHC.Read.Read Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance GHC.Generics.Generic Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance GHC.Show.Show Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance GHC.Read.Read Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance GHC.Classes.Eq Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance GHC.Generics.Generic Amazonka.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
+instance GHC.Show.Show Amazonka.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
+instance GHC.Read.Read Amazonka.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
+instance GHC.Classes.Eq Amazonka.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListJournalS3Exports.ListJournalS3ExportsResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.ListJournalS3Exports.ListJournalS3Exports
 
 
 -- | Returns an array of all Amazon QLDB journal stream descriptors for a
@@ -2704,7 +2704,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListJournalS3Exports.Li
 --   This action returns a maximum of <tt>MaxResults</tt> items. It is
 --   paginated so that you can retrieve all the items by calling
 --   <tt>ListJournalKinesisStreamsForLedger</tt> multiple times.
-module Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
+module Amazonka.QLDB.ListJournalKinesisStreamsForLedger
 
 -- | <i>See:</i> <a>newListJournalKinesisStreamsForLedger</a> smart
 --   constructor.
@@ -2835,27 +2835,27 @@ listJournalKinesisStreamsForLedgerResponse_streams :: Lens' ListJournalKinesisSt
 
 -- | The response's http status code.
 listJournalKinesisStreamsForLedgerResponse_httpStatus :: Lens' ListJournalKinesisStreamsForLedgerResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance GHC.Show.Show Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance GHC.Read.Read Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance GHC.Classes.Eq Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance GHC.Generics.Generic Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
-instance GHC.Show.Show Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
-instance GHC.Read.Read Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance GHC.Generics.Generic Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance GHC.Show.Show Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance GHC.Read.Read Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance GHC.Classes.Eq Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance GHC.Generics.Generic Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
+instance GHC.Show.Show Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
+instance GHC.Read.Read Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
+instance GHC.Classes.Eq Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedgerResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.ListJournalKinesisStreamsForLedger.ListJournalKinesisStreamsForLedger
 
 
 -- | Returns a revision data object for a specified document ID and block
 --   address. Also returns a proof of the specified revision for
 --   verification if <tt>DigestTipAddress</tt> is provided.
-module Network.AWS.QLDB.GetRevision
+module Amazonka.QLDB.GetRevision
 
 -- | <i>See:</i> <a>newGetRevision</a> smart constructor.
 data GetRevision
@@ -2992,26 +2992,26 @@ getRevisionResponse_httpStatus :: Lens' GetRevisionResponse Int
 
 -- | The document revision data object in Amazon Ion format.
 getRevisionResponse_revision :: Lens' GetRevisionResponse ValueHolder
-instance GHC.Generics.Generic Network.AWS.QLDB.GetRevision.GetRevision
-instance GHC.Show.Show Network.AWS.QLDB.GetRevision.GetRevision
-instance GHC.Classes.Eq Network.AWS.QLDB.GetRevision.GetRevision
-instance GHC.Generics.Generic Network.AWS.QLDB.GetRevision.GetRevisionResponse
-instance GHC.Show.Show Network.AWS.QLDB.GetRevision.GetRevisionResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.GetRevision.GetRevisionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.GetRevision.GetRevision
-instance Control.DeepSeq.NFData Network.AWS.QLDB.GetRevision.GetRevisionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.GetRevision.GetRevision
-instance Control.DeepSeq.NFData Network.AWS.QLDB.GetRevision.GetRevision
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.GetRevision.GetRevision
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.GetRevision.GetRevision
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.GetRevision.GetRevision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.GetRevision.GetRevision
+instance GHC.Generics.Generic Amazonka.QLDB.GetRevision.GetRevision
+instance GHC.Show.Show Amazonka.QLDB.GetRevision.GetRevision
+instance GHC.Classes.Eq Amazonka.QLDB.GetRevision.GetRevision
+instance GHC.Generics.Generic Amazonka.QLDB.GetRevision.GetRevisionResponse
+instance GHC.Show.Show Amazonka.QLDB.GetRevision.GetRevisionResponse
+instance GHC.Classes.Eq Amazonka.QLDB.GetRevision.GetRevisionResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.GetRevision.GetRevision
+instance Control.DeepSeq.NFData Amazonka.QLDB.GetRevision.GetRevisionResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.GetRevision.GetRevision
+instance Control.DeepSeq.NFData Amazonka.QLDB.GetRevision.GetRevision
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.GetRevision.GetRevision
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.GetRevision.GetRevision
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.GetRevision.GetRevision
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.GetRevision.GetRevision
 
 
 -- | Returns the digest of a ledger at the latest committed block in the
 --   journal. The response includes a 256-bit hash value and a block
 --   address.
-module Network.AWS.QLDB.GetDigest
+module Amazonka.QLDB.GetDigest
 
 -- | <i>See:</i> <a>newGetDigest</a> smart constructor.
 data GetDigest
@@ -3095,21 +3095,21 @@ getDigestResponse_digest :: Lens' GetDigestResponse ByteString
 --   address is an Amazon Ion structure that has two fields:
 --   <tt>strandId</tt> and <tt>sequenceNo</tt>.
 getDigestResponse_digestTipAddress :: Lens' GetDigestResponse ValueHolder
-instance GHC.Generics.Generic Network.AWS.QLDB.GetDigest.GetDigest
-instance GHC.Show.Show Network.AWS.QLDB.GetDigest.GetDigest
-instance GHC.Read.Read Network.AWS.QLDB.GetDigest.GetDigest
-instance GHC.Classes.Eq Network.AWS.QLDB.GetDigest.GetDigest
-instance GHC.Generics.Generic Network.AWS.QLDB.GetDigest.GetDigestResponse
-instance GHC.Show.Show Network.AWS.QLDB.GetDigest.GetDigestResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.GetDigest.GetDigestResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.GetDigest.GetDigest
-instance Control.DeepSeq.NFData Network.AWS.QLDB.GetDigest.GetDigestResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.GetDigest.GetDigest
-instance Control.DeepSeq.NFData Network.AWS.QLDB.GetDigest.GetDigest
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.GetDigest.GetDigest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.GetDigest.GetDigest
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.GetDigest.GetDigest
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.GetDigest.GetDigest
+instance GHC.Generics.Generic Amazonka.QLDB.GetDigest.GetDigest
+instance GHC.Show.Show Amazonka.QLDB.GetDigest.GetDigest
+instance GHC.Read.Read Amazonka.QLDB.GetDigest.GetDigest
+instance GHC.Classes.Eq Amazonka.QLDB.GetDigest.GetDigest
+instance GHC.Generics.Generic Amazonka.QLDB.GetDigest.GetDigestResponse
+instance GHC.Show.Show Amazonka.QLDB.GetDigest.GetDigestResponse
+instance GHC.Classes.Eq Amazonka.QLDB.GetDigest.GetDigestResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.GetDigest.GetDigest
+instance Control.DeepSeq.NFData Amazonka.QLDB.GetDigest.GetDigestResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.GetDigest.GetDigest
+instance Control.DeepSeq.NFData Amazonka.QLDB.GetDigest.GetDigest
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.GetDigest.GetDigest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.GetDigest.GetDigest
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.GetDigest.GetDigest
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.GetDigest.GetDigest
 
 
 -- | Returns a block object at a specified address in a journal. Also
@@ -3127,7 +3127,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.GetDigest.GetDigest
 --   
 --   If no block exists with the specified address, then throws
 --   <tt>InvalidParameterException</tt>.
-module Network.AWS.QLDB.GetBlock
+module Amazonka.QLDB.GetBlock
 
 -- | <i>See:</i> <a>newGetBlock</a> smart constructor.
 data GetBlock
@@ -3249,20 +3249,20 @@ getBlockResponse_httpStatus :: Lens' GetBlockResponse Int
 
 -- | The block data object in Amazon Ion format.
 getBlockResponse_block :: Lens' GetBlockResponse ValueHolder
-instance GHC.Generics.Generic Network.AWS.QLDB.GetBlock.GetBlock
-instance GHC.Show.Show Network.AWS.QLDB.GetBlock.GetBlock
-instance GHC.Classes.Eq Network.AWS.QLDB.GetBlock.GetBlock
-instance GHC.Generics.Generic Network.AWS.QLDB.GetBlock.GetBlockResponse
-instance GHC.Show.Show Network.AWS.QLDB.GetBlock.GetBlockResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.GetBlock.GetBlockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.GetBlock.GetBlock
-instance Control.DeepSeq.NFData Network.AWS.QLDB.GetBlock.GetBlockResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.GetBlock.GetBlock
-instance Control.DeepSeq.NFData Network.AWS.QLDB.GetBlock.GetBlock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.GetBlock.GetBlock
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.GetBlock.GetBlock
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.GetBlock.GetBlock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.GetBlock.GetBlock
+instance GHC.Generics.Generic Amazonka.QLDB.GetBlock.GetBlock
+instance GHC.Show.Show Amazonka.QLDB.GetBlock.GetBlock
+instance GHC.Classes.Eq Amazonka.QLDB.GetBlock.GetBlock
+instance GHC.Generics.Generic Amazonka.QLDB.GetBlock.GetBlockResponse
+instance GHC.Show.Show Amazonka.QLDB.GetBlock.GetBlockResponse
+instance GHC.Classes.Eq Amazonka.QLDB.GetBlock.GetBlockResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.GetBlock.GetBlock
+instance Control.DeepSeq.NFData Amazonka.QLDB.GetBlock.GetBlockResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.GetBlock.GetBlock
+instance Control.DeepSeq.NFData Amazonka.QLDB.GetBlock.GetBlock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.GetBlock.GetBlock
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.GetBlock.GetBlock
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.GetBlock.GetBlock
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.GetBlock.GetBlock
 
 
 -- | Exports journal contents within a date and time range from a ledger
@@ -3278,7 +3278,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.GetBlock.GetBlock
 --   You can initiate up to two concurrent journal export requests for each
 --   ledger. Beyond this limit, journal export requests throw
 --   <tt>LimitExceededException</tt>.
-module Network.AWS.QLDB.ExportJournalToS3
+module Amazonka.QLDB.ExportJournalToS3
 
 -- | <i>See:</i> <a>newExportJournalToS3</a> smart constructor.
 data ExportJournalToS3
@@ -3471,27 +3471,27 @@ exportJournalToS3Response_httpStatus :: Lens' ExportJournalToS3Response Int
 --   To describe your export request and check the status of the job, you
 --   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
 exportJournalToS3Response_exportId :: Lens' ExportJournalToS3Response Text
-instance GHC.Generics.Generic Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance GHC.Show.Show Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance GHC.Read.Read Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance GHC.Classes.Eq Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance GHC.Generics.Generic Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
-instance GHC.Show.Show Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
-instance GHC.Read.Read Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
-instance GHC.Classes.Eq Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Generics.Generic Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Show.Show Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Read.Read Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Classes.Eq Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Generics.Generic Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance GHC.Show.Show Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance GHC.Read.Read Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance GHC.Classes.Eq Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Control.DeepSeq.NFData Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Control.DeepSeq.NFData Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.ExportJournalToS3.ExportJournalToS3
 
 
 -- | Returns information about a ledger, including its state, permissions
 --   mode, encryption at rest settings, and when it was created.
-module Network.AWS.QLDB.DescribeLedger
+module Amazonka.QLDB.DescribeLedger
 
 -- | <i>See:</i> <a>newDescribeLedger</a> smart constructor.
 data DescribeLedger
@@ -3636,21 +3636,21 @@ describeLedgerResponse_permissionsMode :: Lens' DescribeLedgerResponse (Maybe Pe
 
 -- | The response's http status code.
 describeLedgerResponse_httpStatus :: Lens' DescribeLedgerResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance GHC.Show.Show Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance GHC.Read.Read Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance GHC.Classes.Eq Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance GHC.Generics.Generic Network.AWS.QLDB.DescribeLedger.DescribeLedgerResponse
-instance GHC.Show.Show Network.AWS.QLDB.DescribeLedger.DescribeLedgerResponse
-instance GHC.Read.Read Network.AWS.QLDB.DescribeLedger.DescribeLedgerResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.DescribeLedger.DescribeLedgerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DescribeLedger.DescribeLedgerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.DescribeLedger.DescribeLedger
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.DescribeLedger.DescribeLedger
+instance GHC.Generics.Generic Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance GHC.Show.Show Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance GHC.Read.Read Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance GHC.Classes.Eq Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance GHC.Generics.Generic Amazonka.QLDB.DescribeLedger.DescribeLedgerResponse
+instance GHC.Show.Show Amazonka.QLDB.DescribeLedger.DescribeLedgerResponse
+instance GHC.Read.Read Amazonka.QLDB.DescribeLedger.DescribeLedgerResponse
+instance GHC.Classes.Eq Amazonka.QLDB.DescribeLedger.DescribeLedgerResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.DescribeLedger.DescribeLedgerResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.DescribeLedger.DescribeLedger
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.DescribeLedger.DescribeLedger
 
 
 -- | Returns information about a journal export job, including the ledger
@@ -3666,7 +3666,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.DescribeLedger.Describe
 --   
 --   If the ledger with the given <tt>Name</tt> doesn't exist, then throws
 --   <tt>ResourceNotFoundException</tt>.
-module Network.AWS.QLDB.DescribeJournalS3Export
+module Amazonka.QLDB.DescribeJournalS3Export
 
 -- | <i>See:</i> <a>newDescribeJournalS3Export</a> smart constructor.
 data DescribeJournalS3Export
@@ -3740,21 +3740,21 @@ describeJournalS3ExportResponse_httpStatus :: Lens' DescribeJournalS3ExportRespo
 -- | Information about the journal export job returned by a
 --   <tt>DescribeJournalS3Export</tt> request.
 describeJournalS3ExportResponse_exportDescription :: Lens' DescribeJournalS3ExportResponse JournalS3ExportDescription
-instance GHC.Generics.Generic Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance GHC.Show.Show Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance GHC.Read.Read Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance GHC.Classes.Eq Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance GHC.Generics.Generic Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
-instance GHC.Show.Show Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
-instance GHC.Read.Read Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance GHC.Generics.Generic Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance GHC.Show.Show Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance GHC.Read.Read Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance GHC.Classes.Eq Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance GHC.Generics.Generic Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
+instance GHC.Show.Show Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
+instance GHC.Read.Read Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
+instance GHC.Classes.Eq Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance Control.DeepSeq.NFData Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3ExportResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance Control.DeepSeq.NFData Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.DescribeJournalS3Export.DescribeJournalS3Export
 
 
 -- | Returns detailed information about a given Amazon QLDB journal stream.
@@ -3765,7 +3765,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.DescribeJournalS3Export
 --   This action does not return any expired journal streams. For more
 --   information, see <a>Expiration for terminal streams</a> in the
 --   <i>Amazon QLDB Developer Guide</i>.
-module Network.AWS.QLDB.DescribeJournalKinesisStream
+module Amazonka.QLDB.DescribeJournalKinesisStream
 
 -- | <i>See:</i> <a>newDescribeJournalKinesisStream</a> smart constructor.
 data DescribeJournalKinesisStream
@@ -3840,21 +3840,21 @@ describeJournalKinesisStreamResponse_stream :: Lens' DescribeJournalKinesisStrea
 
 -- | The response's http status code.
 describeJournalKinesisStreamResponse_httpStatus :: Lens' DescribeJournalKinesisStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance GHC.Show.Show Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance GHC.Read.Read Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance GHC.Classes.Eq Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance GHC.Generics.Generic Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
-instance GHC.Show.Show Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
-instance GHC.Read.Read Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance GHC.Generics.Generic Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance GHC.Show.Show Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance GHC.Read.Read Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance GHC.Classes.Eq Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance GHC.Generics.Generic Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
+instance GHC.Show.Show Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
+instance GHC.Read.Read Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
+instance GHC.Classes.Eq Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance Control.DeepSeq.NFData Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance Control.DeepSeq.NFData Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.DescribeJournalKinesisStream.DescribeJournalKinesisStream
 
 
 -- | Deletes a ledger and all of its contents. This action is irreversible.
@@ -3862,7 +3862,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.DescribeJournalKinesisS
 --   If deletion protection is enabled, you must first disable it before
 --   you can delete the ledger. You can disable it by calling the
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
-module Network.AWS.QLDB.DeleteLedger
+module Amazonka.QLDB.DeleteLedger
 
 -- | <i>See:</i> <a>newDeleteLedger</a> smart constructor.
 data DeleteLedger
@@ -3897,25 +3897,25 @@ DeleteLedgerResponse' :: DeleteLedgerResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteLedgerResponse :: DeleteLedgerResponse
-instance GHC.Generics.Generic Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance GHC.Show.Show Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance GHC.Read.Read Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance GHC.Classes.Eq Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance GHC.Generics.Generic Network.AWS.QLDB.DeleteLedger.DeleteLedgerResponse
-instance GHC.Show.Show Network.AWS.QLDB.DeleteLedger.DeleteLedgerResponse
-instance GHC.Read.Read Network.AWS.QLDB.DeleteLedger.DeleteLedgerResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.DeleteLedger.DeleteLedgerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DeleteLedger.DeleteLedgerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.DeleteLedger.DeleteLedger
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.DeleteLedger.DeleteLedger
+instance GHC.Generics.Generic Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance GHC.Show.Show Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance GHC.Read.Read Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance GHC.Classes.Eq Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance GHC.Generics.Generic Amazonka.QLDB.DeleteLedger.DeleteLedgerResponse
+instance GHC.Show.Show Amazonka.QLDB.DeleteLedger.DeleteLedgerResponse
+instance GHC.Read.Read Amazonka.QLDB.DeleteLedger.DeleteLedgerResponse
+instance GHC.Classes.Eq Amazonka.QLDB.DeleteLedger.DeleteLedgerResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.DeleteLedger.DeleteLedgerResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.DeleteLedger.DeleteLedger
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.DeleteLedger.DeleteLedger
 
 
 -- | Creates a new ledger in your account in the current Region.
-module Network.AWS.QLDB.CreateLedger
+module Amazonka.QLDB.CreateLedger
 
 -- | <i>See:</i> <a>newCreateLedger</a> smart constructor.
 data CreateLedger
@@ -4305,22 +4305,22 @@ createLedgerResponse_permissionsMode :: Lens' CreateLedgerResponse (Maybe Permis
 
 -- | The response's http status code.
 createLedgerResponse_httpStatus :: Lens' CreateLedgerResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.CreateLedger.CreateLedger
-instance GHC.Show.Show Network.AWS.QLDB.CreateLedger.CreateLedger
-instance GHC.Read.Read Network.AWS.QLDB.CreateLedger.CreateLedger
-instance GHC.Classes.Eq Network.AWS.QLDB.CreateLedger.CreateLedger
-instance GHC.Generics.Generic Network.AWS.QLDB.CreateLedger.CreateLedgerResponse
-instance GHC.Show.Show Network.AWS.QLDB.CreateLedger.CreateLedgerResponse
-instance GHC.Read.Read Network.AWS.QLDB.CreateLedger.CreateLedgerResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.CreateLedger.CreateLedgerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.CreateLedger.CreateLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.CreateLedger.CreateLedgerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.CreateLedger.CreateLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.CreateLedger.CreateLedger
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.CreateLedger.CreateLedger
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.CreateLedger.CreateLedger
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.CreateLedger.CreateLedger
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.CreateLedger.CreateLedger
+instance GHC.Generics.Generic Amazonka.QLDB.CreateLedger.CreateLedger
+instance GHC.Show.Show Amazonka.QLDB.CreateLedger.CreateLedger
+instance GHC.Read.Read Amazonka.QLDB.CreateLedger.CreateLedger
+instance GHC.Classes.Eq Amazonka.QLDB.CreateLedger.CreateLedger
+instance GHC.Generics.Generic Amazonka.QLDB.CreateLedger.CreateLedgerResponse
+instance GHC.Show.Show Amazonka.QLDB.CreateLedger.CreateLedgerResponse
+instance GHC.Read.Read Amazonka.QLDB.CreateLedger.CreateLedgerResponse
+instance GHC.Classes.Eq Amazonka.QLDB.CreateLedger.CreateLedgerResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.CreateLedger.CreateLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.CreateLedger.CreateLedgerResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.CreateLedger.CreateLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.CreateLedger.CreateLedger
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.CreateLedger.CreateLedger
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.CreateLedger.CreateLedger
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.CreateLedger.CreateLedger
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.CreateLedger.CreateLedger
 
 
 -- | Ends a given Amazon QLDB journal stream. Before a stream can be
@@ -4329,7 +4329,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.CreateLedger.CreateLedg
 --   You can't restart a stream after you cancel it. Canceled QLDB stream
 --   resources are subject to a 7-day retention period, so they are
 --   automatically deleted after this limit expires.
-module Network.AWS.QLDB.CancelJournalKinesisStream
+module Amazonka.QLDB.CancelJournalKinesisStream
 
 -- | <i>See:</i> <a>newCancelJournalKinesisStream</a> smart constructor.
 data CancelJournalKinesisStream
@@ -4400,26 +4400,26 @@ cancelJournalKinesisStreamResponse_streamId :: Lens' CancelJournalKinesisStreamR
 
 -- | The response's http status code.
 cancelJournalKinesisStreamResponse_httpStatus :: Lens' CancelJournalKinesisStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance GHC.Show.Show Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance GHC.Read.Read Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance GHC.Classes.Eq Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance GHC.Generics.Generic Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
-instance GHC.Show.Show Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
-instance GHC.Read.Read Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance Control.DeepSeq.NFData Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance Control.DeepSeq.NFData Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance GHC.Generics.Generic Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance GHC.Show.Show Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance GHC.Read.Read Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance GHC.Classes.Eq Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance GHC.Generics.Generic Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
+instance GHC.Show.Show Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
+instance GHC.Read.Read Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
+instance GHC.Classes.Eq Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance Control.DeepSeq.NFData Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance Control.DeepSeq.NFData Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.CancelJournalKinesisStream.CancelJournalKinesisStream
 
 
 -- | Removes one or more tags from a specified Amazon QLDB resource. You
 --   can specify up to 50 tag keys to remove.
-module Network.AWS.QLDB.UntagResource
+module Amazonka.QLDB.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4491,25 +4491,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.QLDB.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.QLDB.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.QLDB.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.QLDB.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.QLDB.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.QLDB.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.QLDB.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.QLDB.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.QLDB.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.QLDB.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.QLDB.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.QLDB.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.QLDB.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.QLDB.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.QLDB.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.QLDB.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.QLDB.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.QLDB.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.UntagResource.UntagResource
 
 
 -- | Updates properties on a ledger.
-module Network.AWS.QLDB.UpdateLedger
+module Amazonka.QLDB.UpdateLedger
 
 -- | <i>See:</i> <a>newUpdateLedger</a> smart constructor.
 data UpdateLedger
@@ -4783,22 +4783,22 @@ updateLedgerResponse_creationDateTime :: Lens' UpdateLedgerResponse (Maybe UTCTi
 
 -- | The response's http status code.
 updateLedgerResponse_httpStatus :: Lens' UpdateLedgerResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance GHC.Show.Show Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance GHC.Read.Read Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance GHC.Classes.Eq Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance GHC.Generics.Generic Network.AWS.QLDB.UpdateLedger.UpdateLedgerResponse
-instance GHC.Show.Show Network.AWS.QLDB.UpdateLedger.UpdateLedgerResponse
-instance GHC.Read.Read Network.AWS.QLDB.UpdateLedger.UpdateLedgerResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.UpdateLedger.UpdateLedgerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.UpdateLedger.UpdateLedgerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance Control.DeepSeq.NFData Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.UpdateLedger.UpdateLedger
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.UpdateLedger.UpdateLedger
+instance GHC.Generics.Generic Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance GHC.Show.Show Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance GHC.Read.Read Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance GHC.Classes.Eq Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance GHC.Generics.Generic Amazonka.QLDB.UpdateLedger.UpdateLedgerResponse
+instance GHC.Show.Show Amazonka.QLDB.UpdateLedger.UpdateLedgerResponse
+instance GHC.Read.Read Amazonka.QLDB.UpdateLedger.UpdateLedgerResponse
+instance GHC.Classes.Eq Amazonka.QLDB.UpdateLedger.UpdateLedgerResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.UpdateLedger.UpdateLedgerResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance Control.DeepSeq.NFData Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.UpdateLedger.UpdateLedger
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.UpdateLedger.UpdateLedger
 
 
 -- | Updates the permissions mode of a ledger.
@@ -4808,7 +4808,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.UpdateLedger.UpdateLedg
 --   disruption to your users. To learn more, see <a>Migrating to the
 --   standard permissions mode</a> in the <i>Amazon QLDB Developer
 --   Guide</i>.
-module Network.AWS.QLDB.UpdateLedgerPermissionsMode
+module Amazonka.QLDB.UpdateLedgerPermissionsMode
 
 -- | <i>See:</i> <a>newUpdateLedgerPermissionsMode</a> smart constructor.
 data UpdateLedgerPermissionsMode
@@ -4966,25 +4966,25 @@ updateLedgerPermissionsModeResponse_permissionsMode :: Lens' UpdateLedgerPermiss
 
 -- | The response's http status code.
 updateLedgerPermissionsModeResponse_httpStatus :: Lens' UpdateLedgerPermissionsModeResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance GHC.Show.Show Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance GHC.Read.Read Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance GHC.Classes.Eq Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance GHC.Generics.Generic Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
-instance GHC.Show.Show Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
-instance GHC.Read.Read Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance Control.DeepSeq.NFData Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance Control.DeepSeq.NFData Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance GHC.Generics.Generic Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance GHC.Show.Show Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance GHC.Read.Read Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance GHC.Classes.Eq Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance GHC.Generics.Generic Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
+instance GHC.Show.Show Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
+instance GHC.Read.Read Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
+instance GHC.Classes.Eq Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance Control.DeepSeq.NFData Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsModeResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance Control.DeepSeq.NFData Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance Amazonka.Data.Path.ToPath Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDB.UpdateLedgerPermissionsMode.UpdateLedgerPermissionsMode
 
 
-module Network.AWS.QLDB.Lens
+module Amazonka.QLDB.Lens
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -5864,14 +5864,14 @@ s3ExportConfiguration_encryptionConfiguration :: Lens' S3ExportConfiguration S3E
 valueHolder_ionText :: Lens' ValueHolder (Maybe Text)
 
 
-module Network.AWS.QLDB.Waiters
+module Amazonka.QLDB.Waiters
 
 
 -- | Derived from API version <tt>2019-01-02</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   The control plane for Amazon QLDB
-module Network.AWS.QLDB
+module Amazonka.QLDB
 
 -- | API version <tt>2019-01-02</tt> of the Amazon QLDB SDK configuration.
 defaultService :: Service

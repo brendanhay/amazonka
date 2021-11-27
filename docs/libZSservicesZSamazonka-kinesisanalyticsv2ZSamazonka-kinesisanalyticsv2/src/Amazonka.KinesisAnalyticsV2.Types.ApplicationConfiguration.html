@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfiguration.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.EnvironmentProperties.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.EnvironmentProperties</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfiguration.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.VpcConfiguration.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.VpcConfiguration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Specifies the creation parameters for a Kinesis Data Analytics</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newApplicationConfiguration' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679298949"><span id="local-6989586621679298950"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationConfiguration"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-var">ApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationConfiguration%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-var">ApplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AapplicationSnapshotConfiguration%3AApplicationConfiguration%27"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; Maybe ApplicationSnapshotConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AapplicationSnapshotConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">applicationSnapshotConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration.html#ApplicationSnapshotConfiguration"><span class="hs-identifier hs-type">ApplicationSnapshotConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The array of descriptions of VPC configurations available to the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvpcConfigurations%3AApplicationConfiguration%27"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; Maybe [VpcConfiguration]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AvpcConfigurations%3AApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">vpcConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Describes execution properties for a Flink-based Kinesis Data Analytics</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AenvironmentProperties%3AApplicationConfiguration%27"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; Maybe EnvironmentProperties
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AenvironmentProperties%3AApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">environmentProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.EnvironmentProperties.html#EnvironmentProperties"><span class="hs-identifier hs-type">EnvironmentProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The creation and update parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AflinkApplicationConfiguration%3AApplicationConfiguration%27"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; Maybe FlinkApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AflinkApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">flinkApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfiguration.html#FlinkApplicationConfiguration"><span class="hs-identifier hs-type">FlinkApplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The creation and update parameters for a SQL-based Kinesis Data</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsqlApplicationConfiguration%3AApplicationConfiguration%27"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; Maybe SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AsqlApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">sqlApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The code location and type parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AapplicationCodeConfiguration%3AApplicationConfiguration%27"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; Maybe ApplicationCodeConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AapplicationCodeConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">applicationCodeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfiguration.html#ApplicationCodeConfiguration"><span class="hs-identifier hs-type">ApplicationCodeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The configuration parameters for a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AzeppelinApplicationConfiguration%3AApplicationConfiguration%27"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; Maybe ZeppelinApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AzeppelinApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298937"><span id="local-6989586621679298939"><span class="annot"><span class="annottext">ApplicationConfiguration -&gt; ApplicationConfiguration -&gt; Bool
+(ApplicationConfiguration -&gt; ApplicationConfiguration -&gt; Bool)
+-&gt; (ApplicationConfiguration -&gt; ApplicationConfiguration -&gt; Bool)
+-&gt; Eq ApplicationConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationConfiguration -&gt; ApplicationConfiguration -&gt; Bool
+$c/= :: ApplicationConfiguration -&gt; ApplicationConfiguration -&gt; Bool
+== :: ApplicationConfiguration -&gt; ApplicationConfiguration -&gt; Bool
+$c== :: ApplicationConfiguration -&gt; ApplicationConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298928"><span id="local-6989586621679298930"><span id="local-6989586621679298932"><span id="local-6989586621679298934"><span class="annot"><span class="annottext">ReadPrec [ApplicationConfiguration]
+ReadPrec ApplicationConfiguration
+Int -&gt; ReadS ApplicationConfiguration
+ReadS [ApplicationConfiguration]
+(Int -&gt; ReadS ApplicationConfiguration)
+-&gt; ReadS [ApplicationConfiguration]
+-&gt; ReadPrec ApplicationConfiguration
+-&gt; ReadPrec [ApplicationConfiguration]
+-&gt; Read ApplicationConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationConfiguration]
+$creadListPrec :: ReadPrec [ApplicationConfiguration]
+readPrec :: ReadPrec ApplicationConfiguration
+$creadPrec :: ReadPrec ApplicationConfiguration
+readList :: ReadS [ApplicationConfiguration]
+$creadList :: ReadS [ApplicationConfiguration]
+readsPrec :: Int -&gt; ReadS ApplicationConfiguration
+$creadsPrec :: Int -&gt; ReadS ApplicationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298921"><span id="local-6989586621679298923"><span id="local-6989586621679298925"><span class="annot"><span class="annottext">Int -&gt; ApplicationConfiguration -&gt; ShowS
+[ApplicationConfiguration] -&gt; ShowS
+ApplicationConfiguration -&gt; String
+(Int -&gt; ApplicationConfiguration -&gt; ShowS)
+-&gt; (ApplicationConfiguration -&gt; String)
+-&gt; ([ApplicationConfiguration] -&gt; ShowS)
+-&gt; Show ApplicationConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationConfiguration] -&gt; ShowS
+$cshowList :: [ApplicationConfiguration] -&gt; ShowS
+show :: ApplicationConfiguration -&gt; String
+$cshow :: ApplicationConfiguration -&gt; String
+showsPrec :: Int -&gt; ApplicationConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplicationConfiguration -&gt; Rep ApplicationConfiguration x)
+-&gt; (forall x.
+    Rep ApplicationConfiguration x -&gt; ApplicationConfiguration)
+-&gt; Generic ApplicationConfiguration
+forall x.
+Rep ApplicationConfiguration x -&gt; ApplicationConfiguration
+forall x.
+ApplicationConfiguration -&gt; Rep ApplicationConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplicationConfiguration x -&gt; ApplicationConfiguration
+$cfrom :: forall x.
+ApplicationConfiguration -&gt; Rep ApplicationConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'ApplicationConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'applicationSnapshotConfiguration', 'applicationConfiguration_applicationSnapshotConfiguration' - Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'vpcConfigurations', 'applicationConfiguration_vpcConfigurations' - The array of descriptions of VPC configurations available to the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'environmentProperties', 'applicationConfiguration_environmentProperties' - Describes execution properties for a Flink-based Kinesis Data Analytics</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'flinkApplicationConfiguration', 'applicationConfiguration_flinkApplicationConfiguration' - The creation and update parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'sqlApplicationConfiguration', 'applicationConfiguration_sqlApplicationConfiguration' - The creation and update parameters for a SQL-based Kinesis Data</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'applicationCodeConfiguration', 'applicationConfiguration_applicationCodeConfiguration' - The code location and type parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'zeppelinApplicationConfiguration', 'applicationConfiguration_zeppelinApplicationConfiguration' - The configuration parameters for a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#newApplicationConfiguration"><span class="hs-identifier hs-type">newApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span>
+</span><span id="line-92"></span><span id="newApplicationConfiguration"><span class="annot"><span class="annottext">newApplicationConfiguration :: ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#newApplicationConfiguration"><span class="hs-identifier hs-var hs-var">newApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">ApplicationConfiguration' :: Maybe ApplicationSnapshotConfiguration
+-&gt; Maybe [VpcConfiguration]
+-&gt; Maybe EnvironmentProperties
+-&gt; Maybe FlinkApplicationConfiguration
+-&gt; Maybe SqlApplicationConfiguration
+-&gt; Maybe ApplicationCodeConfiguration
+-&gt; Maybe ZeppelinApplicationConfiguration
+-&gt; ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationSnapshotConfiguration:ApplicationConfiguration' :: Maybe ApplicationSnapshotConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AapplicationSnapshotConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">applicationSnapshotConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfigurations:ApplicationConfiguration' :: Maybe [VpcConfiguration]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AvpcConfigurations%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">vpcConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentProperties:ApplicationConfiguration' :: Maybe EnvironmentProperties
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AenvironmentProperties%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">environmentProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:flinkApplicationConfiguration:ApplicationConfiguration' :: Maybe FlinkApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AflinkApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">flinkApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqlApplicationConfiguration:ApplicationConfiguration' :: Maybe SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AsqlApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">sqlApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationCodeConfiguration:ApplicationConfiguration' :: Maybe ApplicationCodeConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AapplicationCodeConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">applicationCodeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:zeppelinApplicationConfiguration:ApplicationConfiguration' :: Maybe ZeppelinApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AzeppelinApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">zeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_applicationSnapshotConfiguration"><span class="hs-identifier hs-type">applicationConfiguration_applicationSnapshotConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration.html#ApplicationSnapshotConfiguration"><span class="hs-identifier hs-type">ApplicationSnapshotConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="applicationConfiguration_applicationSnapshotConfiguration"><span class="annot"><span class="annottext">applicationConfiguration_applicationSnapshotConfiguration :: (Maybe ApplicationSnapshotConfiguration
+ -&gt; f (Maybe ApplicationSnapshotConfiguration))
+-&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_applicationSnapshotConfiguration"><span class="hs-identifier hs-var hs-var">applicationConfiguration_applicationSnapshotConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfiguration
+ -&gt; Maybe ApplicationSnapshotConfiguration)
+-&gt; (ApplicationConfiguration
+    -&gt; Maybe ApplicationSnapshotConfiguration
+    -&gt; ApplicationConfiguration)
+-&gt; Lens
+     ApplicationConfiguration
+     ApplicationConfiguration
+     (Maybe ApplicationSnapshotConfiguration)
+     (Maybe ApplicationSnapshotConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298912"><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfiguration
+applicationSnapshotConfiguration :: Maybe ApplicationSnapshotConfiguration
+$sel:applicationSnapshotConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe ApplicationSnapshotConfiguration
+</span><a href="#local-6989586621679298912"><span class="hs-identifier hs-var hs-var">applicationSnapshotConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfiguration
+</span><a href="#local-6989586621679298912"><span class="hs-identifier hs-var">applicationSnapshotConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298911"><span class="annot"><span class="annottext">s :: ApplicationConfiguration
+</span><a href="#local-6989586621679298911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298910"><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfiguration
+</span><a href="#local-6989586621679298910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfiguration
+</span><a href="#local-6989586621679298911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSnapshotConfiguration:ApplicationConfiguration' :: Maybe ApplicationSnapshotConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AapplicationSnapshotConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">applicationSnapshotConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfiguration
+</span><a href="#local-6989586621679298910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The array of descriptions of VPC configurations available to the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_vpcConfigurations"><span class="hs-identifier hs-type">applicationConfiguration_vpcConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="applicationConfiguration_vpcConfigurations"><span class="annot"><span class="annottext">applicationConfiguration_vpcConfigurations :: (Maybe [VpcConfiguration] -&gt; f (Maybe [VpcConfiguration]))
+-&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_vpcConfigurations"><span class="hs-identifier hs-var hs-var">applicationConfiguration_vpcConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfiguration -&gt; Maybe [VpcConfiguration])
+-&gt; (ApplicationConfiguration
+    -&gt; Maybe [VpcConfiguration] -&gt; ApplicationConfiguration)
+-&gt; Lens
+     ApplicationConfiguration
+     ApplicationConfiguration
+     (Maybe [VpcConfiguration])
+     (Maybe [VpcConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298908"><span class="annot"><span class="annottext">Maybe [VpcConfiguration]
+vpcConfigurations :: Maybe [VpcConfiguration]
+$sel:vpcConfigurations:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe [VpcConfiguration]
+</span><a href="#local-6989586621679298908"><span class="hs-identifier hs-var hs-var">vpcConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfiguration]
+</span><a href="#local-6989586621679298908"><span class="hs-identifier hs-var">vpcConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298907"><span class="annot"><span class="annottext">s :: ApplicationConfiguration
+</span><a href="#local-6989586621679298907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298906"><span class="annot"><span class="annottext">Maybe [VpcConfiguration]
+</span><a href="#local-6989586621679298906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfiguration
+</span><a href="#local-6989586621679298907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfigurations:ApplicationConfiguration' :: Maybe [VpcConfiguration]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AvpcConfigurations%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">vpcConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfiguration]
+</span><a href="#local-6989586621679298906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcConfiguration] -&gt; f (Maybe [VpcConfiguration]))
+ -&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration)
+-&gt; ((Maybe [VpcConfiguration] -&gt; f (Maybe [VpcConfiguration]))
+    -&gt; Maybe [VpcConfiguration] -&gt; f (Maybe [VpcConfiguration]))
+-&gt; (Maybe [VpcConfiguration] -&gt; f (Maybe [VpcConfiguration]))
+-&gt; ApplicationConfiguration
+-&gt; f ApplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcConfiguration]
+  [VpcConfiguration]
+  [VpcConfiguration]
+  [VpcConfiguration]
+-&gt; Iso
+     (Maybe [VpcConfiguration])
+     (Maybe [VpcConfiguration])
+     (Maybe [VpcConfiguration])
+     (Maybe [VpcConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcConfiguration]
+  [VpcConfiguration]
+  [VpcConfiguration]
+  [VpcConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Describes execution properties for a Flink-based Kinesis Data Analytics</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_environmentProperties"><span class="hs-identifier hs-type">applicationConfiguration_environmentProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.EnvironmentProperties.html#EnvironmentProperties"><span class="hs-identifier hs-type">EnvironmentProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="applicationConfiguration_environmentProperties"><span class="annot"><span class="annottext">applicationConfiguration_environmentProperties :: (Maybe EnvironmentProperties -&gt; f (Maybe EnvironmentProperties))
+-&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_environmentProperties"><span class="hs-identifier hs-var hs-var">applicationConfiguration_environmentProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfiguration -&gt; Maybe EnvironmentProperties)
+-&gt; (ApplicationConfiguration
+    -&gt; Maybe EnvironmentProperties -&gt; ApplicationConfiguration)
+-&gt; Lens
+     ApplicationConfiguration
+     ApplicationConfiguration
+     (Maybe EnvironmentProperties)
+     (Maybe EnvironmentProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298901"><span class="annot"><span class="annottext">Maybe EnvironmentProperties
+environmentProperties :: Maybe EnvironmentProperties
+$sel:environmentProperties:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe EnvironmentProperties
+</span><a href="#local-6989586621679298901"><span class="hs-identifier hs-var hs-var">environmentProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentProperties
+</span><a href="#local-6989586621679298901"><span class="hs-identifier hs-var">environmentProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298900"><span class="annot"><span class="annottext">s :: ApplicationConfiguration
+</span><a href="#local-6989586621679298900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298899"><span class="annot"><span class="annottext">Maybe EnvironmentProperties
+</span><a href="#local-6989586621679298899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfiguration
+</span><a href="#local-6989586621679298900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentProperties:ApplicationConfiguration' :: Maybe EnvironmentProperties
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AenvironmentProperties%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">environmentProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentProperties
+</span><a href="#local-6989586621679298899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The creation and update parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_flinkApplicationConfiguration"><span class="hs-identifier hs-type">applicationConfiguration_flinkApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfiguration.html#FlinkApplicationConfiguration"><span class="hs-identifier hs-type">FlinkApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="applicationConfiguration_flinkApplicationConfiguration"><span class="annot"><span class="annottext">applicationConfiguration_flinkApplicationConfiguration :: (Maybe FlinkApplicationConfiguration
+ -&gt; f (Maybe FlinkApplicationConfiguration))
+-&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_flinkApplicationConfiguration"><span class="hs-identifier hs-var hs-var">applicationConfiguration_flinkApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfiguration -&gt; Maybe FlinkApplicationConfiguration)
+-&gt; (ApplicationConfiguration
+    -&gt; Maybe FlinkApplicationConfiguration -&gt; ApplicationConfiguration)
+-&gt; Lens
+     ApplicationConfiguration
+     ApplicationConfiguration
+     (Maybe FlinkApplicationConfiguration)
+     (Maybe FlinkApplicationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298897"><span class="annot"><span class="annottext">Maybe FlinkApplicationConfiguration
+flinkApplicationConfiguration :: Maybe FlinkApplicationConfiguration
+$sel:flinkApplicationConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe FlinkApplicationConfiguration
+</span><a href="#local-6989586621679298897"><span class="hs-identifier hs-var hs-var">flinkApplicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfiguration
+</span><a href="#local-6989586621679298897"><span class="hs-identifier hs-var">flinkApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298896"><span class="annot"><span class="annottext">s :: ApplicationConfiguration
+</span><a href="#local-6989586621679298896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298895"><span class="annot"><span class="annottext">Maybe FlinkApplicationConfiguration
+</span><a href="#local-6989586621679298895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfiguration
+</span><a href="#local-6989586621679298896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flinkApplicationConfiguration:ApplicationConfiguration' :: Maybe FlinkApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AflinkApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">flinkApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfiguration
+</span><a href="#local-6989586621679298895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The creation and update parameters for a SQL-based Kinesis Data</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_sqlApplicationConfiguration"><span class="hs-identifier hs-type">applicationConfiguration_sqlApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="applicationConfiguration_sqlApplicationConfiguration"><span class="annot"><span class="annottext">applicationConfiguration_sqlApplicationConfiguration :: (Maybe SqlApplicationConfiguration
+ -&gt; f (Maybe SqlApplicationConfiguration))
+-&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_sqlApplicationConfiguration"><span class="hs-identifier hs-var hs-var">applicationConfiguration_sqlApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfiguration -&gt; Maybe SqlApplicationConfiguration)
+-&gt; (ApplicationConfiguration
+    -&gt; Maybe SqlApplicationConfiguration -&gt; ApplicationConfiguration)
+-&gt; Lens
+     ApplicationConfiguration
+     ApplicationConfiguration
+     (Maybe SqlApplicationConfiguration)
+     (Maybe SqlApplicationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298893"><span class="annot"><span class="annottext">Maybe SqlApplicationConfiguration
+sqlApplicationConfiguration :: Maybe SqlApplicationConfiguration
+$sel:sqlApplicationConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe SqlApplicationConfiguration
+</span><a href="#local-6989586621679298893"><span class="hs-identifier hs-var hs-var">sqlApplicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfiguration
+</span><a href="#local-6989586621679298893"><span class="hs-identifier hs-var">sqlApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298892"><span class="annot"><span class="annottext">s :: ApplicationConfiguration
+</span><a href="#local-6989586621679298892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298891"><span class="annot"><span class="annottext">Maybe SqlApplicationConfiguration
+</span><a href="#local-6989586621679298891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfiguration
+</span><a href="#local-6989586621679298892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlApplicationConfiguration:ApplicationConfiguration' :: Maybe SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AsqlApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">sqlApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfiguration
+</span><a href="#local-6989586621679298891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The code location and type parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_applicationCodeConfiguration"><span class="hs-identifier hs-type">applicationConfiguration_applicationCodeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfiguration.html#ApplicationCodeConfiguration"><span class="hs-identifier hs-type">ApplicationCodeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="applicationConfiguration_applicationCodeConfiguration"><span class="annot"><span class="annottext">applicationConfiguration_applicationCodeConfiguration :: (Maybe ApplicationCodeConfiguration
+ -&gt; f (Maybe ApplicationCodeConfiguration))
+-&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_applicationCodeConfiguration"><span class="hs-identifier hs-var hs-var">applicationConfiguration_applicationCodeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfiguration -&gt; Maybe ApplicationCodeConfiguration)
+-&gt; (ApplicationConfiguration
+    -&gt; Maybe ApplicationCodeConfiguration -&gt; ApplicationConfiguration)
+-&gt; Lens
+     ApplicationConfiguration
+     ApplicationConfiguration
+     (Maybe ApplicationCodeConfiguration)
+     (Maybe ApplicationCodeConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298889"><span class="annot"><span class="annottext">Maybe ApplicationCodeConfiguration
+applicationCodeConfiguration :: Maybe ApplicationCodeConfiguration
+$sel:applicationCodeConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe ApplicationCodeConfiguration
+</span><a href="#local-6989586621679298889"><span class="hs-identifier hs-var hs-var">applicationCodeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfiguration
+</span><a href="#local-6989586621679298889"><span class="hs-identifier hs-var">applicationCodeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298888"><span class="annot"><span class="annottext">s :: ApplicationConfiguration
+</span><a href="#local-6989586621679298888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298887"><span class="annot"><span class="annottext">Maybe ApplicationCodeConfiguration
+</span><a href="#local-6989586621679298887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfiguration
+</span><a href="#local-6989586621679298888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationCodeConfiguration:ApplicationConfiguration' :: Maybe ApplicationCodeConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AapplicationCodeConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">applicationCodeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfiguration
+</span><a href="#local-6989586621679298887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The configuration parameters for a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_zeppelinApplicationConfiguration"><span class="hs-identifier hs-type">applicationConfiguration_zeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="applicationConfiguration_zeppelinApplicationConfiguration"><span class="annot"><span class="annottext">applicationConfiguration_zeppelinApplicationConfiguration :: (Maybe ZeppelinApplicationConfiguration
+ -&gt; f (Maybe ZeppelinApplicationConfiguration))
+-&gt; ApplicationConfiguration -&gt; f ApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#applicationConfiguration_zeppelinApplicationConfiguration"><span class="hs-identifier hs-var hs-var">applicationConfiguration_zeppelinApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfiguration
+ -&gt; Maybe ZeppelinApplicationConfiguration)
+-&gt; (ApplicationConfiguration
+    -&gt; Maybe ZeppelinApplicationConfiguration
+    -&gt; ApplicationConfiguration)
+-&gt; Lens
+     ApplicationConfiguration
+     ApplicationConfiguration
+     (Maybe ZeppelinApplicationConfiguration)
+     (Maybe ZeppelinApplicationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298885"><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfiguration
+zeppelinApplicationConfiguration :: Maybe ZeppelinApplicationConfiguration
+$sel:zeppelinApplicationConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679298885"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679298885"><span class="hs-identifier hs-var">zeppelinApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298884"><span class="annot"><span class="annottext">s :: ApplicationConfiguration
+</span><a href="#local-6989586621679298884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298883"><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679298883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfiguration
+</span><a href="#local-6989586621679298884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zeppelinApplicationConfiguration:ApplicationConfiguration' :: Maybe ZeppelinApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#%24sel%3AzeppelinApplicationConfiguration%3AApplicationConfiguration%27"><span class="hs-identifier hs-var">zeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679298883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298879"><span id="local-6989586621679298881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298868"><span id="local-6989586621679298870"><span id="local-6989586621679298872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration"><span class="hs-identifier hs-type">ApplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679298866"><span class="annot"><span class="annottext">toJSON :: ApplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration.html#ApplicationConfiguration%27"><span class="hs-identifier hs-type">ApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298858"><span id="local-6989586621679298859"><span id="local-6989586621679298860"><span id="local-6989586621679298861"><span id="local-6989586621679298862"><span id="local-6989586621679298863"><span id="local-6989586621679298864"><span class="annot"><span class="annottext">Maybe [VpcConfiguration]
+Maybe ApplicationSnapshotConfiguration
+Maybe FlinkApplicationConfiguration
+Maybe EnvironmentProperties
+Maybe ApplicationCodeConfiguration
+Maybe SqlApplicationConfiguration
+Maybe ZeppelinApplicationConfiguration
+zeppelinApplicationConfiguration :: Maybe ZeppelinApplicationConfiguration
+applicationCodeConfiguration :: Maybe ApplicationCodeConfiguration
+sqlApplicationConfiguration :: Maybe SqlApplicationConfiguration
+flinkApplicationConfiguration :: Maybe FlinkApplicationConfiguration
+environmentProperties :: Maybe EnvironmentProperties
+vpcConfigurations :: Maybe [VpcConfiguration]
+applicationSnapshotConfiguration :: Maybe ApplicationSnapshotConfiguration
+$sel:zeppelinApplicationConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe ZeppelinApplicationConfiguration
+$sel:applicationCodeConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe ApplicationCodeConfiguration
+$sel:sqlApplicationConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe SqlApplicationConfiguration
+$sel:flinkApplicationConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe FlinkApplicationConfiguration
+$sel:environmentProperties:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe EnvironmentProperties
+$sel:vpcConfigurations:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe [VpcConfiguration]
+$sel:applicationSnapshotConfiguration:ApplicationConfiguration' :: ApplicationConfiguration -&gt; Maybe ApplicationSnapshotConfiguration
+</span><a href="#local-6989586621679298858"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationSnapshotConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationSnapshotConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(ApplicationSnapshotConfiguration -&gt; Pair)
+-&gt; Maybe ApplicationSnapshotConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfiguration
+</span><a href="#local-6989586621679298864"><span class="hs-identifier hs-var">applicationSnapshotConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [VpcConfiguration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">([VpcConfiguration] -&gt; Pair)
+-&gt; Maybe [VpcConfiguration] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfiguration]
+</span><a href="#local-6989586621679298863"><span class="hs-identifier hs-var">vpcConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnvironmentProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EnvironmentProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(EnvironmentProperties -&gt; Pair)
+-&gt; Maybe EnvironmentProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentProperties
+</span><a href="#local-6989586621679298862"><span class="hs-identifier hs-var">environmentProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FlinkApplicationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FlinkApplicationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(FlinkApplicationConfiguration -&gt; Pair)
+-&gt; Maybe FlinkApplicationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfiguration
+</span><a href="#local-6989586621679298861"><span class="hs-identifier hs-var">flinkApplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SqlApplicationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqlApplicationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(SqlApplicationConfiguration -&gt; Pair)
+-&gt; Maybe SqlApplicationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfiguration
+</span><a href="#local-6989586621679298860"><span class="hs-identifier hs-var">sqlApplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationCodeConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationCodeConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(ApplicationCodeConfiguration -&gt; Pair)
+-&gt; Maybe ApplicationCodeConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfiguration
+</span><a href="#local-6989586621679298859"><span class="hs-identifier hs-var">applicationCodeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZeppelinApplicationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ZeppelinApplicationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfiguration -&gt; Pair)
+-&gt; Maybe ZeppelinApplicationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679298858"><span class="hs-identifier hs-var">zeppelinApplicationConfiguration</span></a></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span></pre></body></html>

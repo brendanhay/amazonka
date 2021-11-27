@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.DashboardSearchFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.DashboardSearchFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html"><span class="hs-identifier">Amazonka.QuickSight.Types.DashboardFilterAttribute</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.FilterOperator.html"><span class="hs-identifier">Amazonka.QuickSight.Types.FilterOperator</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A filter that you apply when searching for dashboards.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDashboardSearchFilter' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679555077"><span id="local-6989586621679555078"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashboardSearchFilter"><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-var">DashboardSearchFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashboardSearchFilter%27"><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-var">DashboardSearchFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the named item, in this case @QUICKSIGHT_USER@, that you</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- want to use as a filter, for example,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @\&quot;Value\&quot;: \&quot;arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\&quot;@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalue%3ADashboardSearchFilter%27"><span class="annot"><span class="annottext">DashboardSearchFilter -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Avalue%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the value that you want to use as a filter, for example,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @\&quot;Name\&quot;: \&quot;QUICKSIGHT_USER\&quot;@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3ADashboardSearchFilter%27"><span class="annot"><span class="annottext">DashboardSearchFilter -&gt; Maybe DashboardFilterAttribute
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Aname%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute"><span class="hs-identifier hs-type">DashboardFilterAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The comparison operator that you want to use as a filter, for example,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @\&quot;Operator\&quot;: \&quot;StringEquals\&quot;@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aoperator%3ADashboardSearchFilter%27"><span class="annot"><span class="annottext">DashboardSearchFilter -&gt; FilterOperator
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Aoperator%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.FilterOperator.html#FilterOperator"><span class="hs-identifier hs-type">FilterOperator</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555069"><span id="local-6989586621679555071"><span class="annot"><span class="annottext">DashboardSearchFilter -&gt; DashboardSearchFilter -&gt; Bool
+(DashboardSearchFilter -&gt; DashboardSearchFilter -&gt; Bool)
+-&gt; (DashboardSearchFilter -&gt; DashboardSearchFilter -&gt; Bool)
+-&gt; Eq DashboardSearchFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DashboardSearchFilter -&gt; DashboardSearchFilter -&gt; Bool
+$c/= :: DashboardSearchFilter -&gt; DashboardSearchFilter -&gt; Bool
+== :: DashboardSearchFilter -&gt; DashboardSearchFilter -&gt; Bool
+$c== :: DashboardSearchFilter -&gt; DashboardSearchFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555060"><span id="local-6989586621679555062"><span id="local-6989586621679555064"><span id="local-6989586621679555066"><span class="annot"><span class="annottext">ReadPrec [DashboardSearchFilter]
+ReadPrec DashboardSearchFilter
+Int -&gt; ReadS DashboardSearchFilter
+ReadS [DashboardSearchFilter]
+(Int -&gt; ReadS DashboardSearchFilter)
+-&gt; ReadS [DashboardSearchFilter]
+-&gt; ReadPrec DashboardSearchFilter
+-&gt; ReadPrec [DashboardSearchFilter]
+-&gt; Read DashboardSearchFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DashboardSearchFilter]
+$creadListPrec :: ReadPrec [DashboardSearchFilter]
+readPrec :: ReadPrec DashboardSearchFilter
+$creadPrec :: ReadPrec DashboardSearchFilter
+readList :: ReadS [DashboardSearchFilter]
+$creadList :: ReadS [DashboardSearchFilter]
+readsPrec :: Int -&gt; ReadS DashboardSearchFilter
+$creadsPrec :: Int -&gt; ReadS DashboardSearchFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555053"><span id="local-6989586621679555055"><span id="local-6989586621679555057"><span class="annot"><span class="annottext">Int -&gt; DashboardSearchFilter -&gt; ShowS
+[DashboardSearchFilter] -&gt; ShowS
+DashboardSearchFilter -&gt; String
+(Int -&gt; DashboardSearchFilter -&gt; ShowS)
+-&gt; (DashboardSearchFilter -&gt; String)
+-&gt; ([DashboardSearchFilter] -&gt; ShowS)
+-&gt; Show DashboardSearchFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DashboardSearchFilter] -&gt; ShowS
+$cshowList :: [DashboardSearchFilter] -&gt; ShowS
+show :: DashboardSearchFilter -&gt; String
+$cshow :: DashboardSearchFilter -&gt; String
+showsPrec :: Int -&gt; DashboardSearchFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; DashboardSearchFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DashboardSearchFilter -&gt; Rep DashboardSearchFilter x)
+-&gt; (forall x. Rep DashboardSearchFilter x -&gt; DashboardSearchFilter)
+-&gt; Generic DashboardSearchFilter
+forall x. Rep DashboardSearchFilter x -&gt; DashboardSearchFilter
+forall x. DashboardSearchFilter -&gt; Rep DashboardSearchFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DashboardSearchFilter x -&gt; DashboardSearchFilter
+$cfrom :: forall x. DashboardSearchFilter -&gt; Rep DashboardSearchFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'DashboardSearchFilter' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'value', 'dashboardSearchFilter_value' - The value of the named item, in this case @QUICKSIGHT_USER@, that you</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- want to use as a filter, for example,</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- @\&quot;Value\&quot;: \&quot;arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\&quot;@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'name', 'dashboardSearchFilter_name' - The name of the value that you want to use as a filter, for example,</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @\&quot;Name\&quot;: \&quot;QUICKSIGHT_USER\&quot;@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'operator', 'dashboardSearchFilter_operator' - The comparison operator that you want to use as a filter, for example,</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- @\&quot;Operator\&quot;: \&quot;StringEquals\&quot;@.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#newDashboardSearchFilter"><span class="hs-identifier hs-type">newDashboardSearchFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'operator'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.FilterOperator.html#FilterOperator"><span class="hs-identifier hs-type">FilterOperator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span>
+</span><span id="line-66"></span><span id="newDashboardSearchFilter"><span class="annot"><span class="annottext">newDashboardSearchFilter :: FilterOperator -&gt; DashboardSearchFilter
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#newDashboardSearchFilter"><span class="hs-identifier hs-var hs-var">newDashboardSearchFilter</span></a></span></span><span> </span><span id="local-6989586621679555047"><span class="annot"><span class="annottext">FilterOperator
+</span><a href="#local-6989586621679555047"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">DashboardSearchFilter' :: Maybe Text
+-&gt; Maybe DashboardFilterAttribute
+-&gt; FilterOperator
+-&gt; DashboardSearchFilter
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:DashboardSearchFilter' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Avalue%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DashboardSearchFilter' :: Maybe DashboardFilterAttribute
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Aname%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashboardFilterAttribute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:operator:DashboardSearchFilter' :: FilterOperator
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Aoperator%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FilterOperator
+</span><a href="#local-6989586621679555047"><span class="hs-identifier hs-var">pOperator_</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The value of the named item, in this case @QUICKSIGHT_USER@, that you</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- want to use as a filter, for example,</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- @\&quot;Value\&quot;: \&quot;arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\&quot;@.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#dashboardSearchFilter_value"><span class="hs-identifier hs-type">dashboardSearchFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="dashboardSearchFilter_value"><span class="annot"><span class="annottext">dashboardSearchFilter_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DashboardSearchFilter -&gt; f DashboardSearchFilter
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#dashboardSearchFilter_value"><span class="hs-identifier hs-var hs-var">dashboardSearchFilter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashboardSearchFilter -&gt; Maybe Text)
+-&gt; (DashboardSearchFilter -&gt; Maybe Text -&gt; DashboardSearchFilter)
+-&gt; Lens
+     DashboardSearchFilter
+     DashboardSearchFilter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555043"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:DashboardSearchFilter' :: DashboardSearchFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679555043"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555043"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555042"><span class="annot"><span class="annottext">s :: DashboardSearchFilter
+</span><a href="#local-6989586621679555042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555041"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashboardSearchFilter
+</span><a href="#local-6989586621679555042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:DashboardSearchFilter' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Avalue%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the value that you want to use as a filter, for example,</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @\&quot;Name\&quot;: \&quot;QUICKSIGHT_USER\&quot;@.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#dashboardSearchFilter_name"><span class="hs-identifier hs-type">dashboardSearchFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardFilterAttribute.html#DashboardFilterAttribute"><span class="hs-identifier hs-type">DashboardFilterAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="dashboardSearchFilter_name"><span class="annot"><span class="annottext">dashboardSearchFilter_name :: (Maybe DashboardFilterAttribute
+ -&gt; f (Maybe DashboardFilterAttribute))
+-&gt; DashboardSearchFilter -&gt; f DashboardSearchFilter
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#dashboardSearchFilter_name"><span class="hs-identifier hs-var hs-var">dashboardSearchFilter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashboardSearchFilter -&gt; Maybe DashboardFilterAttribute)
+-&gt; (DashboardSearchFilter
+    -&gt; Maybe DashboardFilterAttribute -&gt; DashboardSearchFilter)
+-&gt; Lens
+     DashboardSearchFilter
+     DashboardSearchFilter
+     (Maybe DashboardFilterAttribute)
+     (Maybe DashboardFilterAttribute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555039"><span class="annot"><span class="annottext">Maybe DashboardFilterAttribute
+name :: Maybe DashboardFilterAttribute
+$sel:name:DashboardSearchFilter' :: DashboardSearchFilter -&gt; Maybe DashboardFilterAttribute
+</span><a href="#local-6989586621679555039"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashboardFilterAttribute
+</span><a href="#local-6989586621679555039"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555038"><span class="annot"><span class="annottext">s :: DashboardSearchFilter
+</span><a href="#local-6989586621679555038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555037"><span class="annot"><span class="annottext">Maybe DashboardFilterAttribute
+</span><a href="#local-6989586621679555037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashboardSearchFilter
+</span><a href="#local-6989586621679555038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DashboardSearchFilter' :: Maybe DashboardFilterAttribute
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Aname%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashboardFilterAttribute
+</span><a href="#local-6989586621679555037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The comparison operator that you want to use as a filter, for example,</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @\&quot;Operator\&quot;: \&quot;StringEquals\&quot;@.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#dashboardSearchFilter_operator"><span class="hs-identifier hs-type">dashboardSearchFilter_operator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.FilterOperator.html#FilterOperator"><span class="hs-identifier hs-type">FilterOperator</span></a></span><span>
+</span><span id="line-87"></span><span id="dashboardSearchFilter_operator"><span class="annot"><span class="annottext">dashboardSearchFilter_operator :: (FilterOperator -&gt; f FilterOperator)
+-&gt; DashboardSearchFilter -&gt; f DashboardSearchFilter
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#dashboardSearchFilter_operator"><span class="hs-identifier hs-var hs-var">dashboardSearchFilter_operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashboardSearchFilter -&gt; FilterOperator)
+-&gt; (DashboardSearchFilter
+    -&gt; FilterOperator -&gt; DashboardSearchFilter)
+-&gt; Lens
+     DashboardSearchFilter
+     DashboardSearchFilter
+     FilterOperator
+     FilterOperator
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555035"><span class="annot"><span class="annottext">FilterOperator
+operator :: FilterOperator
+$sel:operator:DashboardSearchFilter' :: DashboardSearchFilter -&gt; FilterOperator
+</span><a href="#local-6989586621679555035"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterOperator
+</span><a href="#local-6989586621679555035"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555034"><span class="annot"><span class="annottext">s :: DashboardSearchFilter
+</span><a href="#local-6989586621679555034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555033"><span class="annot"><span class="annottext">FilterOperator
+</span><a href="#local-6989586621679555033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashboardSearchFilter
+</span><a href="#local-6989586621679555034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:DashboardSearchFilter' :: FilterOperator
+</span><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#%24sel%3Aoperator%3ADashboardSearchFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FilterOperator
+</span><a href="#local-6989586621679555033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555029"><span id="local-6989586621679555031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555018"><span id="local-6989586621679555020"><span id="local-6989586621679555022"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679555016"><span class="annot"><span class="annottext">toJSON :: DashboardSearchFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter%27"><span class="hs-identifier hs-type">DashboardSearchFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555012"><span id="local-6989586621679555013"><span id="local-6989586621679555014"><span class="annot"><span class="annottext">Maybe Text
+Maybe DashboardFilterAttribute
+FilterOperator
+operator :: FilterOperator
+name :: Maybe DashboardFilterAttribute
+value :: Maybe Text
+$sel:operator:DashboardSearchFilter' :: DashboardSearchFilter -&gt; FilterOperator
+$sel:name:DashboardSearchFilter' :: DashboardSearchFilter -&gt; Maybe DashboardFilterAttribute
+$sel:value:DashboardSearchFilter' :: DashboardSearchFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679555012"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555014"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DashboardFilterAttribute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DashboardFilterAttribute -&gt; Pair)
+-&gt; Maybe DashboardFilterAttribute -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DashboardFilterAttribute
+</span><a href="#local-6989586621679555013"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterOperator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FilterOperator
+</span><a href="#local-6989586621679555012"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span></pre></body></html>

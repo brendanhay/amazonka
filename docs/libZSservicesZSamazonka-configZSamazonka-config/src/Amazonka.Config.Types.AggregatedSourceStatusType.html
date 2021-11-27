@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.AggregatedSourceStatusType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.AggregatedSourceStatusType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier">AggregatedSourceStatusType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_FAILED"><span class="hs-identifier">AggregatedSourceStatusType_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_OUTDATED"><span class="hs-identifier">AggregatedSourceStatusType_OUTDATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_SUCCEEDED"><span class="hs-identifier">AggregatedSourceStatusType_SUCCEEDED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679394673"><span id="local-6989586621679394674"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AggregatedSourceStatusType"><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-var">AggregatedSourceStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregatedSourceStatusType%27"><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType%27"><span class="hs-identifier hs-var">AggregatedSourceStatusType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAggregatedSourceStatusType"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#fromAggregatedSourceStatusType"><span class="hs-identifier hs-var hs-var">fromAggregatedSourceStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394665"><span id="local-6989586621679394667"><span id="local-6989586621679394669"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatusType -&gt; ShowS
+[AggregatedSourceStatusType] -&gt; ShowS
+AggregatedSourceStatusType -&gt; String
+(Int -&gt; AggregatedSourceStatusType -&gt; ShowS)
+-&gt; (AggregatedSourceStatusType -&gt; String)
+-&gt; ([AggregatedSourceStatusType] -&gt; ShowS)
+-&gt; Show AggregatedSourceStatusType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AggregatedSourceStatusType] -&gt; ShowS
+$cshowList :: [AggregatedSourceStatusType] -&gt; ShowS
+show :: AggregatedSourceStatusType -&gt; String
+$cshow :: AggregatedSourceStatusType -&gt; String
+showsPrec :: Int -&gt; AggregatedSourceStatusType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AggregatedSourceStatusType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679394656"><span id="local-6989586621679394658"><span id="local-6989586621679394660"><span id="local-6989586621679394662"><span class="annot"><span class="annottext">ReadPrec [AggregatedSourceStatusType]
+ReadPrec AggregatedSourceStatusType
+Int -&gt; ReadS AggregatedSourceStatusType
+ReadS [AggregatedSourceStatusType]
+(Int -&gt; ReadS AggregatedSourceStatusType)
+-&gt; ReadS [AggregatedSourceStatusType]
+-&gt; ReadPrec AggregatedSourceStatusType
+-&gt; ReadPrec [AggregatedSourceStatusType]
+-&gt; Read AggregatedSourceStatusType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AggregatedSourceStatusType]
+$creadListPrec :: ReadPrec [AggregatedSourceStatusType]
+readPrec :: ReadPrec AggregatedSourceStatusType
+$creadPrec :: ReadPrec AggregatedSourceStatusType
+readList :: ReadS [AggregatedSourceStatusType]
+$creadList :: ReadS [AggregatedSourceStatusType]
+readsPrec :: Int -&gt; ReadS AggregatedSourceStatusType
+$creadsPrec :: Int -&gt; ReadS AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679394651"><span id="local-6989586621679394653"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+(AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool)
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; Bool)
+-&gt; Eq AggregatedSourceStatusType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+$c/= :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+== :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+$c== :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679394635"><span id="local-6989586621679394637"><span id="local-6989586621679394639"><span id="local-6989586621679394641"><span id="local-6989586621679394643"><span id="local-6989586621679394645"><span id="local-6989586621679394647"><span class="annot"><span class="annottext">Eq AggregatedSourceStatusType
+Eq AggregatedSourceStatusType
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; Ordering)
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; Bool)
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; Bool)
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; Bool)
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; Bool)
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; AggregatedSourceStatusType)
+-&gt; (AggregatedSourceStatusType
+    -&gt; AggregatedSourceStatusType -&gt; AggregatedSourceStatusType)
+-&gt; Ord AggregatedSourceStatusType
+AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; Ordering
+AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; AggregatedSourceStatusType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; AggregatedSourceStatusType
+$cmin :: AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; AggregatedSourceStatusType
+max :: AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; AggregatedSourceStatusType
+$cmax :: AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; AggregatedSourceStatusType
+&gt;= :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+$c&gt;= :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+&gt; :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+$c&gt; :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+&lt;= :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+$c&lt;= :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+&lt; :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+$c&lt; :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+compare :: AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; Ordering
+$ccompare :: AggregatedSourceStatusType
+-&gt; AggregatedSourceStatusType -&gt; Ordering
+$cp1Ord :: Eq AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AggregatedSourceStatusType -&gt; Rep AggregatedSourceStatusType x)
+-&gt; (forall x.
+    Rep AggregatedSourceStatusType x -&gt; AggregatedSourceStatusType)
+-&gt; Generic AggregatedSourceStatusType
+forall x.
+Rep AggregatedSourceStatusType x -&gt; AggregatedSourceStatusType
+forall x.
+AggregatedSourceStatusType -&gt; Rep AggregatedSourceStatusType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AggregatedSourceStatusType x -&gt; AggregatedSourceStatusType
+$cfrom :: forall x.
+AggregatedSourceStatusType -&gt; Rep AggregatedSourceStatusType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394627"><span id="local-6989586621679394629"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatusType -&gt; Int
+AggregatedSourceStatusType -&gt; Int
+(Int -&gt; AggregatedSourceStatusType -&gt; Int)
+-&gt; (AggregatedSourceStatusType -&gt; Int)
+-&gt; Hashable AggregatedSourceStatusType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AggregatedSourceStatusType -&gt; Int
+$chash :: AggregatedSourceStatusType -&gt; Int
+hashWithSalt :: Int -&gt; AggregatedSourceStatusType -&gt; Int
+$chashWithSalt :: Int -&gt; AggregatedSourceStatusType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679394624"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ()
+(AggregatedSourceStatusType -&gt; ())
+-&gt; NFData AggregatedSourceStatusType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AggregatedSourceStatusType -&gt; ()
+$crnf :: AggregatedSourceStatusType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679394621"><span class="annot"><span class="annottext">Text -&gt; Either String AggregatedSourceStatusType
+(Text -&gt; Either String AggregatedSourceStatusType)
+-&gt; FromText AggregatedSourceStatusType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AggregatedSourceStatusType
+$cfromText :: Text -&gt; Either String AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679394618"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; Text
+(AggregatedSourceStatusType -&gt; Text)
+-&gt; ToText AggregatedSourceStatusType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AggregatedSourceStatusType -&gt; Text
+$ctoText :: AggregatedSourceStatusType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679394615"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ByteString
+(AggregatedSourceStatusType -&gt; ByteString)
+-&gt; ToByteString AggregatedSourceStatusType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AggregatedSourceStatusType -&gt; ByteString
+$ctoBS :: AggregatedSourceStatusType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679394612"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ByteStringBuilder
+(AggregatedSourceStatusType -&gt; ByteStringBuilder)
+-&gt; ToLog AggregatedSourceStatusType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AggregatedSourceStatusType -&gt; ByteStringBuilder
+$cbuild :: AggregatedSourceStatusType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679394609"><span class="annot"><span class="annottext">HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header]
+(HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header])
+-&gt; ToHeader AggregatedSourceStatusType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679394606"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; QueryString
+(AggregatedSourceStatusType -&gt; QueryString)
+-&gt; ToQuery AggregatedSourceStatusType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AggregatedSourceStatusType -&gt; QueryString
+$ctoQuery :: AggregatedSourceStatusType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679394601"><span id="local-6989586621679394603"><span class="annot"><span class="annottext">Value -&gt; Parser [AggregatedSourceStatusType]
+Value -&gt; Parser AggregatedSourceStatusType
+(Value -&gt; Parser AggregatedSourceStatusType)
+-&gt; (Value -&gt; Parser [AggregatedSourceStatusType])
+-&gt; FromJSON AggregatedSourceStatusType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AggregatedSourceStatusType]
+$cparseJSONList :: Value -&gt; Parser [AggregatedSourceStatusType]
+parseJSON :: Value -&gt; Parser AggregatedSourceStatusType
+$cparseJSON :: Value -&gt; Parser AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394596"><span id="local-6989586621679394598"><span class="annot"><span class="annottext">FromJSONKeyFunction [AggregatedSourceStatusType]
+FromJSONKeyFunction AggregatedSourceStatusType
+FromJSONKeyFunction AggregatedSourceStatusType
+-&gt; FromJSONKeyFunction [AggregatedSourceStatusType]
+-&gt; FromJSONKey AggregatedSourceStatusType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AggregatedSourceStatusType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AggregatedSourceStatusType]
+fromJSONKey :: FromJSONKeyFunction AggregatedSourceStatusType
+$cfromJSONKey :: FromJSONKeyFunction AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394587"><span id="local-6989586621679394589"><span id="local-6989586621679394591"><span id="local-6989586621679394593"><span class="annot"><span class="annottext">[AggregatedSourceStatusType] -&gt; Encoding
+[AggregatedSourceStatusType] -&gt; Value
+AggregatedSourceStatusType -&gt; Encoding
+AggregatedSourceStatusType -&gt; Value
+(AggregatedSourceStatusType -&gt; Value)
+-&gt; (AggregatedSourceStatusType -&gt; Encoding)
+-&gt; ([AggregatedSourceStatusType] -&gt; Value)
+-&gt; ([AggregatedSourceStatusType] -&gt; Encoding)
+-&gt; ToJSON AggregatedSourceStatusType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AggregatedSourceStatusType] -&gt; Encoding
+$ctoEncodingList :: [AggregatedSourceStatusType] -&gt; Encoding
+toJSONList :: [AggregatedSourceStatusType] -&gt; Value
+$ctoJSONList :: [AggregatedSourceStatusType] -&gt; Value
+toEncoding :: AggregatedSourceStatusType -&gt; Encoding
+$ctoEncoding :: AggregatedSourceStatusType -&gt; Encoding
+toJSON :: AggregatedSourceStatusType -&gt; Value
+$ctoJSON :: AggregatedSourceStatusType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394582"><span id="local-6989586621679394584"><span class="annot"><span class="annottext">ToJSONKeyFunction [AggregatedSourceStatusType]
+ToJSONKeyFunction AggregatedSourceStatusType
+ToJSONKeyFunction AggregatedSourceStatusType
+-&gt; ToJSONKeyFunction [AggregatedSourceStatusType]
+-&gt; ToJSONKey AggregatedSourceStatusType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AggregatedSourceStatusType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AggregatedSourceStatusType]
+toJSONKey :: ToJSONKeyFunction AggregatedSourceStatusType
+$ctoJSONKey :: ToJSONKeyFunction AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394579"><span class="annot"><span class="annottext">[Node] -&gt; Either String AggregatedSourceStatusType
+([Node] -&gt; Either String AggregatedSourceStatusType)
+-&gt; FromXML AggregatedSourceStatusType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AggregatedSourceStatusType
+$cparseXML :: [Node] -&gt; Either String AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679394576"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; XML
+(AggregatedSourceStatusType -&gt; XML)
+-&gt; ToXML AggregatedSourceStatusType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AggregatedSourceStatusType -&gt; XML
+$ctoXML :: AggregatedSourceStatusType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_FAILED"><span class="hs-identifier hs-type">AggregatedSourceStatusType_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAggregatedSourceStatusType_FAILED"><span id="%24mAggregatedSourceStatusType_FAILED"><span id="AggregatedSourceStatusType_FAILED"><span class="annot"><span class="annottext">$bAggregatedSourceStatusType_FAILED :: AggregatedSourceStatusType
+$mAggregatedSourceStatusType_FAILED :: forall r.
+AggregatedSourceStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#%24bAggregatedSourceStatusType_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AggregatedSourceStatusType_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType%27"><span class="hs-identifier hs-type">AggregatedSourceStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_OUTDATED"><span class="hs-identifier hs-type">AggregatedSourceStatusType_OUTDATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAggregatedSourceStatusType_OUTDATED"><span id="%24mAggregatedSourceStatusType_OUTDATED"><span id="AggregatedSourceStatusType_OUTDATED"><span class="annot"><span class="annottext">$bAggregatedSourceStatusType_OUTDATED :: AggregatedSourceStatusType
+$mAggregatedSourceStatusType_OUTDATED :: forall r.
+AggregatedSourceStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#%24bAggregatedSourceStatusType_OUTDATED"><span class="hs-identifier hs-var hs-var hs-var">AggregatedSourceStatusType_OUTDATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType%27"><span class="hs-identifier hs-type">AggregatedSourceStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUTDATED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_SUCCEEDED"><span class="hs-identifier hs-type">AggregatedSourceStatusType_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAggregatedSourceStatusType_SUCCEEDED"><span id="%24mAggregatedSourceStatusType_SUCCEEDED"><span id="AggregatedSourceStatusType_SUCCEEDED"><span class="annot"><span class="annottext">$bAggregatedSourceStatusType_SUCCEEDED :: AggregatedSourceStatusType
+$mAggregatedSourceStatusType_SUCCEEDED :: forall r.
+AggregatedSourceStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#%24bAggregatedSourceStatusType_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">AggregatedSourceStatusType_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType%27"><span class="hs-identifier hs-type">AggregatedSourceStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_FAILED"><span class="hs-pragma hs-type">AggregatedSourceStatusType_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_OUTDATED"><span class="hs-pragma hs-type">AggregatedSourceStatusType_OUTDATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType_SUCCEEDED"><span class="hs-pragma hs-type">AggregatedSourceStatusType_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType%27"><span class="hs-pragma hs-type">AggregatedSourceStatusType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

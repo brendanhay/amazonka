@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudTrail.Types.InsightType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudTrail.Types.InsightType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType"><span class="hs-identifier">InsightType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType_ApiCallRateInsight"><span class="hs-identifier">InsightType_ApiCallRateInsight</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679195006"><span id="local-6989586621679195007"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsightType"><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType"><span class="hs-identifier hs-var">InsightType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightType%27"><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType%27"><span class="hs-identifier hs-var">InsightType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInsightType"><span class="annot"><span class="annottext">InsightType -&gt; Text
+</span><a href="Amazonka.CloudTrail.Types.InsightType.html#fromInsightType"><span class="hs-identifier hs-var hs-var">fromInsightType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679194998"><span id="local-6989586621679195000"><span id="local-6989586621679195002"><span class="annot"><span class="annottext">Int -&gt; InsightType -&gt; ShowS
+[InsightType] -&gt; ShowS
+InsightType -&gt; String
+(Int -&gt; InsightType -&gt; ShowS)
+-&gt; (InsightType -&gt; String)
+-&gt; ([InsightType] -&gt; ShowS)
+-&gt; Show InsightType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InsightType] -&gt; ShowS
+$cshowList :: [InsightType] -&gt; ShowS
+show :: InsightType -&gt; String
+$cshow :: InsightType -&gt; String
+showsPrec :: Int -&gt; InsightType -&gt; ShowS
+$cshowsPrec :: Int -&gt; InsightType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679194989"><span id="local-6989586621679194991"><span id="local-6989586621679194993"><span id="local-6989586621679194995"><span class="annot"><span class="annottext">ReadPrec [InsightType]
+ReadPrec InsightType
+Int -&gt; ReadS InsightType
+ReadS [InsightType]
+(Int -&gt; ReadS InsightType)
+-&gt; ReadS [InsightType]
+-&gt; ReadPrec InsightType
+-&gt; ReadPrec [InsightType]
+-&gt; Read InsightType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InsightType]
+$creadListPrec :: ReadPrec [InsightType]
+readPrec :: ReadPrec InsightType
+$creadPrec :: ReadPrec InsightType
+readList :: ReadS [InsightType]
+$creadList :: ReadS [InsightType]
+readsPrec :: Int -&gt; ReadS InsightType
+$creadsPrec :: Int -&gt; ReadS InsightType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679194984"><span id="local-6989586621679194986"><span class="annot"><span class="annottext">InsightType -&gt; InsightType -&gt; Bool
+(InsightType -&gt; InsightType -&gt; Bool)
+-&gt; (InsightType -&gt; InsightType -&gt; Bool) -&gt; Eq InsightType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InsightType -&gt; InsightType -&gt; Bool
+$c/= :: InsightType -&gt; InsightType -&gt; Bool
+== :: InsightType -&gt; InsightType -&gt; Bool
+$c== :: InsightType -&gt; InsightType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679194968"><span id="local-6989586621679194970"><span id="local-6989586621679194972"><span id="local-6989586621679194974"><span id="local-6989586621679194976"><span id="local-6989586621679194978"><span id="local-6989586621679194980"><span class="annot"><span class="annottext">Eq InsightType
+Eq InsightType
+-&gt; (InsightType -&gt; InsightType -&gt; Ordering)
+-&gt; (InsightType -&gt; InsightType -&gt; Bool)
+-&gt; (InsightType -&gt; InsightType -&gt; Bool)
+-&gt; (InsightType -&gt; InsightType -&gt; Bool)
+-&gt; (InsightType -&gt; InsightType -&gt; Bool)
+-&gt; (InsightType -&gt; InsightType -&gt; InsightType)
+-&gt; (InsightType -&gt; InsightType -&gt; InsightType)
+-&gt; Ord InsightType
+InsightType -&gt; InsightType -&gt; Bool
+InsightType -&gt; InsightType -&gt; Ordering
+InsightType -&gt; InsightType -&gt; InsightType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InsightType -&gt; InsightType -&gt; InsightType
+$cmin :: InsightType -&gt; InsightType -&gt; InsightType
+max :: InsightType -&gt; InsightType -&gt; InsightType
+$cmax :: InsightType -&gt; InsightType -&gt; InsightType
+&gt;= :: InsightType -&gt; InsightType -&gt; Bool
+$c&gt;= :: InsightType -&gt; InsightType -&gt; Bool
+&gt; :: InsightType -&gt; InsightType -&gt; Bool
+$c&gt; :: InsightType -&gt; InsightType -&gt; Bool
+&lt;= :: InsightType -&gt; InsightType -&gt; Bool
+$c&lt;= :: InsightType -&gt; InsightType -&gt; Bool
+&lt; :: InsightType -&gt; InsightType -&gt; Bool
+$c&lt; :: InsightType -&gt; InsightType -&gt; Bool
+compare :: InsightType -&gt; InsightType -&gt; Ordering
+$ccompare :: InsightType -&gt; InsightType -&gt; Ordering
+$cp1Ord :: Eq InsightType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InsightType -&gt; Rep InsightType x)
+-&gt; (forall x. Rep InsightType x -&gt; InsightType)
+-&gt; Generic InsightType
+forall x. Rep InsightType x -&gt; InsightType
+forall x. InsightType -&gt; Rep InsightType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InsightType x -&gt; InsightType
+$cfrom :: forall x. InsightType -&gt; Rep InsightType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679194960"><span id="local-6989586621679194962"><span class="annot"><span class="annottext">Int -&gt; InsightType -&gt; Int
+InsightType -&gt; Int
+(Int -&gt; InsightType -&gt; Int)
+-&gt; (InsightType -&gt; Int) -&gt; Hashable InsightType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InsightType -&gt; Int
+$chash :: InsightType -&gt; Int
+hashWithSalt :: Int -&gt; InsightType -&gt; Int
+$chashWithSalt :: Int -&gt; InsightType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679194957"><span class="annot"><span class="annottext">InsightType -&gt; ()
+(InsightType -&gt; ()) -&gt; NFData InsightType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InsightType -&gt; ()
+$crnf :: InsightType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679194954"><span class="annot"><span class="annottext">Text -&gt; Either String InsightType
+(Text -&gt; Either String InsightType) -&gt; FromText InsightType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InsightType
+$cfromText :: Text -&gt; Either String InsightType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679194951"><span class="annot"><span class="annottext">InsightType -&gt; Text
+(InsightType -&gt; Text) -&gt; ToText InsightType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InsightType -&gt; Text
+$ctoText :: InsightType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679194948"><span class="annot"><span class="annottext">InsightType -&gt; ByteString
+(InsightType -&gt; ByteString) -&gt; ToByteString InsightType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InsightType -&gt; ByteString
+$ctoBS :: InsightType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679194945"><span class="annot"><span class="annottext">InsightType -&gt; ByteStringBuilder
+(InsightType -&gt; ByteStringBuilder) -&gt; ToLog InsightType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InsightType -&gt; ByteStringBuilder
+$cbuild :: InsightType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679194942"><span class="annot"><span class="annottext">HeaderName -&gt; InsightType -&gt; [Header]
+(HeaderName -&gt; InsightType -&gt; [Header]) -&gt; ToHeader InsightType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InsightType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InsightType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679194939"><span class="annot"><span class="annottext">InsightType -&gt; QueryString
+(InsightType -&gt; QueryString) -&gt; ToQuery InsightType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InsightType -&gt; QueryString
+$ctoQuery :: InsightType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679194934"><span id="local-6989586621679194936"><span class="annot"><span class="annottext">Value -&gt; Parser [InsightType]
+Value -&gt; Parser InsightType
+(Value -&gt; Parser InsightType)
+-&gt; (Value -&gt; Parser [InsightType]) -&gt; FromJSON InsightType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InsightType]
+$cparseJSONList :: Value -&gt; Parser [InsightType]
+parseJSON :: Value -&gt; Parser InsightType
+$cparseJSON :: Value -&gt; Parser InsightType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679194929"><span id="local-6989586621679194931"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsightType]
+FromJSONKeyFunction InsightType
+FromJSONKeyFunction InsightType
+-&gt; FromJSONKeyFunction [InsightType] -&gt; FromJSONKey InsightType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InsightType]
+$cfromJSONKeyList :: FromJSONKeyFunction [InsightType]
+fromJSONKey :: FromJSONKeyFunction InsightType
+$cfromJSONKey :: FromJSONKeyFunction InsightType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679194920"><span id="local-6989586621679194922"><span id="local-6989586621679194924"><span id="local-6989586621679194926"><span class="annot"><span class="annottext">[InsightType] -&gt; Encoding
+[InsightType] -&gt; Value
+InsightType -&gt; Encoding
+InsightType -&gt; Value
+(InsightType -&gt; Value)
+-&gt; (InsightType -&gt; Encoding)
+-&gt; ([InsightType] -&gt; Value)
+-&gt; ([InsightType] -&gt; Encoding)
+-&gt; ToJSON InsightType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InsightType] -&gt; Encoding
+$ctoEncodingList :: [InsightType] -&gt; Encoding
+toJSONList :: [InsightType] -&gt; Value
+$ctoJSONList :: [InsightType] -&gt; Value
+toEncoding :: InsightType -&gt; Encoding
+$ctoEncoding :: InsightType -&gt; Encoding
+toJSON :: InsightType -&gt; Value
+$ctoJSON :: InsightType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679194915"><span id="local-6989586621679194917"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsightType]
+ToJSONKeyFunction InsightType
+ToJSONKeyFunction InsightType
+-&gt; ToJSONKeyFunction [InsightType] -&gt; ToJSONKey InsightType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InsightType]
+$ctoJSONKeyList :: ToJSONKeyFunction [InsightType]
+toJSONKey :: ToJSONKeyFunction InsightType
+$ctoJSONKey :: ToJSONKeyFunction InsightType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679194912"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsightType
+([Node] -&gt; Either String InsightType) -&gt; FromXML InsightType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InsightType
+$cparseXML :: [Node] -&gt; Either String InsightType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679194909"><span class="annot"><span class="annottext">InsightType -&gt; XML
+(InsightType -&gt; XML) -&gt; ToXML InsightType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InsightType -&gt; XML
+$ctoXML :: InsightType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType_ApiCallRateInsight"><span class="hs-identifier hs-type">InsightType_ApiCallRateInsight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType"><span class="hs-identifier hs-type">InsightType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInsightType_ApiCallRateInsight"><span id="%24mInsightType_ApiCallRateInsight"><span id="InsightType_ApiCallRateInsight"><span class="annot"><span class="annottext">$bInsightType_ApiCallRateInsight :: InsightType
+$mInsightType_ApiCallRateInsight :: forall r. InsightType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.InsightType.html#%24bInsightType_ApiCallRateInsight"><span class="hs-identifier hs-var hs-var hs-var">InsightType_ApiCallRateInsight</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType%27"><span class="hs-identifier hs-type">InsightType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ApiCallRateInsight&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType_ApiCallRateInsight"><span class="hs-pragma hs-type">InsightType_ApiCallRateInsight</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.InsightType.html#InsightType%27"><span class="hs-pragma hs-type">InsightType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

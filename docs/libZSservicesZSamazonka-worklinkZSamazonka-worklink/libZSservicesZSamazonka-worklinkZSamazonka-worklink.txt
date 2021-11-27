@@ -5,60 +5,60 @@
 @version 2.0
 
 
-module Network.AWS.WorkLink.Types.AuthorizationProviderType
+module Amazonka.WorkLink.Types.AuthorizationProviderType
 newtype AuthorizationProviderType
 AuthorizationProviderType' :: Text -> AuthorizationProviderType
 [fromAuthorizationProviderType] :: AuthorizationProviderType -> Text
 pattern AuthorizationProviderType_SAML :: AuthorizationProviderType
-instance Network.AWS.Data.XML.ToXML Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Network.AWS.Data.XML.FromXML Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Network.AWS.Data.Log.ToLog Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Network.AWS.Data.Text.ToText Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Network.AWS.Data.Text.FromText Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance GHC.Classes.Ord Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance GHC.Read.Read Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
-instance GHC.Show.Show Network.AWS.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.XML.ToXML Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.XML.FromXML Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.Headers.ToHeader Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.Log.ToLog Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.Text.ToText Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Amazonka.Data.Text.FromText Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance GHC.Classes.Ord Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance GHC.Read.Read Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
+instance GHC.Show.Show Amazonka.WorkLink.Types.AuthorizationProviderType.AuthorizationProviderType
 
 
-module Network.AWS.WorkLink.Types.DeviceStatus
+module Amazonka.WorkLink.Types.DeviceStatus
 newtype DeviceStatus
 DeviceStatus' :: Text -> DeviceStatus
 [fromDeviceStatus] :: DeviceStatus -> Text
 pattern DeviceStatus_ACTIVE :: DeviceStatus
 pattern DeviceStatus_SIGNED_OUT :: DeviceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance GHC.Classes.Ord Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance GHC.Read.Read Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
-instance GHC.Show.Show Network.AWS.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Text.ToText Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Text.FromText Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance GHC.Classes.Ord Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance GHC.Read.Read Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
+instance GHC.Show.Show Amazonka.WorkLink.Types.DeviceStatus.DeviceStatus
 
 
-module Network.AWS.WorkLink.Types.DeviceSummary
+module Amazonka.WorkLink.Types.DeviceSummary
 
 -- | The summary of devices.
 --   
@@ -93,16 +93,16 @@ deviceSummary_deviceStatus :: Lens' DeviceSummary (Maybe DeviceStatus)
 
 -- | The ID of the device.
 deviceSummary_deviceId :: Lens' DeviceSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.DeviceSummary.DeviceSummary
-instance GHC.Show.Show Network.AWS.WorkLink.Types.DeviceSummary.DeviceSummary
-instance GHC.Read.Read Network.AWS.WorkLink.Types.DeviceSummary.DeviceSummary
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.DeviceSummary.DeviceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.DeviceSummary.DeviceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.DeviceSummary.DeviceSummary
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.DeviceSummary.DeviceSummary
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.DeviceSummary.DeviceSummary
+instance GHC.Show.Show Amazonka.WorkLink.Types.DeviceSummary.DeviceSummary
+instance GHC.Read.Read Amazonka.WorkLink.Types.DeviceSummary.DeviceSummary
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.DeviceSummary.DeviceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.DeviceSummary.DeviceSummary
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.DeviceSummary.DeviceSummary
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.DeviceSummary.DeviceSummary
 
 
-module Network.AWS.WorkLink.Types.DomainStatus
+module Amazonka.WorkLink.Types.DomainStatus
 newtype DomainStatus
 DomainStatus' :: Text -> DomainStatus
 [fromDomainStatus] :: DomainStatus -> Text
@@ -114,28 +114,28 @@ pattern DomainStatus_FAILED_TO_ASSOCIATE :: DomainStatus
 pattern DomainStatus_FAILED_TO_DISASSOCIATE :: DomainStatus
 pattern DomainStatus_INACTIVE :: DomainStatus
 pattern DomainStatus_PENDING_VALIDATION :: DomainStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Ord Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance GHC.Read.Read Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
-instance GHC.Show.Show Network.AWS.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.ToText Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.FromText Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Ord Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance GHC.Read.Read Amazonka.WorkLink.Types.DomainStatus.DomainStatus
+instance GHC.Show.Show Amazonka.WorkLink.Types.DomainStatus.DomainStatus
 
 
-module Network.AWS.WorkLink.Types.DomainSummary
+module Amazonka.WorkLink.Types.DomainSummary
 
 -- | The summary of the domain.
 --   
@@ -189,16 +189,16 @@ domainSummary_createdTime :: Lens' DomainSummary UTCTime
 
 -- | The status of the domain.
 domainSummary_domainStatus :: Lens' DomainSummary DomainStatus
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.DomainSummary.DomainSummary
-instance GHC.Show.Show Network.AWS.WorkLink.Types.DomainSummary.DomainSummary
-instance GHC.Read.Read Network.AWS.WorkLink.Types.DomainSummary.DomainSummary
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.DomainSummary.DomainSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.DomainSummary.DomainSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.DomainSummary.DomainSummary
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.DomainSummary.DomainSummary
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.DomainSummary.DomainSummary
+instance GHC.Show.Show Amazonka.WorkLink.Types.DomainSummary.DomainSummary
+instance GHC.Read.Read Amazonka.WorkLink.Types.DomainSummary.DomainSummary
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.DomainSummary.DomainSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.DomainSummary.DomainSummary
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.DomainSummary.DomainSummary
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.DomainSummary.DomainSummary
 
 
-module Network.AWS.WorkLink.Types.FleetStatus
+module Amazonka.WorkLink.Types.FleetStatus
 newtype FleetStatus
 FleetStatus' :: Text -> FleetStatus
 [fromFleetStatus] :: FleetStatus -> Text
@@ -208,28 +208,28 @@ pattern FleetStatus_DELETED :: FleetStatus
 pattern FleetStatus_DELETING :: FleetStatus
 pattern FleetStatus_FAILED_TO_CREATE :: FleetStatus
 pattern FleetStatus_FAILED_TO_DELETE :: FleetStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance GHC.Classes.Ord Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance GHC.Read.Read Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
-instance GHC.Show.Show Network.AWS.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.Text.ToText Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Amazonka.Data.Text.FromText Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance GHC.Classes.Ord Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance GHC.Read.Read Amazonka.WorkLink.Types.FleetStatus.FleetStatus
+instance GHC.Show.Show Amazonka.WorkLink.Types.FleetStatus.FleetStatus
 
 
-module Network.AWS.WorkLink.Types.FleetSummary
+module Amazonka.WorkLink.Types.FleetSummary
 
 -- | The summary of the fleet.
 --   
@@ -319,42 +319,42 @@ fleetSummary_fleetName :: Lens' FleetSummary (Maybe Text)
 
 -- | The tags attached to the resource. A tag is a key-value pair.
 fleetSummary_tags :: Lens' FleetSummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.FleetSummary.FleetSummary
-instance GHC.Show.Show Network.AWS.WorkLink.Types.FleetSummary.FleetSummary
-instance GHC.Read.Read Network.AWS.WorkLink.Types.FleetSummary.FleetSummary
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.FleetSummary.FleetSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.FleetSummary.FleetSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.FleetSummary.FleetSummary
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.FleetSummary.FleetSummary
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.FleetSummary.FleetSummary
+instance GHC.Show.Show Amazonka.WorkLink.Types.FleetSummary.FleetSummary
+instance GHC.Read.Read Amazonka.WorkLink.Types.FleetSummary.FleetSummary
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.FleetSummary.FleetSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.FleetSummary.FleetSummary
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.FleetSummary.FleetSummary
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.FleetSummary.FleetSummary
 
 
-module Network.AWS.WorkLink.Types.IdentityProviderType
+module Amazonka.WorkLink.Types.IdentityProviderType
 newtype IdentityProviderType
 IdentityProviderType' :: Text -> IdentityProviderType
 [fromIdentityProviderType] :: IdentityProviderType -> Text
 pattern IdentityProviderType_SAML :: IdentityProviderType
-instance Network.AWS.Data.XML.ToXML Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Network.AWS.Data.XML.FromXML Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Network.AWS.Data.Log.ToLog Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Network.AWS.Data.Text.ToText Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Network.AWS.Data.Text.FromText Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance GHC.Classes.Ord Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance GHC.Read.Read Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
-instance GHC.Show.Show Network.AWS.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.XML.ToXML Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.XML.FromXML Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.Headers.ToHeader Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.Log.ToLog Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.Text.ToText Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Amazonka.Data.Text.FromText Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance GHC.Classes.Ord Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance GHC.Read.Read Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
+instance GHC.Show.Show Amazonka.WorkLink.Types.IdentityProviderType.IdentityProviderType
 
 
-module Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary
+module Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary
 
 -- | The summary of the website authorization provider.
 --   
@@ -417,16 +417,16 @@ websiteAuthorizationProviderSummary_domainName :: Lens' WebsiteAuthorizationProv
 
 -- | The authorization provider type.
 websiteAuthorizationProviderSummary_authorizationProviderType :: Lens' WebsiteAuthorizationProviderSummary AuthorizationProviderType
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
-instance GHC.Show.Show Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
-instance GHC.Read.Read Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
+instance GHC.Show.Show Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
+instance GHC.Read.Read Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary.WebsiteAuthorizationProviderSummary
 
 
-module Network.AWS.WorkLink.Types.WebsiteCaSummary
+module Amazonka.WorkLink.Types.WebsiteCaSummary
 
 -- | The summary of the certificate authority (CA).
 --   
@@ -470,16 +470,16 @@ websiteCaSummary_websiteCaId :: Lens' WebsiteCaSummary (Maybe Text)
 
 -- | The name to display.
 websiteCaSummary_displayName :: Lens' WebsiteCaSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
-instance GHC.Show.Show Network.AWS.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
-instance GHC.Read.Read Network.AWS.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
-instance GHC.Classes.Eq Network.AWS.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
+instance GHC.Generics.Generic Amazonka.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
+instance GHC.Show.Show Amazonka.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
+instance GHC.Read.Read Amazonka.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
+instance GHC.Classes.Eq Amazonka.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
+instance Control.DeepSeq.NFData Amazonka.WorkLink.Types.WebsiteCaSummary.WebsiteCaSummary
 
 
-module Network.AWS.WorkLink.Types
+module Amazonka.WorkLink.Types
 
 -- | API version <tt>2018-09-25</tt> of the Amazon WorkLink SDK
 --   configuration.
@@ -822,7 +822,7 @@ websiteCaSummary_displayName :: Lens' WebsiteCaSummary (Maybe Text)
 --   as a fleet. Each tag consists of a key and an optional value. If a
 --   resource already has a tag with the same key, this operation updates
 --   its value.
-module Network.AWS.WorkLink.TagResource
+module Amazonka.WorkLink.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -878,27 +878,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.WorkLink.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.WorkLink.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.WorkLink.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.WorkLink.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.WorkLink.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.WorkLink.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.WorkLink.TagResource.TagResource
+instance GHC.Show.Show Amazonka.WorkLink.TagResource.TagResource
+instance GHC.Read.Read Amazonka.WorkLink.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.WorkLink.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.WorkLink.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.WorkLink.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.WorkLink.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.WorkLink.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.WorkLink.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.TagResource.TagResource
 
 
 -- | Signs the user out from all of their devices. The user can sign in
 --   again if they have valid credentials.
-module Network.AWS.WorkLink.SignOutUser
+module Amazonka.WorkLink.SignOutUser
 
 -- | <i>See:</i> <a>newSignOutUser</a> smart constructor.
 data SignOutUser
@@ -954,26 +954,26 @@ newSignOutUserResponse :: Int -> SignOutUserResponse
 
 -- | The response's http status code.
 signOutUserResponse_httpStatus :: Lens' SignOutUserResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance GHC.Show.Show Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance GHC.Read.Read Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance GHC.Classes.Eq Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance GHC.Generics.Generic Network.AWS.WorkLink.SignOutUser.SignOutUserResponse
-instance GHC.Show.Show Network.AWS.WorkLink.SignOutUser.SignOutUserResponse
-instance GHC.Read.Read Network.AWS.WorkLink.SignOutUser.SignOutUserResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.SignOutUser.SignOutUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.SignOutUser.SignOutUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.SignOutUser.SignOutUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.SignOutUser.SignOutUser
+instance GHC.Generics.Generic Amazonka.WorkLink.SignOutUser.SignOutUser
+instance GHC.Show.Show Amazonka.WorkLink.SignOutUser.SignOutUser
+instance GHC.Read.Read Amazonka.WorkLink.SignOutUser.SignOutUser
+instance GHC.Classes.Eq Amazonka.WorkLink.SignOutUser.SignOutUser
+instance GHC.Generics.Generic Amazonka.WorkLink.SignOutUser.SignOutUserResponse
+instance GHC.Show.Show Amazonka.WorkLink.SignOutUser.SignOutUserResponse
+instance GHC.Read.Read Amazonka.WorkLink.SignOutUser.SignOutUserResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.SignOutUser.SignOutUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.SignOutUser.SignOutUser
+instance Control.DeepSeq.NFData Amazonka.WorkLink.SignOutUser.SignOutUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.SignOutUser.SignOutUser
+instance Control.DeepSeq.NFData Amazonka.WorkLink.SignOutUser.SignOutUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.SignOutUser.SignOutUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.SignOutUser.SignOutUser
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.SignOutUser.SignOutUser
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.SignOutUser.SignOutUser
 
 
 -- | Moves a domain to INACTIVE status if it was in the ACTIVE status.
-module Network.AWS.WorkLink.RevokeDomainAccess
+module Amazonka.WorkLink.RevokeDomainAccess
 
 -- | <i>See:</i> <a>newRevokeDomainAccess</a> smart constructor.
 data RevokeDomainAccess
@@ -1030,26 +1030,26 @@ newRevokeDomainAccessResponse :: Int -> RevokeDomainAccessResponse
 
 -- | The response's http status code.
 revokeDomainAccessResponse_httpStatus :: Lens' RevokeDomainAccessResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance GHC.Show.Show Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance GHC.Read.Read Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance GHC.Classes.Eq Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance GHC.Generics.Generic Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
-instance GHC.Show.Show Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
-instance GHC.Read.Read Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance GHC.Generics.Generic Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance GHC.Show.Show Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance GHC.Read.Read Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance GHC.Classes.Eq Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance GHC.Generics.Generic Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
+instance GHC.Show.Show Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
+instance GHC.Read.Read Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance Control.DeepSeq.NFData Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccessResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance Control.DeepSeq.NFData Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.RevokeDomainAccess.RevokeDomainAccess
 
 
 -- | Moves a domain to ACTIVE status if it was in the INACTIVE status.
-module Network.AWS.WorkLink.RestoreDomainAccess
+module Amazonka.WorkLink.RestoreDomainAccess
 
 -- | <i>See:</i> <a>newRestoreDomainAccess</a> smart constructor.
 data RestoreDomainAccess
@@ -1106,27 +1106,27 @@ newRestoreDomainAccessResponse :: Int -> RestoreDomainAccessResponse
 
 -- | The response's http status code.
 restoreDomainAccessResponse_httpStatus :: Lens' RestoreDomainAccessResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance GHC.Show.Show Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance GHC.Read.Read Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance GHC.Classes.Eq Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance GHC.Generics.Generic Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
-instance GHC.Show.Show Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
-instance GHC.Read.Read Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance GHC.Generics.Generic Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance GHC.Show.Show Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance GHC.Read.Read Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance GHC.Classes.Eq Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance GHC.Generics.Generic Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
+instance GHC.Show.Show Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
+instance GHC.Read.Read Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance Control.DeepSeq.NFData Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccessResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance Control.DeepSeq.NFData Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.RestoreDomainAccess.RestoreDomainAccess
 
 
 -- | Retrieves a list of certificate authorities added for the current
 --   account and Region.
-module Network.AWS.WorkLink.ListWebsiteCertificateAuthorities
+module Amazonka.WorkLink.ListWebsiteCertificateAuthorities
 
 -- | <i>See:</i> <a>newListWebsiteCertificateAuthorities</a> smart
 --   constructor.
@@ -1224,27 +1224,27 @@ listWebsiteCertificateAuthoritiesResponse_nextToken :: Lens' ListWebsiteCertific
 
 -- | The response's http status code.
 listWebsiteCertificateAuthoritiesResponse_httpStatus :: Lens' ListWebsiteCertificateAuthoritiesResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance GHC.Show.Show Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance GHC.Read.Read Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
-instance GHC.Show.Show Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
-instance GHC.Read.Read Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance GHC.Generics.Generic Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance GHC.Show.Show Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance GHC.Read.Read Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance GHC.Classes.Eq Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance GHC.Generics.Generic Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
+instance GHC.Show.Show Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
+instance GHC.Read.Read Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthoritiesResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.ListWebsiteCertificateAuthorities.ListWebsiteCertificateAuthorities
 
 
 -- | Retrieves a list of website authorization providers associated with a
 --   specified fleet.
-module Network.AWS.WorkLink.ListWebsiteAuthorizationProviders
+module Amazonka.WorkLink.ListWebsiteAuthorizationProviders
 
 -- | <i>See:</i> <a>newListWebsiteAuthorizationProviders</a> smart
 --   constructor.
@@ -1342,26 +1342,26 @@ listWebsiteAuthorizationProvidersResponse_nextToken :: Lens' ListWebsiteAuthoriz
 
 -- | The response's http status code.
 listWebsiteAuthorizationProvidersResponse_httpStatus :: Lens' ListWebsiteAuthorizationProvidersResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance GHC.Show.Show Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance GHC.Read.Read Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
-instance GHC.Show.Show Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
-instance GHC.Read.Read Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance GHC.Generics.Generic Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance GHC.Show.Show Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance GHC.Read.Read Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance GHC.Classes.Eq Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance GHC.Generics.Generic Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
+instance GHC.Show.Show Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
+instance GHC.Read.Read Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProvidersResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.ListWebsiteAuthorizationProviders.ListWebsiteAuthorizationProviders
 
 
 -- | Retrieves a list of tags for the specified resource.
-module Network.AWS.WorkLink.ListTagsForResource
+module Amazonka.WorkLink.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1420,25 +1420,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.WorkLink.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.WorkLink.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.WorkLink.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.WorkLink.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.WorkLink.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.ListTagsForResource.ListTagsForResource
 
 
 -- | Retrieves a list of fleets for the current account and Region.
-module Network.AWS.WorkLink.ListFleets
+module Amazonka.WorkLink.ListFleets
 
 -- | <i>See:</i> <a>newListFleets</a> smart constructor.
 data ListFleets
@@ -1519,26 +1519,26 @@ listFleetsResponse_nextToken :: Lens' ListFleetsResponse (Maybe Text)
 
 -- | The response's http status code.
 listFleetsResponse_httpStatus :: Lens' ListFleetsResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListFleets.ListFleets
-instance GHC.Show.Show Network.AWS.WorkLink.ListFleets.ListFleets
-instance GHC.Read.Read Network.AWS.WorkLink.ListFleets.ListFleets
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListFleets.ListFleets
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListFleets.ListFleetsResponse
-instance GHC.Show.Show Network.AWS.WorkLink.ListFleets.ListFleetsResponse
-instance GHC.Read.Read Network.AWS.WorkLink.ListFleets.ListFleetsResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListFleets.ListFleetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.ListFleets.ListFleets
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListFleets.ListFleetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.ListFleets.ListFleets
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListFleets.ListFleets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.ListFleets.ListFleets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.ListFleets.ListFleets
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.ListFleets.ListFleets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.ListFleets.ListFleets
+instance GHC.Generics.Generic Amazonka.WorkLink.ListFleets.ListFleets
+instance GHC.Show.Show Amazonka.WorkLink.ListFleets.ListFleets
+instance GHC.Read.Read Amazonka.WorkLink.ListFleets.ListFleets
+instance GHC.Classes.Eq Amazonka.WorkLink.ListFleets.ListFleets
+instance GHC.Generics.Generic Amazonka.WorkLink.ListFleets.ListFleetsResponse
+instance GHC.Show.Show Amazonka.WorkLink.ListFleets.ListFleetsResponse
+instance GHC.Read.Read Amazonka.WorkLink.ListFleets.ListFleetsResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.ListFleets.ListFleetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.ListFleets.ListFleets
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListFleets.ListFleetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.ListFleets.ListFleets
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListFleets.ListFleets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.ListFleets.ListFleets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.ListFleets.ListFleets
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.ListFleets.ListFleets
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.ListFleets.ListFleets
 
 
 -- | Retrieves a list of domains associated to a specified fleet.
-module Network.AWS.WorkLink.ListDomains
+module Amazonka.WorkLink.ListDomains
 
 -- | <i>See:</i> <a>newListDomains</a> smart constructor.
 data ListDomains
@@ -1628,26 +1628,26 @@ listDomainsResponse_domains :: Lens' ListDomainsResponse (Maybe [DomainSummary])
 
 -- | The response's http status code.
 listDomainsResponse_httpStatus :: Lens' ListDomainsResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListDomains.ListDomains
-instance GHC.Show.Show Network.AWS.WorkLink.ListDomains.ListDomains
-instance GHC.Read.Read Network.AWS.WorkLink.ListDomains.ListDomains
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListDomains.ListDomains
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListDomains.ListDomainsResponse
-instance GHC.Show.Show Network.AWS.WorkLink.ListDomains.ListDomainsResponse
-instance GHC.Read.Read Network.AWS.WorkLink.ListDomains.ListDomainsResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListDomains.ListDomainsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListDomains.ListDomainsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListDomains.ListDomains
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.ListDomains.ListDomains
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.ListDomains.ListDomains
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.ListDomains.ListDomains
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.WorkLink.ListDomains.ListDomains
+instance GHC.Show.Show Amazonka.WorkLink.ListDomains.ListDomains
+instance GHC.Read.Read Amazonka.WorkLink.ListDomains.ListDomains
+instance GHC.Classes.Eq Amazonka.WorkLink.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.WorkLink.ListDomains.ListDomainsResponse
+instance GHC.Show.Show Amazonka.WorkLink.ListDomains.ListDomainsResponse
+instance GHC.Read.Read Amazonka.WorkLink.ListDomains.ListDomainsResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.ListDomains.ListDomainsResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListDomains.ListDomainsResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListDomains.ListDomains
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.ListDomains.ListDomains
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.ListDomains.ListDomains
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.ListDomains.ListDomains
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.ListDomains.ListDomains
 
 
 -- | Retrieves a list of devices registered with the specified fleet.
-module Network.AWS.WorkLink.ListDevices
+module Amazonka.WorkLink.ListDevices
 
 -- | <i>See:</i> <a>newListDevices</a> smart constructor.
 data ListDevices
@@ -1737,26 +1737,26 @@ listDevicesResponse_devices :: Lens' ListDevicesResponse (Maybe [DeviceSummary])
 
 -- | The response's http status code.
 listDevicesResponse_httpStatus :: Lens' ListDevicesResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListDevices.ListDevices
-instance GHC.Show.Show Network.AWS.WorkLink.ListDevices.ListDevices
-instance GHC.Read.Read Network.AWS.WorkLink.ListDevices.ListDevices
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListDevices.ListDevices
-instance GHC.Generics.Generic Network.AWS.WorkLink.ListDevices.ListDevicesResponse
-instance GHC.Show.Show Network.AWS.WorkLink.ListDevices.ListDevicesResponse
-instance GHC.Read.Read Network.AWS.WorkLink.ListDevices.ListDevicesResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.ListDevices.ListDevicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.ListDevices.ListDevices
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListDevices.ListDevicesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.ListDevices.ListDevices
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.ListDevices.ListDevices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.ListDevices.ListDevices
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.ListDevices.ListDevices
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.ListDevices.ListDevices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.ListDevices.ListDevices
+instance GHC.Generics.Generic Amazonka.WorkLink.ListDevices.ListDevices
+instance GHC.Show.Show Amazonka.WorkLink.ListDevices.ListDevices
+instance GHC.Read.Read Amazonka.WorkLink.ListDevices.ListDevices
+instance GHC.Classes.Eq Amazonka.WorkLink.ListDevices.ListDevices
+instance GHC.Generics.Generic Amazonka.WorkLink.ListDevices.ListDevicesResponse
+instance GHC.Show.Show Amazonka.WorkLink.ListDevices.ListDevicesResponse
+instance GHC.Read.Read Amazonka.WorkLink.ListDevices.ListDevicesResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.ListDevices.ListDevicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.ListDevices.ListDevices
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListDevices.ListDevicesResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.ListDevices.ListDevices
+instance Control.DeepSeq.NFData Amazonka.WorkLink.ListDevices.ListDevices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.ListDevices.ListDevices
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.ListDevices.ListDevices
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.ListDevices.ListDevices
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.ListDevices.ListDevices
 
 
 -- | Removes a certificate authority (CA).
-module Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority
+module Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority
 
 -- | <i>See:</i> <a>newDisassociateWebsiteCertificateAuthority</a> smart
 --   constructor.
@@ -1819,28 +1819,28 @@ newDisassociateWebsiteCertificateAuthorityResponse :: Int -> DisassociateWebsite
 
 -- | The response's http status code.
 disassociateWebsiteCertificateAuthorityResponse_httpStatus :: Lens' DisassociateWebsiteCertificateAuthorityResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance GHC.Show.Show Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance GHC.Read.Read Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance GHC.Classes.Eq Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance GHC.Generics.Generic Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance GHC.Generics.Generic Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance GHC.Show.Show Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance GHC.Read.Read Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance GHC.Classes.Eq Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance GHC.Generics.Generic Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
+instance GHC.Show.Show Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
+instance GHC.Read.Read Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthorityResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority.DisassociateWebsiteCertificateAuthority
 
 
 -- | Disassociates a website authorization provider from a specified fleet.
 --   After the disassociation, users can't load any associated websites
 --   that require this authorization provider.
-module Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider
+module Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider
 
 -- | <i>See:</i> <a>newDisassociateWebsiteAuthorizationProvider</a> smart
 --   constructor.
@@ -1904,27 +1904,27 @@ newDisassociateWebsiteAuthorizationProviderResponse :: Int -> DisassociateWebsit
 
 -- | The response's http status code.
 disassociateWebsiteAuthorizationProviderResponse_httpStatus :: Lens' DisassociateWebsiteAuthorizationProviderResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance GHC.Show.Show Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance GHC.Read.Read Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance GHC.Classes.Eq Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance GHC.Generics.Generic Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance GHC.Generics.Generic Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance GHC.Show.Show Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance GHC.Read.Read Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance GHC.Classes.Eq Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance GHC.Generics.Generic Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
+instance GHC.Show.Show Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
+instance GHC.Read.Read Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProviderResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider.DisassociateWebsiteAuthorizationProvider
 
 
 -- | Disassociates a domain from Amazon WorkLink. End users lose the
 --   ability to access the domain with Amazon WorkLink.
-module Network.AWS.WorkLink.DisassociateDomain
+module Amazonka.WorkLink.DisassociateDomain
 
 -- | <i>See:</i> <a>newDisassociateDomain</a> smart constructor.
 data DisassociateDomain
@@ -1981,26 +1981,26 @@ newDisassociateDomainResponse :: Int -> DisassociateDomainResponse
 
 -- | The response's http status code.
 disassociateDomainResponse_httpStatus :: Lens' DisassociateDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance GHC.Show.Show Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance GHC.Read.Read Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance GHC.Classes.Eq Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance GHC.Generics.Generic Network.AWS.WorkLink.DisassociateDomain.DisassociateDomainResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DisassociateDomain.DisassociateDomainResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DisassociateDomain.DisassociateDomainResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DisassociateDomain.DisassociateDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DisassociateDomain.DisassociateDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DisassociateDomain.DisassociateDomain
+instance GHC.Generics.Generic Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance GHC.Show.Show Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance GHC.Read.Read Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance GHC.Classes.Eq Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance GHC.Generics.Generic Amazonka.WorkLink.DisassociateDomain.DisassociateDomainResponse
+instance GHC.Show.Show Amazonka.WorkLink.DisassociateDomain.DisassociateDomainResponse
+instance GHC.Read.Read Amazonka.WorkLink.DisassociateDomain.DisassociateDomainResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DisassociateDomain.DisassociateDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DisassociateDomain.DisassociateDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DisassociateDomain.DisassociateDomain
 
 
 -- | Provides information about the certificate authority.
-module Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority
+module Amazonka.WorkLink.DescribeWebsiteCertificateAuthority
 
 -- | <i>See:</i> <a>newDescribeWebsiteCertificateAuthority</a> smart
 --   constructor.
@@ -2091,26 +2091,26 @@ describeWebsiteCertificateAuthorityResponse_displayName :: Lens' DescribeWebsite
 
 -- | The response's http status code.
 describeWebsiteCertificateAuthorityResponse_httpStatus :: Lens' DescribeWebsiteCertificateAuthorityResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance GHC.Show.Show Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance GHC.Read.Read Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthorityResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeWebsiteCertificateAuthority.DescribeWebsiteCertificateAuthority
 
 
 -- | Describes the identity provider configuration of the specified fleet.
-module Network.AWS.WorkLink.DescribeIdentityProviderConfiguration
+module Amazonka.WorkLink.DescribeIdentityProviderConfiguration
 
 -- | <i>See:</i> <a>newDescribeIdentityProviderConfiguration</a> smart
 --   constructor.
@@ -2194,27 +2194,27 @@ describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata :: Le
 
 -- | The response's http status code.
 describeIdentityProviderConfigurationResponse_httpStatus :: Lens' DescribeIdentityProviderConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeIdentityProviderConfiguration.DescribeIdentityProviderConfiguration
 
 
 -- | Provides basic information for the specified fleet, excluding identity
 --   provider, networking, and device configuration details.
-module Network.AWS.WorkLink.DescribeFleetMetadata
+module Amazonka.WorkLink.DescribeFleetMetadata
 
 -- | <i>See:</i> <a>newDescribeFleetMetadata</a> smart constructor.
 data DescribeFleetMetadata
@@ -2349,26 +2349,26 @@ describeFleetMetadataResponse_tags :: Lens' DescribeFleetMetadataResponse (Maybe
 
 -- | The response's http status code.
 describeFleetMetadataResponse_httpStatus :: Lens' DescribeFleetMetadataResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance GHC.Show.Show Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance GHC.Read.Read Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadataResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeFleetMetadata.DescribeFleetMetadata
 
 
 -- | Provides information about the domain.
-module Network.AWS.WorkLink.DescribeDomain
+module Amazonka.WorkLink.DescribeDomain
 
 -- | <i>See:</i> <a>newDescribeDomain</a> smart constructor.
 data DescribeDomain
@@ -2475,26 +2475,26 @@ describeDomainResponse_displayName :: Lens' DescribeDomainResponse (Maybe Text)
 
 -- | The response's http status code.
 describeDomainResponse_httpStatus :: Lens' DescribeDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeDomain.DescribeDomainResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeDomain.DescribeDomainResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeDomain.DescribeDomainResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeDomain.DescribeDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeDomain.DescribeDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeDomain.DescribeDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeDomain.DescribeDomain
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance GHC.Show.Show Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance GHC.Read.Read Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeDomain.DescribeDomainResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeDomain.DescribeDomainResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeDomain.DescribeDomainResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeDomain.DescribeDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeDomain.DescribeDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeDomain.DescribeDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeDomain.DescribeDomain
 
 
 -- | Describes the device policy configuration for the specified fleet.
-module Network.AWS.WorkLink.DescribeDevicePolicyConfiguration
+module Amazonka.WorkLink.DescribeDevicePolicyConfiguration
 
 -- | <i>See:</i> <a>newDescribeDevicePolicyConfiguration</a> smart
 --   constructor.
@@ -2562,26 +2562,26 @@ describeDevicePolicyConfigurationResponse_deviceCaCertificate :: Lens' DescribeD
 
 -- | The response's http status code.
 describeDevicePolicyConfigurationResponse_httpStatus :: Lens' DescribeDevicePolicyConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeDevicePolicyConfiguration.DescribeDevicePolicyConfiguration
 
 
 -- | Provides information about a user's device.
-module Network.AWS.WorkLink.DescribeDevice
+module Amazonka.WorkLink.DescribeDevice
 
 -- | <i>See:</i> <a>newDescribeDevice</a> smart constructor.
 data DescribeDevice
@@ -2727,27 +2727,27 @@ describeDeviceResponse_patchLevel :: Lens' DescribeDeviceResponse (Maybe Text)
 
 -- | The response's http status code.
 describeDeviceResponse_httpStatus :: Lens' DescribeDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeDevice.DescribeDeviceResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeDevice.DescribeDeviceResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeDevice.DescribeDeviceResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeDevice.DescribeDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeDevice.DescribeDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeDevice.DescribeDevice
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance GHC.Show.Show Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance GHC.Read.Read Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeDevice.DescribeDeviceResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeDevice.DescribeDeviceResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeDevice.DescribeDeviceResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeDevice.DescribeDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeDevice.DescribeDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeDevice.DescribeDevice
 
 
 -- | Describes the networking configuration to access the internal websites
 --   associated with the specified fleet.
-module Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration
+module Amazonka.WorkLink.DescribeCompanyNetworkConfiguration
 
 -- | <i>See:</i> <a>newDescribeCompanyNetworkConfiguration</a> smart
 --   constructor.
@@ -2832,27 +2832,27 @@ describeCompanyNetworkConfigurationResponse_vpcId :: Lens' DescribeCompanyNetwor
 
 -- | The response's http status code.
 describeCompanyNetworkConfigurationResponse_httpStatus :: Lens' DescribeCompanyNetworkConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeCompanyNetworkConfiguration.DescribeCompanyNetworkConfiguration
 
 
 -- | Describes the configuration for delivering audit streams to the
 --   customer account.
-module Network.AWS.WorkLink.DescribeAuditStreamConfiguration
+module Amazonka.WorkLink.DescribeAuditStreamConfiguration
 
 -- | <i>See:</i> <a>newDescribeAuditStreamConfiguration</a> smart
 --   constructor.
@@ -2916,27 +2916,27 @@ describeAuditStreamConfigurationResponse_auditStreamArn :: Lens' DescribeAuditSt
 
 -- | The response's http status code.
 describeAuditStreamConfigurationResponse_httpStatus :: Lens' DescribeAuditStreamConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DescribeAuditStreamConfiguration.DescribeAuditStreamConfiguration
 
 
 -- | Deletes a fleet. Prevents users from accessing previously associated
 --   websites.
-module Network.AWS.WorkLink.DeleteFleet
+module Amazonka.WorkLink.DeleteFleet
 
 -- | <i>See:</i> <a>newDeleteFleet</a> smart constructor.
 data DeleteFleet
@@ -2983,28 +2983,28 @@ newDeleteFleetResponse :: Int -> DeleteFleetResponse
 
 -- | The response's http status code.
 deleteFleetResponse_httpStatus :: Lens' DeleteFleetResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance GHC.Show.Show Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance GHC.Read.Read Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance GHC.Classes.Eq Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance GHC.Generics.Generic Network.AWS.WorkLink.DeleteFleet.DeleteFleetResponse
-instance GHC.Show.Show Network.AWS.WorkLink.DeleteFleet.DeleteFleetResponse
-instance GHC.Read.Read Network.AWS.WorkLink.DeleteFleet.DeleteFleetResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.DeleteFleet.DeleteFleetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DeleteFleet.DeleteFleetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.DeleteFleet.DeleteFleet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.DeleteFleet.DeleteFleet
+instance GHC.Generics.Generic Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance GHC.Show.Show Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance GHC.Read.Read Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance GHC.Classes.Eq Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance GHC.Generics.Generic Amazonka.WorkLink.DeleteFleet.DeleteFleetResponse
+instance GHC.Show.Show Amazonka.WorkLink.DeleteFleet.DeleteFleetResponse
+instance GHC.Read.Read Amazonka.WorkLink.DeleteFleet.DeleteFleetResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.DeleteFleet.DeleteFleetResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DeleteFleet.DeleteFleetResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance Control.DeepSeq.NFData Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.DeleteFleet.DeleteFleet
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.DeleteFleet.DeleteFleet
 
 
 -- | Creates a fleet. A fleet consists of resources and the configuration
 --   that delivers associated websites to authorized users who download and
 --   set up the Amazon WorkLink app.
-module Network.AWS.WorkLink.CreateFleet
+module Amazonka.WorkLink.CreateFleet
 
 -- | <i>See:</i> <a>newCreateFleet</a> smart constructor.
 data CreateFleet
@@ -3094,28 +3094,28 @@ createFleetResponse_fleetArn :: Lens' CreateFleetResponse (Maybe Text)
 
 -- | The response's http status code.
 createFleetResponse_httpStatus :: Lens' CreateFleetResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance GHC.Show.Show Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance GHC.Read.Read Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance GHC.Classes.Eq Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance GHC.Generics.Generic Network.AWS.WorkLink.CreateFleet.CreateFleetResponse
-instance GHC.Show.Show Network.AWS.WorkLink.CreateFleet.CreateFleetResponse
-instance GHC.Read.Read Network.AWS.WorkLink.CreateFleet.CreateFleetResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.CreateFleet.CreateFleetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.CreateFleet.CreateFleetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.CreateFleet.CreateFleet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.CreateFleet.CreateFleet
+instance GHC.Generics.Generic Amazonka.WorkLink.CreateFleet.CreateFleet
+instance GHC.Show.Show Amazonka.WorkLink.CreateFleet.CreateFleet
+instance GHC.Read.Read Amazonka.WorkLink.CreateFleet.CreateFleet
+instance GHC.Classes.Eq Amazonka.WorkLink.CreateFleet.CreateFleet
+instance GHC.Generics.Generic Amazonka.WorkLink.CreateFleet.CreateFleetResponse
+instance GHC.Show.Show Amazonka.WorkLink.CreateFleet.CreateFleetResponse
+instance GHC.Read.Read Amazonka.WorkLink.CreateFleet.CreateFleetResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.CreateFleet.CreateFleetResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.CreateFleet.CreateFleet
+instance Control.DeepSeq.NFData Amazonka.WorkLink.CreateFleet.CreateFleetResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.CreateFleet.CreateFleet
+instance Control.DeepSeq.NFData Amazonka.WorkLink.CreateFleet.CreateFleet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.CreateFleet.CreateFleet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.CreateFleet.CreateFleet
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.CreateFleet.CreateFleet
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.CreateFleet.CreateFleet
 
 
 -- | Imports the root certificate of a certificate authority (CA) used to
 --   obtain TLS certificates used by associated websites within the company
 --   network.
-module Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority
+module Amazonka.WorkLink.AssociateWebsiteCertificateAuthority
 
 -- | <i>See:</i> <a>newAssociateWebsiteCertificateAuthority</a> smart
 --   constructor.
@@ -3196,28 +3196,28 @@ associateWebsiteCertificateAuthorityResponse_websiteCaId :: Lens' AssociateWebsi
 
 -- | The response's http status code.
 associateWebsiteCertificateAuthorityResponse_httpStatus :: Lens' AssociateWebsiteCertificateAuthorityResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance GHC.Show.Show Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance GHC.Read.Read Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance GHC.Classes.Eq Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance GHC.Generics.Generic Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
-instance GHC.Show.Show Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
-instance GHC.Read.Read Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance GHC.Generics.Generic Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance GHC.Show.Show Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance GHC.Read.Read Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance GHC.Classes.Eq Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance GHC.Generics.Generic Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
+instance GHC.Show.Show Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
+instance GHC.Read.Read Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance Control.DeepSeq.NFData Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthorityResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance Control.DeepSeq.NFData Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.AssociateWebsiteCertificateAuthority.AssociateWebsiteCertificateAuthority
 
 
 -- | Associates a website authorization provider with a specified fleet.
 --   This is used to authorize users against associated websites in the
 --   company network.
-module Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider
+module Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider
 
 -- | <i>See:</i> <a>newAssociateWebsiteAuthorizationProvider</a> smart
 --   constructor.
@@ -3303,26 +3303,26 @@ associateWebsiteAuthorizationProviderResponse_authorizationProviderId :: Lens' A
 
 -- | The response's http status code.
 associateWebsiteAuthorizationProviderResponse_httpStatus :: Lens' AssociateWebsiteAuthorizationProviderResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance GHC.Show.Show Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance GHC.Read.Read Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance GHC.Classes.Eq Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance GHC.Generics.Generic Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
-instance GHC.Show.Show Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
-instance GHC.Read.Read Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance GHC.Generics.Generic Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance GHC.Show.Show Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance GHC.Read.Read Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance GHC.Classes.Eq Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance GHC.Generics.Generic Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
+instance GHC.Show.Show Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
+instance GHC.Read.Read Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance Control.DeepSeq.NFData Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProviderResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance Control.DeepSeq.NFData Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider.AssociateWebsiteAuthorizationProvider
 
 
 -- | Specifies a domain to be associated to Amazon WorkLink.
-module Network.AWS.WorkLink.AssociateDomain
+module Amazonka.WorkLink.AssociateDomain
 
 -- | <i>See:</i> <a>newAssociateDomain</a> smart constructor.
 data AssociateDomain
@@ -3401,26 +3401,26 @@ newAssociateDomainResponse :: Int -> AssociateDomainResponse
 
 -- | The response's http status code.
 associateDomainResponse_httpStatus :: Lens' AssociateDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance GHC.Show.Show Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance GHC.Read.Read Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance GHC.Classes.Eq Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance GHC.Generics.Generic Network.AWS.WorkLink.AssociateDomain.AssociateDomainResponse
-instance GHC.Show.Show Network.AWS.WorkLink.AssociateDomain.AssociateDomainResponse
-instance GHC.Read.Read Network.AWS.WorkLink.AssociateDomain.AssociateDomainResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.AssociateDomain.AssociateDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.AssociateDomain.AssociateDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.AssociateDomain.AssociateDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.AssociateDomain.AssociateDomain
+instance GHC.Generics.Generic Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance GHC.Show.Show Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance GHC.Read.Read Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance GHC.Classes.Eq Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance GHC.Generics.Generic Amazonka.WorkLink.AssociateDomain.AssociateDomainResponse
+instance GHC.Show.Show Amazonka.WorkLink.AssociateDomain.AssociateDomainResponse
+instance GHC.Read.Read Amazonka.WorkLink.AssociateDomain.AssociateDomainResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.AssociateDomain.AssociateDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance Control.DeepSeq.NFData Amazonka.WorkLink.AssociateDomain.AssociateDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance Control.DeepSeq.NFData Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.AssociateDomain.AssociateDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.AssociateDomain.AssociateDomain
 
 
 -- | Removes one or more tags from the specified resource.
-module Network.AWS.WorkLink.UntagResource
+module Amazonka.WorkLink.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3478,25 +3478,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.WorkLink.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.WorkLink.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.WorkLink.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.WorkLink.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.WorkLink.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.WorkLink.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.WorkLink.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.WorkLink.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.WorkLink.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.WorkLink.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.WorkLink.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.WorkLink.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.WorkLink.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.UntagResource.UntagResource
 
 
 -- | Updates the audit stream configuration for the fleet.
-module Network.AWS.WorkLink.UpdateAuditStreamConfiguration
+module Amazonka.WorkLink.UpdateAuditStreamConfiguration
 
 -- | <i>See:</i> <a>newUpdateAuditStreamConfiguration</a> smart
 --   constructor.
@@ -3558,26 +3558,26 @@ newUpdateAuditStreamConfigurationResponse :: Int -> UpdateAuditStreamConfigurati
 
 -- | The response's http status code.
 updateAuditStreamConfigurationResponse_httpStatus :: Lens' UpdateAuditStreamConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.UpdateAuditStreamConfiguration.UpdateAuditStreamConfiguration
 
 
 -- | Updates the company network configuration for the fleet.
-module Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration
+module Amazonka.WorkLink.UpdateCompanyNetworkConfiguration
 
 -- | <i>See:</i> <a>newUpdateCompanyNetworkConfiguration</a> smart
 --   constructor.
@@ -3660,26 +3660,26 @@ newUpdateCompanyNetworkConfigurationResponse :: Int -> UpdateCompanyNetworkConfi
 
 -- | The response's http status code.
 updateCompanyNetworkConfigurationResponse_httpStatus :: Lens' UpdateCompanyNetworkConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.UpdateCompanyNetworkConfiguration.UpdateCompanyNetworkConfiguration
 
 
 -- | Updates the device policy configuration for the fleet.
-module Network.AWS.WorkLink.UpdateDevicePolicyConfiguration
+module Amazonka.WorkLink.UpdateDevicePolicyConfiguration
 
 -- | <i>See:</i> <a>newUpdateDevicePolicyConfiguration</a> smart
 --   constructor.
@@ -3745,26 +3745,26 @@ newUpdateDevicePolicyConfigurationResponse :: Int -> UpdateDevicePolicyConfigura
 
 -- | The response's http status code.
 updateDevicePolicyConfigurationResponse_httpStatus :: Lens' UpdateDevicePolicyConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.UpdateDevicePolicyConfiguration.UpdateDevicePolicyConfiguration
 
 
 -- | Updates domain metadata, such as DisplayName.
-module Network.AWS.WorkLink.UpdateDomainMetadata
+module Amazonka.WorkLink.UpdateDomainMetadata
 
 -- | <i>See:</i> <a>newUpdateDomainMetadata</a> smart constructor.
 data UpdateDomainMetadata
@@ -3830,26 +3830,26 @@ newUpdateDomainMetadataResponse :: Int -> UpdateDomainMetadataResponse
 
 -- | The response's http status code.
 updateDomainMetadataResponse_httpStatus :: Lens' UpdateDomainMetadataResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance GHC.Show.Show Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance GHC.Read.Read Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
+instance GHC.Show.Show Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
+instance GHC.Read.Read Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadataResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.UpdateDomainMetadata.UpdateDomainMetadata
 
 
 -- | Updates fleet metadata, such as DisplayName.
-module Network.AWS.WorkLink.UpdateFleetMetadata
+module Amazonka.WorkLink.UpdateFleetMetadata
 
 -- | <i>See:</i> <a>newUpdateFleetMetadata</a> smart constructor.
 data UpdateFleetMetadata
@@ -3924,26 +3924,26 @@ newUpdateFleetMetadataResponse :: Int -> UpdateFleetMetadataResponse
 
 -- | The response's http status code.
 updateFleetMetadataResponse_httpStatus :: Lens' UpdateFleetMetadataResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance GHC.Show.Show Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance GHC.Read.Read Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
+instance GHC.Show.Show Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
+instance GHC.Read.Read Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadataResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.UpdateFleetMetadata.UpdateFleetMetadata
 
 
 -- | Updates the identity provider configuration for the fleet.
-module Network.AWS.WorkLink.UpdateIdentityProviderConfiguration
+module Amazonka.WorkLink.UpdateIdentityProviderConfiguration
 
 -- | <i>See:</i> <a>newUpdateIdentityProviderConfiguration</a> smart
 --   constructor.
@@ -4021,25 +4021,25 @@ newUpdateIdentityProviderConfigurationResponse :: Int -> UpdateIdentityProviderC
 
 -- | The response's http status code.
 updateIdentityProviderConfigurationResponse_httpStatus :: Lens' UpdateIdentityProviderConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance GHC.Generics.Generic Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
-instance GHC.Show.Show Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
-instance GHC.Read.Read Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance Control.DeepSeq.NFData Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance GHC.Show.Show Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance GHC.Read.Read Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance GHC.Generics.Generic Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
+instance GHC.Show.Show Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
+instance GHC.Read.Read Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
+instance GHC.Classes.Eq Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance Control.DeepSeq.NFData Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkLink.UpdateIdentityProviderConfiguration.UpdateIdentityProviderConfiguration
 
 
-module Network.AWS.WorkLink.Lens
+module Amazonka.WorkLink.Lens
 
 -- | The name to display.
 updateDomainMetadata_displayName :: Lens' UpdateDomainMetadata (Maybe Text)
@@ -4598,7 +4598,7 @@ websiteCaSummary_websiteCaId :: Lens' WebsiteCaSummary (Maybe Text)
 websiteCaSummary_displayName :: Lens' WebsiteCaSummary (Maybe Text)
 
 
-module Network.AWS.WorkLink.Waiters
+module Amazonka.WorkLink.Waiters
 
 
 -- | Derived from API version <tt>2018-09-25</tt> of the AWS service
@@ -4613,7 +4613,7 @@ module Network.AWS.WorkLink.Waiters
 --   and securely renders authorized internal web content in a secure
 --   rendering service in the AWS cloud. Amazon WorkLink doesn't download
 --   or store any internal web content on mobile devices.
-module Network.AWS.WorkLink
+module Amazonka.WorkLink
 
 -- | API version <tt>2018-09-25</tt> of the Amazon WorkLink SDK
 --   configuration.

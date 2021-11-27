@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.XRay.CreateSamplingRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a rule to control sampling behavior for instrumented</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- applications. Services retrieve rules with</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules&gt;,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- and evaluate each rule in ascending order of /priority/ for each</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- request. If a rule matches, the service records a trace, borrowing it</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- from the reservoir size. After 10 seconds, the service reports back to</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- X-Ray with</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html GetSamplingTargets&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- to get updated versions of each in-use rule. The updated rule contains a</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- trace quota that the service can use instead of borrowing from the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- reservoir.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.XRay.CreateSamplingRule</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier">CreateSamplingRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#newCreateSamplingRule"><span class="hs-identifier">newCreateSamplingRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRule_tags"><span class="hs-identifier">createSamplingRule_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRule_samplingRule"><span class="hs-identifier">createSamplingRule_samplingRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier">CreateSamplingRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#newCreateSamplingRuleResponse"><span class="hs-identifier">newCreateSamplingRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRuleResponse_samplingRuleRecord"><span class="hs-identifier">createSamplingRuleResponse_samplingRuleRecord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRuleResponse_httpStatus"><span class="hs-identifier">createSamplingRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.html"><span class="hs-identifier">Amazonka.XRay.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newCreateSamplingRule' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679263910"><span id="local-6989586621679263911"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSamplingRule"><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-var">CreateSamplingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSamplingRule%27"><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule%27"><span class="hs-identifier hs-var">CreateSamplingRule'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map that contains one or more tag keys and tag values to attach to an</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- X-Ray sampling rule. For more information about ways to use tags, see</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources&gt;</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The following restrictions apply to tags:</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   Maximum number of user-applied tags per resource: 50</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   Maximum tag key length: 128 Unicode characters</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   Maximum tag value length: 256 Unicode characters</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   Valid values for key and value: a-z, A-Z, 0-9, space, and the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     following characters: _ . : \/ = + - and \@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   Tag keys and values are case sensitive.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     Web Services use.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Atags%3ACreateSamplingRule%27"><span class="annot"><span class="annottext">CreateSamplingRule -&gt; Maybe [Tag]
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3Atags%3ACreateSamplingRule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.XRay.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The rule definition.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AsamplingRule%3ACreateSamplingRule%27"><span class="annot"><span class="annottext">CreateSamplingRule -&gt; SamplingRule
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AsamplingRule%3ACreateSamplingRule%27"><span class="hs-identifier hs-var hs-var">samplingRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRule.html#SamplingRule"><span class="hs-identifier hs-type">SamplingRule</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263903"><span id="local-6989586621679263905"><span class="annot"><span class="annottext">CreateSamplingRule -&gt; CreateSamplingRule -&gt; Bool
+(CreateSamplingRule -&gt; CreateSamplingRule -&gt; Bool)
+-&gt; (CreateSamplingRule -&gt; CreateSamplingRule -&gt; Bool)
+-&gt; Eq CreateSamplingRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSamplingRule -&gt; CreateSamplingRule -&gt; Bool
+$c/= :: CreateSamplingRule -&gt; CreateSamplingRule -&gt; Bool
+== :: CreateSamplingRule -&gt; CreateSamplingRule -&gt; Bool
+$c== :: CreateSamplingRule -&gt; CreateSamplingRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263894"><span id="local-6989586621679263896"><span id="local-6989586621679263898"><span id="local-6989586621679263900"><span class="annot"><span class="annottext">ReadPrec [CreateSamplingRule]
+ReadPrec CreateSamplingRule
+Int -&gt; ReadS CreateSamplingRule
+ReadS [CreateSamplingRule]
+(Int -&gt; ReadS CreateSamplingRule)
+-&gt; ReadS [CreateSamplingRule]
+-&gt; ReadPrec CreateSamplingRule
+-&gt; ReadPrec [CreateSamplingRule]
+-&gt; Read CreateSamplingRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSamplingRule]
+$creadListPrec :: ReadPrec [CreateSamplingRule]
+readPrec :: ReadPrec CreateSamplingRule
+$creadPrec :: ReadPrec CreateSamplingRule
+readList :: ReadS [CreateSamplingRule]
+$creadList :: ReadS [CreateSamplingRule]
+readsPrec :: Int -&gt; ReadS CreateSamplingRule
+$creadsPrec :: Int -&gt; ReadS CreateSamplingRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263887"><span id="local-6989586621679263889"><span id="local-6989586621679263891"><span class="annot"><span class="annottext">Int -&gt; CreateSamplingRule -&gt; ShowS
+[CreateSamplingRule] -&gt; ShowS
+CreateSamplingRule -&gt; String
+(Int -&gt; CreateSamplingRule -&gt; ShowS)
+-&gt; (CreateSamplingRule -&gt; String)
+-&gt; ([CreateSamplingRule] -&gt; ShowS)
+-&gt; Show CreateSamplingRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSamplingRule] -&gt; ShowS
+$cshowList :: [CreateSamplingRule] -&gt; ShowS
+show :: CreateSamplingRule -&gt; String
+$cshow :: CreateSamplingRule -&gt; String
+showsPrec :: Int -&gt; CreateSamplingRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSamplingRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSamplingRule -&gt; Rep CreateSamplingRule x)
+-&gt; (forall x. Rep CreateSamplingRule x -&gt; CreateSamplingRule)
+-&gt; Generic CreateSamplingRule
+forall x. Rep CreateSamplingRule x -&gt; CreateSamplingRule
+forall x. CreateSamplingRule -&gt; Rep CreateSamplingRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSamplingRule x -&gt; CreateSamplingRule
+$cfrom :: forall x. CreateSamplingRule -&gt; Rep CreateSamplingRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'CreateSamplingRule' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'tags', 'createSamplingRule_tags' - A map that contains one or more tag keys and tag values to attach to an</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- X-Ray sampling rule. For more information about ways to use tags, see</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources&gt;</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following restrictions apply to tags:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   Maximum number of user-applied tags per resource: 50</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   Maximum tag key length: 128 Unicode characters</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   Maximum tag value length: 256 Unicode characters</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   Valid values for key and value: a-z, A-Z, 0-9, space, and the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     following characters: _ . : \/ = + - and \@</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   Tag keys and values are case sensitive.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     Web Services use.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'samplingRule', 'createSamplingRule_samplingRule' - The rule definition.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#newCreateSamplingRule"><span class="hs-identifier hs-type">newCreateSamplingRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'samplingRule'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRule.html#SamplingRule"><span class="hs-identifier hs-type">SamplingRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span>
+</span><span id="line-122"></span><span id="newCreateSamplingRule"><span class="annot"><span class="annottext">newCreateSamplingRule :: SamplingRule -&gt; CreateSamplingRule
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#newCreateSamplingRule"><span class="hs-identifier hs-var hs-var">newCreateSamplingRule</span></a></span></span><span> </span><span id="local-6989586621679263882"><span class="annot"><span class="annottext">SamplingRule
+</span><a href="#local-6989586621679263882"><span class="hs-identifier hs-var">pSamplingRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">CreateSamplingRule' :: Maybe [Tag] -&gt; SamplingRule -&gt; CreateSamplingRule
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule%27"><span class="hs-identifier hs-type">CreateSamplingRule'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateSamplingRule' :: Maybe [Tag]
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3Atags%3ACreateSamplingRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:samplingRule:CreateSamplingRule' :: SamplingRule
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AsamplingRule%3ACreateSamplingRule%27"><span class="hs-identifier hs-var">samplingRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SamplingRule
+</span><a href="#local-6989586621679263882"><span class="hs-identifier hs-var">pSamplingRule_</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A map that contains one or more tag keys and tag values to attach to an</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- X-Ray sampling rule. For more information about ways to use tags, see</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources&gt;</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following restrictions apply to tags:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   Maximum number of user-applied tags per resource: 50</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   Maximum tag key length: 128 Unicode characters</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   Maximum tag value length: 256 Unicode characters</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   Valid values for key and value: a-z, A-Z, 0-9, space, and the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     following characters: _ . : \/ = + - and \@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   Tag keys and values are case sensitive.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     Web Services use.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRule_tags"><span class="hs-identifier hs-type">createSamplingRule_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.XRay.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="createSamplingRule_tags"><span class="annot"><span class="annottext">createSamplingRule_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSamplingRule -&gt; f CreateSamplingRule
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRule_tags"><span class="hs-identifier hs-var hs-var">createSamplingRule_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSamplingRule -&gt; Maybe [Tag])
+-&gt; (CreateSamplingRule -&gt; Maybe [Tag] -&gt; CreateSamplingRule)
+-&gt; Lens
+     CreateSamplingRule CreateSamplingRule (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule%27"><span class="hs-identifier hs-type">CreateSamplingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263879"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateSamplingRule' :: CreateSamplingRule -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679263879"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679263879"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263878"><span class="annot"><span class="annottext">s :: CreateSamplingRule
+</span><a href="#local-6989586621679263878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule%27"><span class="hs-identifier hs-type">CreateSamplingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263877"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679263877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSamplingRule
+</span><a href="#local-6989586621679263878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateSamplingRule' :: Maybe [Tag]
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3Atags%3ACreateSamplingRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679263877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateSamplingRule -&gt; f CreateSamplingRule)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSamplingRule
+-&gt; f CreateSamplingRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The rule definition.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRule_samplingRule"><span class="hs-identifier hs-type">createSamplingRule_samplingRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRule.html#SamplingRule"><span class="hs-identifier hs-type">SamplingRule</span></a></span><span>
+</span><span id="line-153"></span><span id="createSamplingRule_samplingRule"><span class="annot"><span class="annottext">createSamplingRule_samplingRule :: (SamplingRule -&gt; f SamplingRule)
+-&gt; CreateSamplingRule -&gt; f CreateSamplingRule
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRule_samplingRule"><span class="hs-identifier hs-var hs-var">createSamplingRule_samplingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSamplingRule -&gt; SamplingRule)
+-&gt; (CreateSamplingRule -&gt; SamplingRule -&gt; CreateSamplingRule)
+-&gt; Lens
+     CreateSamplingRule CreateSamplingRule SamplingRule SamplingRule
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule%27"><span class="hs-identifier hs-type">CreateSamplingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263873"><span class="annot"><span class="annottext">SamplingRule
+samplingRule :: SamplingRule
+$sel:samplingRule:CreateSamplingRule' :: CreateSamplingRule -&gt; SamplingRule
+</span><a href="#local-6989586621679263873"><span class="hs-identifier hs-var hs-var">samplingRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRule
+</span><a href="#local-6989586621679263873"><span class="hs-identifier hs-var">samplingRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263872"><span class="annot"><span class="annottext">s :: CreateSamplingRule
+</span><a href="#local-6989586621679263872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule%27"><span class="hs-identifier hs-type">CreateSamplingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263871"><span class="annot"><span class="annottext">SamplingRule
+</span><a href="#local-6989586621679263871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSamplingRule
+</span><a href="#local-6989586621679263872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingRule:CreateSamplingRule' :: SamplingRule
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AsamplingRule%3ACreateSamplingRule%27"><span class="hs-identifier hs-var">samplingRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SamplingRule
+</span><a href="#local-6989586621679263871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-type">CreateSamplingRuleResponse</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679263867"><span class="annot"><span class="annottext">request :: CreateSamplingRule -&gt; Request CreateSamplingRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSamplingRule -&gt; Request CreateSamplingRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.XRay.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679263863"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSamplingRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSamplingRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateSamplingRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSamplingRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSamplingRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263860"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263860"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679263859"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679263859"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679263858"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe SamplingRuleRecord -&gt; Int -&gt; CreateSamplingRuleResponse
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse%27"><span class="hs-identifier hs-var">CreateSamplingRuleResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SamplingRuleRecord -&gt; Int -&gt; CreateSamplingRuleResponse)
+-&gt; Either String (Maybe SamplingRuleRecord)
+-&gt; Either String (Int -&gt; CreateSamplingRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe SamplingRuleRecord)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;SamplingRuleRecord&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateSamplingRuleResponse)
+-&gt; Either String Int -&gt; Either String CreateSamplingRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263860"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263850"><span id="local-6989586621679263852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679263843"><span class="annot"><span class="annottext">toHeaders :: CreateSamplingRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSamplingRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263834"><span id="local-6989586621679263836"><span id="local-6989586621679263838"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679263832"><span class="annot"><span class="annottext">toJSON :: CreateSamplingRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule%27"><span class="hs-identifier hs-type">CreateSamplingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263829"><span id="local-6989586621679263830"><span class="annot"><span class="annottext">Maybe [Tag]
+SamplingRule
+samplingRule :: SamplingRule
+tags :: Maybe [Tag]
+$sel:samplingRule:CreateSamplingRule' :: CreateSamplingRule -&gt; SamplingRule
+$sel:tags:CreateSamplingRule' :: CreateSamplingRule -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679263829"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679263830"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;SamplingRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; SamplingRule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SamplingRule
+</span><a href="#local-6989586621679263829"><span class="hs-identifier hs-var">samplingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679263823"><span class="annot"><span class="annottext">toPath :: CreateSamplingRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSamplingRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/CreateSamplingRule&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRule"><span class="hs-identifier hs-type">CreateSamplingRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679263819"><span class="annot"><span class="annottext">toQuery :: CreateSamplingRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSamplingRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newCreateSamplingRuleResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679263816"><span id="local-6989586621679263817"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSamplingRuleResponse"><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-var">CreateSamplingRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSamplingRuleResponse%27"><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse%27"><span class="hs-identifier hs-var">CreateSamplingRuleResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The saved rule definition and metadata.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AsamplingRuleRecord%3ACreateSamplingRuleResponse%27"><span class="annot"><span class="annottext">CreateSamplingRuleResponse -&gt; Maybe SamplingRuleRecord
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AsamplingRuleRecord%3ACreateSamplingRuleResponse%27"><span class="hs-identifier hs-var hs-var">samplingRuleRecord</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSamplingRuleResponse%27"><span class="annot"><span class="annottext">CreateSamplingRuleResponse -&gt; Int
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AhttpStatus%3ACreateSamplingRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263810"><span id="local-6989586621679263812"><span class="annot"><span class="annottext">CreateSamplingRuleResponse -&gt; CreateSamplingRuleResponse -&gt; Bool
+(CreateSamplingRuleResponse -&gt; CreateSamplingRuleResponse -&gt; Bool)
+-&gt; (CreateSamplingRuleResponse
+    -&gt; CreateSamplingRuleResponse -&gt; Bool)
+-&gt; Eq CreateSamplingRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSamplingRuleResponse -&gt; CreateSamplingRuleResponse -&gt; Bool
+$c/= :: CreateSamplingRuleResponse -&gt; CreateSamplingRuleResponse -&gt; Bool
+== :: CreateSamplingRuleResponse -&gt; CreateSamplingRuleResponse -&gt; Bool
+$c== :: CreateSamplingRuleResponse -&gt; CreateSamplingRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263802"><span id="local-6989586621679263804"><span id="local-6989586621679263806"><span id="local-6989586621679263808"><span class="annot"><span class="annottext">ReadPrec [CreateSamplingRuleResponse]
+ReadPrec CreateSamplingRuleResponse
+Int -&gt; ReadS CreateSamplingRuleResponse
+ReadS [CreateSamplingRuleResponse]
+(Int -&gt; ReadS CreateSamplingRuleResponse)
+-&gt; ReadS [CreateSamplingRuleResponse]
+-&gt; ReadPrec CreateSamplingRuleResponse
+-&gt; ReadPrec [CreateSamplingRuleResponse]
+-&gt; Read CreateSamplingRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSamplingRuleResponse]
+$creadListPrec :: ReadPrec [CreateSamplingRuleResponse]
+readPrec :: ReadPrec CreateSamplingRuleResponse
+$creadPrec :: ReadPrec CreateSamplingRuleResponse
+readList :: ReadS [CreateSamplingRuleResponse]
+$creadList :: ReadS [CreateSamplingRuleResponse]
+readsPrec :: Int -&gt; ReadS CreateSamplingRuleResponse
+$creadsPrec :: Int -&gt; ReadS CreateSamplingRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263796"><span id="local-6989586621679263798"><span id="local-6989586621679263800"><span class="annot"><span class="annottext">Int -&gt; CreateSamplingRuleResponse -&gt; ShowS
+[CreateSamplingRuleResponse] -&gt; ShowS
+CreateSamplingRuleResponse -&gt; String
+(Int -&gt; CreateSamplingRuleResponse -&gt; ShowS)
+-&gt; (CreateSamplingRuleResponse -&gt; String)
+-&gt; ([CreateSamplingRuleResponse] -&gt; ShowS)
+-&gt; Show CreateSamplingRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSamplingRuleResponse] -&gt; ShowS
+$cshowList :: [CreateSamplingRuleResponse] -&gt; ShowS
+show :: CreateSamplingRuleResponse -&gt; String
+$cshow :: CreateSamplingRuleResponse -&gt; String
+showsPrec :: Int -&gt; CreateSamplingRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSamplingRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSamplingRuleResponse -&gt; Rep CreateSamplingRuleResponse x)
+-&gt; (forall x.
+    Rep CreateSamplingRuleResponse x -&gt; CreateSamplingRuleResponse)
+-&gt; Generic CreateSamplingRuleResponse
+forall x.
+Rep CreateSamplingRuleResponse x -&gt; CreateSamplingRuleResponse
+forall x.
+CreateSamplingRuleResponse -&gt; Rep CreateSamplingRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSamplingRuleResponse x -&gt; CreateSamplingRuleResponse
+$cfrom :: forall x.
+CreateSamplingRuleResponse -&gt; Rep CreateSamplingRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'CreateSamplingRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'samplingRuleRecord', 'createSamplingRuleResponse_samplingRuleRecord' - The saved rule definition and metadata.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'createSamplingRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#newCreateSamplingRuleResponse"><span class="hs-identifier hs-type">newCreateSamplingRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-type">CreateSamplingRuleResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newCreateSamplingRuleResponse"><span class="annot"><span class="annottext">newCreateSamplingRuleResponse :: Int -&gt; CreateSamplingRuleResponse
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#newCreateSamplingRuleResponse"><span class="hs-identifier hs-var hs-var">newCreateSamplingRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679263793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">CreateSamplingRuleResponse' :: Maybe SamplingRuleRecord -&gt; Int -&gt; CreateSamplingRuleResponse
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse%27"><span class="hs-identifier hs-type">CreateSamplingRuleResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:samplingRuleRecord:CreateSamplingRuleResponse' :: Maybe SamplingRuleRecord
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AsamplingRuleRecord%3ACreateSamplingRuleResponse%27"><span class="hs-identifier hs-var">samplingRuleRecord</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe SamplingRuleRecord
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSamplingRuleResponse' :: Int
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AhttpStatus%3ACreateSamplingRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The saved rule definition and metadata.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRuleResponse_samplingRuleRecord"><span class="hs-identifier hs-type">createSamplingRuleResponse_samplingRuleRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-type">CreateSamplingRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="createSamplingRuleResponse_samplingRuleRecord"><span class="annot"><span class="annottext">createSamplingRuleResponse_samplingRuleRecord :: (Maybe SamplingRuleRecord -&gt; f (Maybe SamplingRuleRecord))
+-&gt; CreateSamplingRuleResponse -&gt; f CreateSamplingRuleResponse
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRuleResponse_samplingRuleRecord"><span class="hs-identifier hs-var hs-var">createSamplingRuleResponse_samplingRuleRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSamplingRuleResponse -&gt; Maybe SamplingRuleRecord)
+-&gt; (CreateSamplingRuleResponse
+    -&gt; Maybe SamplingRuleRecord -&gt; CreateSamplingRuleResponse)
+-&gt; Lens
+     CreateSamplingRuleResponse
+     CreateSamplingRuleResponse
+     (Maybe SamplingRuleRecord)
+     (Maybe SamplingRuleRecord)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse%27"><span class="hs-identifier hs-type">CreateSamplingRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263792"><span class="annot"><span class="annottext">Maybe SamplingRuleRecord
+samplingRuleRecord :: Maybe SamplingRuleRecord
+$sel:samplingRuleRecord:CreateSamplingRuleResponse' :: CreateSamplingRuleResponse -&gt; Maybe SamplingRuleRecord
+</span><a href="#local-6989586621679263792"><span class="hs-identifier hs-var hs-var">samplingRuleRecord</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SamplingRuleRecord
+</span><a href="#local-6989586621679263792"><span class="hs-identifier hs-var">samplingRuleRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263791"><span class="annot"><span class="annottext">s :: CreateSamplingRuleResponse
+</span><a href="#local-6989586621679263791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse%27"><span class="hs-identifier hs-type">CreateSamplingRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263790"><span class="annot"><span class="annottext">Maybe SamplingRuleRecord
+</span><a href="#local-6989586621679263790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSamplingRuleResponse
+</span><a href="#local-6989586621679263791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingRuleRecord:CreateSamplingRuleResponse' :: Maybe SamplingRuleRecord
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AsamplingRuleRecord%3ACreateSamplingRuleResponse%27"><span class="hs-identifier hs-var">samplingRuleRecord</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SamplingRuleRecord
+</span><a href="#local-6989586621679263790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-type">CreateSamplingRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRuleResponse_httpStatus"><span class="hs-identifier hs-type">createSamplingRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-type">CreateSamplingRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="createSamplingRuleResponse_httpStatus"><span class="annot"><span class="annottext">createSamplingRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSamplingRuleResponse -&gt; f CreateSamplingRuleResponse
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#createSamplingRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSamplingRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSamplingRuleResponse -&gt; Int)
+-&gt; (CreateSamplingRuleResponse
+    -&gt; Int -&gt; CreateSamplingRuleResponse)
+-&gt; Lens
+     CreateSamplingRuleResponse CreateSamplingRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse%27"><span class="hs-identifier hs-type">CreateSamplingRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263789"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSamplingRuleResponse' :: CreateSamplingRuleResponse -&gt; Int
+</span><a href="#local-6989586621679263789"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263789"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263788"><span class="annot"><span class="annottext">s :: CreateSamplingRuleResponse
+</span><a href="#local-6989586621679263788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse%27"><span class="hs-identifier hs-type">CreateSamplingRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSamplingRuleResponse
+</span><a href="#local-6989586621679263788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSamplingRuleResponse' :: Int
+</span><a href="Amazonka.XRay.CreateSamplingRule.html#%24sel%3AhttpStatus%3ACreateSamplingRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-type">CreateSamplingRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.CreateSamplingRule.html#CreateSamplingRuleResponse"><span class="hs-identifier hs-type">CreateSamplingRuleResponse</span></a></span></span><span>
+</span><span id="line-230"></span></pre></body></html>

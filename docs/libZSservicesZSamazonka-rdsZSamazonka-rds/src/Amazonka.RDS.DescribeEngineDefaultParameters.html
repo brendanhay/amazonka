@@ -1,0 +1,856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.DescribeEngineDefaultParameters</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the default engine and system parameter information for the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified database engine.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.DescribeEngineDefaultParameters</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#newDescribeEngineDefaultParameters"><span class="hs-identifier">newDescribeEngineDefaultParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_filters"><span class="hs-identifier">describeEngineDefaultParameters_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_marker"><span class="hs-identifier">describeEngineDefaultParameters_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_maxRecords"><span class="hs-identifier">describeEngineDefaultParameters_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_dbParameterGroupFamily"><span class="hs-identifier">describeEngineDefaultParameters_dbParameterGroupFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier">DescribeEngineDefaultParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#newDescribeEngineDefaultParametersResponse"><span class="hs-identifier">newDescribeEngineDefaultParametersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_httpStatus"><span class="hs-identifier">describeEngineDefaultParametersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_engineDefaults"><span class="hs-identifier">describeEngineDefaultParametersResponse_engineDefaults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newDescribeEngineDefaultParameters' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679789554"><span id="local-6989586621679789555"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEngineDefaultParameters"><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-var">DescribeEngineDefaultParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEngineDefaultParameters%27"><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">DescribeEngineDefaultParameters'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeEngineDefaultParameters%27"><span class="annot"><span class="annottext">DescribeEngineDefaultParameters -&gt; Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3Afilters%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @DescribeEngineDefaultParameters@ request. If this parameter is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the value specified by @MaxRecords@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeEngineDefaultParameters%27"><span class="annot"><span class="annottext">DescribeEngineDefaultParameters -&gt; Maybe Text
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3Amarker%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so you can retrieve the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeEngineDefaultParameters%27"><span class="annot"><span class="annottext">DescribeEngineDefaultParameters -&gt; Maybe Int
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AmaxRecords%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the DB parameter group family.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdbParameterGroupFamily%3ADescribeEngineDefaultParameters%27"><span class="annot"><span class="annottext">DescribeEngineDefaultParameters -&gt; Text
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AdbParameterGroupFamily%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789545"><span id="local-6989586621679789547"><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+-&gt; DescribeEngineDefaultParameters -&gt; Bool
+(DescribeEngineDefaultParameters
+ -&gt; DescribeEngineDefaultParameters -&gt; Bool)
+-&gt; (DescribeEngineDefaultParameters
+    -&gt; DescribeEngineDefaultParameters -&gt; Bool)
+-&gt; Eq DescribeEngineDefaultParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEngineDefaultParameters
+-&gt; DescribeEngineDefaultParameters -&gt; Bool
+$c/= :: DescribeEngineDefaultParameters
+-&gt; DescribeEngineDefaultParameters -&gt; Bool
+== :: DescribeEngineDefaultParameters
+-&gt; DescribeEngineDefaultParameters -&gt; Bool
+$c== :: DescribeEngineDefaultParameters
+-&gt; DescribeEngineDefaultParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789536"><span id="local-6989586621679789538"><span id="local-6989586621679789540"><span id="local-6989586621679789542"><span class="annot"><span class="annottext">ReadPrec [DescribeEngineDefaultParameters]
+ReadPrec DescribeEngineDefaultParameters
+Int -&gt; ReadS DescribeEngineDefaultParameters
+ReadS [DescribeEngineDefaultParameters]
+(Int -&gt; ReadS DescribeEngineDefaultParameters)
+-&gt; ReadS [DescribeEngineDefaultParameters]
+-&gt; ReadPrec DescribeEngineDefaultParameters
+-&gt; ReadPrec [DescribeEngineDefaultParameters]
+-&gt; Read DescribeEngineDefaultParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEngineDefaultParameters]
+$creadListPrec :: ReadPrec [DescribeEngineDefaultParameters]
+readPrec :: ReadPrec DescribeEngineDefaultParameters
+$creadPrec :: ReadPrec DescribeEngineDefaultParameters
+readList :: ReadS [DescribeEngineDefaultParameters]
+$creadList :: ReadS [DescribeEngineDefaultParameters]
+readsPrec :: Int -&gt; ReadS DescribeEngineDefaultParameters
+$creadsPrec :: Int -&gt; ReadS DescribeEngineDefaultParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789529"><span id="local-6989586621679789531"><span id="local-6989586621679789533"><span class="annot"><span class="annottext">Int -&gt; DescribeEngineDefaultParameters -&gt; ShowS
+[DescribeEngineDefaultParameters] -&gt; ShowS
+DescribeEngineDefaultParameters -&gt; String
+(Int -&gt; DescribeEngineDefaultParameters -&gt; ShowS)
+-&gt; (DescribeEngineDefaultParameters -&gt; String)
+-&gt; ([DescribeEngineDefaultParameters] -&gt; ShowS)
+-&gt; Show DescribeEngineDefaultParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEngineDefaultParameters] -&gt; ShowS
+$cshowList :: [DescribeEngineDefaultParameters] -&gt; ShowS
+show :: DescribeEngineDefaultParameters -&gt; String
+$cshow :: DescribeEngineDefaultParameters -&gt; String
+showsPrec :: Int -&gt; DescribeEngineDefaultParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEngineDefaultParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEngineDefaultParameters
+ -&gt; Rep DescribeEngineDefaultParameters x)
+-&gt; (forall x.
+    Rep DescribeEngineDefaultParameters x
+    -&gt; DescribeEngineDefaultParameters)
+-&gt; Generic DescribeEngineDefaultParameters
+forall x.
+Rep DescribeEngineDefaultParameters x
+-&gt; DescribeEngineDefaultParameters
+forall x.
+DescribeEngineDefaultParameters
+-&gt; Rep DescribeEngineDefaultParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEngineDefaultParameters x
+-&gt; DescribeEngineDefaultParameters
+$cfrom :: forall x.
+DescribeEngineDefaultParameters
+-&gt; Rep DescribeEngineDefaultParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'DescribeEngineDefaultParameters' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'filters', 'describeEngineDefaultParameters_filters' - This parameter isn\'t currently supported.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'marker', 'describeEngineDefaultParameters_marker' - An optional pagination token provided by a previous</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- @DescribeEngineDefaultParameters@ request. If this parameter is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the value specified by @MaxRecords@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'maxRecords', 'describeEngineDefaultParameters_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- called a marker is included in the response so you can retrieve the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'dbParameterGroupFamily', 'describeEngineDefaultParameters_dbParameterGroupFamily' - The name of the DB parameter group family.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#newDescribeEngineDefaultParameters"><span class="hs-identifier hs-type">newDescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'dbParameterGroupFamily'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span>
+</span><span id="line-109"></span><span id="newDescribeEngineDefaultParameters"><span class="annot"><span class="annottext">newDescribeEngineDefaultParameters :: Text -&gt; DescribeEngineDefaultParameters
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#newDescribeEngineDefaultParameters"><span class="hs-identifier hs-var hs-var">newDescribeEngineDefaultParameters</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679789524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789524"><span class="hs-identifier hs-var">pDBParameterGroupFamily_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters' :: Maybe [Filter]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Text
+-&gt; DescribeEngineDefaultParameters
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeEngineDefaultParameters' :: Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3Afilters%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:marker:DescribeEngineDefaultParameters' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3Amarker%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEngineDefaultParameters' :: Maybe Int
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AmaxRecords%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DescribeEngineDefaultParameters' :: Text
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AdbParameterGroupFamily%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789524"><span class="hs-identifier hs-var">pDBParameterGroupFamily_</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_filters"><span class="hs-identifier hs-type">describeEngineDefaultParameters_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="describeEngineDefaultParameters_filters"><span class="annot"><span class="annottext">describeEngineDefaultParameters_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeEngineDefaultParameters
+-&gt; f DescribeEngineDefaultParameters
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_filters"><span class="hs-identifier hs-var hs-var">describeEngineDefaultParameters_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEngineDefaultParameters -&gt; Maybe [Filter])
+-&gt; (DescribeEngineDefaultParameters
+    -&gt; Maybe [Filter] -&gt; DescribeEngineDefaultParameters)
+-&gt; Lens
+     DescribeEngineDefaultParameters
+     DescribeEngineDefaultParameters
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789522"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679789522"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789522"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789521"><span class="annot"><span class="annottext">s :: DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789520"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeEngineDefaultParameters' :: Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3Afilters%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeEngineDefaultParameters
+ -&gt; f DescribeEngineDefaultParameters)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeEngineDefaultParameters
+-&gt; f DescribeEngineDefaultParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @DescribeEngineDefaultParameters@ request. If this parameter is</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the value specified by @MaxRecords@.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_marker"><span class="hs-identifier hs-type">describeEngineDefaultParameters_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="describeEngineDefaultParameters_marker"><span class="annot"><span class="annottext">describeEngineDefaultParameters_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEngineDefaultParameters
+-&gt; f DescribeEngineDefaultParameters
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_marker"><span class="hs-identifier hs-var hs-var">describeEngineDefaultParameters_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEngineDefaultParameters -&gt; Maybe Text)
+-&gt; (DescribeEngineDefaultParameters
+    -&gt; Maybe Text -&gt; DescribeEngineDefaultParameters)
+-&gt; Lens
+     DescribeEngineDefaultParameters
+     DescribeEngineDefaultParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789516"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679789516"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789516"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789515"><span class="annot"><span class="annottext">s :: DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEngineDefaultParameters' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3Amarker%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- called a marker is included in the response so you can retrieve the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_maxRecords"><span class="hs-identifier hs-type">describeEngineDefaultParameters_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="describeEngineDefaultParameters_maxRecords"><span class="annot"><span class="annottext">describeEngineDefaultParameters_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeEngineDefaultParameters
+-&gt; f DescribeEngineDefaultParameters
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_maxRecords"><span class="hs-identifier hs-var hs-var">describeEngineDefaultParameters_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEngineDefaultParameters -&gt; Maybe Int)
+-&gt; (DescribeEngineDefaultParameters
+    -&gt; Maybe Int -&gt; DescribeEngineDefaultParameters)
+-&gt; Lens
+     DescribeEngineDefaultParameters
+     DescribeEngineDefaultParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789513"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679789513"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679789513"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789512"><span class="annot"><span class="annottext">s :: DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789511"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679789511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEngineDefaultParameters' :: Maybe Int
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AmaxRecords%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679789511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The name of the DB parameter group family.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_dbParameterGroupFamily"><span class="hs-identifier hs-type">describeEngineDefaultParameters_dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="describeEngineDefaultParameters_dbParameterGroupFamily"><span class="annot"><span class="annottext">describeEngineDefaultParameters_dbParameterGroupFamily :: (Text -&gt; f Text)
+-&gt; DescribeEngineDefaultParameters
+-&gt; f DescribeEngineDefaultParameters
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_dbParameterGroupFamily"><span class="hs-identifier hs-var hs-var">describeEngineDefaultParameters_dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEngineDefaultParameters -&gt; Text)
+-&gt; (DescribeEngineDefaultParameters
+    -&gt; Text -&gt; DescribeEngineDefaultParameters)
+-&gt; Lens
+     DescribeEngineDefaultParameters
+     DescribeEngineDefaultParameters
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789510"><span class="annot"><span class="annottext">Text
+dbParameterGroupFamily :: Text
+$sel:dbParameterGroupFamily:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Text
+</span><a href="#local-6989586621679789510"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789510"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789509"><span class="annot"><span class="annottext">s :: DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789508"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DescribeEngineDefaultParameters' :: Text
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AdbParameterGroupFamily%3ADescribeEngineDefaultParameters%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679789504"><span class="annot"><span class="annottext">page :: DescribeEngineDefaultParameters
+-&gt; AWSResponse DescribeEngineDefaultParameters
+-&gt; Maybe DescribeEngineDefaultParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679789502"><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789502"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679789501"><span class="annot"><span class="annottext">AWSResponse DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789501"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEngineDefaultParameters
+DescribeEngineDefaultParametersResponse
+</span><a href="#local-6989586621679789501"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse
+-&gt; Getting
+     (First Text) DescribeEngineDefaultParametersResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Const (First Text) EngineDefaults)
+-&gt; DescribeEngineDefaultParametersResponse
+-&gt; Const (First Text) DescribeEngineDefaultParametersResponse
+Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_engineDefaults"><span class="hs-identifier hs-var">describeEngineDefaultParametersResponse_engineDefaults</span></a></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">((EngineDefaults -&gt; Const (First Text) EngineDefaults)
+ -&gt; DescribeEngineDefaultParametersResponse
+ -&gt; Const (First Text) DescribeEngineDefaultParametersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; EngineDefaults -&gt; Const (First Text) EngineDefaults)
+-&gt; Getting
+     (First Text) DescribeEngineDefaultParametersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; EngineDefaults -&gt; Const (First Text) EngineDefaults
+Lens' EngineDefaults (Maybe Text)
+</span><a href="Amazonka.RDS.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-var">engineDefaults_marker</span></a></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; EngineDefaults -&gt; Const (First Text) EngineDefaults)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; (Text -&gt; Const (First Text) Text)
+-&gt; EngineDefaults
+-&gt; Const (First Text) EngineDefaults
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-156"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEngineDefaultParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-159"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEngineDefaultParameters
+DescribeEngineDefaultParametersResponse
+</span><a href="#local-6989586621679789501"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse
+-&gt; Getting
+     (First [Parameter])
+     DescribeEngineDefaultParametersResponse
+     [Parameter]
+-&gt; Maybe [Parameter]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Const (First [Parameter]) EngineDefaults)
+-&gt; DescribeEngineDefaultParametersResponse
+-&gt; Const
+     (First [Parameter]) DescribeEngineDefaultParametersResponse
+Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_engineDefaults"><span class="hs-identifier hs-var">describeEngineDefaultParametersResponse_engineDefaults</span></a></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">((EngineDefaults -&gt; Const (First [Parameter]) EngineDefaults)
+ -&gt; DescribeEngineDefaultParametersResponse
+ -&gt; Const
+      (First [Parameter]) DescribeEngineDefaultParametersResponse)
+-&gt; (([Parameter] -&gt; Const (First [Parameter]) [Parameter])
+    -&gt; EngineDefaults -&gt; Const (First [Parameter]) EngineDefaults)
+-&gt; Getting
+     (First [Parameter])
+     DescribeEngineDefaultParametersResponse
+     [Parameter]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Parameter]
+ -&gt; Const (First [Parameter]) (Maybe [Parameter]))
+-&gt; EngineDefaults -&gt; Const (First [Parameter]) EngineDefaults
+Lens' EngineDefaults (Maybe [Parameter])
+</span><a href="Amazonka.RDS.Types.EngineDefaults.html#engineDefaults_parameters"><span class="hs-identifier hs-var">engineDefaults_parameters</span></a></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Parameter]
+  -&gt; Const (First [Parameter]) (Maybe [Parameter]))
+ -&gt; EngineDefaults -&gt; Const (First [Parameter]) EngineDefaults)
+-&gt; (([Parameter] -&gt; Const (First [Parameter]) [Parameter])
+    -&gt; Maybe [Parameter]
+    -&gt; Const (First [Parameter]) (Maybe [Parameter]))
+-&gt; ([Parameter] -&gt; Const (First [Parameter]) [Parameter])
+-&gt; EngineDefaults
+-&gt; Const (First [Parameter]) EngineDefaults
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Parameter] -&gt; Const (First [Parameter]) [Parameter])
+-&gt; Maybe [Parameter]
+-&gt; Const (First [Parameter]) (Maybe [Parameter])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-163"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEngineDefaultParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+-&gt; Maybe DescribeEngineDefaultParameters
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeEngineDefaultParameters
+ -&gt; Maybe DescribeEngineDefaultParameters)
+-&gt; DescribeEngineDefaultParameters
+-&gt; Maybe DescribeEngineDefaultParameters
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+</span><a href="#local-6989586621679789502"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">DescribeEngineDefaultParameters
+-&gt; (DescribeEngineDefaultParameters
+    -&gt; DescribeEngineDefaultParameters)
+-&gt; DescribeEngineDefaultParameters
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeEngineDefaultParameters
+-&gt; Identity DescribeEngineDefaultParameters
+Lens
+  DescribeEngineDefaultParameters
+  DescribeEngineDefaultParameters
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParameters_marker"><span class="hs-identifier hs-var">describeEngineDefaultParameters_marker</span></a></span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeEngineDefaultParameters
+ -&gt; Identity DescribeEngineDefaultParameters)
+-&gt; Maybe Text
+-&gt; DescribeEngineDefaultParameters
+-&gt; DescribeEngineDefaultParameters
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEngineDefaultParameters
+DescribeEngineDefaultParametersResponse
+</span><a href="#local-6989586621679789501"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse
+-&gt; Getting
+     (First Text) DescribeEngineDefaultParametersResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Const (First Text) EngineDefaults)
+-&gt; DescribeEngineDefaultParametersResponse
+-&gt; Const (First Text) DescribeEngineDefaultParametersResponse
+Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_engineDefaults"><span class="hs-identifier hs-var">describeEngineDefaultParametersResponse_engineDefaults</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">((EngineDefaults -&gt; Const (First Text) EngineDefaults)
+ -&gt; DescribeEngineDefaultParametersResponse
+ -&gt; Const (First Text) DescribeEngineDefaultParametersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; EngineDefaults -&gt; Const (First Text) EngineDefaults)
+-&gt; Getting
+     (First Text) DescribeEngineDefaultParametersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; EngineDefaults -&gt; Const (First Text) EngineDefaults
+Lens' EngineDefaults (Maybe Text)
+</span><a href="Amazonka.RDS.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-var">engineDefaults_marker</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; EngineDefaults -&gt; Const (First Text) EngineDefaults)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; (Text -&gt; Const (First Text) Text)
+-&gt; EngineDefaults
+-&gt; Const (First Text) EngineDefaults
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679789490"><span class="annot"><span class="annottext">request :: DescribeEngineDefaultParameters
+-&gt; Request DescribeEngineDefaultParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeEngineDefaultParameters
+-&gt; Request DescribeEngineDefaultParameters
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679789486"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEngineDefaultParameters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeEngineDefaultParameters)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeEngineDefaultParameters))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEngineDefaultParameters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeEngineDefaultParameters)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeEngineDefaultParametersResult&quot;</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789483"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679789482"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679789482"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679789481"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679789481"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EngineDefaults -&gt; DescribeEngineDefaultParametersResponse
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var">DescribeEngineDefaultParametersResponse'</span></a></span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EngineDefaults -&gt; DescribeEngineDefaultParametersResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (EngineDefaults -&gt; DescribeEngineDefaultParametersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789483"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (EngineDefaults -&gt; DescribeEngineDefaultParametersResponse)
+-&gt; Either String EngineDefaults
+-&gt; Either String DescribeEngineDefaultParametersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679789481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String EngineDefaults
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineDefaults&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679789473"><span id="local-6989586621679789475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679789470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679789466"><span class="annot"><span class="annottext">toHeaders :: DescribeEngineDefaultParameters -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeEngineDefaultParameters -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679789461"><span class="annot"><span class="annottext">toPath :: DescribeEngineDefaultParameters -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEngineDefaultParameters -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679789457"><span class="annot"><span class="annottext">toQuery :: DescribeEngineDefaultParameters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParameters%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789452"><span id="local-6989586621679789453"><span id="local-6989586621679789454"><span id="local-6989586621679789455"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Filter]
+Maybe Text
+Text
+dbParameterGroupFamily :: Text
+maxRecords :: Maybe Int
+marker :: Maybe Text
+filters :: Maybe [Filter]
+$sel:dbParameterGroupFamily:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Text
+$sel:maxRecords:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Maybe Int
+$sel:marker:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Maybe Text
+$sel:filters:DescribeEngineDefaultParameters' :: DescribeEngineDefaultParameters -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679789452"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeEngineDefaultParameters&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-214"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span>
+</span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789455"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789454"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679789453"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBParameterGroupFamily&quot;</span></span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789452"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | /See:/ 'newDescribeEngineDefaultParametersResponse' smart constructor.</span><span>
+</span><span id="line-227"></span><span id="local-6989586621679789448"><span id="local-6989586621679789449"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEngineDefaultParametersResponse"><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-var">DescribeEngineDefaultParametersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEngineDefaultParametersResponse%27"><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var">DescribeEngineDefaultParametersResponse'</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEngineDefaultParametersResponse%27"><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse -&gt; Int
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AhttpStatus%3ADescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AengineDefaults%3ADescribeEngineDefaultParametersResponse%27"><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse -&gt; EngineDefaults
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AengineDefaults%3ADescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var hs-var">engineDefaults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789442"><span id="local-6989586621679789444"><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse
+-&gt; DescribeEngineDefaultParametersResponse -&gt; Bool
+(DescribeEngineDefaultParametersResponse
+ -&gt; DescribeEngineDefaultParametersResponse -&gt; Bool)
+-&gt; (DescribeEngineDefaultParametersResponse
+    -&gt; DescribeEngineDefaultParametersResponse -&gt; Bool)
+-&gt; Eq DescribeEngineDefaultParametersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEngineDefaultParametersResponse
+-&gt; DescribeEngineDefaultParametersResponse -&gt; Bool
+$c/= :: DescribeEngineDefaultParametersResponse
+-&gt; DescribeEngineDefaultParametersResponse -&gt; Bool
+== :: DescribeEngineDefaultParametersResponse
+-&gt; DescribeEngineDefaultParametersResponse -&gt; Bool
+$c== :: DescribeEngineDefaultParametersResponse
+-&gt; DescribeEngineDefaultParametersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789434"><span id="local-6989586621679789436"><span id="local-6989586621679789438"><span id="local-6989586621679789440"><span class="annot"><span class="annottext">ReadPrec [DescribeEngineDefaultParametersResponse]
+ReadPrec DescribeEngineDefaultParametersResponse
+Int -&gt; ReadS DescribeEngineDefaultParametersResponse
+ReadS [DescribeEngineDefaultParametersResponse]
+(Int -&gt; ReadS DescribeEngineDefaultParametersResponse)
+-&gt; ReadS [DescribeEngineDefaultParametersResponse]
+-&gt; ReadPrec DescribeEngineDefaultParametersResponse
+-&gt; ReadPrec [DescribeEngineDefaultParametersResponse]
+-&gt; Read DescribeEngineDefaultParametersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEngineDefaultParametersResponse]
+$creadListPrec :: ReadPrec [DescribeEngineDefaultParametersResponse]
+readPrec :: ReadPrec DescribeEngineDefaultParametersResponse
+$creadPrec :: ReadPrec DescribeEngineDefaultParametersResponse
+readList :: ReadS [DescribeEngineDefaultParametersResponse]
+$creadList :: ReadS [DescribeEngineDefaultParametersResponse]
+readsPrec :: Int -&gt; ReadS DescribeEngineDefaultParametersResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEngineDefaultParametersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789428"><span id="local-6989586621679789430"><span id="local-6989586621679789432"><span class="annot"><span class="annottext">Int -&gt; DescribeEngineDefaultParametersResponse -&gt; ShowS
+[DescribeEngineDefaultParametersResponse] -&gt; ShowS
+DescribeEngineDefaultParametersResponse -&gt; String
+(Int -&gt; DescribeEngineDefaultParametersResponse -&gt; ShowS)
+-&gt; (DescribeEngineDefaultParametersResponse -&gt; String)
+-&gt; ([DescribeEngineDefaultParametersResponse] -&gt; ShowS)
+-&gt; Show DescribeEngineDefaultParametersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEngineDefaultParametersResponse] -&gt; ShowS
+$cshowList :: [DescribeEngineDefaultParametersResponse] -&gt; ShowS
+show :: DescribeEngineDefaultParametersResponse -&gt; String
+$cshow :: DescribeEngineDefaultParametersResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEngineDefaultParametersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEngineDefaultParametersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEngineDefaultParametersResponse
+ -&gt; Rep DescribeEngineDefaultParametersResponse x)
+-&gt; (forall x.
+    Rep DescribeEngineDefaultParametersResponse x
+    -&gt; DescribeEngineDefaultParametersResponse)
+-&gt; Generic DescribeEngineDefaultParametersResponse
+forall x.
+Rep DescribeEngineDefaultParametersResponse x
+-&gt; DescribeEngineDefaultParametersResponse
+forall x.
+DescribeEngineDefaultParametersResponse
+-&gt; Rep DescribeEngineDefaultParametersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEngineDefaultParametersResponse x
+-&gt; DescribeEngineDefaultParametersResponse
+$cfrom :: forall x.
+DescribeEngineDefaultParametersResponse
+-&gt; Rep DescribeEngineDefaultParametersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Create a value of 'DescribeEngineDefaultParametersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'httpStatus', 'describeEngineDefaultParametersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'engineDefaults', 'describeEngineDefaultParametersResponse_engineDefaults' - Undocumented member.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#newDescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">newDescribeEngineDefaultParametersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-comment">-- | 'engineDefaults'</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse</span></a></span><span>
+</span><span id="line-251"></span><span id="newDescribeEngineDefaultParametersResponse"><span class="annot"><span class="annottext">newDescribeEngineDefaultParametersResponse :: Int -&gt; EngineDefaults -&gt; DescribeEngineDefaultParametersResponse
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#newDescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-var hs-var">newDescribeEngineDefaultParametersResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679789425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789425"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679789424"><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679789424"><span class="hs-identifier hs-var">pEngineDefaults_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse' :: Int -&gt; EngineDefaults -&gt; DescribeEngineDefaultParametersResponse
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse'</span></a></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEngineDefaultParametersResponse' :: Int
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AhttpStatus%3ADescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789425"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">$sel:engineDefaults:DescribeEngineDefaultParametersResponse' :: EngineDefaults
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AengineDefaults%3ADescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var">engineDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679789424"><span class="hs-identifier hs-var">pEngineDefaults_</span></a></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_httpStatus"><span class="hs-identifier hs-type">describeEngineDefaultParametersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="describeEngineDefaultParametersResponse_httpStatus"><span class="annot"><span class="annottext">describeEngineDefaultParametersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEngineDefaultParametersResponse
+-&gt; f DescribeEngineDefaultParametersResponse
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEngineDefaultParametersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEngineDefaultParametersResponse -&gt; Int)
+-&gt; (DescribeEngineDefaultParametersResponse
+    -&gt; Int -&gt; DescribeEngineDefaultParametersResponse)
+-&gt; Lens
+     DescribeEngineDefaultParametersResponse
+     DescribeEngineDefaultParametersResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789423"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEngineDefaultParametersResponse' :: DescribeEngineDefaultParametersResponse -&gt; Int
+</span><a href="#local-6989586621679789423"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789423"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789422"><span class="annot"><span class="annottext">s :: DescribeEngineDefaultParametersResponse
+</span><a href="#local-6989586621679789422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789421"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse
+</span><a href="#local-6989586621679789422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEngineDefaultParametersResponse' :: Int
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AhttpStatus%3ADescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_engineDefaults"><span class="hs-identifier hs-type">describeEngineDefaultParametersResponse_engineDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span>
+</span><span id="line-266"></span><span id="describeEngineDefaultParametersResponse_engineDefaults"><span class="annot"><span class="annottext">describeEngineDefaultParametersResponse_engineDefaults :: (EngineDefaults -&gt; f EngineDefaults)
+-&gt; DescribeEngineDefaultParametersResponse
+-&gt; f DescribeEngineDefaultParametersResponse
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#describeEngineDefaultParametersResponse_engineDefaults"><span class="hs-identifier hs-var hs-var">describeEngineDefaultParametersResponse_engineDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEngineDefaultParametersResponse -&gt; EngineDefaults)
+-&gt; (DescribeEngineDefaultParametersResponse
+    -&gt; EngineDefaults -&gt; DescribeEngineDefaultParametersResponse)
+-&gt; Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789420"><span class="annot"><span class="annottext">EngineDefaults
+engineDefaults :: EngineDefaults
+$sel:engineDefaults:DescribeEngineDefaultParametersResponse' :: DescribeEngineDefaultParametersResponse -&gt; EngineDefaults
+</span><a href="#local-6989586621679789420"><span class="hs-identifier hs-var hs-var">engineDefaults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679789420"><span class="hs-identifier hs-var">engineDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789419"><span class="annot"><span class="annottext">s :: DescribeEngineDefaultParametersResponse
+</span><a href="#local-6989586621679789419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789418"><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679789418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEngineDefaultParametersResponse
+</span><a href="#local-6989586621679789419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineDefaults:DescribeEngineDefaultParametersResponse' :: EngineDefaults
+</span><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#%24sel%3AengineDefaults%3ADescribeEngineDefaultParametersResponse%27"><span class="hs-identifier hs-var">engineDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679789418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679789416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEngineDefaultParameters.html#DescribeEngineDefaultParametersResponse"><span class="hs-identifier hs-type">DescribeEngineDefaultParametersResponse</span></a></span></span><span>
+</span><span id="line-271"></span></pre></body></html>

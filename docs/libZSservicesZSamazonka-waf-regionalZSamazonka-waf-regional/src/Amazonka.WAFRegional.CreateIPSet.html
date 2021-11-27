@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WAFRegional.CreateIPSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Creates an IPSet, which you use to specify which web requests that you</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- want to allow or block based on the IP addresses that the requests</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- originate from. For example, if you\'re receiving a lot of requests from</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- one or more individual IP addresses or one or more ranges of IP</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- addresses and you want to block the requests, you can create an @IPSet@</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- that contains those IP addresses and then configure AWS WAF to block the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- requests.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- To create and configure an @IPSet@, perform the following steps:</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- 1.  Use GetChangeToken to get the change token that you provide in the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     @ChangeToken@ parameter of a @CreateIPSet@ request.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 2.  Submit a @CreateIPSet@ request.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 3.  Use @GetChangeToken@ to get the change token that you provide in the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     @ChangeToken@ parameter of an UpdateIPSet request.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 4.  Submit an @UpdateIPSet@ request to specify the IP addresses that you</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     want AWS WAF to watch for.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- For more information about how to use the AWS WAF API to allow or block</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- HTTP requests, see the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAFRegional.CreateIPSet</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier">CreateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#newCreateIPSet"><span class="hs-identifier">newCreateIPSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSet_name"><span class="hs-identifier">createIPSet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSet_changeToken"><span class="hs-identifier">createIPSet_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier">CreateIPSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#newCreateIPSetResponse"><span class="hs-identifier">newCreateIPSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_changeToken"><span class="hs-identifier">createIPSetResponse_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_iPSet"><span class="hs-identifier">createIPSetResponse_iPSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_httpStatus"><span class="hs-identifier">createIPSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.html"><span class="hs-identifier">Amazonka.WAFRegional.Types</span></a></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newCreateIPSet' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679327060"><span id="local-6989586621679327061"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIPSet"><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-var">CreateIPSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIPSet%27"><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-var">CreateIPSet'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly name or description of the IPSet. You can\'t change @Name@</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- after you create the @IPSet@.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aname%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3Aname%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AchangeToken%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AchangeToken%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327053"><span id="local-6989586621679327055"><span class="annot"><span class="annottext">CreateIPSet -&gt; CreateIPSet -&gt; Bool
+(CreateIPSet -&gt; CreateIPSet -&gt; Bool)
+-&gt; (CreateIPSet -&gt; CreateIPSet -&gt; Bool) -&gt; Eq CreateIPSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+$c/= :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+== :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+$c== :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327044"><span id="local-6989586621679327046"><span id="local-6989586621679327048"><span id="local-6989586621679327050"><span class="annot"><span class="annottext">ReadPrec [CreateIPSet]
+ReadPrec CreateIPSet
+Int -&gt; ReadS CreateIPSet
+ReadS [CreateIPSet]
+(Int -&gt; ReadS CreateIPSet)
+-&gt; ReadS [CreateIPSet]
+-&gt; ReadPrec CreateIPSet
+-&gt; ReadPrec [CreateIPSet]
+-&gt; Read CreateIPSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIPSet]
+$creadListPrec :: ReadPrec [CreateIPSet]
+readPrec :: ReadPrec CreateIPSet
+$creadPrec :: ReadPrec CreateIPSet
+readList :: ReadS [CreateIPSet]
+$creadList :: ReadS [CreateIPSet]
+readsPrec :: Int -&gt; ReadS CreateIPSet
+$creadsPrec :: Int -&gt; ReadS CreateIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327037"><span id="local-6989586621679327039"><span id="local-6989586621679327041"><span class="annot"><span class="annottext">Int -&gt; CreateIPSet -&gt; ShowS
+[CreateIPSet] -&gt; ShowS
+CreateIPSet -&gt; String
+(Int -&gt; CreateIPSet -&gt; ShowS)
+-&gt; (CreateIPSet -&gt; String)
+-&gt; ([CreateIPSet] -&gt; ShowS)
+-&gt; Show CreateIPSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIPSet] -&gt; ShowS
+$cshowList :: [CreateIPSet] -&gt; ShowS
+show :: CreateIPSet -&gt; String
+$cshow :: CreateIPSet -&gt; String
+showsPrec :: Int -&gt; CreateIPSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIPSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateIPSet -&gt; Rep CreateIPSet x)
+-&gt; (forall x. Rep CreateIPSet x -&gt; CreateIPSet)
+-&gt; Generic CreateIPSet
+forall x. Rep CreateIPSet x -&gt; CreateIPSet
+forall x. CreateIPSet -&gt; Rep CreateIPSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateIPSet x -&gt; CreateIPSet
+$cfrom :: forall x. CreateIPSet -&gt; Rep CreateIPSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'CreateIPSet' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'name', 'createIPSet_name' - A friendly name or description of the IPSet. You can\'t change @Name@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- after you create the @IPSet@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'changeToken', 'createIPSet_changeToken' - The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#newCreateIPSet"><span class="hs-identifier hs-type">newCreateIPSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'changeToken'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span>
+</span><span id="line-111"></span><span id="newCreateIPSet"><span class="annot"><span class="annottext">newCreateIPSet :: Text -&gt; Text -&gt; CreateIPSet
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#newCreateIPSet"><span class="hs-identifier hs-var hs-var">newCreateIPSet</span></a></span></span><span> </span><span id="local-6989586621679327032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327032"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679327031"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327031"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">CreateIPSet' :: Text -&gt; Text -&gt; CreateIPSet
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateIPSet' :: Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3Aname%3ACreateIPSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327032"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:CreateIPSet' :: Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AchangeToken%3ACreateIPSet%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327031"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | A friendly name or description of the IPSet. You can\'t change @Name@</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- after you create the @IPSet@.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSet_name"><span class="hs-identifier hs-type">createIPSet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="createIPSet_name"><span class="annot"><span class="annottext">createIPSet_name :: (Text -&gt; f Text) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSet_name"><span class="hs-identifier hs-var hs-var">createIPSet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Text)
+-&gt; (CreateIPSet -&gt; Text -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327028"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateIPSet' :: CreateIPSet -&gt; Text
+</span><a href="#local-6989586621679327028"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327028"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327027"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679327027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327026"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679327027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateIPSet' :: Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3Aname%3ACreateIPSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSet_changeToken"><span class="hs-identifier hs-type">createIPSet_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="createIPSet_changeToken"><span class="annot"><span class="annottext">createIPSet_changeToken :: (Text -&gt; f Text) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSet_changeToken"><span class="hs-identifier hs-var hs-var">createIPSet_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Text)
+-&gt; (CreateIPSet -&gt; Text -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327025"><span class="annot"><span class="annottext">Text
+changeToken :: Text
+$sel:changeToken:CreateIPSet' :: CreateIPSet -&gt; Text
+</span><a href="#local-6989586621679327025"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327025"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327024"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679327024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679327024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateIPSet' :: Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AchangeToken%3ACreateIPSet%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679327019"><span class="annot"><span class="annottext">request :: CreateIPSet -&gt; Request CreateIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateIPSet -&gt; Request CreateIPSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679327015"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateIPSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateIPSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateIPSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327012"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679327011"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679327011"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679327010"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe IPSet -&gt; Int -&gt; CreateIPSetResponse
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-var">CreateIPSetResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe IPSet -&gt; Int -&gt; CreateIPSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe IPSet -&gt; Int -&gt; CreateIPSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe IPSet -&gt; Int -&gt; CreateIPSetResponse)
+-&gt; Either String (Maybe IPSet)
+-&gt; Either String (Int -&gt; CreateIPSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IPSet)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IPSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateIPSetResponse)
+-&gt; Either String Int -&gt; Either String CreateIPSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327012"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327002"><span id="local-6989586621679327004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679326995"><span class="annot"><span class="annottext">toHeaders :: CreateIPSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateIPSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSWAF_Regional_20161128.CreateIPSet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326985"><span id="local-6989586621679326987"><span id="local-6989586621679326989"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679326983"><span class="annot"><span class="annottext">toJSON :: CreateIPSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326980"><span id="local-6989586621679326981"><span class="annot"><span class="annottext">Text
+changeToken :: Text
+name :: Text
+$sel:changeToken:CreateIPSet' :: CreateIPSet -&gt; Text
+$sel:name:CreateIPSet' :: CreateIPSet -&gt; Text
+</span><a href="#local-6989586621679326980"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326981"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326980"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679326974"><span class="annot"><span class="annottext">toPath :: CreateIPSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateIPSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679326970"><span class="annot"><span class="annottext">toQuery :: CreateIPSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateIPSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newCreateIPSetResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679326967"><span id="local-6989586621679326968"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIPSetResponse"><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-var">CreateIPSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIPSetResponse%27"><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-var">CreateIPSetResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- can also use this value to query the status of the request. For more</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AchangeToken%3ACreateIPSetResponse%27"><span class="annot"><span class="annottext">CreateIPSetResponse -&gt; Maybe Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AchangeToken%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The IPSet returned in the @CreateIPSet@ response.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AiPSet%3ACreateIPSetResponse%27"><span class="annot"><span class="annottext">CreateIPSetResponse -&gt; Maybe IPSet
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AiPSet%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var hs-var">iPSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSet.html#IPSet"><span class="hs-identifier hs-type">IPSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="annot"><span class="annottext">CreateIPSetResponse -&gt; Int
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326960"><span id="local-6989586621679326962"><span class="annot"><span class="annottext">CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+(CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool)
+-&gt; (CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool)
+-&gt; Eq CreateIPSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+$c/= :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+== :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+$c== :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326952"><span id="local-6989586621679326954"><span id="local-6989586621679326956"><span id="local-6989586621679326958"><span class="annot"><span class="annottext">ReadPrec [CreateIPSetResponse]
+ReadPrec CreateIPSetResponse
+Int -&gt; ReadS CreateIPSetResponse
+ReadS [CreateIPSetResponse]
+(Int -&gt; ReadS CreateIPSetResponse)
+-&gt; ReadS [CreateIPSetResponse]
+-&gt; ReadPrec CreateIPSetResponse
+-&gt; ReadPrec [CreateIPSetResponse]
+-&gt; Read CreateIPSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIPSetResponse]
+$creadListPrec :: ReadPrec [CreateIPSetResponse]
+readPrec :: ReadPrec CreateIPSetResponse
+$creadPrec :: ReadPrec CreateIPSetResponse
+readList :: ReadS [CreateIPSetResponse]
+$creadList :: ReadS [CreateIPSetResponse]
+readsPrec :: Int -&gt; ReadS CreateIPSetResponse
+$creadsPrec :: Int -&gt; ReadS CreateIPSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326946"><span id="local-6989586621679326948"><span id="local-6989586621679326950"><span class="annot"><span class="annottext">Int -&gt; CreateIPSetResponse -&gt; ShowS
+[CreateIPSetResponse] -&gt; ShowS
+CreateIPSetResponse -&gt; String
+(Int -&gt; CreateIPSetResponse -&gt; ShowS)
+-&gt; (CreateIPSetResponse -&gt; String)
+-&gt; ([CreateIPSetResponse] -&gt; ShowS)
+-&gt; Show CreateIPSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIPSetResponse] -&gt; ShowS
+$cshowList :: [CreateIPSetResponse] -&gt; ShowS
+show :: CreateIPSetResponse -&gt; String
+$cshow :: CreateIPSetResponse -&gt; String
+showsPrec :: Int -&gt; CreateIPSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIPSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateIPSetResponse -&gt; Rep CreateIPSetResponse x)
+-&gt; (forall x. Rep CreateIPSetResponse x -&gt; CreateIPSetResponse)
+-&gt; Generic CreateIPSetResponse
+forall x. Rep CreateIPSetResponse x -&gt; CreateIPSetResponse
+forall x. CreateIPSetResponse -&gt; Rep CreateIPSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateIPSetResponse x -&gt; CreateIPSetResponse
+$cfrom :: forall x. CreateIPSetResponse -&gt; Rep CreateIPSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'CreateIPSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'changeToken', 'createIPSetResponse_changeToken' - The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- can also use this value to query the status of the request. For more</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'iPSet', 'createIPSetResponse_iPSet' - The IPSet returned in the @CreateIPSet@ response.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'createIPSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#newCreateIPSetResponse"><span class="hs-identifier hs-type">newCreateIPSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span>
+</span><span id="line-204"></span><span id="newCreateIPSetResponse"><span class="annot"><span class="annottext">newCreateIPSetResponse :: Int -&gt; CreateIPSetResponse
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#newCreateIPSetResponse"><span class="hs-identifier hs-var hs-var">newCreateIPSetResponse</span></a></span></span><span> </span><span id="local-6989586621679326943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">CreateIPSetResponse' :: Maybe Text -&gt; Maybe IPSet -&gt; Int -&gt; CreateIPSetResponse
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:changeToken:CreateIPSetResponse' :: Maybe Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AchangeToken%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPSet:CreateIPSetResponse' :: Maybe IPSet
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AiPSet%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">iPSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IPSet
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIPSetResponse' :: Int
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- can also use this value to query the status of the request. For more</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_changeToken"><span class="hs-identifier hs-type">createIPSetResponse_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="createIPSetResponse_changeToken"><span class="annot"><span class="annottext">createIPSetResponse_changeToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIPSetResponse -&gt; f CreateIPSetResponse
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_changeToken"><span class="hs-identifier hs-var hs-var">createIPSetResponse_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSetResponse -&gt; Maybe Text)
+-&gt; (CreateIPSetResponse -&gt; Maybe Text -&gt; CreateIPSetResponse)
+-&gt; Lens
+     CreateIPSetResponse CreateIPSetResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326942"><span class="annot"><span class="annottext">Maybe Text
+changeToken :: Maybe Text
+$sel:changeToken:CreateIPSetResponse' :: CreateIPSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679326942"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326942"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326941"><span class="annot"><span class="annottext">s :: CreateIPSetResponse
+</span><a href="#local-6989586621679326941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326940"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSetResponse
+</span><a href="#local-6989586621679326941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateIPSetResponse' :: Maybe Text
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AchangeToken%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The IPSet returned in the @CreateIPSet@ response.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_iPSet"><span class="hs-identifier hs-type">createIPSetResponse_iPSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSet.html#IPSet"><span class="hs-identifier hs-type">IPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="createIPSetResponse_iPSet"><span class="annot"><span class="annottext">createIPSetResponse_iPSet :: (Maybe IPSet -&gt; f (Maybe IPSet))
+-&gt; CreateIPSetResponse -&gt; f CreateIPSetResponse
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_iPSet"><span class="hs-identifier hs-var hs-var">createIPSetResponse_iPSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSetResponse -&gt; Maybe IPSet)
+-&gt; (CreateIPSetResponse -&gt; Maybe IPSet -&gt; CreateIPSetResponse)
+-&gt; Lens
+     CreateIPSetResponse CreateIPSetResponse (Maybe IPSet) (Maybe IPSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326939"><span class="annot"><span class="annottext">Maybe IPSet
+iPSet :: Maybe IPSet
+$sel:iPSet:CreateIPSetResponse' :: CreateIPSetResponse -&gt; Maybe IPSet
+</span><a href="#local-6989586621679326939"><span class="hs-identifier hs-var hs-var">iPSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IPSet
+</span><a href="#local-6989586621679326939"><span class="hs-identifier hs-var">iPSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326938"><span class="annot"><span class="annottext">s :: CreateIPSetResponse
+</span><a href="#local-6989586621679326938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326937"><span class="annot"><span class="annottext">Maybe IPSet
+</span><a href="#local-6989586621679326937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSetResponse
+</span><a href="#local-6989586621679326938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPSet:CreateIPSetResponse' :: Maybe IPSet
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AiPSet%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">iPSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IPSet
+</span><a href="#local-6989586621679326937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_httpStatus"><span class="hs-identifier hs-type">createIPSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="createIPSetResponse_httpStatus"><span class="annot"><span class="annottext">createIPSetResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateIPSetResponse -&gt; f CreateIPSetResponse
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#createIPSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createIPSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSetResponse -&gt; Int)
+-&gt; (CreateIPSetResponse -&gt; Int -&gt; CreateIPSetResponse)
+-&gt; Lens CreateIPSetResponse CreateIPSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326936"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateIPSetResponse' :: CreateIPSetResponse -&gt; Int
+</span><a href="#local-6989586621679326936"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326936"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326935"><span class="annot"><span class="annottext">s :: CreateIPSetResponse
+</span><a href="#local-6989586621679326935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326934"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSetResponse
+</span><a href="#local-6989586621679326935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIPSetResponse' :: Int
+</span><a href="Amazonka.WAFRegional.CreateIPSet.html#%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

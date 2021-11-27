@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MechanicalTurk.Types.HITStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MechanicalTurk.Types.HITStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier">HITStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Assignable"><span class="hs-identifier">HITStatus_Assignable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Disposed"><span class="hs-identifier">HITStatus_Disposed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Reviewable"><span class="hs-identifier">HITStatus_Reviewable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Reviewing"><span class="hs-identifier">HITStatus_Reviewing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Unassignable"><span class="hs-identifier">HITStatus_Unassignable</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679243053"><span id="local-6989586621679243054"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HITStatus"><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-var">HITStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HITStatus%27"><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-var">HITStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHITStatus"><span class="annot"><span class="annottext">HITStatus -&gt; Text
+</span><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#fromHITStatus"><span class="hs-identifier hs-var hs-var">fromHITStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243045"><span id="local-6989586621679243047"><span id="local-6989586621679243049"><span class="annot"><span class="annottext">Int -&gt; HITStatus -&gt; ShowS
+[HITStatus] -&gt; ShowS
+HITStatus -&gt; String
+(Int -&gt; HITStatus -&gt; ShowS)
+-&gt; (HITStatus -&gt; String)
+-&gt; ([HITStatus] -&gt; ShowS)
+-&gt; Show HITStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HITStatus] -&gt; ShowS
+$cshowList :: [HITStatus] -&gt; ShowS
+show :: HITStatus -&gt; String
+$cshow :: HITStatus -&gt; String
+showsPrec :: Int -&gt; HITStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; HITStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679243036"><span id="local-6989586621679243038"><span id="local-6989586621679243040"><span id="local-6989586621679243042"><span class="annot"><span class="annottext">ReadPrec [HITStatus]
+ReadPrec HITStatus
+Int -&gt; ReadS HITStatus
+ReadS [HITStatus]
+(Int -&gt; ReadS HITStatus)
+-&gt; ReadS [HITStatus]
+-&gt; ReadPrec HITStatus
+-&gt; ReadPrec [HITStatus]
+-&gt; Read HITStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HITStatus]
+$creadListPrec :: ReadPrec [HITStatus]
+readPrec :: ReadPrec HITStatus
+$creadPrec :: ReadPrec HITStatus
+readList :: ReadS [HITStatus]
+$creadList :: ReadS [HITStatus]
+readsPrec :: Int -&gt; ReadS HITStatus
+$creadsPrec :: Int -&gt; ReadS HITStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679243031"><span id="local-6989586621679243033"><span class="annot"><span class="annottext">HITStatus -&gt; HITStatus -&gt; Bool
+(HITStatus -&gt; HITStatus -&gt; Bool)
+-&gt; (HITStatus -&gt; HITStatus -&gt; Bool) -&gt; Eq HITStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HITStatus -&gt; HITStatus -&gt; Bool
+$c/= :: HITStatus -&gt; HITStatus -&gt; Bool
+== :: HITStatus -&gt; HITStatus -&gt; Bool
+$c== :: HITStatus -&gt; HITStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679243015"><span id="local-6989586621679243017"><span id="local-6989586621679243019"><span id="local-6989586621679243021"><span id="local-6989586621679243023"><span id="local-6989586621679243025"><span id="local-6989586621679243027"><span class="annot"><span class="annottext">Eq HITStatus
+Eq HITStatus
+-&gt; (HITStatus -&gt; HITStatus -&gt; Ordering)
+-&gt; (HITStatus -&gt; HITStatus -&gt; Bool)
+-&gt; (HITStatus -&gt; HITStatus -&gt; Bool)
+-&gt; (HITStatus -&gt; HITStatus -&gt; Bool)
+-&gt; (HITStatus -&gt; HITStatus -&gt; Bool)
+-&gt; (HITStatus -&gt; HITStatus -&gt; HITStatus)
+-&gt; (HITStatus -&gt; HITStatus -&gt; HITStatus)
+-&gt; Ord HITStatus
+HITStatus -&gt; HITStatus -&gt; Bool
+HITStatus -&gt; HITStatus -&gt; Ordering
+HITStatus -&gt; HITStatus -&gt; HITStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HITStatus -&gt; HITStatus -&gt; HITStatus
+$cmin :: HITStatus -&gt; HITStatus -&gt; HITStatus
+max :: HITStatus -&gt; HITStatus -&gt; HITStatus
+$cmax :: HITStatus -&gt; HITStatus -&gt; HITStatus
+&gt;= :: HITStatus -&gt; HITStatus -&gt; Bool
+$c&gt;= :: HITStatus -&gt; HITStatus -&gt; Bool
+&gt; :: HITStatus -&gt; HITStatus -&gt; Bool
+$c&gt; :: HITStatus -&gt; HITStatus -&gt; Bool
+&lt;= :: HITStatus -&gt; HITStatus -&gt; Bool
+$c&lt;= :: HITStatus -&gt; HITStatus -&gt; Bool
+&lt; :: HITStatus -&gt; HITStatus -&gt; Bool
+$c&lt; :: HITStatus -&gt; HITStatus -&gt; Bool
+compare :: HITStatus -&gt; HITStatus -&gt; Ordering
+$ccompare :: HITStatus -&gt; HITStatus -&gt; Ordering
+$cp1Ord :: Eq HITStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HITStatus -&gt; Rep HITStatus x)
+-&gt; (forall x. Rep HITStatus x -&gt; HITStatus) -&gt; Generic HITStatus
+forall x. Rep HITStatus x -&gt; HITStatus
+forall x. HITStatus -&gt; Rep HITStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HITStatus x -&gt; HITStatus
+$cfrom :: forall x. HITStatus -&gt; Rep HITStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243007"><span id="local-6989586621679243009"><span class="annot"><span class="annottext">Int -&gt; HITStatus -&gt; Int
+HITStatus -&gt; Int
+(Int -&gt; HITStatus -&gt; Int)
+-&gt; (HITStatus -&gt; Int) -&gt; Hashable HITStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HITStatus -&gt; Int
+$chash :: HITStatus -&gt; Int
+hashWithSalt :: Int -&gt; HITStatus -&gt; Int
+$chashWithSalt :: Int -&gt; HITStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243004"><span class="annot"><span class="annottext">HITStatus -&gt; ()
+(HITStatus -&gt; ()) -&gt; NFData HITStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HITStatus -&gt; ()
+$crnf :: HITStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243001"><span class="annot"><span class="annottext">Text -&gt; Either String HITStatus
+(Text -&gt; Either String HITStatus) -&gt; FromText HITStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HITStatus
+$cfromText :: Text -&gt; Either String HITStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679242998"><span class="annot"><span class="annottext">HITStatus -&gt; Text
+(HITStatus -&gt; Text) -&gt; ToText HITStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HITStatus -&gt; Text
+$ctoText :: HITStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679242995"><span class="annot"><span class="annottext">HITStatus -&gt; ByteString
+(HITStatus -&gt; ByteString) -&gt; ToByteString HITStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HITStatus -&gt; ByteString
+$ctoBS :: HITStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679242992"><span class="annot"><span class="annottext">HITStatus -&gt; ByteStringBuilder
+(HITStatus -&gt; ByteStringBuilder) -&gt; ToLog HITStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HITStatus -&gt; ByteStringBuilder
+$cbuild :: HITStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679242989"><span class="annot"><span class="annottext">HeaderName -&gt; HITStatus -&gt; [Header]
+(HeaderName -&gt; HITStatus -&gt; [Header]) -&gt; ToHeader HITStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HITStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HITStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679242986"><span class="annot"><span class="annottext">HITStatus -&gt; QueryString
+(HITStatus -&gt; QueryString) -&gt; ToQuery HITStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HITStatus -&gt; QueryString
+$ctoQuery :: HITStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679242981"><span id="local-6989586621679242983"><span class="annot"><span class="annottext">Value -&gt; Parser [HITStatus]
+Value -&gt; Parser HITStatus
+(Value -&gt; Parser HITStatus)
+-&gt; (Value -&gt; Parser [HITStatus]) -&gt; FromJSON HITStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HITStatus]
+$cparseJSONList :: Value -&gt; Parser [HITStatus]
+parseJSON :: Value -&gt; Parser HITStatus
+$cparseJSON :: Value -&gt; Parser HITStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679242976"><span id="local-6989586621679242978"><span class="annot"><span class="annottext">FromJSONKeyFunction [HITStatus]
+FromJSONKeyFunction HITStatus
+FromJSONKeyFunction HITStatus
+-&gt; FromJSONKeyFunction [HITStatus] -&gt; FromJSONKey HITStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HITStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [HITStatus]
+fromJSONKey :: FromJSONKeyFunction HITStatus
+$cfromJSONKey :: FromJSONKeyFunction HITStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679242967"><span id="local-6989586621679242969"><span id="local-6989586621679242971"><span id="local-6989586621679242973"><span class="annot"><span class="annottext">[HITStatus] -&gt; Encoding
+[HITStatus] -&gt; Value
+HITStatus -&gt; Encoding
+HITStatus -&gt; Value
+(HITStatus -&gt; Value)
+-&gt; (HITStatus -&gt; Encoding)
+-&gt; ([HITStatus] -&gt; Value)
+-&gt; ([HITStatus] -&gt; Encoding)
+-&gt; ToJSON HITStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HITStatus] -&gt; Encoding
+$ctoEncodingList :: [HITStatus] -&gt; Encoding
+toJSONList :: [HITStatus] -&gt; Value
+$ctoJSONList :: [HITStatus] -&gt; Value
+toEncoding :: HITStatus -&gt; Encoding
+$ctoEncoding :: HITStatus -&gt; Encoding
+toJSON :: HITStatus -&gt; Value
+$ctoJSON :: HITStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679242962"><span id="local-6989586621679242964"><span class="annot"><span class="annottext">ToJSONKeyFunction [HITStatus]
+ToJSONKeyFunction HITStatus
+ToJSONKeyFunction HITStatus
+-&gt; ToJSONKeyFunction [HITStatus] -&gt; ToJSONKey HITStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HITStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [HITStatus]
+toJSONKey :: ToJSONKeyFunction HITStatus
+$ctoJSONKey :: ToJSONKeyFunction HITStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679242959"><span class="annot"><span class="annottext">[Node] -&gt; Either String HITStatus
+([Node] -&gt; Either String HITStatus) -&gt; FromXML HITStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HITStatus
+$cparseXML :: [Node] -&gt; Either String HITStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679242956"><span class="annot"><span class="annottext">HITStatus -&gt; XML
+(HITStatus -&gt; XML) -&gt; ToXML HITStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HITStatus -&gt; XML
+$ctoXML :: HITStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Assignable"><span class="hs-identifier hs-type">HITStatus_Assignable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-type">HITStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHITStatus_Assignable"><span id="%24mHITStatus_Assignable"><span id="HITStatus_Assignable"><span class="annot"><span class="annottext">$bHITStatus_Assignable :: HITStatus
+$mHITStatus_Assignable :: forall r. HITStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#%24bHITStatus_Assignable"><span class="hs-identifier hs-var hs-var hs-var">HITStatus_Assignable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-type">HITStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Assignable&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Disposed"><span class="hs-identifier hs-type">HITStatus_Disposed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-type">HITStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHITStatus_Disposed"><span id="%24mHITStatus_Disposed"><span id="HITStatus_Disposed"><span class="annot"><span class="annottext">$bHITStatus_Disposed :: HITStatus
+$mHITStatus_Disposed :: forall r. HITStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#%24bHITStatus_Disposed"><span class="hs-identifier hs-var hs-var hs-var">HITStatus_Disposed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-type">HITStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disposed&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Reviewable"><span class="hs-identifier hs-type">HITStatus_Reviewable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-type">HITStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHITStatus_Reviewable"><span id="%24mHITStatus_Reviewable"><span id="HITStatus_Reviewable"><span class="annot"><span class="annottext">$bHITStatus_Reviewable :: HITStatus
+$mHITStatus_Reviewable :: forall r. HITStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#%24bHITStatus_Reviewable"><span class="hs-identifier hs-var hs-var hs-var">HITStatus_Reviewable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-type">HITStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Reviewable&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Reviewing"><span class="hs-identifier hs-type">HITStatus_Reviewing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-type">HITStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHITStatus_Reviewing"><span id="%24mHITStatus_Reviewing"><span id="HITStatus_Reviewing"><span class="annot"><span class="annottext">$bHITStatus_Reviewing :: HITStatus
+$mHITStatus_Reviewing :: forall r. HITStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#%24bHITStatus_Reviewing"><span class="hs-identifier hs-var hs-var hs-var">HITStatus_Reviewing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-type">HITStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Reviewing&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Unassignable"><span class="hs-identifier hs-type">HITStatus_Unassignable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-type">HITStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHITStatus_Unassignable"><span id="%24mHITStatus_Unassignable"><span id="HITStatus_Unassignable"><span class="annot"><span class="annottext">$bHITStatus_Unassignable :: HITStatus
+$mHITStatus_Unassignable :: forall r. HITStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#%24bHITStatus_Unassignable"><span class="hs-identifier hs-var hs-var hs-var">HITStatus_Unassignable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-type">HITStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Unassignable&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Assignable"><span class="hs-pragma hs-type">HITStatus_Assignable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Disposed"><span class="hs-pragma hs-type">HITStatus_Disposed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Reviewable"><span class="hs-pragma hs-type">HITStatus_Reviewable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Reviewing"><span class="hs-pragma hs-type">HITStatus_Reviewing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus_Unassignable"><span class="hs-pragma hs-type">HITStatus_Unassignable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-pragma hs-type">HITStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

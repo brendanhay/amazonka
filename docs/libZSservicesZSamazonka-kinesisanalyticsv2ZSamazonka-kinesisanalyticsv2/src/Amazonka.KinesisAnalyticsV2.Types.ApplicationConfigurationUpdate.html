@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Describes updates to an application\'s configuration.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newApplicationConfigurationUpdate' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679299958"><span id="local-6989586621679299959"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationConfigurationUpdate"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-var">ApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationConfigurationUpdate%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">ApplicationConfigurationUpdate'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AapplicationSnapshotConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+-&gt; Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AapplicationSnapshotConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">applicationSnapshotConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate.html#ApplicationSnapshotConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationSnapshotConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Updates to the configuration of a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AzeppelinApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+-&gt; Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AzeppelinApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Describes updates to a Flink-based Kinesis Data Analytics application\'s</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AflinkApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+-&gt; Maybe FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AflinkApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">flinkApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Describes updates to a SQL-based Kinesis Data Analytics application\'s</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsqlApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+-&gt; Maybe SqlApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AsqlApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">sqlApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate.html#SqlApplicationConfigurationUpdate"><span class="hs-identifier hs-type">SqlApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Updates to the array of descriptions of VPC configurations available to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the application.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AvpcConfigurationUpdates%3AApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate -&gt; Maybe [VpcConfigurationUpdate]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AvpcConfigurationUpdates%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">vpcConfigurationUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate.html#VpcConfigurationUpdate"><span class="hs-identifier hs-type">VpcConfigurationUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Describes updates to the environment properties for a Flink-based</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Kinesis Data Analytics application.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AenvironmentPropertyUpdates%3AApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate -&gt; Maybe EnvironmentPropertyUpdates
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AenvironmentPropertyUpdates%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">environmentPropertyUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates.html#EnvironmentPropertyUpdates"><span class="hs-identifier hs-type">EnvironmentPropertyUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Describes updates to an application\'s code configuration.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AapplicationCodeConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+-&gt; Maybe ApplicationCodeConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AapplicationCodeConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">applicationCodeConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299946"><span id="local-6989586621679299948"><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+-&gt; ApplicationConfigurationUpdate -&gt; Bool
+(ApplicationConfigurationUpdate
+ -&gt; ApplicationConfigurationUpdate -&gt; Bool)
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; ApplicationConfigurationUpdate -&gt; Bool)
+-&gt; Eq ApplicationConfigurationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationConfigurationUpdate
+-&gt; ApplicationConfigurationUpdate -&gt; Bool
+$c/= :: ApplicationConfigurationUpdate
+-&gt; ApplicationConfigurationUpdate -&gt; Bool
+== :: ApplicationConfigurationUpdate
+-&gt; ApplicationConfigurationUpdate -&gt; Bool
+$c== :: ApplicationConfigurationUpdate
+-&gt; ApplicationConfigurationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299937"><span id="local-6989586621679299939"><span id="local-6989586621679299941"><span id="local-6989586621679299943"><span class="annot"><span class="annottext">ReadPrec [ApplicationConfigurationUpdate]
+ReadPrec ApplicationConfigurationUpdate
+Int -&gt; ReadS ApplicationConfigurationUpdate
+ReadS [ApplicationConfigurationUpdate]
+(Int -&gt; ReadS ApplicationConfigurationUpdate)
+-&gt; ReadS [ApplicationConfigurationUpdate]
+-&gt; ReadPrec ApplicationConfigurationUpdate
+-&gt; ReadPrec [ApplicationConfigurationUpdate]
+-&gt; Read ApplicationConfigurationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationConfigurationUpdate]
+$creadListPrec :: ReadPrec [ApplicationConfigurationUpdate]
+readPrec :: ReadPrec ApplicationConfigurationUpdate
+$creadPrec :: ReadPrec ApplicationConfigurationUpdate
+readList :: ReadS [ApplicationConfigurationUpdate]
+$creadList :: ReadS [ApplicationConfigurationUpdate]
+readsPrec :: Int -&gt; ReadS ApplicationConfigurationUpdate
+$creadsPrec :: Int -&gt; ReadS ApplicationConfigurationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299930"><span id="local-6989586621679299932"><span id="local-6989586621679299934"><span class="annot"><span class="annottext">Int -&gt; ApplicationConfigurationUpdate -&gt; ShowS
+[ApplicationConfigurationUpdate] -&gt; ShowS
+ApplicationConfigurationUpdate -&gt; String
+(Int -&gt; ApplicationConfigurationUpdate -&gt; ShowS)
+-&gt; (ApplicationConfigurationUpdate -&gt; String)
+-&gt; ([ApplicationConfigurationUpdate] -&gt; ShowS)
+-&gt; Show ApplicationConfigurationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationConfigurationUpdate] -&gt; ShowS
+$cshowList :: [ApplicationConfigurationUpdate] -&gt; ShowS
+show :: ApplicationConfigurationUpdate -&gt; String
+$cshow :: ApplicationConfigurationUpdate -&gt; String
+showsPrec :: Int -&gt; ApplicationConfigurationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationConfigurationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplicationConfigurationUpdate
+ -&gt; Rep ApplicationConfigurationUpdate x)
+-&gt; (forall x.
+    Rep ApplicationConfigurationUpdate x
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Generic ApplicationConfigurationUpdate
+forall x.
+Rep ApplicationConfigurationUpdate x
+-&gt; ApplicationConfigurationUpdate
+forall x.
+ApplicationConfigurationUpdate
+-&gt; Rep ApplicationConfigurationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplicationConfigurationUpdate x
+-&gt; ApplicationConfigurationUpdate
+$cfrom :: forall x.
+ApplicationConfigurationUpdate
+-&gt; Rep ApplicationConfigurationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'ApplicationConfigurationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'applicationSnapshotConfigurationUpdate', 'applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate' - Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'zeppelinApplicationConfigurationUpdate', 'applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate' - Updates to the configuration of a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'flinkApplicationConfigurationUpdate', 'applicationConfigurationUpdate_flinkApplicationConfigurationUpdate' - Describes updates to a Flink-based Kinesis Data Analytics application\'s</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'sqlApplicationConfigurationUpdate', 'applicationConfigurationUpdate_sqlApplicationConfigurationUpdate' - Describes updates to a SQL-based Kinesis Data Analytics application\'s</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'vpcConfigurationUpdates', 'applicationConfigurationUpdate_vpcConfigurationUpdates' - Updates to the array of descriptions of VPC configurations available to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the application.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'environmentPropertyUpdates', 'applicationConfigurationUpdate_environmentPropertyUpdates' - Describes updates to the environment properties for a Flink-based</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Kinesis Data Analytics application.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'applicationCodeConfigurationUpdate', 'applicationConfigurationUpdate_applicationCodeConfigurationUpdate' - Describes updates to an application\'s code configuration.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#newApplicationConfigurationUpdate"><span class="hs-identifier hs-type">newApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span>
+</span><span id="line-89"></span><span id="newApplicationConfigurationUpdate"><span class="annot"><span class="annottext">newApplicationConfigurationUpdate :: ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#newApplicationConfigurationUpdate"><span class="hs-identifier hs-var hs-var">newApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate' :: Maybe ApplicationSnapshotConfigurationUpdate
+-&gt; Maybe ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe FlinkApplicationConfigurationUpdate
+-&gt; Maybe SqlApplicationConfigurationUpdate
+-&gt; Maybe [VpcConfigurationUpdate]
+-&gt; Maybe EnvironmentPropertyUpdates
+-&gt; Maybe ApplicationCodeConfigurationUpdate
+-&gt; ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationSnapshotConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AapplicationSnapshotConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">applicationSnapshotConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:zeppelinApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AzeppelinApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">zeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:flinkApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AflinkApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">flinkApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqlApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe SqlApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AsqlApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">sqlApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfigurationUpdates:ApplicationConfigurationUpdate' :: Maybe [VpcConfigurationUpdate]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AvpcConfigurationUpdates%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">vpcConfigurationUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationUpdate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentPropertyUpdates:ApplicationConfigurationUpdate' :: Maybe EnvironmentPropertyUpdates
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AenvironmentPropertyUpdates%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">environmentPropertyUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe EnvironmentPropertyUpdates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationCodeConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe ApplicationCodeConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AapplicationCodeConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">applicationCodeConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Describes whether snapshots are enabled for a Flink-based Kinesis Data</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate"><span class="hs-identifier hs-type">applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate.html#ApplicationSnapshotConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationSnapshotConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate"><span class="annot"><span class="annottext">applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate :: (Maybe ApplicationSnapshotConfigurationUpdate
+ -&gt; f (Maybe ApplicationSnapshotConfigurationUpdate))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate"><span class="hs-identifier hs-var hs-var">applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationUpdate
+ -&gt; Maybe ApplicationSnapshotConfigurationUpdate)
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; Maybe ApplicationSnapshotConfigurationUpdate
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Lens
+     ApplicationConfigurationUpdate
+     ApplicationConfigurationUpdate
+     (Maybe ApplicationSnapshotConfigurationUpdate)
+     (Maybe ApplicationSnapshotConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299921"><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationUpdate
+applicationSnapshotConfigurationUpdate :: Maybe ApplicationSnapshotConfigurationUpdate
+$sel:applicationSnapshotConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="#local-6989586621679299921"><span class="hs-identifier hs-var hs-var">applicationSnapshotConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="#local-6989586621679299921"><span class="hs-identifier hs-var">applicationSnapshotConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299920"><span class="annot"><span class="annottext">s :: ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299919"><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="#local-6989586621679299919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSnapshotConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AapplicationSnapshotConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">applicationSnapshotConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="#local-6989586621679299919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Updates to the configuration of a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate"><span class="annot"><span class="annottext">applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate :: (Maybe ZeppelinApplicationConfigurationUpdate
+ -&gt; f (Maybe ZeppelinApplicationConfigurationUpdate))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-var hs-var">applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationUpdate
+ -&gt; Maybe ZeppelinApplicationConfigurationUpdate)
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; Maybe ZeppelinApplicationConfigurationUpdate
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Lens
+     ApplicationConfigurationUpdate
+     ApplicationConfigurationUpdate
+     (Maybe ZeppelinApplicationConfigurationUpdate)
+     (Maybe ZeppelinApplicationConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299917"><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationUpdate
+zeppelinApplicationConfigurationUpdate :: Maybe ZeppelinApplicationConfigurationUpdate
+$sel:zeppelinApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299917"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299917"><span class="hs-identifier hs-var">zeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299916"><span class="annot"><span class="annottext">s :: ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299915"><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zeppelinApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AzeppelinApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">zeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Describes updates to a Flink-based Kinesis Data Analytics application\'s</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_flinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">applicationConfigurationUpdate_flinkApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate.html#FlinkApplicationConfigurationUpdate"><span class="hs-identifier hs-type">FlinkApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="applicationConfigurationUpdate_flinkApplicationConfigurationUpdate"><span class="annot"><span class="annottext">applicationConfigurationUpdate_flinkApplicationConfigurationUpdate :: (Maybe FlinkApplicationConfigurationUpdate
+ -&gt; f (Maybe FlinkApplicationConfigurationUpdate))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_flinkApplicationConfigurationUpdate"><span class="hs-identifier hs-var hs-var">applicationConfigurationUpdate_flinkApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationUpdate
+ -&gt; Maybe FlinkApplicationConfigurationUpdate)
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; Maybe FlinkApplicationConfigurationUpdate
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Lens
+     ApplicationConfigurationUpdate
+     ApplicationConfigurationUpdate
+     (Maybe FlinkApplicationConfigurationUpdate)
+     (Maybe FlinkApplicationConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299913"><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationUpdate
+flinkApplicationConfigurationUpdate :: Maybe FlinkApplicationConfigurationUpdate
+$sel:flinkApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299913"><span class="hs-identifier hs-var hs-var">flinkApplicationConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299913"><span class="hs-identifier hs-var">flinkApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299912"><span class="annot"><span class="annottext">s :: ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299911"><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flinkApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe FlinkApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AflinkApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">flinkApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Describes updates to a SQL-based Kinesis Data Analytics application\'s</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_sqlApplicationConfigurationUpdate"><span class="hs-identifier hs-type">applicationConfigurationUpdate_sqlApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate.html#SqlApplicationConfigurationUpdate"><span class="hs-identifier hs-type">SqlApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="applicationConfigurationUpdate_sqlApplicationConfigurationUpdate"><span class="annot"><span class="annottext">applicationConfigurationUpdate_sqlApplicationConfigurationUpdate :: (Maybe SqlApplicationConfigurationUpdate
+ -&gt; f (Maybe SqlApplicationConfigurationUpdate))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_sqlApplicationConfigurationUpdate"><span class="hs-identifier hs-var hs-var">applicationConfigurationUpdate_sqlApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationUpdate
+ -&gt; Maybe SqlApplicationConfigurationUpdate)
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; Maybe SqlApplicationConfigurationUpdate
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Lens
+     ApplicationConfigurationUpdate
+     ApplicationConfigurationUpdate
+     (Maybe SqlApplicationConfigurationUpdate)
+     (Maybe SqlApplicationConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299909"><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationUpdate
+sqlApplicationConfigurationUpdate :: Maybe SqlApplicationConfigurationUpdate
+$sel:sqlApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe SqlApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299909"><span class="hs-identifier hs-var hs-var">sqlApplicationConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299909"><span class="hs-identifier hs-var">sqlApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299908"><span class="annot"><span class="annottext">s :: ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299907"><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe SqlApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AsqlApplicationConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">sqlApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Updates to the array of descriptions of VPC configurations available to</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the application.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_vpcConfigurationUpdates"><span class="hs-identifier hs-type">applicationConfigurationUpdate_vpcConfigurationUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate.html#VpcConfigurationUpdate"><span class="hs-identifier hs-type">VpcConfigurationUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="applicationConfigurationUpdate_vpcConfigurationUpdates"><span class="annot"><span class="annottext">applicationConfigurationUpdate_vpcConfigurationUpdates :: (Maybe [VpcConfigurationUpdate]
+ -&gt; f (Maybe [VpcConfigurationUpdate]))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_vpcConfigurationUpdates"><span class="hs-identifier hs-var hs-var">applicationConfigurationUpdate_vpcConfigurationUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationUpdate -&gt; Maybe [VpcConfigurationUpdate])
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; Maybe [VpcConfigurationUpdate]
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Lens
+     ApplicationConfigurationUpdate
+     ApplicationConfigurationUpdate
+     (Maybe [VpcConfigurationUpdate])
+     (Maybe [VpcConfigurationUpdate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299905"><span class="annot"><span class="annottext">Maybe [VpcConfigurationUpdate]
+vpcConfigurationUpdates :: Maybe [VpcConfigurationUpdate]
+$sel:vpcConfigurationUpdates:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate -&gt; Maybe [VpcConfigurationUpdate]
+</span><a href="#local-6989586621679299905"><span class="hs-identifier hs-var hs-var">vpcConfigurationUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationUpdate]
+</span><a href="#local-6989586621679299905"><span class="hs-identifier hs-var">vpcConfigurationUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299904"><span class="annot"><span class="annottext">s :: ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299903"><span class="annot"><span class="annottext">Maybe [VpcConfigurationUpdate]
+</span><a href="#local-6989586621679299903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfigurationUpdates:ApplicationConfigurationUpdate' :: Maybe [VpcConfigurationUpdate]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AvpcConfigurationUpdates%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">vpcConfigurationUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationUpdate]
+</span><a href="#local-6989586621679299903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcConfigurationUpdate]
+  -&gt; f (Maybe [VpcConfigurationUpdate]))
+ -&gt; ApplicationConfigurationUpdate
+ -&gt; f ApplicationConfigurationUpdate)
+-&gt; ((Maybe [VpcConfigurationUpdate]
+     -&gt; f (Maybe [VpcConfigurationUpdate]))
+    -&gt; Maybe [VpcConfigurationUpdate]
+    -&gt; f (Maybe [VpcConfigurationUpdate]))
+-&gt; (Maybe [VpcConfigurationUpdate]
+    -&gt; f (Maybe [VpcConfigurationUpdate]))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcConfigurationUpdate]
+  [VpcConfigurationUpdate]
+  [VpcConfigurationUpdate]
+  [VpcConfigurationUpdate]
+-&gt; Iso
+     (Maybe [VpcConfigurationUpdate])
+     (Maybe [VpcConfigurationUpdate])
+     (Maybe [VpcConfigurationUpdate])
+     (Maybe [VpcConfigurationUpdate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcConfigurationUpdate]
+  [VpcConfigurationUpdate]
+  [VpcConfigurationUpdate]
+  [VpcConfigurationUpdate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Describes updates to the environment properties for a Flink-based</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Kinesis Data Analytics application.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_environmentPropertyUpdates"><span class="hs-identifier hs-type">applicationConfigurationUpdate_environmentPropertyUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates.html#EnvironmentPropertyUpdates"><span class="hs-identifier hs-type">EnvironmentPropertyUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="applicationConfigurationUpdate_environmentPropertyUpdates"><span class="annot"><span class="annottext">applicationConfigurationUpdate_environmentPropertyUpdates :: (Maybe EnvironmentPropertyUpdates
+ -&gt; f (Maybe EnvironmentPropertyUpdates))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_environmentPropertyUpdates"><span class="hs-identifier hs-var hs-var">applicationConfigurationUpdate_environmentPropertyUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationUpdate
+ -&gt; Maybe EnvironmentPropertyUpdates)
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; Maybe EnvironmentPropertyUpdates
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Lens
+     ApplicationConfigurationUpdate
+     ApplicationConfigurationUpdate
+     (Maybe EnvironmentPropertyUpdates)
+     (Maybe EnvironmentPropertyUpdates)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299898"><span class="annot"><span class="annottext">Maybe EnvironmentPropertyUpdates
+environmentPropertyUpdates :: Maybe EnvironmentPropertyUpdates
+$sel:environmentPropertyUpdates:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate -&gt; Maybe EnvironmentPropertyUpdates
+</span><a href="#local-6989586621679299898"><span class="hs-identifier hs-var hs-var">environmentPropertyUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentPropertyUpdates
+</span><a href="#local-6989586621679299898"><span class="hs-identifier hs-var">environmentPropertyUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299897"><span class="annot"><span class="annottext">s :: ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299896"><span class="annot"><span class="annottext">Maybe EnvironmentPropertyUpdates
+</span><a href="#local-6989586621679299896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentPropertyUpdates:ApplicationConfigurationUpdate' :: Maybe EnvironmentPropertyUpdates
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AenvironmentPropertyUpdates%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">environmentPropertyUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentPropertyUpdates
+</span><a href="#local-6989586621679299896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Describes updates to an application\'s code configuration.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_applicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">applicationConfigurationUpdate_applicationCodeConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate.html#ApplicationCodeConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationCodeConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="applicationConfigurationUpdate_applicationCodeConfigurationUpdate"><span class="annot"><span class="annottext">applicationConfigurationUpdate_applicationCodeConfigurationUpdate :: (Maybe ApplicationCodeConfigurationUpdate
+ -&gt; f (Maybe ApplicationCodeConfigurationUpdate))
+-&gt; ApplicationConfigurationUpdate
+-&gt; f ApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#applicationConfigurationUpdate_applicationCodeConfigurationUpdate"><span class="hs-identifier hs-var hs-var">applicationConfigurationUpdate_applicationCodeConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationConfigurationUpdate
+ -&gt; Maybe ApplicationCodeConfigurationUpdate)
+-&gt; (ApplicationConfigurationUpdate
+    -&gt; Maybe ApplicationCodeConfigurationUpdate
+    -&gt; ApplicationConfigurationUpdate)
+-&gt; Lens
+     ApplicationConfigurationUpdate
+     ApplicationConfigurationUpdate
+     (Maybe ApplicationCodeConfigurationUpdate)
+     (Maybe ApplicationCodeConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299894"><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationUpdate
+applicationCodeConfigurationUpdate :: Maybe ApplicationCodeConfigurationUpdate
+$sel:applicationCodeConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679299894"><span class="hs-identifier hs-var hs-var">applicationCodeConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679299894"><span class="hs-identifier hs-var">applicationCodeConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299893"><span class="annot"><span class="annottext">s :: ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299892"><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679299892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationCodeConfigurationUpdate:ApplicationConfigurationUpdate' :: Maybe ApplicationCodeConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#%24sel%3AapplicationCodeConfigurationUpdate%3AApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">applicationCodeConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679299892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679299888"><span id="local-6989586621679299890"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679299885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299877"><span id="local-6989586621679299879"><span id="local-6989586621679299881"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679299875"><span class="annot"><span class="annottext">toJSON :: ApplicationConfigurationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate.html#ApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299867"><span id="local-6989586621679299868"><span id="local-6989586621679299869"><span id="local-6989586621679299870"><span id="local-6989586621679299871"><span id="local-6989586621679299872"><span id="local-6989586621679299873"><span class="annot"><span class="annottext">Maybe [VpcConfigurationUpdate]
+Maybe ApplicationSnapshotConfigurationUpdate
+Maybe FlinkApplicationConfigurationUpdate
+Maybe EnvironmentPropertyUpdates
+Maybe ApplicationCodeConfigurationUpdate
+Maybe SqlApplicationConfigurationUpdate
+Maybe ZeppelinApplicationConfigurationUpdate
+applicationCodeConfigurationUpdate :: Maybe ApplicationCodeConfigurationUpdate
+environmentPropertyUpdates :: Maybe EnvironmentPropertyUpdates
+vpcConfigurationUpdates :: Maybe [VpcConfigurationUpdate]
+sqlApplicationConfigurationUpdate :: Maybe SqlApplicationConfigurationUpdate
+flinkApplicationConfigurationUpdate :: Maybe FlinkApplicationConfigurationUpdate
+zeppelinApplicationConfigurationUpdate :: Maybe ZeppelinApplicationConfigurationUpdate
+applicationSnapshotConfigurationUpdate :: Maybe ApplicationSnapshotConfigurationUpdate
+$sel:applicationCodeConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe ApplicationCodeConfigurationUpdate
+$sel:environmentPropertyUpdates:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate -&gt; Maybe EnvironmentPropertyUpdates
+$sel:vpcConfigurationUpdates:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate -&gt; Maybe [VpcConfigurationUpdate]
+$sel:sqlApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe SqlApplicationConfigurationUpdate
+$sel:flinkApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe FlinkApplicationConfigurationUpdate
+$sel:zeppelinApplicationConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe ZeppelinApplicationConfigurationUpdate
+$sel:applicationSnapshotConfigurationUpdate:ApplicationConfigurationUpdate' :: ApplicationConfigurationUpdate
+-&gt; Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="#local-6989586621679299867"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationSnapshotConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationSnapshotConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(ApplicationSnapshotConfigurationUpdate -&gt; Pair)
+-&gt; Maybe ApplicationSnapshotConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationSnapshotConfigurationUpdate
+</span><a href="#local-6989586621679299873"><span class="hs-identifier hs-var">applicationSnapshotConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZeppelinApplicationConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ZeppelinApplicationConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfigurationUpdate -&gt; Pair)
+-&gt; Maybe ZeppelinApplicationConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299872"><span class="hs-identifier hs-var">zeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FlinkApplicationConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FlinkApplicationConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(FlinkApplicationConfigurationUpdate -&gt; Pair)
+-&gt; Maybe FlinkApplicationConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FlinkApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299871"><span class="hs-identifier hs-var">flinkApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SqlApplicationConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqlApplicationConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(SqlApplicationConfigurationUpdate -&gt; Pair)
+-&gt; Maybe SqlApplicationConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqlApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299870"><span class="hs-identifier hs-var">sqlApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfigurationUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [VpcConfigurationUpdate] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">([VpcConfigurationUpdate] -&gt; Pair)
+-&gt; Maybe [VpcConfigurationUpdate] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VpcConfigurationUpdate]
+</span><a href="#local-6989586621679299869"><span class="hs-identifier hs-var">vpcConfigurationUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnvironmentPropertyUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EnvironmentPropertyUpdates -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">(EnvironmentPropertyUpdates -&gt; Pair)
+-&gt; Maybe EnvironmentPropertyUpdates -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentPropertyUpdates
+</span><a href="#local-6989586621679299868"><span class="hs-identifier hs-var">environmentPropertyUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationCodeConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationCodeConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(ApplicationCodeConfigurationUpdate -&gt; Pair)
+-&gt; Maybe ApplicationCodeConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationCodeConfigurationUpdate
+</span><a href="#local-6989586621679299867"><span class="hs-identifier hs-var">applicationCodeConfigurationUpdate</span></a></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span></pre></body></html>

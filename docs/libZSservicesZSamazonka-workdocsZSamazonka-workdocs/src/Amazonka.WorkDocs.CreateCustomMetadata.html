@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkDocs.CreateCustomMetadata</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds one or more custom properties to the specified resource (a folder,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- document, or version).</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkDocs.CreateCustomMetadata</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier">CreateCustomMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#newCreateCustomMetadata"><span class="hs-identifier">newCreateCustomMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_versionId"><span class="hs-identifier">createCustomMetadata_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_authenticationToken"><span class="hs-identifier">createCustomMetadata_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_resourceId"><span class="hs-identifier">createCustomMetadata_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_customMetadata"><span class="hs-identifier">createCustomMetadata_customMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse"><span class="hs-identifier">CreateCustomMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#newCreateCustomMetadataResponse"><span class="hs-identifier">newCreateCustomMetadataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadataResponse_httpStatus"><span class="hs-identifier">createCustomMetadataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.html"><span class="hs-identifier">Amazonka.WorkDocs.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateCustomMetadata' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679274527"><span id="local-6989586621679274528"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomMetadata"><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-var">CreateCustomMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomMetadata%27"><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-var">CreateCustomMetadata'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the version, if the custom metadata is being added to a</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- document version.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AversionId%3ACreateCustomMetadata%27"><span class="annot"><span class="annottext">CreateCustomMetadata -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AversionId%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ACreateCustomMetadata%27"><span class="annot"><span class="annottext">CreateCustomMetadata -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AauthenticationToken%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the resource.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AresourceId%3ACreateCustomMetadata%27"><span class="annot"><span class="annottext">CreateCustomMetadata -&gt; Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AresourceId%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Custom metadata in the form of name-value pairs.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcustomMetadata%3ACreateCustomMetadata%27"><span class="annot"><span class="annottext">CreateCustomMetadata -&gt; HashMap Text Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AcustomMetadata%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var hs-var">customMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274518"><span id="local-6989586621679274520"><span class="annot"><span class="annottext">CreateCustomMetadata -&gt; CreateCustomMetadata -&gt; Bool
+(CreateCustomMetadata -&gt; CreateCustomMetadata -&gt; Bool)
+-&gt; (CreateCustomMetadata -&gt; CreateCustomMetadata -&gt; Bool)
+-&gt; Eq CreateCustomMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomMetadata -&gt; CreateCustomMetadata -&gt; Bool
+$c/= :: CreateCustomMetadata -&gt; CreateCustomMetadata -&gt; Bool
+== :: CreateCustomMetadata -&gt; CreateCustomMetadata -&gt; Bool
+$c== :: CreateCustomMetadata -&gt; CreateCustomMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274511"><span id="local-6989586621679274513"><span id="local-6989586621679274515"><span class="annot"><span class="annottext">Int -&gt; CreateCustomMetadata -&gt; ShowS
+[CreateCustomMetadata] -&gt; ShowS
+CreateCustomMetadata -&gt; String
+(Int -&gt; CreateCustomMetadata -&gt; ShowS)
+-&gt; (CreateCustomMetadata -&gt; String)
+-&gt; ([CreateCustomMetadata] -&gt; ShowS)
+-&gt; Show CreateCustomMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomMetadata] -&gt; ShowS
+$cshowList :: [CreateCustomMetadata] -&gt; ShowS
+show :: CreateCustomMetadata -&gt; String
+$cshow :: CreateCustomMetadata -&gt; String
+showsPrec :: Int -&gt; CreateCustomMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCustomMetadata -&gt; Rep CreateCustomMetadata x)
+-&gt; (forall x. Rep CreateCustomMetadata x -&gt; CreateCustomMetadata)
+-&gt; Generic CreateCustomMetadata
+forall x. Rep CreateCustomMetadata x -&gt; CreateCustomMetadata
+forall x. CreateCustomMetadata -&gt; Rep CreateCustomMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCustomMetadata x -&gt; CreateCustomMetadata
+$cfrom :: forall x. CreateCustomMetadata -&gt; Rep CreateCustomMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'CreateCustomMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'versionId', 'createCustomMetadata_versionId' - The ID of the version, if the custom metadata is being added to a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- document version.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'authenticationToken', 'createCustomMetadata_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'resourceId', 'createCustomMetadata_resourceId' - The ID of the resource.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'customMetadata', 'createCustomMetadata_customMetadata' - Custom metadata in the form of name-value pairs.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#newCreateCustomMetadata"><span class="hs-identifier hs-type">newCreateCustomMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span>
+</span><span id="line-88"></span><span id="newCreateCustomMetadata"><span class="annot"><span class="annottext">newCreateCustomMetadata :: Text -&gt; CreateCustomMetadata
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#newCreateCustomMetadata"><span class="hs-identifier hs-var hs-var">newCreateCustomMetadata</span></a></span></span><span> </span><span id="local-6989586621679274506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274506"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">CreateCustomMetadata' :: Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Text
+-&gt; HashMap Text Text
+-&gt; CreateCustomMetadata
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:CreateCustomMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AversionId%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationToken:CreateCustomMetadata' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AauthenticationToken%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:CreateCustomMetadata' :: Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AresourceId%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274506"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:customMetadata:CreateCustomMetadata' :: HashMap Text Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AcustomMetadata%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">customMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the version, if the custom metadata is being added to a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- document version.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_versionId"><span class="hs-identifier hs-type">createCustomMetadata_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="createCustomMetadata_versionId"><span class="annot"><span class="annottext">createCustomMetadata_versionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCustomMetadata -&gt; f CreateCustomMetadata
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_versionId"><span class="hs-identifier hs-var hs-var">createCustomMetadata_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomMetadata -&gt; Maybe Text)
+-&gt; (CreateCustomMetadata -&gt; Maybe Text -&gt; CreateCustomMetadata)
+-&gt; Lens
+     CreateCustomMetadata CreateCustomMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274503"><span class="annot"><span class="annottext">Maybe Text
+versionId :: Maybe Text
+$sel:versionId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679274503"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274503"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274502"><span class="annot"><span class="annottext">s :: CreateCustomMetadata
+</span><a href="#local-6989586621679274502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomMetadata
+</span><a href="#local-6989586621679274502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:CreateCustomMetadata' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AversionId%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_authenticationToken"><span class="hs-identifier hs-type">createCustomMetadata_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="createCustomMetadata_authenticationToken"><span class="annot"><span class="annottext">createCustomMetadata_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCustomMetadata -&gt; f CreateCustomMetadata
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_authenticationToken"><span class="hs-identifier hs-var hs-var">createCustomMetadata_authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomMetadata -&gt; Maybe (Sensitive Text))
+-&gt; (CreateCustomMetadata
+    -&gt; Maybe (Sensitive Text) -&gt; CreateCustomMetadata)
+-&gt; Lens
+     CreateCustomMetadata
+     CreateCustomMetadata
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274500"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+authenticationToken :: Maybe (Sensitive Text)
+$sel:authenticationToken:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274500"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274500"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274499"><span class="annot"><span class="annottext">s :: CreateCustomMetadata
+</span><a href="#local-6989586621679274499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274498"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomMetadata
+</span><a href="#local-6989586621679274499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:CreateCustomMetadata' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AauthenticationToken%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateCustomMetadata -&gt; f CreateCustomMetadata)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCustomMetadata
+-&gt; f CreateCustomMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the resource.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_resourceId"><span class="hs-identifier hs-type">createCustomMetadata_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="createCustomMetadata_resourceId"><span class="annot"><span class="annottext">createCustomMetadata_resourceId :: (Text -&gt; f Text) -&gt; CreateCustomMetadata -&gt; f CreateCustomMetadata
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_resourceId"><span class="hs-identifier hs-var hs-var">createCustomMetadata_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomMetadata -&gt; Text)
+-&gt; (CreateCustomMetadata -&gt; Text -&gt; CreateCustomMetadata)
+-&gt; Lens CreateCustomMetadata CreateCustomMetadata Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274494"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+$sel:resourceId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Text
+</span><a href="#local-6989586621679274494"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274494"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274493"><span class="annot"><span class="annottext">s :: CreateCustomMetadata
+</span><a href="#local-6989586621679274493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274492"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomMetadata
+</span><a href="#local-6989586621679274493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:CreateCustomMetadata' :: Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AresourceId%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Custom metadata in the form of name-value pairs.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_customMetadata"><span class="hs-identifier hs-type">createCustomMetadata_customMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="createCustomMetadata_customMetadata"><span class="annot"><span class="annottext">createCustomMetadata_customMetadata :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; CreateCustomMetadata -&gt; f CreateCustomMetadata
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadata_customMetadata"><span class="hs-identifier hs-var hs-var">createCustomMetadata_customMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomMetadata -&gt; HashMap Text Text)
+-&gt; (CreateCustomMetadata
+    -&gt; HashMap Text Text -&gt; CreateCustomMetadata)
+-&gt; Lens
+     CreateCustomMetadata
+     CreateCustomMetadata
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274491"><span class="annot"><span class="annottext">HashMap Text Text
+customMetadata :: HashMap Text Text
+$sel:customMetadata:CreateCustomMetadata' :: CreateCustomMetadata -&gt; HashMap Text Text
+</span><a href="#local-6989586621679274491"><span class="hs-identifier hs-var hs-var">customMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679274491"><span class="hs-identifier hs-var">customMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274490"><span class="annot"><span class="annottext">s :: CreateCustomMetadata
+</span><a href="#local-6989586621679274490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274489"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679274489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomMetadata
+</span><a href="#local-6989586621679274490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customMetadata:CreateCustomMetadata' :: HashMap Text Text
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AcustomMetadata%3ACreateCustomMetadata%27"><span class="hs-identifier hs-var">customMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679274489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; CreateCustomMetadata -&gt; f CreateCustomMetadata)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; CreateCustomMetadata
+-&gt; f CreateCustomMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse"><span class="hs-identifier hs-type">CreateCustomMetadataResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679274484"><span class="annot"><span class="annottext">request :: CreateCustomMetadata -&gt; Request CreateCustomMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCustomMetadata -&gt; Request CreateCustomMetadata
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679274480"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCustomMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCustomMetadata)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CreateCustomMetadata))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCustomMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCustomMetadata)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274477"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274476"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274476"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274475"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679274475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateCustomMetadataResponse
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse%27"><span class="hs-identifier hs-var">CreateCustomMetadataResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateCustomMetadataResponse)
+-&gt; Either String Int -&gt; Either String CreateCustomMetadataResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274477"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274468"><span id="local-6989586621679274470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679274461"><span class="annot"><span class="annottext">toHeaders :: CreateCustomMetadata -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274456"><span id="local-6989586621679274457"><span id="local-6989586621679274458"><span id="local-6989586621679274459"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+HashMap Text Text
+customMetadata :: HashMap Text Text
+resourceId :: Text
+authenticationToken :: Maybe (Sensitive Text)
+versionId :: Maybe Text
+$sel:customMetadata:CreateCustomMetadata' :: CreateCustomMetadata -&gt; HashMap Text Text
+$sel:resourceId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Text
+$sel:authenticationToken:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe (Sensitive Text)
+$sel:versionId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679274456"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274448"><span id="local-6989586621679274450"><span id="local-6989586621679274452"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679274446"><span class="annot"><span class="annottext">toJSON :: CreateCustomMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274441"><span id="local-6989586621679274442"><span id="local-6989586621679274443"><span id="local-6989586621679274444"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+HashMap Text Text
+customMetadata :: HashMap Text Text
+resourceId :: Text
+authenticationToken :: Maybe (Sensitive Text)
+versionId :: Maybe Text
+$sel:customMetadata:CreateCustomMetadata' :: CreateCustomMetadata -&gt; HashMap Text Text
+$sel:resourceId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Text
+$sel:authenticationToken:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe (Sensitive Text)
+$sel:versionId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679274441"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679274441"><span class="hs-identifier hs-var">customMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679274435"><span class="annot"><span class="annottext">toPath :: CreateCustomMetadata -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274430"><span id="local-6989586621679274431"><span id="local-6989586621679274432"><span id="local-6989586621679274433"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+HashMap Text Text
+customMetadata :: HashMap Text Text
+resourceId :: Text
+authenticationToken :: Maybe (Sensitive Text)
+versionId :: Maybe Text
+$sel:customMetadata:CreateCustomMetadata' :: CreateCustomMetadata -&gt; HashMap Text Text
+$sel:resourceId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Text
+$sel:authenticationToken:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe (Sensitive Text)
+$sel:versionId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679274430"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/api/v1/resources/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274431"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/customMetadata&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata"><span class="hs-identifier hs-type">CreateCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679274426"><span class="annot"><span class="annottext">toQuery :: CreateCustomMetadata -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadata%27"><span class="hs-identifier hs-type">CreateCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274421"><span id="local-6989586621679274422"><span id="local-6989586621679274423"><span id="local-6989586621679274424"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+HashMap Text Text
+customMetadata :: HashMap Text Text
+resourceId :: Text
+authenticationToken :: Maybe (Sensitive Text)
+versionId :: Maybe Text
+$sel:customMetadata:CreateCustomMetadata' :: CreateCustomMetadata -&gt; HashMap Text Text
+$sel:resourceId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Text
+$sel:authenticationToken:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe (Sensitive Text)
+$sel:versionId:CreateCustomMetadata' :: CreateCustomMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679274421"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;versionid&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274424"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newCreateCustomMetadataResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679274418"><span id="local-6989586621679274419"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomMetadataResponse"><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse"><span class="hs-identifier hs-var">CreateCustomMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomMetadataResponse%27"><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse%27"><span class="hs-identifier hs-var">CreateCustomMetadataResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCustomMetadataResponse%27"><span class="annot"><span class="annottext">CreateCustomMetadataResponse -&gt; Int
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AhttpStatus%3ACreateCustomMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274413"><span id="local-6989586621679274415"><span class="annot"><span class="annottext">CreateCustomMetadataResponse
+-&gt; CreateCustomMetadataResponse -&gt; Bool
+(CreateCustomMetadataResponse
+ -&gt; CreateCustomMetadataResponse -&gt; Bool)
+-&gt; (CreateCustomMetadataResponse
+    -&gt; CreateCustomMetadataResponse -&gt; Bool)
+-&gt; Eq CreateCustomMetadataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomMetadataResponse
+-&gt; CreateCustomMetadataResponse -&gt; Bool
+$c/= :: CreateCustomMetadataResponse
+-&gt; CreateCustomMetadataResponse -&gt; Bool
+== :: CreateCustomMetadataResponse
+-&gt; CreateCustomMetadataResponse -&gt; Bool
+$c== :: CreateCustomMetadataResponse
+-&gt; CreateCustomMetadataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274405"><span id="local-6989586621679274407"><span id="local-6989586621679274409"><span id="local-6989586621679274411"><span class="annot"><span class="annottext">ReadPrec [CreateCustomMetadataResponse]
+ReadPrec CreateCustomMetadataResponse
+Int -&gt; ReadS CreateCustomMetadataResponse
+ReadS [CreateCustomMetadataResponse]
+(Int -&gt; ReadS CreateCustomMetadataResponse)
+-&gt; ReadS [CreateCustomMetadataResponse]
+-&gt; ReadPrec CreateCustomMetadataResponse
+-&gt; ReadPrec [CreateCustomMetadataResponse]
+-&gt; Read CreateCustomMetadataResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCustomMetadataResponse]
+$creadListPrec :: ReadPrec [CreateCustomMetadataResponse]
+readPrec :: ReadPrec CreateCustomMetadataResponse
+$creadPrec :: ReadPrec CreateCustomMetadataResponse
+readList :: ReadS [CreateCustomMetadataResponse]
+$creadList :: ReadS [CreateCustomMetadataResponse]
+readsPrec :: Int -&gt; ReadS CreateCustomMetadataResponse
+$creadsPrec :: Int -&gt; ReadS CreateCustomMetadataResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274398"><span id="local-6989586621679274400"><span id="local-6989586621679274402"><span class="annot"><span class="annottext">Int -&gt; CreateCustomMetadataResponse -&gt; ShowS
+[CreateCustomMetadataResponse] -&gt; ShowS
+CreateCustomMetadataResponse -&gt; String
+(Int -&gt; CreateCustomMetadataResponse -&gt; ShowS)
+-&gt; (CreateCustomMetadataResponse -&gt; String)
+-&gt; ([CreateCustomMetadataResponse] -&gt; ShowS)
+-&gt; Show CreateCustomMetadataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomMetadataResponse] -&gt; ShowS
+$cshowList :: [CreateCustomMetadataResponse] -&gt; ShowS
+show :: CreateCustomMetadataResponse -&gt; String
+$cshow :: CreateCustomMetadataResponse -&gt; String
+showsPrec :: Int -&gt; CreateCustomMetadataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCustomMetadataResponse -&gt; Rep CreateCustomMetadataResponse x)
+-&gt; (forall x.
+    Rep CreateCustomMetadataResponse x -&gt; CreateCustomMetadataResponse)
+-&gt; Generic CreateCustomMetadataResponse
+forall x.
+Rep CreateCustomMetadataResponse x -&gt; CreateCustomMetadataResponse
+forall x.
+CreateCustomMetadataResponse -&gt; Rep CreateCustomMetadataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCustomMetadataResponse x -&gt; CreateCustomMetadataResponse
+$cfrom :: forall x.
+CreateCustomMetadataResponse -&gt; Rep CreateCustomMetadataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'CreateCustomMetadataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'createCustomMetadataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#newCreateCustomMetadataResponse"><span class="hs-identifier hs-type">newCreateCustomMetadataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse"><span class="hs-identifier hs-type">CreateCustomMetadataResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newCreateCustomMetadataResponse"><span class="annot"><span class="annottext">newCreateCustomMetadataResponse :: Int -&gt; CreateCustomMetadataResponse
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#newCreateCustomMetadataResponse"><span class="hs-identifier hs-var hs-var">newCreateCustomMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679274395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">CreateCustomMetadataResponse' :: Int -&gt; CreateCustomMetadataResponse
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse%27"><span class="hs-identifier hs-type">CreateCustomMetadataResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomMetadataResponse' :: Int
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AhttpStatus%3ACreateCustomMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadataResponse_httpStatus"><span class="hs-identifier hs-type">createCustomMetadataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse"><span class="hs-identifier hs-type">CreateCustomMetadataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span id="createCustomMetadataResponse_httpStatus"><span class="annot"><span class="annottext">createCustomMetadataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCustomMetadataResponse -&gt; f CreateCustomMetadataResponse
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#createCustomMetadataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCustomMetadataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomMetadataResponse -&gt; Int)
+-&gt; (CreateCustomMetadataResponse
+    -&gt; Int -&gt; CreateCustomMetadataResponse)
+-&gt; Lens
+     CreateCustomMetadataResponse CreateCustomMetadataResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse%27"><span class="hs-identifier hs-type">CreateCustomMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274394"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCustomMetadataResponse' :: CreateCustomMetadataResponse -&gt; Int
+</span><a href="#local-6989586621679274394"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274394"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274393"><span class="annot"><span class="annottext">s :: CreateCustomMetadataResponse
+</span><a href="#local-6989586621679274393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse%27"><span class="hs-identifier hs-type">CreateCustomMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomMetadataResponse
+</span><a href="#local-6989586621679274393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomMetadataResponse' :: Int
+</span><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#%24sel%3AhttpStatus%3ACreateCustomMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse"><span class="hs-identifier hs-type">CreateCustomMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.CreateCustomMetadata.html#CreateCustomMetadataResponse"><span class="hs-identifier hs-type">CreateCustomMetadataResponse</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

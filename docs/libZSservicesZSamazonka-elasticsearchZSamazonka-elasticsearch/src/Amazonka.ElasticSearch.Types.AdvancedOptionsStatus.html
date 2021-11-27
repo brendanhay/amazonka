@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticSearch.Types.AdvancedOptionsStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticSearch.Types.AdvancedOptionsStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.OptionStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Status of the advanced options for the specified Elasticsearch domain.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Currently, the following advanced options are available:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   Option to allow references to indices in an HTTP request body. Must</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     be @false@ when configuring access to individual sub-resources. By</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     default, the value is @true@. See</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     for more information.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   Option to specify the percentage of heap space that is allocated to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     field data. By default, this setting is unbounded.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options&gt;.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newAdvancedOptionsStatus' smart constructor.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679297791"><span id="local-6989586621679297792"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdvancedOptionsStatus"><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-var">AdvancedOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdvancedOptionsStatus%27"><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-var">AdvancedOptionsStatus'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the status of advanced options for the specified Elasticsearch</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aoptions%3AAdvancedOptionsStatus%27"><span class="annot"><span class="annottext">AdvancedOptionsStatus -&gt; HashMap Text Text
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Aoptions%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Specifies the status of @OptionStatus@ for advanced options for the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- specified Elasticsearch domain.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="annot"><span class="annottext">AdvancedOptionsStatus -&gt; OptionStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297784"><span id="local-6989586621679297786"><span class="annot"><span class="annottext">AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
+(AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool)
+-&gt; (AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool)
+-&gt; Eq AdvancedOptionsStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
+$c/= :: AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
+== :: AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
+$c== :: AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297775"><span id="local-6989586621679297777"><span id="local-6989586621679297779"><span id="local-6989586621679297781"><span class="annot"><span class="annottext">ReadPrec [AdvancedOptionsStatus]
+ReadPrec AdvancedOptionsStatus
+Int -&gt; ReadS AdvancedOptionsStatus
+ReadS [AdvancedOptionsStatus]
+(Int -&gt; ReadS AdvancedOptionsStatus)
+-&gt; ReadS [AdvancedOptionsStatus]
+-&gt; ReadPrec AdvancedOptionsStatus
+-&gt; ReadPrec [AdvancedOptionsStatus]
+-&gt; Read AdvancedOptionsStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AdvancedOptionsStatus]
+$creadListPrec :: ReadPrec [AdvancedOptionsStatus]
+readPrec :: ReadPrec AdvancedOptionsStatus
+$creadPrec :: ReadPrec AdvancedOptionsStatus
+readList :: ReadS [AdvancedOptionsStatus]
+$creadList :: ReadS [AdvancedOptionsStatus]
+readsPrec :: Int -&gt; ReadS AdvancedOptionsStatus
+$creadsPrec :: Int -&gt; ReadS AdvancedOptionsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297768"><span id="local-6989586621679297770"><span id="local-6989586621679297772"><span class="annot"><span class="annottext">Int -&gt; AdvancedOptionsStatus -&gt; ShowS
+[AdvancedOptionsStatus] -&gt; ShowS
+AdvancedOptionsStatus -&gt; String
+(Int -&gt; AdvancedOptionsStatus -&gt; ShowS)
+-&gt; (AdvancedOptionsStatus -&gt; String)
+-&gt; ([AdvancedOptionsStatus] -&gt; ShowS)
+-&gt; Show AdvancedOptionsStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AdvancedOptionsStatus] -&gt; ShowS
+$cshowList :: [AdvancedOptionsStatus] -&gt; ShowS
+show :: AdvancedOptionsStatus -&gt; String
+$cshow :: AdvancedOptionsStatus -&gt; String
+showsPrec :: Int -&gt; AdvancedOptionsStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AdvancedOptionsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AdvancedOptionsStatus -&gt; Rep AdvancedOptionsStatus x)
+-&gt; (forall x. Rep AdvancedOptionsStatus x -&gt; AdvancedOptionsStatus)
+-&gt; Generic AdvancedOptionsStatus
+forall x. Rep AdvancedOptionsStatus x -&gt; AdvancedOptionsStatus
+forall x. AdvancedOptionsStatus -&gt; Rep AdvancedOptionsStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AdvancedOptionsStatus x -&gt; AdvancedOptionsStatus
+$cfrom :: forall x. AdvancedOptionsStatus -&gt; Rep AdvancedOptionsStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'AdvancedOptionsStatus' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'options', 'advancedOptionsStatus_options' - Specifies the status of advanced options for the specified Elasticsearch</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'status', 'advancedOptionsStatus_status' - Specifies the status of @OptionStatus@ for advanced options for the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- specified Elasticsearch domain.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#newAdvancedOptionsStatus"><span class="hs-identifier hs-type">newAdvancedOptionsStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span>
+</span><span id="line-69"></span><span id="newAdvancedOptionsStatus"><span class="annot"><span class="annottext">newAdvancedOptionsStatus :: OptionStatus -&gt; AdvancedOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#newAdvancedOptionsStatus"><span class="hs-identifier hs-var hs-var">newAdvancedOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679297762"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297762"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">AdvancedOptionsStatus' :: HashMap Text Text -&gt; OptionStatus -&gt; AdvancedOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:options:AdvancedOptionsStatus' :: HashMap Text Text
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Aoptions%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AdvancedOptionsStatus' :: OptionStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297762"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Specifies the status of advanced options for the specified Elasticsearch</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#advancedOptionsStatus_options"><span class="hs-identifier hs-type">advancedOptionsStatus_options</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="advancedOptionsStatus_options"><span class="annot"><span class="annottext">advancedOptionsStatus_options :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; AdvancedOptionsStatus -&gt; f AdvancedOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#advancedOptionsStatus_options"><span class="hs-identifier hs-var hs-var">advancedOptionsStatus_options</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdvancedOptionsStatus -&gt; HashMap Text Text)
+-&gt; (AdvancedOptionsStatus
+    -&gt; HashMap Text Text -&gt; AdvancedOptionsStatus)
+-&gt; Lens
+     AdvancedOptionsStatus
+     AdvancedOptionsStatus
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297758"><span class="annot"><span class="annottext">HashMap Text Text
+options :: HashMap Text Text
+$sel:options:AdvancedOptionsStatus' :: AdvancedOptionsStatus -&gt; HashMap Text Text
+</span><a href="#local-6989586621679297758"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679297758"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297757"><span class="annot"><span class="annottext">s :: AdvancedOptionsStatus
+</span><a href="#local-6989586621679297757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297756"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679297756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedOptionsStatus
+</span><a href="#local-6989586621679297757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:AdvancedOptionsStatus' :: HashMap Text Text
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Aoptions%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679297756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; AdvancedOptionsStatus -&gt; f AdvancedOptionsStatus)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; AdvancedOptionsStatus
+-&gt; f AdvancedOptionsStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Specifies the status of @OptionStatus@ for advanced options for the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- specified Elasticsearch domain.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#advancedOptionsStatus_status"><span class="hs-identifier hs-type">advancedOptionsStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
+</span><span id="line-83"></span><span id="advancedOptionsStatus_status"><span class="annot"><span class="annottext">advancedOptionsStatus_status :: (OptionStatus -&gt; f OptionStatus)
+-&gt; AdvancedOptionsStatus -&gt; f AdvancedOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#advancedOptionsStatus_status"><span class="hs-identifier hs-var hs-var">advancedOptionsStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdvancedOptionsStatus -&gt; OptionStatus)
+-&gt; (AdvancedOptionsStatus -&gt; OptionStatus -&gt; AdvancedOptionsStatus)
+-&gt; Lens
+     AdvancedOptionsStatus
+     AdvancedOptionsStatus
+     OptionStatus
+     OptionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297752"><span class="annot"><span class="annottext">OptionStatus
+status :: OptionStatus
+$sel:status:AdvancedOptionsStatus' :: AdvancedOptionsStatus -&gt; OptionStatus
+</span><a href="#local-6989586621679297752"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297752"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297751"><span class="annot"><span class="annottext">s :: AdvancedOptionsStatus
+</span><a href="#local-6989586621679297751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297750"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedOptionsStatus
+</span><a href="#local-6989586621679297751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AdvancedOptionsStatus' :: OptionStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297747"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679297745"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdvancedOptionsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AdvancedOptionsStatus)
+-&gt; Value
+-&gt; Parser AdvancedOptionsStatus
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AdvancedOptionsStatus&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297742"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297742"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">HashMap Text Text -&gt; OptionStatus -&gt; AdvancedOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-var">AdvancedOptionsStatus'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; OptionStatus -&gt; AdvancedOptionsStatus)
+-&gt; Parser (HashMap Text Text)
+-&gt; Parser (OptionStatus -&gt; AdvancedOptionsStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Options&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; Parser (HashMap Text Text)
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (OptionStatus -&gt; AdvancedOptionsStatus)
+-&gt; Parser OptionStatus -&gt; Parser AdvancedOptionsStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297734"><span id="local-6989586621679297736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span><span>
+</span><span id="line-98"></span></pre></body></html>

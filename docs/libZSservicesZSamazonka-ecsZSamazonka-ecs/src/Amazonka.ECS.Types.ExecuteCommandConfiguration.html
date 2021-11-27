@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.ExecuteCommandConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.ExecuteCommandConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandLogConfiguration.html"><span class="hs-identifier">Amazonka.ECS.Types.ExecuteCommandLogConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandLogging.html"><span class="hs-identifier">Amazonka.ECS.Types.ExecuteCommandLogging</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The details of the execute command configuration.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExecuteCommandConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679452551"><span id="local-6989586621679452552"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteCommandConfiguration"><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-var">ExecuteCommandConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteCommandConfiguration%27"><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">ExecuteCommandConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The log configuration for the results of the execute command actions.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @logging=OVERRIDE@ is specified, a @logConfiguration@ must be provided.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlogConfiguration%3AExecuteCommandConfiguration%27"><span class="annot"><span class="annottext">ExecuteCommandConfiguration -&gt; Maybe ExecuteCommandLogConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3AlogConfiguration%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var hs-var">logConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specify an Key Management Service key ID to encrypt the data between the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- local client and the container.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AExecuteCommandConfiguration%27"><span class="annot"><span class="annottext">ExecuteCommandConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3AkmsKeyId%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The log setting to use for redirecting logs for your execute command</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- results. The following log settings are available.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @NONE@: The execute command session is not logged.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @DEFAULT@: The @awslogs@ configuration in the task definition is</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     used. If no logging parameter is specified, it defaults to this</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     value. If no @awslogs@ log driver is configured in the task</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     definition, the output won\'t be logged.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @OVERRIDE@: Specify the logging details as a part of</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     @logConfiguration@. If the @OVERRIDE@ logging option is specified,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     the @logConfiguration@ is required.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Alogging%3AExecuteCommandConfiguration%27"><span class="annot"><span class="annottext">ExecuteCommandConfiguration -&gt; Maybe ExecuteCommandLogging
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3Alogging%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var hs-var">logging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging"><span class="hs-identifier hs-type">ExecuteCommandLogging</span></a></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452543"><span id="local-6989586621679452545"><span class="annot"><span class="annottext">ExecuteCommandConfiguration -&gt; ExecuteCommandConfiguration -&gt; Bool
+(ExecuteCommandConfiguration
+ -&gt; ExecuteCommandConfiguration -&gt; Bool)
+-&gt; (ExecuteCommandConfiguration
+    -&gt; ExecuteCommandConfiguration -&gt; Bool)
+-&gt; Eq ExecuteCommandConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecuteCommandConfiguration -&gt; ExecuteCommandConfiguration -&gt; Bool
+$c/= :: ExecuteCommandConfiguration -&gt; ExecuteCommandConfiguration -&gt; Bool
+== :: ExecuteCommandConfiguration -&gt; ExecuteCommandConfiguration -&gt; Bool
+$c== :: ExecuteCommandConfiguration -&gt; ExecuteCommandConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452534"><span id="local-6989586621679452536"><span id="local-6989586621679452538"><span id="local-6989586621679452540"><span class="annot"><span class="annottext">ReadPrec [ExecuteCommandConfiguration]
+ReadPrec ExecuteCommandConfiguration
+Int -&gt; ReadS ExecuteCommandConfiguration
+ReadS [ExecuteCommandConfiguration]
+(Int -&gt; ReadS ExecuteCommandConfiguration)
+-&gt; ReadS [ExecuteCommandConfiguration]
+-&gt; ReadPrec ExecuteCommandConfiguration
+-&gt; ReadPrec [ExecuteCommandConfiguration]
+-&gt; Read ExecuteCommandConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecuteCommandConfiguration]
+$creadListPrec :: ReadPrec [ExecuteCommandConfiguration]
+readPrec :: ReadPrec ExecuteCommandConfiguration
+$creadPrec :: ReadPrec ExecuteCommandConfiguration
+readList :: ReadS [ExecuteCommandConfiguration]
+$creadList :: ReadS [ExecuteCommandConfiguration]
+readsPrec :: Int -&gt; ReadS ExecuteCommandConfiguration
+$creadsPrec :: Int -&gt; ReadS ExecuteCommandConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452527"><span id="local-6989586621679452529"><span id="local-6989586621679452531"><span class="annot"><span class="annottext">Int -&gt; ExecuteCommandConfiguration -&gt; ShowS
+[ExecuteCommandConfiguration] -&gt; ShowS
+ExecuteCommandConfiguration -&gt; String
+(Int -&gt; ExecuteCommandConfiguration -&gt; ShowS)
+-&gt; (ExecuteCommandConfiguration -&gt; String)
+-&gt; ([ExecuteCommandConfiguration] -&gt; ShowS)
+-&gt; Show ExecuteCommandConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecuteCommandConfiguration] -&gt; ShowS
+$cshowList :: [ExecuteCommandConfiguration] -&gt; ShowS
+show :: ExecuteCommandConfiguration -&gt; String
+$cshow :: ExecuteCommandConfiguration -&gt; String
+showsPrec :: Int -&gt; ExecuteCommandConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecuteCommandConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExecuteCommandConfiguration -&gt; Rep ExecuteCommandConfiguration x)
+-&gt; (forall x.
+    Rep ExecuteCommandConfiguration x -&gt; ExecuteCommandConfiguration)
+-&gt; Generic ExecuteCommandConfiguration
+forall x.
+Rep ExecuteCommandConfiguration x -&gt; ExecuteCommandConfiguration
+forall x.
+ExecuteCommandConfiguration -&gt; Rep ExecuteCommandConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExecuteCommandConfiguration x -&gt; ExecuteCommandConfiguration
+$cfrom :: forall x.
+ExecuteCommandConfiguration -&gt; Rep ExecuteCommandConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'ExecuteCommandConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'logConfiguration', 'executeCommandConfiguration_logConfiguration' - The log configuration for the results of the execute command actions.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @logging=OVERRIDE@ is specified, a @logConfiguration@ must be provided.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'kmsKeyId', 'executeCommandConfiguration_kmsKeyId' - Specify an Key Management Service key ID to encrypt the data between the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- local client and the container.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'logging', 'executeCommandConfiguration_logging' - The log setting to use for redirecting logs for your execute command</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- results. The following log settings are available.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   @NONE@: The execute command session is not logged.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -   @DEFAULT@: The @awslogs@ configuration in the task definition is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     used. If no logging parameter is specified, it defaults to this</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--     value. If no @awslogs@ log driver is configured in the task</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--     definition, the output won\'t be logged.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   @OVERRIDE@: Specify the logging details as a part of</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     @logConfiguration@. If the @OVERRIDE@ logging option is specified,</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     the @logConfiguration@ is required.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#newExecuteCommandConfiguration"><span class="hs-identifier hs-type">newExecuteCommandConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span>
+</span><span id="line-86"></span><span id="newExecuteCommandConfiguration"><span class="annot"><span class="annottext">newExecuteCommandConfiguration :: ExecuteCommandConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#newExecuteCommandConfiguration"><span class="hs-identifier hs-var hs-var">newExecuteCommandConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ExecuteCommandConfiguration' :: Maybe ExecuteCommandLogConfiguration
+-&gt; Maybe Text
+-&gt; Maybe ExecuteCommandLogging
+-&gt; ExecuteCommandConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logConfiguration:ExecuteCommandConfiguration' :: Maybe ExecuteCommandLogConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3AlogConfiguration%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:ExecuteCommandConfiguration' :: Maybe Text
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3AkmsKeyId%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:logging:ExecuteCommandConfiguration' :: Maybe ExecuteCommandLogging
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3Alogging%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">logging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogging
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The log configuration for the results of the execute command actions.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @logging=OVERRIDE@ is specified, a @logConfiguration@ must be provided.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#executeCommandConfiguration_logConfiguration"><span class="hs-identifier hs-type">executeCommandConfiguration_logConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="executeCommandConfiguration_logConfiguration"><span class="annot"><span class="annottext">executeCommandConfiguration_logConfiguration :: (Maybe ExecuteCommandLogConfiguration
+ -&gt; f (Maybe ExecuteCommandLogConfiguration))
+-&gt; ExecuteCommandConfiguration -&gt; f ExecuteCommandConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#executeCommandConfiguration_logConfiguration"><span class="hs-identifier hs-var hs-var">executeCommandConfiguration_logConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandConfiguration
+ -&gt; Maybe ExecuteCommandLogConfiguration)
+-&gt; (ExecuteCommandConfiguration
+    -&gt; Maybe ExecuteCommandLogConfiguration
+    -&gt; ExecuteCommandConfiguration)
+-&gt; Lens
+     ExecuteCommandConfiguration
+     ExecuteCommandConfiguration
+     (Maybe ExecuteCommandLogConfiguration)
+     (Maybe ExecuteCommandLogConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452518"><span class="annot"><span class="annottext">Maybe ExecuteCommandLogConfiguration
+logConfiguration :: Maybe ExecuteCommandLogConfiguration
+$sel:logConfiguration:ExecuteCommandConfiguration' :: ExecuteCommandConfiguration -&gt; Maybe ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452518"><span class="hs-identifier hs-var hs-var">logConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452518"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452517"><span class="annot"><span class="annottext">s :: ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452516"><span class="annot"><span class="annottext">Maybe ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logConfiguration:ExecuteCommandConfiguration' :: Maybe ExecuteCommandLogConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3AlogConfiguration%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Specify an Key Management Service key ID to encrypt the data between the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- local client and the container.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#executeCommandConfiguration_kmsKeyId"><span class="hs-identifier hs-type">executeCommandConfiguration_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="executeCommandConfiguration_kmsKeyId"><span class="annot"><span class="annottext">executeCommandConfiguration_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecuteCommandConfiguration -&gt; f ExecuteCommandConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#executeCommandConfiguration_kmsKeyId"><span class="hs-identifier hs-var hs-var">executeCommandConfiguration_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandConfiguration -&gt; Maybe Text)
+-&gt; (ExecuteCommandConfiguration
+    -&gt; Maybe Text -&gt; ExecuteCommandConfiguration)
+-&gt; Lens
+     ExecuteCommandConfiguration
+     ExecuteCommandConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452514"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:ExecuteCommandConfiguration' :: ExecuteCommandConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679452514"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452514"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452513"><span class="annot"><span class="annottext">s :: ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:ExecuteCommandConfiguration' :: Maybe Text
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3AkmsKeyId%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The log setting to use for redirecting logs for your execute command</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- results. The following log settings are available.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   @NONE@: The execute command session is not logged.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   @DEFAULT@: The @awslogs@ configuration in the task definition is</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     used. If no logging parameter is specified, it defaults to this</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     value. If no @awslogs@ log driver is configured in the task</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     definition, the output won\'t be logged.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @OVERRIDE@: Specify the logging details as a part of</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     @logConfiguration@. If the @OVERRIDE@ logging option is specified,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     the @logConfiguration@ is required.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#executeCommandConfiguration_logging"><span class="hs-identifier hs-type">executeCommandConfiguration_logging</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandLogging.html#ExecuteCommandLogging"><span class="hs-identifier hs-type">ExecuteCommandLogging</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="executeCommandConfiguration_logging"><span class="annot"><span class="annottext">executeCommandConfiguration_logging :: (Maybe ExecuteCommandLogging -&gt; f (Maybe ExecuteCommandLogging))
+-&gt; ExecuteCommandConfiguration -&gt; f ExecuteCommandConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#executeCommandConfiguration_logging"><span class="hs-identifier hs-var hs-var">executeCommandConfiguration_logging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandConfiguration -&gt; Maybe ExecuteCommandLogging)
+-&gt; (ExecuteCommandConfiguration
+    -&gt; Maybe ExecuteCommandLogging -&gt; ExecuteCommandConfiguration)
+-&gt; Lens
+     ExecuteCommandConfiguration
+     ExecuteCommandConfiguration
+     (Maybe ExecuteCommandLogging)
+     (Maybe ExecuteCommandLogging)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452510"><span class="annot"><span class="annottext">Maybe ExecuteCommandLogging
+logging :: Maybe ExecuteCommandLogging
+$sel:logging:ExecuteCommandConfiguration' :: ExecuteCommandConfiguration -&gt; Maybe ExecuteCommandLogging
+</span><a href="#local-6989586621679452510"><span class="hs-identifier hs-var hs-var">logging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogging
+</span><a href="#local-6989586621679452510"><span class="hs-identifier hs-var">logging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452509"><span class="annot"><span class="annottext">s :: ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452508"><span class="annot"><span class="annottext">Maybe ExecuteCommandLogging
+</span><a href="#local-6989586621679452508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logging:ExecuteCommandConfiguration' :: Maybe ExecuteCommandLogging
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#%24sel%3Alogging%3AExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">logging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogging
+</span><a href="#local-6989586621679452508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452505"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679452503"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecuteCommandConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ExecuteCommandConfiguration)
+-&gt; Value
+-&gt; Parser ExecuteCommandConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExecuteCommandConfiguration&quot;</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452500"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogConfiguration
+-&gt; Maybe Text
+-&gt; Maybe ExecuteCommandLogging
+-&gt; ExecuteCommandConfiguration
+</span><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-var">ExecuteCommandConfiguration'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExecuteCommandLogConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe ExecuteCommandLogging
+ -&gt; ExecuteCommandConfiguration)
+-&gt; Parser (Maybe ExecuteCommandLogConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ExecuteCommandLogging -&gt; ExecuteCommandConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecuteCommandLogConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ExecuteCommandLogging -&gt; ExecuteCommandConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ExecuteCommandLogging -&gt; ExecuteCommandConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ExecuteCommandLogging -&gt; ExecuteCommandConfiguration)
+-&gt; Parser (Maybe ExecuteCommandLogging)
+-&gt; Parser ExecuteCommandConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecuteCommandLogging)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logging&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452494"><span id="local-6989586621679452496"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452483"><span id="local-6989586621679452485"><span id="local-6989586621679452487"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679452481"><span class="annot"><span class="annottext">toJSON :: ExecuteCommandConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452477"><span id="local-6989586621679452478"><span id="local-6989586621679452479"><span class="annot"><span class="annottext">Maybe Text
+Maybe ExecuteCommandLogConfiguration
+Maybe ExecuteCommandLogging
+logging :: Maybe ExecuteCommandLogging
+kmsKeyId :: Maybe Text
+logConfiguration :: Maybe ExecuteCommandLogConfiguration
+$sel:logging:ExecuteCommandConfiguration' :: ExecuteCommandConfiguration -&gt; Maybe ExecuteCommandLogging
+$sel:kmsKeyId:ExecuteCommandConfiguration' :: ExecuteCommandConfiguration -&gt; Maybe Text
+$sel:logConfiguration:ExecuteCommandConfiguration' :: ExecuteCommandConfiguration -&gt; Maybe ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452477"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecuteCommandLogConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(ExecuteCommandLogConfiguration -&gt; Pair)
+-&gt; Maybe ExecuteCommandLogConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452479"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452478"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logging&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecuteCommandLogging -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ExecuteCommandLogging -&gt; Pair)
+-&gt; Maybe ExecuteCommandLogging -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandLogging
+</span><a href="#local-6989586621679452477"><span class="hs-identifier hs-var">logging</span></a></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span></pre></body></html>

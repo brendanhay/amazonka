@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.Types.BatchListIndexResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.Types.BatchListIndexResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.IndexAttachment.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types.IndexAttachment</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents the output of a ListIndex response operation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchListIndexResponse' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679329451"><span id="local-6989586621679329452"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchListIndexResponse"><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-var">BatchListIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchListIndexResponse%27"><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse%27"><span class="hs-identifier hs-var">BatchListIndexResponse'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The objects and indexed values attached to the index.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AindexAttachments%3ABatchListIndexResponse%27"><span class="annot"><span class="annottext">BatchListIndexResponse -&gt; Maybe [IndexAttachment]
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#%24sel%3AindexAttachments%3ABatchListIndexResponse%27"><span class="hs-identifier hs-var hs-var">indexAttachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnextToken%3ABatchListIndexResponse%27"><span class="annot"><span class="annottext">BatchListIndexResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#%24sel%3AnextToken%3ABatchListIndexResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329444"><span id="local-6989586621679329446"><span class="annot"><span class="annottext">BatchListIndexResponse -&gt; BatchListIndexResponse -&gt; Bool
+(BatchListIndexResponse -&gt; BatchListIndexResponse -&gt; Bool)
+-&gt; (BatchListIndexResponse -&gt; BatchListIndexResponse -&gt; Bool)
+-&gt; Eq BatchListIndexResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchListIndexResponse -&gt; BatchListIndexResponse -&gt; Bool
+$c/= :: BatchListIndexResponse -&gt; BatchListIndexResponse -&gt; Bool
+== :: BatchListIndexResponse -&gt; BatchListIndexResponse -&gt; Bool
+$c== :: BatchListIndexResponse -&gt; BatchListIndexResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329435"><span id="local-6989586621679329437"><span id="local-6989586621679329439"><span id="local-6989586621679329441"><span class="annot"><span class="annottext">ReadPrec [BatchListIndexResponse]
+ReadPrec BatchListIndexResponse
+Int -&gt; ReadS BatchListIndexResponse
+ReadS [BatchListIndexResponse]
+(Int -&gt; ReadS BatchListIndexResponse)
+-&gt; ReadS [BatchListIndexResponse]
+-&gt; ReadPrec BatchListIndexResponse
+-&gt; ReadPrec [BatchListIndexResponse]
+-&gt; Read BatchListIndexResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchListIndexResponse]
+$creadListPrec :: ReadPrec [BatchListIndexResponse]
+readPrec :: ReadPrec BatchListIndexResponse
+$creadPrec :: ReadPrec BatchListIndexResponse
+readList :: ReadS [BatchListIndexResponse]
+$creadList :: ReadS [BatchListIndexResponse]
+readsPrec :: Int -&gt; ReadS BatchListIndexResponse
+$creadsPrec :: Int -&gt; ReadS BatchListIndexResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329428"><span id="local-6989586621679329430"><span id="local-6989586621679329432"><span class="annot"><span class="annottext">Int -&gt; BatchListIndexResponse -&gt; ShowS
+[BatchListIndexResponse] -&gt; ShowS
+BatchListIndexResponse -&gt; String
+(Int -&gt; BatchListIndexResponse -&gt; ShowS)
+-&gt; (BatchListIndexResponse -&gt; String)
+-&gt; ([BatchListIndexResponse] -&gt; ShowS)
+-&gt; Show BatchListIndexResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchListIndexResponse] -&gt; ShowS
+$cshowList :: [BatchListIndexResponse] -&gt; ShowS
+show :: BatchListIndexResponse -&gt; String
+$cshow :: BatchListIndexResponse -&gt; String
+showsPrec :: Int -&gt; BatchListIndexResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchListIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchListIndexResponse -&gt; Rep BatchListIndexResponse x)
+-&gt; (forall x.
+    Rep BatchListIndexResponse x -&gt; BatchListIndexResponse)
+-&gt; Generic BatchListIndexResponse
+forall x. Rep BatchListIndexResponse x -&gt; BatchListIndexResponse
+forall x. BatchListIndexResponse -&gt; Rep BatchListIndexResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchListIndexResponse x -&gt; BatchListIndexResponse
+$cfrom :: forall x. BatchListIndexResponse -&gt; Rep BatchListIndexResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'BatchListIndexResponse' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'indexAttachments', 'batchListIndexResponse_indexAttachments' - The objects and indexed values attached to the index.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'nextToken', 'batchListIndexResponse_nextToken' - The pagination token.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#newBatchListIndexResponse"><span class="hs-identifier hs-type">newBatchListIndexResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span><span>
+</span><span id="line-51"></span><span id="newBatchListIndexResponse"><span class="annot"><span class="annottext">newBatchListIndexResponse :: BatchListIndexResponse
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#newBatchListIndexResponse"><span class="hs-identifier hs-var hs-var">newBatchListIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">BatchListIndexResponse' :: Maybe [IndexAttachment] -&gt; Maybe Text -&gt; BatchListIndexResponse
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse%27"><span class="hs-identifier hs-type">BatchListIndexResponse'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexAttachments:BatchListIndexResponse' :: Maybe [IndexAttachment]
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#%24sel%3AindexAttachments%3ABatchListIndexResponse%27"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:BatchListIndexResponse' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#%24sel%3AnextToken%3ABatchListIndexResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The objects and indexed values attached to the index.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#batchListIndexResponse_indexAttachments"><span class="hs-identifier hs-type">batchListIndexResponse_indexAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="batchListIndexResponse_indexAttachments"><span class="annot"><span class="annottext">batchListIndexResponse_indexAttachments :: (Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
+-&gt; BatchListIndexResponse -&gt; f BatchListIndexResponse
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#batchListIndexResponse_indexAttachments"><span class="hs-identifier hs-var hs-var">batchListIndexResponse_indexAttachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchListIndexResponse -&gt; Maybe [IndexAttachment])
+-&gt; (BatchListIndexResponse
+    -&gt; Maybe [IndexAttachment] -&gt; BatchListIndexResponse)
+-&gt; Lens
+     BatchListIndexResponse
+     BatchListIndexResponse
+     (Maybe [IndexAttachment])
+     (Maybe [IndexAttachment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse%27"><span class="hs-identifier hs-type">BatchListIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329419"><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+indexAttachments :: Maybe [IndexAttachment]
+$sel:indexAttachments:BatchListIndexResponse' :: BatchListIndexResponse -&gt; Maybe [IndexAttachment]
+</span><a href="#local-6989586621679329419"><span class="hs-identifier hs-var hs-var">indexAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+</span><a href="#local-6989586621679329419"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329418"><span class="annot"><span class="annottext">s :: BatchListIndexResponse
+</span><a href="#local-6989586621679329418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse%27"><span class="hs-identifier hs-type">BatchListIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329417"><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+</span><a href="#local-6989586621679329417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListIndexResponse
+</span><a href="#local-6989586621679329418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexAttachments:BatchListIndexResponse' :: Maybe [IndexAttachment]
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#%24sel%3AindexAttachments%3ABatchListIndexResponse%27"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+</span><a href="#local-6989586621679329417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
+ -&gt; BatchListIndexResponse -&gt; f BatchListIndexResponse)
+-&gt; ((Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
+    -&gt; Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
+-&gt; (Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
+-&gt; BatchListIndexResponse
+-&gt; f BatchListIndexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IndexAttachment]
+  [IndexAttachment]
+  [IndexAttachment]
+  [IndexAttachment]
+-&gt; Iso
+     (Maybe [IndexAttachment])
+     (Maybe [IndexAttachment])
+     (Maybe [IndexAttachment])
+     (Maybe [IndexAttachment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IndexAttachment]
+  [IndexAttachment]
+  [IndexAttachment]
+  [IndexAttachment]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#batchListIndexResponse_nextToken"><span class="hs-identifier hs-type">batchListIndexResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="batchListIndexResponse_nextToken"><span class="annot"><span class="annottext">batchListIndexResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchListIndexResponse -&gt; f BatchListIndexResponse
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#batchListIndexResponse_nextToken"><span class="hs-identifier hs-var hs-var">batchListIndexResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchListIndexResponse -&gt; Maybe Text)
+-&gt; (BatchListIndexResponse -&gt; Maybe Text -&gt; BatchListIndexResponse)
+-&gt; Lens
+     BatchListIndexResponse
+     BatchListIndexResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse%27"><span class="hs-identifier hs-type">BatchListIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329412"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:BatchListIndexResponse' :: BatchListIndexResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679329412"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329412"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329411"><span class="annot"><span class="annottext">s :: BatchListIndexResponse
+</span><a href="#local-6989586621679329411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse%27"><span class="hs-identifier hs-type">BatchListIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329410"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListIndexResponse
+</span><a href="#local-6989586621679329411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:BatchListIndexResponse' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#%24sel%3AnextToken%3ABatchListIndexResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329407"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679329405"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchListIndexResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchListIndexResponse)
+-&gt; Value
+-&gt; Parser BatchListIndexResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchListIndexResponse&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329402"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329402"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IndexAttachment] -&gt; Maybe Text -&gt; BatchListIndexResponse
+</span><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse%27"><span class="hs-identifier hs-var">BatchListIndexResponse'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IndexAttachment] -&gt; Maybe Text -&gt; BatchListIndexResponse)
+-&gt; Parser (Maybe [IndexAttachment])
+-&gt; Parser (Maybe Text -&gt; BatchListIndexResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IndexAttachment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexAttachments&quot;</span></span><span>
+</span><span id="line-73"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [IndexAttachment]))
+-&gt; Maybe [IndexAttachment] -&gt; Parser (Maybe [IndexAttachment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-74"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BatchListIndexResponse)
+-&gt; Parser (Maybe Text) -&gt; Parser BatchListIndexResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329395"><span id="local-6989586621679329397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.BatchListIndexResponse.html#BatchListIndexResponse"><span class="hs-identifier hs-type">BatchListIndexResponse</span></a></span></span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.LoggingEnabled</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.LoggingEnabled</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html"><span class="hs-identifier">Amazonka.S3.Types.TargetGrant</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes where logs are stored and the prefix that Amazon S3 assigns to</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- all log object keys for a bucket. For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html PUT Bucket logging&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon S3 API Reference/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newLoggingEnabled' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679558870"><span id="local-6989586621679558871"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingEnabled"><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-var">LoggingEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingEnabled%27"><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-var">LoggingEnabled'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Container for granting information.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtargetGrants%3ALoggingEnabled%27"><span class="annot"><span class="annottext">LoggingEnabled -&gt; Maybe [TargetGrant]
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetGrants%3ALoggingEnabled%27"><span class="hs-identifier hs-var hs-var">targetGrants</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies the bucket where you want Amazon S3 to store server access</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- logs. You can have your logs delivered to any bucket that you own,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- including the same bucket that is being logged. You can also configure</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- multiple buckets to deliver their logs to the same target bucket. In</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- this case, you should choose a different @TargetPrefix@ for each source</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- bucket so that the delivered log files can be distinguished by key.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtargetBucket%3ALoggingEnabled%27"><span class="annot"><span class="annottext">LoggingEnabled -&gt; Text
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetBucket%3ALoggingEnabled%27"><span class="hs-identifier hs-var hs-var">targetBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A prefix for all log object keys. If you store log files from multiple</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Amazon S3 buckets in a single bucket, you can use a prefix to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- distinguish which log files came from which bucket.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="annot"><span class="annottext">LoggingEnabled -&gt; Text
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="hs-identifier hs-var hs-var">targetPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558862"><span id="local-6989586621679558864"><span class="annot"><span class="annottext">LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
+(LoggingEnabled -&gt; LoggingEnabled -&gt; Bool)
+-&gt; (LoggingEnabled -&gt; LoggingEnabled -&gt; Bool) -&gt; Eq LoggingEnabled
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
+$c/= :: LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
+== :: LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
+$c== :: LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558853"><span id="local-6989586621679558855"><span id="local-6989586621679558857"><span id="local-6989586621679558859"><span class="annot"><span class="annottext">ReadPrec [LoggingEnabled]
+ReadPrec LoggingEnabled
+Int -&gt; ReadS LoggingEnabled
+ReadS [LoggingEnabled]
+(Int -&gt; ReadS LoggingEnabled)
+-&gt; ReadS [LoggingEnabled]
+-&gt; ReadPrec LoggingEnabled
+-&gt; ReadPrec [LoggingEnabled]
+-&gt; Read LoggingEnabled
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LoggingEnabled]
+$creadListPrec :: ReadPrec [LoggingEnabled]
+readPrec :: ReadPrec LoggingEnabled
+$creadPrec :: ReadPrec LoggingEnabled
+readList :: ReadS [LoggingEnabled]
+$creadList :: ReadS [LoggingEnabled]
+readsPrec :: Int -&gt; ReadS LoggingEnabled
+$creadsPrec :: Int -&gt; ReadS LoggingEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558846"><span id="local-6989586621679558848"><span id="local-6989586621679558850"><span class="annot"><span class="annottext">Int -&gt; LoggingEnabled -&gt; ShowS
+[LoggingEnabled] -&gt; ShowS
+LoggingEnabled -&gt; String
+(Int -&gt; LoggingEnabled -&gt; ShowS)
+-&gt; (LoggingEnabled -&gt; String)
+-&gt; ([LoggingEnabled] -&gt; ShowS)
+-&gt; Show LoggingEnabled
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LoggingEnabled] -&gt; ShowS
+$cshowList :: [LoggingEnabled] -&gt; ShowS
+show :: LoggingEnabled -&gt; String
+$cshow :: LoggingEnabled -&gt; String
+showsPrec :: Int -&gt; LoggingEnabled -&gt; ShowS
+$cshowsPrec :: Int -&gt; LoggingEnabled -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LoggingEnabled -&gt; Rep LoggingEnabled x)
+-&gt; (forall x. Rep LoggingEnabled x -&gt; LoggingEnabled)
+-&gt; Generic LoggingEnabled
+forall x. Rep LoggingEnabled x -&gt; LoggingEnabled
+forall x. LoggingEnabled -&gt; Rep LoggingEnabled x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LoggingEnabled x -&gt; LoggingEnabled
+$cfrom :: forall x. LoggingEnabled -&gt; Rep LoggingEnabled x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'LoggingEnabled' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'targetGrants', 'loggingEnabled_targetGrants' - Container for granting information.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'targetBucket', 'loggingEnabled_targetBucket' - Specifies the bucket where you want Amazon S3 to store server access</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- logs. You can have your logs delivered to any bucket that you own,</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- including the same bucket that is being logged. You can also configure</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- multiple buckets to deliver their logs to the same target bucket. In</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- this case, you should choose a different @TargetPrefix@ for each source</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- bucket so that the delivered log files can be distinguished by key.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'targetPrefix', 'loggingEnabled_targetPrefix' - A prefix for all log object keys. If you store log files from multiple</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Amazon S3 buckets in a single bucket, you can use a prefix to</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- distinguish which log files came from which bucket.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#newLoggingEnabled"><span class="hs-identifier hs-type">newLoggingEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'targetBucket'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'targetPrefix'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span>
+</span><span id="line-77"></span><span id="newLoggingEnabled"><span class="annot"><span class="annottext">newLoggingEnabled :: Text -&gt; Text -&gt; LoggingEnabled
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#newLoggingEnabled"><span class="hs-identifier hs-var hs-var">newLoggingEnabled</span></a></span></span><span> </span><span id="local-6989586621679558840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558840"><span class="hs-identifier hs-var">pTargetBucket_</span></a></span></span><span> </span><span id="local-6989586621679558839"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558839"><span class="hs-identifier hs-var">pTargetPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">LoggingEnabled' :: Maybe [TargetGrant] -&gt; Text -&gt; Text -&gt; LoggingEnabled
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetGrants:LoggingEnabled' :: Maybe [TargetGrant]
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetGrants%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetGrants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetBucket:LoggingEnabled' :: Text
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetBucket%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558840"><span class="hs-identifier hs-var">pTargetBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetPrefix:LoggingEnabled' :: Text
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558839"><span class="hs-identifier hs-var">pTargetPrefix_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Container for granting information.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#loggingEnabled_targetGrants"><span class="hs-identifier hs-type">loggingEnabled_targetGrants</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="loggingEnabled_targetGrants"><span class="annot"><span class="annottext">loggingEnabled_targetGrants :: (Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
+-&gt; LoggingEnabled -&gt; f LoggingEnabled
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#loggingEnabled_targetGrants"><span class="hs-identifier hs-var hs-var">loggingEnabled_targetGrants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingEnabled -&gt; Maybe [TargetGrant])
+-&gt; (LoggingEnabled -&gt; Maybe [TargetGrant] -&gt; LoggingEnabled)
+-&gt; Lens
+     LoggingEnabled
+     LoggingEnabled
+     (Maybe [TargetGrant])
+     (Maybe [TargetGrant])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558835"><span class="annot"><span class="annottext">Maybe [TargetGrant]
+targetGrants :: Maybe [TargetGrant]
+$sel:targetGrants:LoggingEnabled' :: LoggingEnabled -&gt; Maybe [TargetGrant]
+</span><a href="#local-6989586621679558835"><span class="hs-identifier hs-var hs-var">targetGrants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><a href="#local-6989586621679558835"><span class="hs-identifier hs-var">targetGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558834"><span class="annot"><span class="annottext">s :: LoggingEnabled
+</span><a href="#local-6989586621679558834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558833"><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><a href="#local-6989586621679558833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
+</span><a href="#local-6989586621679558834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGrants:LoggingEnabled' :: Maybe [TargetGrant]
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetGrants%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetGrants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><a href="#local-6989586621679558833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
+ -&gt; LoggingEnabled -&gt; f LoggingEnabled)
+-&gt; ((Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
+    -&gt; Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
+-&gt; (Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
+-&gt; LoggingEnabled
+-&gt; f LoggingEnabled
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TargetGrant] [TargetGrant] [TargetGrant] [TargetGrant]
+-&gt; Iso
+     (Maybe [TargetGrant])
+     (Maybe [TargetGrant])
+     (Maybe [TargetGrant])
+     (Maybe [TargetGrant])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TargetGrant] [TargetGrant] [TargetGrant] [TargetGrant]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Specifies the bucket where you want Amazon S3 to store server access</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- logs. You can have your logs delivered to any bucket that you own,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- including the same bucket that is being logged. You can also configure</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- multiple buckets to deliver their logs to the same target bucket. In</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- this case, you should choose a different @TargetPrefix@ for each source</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- bucket so that the delivered log files can be distinguished by key.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#loggingEnabled_targetBucket"><span class="hs-identifier hs-type">loggingEnabled_targetBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="loggingEnabled_targetBucket"><span class="annot"><span class="annottext">loggingEnabled_targetBucket :: (Text -&gt; f Text) -&gt; LoggingEnabled -&gt; f LoggingEnabled
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#loggingEnabled_targetBucket"><span class="hs-identifier hs-var hs-var">loggingEnabled_targetBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingEnabled -&gt; Text)
+-&gt; (LoggingEnabled -&gt; Text -&gt; LoggingEnabled)
+-&gt; Lens LoggingEnabled LoggingEnabled Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558828"><span class="annot"><span class="annottext">Text
+targetBucket :: Text
+$sel:targetBucket:LoggingEnabled' :: LoggingEnabled -&gt; Text
+</span><a href="#local-6989586621679558828"><span class="hs-identifier hs-var hs-var">targetBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558828"><span class="hs-identifier hs-var">targetBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558827"><span class="annot"><span class="annottext">s :: LoggingEnabled
+</span><a href="#local-6989586621679558827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
+</span><a href="#local-6989586621679558827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetBucket:LoggingEnabled' :: Text
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetBucket%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A prefix for all log object keys. If you store log files from multiple</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Amazon S3 buckets in a single bucket, you can use a prefix to</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- distinguish which log files came from which bucket.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#loggingEnabled_targetPrefix"><span class="hs-identifier hs-type">loggingEnabled_targetPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="loggingEnabled_targetPrefix"><span class="annot"><span class="annottext">loggingEnabled_targetPrefix :: (Text -&gt; f Text) -&gt; LoggingEnabled -&gt; f LoggingEnabled
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#loggingEnabled_targetPrefix"><span class="hs-identifier hs-var hs-var">loggingEnabled_targetPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingEnabled -&gt; Text)
+-&gt; (LoggingEnabled -&gt; Text -&gt; LoggingEnabled)
+-&gt; Lens LoggingEnabled LoggingEnabled Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558824"><span class="annot"><span class="annottext">Text
+targetPrefix :: Text
+$sel:targetPrefix:LoggingEnabled' :: LoggingEnabled -&gt; Text
+</span><a href="#local-6989586621679558824"><span class="hs-identifier hs-var hs-var">targetPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558824"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558823"><span class="annot"><span class="annottext">s :: LoggingEnabled
+</span><a href="#local-6989586621679558823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
+</span><a href="#local-6989586621679558823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPrefix:LoggingEnabled' :: Text
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679558819"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoggingEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558817"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe [TargetGrant] -&gt; Text -&gt; Text -&gt; LoggingEnabled
+</span><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-var">LoggingEnabled'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [TargetGrant] -&gt; Text -&gt; Text -&gt; LoggingEnabled)
+-&gt; Either String (Maybe [TargetGrant])
+-&gt; Either String (Text -&gt; Text -&gt; LoggingEnabled)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetGrants&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [TargetGrant]))
+-&gt; Either String (Maybe [TargetGrant])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [TargetGrant])
+-&gt; [Node] -&gt; Either String (Maybe [TargetGrant])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [TargetGrant]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Grant&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; LoggingEnabled)
+-&gt; Either String Text -&gt; Either String (Text -&gt; LoggingEnabled)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetBucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; LoggingEnabled)
+-&gt; Either String Text -&gt; Either String LoggingEnabled
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetPrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558807"><span id="local-6989586621679558809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679558800"><span class="annot"><span class="annottext">toXML :: LoggingEnabled -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558796"><span id="local-6989586621679558797"><span id="local-6989586621679558798"><span class="annot"><span class="annottext">Maybe [TargetGrant]
+Text
+targetPrefix :: Text
+targetBucket :: Text
+targetGrants :: Maybe [TargetGrant]
+$sel:targetPrefix:LoggingEnabled' :: LoggingEnabled -&gt; Text
+$sel:targetBucket:LoggingEnabled' :: LoggingEnabled -&gt; Text
+$sel:targetGrants:LoggingEnabled' :: LoggingEnabled -&gt; Maybe [TargetGrant]
+</span><a href="#local-6989586621679558796"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;TargetGrants&quot;</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
+forall a. ToXML a =&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [TargetGrant] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Grant&quot;</span></span><span> </span><span class="annot"><span class="annottext">([TargetGrant] -&gt; XML) -&gt; Maybe [TargetGrant] -&gt; Maybe XML
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><a href="#local-6989586621679558798"><span class="hs-identifier hs-var">targetGrants</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;TargetBucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558797"><span class="hs-identifier hs-var">targetBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;TargetPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679558796"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span></pre></body></html>

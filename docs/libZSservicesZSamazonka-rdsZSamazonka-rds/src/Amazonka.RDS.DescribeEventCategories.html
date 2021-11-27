@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.DescribeEventCategories</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Displays a list of categories for all event source types, or, if</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified, for a specified source type. You can see a list of the event</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- categories and source types in</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.DescribeEventCategories</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier">DescribeEventCategories</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#newDescribeEventCategories"><span class="hs-identifier">newDescribeEventCategories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategories_sourceType"><span class="hs-identifier">describeEventCategories_sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategories_filters"><span class="hs-identifier">describeEventCategories_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier">DescribeEventCategoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#newDescribeEventCategoriesResponse"><span class="hs-identifier">newDescribeEventCategoriesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategoriesResponse_eventCategoriesMapList"><span class="hs-identifier">describeEventCategoriesResponse_eventCategoriesMapList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategoriesResponse_httpStatus"><span class="hs-identifier">describeEventCategoriesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDescribeEventCategories' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679789308"><span id="local-6989586621679789309"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventCategories"><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-var">DescribeEventCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventCategories%27"><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories%27"><span class="hs-identifier hs-var">DescribeEventCategories'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of source that is generating the events.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ |</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsourceType%3ADescribeEventCategories%27"><span class="annot"><span class="annottext">DescribeEventCategories -&gt; Maybe Text
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AsourceType%3ADescribeEventCategories%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeEventCategories%27"><span class="annot"><span class="annottext">DescribeEventCategories -&gt; Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3Afilters%3ADescribeEventCategories%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789301"><span id="local-6989586621679789303"><span class="annot"><span class="annottext">DescribeEventCategories -&gt; DescribeEventCategories -&gt; Bool
+(DescribeEventCategories -&gt; DescribeEventCategories -&gt; Bool)
+-&gt; (DescribeEventCategories -&gt; DescribeEventCategories -&gt; Bool)
+-&gt; Eq DescribeEventCategories
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventCategories -&gt; DescribeEventCategories -&gt; Bool
+$c/= :: DescribeEventCategories -&gt; DescribeEventCategories -&gt; Bool
+== :: DescribeEventCategories -&gt; DescribeEventCategories -&gt; Bool
+$c== :: DescribeEventCategories -&gt; DescribeEventCategories -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789292"><span id="local-6989586621679789294"><span id="local-6989586621679789296"><span id="local-6989586621679789298"><span class="annot"><span class="annottext">ReadPrec [DescribeEventCategories]
+ReadPrec DescribeEventCategories
+Int -&gt; ReadS DescribeEventCategories
+ReadS [DescribeEventCategories]
+(Int -&gt; ReadS DescribeEventCategories)
+-&gt; ReadS [DescribeEventCategories]
+-&gt; ReadPrec DescribeEventCategories
+-&gt; ReadPrec [DescribeEventCategories]
+-&gt; Read DescribeEventCategories
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventCategories]
+$creadListPrec :: ReadPrec [DescribeEventCategories]
+readPrec :: ReadPrec DescribeEventCategories
+$creadPrec :: ReadPrec DescribeEventCategories
+readList :: ReadS [DescribeEventCategories]
+$creadList :: ReadS [DescribeEventCategories]
+readsPrec :: Int -&gt; ReadS DescribeEventCategories
+$creadsPrec :: Int -&gt; ReadS DescribeEventCategories
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789285"><span id="local-6989586621679789287"><span id="local-6989586621679789289"><span class="annot"><span class="annottext">Int -&gt; DescribeEventCategories -&gt; ShowS
+[DescribeEventCategories] -&gt; ShowS
+DescribeEventCategories -&gt; String
+(Int -&gt; DescribeEventCategories -&gt; ShowS)
+-&gt; (DescribeEventCategories -&gt; String)
+-&gt; ([DescribeEventCategories] -&gt; ShowS)
+-&gt; Show DescribeEventCategories
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventCategories] -&gt; ShowS
+$cshowList :: [DescribeEventCategories] -&gt; ShowS
+show :: DescribeEventCategories -&gt; String
+$cshow :: DescribeEventCategories -&gt; String
+showsPrec :: Int -&gt; DescribeEventCategories -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventCategories -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventCategories -&gt; Rep DescribeEventCategories x)
+-&gt; (forall x.
+    Rep DescribeEventCategories x -&gt; DescribeEventCategories)
+-&gt; Generic DescribeEventCategories
+forall x. Rep DescribeEventCategories x -&gt; DescribeEventCategories
+forall x. DescribeEventCategories -&gt; Rep DescribeEventCategories x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeEventCategories x -&gt; DescribeEventCategories
+$cfrom :: forall x. DescribeEventCategories -&gt; Rep DescribeEventCategories x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DescribeEventCategories' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'sourceType', 'describeEventCategories_sourceType' - The type of source that is generating the events.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'filters', 'describeEventCategories_filters' - This parameter isn\'t currently supported.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#newDescribeEventCategories"><span class="hs-identifier hs-type">newDescribeEventCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span>
+</span><span id="line-84"></span><span id="newDescribeEventCategories"><span class="annot"><span class="annottext">newDescribeEventCategories :: DescribeEventCategories
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#newDescribeEventCategories"><span class="hs-identifier hs-var hs-var">newDescribeEventCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventCategories' :: Maybe Text -&gt; Maybe [Filter] -&gt; DescribeEventCategories
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories%27"><span class="hs-identifier hs-type">DescribeEventCategories'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceType:DescribeEventCategories' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AsourceType%3ADescribeEventCategories%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeEventCategories' :: Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3Afilters%3ADescribeEventCategories%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The type of source that is generating the events.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategories_sourceType"><span class="hs-identifier hs-type">describeEventCategories_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="describeEventCategories_sourceType"><span class="annot"><span class="annottext">describeEventCategories_sourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEventCategories -&gt; f DescribeEventCategories
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategories_sourceType"><span class="hs-identifier hs-var hs-var">describeEventCategories_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventCategories -&gt; Maybe Text)
+-&gt; (DescribeEventCategories
+    -&gt; Maybe Text -&gt; DescribeEventCategories)
+-&gt; Lens
+     DescribeEventCategories
+     DescribeEventCategories
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories%27"><span class="hs-identifier hs-type">DescribeEventCategories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789278"><span class="annot"><span class="annottext">Maybe Text
+sourceType :: Maybe Text
+$sel:sourceType:DescribeEventCategories' :: DescribeEventCategories -&gt; Maybe Text
+</span><a href="#local-6989586621679789278"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789278"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789277"><span class="annot"><span class="annottext">s :: DescribeEventCategories
+</span><a href="#local-6989586621679789277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories%27"><span class="hs-identifier hs-type">DescribeEventCategories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventCategories
+</span><a href="#local-6989586621679789277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:DescribeEventCategories' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AsourceType%3ADescribeEventCategories%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategories_filters"><span class="hs-identifier hs-type">describeEventCategories_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="describeEventCategories_filters"><span class="annot"><span class="annottext">describeEventCategories_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeEventCategories -&gt; f DescribeEventCategories
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategories_filters"><span class="hs-identifier hs-var hs-var">describeEventCategories_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventCategories -&gt; Maybe [Filter])
+-&gt; (DescribeEventCategories
+    -&gt; Maybe [Filter] -&gt; DescribeEventCategories)
+-&gt; Lens
+     DescribeEventCategories
+     DescribeEventCategories
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories%27"><span class="hs-identifier hs-type">DescribeEventCategories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789275"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeEventCategories' :: DescribeEventCategories -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679789275"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789275"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789274"><span class="annot"><span class="annottext">s :: DescribeEventCategories
+</span><a href="#local-6989586621679789274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories%27"><span class="hs-identifier hs-type">DescribeEventCategories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789273"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventCategories
+</span><a href="#local-6989586621679789274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeEventCategories' :: Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3Afilters%3ADescribeEventCategories%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeEventCategories -&gt; f DescribeEventCategories)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeEventCategories
+-&gt; f DescribeEventCategories
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679789266"><span class="annot"><span class="annottext">request :: DescribeEventCategories -&gt; Request DescribeEventCategories
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeEventCategories -&gt; Request DescribeEventCategories
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679789262"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEventCategories
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEventCategories)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeEventCategories))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEventCategories
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEventCategories)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeEventCategoriesResult&quot;</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789259"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789259"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679789258"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679789258"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679789257"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679789257"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EventCategoriesMap]
+-&gt; Int -&gt; DescribeEventCategoriesResponse
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var">DescribeEventCategoriesResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EventCategoriesMap]
+ -&gt; Int -&gt; DescribeEventCategoriesResponse)
+-&gt; Either String (Maybe [EventCategoriesMap])
+-&gt; Either String (Int -&gt; DescribeEventCategoriesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679789257"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventCategoriesMapList&quot;</span></span><span>
+</span><span id="line-113"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [EventCategoriesMap]))
+-&gt; Either String (Maybe [EventCategoriesMap])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [EventCategoriesMap])
+-&gt; [Node] -&gt; Either String (Maybe [EventCategoriesMap])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [EventCategoriesMap]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventCategoriesMap&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeEventCategoriesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeEventCategoriesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789259"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789246"><span id="local-6989586621679789248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679789239"><span class="annot"><span class="annottext">toHeaders :: DescribeEventCategories -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEventCategories -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679789234"><span class="annot"><span class="annottext">toPath :: DescribeEventCategories -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventCategories -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories"><span class="hs-identifier hs-type">DescribeEventCategories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679789230"><span class="annot"><span class="annottext">toQuery :: DescribeEventCategories -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategories%27"><span class="hs-identifier hs-type">DescribeEventCategories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789227"><span id="local-6989586621679789228"><span class="annot"><span class="annottext">Maybe [Filter]
+Maybe Text
+filters :: Maybe [Filter]
+sourceType :: Maybe Text
+$sel:filters:DescribeEventCategories' :: DescribeEventCategories -&gt; Maybe [Filter]
+$sel:sourceType:DescribeEventCategories' :: DescribeEventCategories -&gt; Maybe Text
+</span><a href="#local-6989586621679789227"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeEventCategories&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789228"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679789227"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Data returned from the @DescribeEventCategories@ operation.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newDescribeEventCategoriesResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679789223"><span id="local-6989586621679789224"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventCategoriesResponse"><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-var">DescribeEventCategoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventCategoriesResponse%27"><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var">DescribeEventCategoriesResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of EventCategoriesMap data types.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AeventCategoriesMapList%3ADescribeEventCategoriesResponse%27"><span class="annot"><span class="annottext">DescribeEventCategoriesResponse -&gt; Maybe [EventCategoriesMap]
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AeventCategoriesMapList%3ADescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var hs-var">eventCategoriesMapList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventCategoriesResponse%27"><span class="annot"><span class="annottext">DescribeEventCategoriesResponse -&gt; Int
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AhttpStatus%3ADescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789217"><span id="local-6989586621679789219"><span class="annot"><span class="annottext">DescribeEventCategoriesResponse
+-&gt; DescribeEventCategoriesResponse -&gt; Bool
+(DescribeEventCategoriesResponse
+ -&gt; DescribeEventCategoriesResponse -&gt; Bool)
+-&gt; (DescribeEventCategoriesResponse
+    -&gt; DescribeEventCategoriesResponse -&gt; Bool)
+-&gt; Eq DescribeEventCategoriesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventCategoriesResponse
+-&gt; DescribeEventCategoriesResponse -&gt; Bool
+$c/= :: DescribeEventCategoriesResponse
+-&gt; DescribeEventCategoriesResponse -&gt; Bool
+== :: DescribeEventCategoriesResponse
+-&gt; DescribeEventCategoriesResponse -&gt; Bool
+$c== :: DescribeEventCategoriesResponse
+-&gt; DescribeEventCategoriesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789209"><span id="local-6989586621679789211"><span id="local-6989586621679789213"><span id="local-6989586621679789215"><span class="annot"><span class="annottext">ReadPrec [DescribeEventCategoriesResponse]
+ReadPrec DescribeEventCategoriesResponse
+Int -&gt; ReadS DescribeEventCategoriesResponse
+ReadS [DescribeEventCategoriesResponse]
+(Int -&gt; ReadS DescribeEventCategoriesResponse)
+-&gt; ReadS [DescribeEventCategoriesResponse]
+-&gt; ReadPrec DescribeEventCategoriesResponse
+-&gt; ReadPrec [DescribeEventCategoriesResponse]
+-&gt; Read DescribeEventCategoriesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventCategoriesResponse]
+$creadListPrec :: ReadPrec [DescribeEventCategoriesResponse]
+readPrec :: ReadPrec DescribeEventCategoriesResponse
+$creadPrec :: ReadPrec DescribeEventCategoriesResponse
+readList :: ReadS [DescribeEventCategoriesResponse]
+$creadList :: ReadS [DescribeEventCategoriesResponse]
+readsPrec :: Int -&gt; ReadS DescribeEventCategoriesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEventCategoriesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789203"><span id="local-6989586621679789205"><span id="local-6989586621679789207"><span class="annot"><span class="annottext">Int -&gt; DescribeEventCategoriesResponse -&gt; ShowS
+[DescribeEventCategoriesResponse] -&gt; ShowS
+DescribeEventCategoriesResponse -&gt; String
+(Int -&gt; DescribeEventCategoriesResponse -&gt; ShowS)
+-&gt; (DescribeEventCategoriesResponse -&gt; String)
+-&gt; ([DescribeEventCategoriesResponse] -&gt; ShowS)
+-&gt; Show DescribeEventCategoriesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventCategoriesResponse] -&gt; ShowS
+$cshowList :: [DescribeEventCategoriesResponse] -&gt; ShowS
+show :: DescribeEventCategoriesResponse -&gt; String
+$cshow :: DescribeEventCategoriesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEventCategoriesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventCategoriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventCategoriesResponse
+ -&gt; Rep DescribeEventCategoriesResponse x)
+-&gt; (forall x.
+    Rep DescribeEventCategoriesResponse x
+    -&gt; DescribeEventCategoriesResponse)
+-&gt; Generic DescribeEventCategoriesResponse
+forall x.
+Rep DescribeEventCategoriesResponse x
+-&gt; DescribeEventCategoriesResponse
+forall x.
+DescribeEventCategoriesResponse
+-&gt; Rep DescribeEventCategoriesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEventCategoriesResponse x
+-&gt; DescribeEventCategoriesResponse
+$cfrom :: forall x.
+DescribeEventCategoriesResponse
+-&gt; Rep DescribeEventCategoriesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'DescribeEventCategoriesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'eventCategoriesMapList', 'describeEventCategoriesResponse_eventCategoriesMapList' - A list of EventCategoriesMap data types.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'httpStatus', 'describeEventCategoriesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#newDescribeEventCategoriesResponse"><span class="hs-identifier hs-type">newDescribeEventCategoriesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newDescribeEventCategoriesResponse"><span class="annot"><span class="annottext">newDescribeEventCategoriesResponse :: Int -&gt; DescribeEventCategoriesResponse
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#newDescribeEventCategoriesResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventCategoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679789200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventCategoriesResponse' :: Maybe [EventCategoriesMap]
+-&gt; Int -&gt; DescribeEventCategoriesResponse
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse%27"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventCategoriesMapList:DescribeEventCategoriesResponse' :: Maybe [EventCategoriesMap]
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AeventCategoriesMapList%3ADescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var">eventCategoriesMapList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EventCategoriesMap]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventCategoriesResponse' :: Int
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AhttpStatus%3ADescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | A list of EventCategoriesMap data types.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategoriesResponse_eventCategoriesMapList"><span class="hs-identifier hs-type">describeEventCategoriesResponse_eventCategoriesMapList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="describeEventCategoriesResponse_eventCategoriesMapList"><span class="annot"><span class="annottext">describeEventCategoriesResponse_eventCategoriesMapList :: (Maybe [EventCategoriesMap] -&gt; f (Maybe [EventCategoriesMap]))
+-&gt; DescribeEventCategoriesResponse
+-&gt; f DescribeEventCategoriesResponse
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategoriesResponse_eventCategoriesMapList"><span class="hs-identifier hs-var hs-var">describeEventCategoriesResponse_eventCategoriesMapList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventCategoriesResponse -&gt; Maybe [EventCategoriesMap])
+-&gt; (DescribeEventCategoriesResponse
+    -&gt; Maybe [EventCategoriesMap] -&gt; DescribeEventCategoriesResponse)
+-&gt; Lens
+     DescribeEventCategoriesResponse
+     DescribeEventCategoriesResponse
+     (Maybe [EventCategoriesMap])
+     (Maybe [EventCategoriesMap])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse%27"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789199"><span class="annot"><span class="annottext">Maybe [EventCategoriesMap]
+eventCategoriesMapList :: Maybe [EventCategoriesMap]
+$sel:eventCategoriesMapList:DescribeEventCategoriesResponse' :: DescribeEventCategoriesResponse -&gt; Maybe [EventCategoriesMap]
+</span><a href="#local-6989586621679789199"><span class="hs-identifier hs-var hs-var">eventCategoriesMapList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventCategoriesMap]
+</span><a href="#local-6989586621679789199"><span class="hs-identifier hs-var">eventCategoriesMapList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789198"><span class="annot"><span class="annottext">s :: DescribeEventCategoriesResponse
+</span><a href="#local-6989586621679789198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse%27"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789197"><span class="annot"><span class="annottext">Maybe [EventCategoriesMap]
+</span><a href="#local-6989586621679789197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventCategoriesResponse
+</span><a href="#local-6989586621679789198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategoriesMapList:DescribeEventCategoriesResponse' :: Maybe [EventCategoriesMap]
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AeventCategoriesMapList%3ADescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var">eventCategoriesMapList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventCategoriesMap]
+</span><a href="#local-6989586621679789197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventCategoriesMap] -&gt; f (Maybe [EventCategoriesMap]))
+ -&gt; DescribeEventCategoriesResponse
+ -&gt; f DescribeEventCategoriesResponse)
+-&gt; ((Maybe [EventCategoriesMap] -&gt; f (Maybe [EventCategoriesMap]))
+    -&gt; Maybe [EventCategoriesMap] -&gt; f (Maybe [EventCategoriesMap]))
+-&gt; (Maybe [EventCategoriesMap] -&gt; f (Maybe [EventCategoriesMap]))
+-&gt; DescribeEventCategoriesResponse
+-&gt; f DescribeEventCategoriesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EventCategoriesMap]
+  [EventCategoriesMap]
+  [EventCategoriesMap]
+  [EventCategoriesMap]
+-&gt; Iso
+     (Maybe [EventCategoriesMap])
+     (Maybe [EventCategoriesMap])
+     (Maybe [EventCategoriesMap])
+     (Maybe [EventCategoriesMap])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EventCategoriesMap]
+  [EventCategoriesMap]
+  [EventCategoriesMap]
+  [EventCategoriesMap]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategoriesResponse_httpStatus"><span class="hs-identifier hs-type">describeEventCategoriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="describeEventCategoriesResponse_httpStatus"><span class="annot"><span class="annottext">describeEventCategoriesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEventCategoriesResponse
+-&gt; f DescribeEventCategoriesResponse
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#describeEventCategoriesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEventCategoriesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventCategoriesResponse -&gt; Int)
+-&gt; (DescribeEventCategoriesResponse
+    -&gt; Int -&gt; DescribeEventCategoriesResponse)
+-&gt; Lens
+     DescribeEventCategoriesResponse
+     DescribeEventCategoriesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse%27"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789196"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEventCategoriesResponse' :: DescribeEventCategoriesResponse -&gt; Int
+</span><a href="#local-6989586621679789196"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789196"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789195"><span class="annot"><span class="annottext">s :: DescribeEventCategoriesResponse
+</span><a href="#local-6989586621679789195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse%27"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789194"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventCategoriesResponse
+</span><a href="#local-6989586621679789195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventCategoriesResponse' :: Int
+</span><a href="Amazonka.RDS.DescribeEventCategories.html#%24sel%3AhttpStatus%3ADescribeEventCategoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679789194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679789192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeEventCategories.html#DescribeEventCategoriesResponse"><span class="hs-identifier hs-type">DescribeEventCategoriesResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

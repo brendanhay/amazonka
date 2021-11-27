@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.Types.ProjectedMetric</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.ProjectedMetric</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.MetricName.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.MetricName</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes a projected utilization metric of a recommendation option,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- such as an Amazon EC2 instance. This represents the projected</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- utilization of a recommendation option had you used that resource during</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the analyzed period.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Compare the utilization metric data of your resource against its</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- projected utilization metric data to determine the performance</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- difference between your current resource and the recommended option.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- The @Cpu@ and @Memory@ metrics are the only projected utilization</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- metrics returned when you run the GetEC2RecommendationProjectedMetrics</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- action. Additionally, the @Memory@ metric is returned only for resources</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- that have the unified CloudWatch agent installed on them. For more</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent&gt;.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- /See:/ 'newProjectedMetric' smart constructor.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621679241281"><span id="local-6989586621679241282"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectedMetric"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-var">ProjectedMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectedMetric%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-var">ProjectedMetric'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The values of the projected utilization metrics.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Avalues%3AProjectedMetric%27"><span class="annot"><span class="annottext">ProjectedMetric -&gt; Maybe [Double]
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Avalues%3AProjectedMetric%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the projected utilization metric.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- The following projected utilization metrics are returned:</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @Cpu@ - The projected percentage of allocated EC2 compute units that</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     would be in use on the recommendation option had you used that</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     resource during the analyzed period. This metric identifies the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     processing power required to run an application on the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     recommendation option.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     Depending on the instance type, tools in your operating system can</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     show a lower percentage than CloudWatch when the instance is not</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     allocated a full processor core.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     Units: Percent</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @Memory@ - The percentage of memory that would be in use on the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     recommendation option had you used that resource during the analyzed</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     period. This metric identifies the amount of memory required to run</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     an application on the recommendation option.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     Units: Percent</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     The @Memory@ metric is returned only for resources that have the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     unified CloudWatch agent installed on them. For more information,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     see</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent&gt;.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aname%3AProjectedMetric%27"><span class="annot"><span class="annottext">ProjectedMetric -&gt; Maybe MetricName
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Aname%3AProjectedMetric%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The timestamps of the projected utilization metric.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Atimestamps%3AProjectedMetric%27"><span class="annot"><span class="annottext">ProjectedMetric -&gt; Maybe [POSIX]
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Atimestamps%3AProjectedMetric%27"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241273"><span id="local-6989586621679241275"><span class="annot"><span class="annottext">ProjectedMetric -&gt; ProjectedMetric -&gt; Bool
+(ProjectedMetric -&gt; ProjectedMetric -&gt; Bool)
+-&gt; (ProjectedMetric -&gt; ProjectedMetric -&gt; Bool)
+-&gt; Eq ProjectedMetric
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProjectedMetric -&gt; ProjectedMetric -&gt; Bool
+$c/= :: ProjectedMetric -&gt; ProjectedMetric -&gt; Bool
+== :: ProjectedMetric -&gt; ProjectedMetric -&gt; Bool
+$c== :: ProjectedMetric -&gt; ProjectedMetric -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241264"><span id="local-6989586621679241266"><span id="local-6989586621679241268"><span id="local-6989586621679241270"><span class="annot"><span class="annottext">ReadPrec [ProjectedMetric]
+ReadPrec ProjectedMetric
+Int -&gt; ReadS ProjectedMetric
+ReadS [ProjectedMetric]
+(Int -&gt; ReadS ProjectedMetric)
+-&gt; ReadS [ProjectedMetric]
+-&gt; ReadPrec ProjectedMetric
+-&gt; ReadPrec [ProjectedMetric]
+-&gt; Read ProjectedMetric
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProjectedMetric]
+$creadListPrec :: ReadPrec [ProjectedMetric]
+readPrec :: ReadPrec ProjectedMetric
+$creadPrec :: ReadPrec ProjectedMetric
+readList :: ReadS [ProjectedMetric]
+$creadList :: ReadS [ProjectedMetric]
+readsPrec :: Int -&gt; ReadS ProjectedMetric
+$creadsPrec :: Int -&gt; ReadS ProjectedMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241257"><span id="local-6989586621679241259"><span id="local-6989586621679241261"><span class="annot"><span class="annottext">Int -&gt; ProjectedMetric -&gt; ShowS
+[ProjectedMetric] -&gt; ShowS
+ProjectedMetric -&gt; String
+(Int -&gt; ProjectedMetric -&gt; ShowS)
+-&gt; (ProjectedMetric -&gt; String)
+-&gt; ([ProjectedMetric] -&gt; ShowS)
+-&gt; Show ProjectedMetric
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProjectedMetric] -&gt; ShowS
+$cshowList :: [ProjectedMetric] -&gt; ShowS
+show :: ProjectedMetric -&gt; String
+$cshow :: ProjectedMetric -&gt; String
+showsPrec :: Int -&gt; ProjectedMetric -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProjectedMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProjectedMetric -&gt; Rep ProjectedMetric x)
+-&gt; (forall x. Rep ProjectedMetric x -&gt; ProjectedMetric)
+-&gt; Generic ProjectedMetric
+forall x. Rep ProjectedMetric x -&gt; ProjectedMetric
+forall x. ProjectedMetric -&gt; Rep ProjectedMetric x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProjectedMetric x -&gt; ProjectedMetric
+$cfrom :: forall x. ProjectedMetric -&gt; Rep ProjectedMetric x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'ProjectedMetric' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'values', 'projectedMetric_values' - The values of the projected utilization metrics.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'name', 'projectedMetric_name' - The name of the projected utilization metric.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following projected utilization metrics are returned:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @Cpu@ - The projected percentage of allocated EC2 compute units that</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     would be in use on the recommendation option had you used that</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     resource during the analyzed period. This metric identifies the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     processing power required to run an application on the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     recommendation option.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     Depending on the instance type, tools in your operating system can</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     show a lower percentage than CloudWatch when the instance is not</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     allocated a full processor core.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     Units: Percent</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @Memory@ - The percentage of memory that would be in use on the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     recommendation option had you used that resource during the analyzed</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     period. This metric identifies the amount of memory required to run</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     an application on the recommendation option.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     Units: Percent</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     The @Memory@ metric is returned only for resources that have the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     unified CloudWatch agent installed on them. For more information,</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent&gt;.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'timestamps', 'projectedMetric_timestamps' - The timestamps of the projected utilization metric.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#newProjectedMetric"><span class="hs-identifier hs-type">newProjectedMetric</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span><span>
+</span><span id="line-121"></span><span id="newProjectedMetric"><span class="annot"><span class="annottext">newProjectedMetric :: ProjectedMetric
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#newProjectedMetric"><span class="hs-identifier hs-var hs-var">newProjectedMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">ProjectedMetric' :: Maybe [Double]
+-&gt; Maybe MetricName -&gt; Maybe [POSIX] -&gt; ProjectedMetric
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-type">ProjectedMetric'</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:ProjectedMetric' :: Maybe [Double]
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Avalues%3AProjectedMetric%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ProjectedMetric' :: Maybe MetricName
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Aname%3AProjectedMetric%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamps:ProjectedMetric' :: Maybe [POSIX]
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Atimestamps%3AProjectedMetric%27"><span class="hs-identifier hs-var">timestamps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [POSIX]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The values of the projected utilization metrics.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#projectedMetric_values"><span class="hs-identifier hs-type">projectedMetric_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="projectedMetric_values"><span class="annot"><span class="annottext">projectedMetric_values :: (Maybe [Double] -&gt; f (Maybe [Double]))
+-&gt; ProjectedMetric -&gt; f ProjectedMetric
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#projectedMetric_values"><span class="hs-identifier hs-var hs-var">projectedMetric_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectedMetric -&gt; Maybe [Double])
+-&gt; (ProjectedMetric -&gt; Maybe [Double] -&gt; ProjectedMetric)
+-&gt; Lens
+     ProjectedMetric ProjectedMetric (Maybe [Double]) (Maybe [Double])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-type">ProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241248"><span class="annot"><span class="annottext">Maybe [Double]
+values :: Maybe [Double]
+$sel:values:ProjectedMetric' :: ProjectedMetric -&gt; Maybe [Double]
+</span><a href="#local-6989586621679241248"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679241248"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241247"><span class="annot"><span class="annottext">s :: ProjectedMetric
+</span><a href="#local-6989586621679241247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-type">ProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241246"><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679241246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectedMetric
+</span><a href="#local-6989586621679241247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ProjectedMetric' :: Maybe [Double]
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Avalues%3AProjectedMetric%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679241246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
+ -&gt; ProjectedMetric -&gt; f ProjectedMetric)
+-&gt; ((Maybe [Double] -&gt; f (Maybe [Double]))
+    -&gt; Maybe [Double] -&gt; f (Maybe [Double]))
+-&gt; (Maybe [Double] -&gt; f (Maybe [Double]))
+-&gt; ProjectedMetric
+-&gt; f ProjectedMetric
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Double] [Double] [Double] [Double]
+-&gt; Iso
+     (Maybe [Double]) (Maybe [Double]) (Maybe [Double]) (Maybe [Double])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Double] [Double] [Double] [Double]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The name of the projected utilization metric.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following projected utilization metrics are returned:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @Cpu@ - The projected percentage of allocated EC2 compute units that</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     would be in use on the recommendation option had you used that</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     resource during the analyzed period. This metric identifies the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     processing power required to run an application on the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     recommendation option.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     Depending on the instance type, tools in your operating system can</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     show a lower percentage than CloudWatch when the instance is not</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     allocated a full processor core.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     Units: Percent</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @Memory@ - The percentage of memory that would be in use on the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     recommendation option had you used that resource during the analyzed</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     period. This metric identifies the amount of memory required to run</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     an application on the recommendation option.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     Units: Percent</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     The @Memory@ metric is returned only for resources that have the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     unified CloudWatch agent installed on them. For more information,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent&gt;.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#projectedMetric_name"><span class="hs-identifier hs-type">projectedMetric_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.MetricName.html#MetricName"><span class="hs-identifier hs-type">MetricName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="projectedMetric_name"><span class="annot"><span class="annottext">projectedMetric_name :: (Maybe MetricName -&gt; f (Maybe MetricName))
+-&gt; ProjectedMetric -&gt; f ProjectedMetric
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#projectedMetric_name"><span class="hs-identifier hs-var hs-var">projectedMetric_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectedMetric -&gt; Maybe MetricName)
+-&gt; (ProjectedMetric -&gt; Maybe MetricName -&gt; ProjectedMetric)
+-&gt; Lens
+     ProjectedMetric
+     ProjectedMetric
+     (Maybe MetricName)
+     (Maybe MetricName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-type">ProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241241"><span class="annot"><span class="annottext">Maybe MetricName
+name :: Maybe MetricName
+$sel:name:ProjectedMetric' :: ProjectedMetric -&gt; Maybe MetricName
+</span><a href="#local-6989586621679241241"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricName
+</span><a href="#local-6989586621679241241"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241240"><span class="annot"><span class="annottext">s :: ProjectedMetric
+</span><a href="#local-6989586621679241240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-type">ProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241239"><span class="annot"><span class="annottext">Maybe MetricName
+</span><a href="#local-6989586621679241239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectedMetric
+</span><a href="#local-6989586621679241240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProjectedMetric' :: Maybe MetricName
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Aname%3AProjectedMetric%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricName
+</span><a href="#local-6989586621679241239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The timestamps of the projected utilization metric.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#projectedMetric_timestamps"><span class="hs-identifier hs-type">projectedMetric_timestamps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="projectedMetric_timestamps"><span class="annot"><span class="annottext">projectedMetric_timestamps :: (Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
+-&gt; ProjectedMetric -&gt; f ProjectedMetric
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#projectedMetric_timestamps"><span class="hs-identifier hs-var hs-var">projectedMetric_timestamps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectedMetric -&gt; Maybe [POSIX])
+-&gt; (ProjectedMetric -&gt; Maybe [POSIX] -&gt; ProjectedMetric)
+-&gt; Lens
+     ProjectedMetric ProjectedMetric (Maybe [POSIX]) (Maybe [POSIX])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-type">ProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241237"><span class="annot"><span class="annottext">Maybe [POSIX]
+timestamps :: Maybe [POSIX]
+$sel:timestamps:ProjectedMetric' :: ProjectedMetric -&gt; Maybe [POSIX]
+</span><a href="#local-6989586621679241237"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [POSIX]
+</span><a href="#local-6989586621679241237"><span class="hs-identifier hs-var">timestamps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241236"><span class="annot"><span class="annottext">s :: ProjectedMetric
+</span><a href="#local-6989586621679241236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-type">ProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241235"><span class="annot"><span class="annottext">Maybe [POSIX]
+</span><a href="#local-6989586621679241235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectedMetric
+</span><a href="#local-6989586621679241236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamps:ProjectedMetric' :: Maybe [POSIX]
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#%24sel%3Atimestamps%3AProjectedMetric%27"><span class="hs-identifier hs-var">timestamps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [POSIX]
+</span><a href="#local-6989586621679241235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [POSIX] -&gt; f (Maybe [POSIX]))
+ -&gt; ProjectedMetric -&gt; f ProjectedMetric)
+-&gt; ((Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
+    -&gt; Maybe [POSIX] -&gt; f (Maybe [POSIX]))
+-&gt; (Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
+-&gt; ProjectedMetric
+-&gt; f ProjectedMetric
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [POSIX] [POSIX] [UTCTime] [UTCTime]
+-&gt; Iso
+     (Maybe [POSIX]) (Maybe [POSIX]) (Maybe [UTCTime]) (Maybe [UTCTime])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [POSIX] [POSIX] [UTCTime] [UTCTime]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241232"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679241230"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectedMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProjectedMetric)
+-&gt; Value
+-&gt; Parser ProjectedMetric
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProjectedMetric&quot;</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Double]
+-&gt; Maybe MetricName -&gt; Maybe [POSIX] -&gt; ProjectedMetric
+</span><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric%27"><span class="hs-identifier hs-var">ProjectedMetric'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Double]
+ -&gt; Maybe MetricName -&gt; Maybe [POSIX] -&gt; ProjectedMetric)
+-&gt; Parser (Maybe [Double])
+-&gt; Parser (Maybe MetricName -&gt; Maybe [POSIX] -&gt; ProjectedMetric)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Double]))
+-&gt; Maybe [Double] -&gt; Parser (Maybe [Double])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MetricName -&gt; Maybe [POSIX] -&gt; ProjectedMetric)
+-&gt; Parser (Maybe MetricName)
+-&gt; Parser (Maybe [POSIX] -&gt; ProjectedMetric)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [POSIX] -&gt; ProjectedMetric)
+-&gt; Parser (Maybe [POSIX]) -&gt; Parser ProjectedMetric
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [POSIX]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timestamps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [POSIX]))
+-&gt; Maybe [POSIX] -&gt; Parser (Maybe [POSIX])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [POSIX]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241220"><span id="local-6989586621679241222"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ProjectedMetric.html#ProjectedMetric"><span class="hs-identifier hs-type">ProjectedMetric</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

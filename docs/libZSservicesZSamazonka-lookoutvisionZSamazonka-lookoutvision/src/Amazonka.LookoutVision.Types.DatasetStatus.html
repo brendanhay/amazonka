@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutVision.Types.DatasetStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutVision.Types.DatasetStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier">DatasetStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_COMPLETE"><span class="hs-identifier">DatasetStatus_CREATE_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_FAILED"><span class="hs-identifier">DatasetStatus_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_IN_PROGRESS"><span class="hs-identifier">DatasetStatus_CREATE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_COMPLETE"><span class="hs-identifier">DatasetStatus_DELETE_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_FAILED"><span class="hs-identifier">DatasetStatus_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_IN_PROGRESS"><span class="hs-identifier">DatasetStatus_DELETE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_COMPLETE"><span class="hs-identifier">DatasetStatus_UPDATE_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE"><span class="hs-identifier">DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS"><span class="hs-identifier">DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier">DatasetStatus_UPDATE_IN_PROGRESS</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679180293"><span id="local-6989586621679180294"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DatasetStatus"><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-var">DatasetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetStatus%27"><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-var">DatasetStatus'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDatasetStatus"><span class="annot"><span class="annottext">DatasetStatus -&gt; Text
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#fromDatasetStatus"><span class="hs-identifier hs-var hs-var">fromDatasetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180285"><span id="local-6989586621679180287"><span id="local-6989586621679180289"><span class="annot"><span class="annottext">Int -&gt; DatasetStatus -&gt; ShowS
+[DatasetStatus] -&gt; ShowS
+DatasetStatus -&gt; String
+(Int -&gt; DatasetStatus -&gt; ShowS)
+-&gt; (DatasetStatus -&gt; String)
+-&gt; ([DatasetStatus] -&gt; ShowS)
+-&gt; Show DatasetStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatasetStatus] -&gt; ShowS
+$cshowList :: [DatasetStatus] -&gt; ShowS
+show :: DatasetStatus -&gt; String
+$cshow :: DatasetStatus -&gt; String
+showsPrec :: Int -&gt; DatasetStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatasetStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679180276"><span id="local-6989586621679180278"><span id="local-6989586621679180280"><span id="local-6989586621679180282"><span class="annot"><span class="annottext">ReadPrec [DatasetStatus]
+ReadPrec DatasetStatus
+Int -&gt; ReadS DatasetStatus
+ReadS [DatasetStatus]
+(Int -&gt; ReadS DatasetStatus)
+-&gt; ReadS [DatasetStatus]
+-&gt; ReadPrec DatasetStatus
+-&gt; ReadPrec [DatasetStatus]
+-&gt; Read DatasetStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatasetStatus]
+$creadListPrec :: ReadPrec [DatasetStatus]
+readPrec :: ReadPrec DatasetStatus
+$creadPrec :: ReadPrec DatasetStatus
+readList :: ReadS [DatasetStatus]
+$creadList :: ReadS [DatasetStatus]
+readsPrec :: Int -&gt; ReadS DatasetStatus
+$creadsPrec :: Int -&gt; ReadS DatasetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679180271"><span id="local-6989586621679180273"><span class="annot"><span class="annottext">DatasetStatus -&gt; DatasetStatus -&gt; Bool
+(DatasetStatus -&gt; DatasetStatus -&gt; Bool)
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Bool) -&gt; Eq DatasetStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+$c/= :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+== :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+$c== :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679180255"><span id="local-6989586621679180257"><span id="local-6989586621679180259"><span id="local-6989586621679180261"><span id="local-6989586621679180263"><span id="local-6989586621679180265"><span id="local-6989586621679180267"><span class="annot"><span class="annottext">Eq DatasetStatus
+Eq DatasetStatus
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Ordering)
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Bool)
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Bool)
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Bool)
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Bool)
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; DatasetStatus)
+-&gt; (DatasetStatus -&gt; DatasetStatus -&gt; DatasetStatus)
+-&gt; Ord DatasetStatus
+DatasetStatus -&gt; DatasetStatus -&gt; Bool
+DatasetStatus -&gt; DatasetStatus -&gt; Ordering
+DatasetStatus -&gt; DatasetStatus -&gt; DatasetStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DatasetStatus -&gt; DatasetStatus -&gt; DatasetStatus
+$cmin :: DatasetStatus -&gt; DatasetStatus -&gt; DatasetStatus
+max :: DatasetStatus -&gt; DatasetStatus -&gt; DatasetStatus
+$cmax :: DatasetStatus -&gt; DatasetStatus -&gt; DatasetStatus
+&gt;= :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+$c&gt;= :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+&gt; :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+$c&gt; :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+&lt;= :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+$c&lt;= :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+&lt; :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+$c&lt; :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
+compare :: DatasetStatus -&gt; DatasetStatus -&gt; Ordering
+$ccompare :: DatasetStatus -&gt; DatasetStatus -&gt; Ordering
+$cp1Ord :: Eq DatasetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DatasetStatus -&gt; Rep DatasetStatus x)
+-&gt; (forall x. Rep DatasetStatus x -&gt; DatasetStatus)
+-&gt; Generic DatasetStatus
+forall x. Rep DatasetStatus x -&gt; DatasetStatus
+forall x. DatasetStatus -&gt; Rep DatasetStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatasetStatus x -&gt; DatasetStatus
+$cfrom :: forall x. DatasetStatus -&gt; Rep DatasetStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180247"><span id="local-6989586621679180249"><span class="annot"><span class="annottext">Int -&gt; DatasetStatus -&gt; Int
+DatasetStatus -&gt; Int
+(Int -&gt; DatasetStatus -&gt; Int)
+-&gt; (DatasetStatus -&gt; Int) -&gt; Hashable DatasetStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DatasetStatus -&gt; Int
+$chash :: DatasetStatus -&gt; Int
+hashWithSalt :: Int -&gt; DatasetStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DatasetStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679180244"><span class="annot"><span class="annottext">DatasetStatus -&gt; ()
+(DatasetStatus -&gt; ()) -&gt; NFData DatasetStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DatasetStatus -&gt; ()
+$crnf :: DatasetStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679180241"><span class="annot"><span class="annottext">Text -&gt; Either String DatasetStatus
+(Text -&gt; Either String DatasetStatus) -&gt; FromText DatasetStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DatasetStatus
+$cfromText :: Text -&gt; Either String DatasetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679180238"><span class="annot"><span class="annottext">DatasetStatus -&gt; Text
+(DatasetStatus -&gt; Text) -&gt; ToText DatasetStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DatasetStatus -&gt; Text
+$ctoText :: DatasetStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679180235"><span class="annot"><span class="annottext">DatasetStatus -&gt; ByteString
+(DatasetStatus -&gt; ByteString) -&gt; ToByteString DatasetStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DatasetStatus -&gt; ByteString
+$ctoBS :: DatasetStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679180232"><span class="annot"><span class="annottext">DatasetStatus -&gt; ByteStringBuilder
+(DatasetStatus -&gt; ByteStringBuilder) -&gt; ToLog DatasetStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DatasetStatus -&gt; ByteStringBuilder
+$cbuild :: DatasetStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679180229"><span class="annot"><span class="annottext">HeaderName -&gt; DatasetStatus -&gt; [Header]
+(HeaderName -&gt; DatasetStatus -&gt; [Header]) -&gt; ToHeader DatasetStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DatasetStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DatasetStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679180226"><span class="annot"><span class="annottext">DatasetStatus -&gt; QueryString
+(DatasetStatus -&gt; QueryString) -&gt; ToQuery DatasetStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DatasetStatus -&gt; QueryString
+$ctoQuery :: DatasetStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679180221"><span id="local-6989586621679180223"><span class="annot"><span class="annottext">Value -&gt; Parser [DatasetStatus]
+Value -&gt; Parser DatasetStatus
+(Value -&gt; Parser DatasetStatus)
+-&gt; (Value -&gt; Parser [DatasetStatus]) -&gt; FromJSON DatasetStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DatasetStatus]
+$cparseJSONList :: Value -&gt; Parser [DatasetStatus]
+parseJSON :: Value -&gt; Parser DatasetStatus
+$cparseJSON :: Value -&gt; Parser DatasetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679180216"><span id="local-6989586621679180218"><span class="annot"><span class="annottext">FromJSONKeyFunction [DatasetStatus]
+FromJSONKeyFunction DatasetStatus
+FromJSONKeyFunction DatasetStatus
+-&gt; FromJSONKeyFunction [DatasetStatus] -&gt; FromJSONKey DatasetStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DatasetStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DatasetStatus]
+fromJSONKey :: FromJSONKeyFunction DatasetStatus
+$cfromJSONKey :: FromJSONKeyFunction DatasetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679180207"><span id="local-6989586621679180209"><span id="local-6989586621679180211"><span id="local-6989586621679180213"><span class="annot"><span class="annottext">[DatasetStatus] -&gt; Encoding
+[DatasetStatus] -&gt; Value
+DatasetStatus -&gt; Encoding
+DatasetStatus -&gt; Value
+(DatasetStatus -&gt; Value)
+-&gt; (DatasetStatus -&gt; Encoding)
+-&gt; ([DatasetStatus] -&gt; Value)
+-&gt; ([DatasetStatus] -&gt; Encoding)
+-&gt; ToJSON DatasetStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DatasetStatus] -&gt; Encoding
+$ctoEncodingList :: [DatasetStatus] -&gt; Encoding
+toJSONList :: [DatasetStatus] -&gt; Value
+$ctoJSONList :: [DatasetStatus] -&gt; Value
+toEncoding :: DatasetStatus -&gt; Encoding
+$ctoEncoding :: DatasetStatus -&gt; Encoding
+toJSON :: DatasetStatus -&gt; Value
+$ctoJSON :: DatasetStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679180202"><span id="local-6989586621679180204"><span class="annot"><span class="annottext">ToJSONKeyFunction [DatasetStatus]
+ToJSONKeyFunction DatasetStatus
+ToJSONKeyFunction DatasetStatus
+-&gt; ToJSONKeyFunction [DatasetStatus] -&gt; ToJSONKey DatasetStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DatasetStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DatasetStatus]
+toJSONKey :: ToJSONKeyFunction DatasetStatus
+$ctoJSONKey :: ToJSONKeyFunction DatasetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679180199"><span class="annot"><span class="annottext">[Node] -&gt; Either String DatasetStatus
+([Node] -&gt; Either String DatasetStatus) -&gt; FromXML DatasetStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DatasetStatus
+$cparseXML :: [Node] -&gt; Either String DatasetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679180196"><span class="annot"><span class="annottext">DatasetStatus -&gt; XML
+(DatasetStatus -&gt; XML) -&gt; ToXML DatasetStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DatasetStatus -&gt; XML
+$ctoXML :: DatasetStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_COMPLETE"><span class="hs-identifier hs-type">DatasetStatus_CREATE_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_CREATE_COMPLETE"><span id="%24mDatasetStatus_CREATE_COMPLETE"><span id="DatasetStatus_CREATE_COMPLETE"><span class="annot"><span class="annottext">$bDatasetStatus_CREATE_COMPLETE :: DatasetStatus
+$mDatasetStatus_CREATE_COMPLETE :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_CREATE_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_CREATE_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_COMPLETE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_FAILED"><span class="hs-identifier hs-type">DatasetStatus_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_CREATE_FAILED"><span id="%24mDatasetStatus_CREATE_FAILED"><span id="DatasetStatus_CREATE_FAILED"><span class="annot"><span class="annottext">$bDatasetStatus_CREATE_FAILED :: DatasetStatus
+$mDatasetStatus_CREATE_FAILED :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_IN_PROGRESS"><span class="hs-identifier hs-type">DatasetStatus_CREATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_CREATE_IN_PROGRESS"><span id="%24mDatasetStatus_CREATE_IN_PROGRESS"><span id="DatasetStatus_CREATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bDatasetStatus_CREATE_IN_PROGRESS :: DatasetStatus
+$mDatasetStatus_CREATE_IN_PROGRESS :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_CREATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_CREATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_COMPLETE"><span class="hs-identifier hs-type">DatasetStatus_DELETE_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_DELETE_COMPLETE"><span id="%24mDatasetStatus_DELETE_COMPLETE"><span id="DatasetStatus_DELETE_COMPLETE"><span class="annot"><span class="annottext">$bDatasetStatus_DELETE_COMPLETE :: DatasetStatus
+$mDatasetStatus_DELETE_COMPLETE :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_DELETE_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_DELETE_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_COMPLETE&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_FAILED"><span class="hs-identifier hs-type">DatasetStatus_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_DELETE_FAILED"><span id="%24mDatasetStatus_DELETE_FAILED"><span id="DatasetStatus_DELETE_FAILED"><span class="annot"><span class="annottext">$bDatasetStatus_DELETE_FAILED :: DatasetStatus
+$mDatasetStatus_DELETE_FAILED :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_IN_PROGRESS"><span class="hs-identifier hs-type">DatasetStatus_DELETE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_DELETE_IN_PROGRESS"><span id="%24mDatasetStatus_DELETE_IN_PROGRESS"><span id="DatasetStatus_DELETE_IN_PROGRESS"><span class="annot"><span class="annottext">$bDatasetStatus_DELETE_IN_PROGRESS :: DatasetStatus
+$mDatasetStatus_DELETE_IN_PROGRESS :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_DELETE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_DELETE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_COMPLETE"><span class="hs-identifier hs-type">DatasetStatus_UPDATE_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_UPDATE_COMPLETE"><span id="%24mDatasetStatus_UPDATE_COMPLETE"><span id="DatasetStatus_UPDATE_COMPLETE"><span class="annot"><span class="annottext">$bDatasetStatus_UPDATE_COMPLETE :: DatasetStatus
+$mDatasetStatus_UPDATE_COMPLETE :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_UPDATE_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_UPDATE_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_COMPLETE&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE"><span class="hs-identifier hs-type">DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE"><span id="%24mDatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE"><span id="DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE"><span class="annot"><span class="annottext">$bDatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE :: DatasetStatus
+$mDatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED_ROLLBACK_COMPLETE&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-type">DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS"><span id="%24mDatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS"><span id="DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS"><span class="annot"><span class="annottext">$bDatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS :: DatasetStatus
+$mDatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED_ROLLBACK_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-type">DatasetStatus_UPDATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatasetStatus_UPDATE_IN_PROGRESS"><span id="%24mDatasetStatus_UPDATE_IN_PROGRESS"><span id="DatasetStatus_UPDATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bDatasetStatus_UPDATE_IN_PROGRESS :: DatasetStatus
+$mDatasetStatus_UPDATE_IN_PROGRESS :: forall r. DatasetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#%24bDatasetStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">DatasetStatus_UPDATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-type">DatasetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_COMPLETE"><span class="hs-pragma hs-type">DatasetStatus_CREATE_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_FAILED"><span class="hs-pragma hs-type">DatasetStatus_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_CREATE_IN_PROGRESS"><span class="hs-pragma hs-type">DatasetStatus_CREATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_COMPLETE"><span class="hs-pragma hs-type">DatasetStatus_DELETE_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_FAILED"><span class="hs-pragma hs-type">DatasetStatus_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_DELETE_IN_PROGRESS"><span class="hs-pragma hs-type">DatasetStatus_DELETE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_COMPLETE"><span class="hs-pragma hs-type">DatasetStatus_UPDATE_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE"><span class="hs-pragma hs-type">DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS"><span class="hs-pragma hs-type">DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus_UPDATE_IN_PROGRESS"><span class="hs-pragma hs-type">DatasetStatus_UPDATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-pragma hs-type">DatasetStatus'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

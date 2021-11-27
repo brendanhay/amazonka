@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.MigrationHub.Types.ApplicationStatus
+module Amazonka.MigrationHub.Types.ApplicationStatus
 newtype ApplicationStatus
 ApplicationStatus' :: Text -> ApplicationStatus
 [fromApplicationStatus] :: ApplicationStatus -> Text
 pattern ApplicationStatus_COMPLETED :: ApplicationStatus
 pattern ApplicationStatus_IN_PROGRESS :: ApplicationStatus
 pattern ApplicationStatus_NOT_STARTED :: ApplicationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance GHC.Classes.Ord Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.Text.ToText Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Amazonka.Data.Text.FromText Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance GHC.Classes.Ord Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance GHC.Read.Read Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
+instance GHC.Show.Show Amazonka.MigrationHub.Types.ApplicationStatus.ApplicationStatus
 
 
-module Network.AWS.MigrationHub.Types.ApplicationState
+module Amazonka.MigrationHub.Types.ApplicationState
 
 -- | The state of an application discovered through Migration Hub import,
 --   the AWS Agentless Discovery Connector, or the AWS Application
@@ -84,16 +84,16 @@ applicationState_applicationId :: Lens' ApplicationState (Maybe Text)
 
 -- | The current status of an application.
 applicationState_applicationStatus :: Lens' ApplicationState (Maybe ApplicationStatus)
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.ApplicationState.ApplicationState
+instance GHC.Show.Show Amazonka.MigrationHub.Types.ApplicationState.ApplicationState
+instance GHC.Read.Read Amazonka.MigrationHub.Types.ApplicationState.ApplicationState
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.ApplicationState.ApplicationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.ApplicationState.ApplicationState
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.ApplicationState.ApplicationState
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.ApplicationState.ApplicationState
 
 
-module Network.AWS.MigrationHub.Types.CreatedArtifact
+module Amazonka.MigrationHub.Types.CreatedArtifact
 
 -- | An ARN of the AWS cloud resource target receiving the migration (e.g.,
 --   AMI, EC2 instance, RDS instance, etc.).
@@ -133,17 +133,17 @@ createdArtifact_description :: Lens' CreatedArtifact (Maybe Text)
 
 -- | An ARN that uniquely identifies the result of a migration task.
 createdArtifact_name :: Lens' CreatedArtifact Text
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance GHC.Show.Show Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance GHC.Read.Read Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.Types.CreatedArtifact.CreatedArtifact
 
 
-module Network.AWS.MigrationHub.Types.DiscoveredResource
+module Amazonka.MigrationHub.Types.DiscoveredResource
 
 -- | Object representing the on-premises resource being migrated.
 --   
@@ -186,17 +186,17 @@ discoveredResource_description :: Lens' DiscoveredResource (Maybe Text)
 -- | The configurationId in Application Discovery Service that uniquely
 --   identifies the on-premise resource.
 discoveredResource_configurationId :: Lens' DiscoveredResource Text
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance GHC.Show.Show Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance GHC.Read.Read Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.Types.DiscoveredResource.DiscoveredResource
 
 
-module Network.AWS.MigrationHub.Types.MigrationStatus
+module Amazonka.MigrationHub.Types.MigrationStatus
 newtype MigrationStatus
 MigrationStatus' :: Text -> MigrationStatus
 [fromMigrationStatus] :: MigrationStatus -> Text
@@ -204,28 +204,28 @@ pattern MigrationStatus_COMPLETED :: MigrationStatus
 pattern MigrationStatus_FAILED :: MigrationStatus
 pattern MigrationStatus_IN_PROGRESS :: MigrationStatus
 pattern MigrationStatus_NOT_STARTED :: MigrationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance GHC.Classes.Ord Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.Text.ToText Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Amazonka.Data.Text.FromText Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance GHC.Classes.Ord Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance GHC.Read.Read Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
+instance GHC.Show.Show Amazonka.MigrationHub.Types.MigrationStatus.MigrationStatus
 
 
-module Network.AWS.MigrationHub.Types.MigrationTaskSummary
+module Amazonka.MigrationHub.Types.MigrationTaskSummary
 
 -- | MigrationTaskSummary includes <tt>MigrationTaskName</tt>,
 --   <tt>ProgressPercent</tt>, <tt>ProgressUpdateStream</tt>,
@@ -311,16 +311,16 @@ migrationTaskSummary_progressUpdateStream :: Lens' MigrationTaskSummary (Maybe T
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
 migrationTaskSummary_migrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
+instance GHC.Show.Show Amazonka.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
+instance GHC.Read.Read Amazonka.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
 
 
-module Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
+module Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary
 
 -- | Summary of the AWS resource used for access control that is implicitly
 --   linked to your AWS account.
@@ -351,16 +351,16 @@ newProgressUpdateStreamSummary :: ProgressUpdateStreamSummary
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 --   this field./
 progressUpdateStreamSummary_progressUpdateStreamName :: Lens' ProgressUpdateStreamSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
+instance GHC.Show.Show Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
+instance GHC.Read.Read Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.ProgressUpdateStreamSummary
 
 
-module Network.AWS.MigrationHub.Types.ResourceAttributeType
+module Amazonka.MigrationHub.Types.ResourceAttributeType
 newtype ResourceAttributeType
 ResourceAttributeType' :: Text -> ResourceAttributeType
 [fromResourceAttributeType] :: ResourceAttributeType -> Text
@@ -374,28 +374,28 @@ pattern ResourceAttributeType_VM_MANAGED_OBJECT_REFERENCE :: ResourceAttributeTy
 pattern ResourceAttributeType_VM_MANAGER_ID :: ResourceAttributeType
 pattern ResourceAttributeType_VM_NAME :: ResourceAttributeType
 pattern ResourceAttributeType_VM_PATH :: ResourceAttributeType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Network.AWS.Data.Text.ToText Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Network.AWS.Data.Text.FromText Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance GHC.Classes.Ord Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.XML.ToXML Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.XML.FromXML Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.Log.ToLog Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.Text.ToText Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Amazonka.Data.Text.FromText Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance GHC.Classes.Ord Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance GHC.Read.Read Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
+instance GHC.Show.Show Amazonka.MigrationHub.Types.ResourceAttributeType.ResourceAttributeType
 
 
-module Network.AWS.MigrationHub.Types.ResourceAttribute
+module Amazonka.MigrationHub.Types.ResourceAttribute
 
 -- | Attribute associated with a resource.
 --   
@@ -442,17 +442,17 @@ resourceAttribute_type :: Lens' ResourceAttribute ResourceAttributeType
 
 -- | Value of the resource type.
 resourceAttribute_value :: Lens' ResourceAttribute Text
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance GHC.Show.Show Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance GHC.Read.Read Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.Types.ResourceAttribute.ResourceAttribute
 
 
-module Network.AWS.MigrationHub.Types.Task
+module Amazonka.MigrationHub.Types.Task
 
 -- | Task object encapsulating task information.
 --   
@@ -501,17 +501,17 @@ task_statusDetail :: Lens' Task (Maybe Text)
 
 -- | Status of the task - Not Started, In-Progress, Complete.
 task_status :: Lens' Task MigrationStatus
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.Task.Task
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.Task.Task
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.Task.Task
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.Task.Task
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.Task.Task
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.Task.Task
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.Task.Task
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.Types.Task.Task
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.Task.Task
+instance GHC.Show.Show Amazonka.MigrationHub.Types.Task.Task
+instance GHC.Read.Read Amazonka.MigrationHub.Types.Task.Task
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.Task.Task
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.Task.Task
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.Task.Task
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.Task.Task
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.Types.Task.Task
 
 
-module Network.AWS.MigrationHub.Types.MigrationTask
+module Amazonka.MigrationHub.Types.MigrationTask
 
 -- | Represents a migration task in a migration tool.
 --   
@@ -585,16 +585,16 @@ migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
 migrationTask_migrationTaskName :: Lens' MigrationTask (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
-instance GHC.Show.Show Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
-instance GHC.Read.Read Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
-instance GHC.Classes.Eq Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
+instance GHC.Generics.Generic Amazonka.MigrationHub.Types.MigrationTask.MigrationTask
+instance GHC.Show.Show Amazonka.MigrationHub.Types.MigrationTask.MigrationTask
+instance GHC.Read.Read Amazonka.MigrationHub.Types.MigrationTask.MigrationTask
+instance GHC.Classes.Eq Amazonka.MigrationHub.Types.MigrationTask.MigrationTask
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHub.Types.MigrationTask.MigrationTask
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.Types.MigrationTask.MigrationTask
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.Types.MigrationTask.MigrationTask
 
 
-module Network.AWS.MigrationHub.Types
+module Amazonka.MigrationHub.Types
 
 -- | API version <tt>2017-05-31</tt> of the Amazon Migration Hub SDK
 --   configuration.
@@ -1101,7 +1101,7 @@ task_status :: Lens' Task MigrationStatus
 --   whether an association occurs or not. To confirm if an association was
 --   found based on the provided details, call
 --   <tt>ListDiscoveredResources</tt>.
-module Network.AWS.MigrationHub.PutResourceAttributes
+module Amazonka.MigrationHub.PutResourceAttributes
 
 -- | <i>See:</i> <a>newPutResourceAttributes</a> smart constructor.
 data PutResourceAttributes
@@ -1254,22 +1254,22 @@ newPutResourceAttributesResponse :: Int -> PutResourceAttributesResponse
 
 -- | The response's http status code.
 putResourceAttributesResponse_httpStatus :: Lens' PutResourceAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance GHC.Show.Show Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance GHC.Read.Read Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance GHC.Classes.Eq Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance GHC.Generics.Generic Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance GHC.Generics.Generic Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance GHC.Show.Show Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance GHC.Read.Read Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance GHC.Classes.Eq Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance GHC.Generics.Generic Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
+instance GHC.Show.Show Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
+instance GHC.Read.Read Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.PutResourceAttributes.PutResourceAttributes
 
 
 -- | Notifies Migration Hub of the current status, progress, or other
@@ -1283,7 +1283,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.PutResourceAttr
 --   <li><tt>ProgressUpdateStream</tt> is used for access control and to
 --   provide a namespace for each migration tool.</li>
 --   </ul>
-module Network.AWS.MigrationHub.NotifyMigrationTaskState
+module Amazonka.MigrationHub.NotifyMigrationTaskState
 
 -- | <i>See:</i> <a>newNotifyMigrationTaskState</a> smart constructor.
 data NotifyMigrationTaskState
@@ -1397,29 +1397,29 @@ newNotifyMigrationTaskStateResponse :: Int -> NotifyMigrationTaskStateResponse
 
 -- | The response's http status code.
 notifyMigrationTaskStateResponse_httpStatus :: Lens' NotifyMigrationTaskStateResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance GHC.Show.Show Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance GHC.Read.Read Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance GHC.Classes.Eq Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance GHC.Generics.Generic Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance GHC.Generics.Generic Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance GHC.Show.Show Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance GHC.Read.Read Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance GHC.Classes.Eq Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance GHC.Generics.Generic Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
+instance GHC.Show.Show Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
+instance GHC.Read.Read Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskStateResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.NotifyMigrationTaskState.NotifyMigrationTaskState
 
 
 -- | Sets the migration state of an application. For a given application
 --   identified by the value passed to <tt>ApplicationId</tt>, its status
 --   is set or updated by passing one of three values to <tt>Status</tt>:
 --   <tt>NOT_STARTED | IN_PROGRESS | COMPLETED</tt>.
-module Network.AWS.MigrationHub.NotifyApplicationState
+module Amazonka.MigrationHub.NotifyApplicationState
 
 -- | <i>See:</i> <a>newNotifyApplicationState</a> smart constructor.
 data NotifyApplicationState
@@ -1505,29 +1505,29 @@ newNotifyApplicationStateResponse :: Int -> NotifyApplicationStateResponse
 
 -- | The response's http status code.
 notifyApplicationStateResponse_httpStatus :: Lens' NotifyApplicationStateResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance GHC.Show.Show Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance GHC.Read.Read Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance GHC.Classes.Eq Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance GHC.Generics.Generic Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance GHC.Generics.Generic Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance GHC.Show.Show Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance GHC.Read.Read Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance GHC.Classes.Eq Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance GHC.Generics.Generic Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
+instance GHC.Show.Show Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
+instance GHC.Read.Read Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationStateResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.NotifyApplicationState.NotifyApplicationState
 
 
 -- | Lists progress update streams associated with the user account making
 --   this call.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MigrationHub.ListProgressUpdateStreams
+module Amazonka.MigrationHub.ListProgressUpdateStreams
 
 -- | <i>See:</i> <a>newListProgressUpdateStreams</a> smart constructor.
 data ListProgressUpdateStreams
@@ -1622,23 +1622,23 @@ listProgressUpdateStreamsResponse_nextToken :: Lens' ListProgressUpdateStreamsRe
 
 -- | The response's http status code.
 listProgressUpdateStreamsResponse_httpStatus :: Lens' ListProgressUpdateStreamsResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance GHC.Show.Show Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance GHC.Read.Read Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance GHC.Show.Show Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance GHC.Read.Read Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
+instance GHC.Show.Show Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
+instance GHC.Read.Read Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreamsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.ListProgressUpdateStreams.ListProgressUpdateStreams
 
 
 -- | Lists all, or filtered by resource name, migration tasks associated
@@ -1653,7 +1653,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListProgressUpd
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.MigrationHub.ListMigrationTasks
+module Amazonka.MigrationHub.ListMigrationTasks
 
 -- | <i>See:</i> <a>newListMigrationTasks</a> smart constructor.
 data ListMigrationTasks
@@ -1761,30 +1761,30 @@ listMigrationTasksResponse_nextToken :: Lens' ListMigrationTasksResponse (Maybe 
 
 -- | The response's http status code.
 listMigrationTasksResponse_httpStatus :: Lens' ListMigrationTasksResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance GHC.Show.Show Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance GHC.Read.Read Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance GHC.Show.Show Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance GHC.Read.Read Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
+instance GHC.Show.Show Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
+instance GHC.Read.Read Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasksResponse
+instance Amazonka.Pager.AWSPager Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.ListMigrationTasks.ListMigrationTasks
 
 
 -- | Lists discovered resources associated with the given
 --   <tt>MigrationTask</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MigrationHub.ListDiscoveredResources
+module Amazonka.MigrationHub.ListDiscoveredResources
 
 -- | <i>See:</i> <a>newListDiscoveredResources</a> smart constructor.
 data ListDiscoveredResources
@@ -1900,23 +1900,23 @@ listDiscoveredResourcesResponse_nextToken :: Lens' ListDiscoveredResourcesRespon
 
 -- | The response's http status code.
 listDiscoveredResourcesResponse_httpStatus :: Lens' ListDiscoveredResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance GHC.Show.Show Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance GHC.Read.Read Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance GHC.Show.Show Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance GHC.Read.Read Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
+instance GHC.Show.Show Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
+instance GHC.Read.Read Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.ListDiscoveredResources.ListDiscoveredResources
 
 
 -- | Lists the created artifacts attached to a given migration task in an
@@ -1931,7 +1931,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListDiscoveredR
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.MigrationHub.ListCreatedArtifacts
+module Amazonka.MigrationHub.ListCreatedArtifacts
 
 -- | <i>See:</i> <a>newListCreatedArtifacts</a> smart constructor.
 data ListCreatedArtifacts
@@ -2047,23 +2047,23 @@ listCreatedArtifactsResponse_createdArtifactList :: Lens' ListCreatedArtifactsRe
 
 -- | The response's http status code.
 listCreatedArtifactsResponse_httpStatus :: Lens' ListCreatedArtifactsResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance GHC.Show.Show Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance GHC.Read.Read Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance GHC.Show.Show Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance GHC.Read.Read Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
+instance GHC.Show.Show Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
+instance GHC.Read.Read Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifactsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.ListCreatedArtifacts.ListCreatedArtifacts
 
 
 -- | Lists all the migration statuses for your applications. If you use the
@@ -2071,7 +2071,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListCreatedArti
 --   statuses for those applications will be returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MigrationHub.ListApplicationStates
+module Amazonka.MigrationHub.ListApplicationStates
 
 -- | <i>See:</i> <a>newListApplicationStates</a> smart constructor.
 data ListApplicationStates
@@ -2175,23 +2175,23 @@ listApplicationStatesResponse_nextToken :: Lens' ListApplicationStatesResponse (
 
 -- | The response's http status code.
 listApplicationStatesResponse_httpStatus :: Lens' ListApplicationStatesResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance GHC.Show.Show Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance GHC.Read.Read Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListApplicationStates.ListApplicationStates
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance GHC.Show.Show Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance GHC.Read.Read Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance GHC.Generics.Generic Amazonka.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
+instance GHC.Show.Show Amazonka.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
+instance GHC.Read.Read Amazonka.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListApplicationStates.ListApplicationStatesResponse
+instance Amazonka.Pager.AWSPager Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.ListApplicationStates.ListApplicationStates
 
 
 -- | Registers a new migration task which represents a server, database,
@@ -2200,7 +2200,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ListApplication
 --   This API is a prerequisite to calling the
 --   <tt>NotifyMigrationTaskState</tt> API as the migration tool must first
 --   register the migration task with Migration Hub.
-module Network.AWS.MigrationHub.ImportMigrationTask
+module Amazonka.MigrationHub.ImportMigrationTask
 
 -- | <i>See:</i> <a>newImportMigrationTask</a> smart constructor.
 data ImportMigrationTask
@@ -2275,27 +2275,27 @@ newImportMigrationTaskResponse :: Int -> ImportMigrationTaskResponse
 
 -- | The response's http status code.
 importMigrationTaskResponse_httpStatus :: Lens' ImportMigrationTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance GHC.Show.Show Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance GHC.Read.Read Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance GHC.Generics.Generic Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance GHC.Generics.Generic Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance GHC.Show.Show Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance GHC.Read.Read Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance GHC.Classes.Eq Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance GHC.Generics.Generic Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
+instance GHC.Show.Show Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
+instance GHC.Read.Read Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.ImportMigrationTask.ImportMigrationTask
 
 
 -- | Disassociate an Application Discovery Service discovered resource from
 --   a migration task.
-module Network.AWS.MigrationHub.DisassociateDiscoveredResource
+module Amazonka.MigrationHub.DisassociateDiscoveredResource
 
 -- | <i>See:</i> <a>newDisassociateDiscoveredResource</a> smart
 --   constructor.
@@ -2385,22 +2385,22 @@ newDisassociateDiscoveredResourceResponse :: Int -> DisassociateDiscoveredResour
 
 -- | The response's http status code.
 disassociateDiscoveredResourceResponse_httpStatus :: Lens' DisassociateDiscoveredResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance GHC.Show.Show Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance GHC.Read.Read Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance GHC.Generics.Generic Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance GHC.Show.Show Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance GHC.Read.Read Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance GHC.Classes.Eq Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance GHC.Generics.Generic Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
+instance GHC.Show.Show Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
+instance GHC.Read.Read Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.DisassociateDiscoveredResource.DisassociateDiscoveredResource
 
 
 -- | Disassociates a created artifact of an AWS resource with a migration
@@ -2418,7 +2418,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DisassociateDis
 --   <li>Examples of the AWS resource behind the created artifact are,
 --   AMI's, EC2 instance, or RDS instance, etc.</li>
 --   </ul>
-module Network.AWS.MigrationHub.DisassociateCreatedArtifact
+module Amazonka.MigrationHub.DisassociateCreatedArtifact
 
 -- | <i>See:</i> <a>newDisassociateCreatedArtifact</a> smart constructor.
 data DisassociateCreatedArtifact
@@ -2509,27 +2509,27 @@ newDisassociateCreatedArtifactResponse :: Int -> DisassociateCreatedArtifactResp
 
 -- | The response's http status code.
 disassociateCreatedArtifactResponse_httpStatus :: Lens' DisassociateCreatedArtifactResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance GHC.Show.Show Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance GHC.Read.Read Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance GHC.Generics.Generic Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance GHC.Show.Show Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance GHC.Read.Read Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance GHC.Classes.Eq Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance GHC.Generics.Generic Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
+instance GHC.Show.Show Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
+instance GHC.Read.Read Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifactResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.DisassociateCreatedArtifact.DisassociateCreatedArtifact
 
 
 -- | Retrieves a list of all attributes associated with a specific
 --   migration task.
-module Network.AWS.MigrationHub.DescribeMigrationTask
+module Amazonka.MigrationHub.DescribeMigrationTask
 
 -- | <i>See:</i> <a>newDescribeMigrationTask</a> smart constructor.
 data DescribeMigrationTask
@@ -2600,26 +2600,26 @@ describeMigrationTaskResponse_migrationTask :: Lens' DescribeMigrationTaskRespon
 
 -- | The response's http status code.
 describeMigrationTaskResponse_httpStatus :: Lens' DescribeMigrationTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance GHC.Show.Show Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance GHC.Read.Read Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance GHC.Generics.Generic Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance GHC.Show.Show Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance GHC.Read.Read Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance GHC.Classes.Eq Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance GHC.Generics.Generic Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
+instance GHC.Show.Show Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
+instance GHC.Read.Read Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.DescribeMigrationTask.DescribeMigrationTask
 
 
 -- | Gets the migration status of an application.
-module Network.AWS.MigrationHub.DescribeApplicationState
+module Amazonka.MigrationHub.DescribeApplicationState
 
 -- | <i>See:</i> <a>newDescribeApplicationState</a> smart constructor.
 data DescribeApplicationState
@@ -2692,22 +2692,22 @@ describeApplicationStateResponse_applicationStatus :: Lens' DescribeApplicationS
 
 -- | The response's http status code.
 describeApplicationStateResponse_httpStatus :: Lens' DescribeApplicationStateResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance GHC.Show.Show Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance GHC.Read.Read Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance GHC.Generics.Generic Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance GHC.Show.Show Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance GHC.Read.Read Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance GHC.Classes.Eq Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance GHC.Generics.Generic Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
+instance GHC.Show.Show Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
+instance GHC.Read.Read Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationStateResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.DescribeApplicationState.DescribeApplicationState
 
 
 -- | Deletes a progress update stream, including all of its tasks, which
@@ -2733,7 +2733,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DescribeApplica
 --   succeed, and that stream will be an entirely new logical resource
 --   (without any resources associated with the old stream).</li>
 --   </ul>
-module Network.AWS.MigrationHub.DeleteProgressUpdateStream
+module Amazonka.MigrationHub.DeleteProgressUpdateStream
 
 -- | <i>See:</i> <a>newDeleteProgressUpdateStream</a> smart constructor.
 data DeleteProgressUpdateStream
@@ -2799,22 +2799,22 @@ newDeleteProgressUpdateStreamResponse :: Int -> DeleteProgressUpdateStreamRespon
 
 -- | The response's http status code.
 deleteProgressUpdateStreamResponse_httpStatus :: Lens' DeleteProgressUpdateStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance GHC.Show.Show Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance GHC.Read.Read Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance GHC.Generics.Generic Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance GHC.Generics.Generic Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance GHC.Show.Show Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance GHC.Read.Read Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance GHC.Classes.Eq Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance GHC.Generics.Generic Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
+instance GHC.Show.Show Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
+instance GHC.Read.Read Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.DeleteProgressUpdateStream.DeleteProgressUpdateStream
 
 
 -- | Creates a progress update stream which is an AWS resource used for
@@ -2823,7 +2823,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.DeleteProgressU
 --   migration tool as it is used for all updates made by the tool;
 --   however, it does not need to be unique for each AWS account because it
 --   is scoped to the AWS account.
-module Network.AWS.MigrationHub.CreateProgressUpdateStream
+module Amazonka.MigrationHub.CreateProgressUpdateStream
 
 -- | <i>See:</i> <a>newCreateProgressUpdateStream</a> smart constructor.
 data CreateProgressUpdateStream
@@ -2889,27 +2889,27 @@ newCreateProgressUpdateStreamResponse :: Int -> CreateProgressUpdateStreamRespon
 
 -- | The response's http status code.
 createProgressUpdateStreamResponse_httpStatus :: Lens' CreateProgressUpdateStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance GHC.Show.Show Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance GHC.Read.Read Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance GHC.Classes.Eq Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance GHC.Generics.Generic Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance GHC.Generics.Generic Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance GHC.Show.Show Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance GHC.Read.Read Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance GHC.Classes.Eq Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance GHC.Generics.Generic Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
+instance GHC.Show.Show Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
+instance GHC.Read.Read Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.CreateProgressUpdateStream.CreateProgressUpdateStream
 
 
 -- | Associates a discovered resource ID from Application Discovery Service
 --   with a migration task.
-module Network.AWS.MigrationHub.AssociateDiscoveredResource
+module Amazonka.MigrationHub.AssociateDiscoveredResource
 
 -- | <i>See:</i> <a>newAssociateDiscoveredResource</a> smart constructor.
 data AssociateDiscoveredResource
@@ -2995,22 +2995,22 @@ newAssociateDiscoveredResourceResponse :: Int -> AssociateDiscoveredResourceResp
 
 -- | The response's http status code.
 associateDiscoveredResourceResponse_httpStatus :: Lens' AssociateDiscoveredResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance GHC.Show.Show Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance GHC.Read.Read Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance GHC.Classes.Eq Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance GHC.Generics.Generic Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance GHC.Generics.Generic Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance GHC.Show.Show Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance GHC.Read.Read Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance GHC.Classes.Eq Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance GHC.Generics.Generic Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
+instance GHC.Show.Show Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
+instance GHC.Read.Read Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.AssociateDiscoveredResource.AssociateDiscoveredResource
 
 
 -- | Associates a created artifact of an AWS cloud resource, the target
@@ -3028,7 +3028,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.AssociateDiscov
 --   <li>Examples of the AWS resource behind the created artifact are,
 --   AMI's, EC2 instance, or DMS endpoint, etc.</li>
 --   </ul>
-module Network.AWS.MigrationHub.AssociateCreatedArtifact
+module Amazonka.MigrationHub.AssociateCreatedArtifact
 
 -- | <i>See:</i> <a>newAssociateCreatedArtifact</a> smart constructor.
 data AssociateCreatedArtifact
@@ -3117,25 +3117,25 @@ newAssociateCreatedArtifactResponse :: Int -> AssociateCreatedArtifactResponse
 
 -- | The response's http status code.
 associateCreatedArtifactResponse_httpStatus :: Lens' AssociateCreatedArtifactResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance GHC.Show.Show Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance GHC.Read.Read Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance GHC.Classes.Eq Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance GHC.Generics.Generic Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
-instance GHC.Show.Show Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
-instance GHC.Read.Read Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance Control.DeepSeq.NFData Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance GHC.Generics.Generic Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance GHC.Show.Show Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance GHC.Read.Read Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance GHC.Classes.Eq Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance GHC.Generics.Generic Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
+instance GHC.Show.Show Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
+instance GHC.Read.Read Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
+instance GHC.Classes.Eq Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifactResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance Control.DeepSeq.NFData Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHub.AssociateCreatedArtifact.AssociateCreatedArtifact
 
 
-module Network.AWS.MigrationHub.Lens
+module Amazonka.MigrationHub.Lens
 
 -- | Optional boolean flag to indicate whether any effect should take
 --   place. Used to test if the caller has permission to make the call.
@@ -3562,7 +3562,7 @@ task_statusDetail :: Lens' Task (Maybe Text)
 task_status :: Lens' Task MigrationStatus
 
 
-module Network.AWS.MigrationHub.Waiters
+module Amazonka.MigrationHub.Waiters
 
 
 -- | Derived from API version <tt>2017-05-31</tt> of the AWS service
@@ -3576,7 +3576,7 @@ module Network.AWS.MigrationHub.Waiters
 --   you call any of these APIs, or a <tt>HomeRegionNotSetException</tt>
 --   error will be returned. Also, you must make the API calls while in
 --   your home region.
-module Network.AWS.MigrationHub
+module Amazonka.MigrationHub
 
 -- | API version <tt>2017-05-31</tt> of the Amazon Migration Hub SDK
 --   configuration.

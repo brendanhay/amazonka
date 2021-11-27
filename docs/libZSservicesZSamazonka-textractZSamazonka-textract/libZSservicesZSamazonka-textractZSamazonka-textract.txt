@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Textract.Types.BlockType
+module Amazonka.Textract.Types.BlockType
 newtype BlockType
 BlockType' :: Text -> BlockType
 [fromBlockType] :: BlockType -> Text
@@ -16,28 +16,28 @@ pattern BlockType_PAGE :: BlockType
 pattern BlockType_SELECTION_ELEMENT :: BlockType
 pattern BlockType_TABLE :: BlockType
 pattern BlockType_WORD :: BlockType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.BlockType.BlockType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.BlockType.BlockType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.BlockType.BlockType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.BlockType.BlockType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.BlockType.BlockType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.BlockType.BlockType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.BlockType.BlockType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.BlockType.BlockType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.BlockType.BlockType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.BlockType.BlockType
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.BlockType.BlockType
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.BlockType.BlockType
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.BlockType.BlockType
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.BlockType.BlockType
-instance GHC.Generics.Generic Network.AWS.Textract.Types.BlockType.BlockType
-instance GHC.Classes.Ord Network.AWS.Textract.Types.BlockType.BlockType
-instance GHC.Classes.Eq Network.AWS.Textract.Types.BlockType.BlockType
-instance GHC.Read.Read Network.AWS.Textract.Types.BlockType.BlockType
-instance GHC.Show.Show Network.AWS.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.BlockType.BlockType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.BlockType.BlockType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.BlockType.BlockType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.BlockType.BlockType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.BlockType.BlockType
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.BlockType.BlockType
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.BlockType.BlockType
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.BlockType.BlockType
+instance GHC.Generics.Generic Amazonka.Textract.Types.BlockType.BlockType
+instance GHC.Classes.Ord Amazonka.Textract.Types.BlockType.BlockType
+instance GHC.Classes.Eq Amazonka.Textract.Types.BlockType.BlockType
+instance GHC.Read.Read Amazonka.Textract.Types.BlockType.BlockType
+instance GHC.Show.Show Amazonka.Textract.Types.BlockType.BlockType
 
 
-module Network.AWS.Textract.Types.BoundingBox
+module Amazonka.Textract.Types.BoundingBox
 
 -- | The bounding box around the detected page, text, key-value pair,
 --   table, table cell, or selection element on a document page. The
@@ -115,43 +115,43 @@ boundingBox_width :: Lens' BoundingBox (Maybe Double)
 -- | The top coordinate of the bounding box as a ratio of overall document
 --   page height.
 boundingBox_top :: Lens' BoundingBox (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.BoundingBox.BoundingBox
-instance GHC.Show.Show Network.AWS.Textract.Types.BoundingBox.BoundingBox
-instance GHC.Read.Read Network.AWS.Textract.Types.BoundingBox.BoundingBox
-instance GHC.Classes.Eq Network.AWS.Textract.Types.BoundingBox.BoundingBox
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.BoundingBox.BoundingBox
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.BoundingBox.BoundingBox
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.BoundingBox.BoundingBox
+instance GHC.Generics.Generic Amazonka.Textract.Types.BoundingBox.BoundingBox
+instance GHC.Show.Show Amazonka.Textract.Types.BoundingBox.BoundingBox
+instance GHC.Read.Read Amazonka.Textract.Types.BoundingBox.BoundingBox
+instance GHC.Classes.Eq Amazonka.Textract.Types.BoundingBox.BoundingBox
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.BoundingBox.BoundingBox
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.BoundingBox.BoundingBox
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.BoundingBox.BoundingBox
 
 
-module Network.AWS.Textract.Types.ContentClassifier
+module Amazonka.Textract.Types.ContentClassifier
 newtype ContentClassifier
 ContentClassifier' :: Text -> ContentClassifier
 [fromContentClassifier] :: ContentClassifier -> Text
 pattern ContentClassifier_FreeOfAdultContent :: ContentClassifier
 pattern ContentClassifier_FreeOfPersonallyIdentifiableInformation :: ContentClassifier
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance GHC.Generics.Generic Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance GHC.Classes.Ord Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance GHC.Classes.Eq Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance GHC.Read.Read Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
-instance GHC.Show.Show Network.AWS.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance GHC.Generics.Generic Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance GHC.Classes.Ord Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance GHC.Classes.Eq Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance GHC.Read.Read Amazonka.Textract.Types.ContentClassifier.ContentClassifier
+instance GHC.Show.Show Amazonka.Textract.Types.ContentClassifier.ContentClassifier
 
 
-module Network.AWS.Textract.Types.DocumentMetadata
+module Amazonka.Textract.Types.DocumentMetadata
 
 -- | Information about the input document.
 --   
@@ -177,43 +177,43 @@ newDocumentMetadata :: DocumentMetadata
 
 -- | The number of pages that are detected in the document.
 documentMetadata_pages :: Lens' DocumentMetadata (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.DocumentMetadata.DocumentMetadata
-instance GHC.Show.Show Network.AWS.Textract.Types.DocumentMetadata.DocumentMetadata
-instance GHC.Read.Read Network.AWS.Textract.Types.DocumentMetadata.DocumentMetadata
-instance GHC.Classes.Eq Network.AWS.Textract.Types.DocumentMetadata.DocumentMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.DocumentMetadata.DocumentMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.DocumentMetadata.DocumentMetadata
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.DocumentMetadata.DocumentMetadata
+instance GHC.Generics.Generic Amazonka.Textract.Types.DocumentMetadata.DocumentMetadata
+instance GHC.Show.Show Amazonka.Textract.Types.DocumentMetadata.DocumentMetadata
+instance GHC.Read.Read Amazonka.Textract.Types.DocumentMetadata.DocumentMetadata
+instance GHC.Classes.Eq Amazonka.Textract.Types.DocumentMetadata.DocumentMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.DocumentMetadata.DocumentMetadata
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.DocumentMetadata.DocumentMetadata
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.DocumentMetadata.DocumentMetadata
 
 
-module Network.AWS.Textract.Types.EntityType
+module Amazonka.Textract.Types.EntityType
 newtype EntityType
 EntityType' :: Text -> EntityType
 [fromEntityType] :: EntityType -> Text
 pattern EntityType_KEY :: EntityType
 pattern EntityType_VALUE :: EntityType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.EntityType.EntityType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.EntityType.EntityType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.EntityType.EntityType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.EntityType.EntityType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.EntityType.EntityType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.EntityType.EntityType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.EntityType.EntityType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.EntityType.EntityType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.EntityType.EntityType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.EntityType.EntityType
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.EntityType.EntityType
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.EntityType.EntityType
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.EntityType.EntityType
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.EntityType.EntityType
-instance GHC.Generics.Generic Network.AWS.Textract.Types.EntityType.EntityType
-instance GHC.Classes.Ord Network.AWS.Textract.Types.EntityType.EntityType
-instance GHC.Classes.Eq Network.AWS.Textract.Types.EntityType.EntityType
-instance GHC.Read.Read Network.AWS.Textract.Types.EntityType.EntityType
-instance GHC.Show.Show Network.AWS.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.EntityType.EntityType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.EntityType.EntityType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.EntityType.EntityType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.EntityType.EntityType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.EntityType.EntityType
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.EntityType.EntityType
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.EntityType.EntityType
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.EntityType.EntityType
+instance GHC.Generics.Generic Amazonka.Textract.Types.EntityType.EntityType
+instance GHC.Classes.Ord Amazonka.Textract.Types.EntityType.EntityType
+instance GHC.Classes.Eq Amazonka.Textract.Types.EntityType.EntityType
+instance GHC.Read.Read Amazonka.Textract.Types.EntityType.EntityType
+instance GHC.Show.Show Amazonka.Textract.Types.EntityType.EntityType
 
 
-module Network.AWS.Textract.Types.ExpenseType
+module Amazonka.Textract.Types.ExpenseType
 
 -- | An object used to store information about the Type detected by Amazon
 --   Textract.
@@ -248,43 +248,43 @@ expenseType_text :: Lens' ExpenseType (Maybe Text)
 
 -- | The confidence of accuracy, as a percentage.
 expenseType_confidence :: Lens' ExpenseType (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.ExpenseType.ExpenseType
-instance GHC.Show.Show Network.AWS.Textract.Types.ExpenseType.ExpenseType
-instance GHC.Read.Read Network.AWS.Textract.Types.ExpenseType.ExpenseType
-instance GHC.Classes.Eq Network.AWS.Textract.Types.ExpenseType.ExpenseType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.ExpenseType.ExpenseType
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.ExpenseType.ExpenseType
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.ExpenseType.ExpenseType
+instance GHC.Generics.Generic Amazonka.Textract.Types.ExpenseType.ExpenseType
+instance GHC.Show.Show Amazonka.Textract.Types.ExpenseType.ExpenseType
+instance GHC.Read.Read Amazonka.Textract.Types.ExpenseType.ExpenseType
+instance GHC.Classes.Eq Amazonka.Textract.Types.ExpenseType.ExpenseType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.ExpenseType.ExpenseType
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.ExpenseType.ExpenseType
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.ExpenseType.ExpenseType
 
 
-module Network.AWS.Textract.Types.FeatureType
+module Amazonka.Textract.Types.FeatureType
 newtype FeatureType
 FeatureType' :: Text -> FeatureType
 [fromFeatureType] :: FeatureType -> Text
 pattern FeatureType_FORMS :: FeatureType
 pattern FeatureType_TABLES :: FeatureType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.FeatureType.FeatureType
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.FeatureType.FeatureType
-instance GHC.Generics.Generic Network.AWS.Textract.Types.FeatureType.FeatureType
-instance GHC.Classes.Ord Network.AWS.Textract.Types.FeatureType.FeatureType
-instance GHC.Classes.Eq Network.AWS.Textract.Types.FeatureType.FeatureType
-instance GHC.Read.Read Network.AWS.Textract.Types.FeatureType.FeatureType
-instance GHC.Show.Show Network.AWS.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.FeatureType.FeatureType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.FeatureType.FeatureType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.FeatureType.FeatureType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.FeatureType.FeatureType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.FeatureType.FeatureType
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.FeatureType.FeatureType
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.FeatureType.FeatureType
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.FeatureType.FeatureType
+instance GHC.Generics.Generic Amazonka.Textract.Types.FeatureType.FeatureType
+instance GHC.Classes.Ord Amazonka.Textract.Types.FeatureType.FeatureType
+instance GHC.Classes.Eq Amazonka.Textract.Types.FeatureType.FeatureType
+instance GHC.Read.Read Amazonka.Textract.Types.FeatureType.FeatureType
+instance GHC.Show.Show Amazonka.Textract.Types.FeatureType.FeatureType
 
 
-module Network.AWS.Textract.Types.HumanLoopActivationOutput
+module Amazonka.Textract.Types.HumanLoopActivationOutput
 
 -- | Shows the results of the human in the loop evaluation. If there is no
 --   HumanLoopArn, the input did not trigger human review.
@@ -336,16 +336,16 @@ humanLoopActivationOutput_humanLoopArn :: Lens' HumanLoopActivationOutput (Maybe
 -- | Shows the result of condition evaluations, including those conditions
 --   which activated a human review.
 humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults :: Lens' HumanLoopActivationOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
-instance GHC.Show.Show Network.AWS.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
-instance GHC.Read.Read Network.AWS.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
-instance GHC.Classes.Eq Network.AWS.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
+instance GHC.Generics.Generic Amazonka.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
+instance GHC.Show.Show Amazonka.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
+instance GHC.Read.Read Amazonka.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
+instance GHC.Classes.Eq Amazonka.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.HumanLoopActivationOutput.HumanLoopActivationOutput
 
 
-module Network.AWS.Textract.Types.HumanLoopDataAttributes
+module Amazonka.Textract.Types.HumanLoopDataAttributes
 
 -- | Allows you to set attributes of the image. Currently, you can declare
 --   an image as free of personally identifiable information and adult
@@ -377,16 +377,16 @@ newHumanLoopDataAttributes :: HumanLoopDataAttributes
 -- | Sets whether the input image is free of personally identifiable
 --   information or adult content.
 humanLoopDataAttributes_contentClassifiers :: Lens' HumanLoopDataAttributes (Maybe [ContentClassifier])
-instance GHC.Generics.Generic Network.AWS.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance GHC.Show.Show Network.AWS.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance GHC.Read.Read Network.AWS.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance GHC.Classes.Eq Network.AWS.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Generics.Generic Amazonka.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Show.Show Amazonka.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Read.Read Amazonka.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Classes.Eq Amazonka.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
 
 
-module Network.AWS.Textract.Types.HumanLoopConfig
+module Amazonka.Textract.Types.HumanLoopConfig
 
 -- | Sets up the human review workflow the document will be sent to if one
 --   of the conditions is met. You can also set certain attributes of the
@@ -437,16 +437,16 @@ humanLoopConfig_humanLoopName :: Lens' HumanLoopConfig Text
 
 -- | The Amazon Resource Name (ARN) of the flow definition.
 humanLoopConfig_flowDefinitionArn :: Lens' HumanLoopConfig Text
-instance GHC.Generics.Generic Network.AWS.Textract.Types.HumanLoopConfig.HumanLoopConfig
-instance GHC.Show.Show Network.AWS.Textract.Types.HumanLoopConfig.HumanLoopConfig
-instance GHC.Read.Read Network.AWS.Textract.Types.HumanLoopConfig.HumanLoopConfig
-instance GHC.Classes.Eq Network.AWS.Textract.Types.HumanLoopConfig.HumanLoopConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.HumanLoopConfig.HumanLoopConfig
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.HumanLoopConfig.HumanLoopConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.HumanLoopConfig.HumanLoopConfig
+instance GHC.Generics.Generic Amazonka.Textract.Types.HumanLoopConfig.HumanLoopConfig
+instance GHC.Show.Show Amazonka.Textract.Types.HumanLoopConfig.HumanLoopConfig
+instance GHC.Read.Read Amazonka.Textract.Types.HumanLoopConfig.HumanLoopConfig
+instance GHC.Classes.Eq Amazonka.Textract.Types.HumanLoopConfig.HumanLoopConfig
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.HumanLoopConfig.HumanLoopConfig
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.HumanLoopConfig.HumanLoopConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.HumanLoopConfig.HumanLoopConfig
 
 
-module Network.AWS.Textract.Types.JobStatus
+module Amazonka.Textract.Types.JobStatus
 newtype JobStatus
 JobStatus' :: Text -> JobStatus
 [fromJobStatus] :: JobStatus -> Text
@@ -454,28 +454,28 @@ pattern JobStatus_FAILED :: JobStatus
 pattern JobStatus_IN_PROGRESS :: JobStatus
 pattern JobStatus_PARTIAL_SUCCESS :: JobStatus
 pattern JobStatus_SUCCEEDED :: JobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.JobStatus.JobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.JobStatus.JobStatus
-instance GHC.Generics.Generic Network.AWS.Textract.Types.JobStatus.JobStatus
-instance GHC.Classes.Ord Network.AWS.Textract.Types.JobStatus.JobStatus
-instance GHC.Classes.Eq Network.AWS.Textract.Types.JobStatus.JobStatus
-instance GHC.Read.Read Network.AWS.Textract.Types.JobStatus.JobStatus
-instance GHC.Show.Show Network.AWS.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.JobStatus.JobStatus
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.JobStatus.JobStatus
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.JobStatus.JobStatus
+instance GHC.Generics.Generic Amazonka.Textract.Types.JobStatus.JobStatus
+instance GHC.Classes.Ord Amazonka.Textract.Types.JobStatus.JobStatus
+instance GHC.Classes.Eq Amazonka.Textract.Types.JobStatus.JobStatus
+instance GHC.Read.Read Amazonka.Textract.Types.JobStatus.JobStatus
+instance GHC.Show.Show Amazonka.Textract.Types.JobStatus.JobStatus
 
 
-module Network.AWS.Textract.Types.NotificationChannel
+module Amazonka.Textract.Types.NotificationChannel
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic to which
 --   Amazon Textract publishes the completion status of an asynchronous
@@ -519,16 +519,16 @@ notificationChannel_sNSTopicArn :: Lens' NotificationChannel Text
 -- | The Amazon Resource Name (ARN) of an IAM role that gives Amazon
 --   Textract publishing permissions to the Amazon SNS topic.
 notificationChannel_roleArn :: Lens' NotificationChannel Text
-instance GHC.Generics.Generic Network.AWS.Textract.Types.NotificationChannel.NotificationChannel
-instance GHC.Show.Show Network.AWS.Textract.Types.NotificationChannel.NotificationChannel
-instance GHC.Read.Read Network.AWS.Textract.Types.NotificationChannel.NotificationChannel
-instance GHC.Classes.Eq Network.AWS.Textract.Types.NotificationChannel.NotificationChannel
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.NotificationChannel.NotificationChannel
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.NotificationChannel.NotificationChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.NotificationChannel.NotificationChannel
+instance GHC.Generics.Generic Amazonka.Textract.Types.NotificationChannel.NotificationChannel
+instance GHC.Show.Show Amazonka.Textract.Types.NotificationChannel.NotificationChannel
+instance GHC.Read.Read Amazonka.Textract.Types.NotificationChannel.NotificationChannel
+instance GHC.Classes.Eq Amazonka.Textract.Types.NotificationChannel.NotificationChannel
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.NotificationChannel.NotificationChannel
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.NotificationChannel.NotificationChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.NotificationChannel.NotificationChannel
 
 
-module Network.AWS.Textract.Types.OutputConfig
+module Amazonka.Textract.Types.OutputConfig
 
 -- | Sets whether or not your output will go to a user created bucket. Used
 --   to set the name of the bucket, and the prefix on the output file.
@@ -587,16 +587,16 @@ outputConfig_s3Prefix :: Lens' OutputConfig (Maybe Text)
 
 -- | The name of the bucket your output will go to.
 outputConfig_s3Bucket :: Lens' OutputConfig Text
-instance GHC.Generics.Generic Network.AWS.Textract.Types.OutputConfig.OutputConfig
-instance GHC.Show.Show Network.AWS.Textract.Types.OutputConfig.OutputConfig
-instance GHC.Read.Read Network.AWS.Textract.Types.OutputConfig.OutputConfig
-instance GHC.Classes.Eq Network.AWS.Textract.Types.OutputConfig.OutputConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.OutputConfig.OutputConfig
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.OutputConfig.OutputConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.OutputConfig.OutputConfig
+instance GHC.Generics.Generic Amazonka.Textract.Types.OutputConfig.OutputConfig
+instance GHC.Show.Show Amazonka.Textract.Types.OutputConfig.OutputConfig
+instance GHC.Read.Read Amazonka.Textract.Types.OutputConfig.OutputConfig
+instance GHC.Classes.Eq Amazonka.Textract.Types.OutputConfig.OutputConfig
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.OutputConfig.OutputConfig
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.OutputConfig.OutputConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.OutputConfig.OutputConfig
 
 
-module Network.AWS.Textract.Types.Point
+module Amazonka.Textract.Types.Point
 
 -- | The X and Y coordinates of a point on a document page. The X and Y
 --   values that are returned are ratios of the overall document page size.
@@ -639,16 +639,16 @@ point_x :: Lens' Point (Maybe Double)
 
 -- | The value of the Y coordinate for a point on a <tt>Polygon</tt>.
 point_y :: Lens' Point (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.Point.Point
-instance GHC.Show.Show Network.AWS.Textract.Types.Point.Point
-instance GHC.Read.Read Network.AWS.Textract.Types.Point.Point
-instance GHC.Classes.Eq Network.AWS.Textract.Types.Point.Point
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.Point.Point
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.Point.Point
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.Point.Point
+instance GHC.Generics.Generic Amazonka.Textract.Types.Point.Point
+instance GHC.Show.Show Amazonka.Textract.Types.Point.Point
+instance GHC.Read.Read Amazonka.Textract.Types.Point.Point
+instance GHC.Classes.Eq Amazonka.Textract.Types.Point.Point
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.Point.Point
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.Point.Point
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.Point.Point
 
 
-module Network.AWS.Textract.Types.Geometry
+module Amazonka.Textract.Types.Geometry
 
 -- | Information about where the following items are located on a document
 --   page: detected page, text, key-value pairs, tables, table cells, and
@@ -689,16 +689,16 @@ geometry_boundingBox :: Lens' Geometry (Maybe BoundingBox)
 -- | Within the bounding box, a fine-grained polygon around the recognized
 --   item.
 geometry_polygon :: Lens' Geometry (Maybe [Point])
-instance GHC.Generics.Generic Network.AWS.Textract.Types.Geometry.Geometry
-instance GHC.Show.Show Network.AWS.Textract.Types.Geometry.Geometry
-instance GHC.Read.Read Network.AWS.Textract.Types.Geometry.Geometry
-instance GHC.Classes.Eq Network.AWS.Textract.Types.Geometry.Geometry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.Geometry.Geometry
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.Geometry.Geometry
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.Geometry.Geometry
+instance GHC.Generics.Generic Amazonka.Textract.Types.Geometry.Geometry
+instance GHC.Show.Show Amazonka.Textract.Types.Geometry.Geometry
+instance GHC.Read.Read Amazonka.Textract.Types.Geometry.Geometry
+instance GHC.Classes.Eq Amazonka.Textract.Types.Geometry.Geometry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.Geometry.Geometry
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.Geometry.Geometry
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.Geometry.Geometry
 
 
-module Network.AWS.Textract.Types.ExpenseDetection
+module Amazonka.Textract.Types.ExpenseDetection
 
 -- | An object used to store information about the Value or Label detected
 --   by Amazon Textract.
@@ -742,16 +742,16 @@ expenseDetection_confidence :: Lens' ExpenseDetection (Maybe Double)
 
 -- | Undocumented member.
 expenseDetection_geometry :: Lens' ExpenseDetection (Maybe Geometry)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.ExpenseDetection.ExpenseDetection
-instance GHC.Show.Show Network.AWS.Textract.Types.ExpenseDetection.ExpenseDetection
-instance GHC.Read.Read Network.AWS.Textract.Types.ExpenseDetection.ExpenseDetection
-instance GHC.Classes.Eq Network.AWS.Textract.Types.ExpenseDetection.ExpenseDetection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.ExpenseDetection.ExpenseDetection
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.ExpenseDetection.ExpenseDetection
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.ExpenseDetection.ExpenseDetection
+instance GHC.Generics.Generic Amazonka.Textract.Types.ExpenseDetection.ExpenseDetection
+instance GHC.Show.Show Amazonka.Textract.Types.ExpenseDetection.ExpenseDetection
+instance GHC.Read.Read Amazonka.Textract.Types.ExpenseDetection.ExpenseDetection
+instance GHC.Classes.Eq Amazonka.Textract.Types.ExpenseDetection.ExpenseDetection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.ExpenseDetection.ExpenseDetection
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.ExpenseDetection.ExpenseDetection
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.ExpenseDetection.ExpenseDetection
 
 
-module Network.AWS.Textract.Types.ExpenseField
+module Amazonka.Textract.Types.ExpenseField
 
 -- | Breakdown of detected information, seperated into the catagories Type,
 --   LableDetection, and ValueDetection
@@ -812,16 +812,16 @@ expenseField_type :: Lens' ExpenseField (Maybe ExpenseType)
 
 -- | The page number the value was detected on.
 expenseField_pageNumber :: Lens' ExpenseField (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.ExpenseField.ExpenseField
-instance GHC.Show.Show Network.AWS.Textract.Types.ExpenseField.ExpenseField
-instance GHC.Read.Read Network.AWS.Textract.Types.ExpenseField.ExpenseField
-instance GHC.Classes.Eq Network.AWS.Textract.Types.ExpenseField.ExpenseField
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.ExpenseField.ExpenseField
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.ExpenseField.ExpenseField
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.ExpenseField.ExpenseField
+instance GHC.Generics.Generic Amazonka.Textract.Types.ExpenseField.ExpenseField
+instance GHC.Show.Show Amazonka.Textract.Types.ExpenseField.ExpenseField
+instance GHC.Read.Read Amazonka.Textract.Types.ExpenseField.ExpenseField
+instance GHC.Classes.Eq Amazonka.Textract.Types.ExpenseField.ExpenseField
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.ExpenseField.ExpenseField
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.ExpenseField.ExpenseField
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.ExpenseField.ExpenseField
 
 
-module Network.AWS.Textract.Types.LineItemFields
+module Amazonka.Textract.Types.LineItemFields
 
 -- | A structure that holds information about the different lines found in
 --   a document's tables.
@@ -849,16 +849,16 @@ newLineItemFields :: LineItemFields
 
 -- | ExpenseFields used to show information from detected lines on a table.
 lineItemFields_lineItemExpenseFields :: Lens' LineItemFields (Maybe [ExpenseField])
-instance GHC.Generics.Generic Network.AWS.Textract.Types.LineItemFields.LineItemFields
-instance GHC.Show.Show Network.AWS.Textract.Types.LineItemFields.LineItemFields
-instance GHC.Read.Read Network.AWS.Textract.Types.LineItemFields.LineItemFields
-instance GHC.Classes.Eq Network.AWS.Textract.Types.LineItemFields.LineItemFields
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.LineItemFields.LineItemFields
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.LineItemFields.LineItemFields
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.LineItemFields.LineItemFields
+instance GHC.Generics.Generic Amazonka.Textract.Types.LineItemFields.LineItemFields
+instance GHC.Show.Show Amazonka.Textract.Types.LineItemFields.LineItemFields
+instance GHC.Read.Read Amazonka.Textract.Types.LineItemFields.LineItemFields
+instance GHC.Classes.Eq Amazonka.Textract.Types.LineItemFields.LineItemFields
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.LineItemFields.LineItemFields
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.LineItemFields.LineItemFields
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.LineItemFields.LineItemFields
 
 
-module Network.AWS.Textract.Types.LineItemGroup
+module Amazonka.Textract.Types.LineItemGroup
 
 -- | A grouping of tables which contain LineItems, with each table
 --   identified by the table's <tt>LineItemGroupIndex</tt>.
@@ -900,16 +900,16 @@ lineItemGroup_lineItems :: Lens' LineItemGroup (Maybe [LineItemFields])
 --   table encountered will have a LineItemGroupIndex of 1, the second 2,
 --   etc.
 lineItemGroup_lineItemGroupIndex :: Lens' LineItemGroup (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.LineItemGroup.LineItemGroup
-instance GHC.Show.Show Network.AWS.Textract.Types.LineItemGroup.LineItemGroup
-instance GHC.Read.Read Network.AWS.Textract.Types.LineItemGroup.LineItemGroup
-instance GHC.Classes.Eq Network.AWS.Textract.Types.LineItemGroup.LineItemGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.LineItemGroup.LineItemGroup
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.LineItemGroup.LineItemGroup
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.LineItemGroup.LineItemGroup
+instance GHC.Generics.Generic Amazonka.Textract.Types.LineItemGroup.LineItemGroup
+instance GHC.Show.Show Amazonka.Textract.Types.LineItemGroup.LineItemGroup
+instance GHC.Read.Read Amazonka.Textract.Types.LineItemGroup.LineItemGroup
+instance GHC.Classes.Eq Amazonka.Textract.Types.LineItemGroup.LineItemGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.LineItemGroup.LineItemGroup
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.LineItemGroup.LineItemGroup
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.LineItemGroup.LineItemGroup
 
 
-module Network.AWS.Textract.Types.ExpenseDocument
+module Amazonka.Textract.Types.ExpenseDocument
 
 -- | The structure holding all the information returned by AnalyzeExpense
 --   
@@ -961,44 +961,44 @@ expenseDocument_summaryFields :: Lens' ExpenseDocument (Maybe [ExpenseField])
 -- | Denotes which invoice or receipt in the document the information is
 --   coming from. First document will be 1, the second 2, and so on.
 expenseDocument_expenseIndex :: Lens' ExpenseDocument (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.ExpenseDocument.ExpenseDocument
-instance GHC.Show.Show Network.AWS.Textract.Types.ExpenseDocument.ExpenseDocument
-instance GHC.Read.Read Network.AWS.Textract.Types.ExpenseDocument.ExpenseDocument
-instance GHC.Classes.Eq Network.AWS.Textract.Types.ExpenseDocument.ExpenseDocument
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.ExpenseDocument.ExpenseDocument
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.ExpenseDocument.ExpenseDocument
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.ExpenseDocument.ExpenseDocument
+instance GHC.Generics.Generic Amazonka.Textract.Types.ExpenseDocument.ExpenseDocument
+instance GHC.Show.Show Amazonka.Textract.Types.ExpenseDocument.ExpenseDocument
+instance GHC.Read.Read Amazonka.Textract.Types.ExpenseDocument.ExpenseDocument
+instance GHC.Classes.Eq Amazonka.Textract.Types.ExpenseDocument.ExpenseDocument
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.ExpenseDocument.ExpenseDocument
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.ExpenseDocument.ExpenseDocument
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.ExpenseDocument.ExpenseDocument
 
 
-module Network.AWS.Textract.Types.RelationshipType
+module Amazonka.Textract.Types.RelationshipType
 newtype RelationshipType
 RelationshipType' :: Text -> RelationshipType
 [fromRelationshipType] :: RelationshipType -> Text
 pattern RelationshipType_CHILD :: RelationshipType
 pattern RelationshipType_COMPLEX_FEATURES :: RelationshipType
 pattern RelationshipType_VALUE :: RelationshipType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance GHC.Generics.Generic Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance GHC.Classes.Ord Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance GHC.Classes.Eq Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance GHC.Read.Read Network.AWS.Textract.Types.RelationshipType.RelationshipType
-instance GHC.Show.Show Network.AWS.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance GHC.Generics.Generic Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance GHC.Classes.Ord Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance GHC.Classes.Eq Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance GHC.Read.Read Amazonka.Textract.Types.RelationshipType.RelationshipType
+instance GHC.Show.Show Amazonka.Textract.Types.RelationshipType.RelationshipType
 
 
-module Network.AWS.Textract.Types.Relationship
+module Amazonka.Textract.Types.Relationship
 
 -- | Information about how blocks are related to each other. A
 --   <tt>Block</tt> object contains 0 or more <tt>Relation</tt> objects in
@@ -1059,16 +1059,16 @@ relationship_ids :: Lens' Relationship (Maybe [Text])
 --   identify WORD blocks in the case of lines Cell blocks in the case of
 --   Tables, and WORD blocks in the case of Selection Elements.
 relationship_type :: Lens' Relationship (Maybe RelationshipType)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.Relationship.Relationship
-instance GHC.Show.Show Network.AWS.Textract.Types.Relationship.Relationship
-instance GHC.Read.Read Network.AWS.Textract.Types.Relationship.Relationship
-instance GHC.Classes.Eq Network.AWS.Textract.Types.Relationship.Relationship
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.Relationship.Relationship
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.Relationship.Relationship
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.Relationship.Relationship
+instance GHC.Generics.Generic Amazonka.Textract.Types.Relationship.Relationship
+instance GHC.Show.Show Amazonka.Textract.Types.Relationship.Relationship
+instance GHC.Read.Read Amazonka.Textract.Types.Relationship.Relationship
+instance GHC.Classes.Eq Amazonka.Textract.Types.Relationship.Relationship
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.Relationship.Relationship
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.Relationship.Relationship
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.Relationship.Relationship
 
 
-module Network.AWS.Textract.Types.S3Object
+module Amazonka.Textract.Types.S3Object
 
 -- | The S3 bucket name and file name that identifies the document.
 --   
@@ -1127,16 +1127,16 @@ s3Object_name :: Lens' S3Object (Maybe Text)
 -- | If the bucket has versioning enabled, you can specify the object
 --   version.
 s3Object_version :: Lens' S3Object (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.S3Object.S3Object
-instance GHC.Show.Show Network.AWS.Textract.Types.S3Object.S3Object
-instance GHC.Read.Read Network.AWS.Textract.Types.S3Object.S3Object
-instance GHC.Classes.Eq Network.AWS.Textract.Types.S3Object.S3Object
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.S3Object.S3Object
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.S3Object.S3Object
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.S3Object.S3Object
+instance GHC.Generics.Generic Amazonka.Textract.Types.S3Object.S3Object
+instance GHC.Show.Show Amazonka.Textract.Types.S3Object.S3Object
+instance GHC.Read.Read Amazonka.Textract.Types.S3Object.S3Object
+instance GHC.Classes.Eq Amazonka.Textract.Types.S3Object.S3Object
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.S3Object.S3Object
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.S3Object.S3Object
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.S3Object.S3Object
 
 
-module Network.AWS.Textract.Types.DocumentLocation
+module Amazonka.Textract.Types.DocumentLocation
 
 -- | The Amazon S3 bucket that contains the document to be processed. It's
 --   used by asynchronous operations such as StartDocumentTextDetection.
@@ -1167,16 +1167,16 @@ newDocumentLocation :: DocumentLocation
 
 -- | The Amazon S3 bucket that contains the input document.
 documentLocation_s3Object :: Lens' DocumentLocation (Maybe S3Object)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.DocumentLocation.DocumentLocation
-instance GHC.Show.Show Network.AWS.Textract.Types.DocumentLocation.DocumentLocation
-instance GHC.Read.Read Network.AWS.Textract.Types.DocumentLocation.DocumentLocation
-instance GHC.Classes.Eq Network.AWS.Textract.Types.DocumentLocation.DocumentLocation
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.DocumentLocation.DocumentLocation
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.DocumentLocation.DocumentLocation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.DocumentLocation.DocumentLocation
+instance GHC.Generics.Generic Amazonka.Textract.Types.DocumentLocation.DocumentLocation
+instance GHC.Show.Show Amazonka.Textract.Types.DocumentLocation.DocumentLocation
+instance GHC.Read.Read Amazonka.Textract.Types.DocumentLocation.DocumentLocation
+instance GHC.Classes.Eq Amazonka.Textract.Types.DocumentLocation.DocumentLocation
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.DocumentLocation.DocumentLocation
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.DocumentLocation.DocumentLocation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.DocumentLocation.DocumentLocation
 
 
-module Network.AWS.Textract.Types.Document
+module Amazonka.Textract.Types.Document
 
 -- | The input document, either as bytes or as an S3 object.
 --   
@@ -1260,70 +1260,70 @@ document_s3Object :: Lens' Document (Maybe S3Object)
 --   representation during deserialisation. -- This <tt>Lens</tt> accepts
 --   and returns only raw unencoded data.
 document_bytes :: Lens' Document (Maybe ByteString)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.Document.Document
-instance GHC.Show.Show Network.AWS.Textract.Types.Document.Document
-instance GHC.Read.Read Network.AWS.Textract.Types.Document.Document
-instance GHC.Classes.Eq Network.AWS.Textract.Types.Document.Document
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.Document.Document
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.Document.Document
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.Document.Document
+instance GHC.Generics.Generic Amazonka.Textract.Types.Document.Document
+instance GHC.Show.Show Amazonka.Textract.Types.Document.Document
+instance GHC.Read.Read Amazonka.Textract.Types.Document.Document
+instance GHC.Classes.Eq Amazonka.Textract.Types.Document.Document
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.Document.Document
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.Document.Document
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.Document.Document
 
 
-module Network.AWS.Textract.Types.SelectionStatus
+module Amazonka.Textract.Types.SelectionStatus
 newtype SelectionStatus
 SelectionStatus' :: Text -> SelectionStatus
 [fromSelectionStatus] :: SelectionStatus -> Text
 pattern SelectionStatus_NOT_SELECTED :: SelectionStatus
 pattern SelectionStatus_SELECTED :: SelectionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance GHC.Generics.Generic Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance GHC.Classes.Ord Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance GHC.Classes.Eq Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance GHC.Read.Read Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
-instance GHC.Show.Show Network.AWS.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance GHC.Generics.Generic Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance GHC.Classes.Ord Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance GHC.Classes.Eq Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance GHC.Read.Read Amazonka.Textract.Types.SelectionStatus.SelectionStatus
+instance GHC.Show.Show Amazonka.Textract.Types.SelectionStatus.SelectionStatus
 
 
-module Network.AWS.Textract.Types.TextType
+module Amazonka.Textract.Types.TextType
 newtype TextType
 TextType' :: Text -> TextType
 [fromTextType] :: TextType -> Text
 pattern TextType_HANDWRITING :: TextType
 pattern TextType_PRINTED :: TextType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Textract.Types.TextType.TextType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Textract.Types.TextType.TextType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Textract.Types.TextType.TextType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.Types.TextType.TextType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Textract.Types.TextType.TextType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.TextType.TextType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.Types.TextType.TextType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Textract.Types.TextType.TextType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Textract.Types.TextType.TextType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Textract.Types.TextType.TextType
-instance Network.AWS.Data.Text.ToText Network.AWS.Textract.Types.TextType.TextType
-instance Network.AWS.Data.Text.FromText Network.AWS.Textract.Types.TextType.TextType
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.TextType.TextType
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.TextType.TextType
-instance GHC.Generics.Generic Network.AWS.Textract.Types.TextType.TextType
-instance GHC.Classes.Ord Network.AWS.Textract.Types.TextType.TextType
-instance GHC.Classes.Eq Network.AWS.Textract.Types.TextType.TextType
-instance GHC.Read.Read Network.AWS.Textract.Types.TextType.TextType
-instance GHC.Show.Show Network.AWS.Textract.Types.TextType.TextType
+instance Amazonka.Data.XML.ToXML Amazonka.Textract.Types.TextType.TextType
+instance Amazonka.Data.XML.FromXML Amazonka.Textract.Types.TextType.TextType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Textract.Types.TextType.TextType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.Types.TextType.TextType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Textract.Types.TextType.TextType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.TextType.TextType
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.Types.TextType.TextType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Textract.Types.TextType.TextType
+instance Amazonka.Data.Log.ToLog Amazonka.Textract.Types.TextType.TextType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Textract.Types.TextType.TextType
+instance Amazonka.Data.Text.ToText Amazonka.Textract.Types.TextType.TextType
+instance Amazonka.Data.Text.FromText Amazonka.Textract.Types.TextType.TextType
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.TextType.TextType
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.TextType.TextType
+instance GHC.Generics.Generic Amazonka.Textract.Types.TextType.TextType
+instance GHC.Classes.Ord Amazonka.Textract.Types.TextType.TextType
+instance GHC.Classes.Eq Amazonka.Textract.Types.TextType.TextType
+instance GHC.Read.Read Amazonka.Textract.Types.TextType.TextType
+instance GHC.Show.Show Amazonka.Textract.Types.TextType.TextType
 
 
-module Network.AWS.Textract.Types.Block
+module Amazonka.Textract.Types.Block
 
 -- | A <tt>Block</tt> represents items that are recognized in a document
 --   within a group of pixels close to each other. The information returned
@@ -1707,16 +1707,16 @@ block_id :: Lens' Block (Maybe Text)
 --   status of the selection element.</li>
 --   </ul>
 block_blockType :: Lens' Block (Maybe BlockType)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.Block.Block
-instance GHC.Show.Show Network.AWS.Textract.Types.Block.Block
-instance GHC.Read.Read Network.AWS.Textract.Types.Block.Block
-instance GHC.Classes.Eq Network.AWS.Textract.Types.Block.Block
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.Block.Block
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.Block.Block
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.Block.Block
+instance GHC.Generics.Generic Amazonka.Textract.Types.Block.Block
+instance GHC.Show.Show Amazonka.Textract.Types.Block.Block
+instance GHC.Read.Read Amazonka.Textract.Types.Block.Block
+instance GHC.Classes.Eq Amazonka.Textract.Types.Block.Block
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.Block.Block
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.Block.Block
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.Block.Block
 
 
-module Network.AWS.Textract.Types.Warning
+module Amazonka.Textract.Types.Warning
 
 -- | A warning about an issue that occurred during asynchronous text
 --   analysis (StartDocumentAnalysis) or asynchronous document text
@@ -1752,16 +1752,16 @@ warning_pages :: Lens' Warning (Maybe [Natural])
 
 -- | The error code for the warning.
 warning_errorCode :: Lens' Warning (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Textract.Types.Warning.Warning
-instance GHC.Show.Show Network.AWS.Textract.Types.Warning.Warning
-instance GHC.Read.Read Network.AWS.Textract.Types.Warning.Warning
-instance GHC.Classes.Eq Network.AWS.Textract.Types.Warning.Warning
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Textract.Types.Warning.Warning
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.Types.Warning.Warning
-instance Control.DeepSeq.NFData Network.AWS.Textract.Types.Warning.Warning
+instance GHC.Generics.Generic Amazonka.Textract.Types.Warning.Warning
+instance GHC.Show.Show Amazonka.Textract.Types.Warning.Warning
+instance GHC.Read.Read Amazonka.Textract.Types.Warning.Warning
+instance GHC.Classes.Eq Amazonka.Textract.Types.Warning.Warning
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Textract.Types.Warning.Warning
+instance Data.Hashable.Class.Hashable Amazonka.Textract.Types.Warning.Warning
+instance Control.DeepSeq.NFData Amazonka.Textract.Types.Warning.Warning
 
 
-module Network.AWS.Textract.Types
+module Amazonka.Textract.Types
 
 -- | API version <tt>2018-06-27</tt> of the Amazon Textract SDK
 --   configuration.
@@ -3225,7 +3225,7 @@ warning_errorCode :: Lens' Warning (Maybe Text)
 --   from the initial call to <tt>StartDocumentTextDetection</tt>.
 --   
 --   For more information, see <a>Document Text Detection</a>.
-module Network.AWS.Textract.StartDocumentTextDetection
+module Amazonka.Textract.StartDocumentTextDetection
 
 -- | <i>See:</i> <a>newStartDocumentTextDetection</a> smart constructor.
 data StartDocumentTextDetection
@@ -3391,22 +3391,22 @@ startDocumentTextDetectionResponse_jobId :: Lens' StartDocumentTextDetectionResp
 
 -- | The response's http status code.
 startDocumentTextDetectionResponse_httpStatus :: Lens' StartDocumentTextDetectionResponse Int
-instance GHC.Generics.Generic Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance GHC.Show.Show Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance GHC.Read.Read Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance GHC.Classes.Eq Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance GHC.Generics.Generic Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
-instance GHC.Show.Show Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
-instance GHC.Read.Read Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
-instance GHC.Classes.Eq Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance Control.DeepSeq.NFData Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance Control.DeepSeq.NFData Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance Network.AWS.Data.Path.ToPath Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance GHC.Generics.Generic Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance GHC.Show.Show Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance GHC.Read.Read Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance GHC.Classes.Eq Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance GHC.Generics.Generic Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
+instance GHC.Show.Show Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
+instance GHC.Read.Read Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
+instance GHC.Classes.Eq Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance Control.DeepSeq.NFData Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance Control.DeepSeq.NFData Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance Amazonka.Data.Path.ToPath Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.StartDocumentTextDetection.StartDocumentTextDetection
 
 
 -- | Starts the asynchronous analysis of an input document for
@@ -3429,7 +3429,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.StartDocumentTextDe
 --   the initial call to <tt>StartDocumentAnalysis</tt>.
 --   
 --   For more information, see <a>Document Text Analysis</a>.
-module Network.AWS.Textract.StartDocumentAnalysis
+module Amazonka.Textract.StartDocumentAnalysis
 
 -- | <i>See:</i> <a>newStartDocumentAnalysis</a> smart constructor.
 data StartDocumentAnalysis
@@ -3620,22 +3620,22 @@ startDocumentAnalysisResponse_jobId :: Lens' StartDocumentAnalysisResponse (Mayb
 
 -- | The response's http status code.
 startDocumentAnalysisResponse_httpStatus :: Lens' StartDocumentAnalysisResponse Int
-instance GHC.Generics.Generic Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance GHC.Show.Show Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance GHC.Read.Read Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance GHC.Classes.Eq Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance GHC.Generics.Generic Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
-instance GHC.Show.Show Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
-instance GHC.Read.Read Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
-instance GHC.Classes.Eq Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance Control.DeepSeq.NFData Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance Control.DeepSeq.NFData Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance Network.AWS.Data.Path.ToPath Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance GHC.Generics.Generic Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance GHC.Show.Show Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance GHC.Read.Read Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance GHC.Classes.Eq Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance GHC.Generics.Generic Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
+instance GHC.Show.Show Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
+instance GHC.Read.Read Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
+instance GHC.Classes.Eq Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
+instance Amazonka.Types.AWSRequest Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance Control.DeepSeq.NFData Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysisResponse
+instance Data.Hashable.Class.Hashable Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance Control.DeepSeq.NFData Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance Amazonka.Data.Path.ToPath Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.StartDocumentAnalysis.StartDocumentAnalysis
 
 
 -- | Gets the results for an Amazon Textract asynchronous operation that
@@ -3672,7 +3672,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.StartDocumentAnalys
 --   previous call to <tt>GetDocumentTextDetection</tt>.
 --   
 --   For more information, see <a>Document Text Detection</a>.
-module Network.AWS.Textract.GetDocumentTextDetection
+module Amazonka.Textract.GetDocumentTextDetection
 
 -- | <i>See:</i> <a>newGetDocumentTextDetection</a> smart constructor.
 data GetDocumentTextDetection
@@ -3849,22 +3849,22 @@ getDocumentTextDetectionResponse_jobStatus :: Lens' GetDocumentTextDetectionResp
 
 -- | The response's http status code.
 getDocumentTextDetectionResponse_httpStatus :: Lens' GetDocumentTextDetectionResponse Int
-instance GHC.Generics.Generic Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance GHC.Show.Show Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance GHC.Read.Read Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance GHC.Classes.Eq Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance GHC.Generics.Generic Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
-instance GHC.Show.Show Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
-instance GHC.Read.Read Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
-instance GHC.Classes.Eq Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance Control.DeepSeq.NFData Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance Control.DeepSeq.NFData Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance Network.AWS.Data.Path.ToPath Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance GHC.Generics.Generic Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance GHC.Show.Show Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance GHC.Read.Read Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance GHC.Classes.Eq Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance GHC.Generics.Generic Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
+instance GHC.Show.Show Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
+instance GHC.Read.Read Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
+instance GHC.Classes.Eq Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance Control.DeepSeq.NFData Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance Control.DeepSeq.NFData Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance Amazonka.Data.Path.ToPath Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.GetDocumentTextDetection.GetDocumentTextDetection
 
 
 -- | Gets the results for an Amazon Textract asynchronous operation that
@@ -3917,7 +3917,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.GetDocumentTextDete
 --   previous call to <tt>GetDocumentAnalysis</tt>.
 --   
 --   For more information, see <a>Document Text Analysis</a>.
-module Network.AWS.Textract.GetDocumentAnalysis
+module Amazonka.Textract.GetDocumentAnalysis
 
 -- | <i>See:</i> <a>newGetDocumentAnalysis</a> smart constructor.
 data GetDocumentAnalysis
@@ -4091,22 +4091,22 @@ getDocumentAnalysisResponse_jobStatus :: Lens' GetDocumentAnalysisResponse (Mayb
 
 -- | The response's http status code.
 getDocumentAnalysisResponse_httpStatus :: Lens' GetDocumentAnalysisResponse Int
-instance GHC.Generics.Generic Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance GHC.Show.Show Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance GHC.Read.Read Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance GHC.Classes.Eq Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance GHC.Generics.Generic Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
-instance GHC.Show.Show Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
-instance GHC.Read.Read Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
-instance GHC.Classes.Eq Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance Control.DeepSeq.NFData Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance Control.DeepSeq.NFData Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance Network.AWS.Data.Path.ToPath Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance GHC.Generics.Generic Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance GHC.Show.Show Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance GHC.Read.Read Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance GHC.Classes.Eq Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance GHC.Generics.Generic Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
+instance GHC.Show.Show Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
+instance GHC.Read.Read Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
+instance GHC.Classes.Eq Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
+instance Amazonka.Types.AWSRequest Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance Control.DeepSeq.NFData Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysisResponse
+instance Data.Hashable.Class.Hashable Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance Control.DeepSeq.NFData Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance Amazonka.Data.Path.ToPath Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.GetDocumentAnalysis.GetDocumentAnalysis
 
 
 -- | Detects text in the input document. Amazon Textract can detect lines
@@ -4124,7 +4124,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.GetDocumentAnalysis
 --   documents asynchronously, use StartDocumentTextDetection.
 --   
 --   For more information, see <a>Document Text Detection</a>.
-module Network.AWS.Textract.DetectDocumentText
+module Amazonka.Textract.DetectDocumentText
 
 -- | <i>See:</i> <a>newDetectDocumentText</a> smart constructor.
 data DetectDocumentText
@@ -4223,22 +4223,22 @@ detectDocumentTextResponse_detectDocumentTextModelVersion :: Lens' DetectDocumen
 
 -- | The response's http status code.
 detectDocumentTextResponse_httpStatus :: Lens' DetectDocumentTextResponse Int
-instance GHC.Generics.Generic Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance GHC.Show.Show Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance GHC.Read.Read Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance GHC.Classes.Eq Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance GHC.Generics.Generic Network.AWS.Textract.DetectDocumentText.DetectDocumentTextResponse
-instance GHC.Show.Show Network.AWS.Textract.DetectDocumentText.DetectDocumentTextResponse
-instance GHC.Read.Read Network.AWS.Textract.DetectDocumentText.DetectDocumentTextResponse
-instance GHC.Classes.Eq Network.AWS.Textract.DetectDocumentText.DetectDocumentTextResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance Control.DeepSeq.NFData Network.AWS.Textract.DetectDocumentText.DetectDocumentTextResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance Control.DeepSeq.NFData Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance Network.AWS.Data.Path.ToPath Network.AWS.Textract.DetectDocumentText.DetectDocumentText
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.DetectDocumentText.DetectDocumentText
+instance GHC.Generics.Generic Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance GHC.Show.Show Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance GHC.Read.Read Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance GHC.Classes.Eq Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance GHC.Generics.Generic Amazonka.Textract.DetectDocumentText.DetectDocumentTextResponse
+instance GHC.Show.Show Amazonka.Textract.DetectDocumentText.DetectDocumentTextResponse
+instance GHC.Read.Read Amazonka.Textract.DetectDocumentText.DetectDocumentTextResponse
+instance GHC.Classes.Eq Amazonka.Textract.DetectDocumentText.DetectDocumentTextResponse
+instance Amazonka.Types.AWSRequest Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance Control.DeepSeq.NFData Amazonka.Textract.DetectDocumentText.DetectDocumentTextResponse
+instance Data.Hashable.Class.Hashable Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance Control.DeepSeq.NFData Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance Amazonka.Data.Path.ToPath Amazonka.Textract.DetectDocumentText.DetectDocumentText
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.DetectDocumentText.DetectDocumentText
 
 
 -- | Analyzes an input document for financially related relationships
@@ -4254,7 +4254,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.DetectDocumentText.
 --   <li><tt>SummaryFields</tt>- Contains all other information a receipt,
 --   such as header information or the vendors name.</li>
 --   </ul>
-module Network.AWS.Textract.AnalyzeExpense
+module Amazonka.Textract.AnalyzeExpense
 
 -- | <i>See:</i> <a>newAnalyzeExpense</a> smart constructor.
 data AnalyzeExpense
@@ -4317,22 +4317,22 @@ analyzeExpenseResponse_expenseDocuments :: Lens' AnalyzeExpenseResponse (Maybe [
 
 -- | The response's http status code.
 analyzeExpenseResponse_httpStatus :: Lens' AnalyzeExpenseResponse Int
-instance GHC.Generics.Generic Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance GHC.Show.Show Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance GHC.Read.Read Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance GHC.Classes.Eq Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance GHC.Generics.Generic Network.AWS.Textract.AnalyzeExpense.AnalyzeExpenseResponse
-instance GHC.Show.Show Network.AWS.Textract.AnalyzeExpense.AnalyzeExpenseResponse
-instance GHC.Read.Read Network.AWS.Textract.AnalyzeExpense.AnalyzeExpenseResponse
-instance GHC.Classes.Eq Network.AWS.Textract.AnalyzeExpense.AnalyzeExpenseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance Control.DeepSeq.NFData Network.AWS.Textract.AnalyzeExpense.AnalyzeExpenseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance Control.DeepSeq.NFData Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance Network.AWS.Data.Path.ToPath Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.AnalyzeExpense.AnalyzeExpense
+instance GHC.Generics.Generic Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance GHC.Show.Show Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance GHC.Read.Read Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance GHC.Classes.Eq Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance GHC.Generics.Generic Amazonka.Textract.AnalyzeExpense.AnalyzeExpenseResponse
+instance GHC.Show.Show Amazonka.Textract.AnalyzeExpense.AnalyzeExpenseResponse
+instance GHC.Read.Read Amazonka.Textract.AnalyzeExpense.AnalyzeExpenseResponse
+instance GHC.Classes.Eq Amazonka.Textract.AnalyzeExpense.AnalyzeExpenseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance Control.DeepSeq.NFData Amazonka.Textract.AnalyzeExpense.AnalyzeExpenseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance Control.DeepSeq.NFData Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance Amazonka.Data.Path.ToPath Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.AnalyzeExpense.AnalyzeExpense
 
 
 -- | Analyzes an input document for relationships between detected items.
@@ -4368,7 +4368,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.AnalyzeExpense.Anal
 --   documents asynchronously, use StartDocumentAnalysis.
 --   
 --   For more information, see <a>Document Text Analysis</a>.
-module Network.AWS.Textract.AnalyzeDocument
+module Amazonka.Textract.AnalyzeDocument
 
 -- | <i>See:</i> <a>newAnalyzeDocument</a> smart constructor.
 data AnalyzeDocument
@@ -4515,25 +4515,25 @@ analyzeDocumentResponse_analyzeDocumentModelVersion :: Lens' AnalyzeDocumentResp
 
 -- | The response's http status code.
 analyzeDocumentResponse_httpStatus :: Lens' AnalyzeDocumentResponse Int
-instance GHC.Generics.Generic Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance GHC.Show.Show Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance GHC.Read.Read Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance GHC.Classes.Eq Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance GHC.Generics.Generic Network.AWS.Textract.AnalyzeDocument.AnalyzeDocumentResponse
-instance GHC.Show.Show Network.AWS.Textract.AnalyzeDocument.AnalyzeDocumentResponse
-instance GHC.Read.Read Network.AWS.Textract.AnalyzeDocument.AnalyzeDocumentResponse
-instance GHC.Classes.Eq Network.AWS.Textract.AnalyzeDocument.AnalyzeDocumentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance Control.DeepSeq.NFData Network.AWS.Textract.AnalyzeDocument.AnalyzeDocumentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance Control.DeepSeq.NFData Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance Network.AWS.Data.Path.ToPath Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Textract.AnalyzeDocument.AnalyzeDocument
+instance GHC.Generics.Generic Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance GHC.Show.Show Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance GHC.Read.Read Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance GHC.Classes.Eq Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance GHC.Generics.Generic Amazonka.Textract.AnalyzeDocument.AnalyzeDocumentResponse
+instance GHC.Show.Show Amazonka.Textract.AnalyzeDocument.AnalyzeDocumentResponse
+instance GHC.Read.Read Amazonka.Textract.AnalyzeDocument.AnalyzeDocumentResponse
+instance GHC.Classes.Eq Amazonka.Textract.AnalyzeDocument.AnalyzeDocumentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance Control.DeepSeq.NFData Amazonka.Textract.AnalyzeDocument.AnalyzeDocumentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance Control.DeepSeq.NFData Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance Amazonka.Data.Path.ToPath Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
+instance Amazonka.Data.Query.ToQuery Amazonka.Textract.AnalyzeDocument.AnalyzeDocument
 
 
-module Network.AWS.Textract.Lens
+module Amazonka.Textract.Lens
 
 -- | The input document as base64-encoded bytes or an Amazon S3 object. If
 --   you use the AWS CLI to call Amazon Textract operations, you can't pass
@@ -5088,7 +5088,7 @@ warning_pages :: Lens' Warning (Maybe [Natural])
 warning_errorCode :: Lens' Warning (Maybe Text)
 
 
-module Network.AWS.Textract.Waiters
+module Amazonka.Textract.Waiters
 
 
 -- | Derived from API version <tt>2018-06-27</tt> of the AWS service
@@ -5097,7 +5097,7 @@ module Network.AWS.Textract.Waiters
 --   Amazon Textract detects and analyzes text in documents and converts it
 --   into machine-readable text. This is the API reference documentation
 --   for Amazon Textract.
-module Network.AWS.Textract
+module Amazonka.Textract
 
 -- | API version <tt>2018-06-27</tt> of the Amazon Textract SDK
 --   configuration.

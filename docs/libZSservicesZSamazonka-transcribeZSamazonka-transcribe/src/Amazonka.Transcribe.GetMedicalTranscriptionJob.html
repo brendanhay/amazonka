@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Transcribe.GetMedicalTranscriptionJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a transcription job from Amazon Transcribe</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Medical. To see the status of the job, check the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @TranscriptionJobStatus@ field. If the status is @COMPLETED@, the job is</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- finished. You find the results of the completed job in the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @TranscriptFileUri@ field.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transcribe.GetMedicalTranscriptionJob</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier">GetMedicalTranscriptionJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#newGetMedicalTranscriptionJob"><span class="hs-identifier">newGetMedicalTranscriptionJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJob_medicalTranscriptionJobName"><span class="hs-identifier">getMedicalTranscriptionJob_medicalTranscriptionJobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier">GetMedicalTranscriptionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#newGetMedicalTranscriptionJobResponse"><span class="hs-identifier">newGetMedicalTranscriptionJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJobResponse_medicalTranscriptionJob"><span class="hs-identifier">getMedicalTranscriptionJobResponse_medicalTranscriptionJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJobResponse_httpStatus"><span class="hs-identifier">getMedicalTranscriptionJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.html"><span class="hs-identifier">Amazonka.Transcribe.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetMedicalTranscriptionJob' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679283612"><span id="local-6989586621679283613"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMedicalTranscriptionJob"><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-var">GetMedicalTranscriptionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMedicalTranscriptionJob%27"><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob%27"><span class="hs-identifier hs-var">GetMedicalTranscriptionJob'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the medical transcription job.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AmedicalTranscriptionJobName%3AGetMedicalTranscriptionJob%27"><span class="annot"><span class="annottext">GetMedicalTranscriptionJob -&gt; Text
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AmedicalTranscriptionJobName%3AGetMedicalTranscriptionJob%27"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283606"><span id="local-6989586621679283608"><span class="annot"><span class="annottext">GetMedicalTranscriptionJob -&gt; GetMedicalTranscriptionJob -&gt; Bool
+(GetMedicalTranscriptionJob -&gt; GetMedicalTranscriptionJob -&gt; Bool)
+-&gt; (GetMedicalTranscriptionJob
+    -&gt; GetMedicalTranscriptionJob -&gt; Bool)
+-&gt; Eq GetMedicalTranscriptionJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMedicalTranscriptionJob -&gt; GetMedicalTranscriptionJob -&gt; Bool
+$c/= :: GetMedicalTranscriptionJob -&gt; GetMedicalTranscriptionJob -&gt; Bool
+== :: GetMedicalTranscriptionJob -&gt; GetMedicalTranscriptionJob -&gt; Bool
+$c== :: GetMedicalTranscriptionJob -&gt; GetMedicalTranscriptionJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283597"><span id="local-6989586621679283599"><span id="local-6989586621679283601"><span id="local-6989586621679283603"><span class="annot"><span class="annottext">ReadPrec [GetMedicalTranscriptionJob]
+ReadPrec GetMedicalTranscriptionJob
+Int -&gt; ReadS GetMedicalTranscriptionJob
+ReadS [GetMedicalTranscriptionJob]
+(Int -&gt; ReadS GetMedicalTranscriptionJob)
+-&gt; ReadS [GetMedicalTranscriptionJob]
+-&gt; ReadPrec GetMedicalTranscriptionJob
+-&gt; ReadPrec [GetMedicalTranscriptionJob]
+-&gt; Read GetMedicalTranscriptionJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMedicalTranscriptionJob]
+$creadListPrec :: ReadPrec [GetMedicalTranscriptionJob]
+readPrec :: ReadPrec GetMedicalTranscriptionJob
+$creadPrec :: ReadPrec GetMedicalTranscriptionJob
+readList :: ReadS [GetMedicalTranscriptionJob]
+$creadList :: ReadS [GetMedicalTranscriptionJob]
+readsPrec :: Int -&gt; ReadS GetMedicalTranscriptionJob
+$creadsPrec :: Int -&gt; ReadS GetMedicalTranscriptionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283590"><span id="local-6989586621679283592"><span id="local-6989586621679283594"><span class="annot"><span class="annottext">Int -&gt; GetMedicalTranscriptionJob -&gt; ShowS
+[GetMedicalTranscriptionJob] -&gt; ShowS
+GetMedicalTranscriptionJob -&gt; String
+(Int -&gt; GetMedicalTranscriptionJob -&gt; ShowS)
+-&gt; (GetMedicalTranscriptionJob -&gt; String)
+-&gt; ([GetMedicalTranscriptionJob] -&gt; ShowS)
+-&gt; Show GetMedicalTranscriptionJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMedicalTranscriptionJob] -&gt; ShowS
+$cshowList :: [GetMedicalTranscriptionJob] -&gt; ShowS
+show :: GetMedicalTranscriptionJob -&gt; String
+$cshow :: GetMedicalTranscriptionJob -&gt; String
+showsPrec :: Int -&gt; GetMedicalTranscriptionJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMedicalTranscriptionJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMedicalTranscriptionJob -&gt; Rep GetMedicalTranscriptionJob x)
+-&gt; (forall x.
+    Rep GetMedicalTranscriptionJob x -&gt; GetMedicalTranscriptionJob)
+-&gt; Generic GetMedicalTranscriptionJob
+forall x.
+Rep GetMedicalTranscriptionJob x -&gt; GetMedicalTranscriptionJob
+forall x.
+GetMedicalTranscriptionJob -&gt; Rep GetMedicalTranscriptionJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMedicalTranscriptionJob x -&gt; GetMedicalTranscriptionJob
+$cfrom :: forall x.
+GetMedicalTranscriptionJob -&gt; Rep GetMedicalTranscriptionJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetMedicalTranscriptionJob' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'medicalTranscriptionJobName', 'getMedicalTranscriptionJob_medicalTranscriptionJobName' - The name of the medical transcription job.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#newGetMedicalTranscriptionJob"><span class="hs-identifier hs-type">newGetMedicalTranscriptionJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'medicalTranscriptionJobName'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span>
+</span><span id="line-73"></span><span id="newGetMedicalTranscriptionJob"><span class="annot"><span class="annottext">newGetMedicalTranscriptionJob :: Text -&gt; GetMedicalTranscriptionJob
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#newGetMedicalTranscriptionJob"><span class="hs-identifier hs-var hs-var">newGetMedicalTranscriptionJob</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679283585"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283585"><span class="hs-identifier hs-var">pMedicalTranscriptionJobName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">GetMedicalTranscriptionJob' :: Text -&gt; GetMedicalTranscriptionJob
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:medicalTranscriptionJobName:GetMedicalTranscriptionJob' :: Text
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AmedicalTranscriptionJobName%3AGetMedicalTranscriptionJob%27"><span class="hs-identifier hs-var">medicalTranscriptionJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283585"><span class="hs-identifier hs-var">pMedicalTranscriptionJobName_</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the medical transcription job.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJob_medicalTranscriptionJobName"><span class="hs-identifier hs-type">getMedicalTranscriptionJob_medicalTranscriptionJobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="getMedicalTranscriptionJob_medicalTranscriptionJobName"><span class="annot"><span class="annottext">getMedicalTranscriptionJob_medicalTranscriptionJobName :: (Text -&gt; f Text)
+-&gt; GetMedicalTranscriptionJob -&gt; f GetMedicalTranscriptionJob
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJob_medicalTranscriptionJobName"><span class="hs-identifier hs-var hs-var">getMedicalTranscriptionJob_medicalTranscriptionJobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMedicalTranscriptionJob -&gt; Text)
+-&gt; (GetMedicalTranscriptionJob
+    -&gt; Text -&gt; GetMedicalTranscriptionJob)
+-&gt; Lens
+     GetMedicalTranscriptionJob GetMedicalTranscriptionJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283582"><span class="annot"><span class="annottext">Text
+medicalTranscriptionJobName :: Text
+$sel:medicalTranscriptionJobName:GetMedicalTranscriptionJob' :: GetMedicalTranscriptionJob -&gt; Text
+</span><a href="#local-6989586621679283582"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283582"><span class="hs-identifier hs-var">medicalTranscriptionJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283581"><span class="annot"><span class="annottext">s :: GetMedicalTranscriptionJob
+</span><a href="#local-6989586621679283581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283580"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedicalTranscriptionJob
+</span><a href="#local-6989586621679283581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:medicalTranscriptionJobName:GetMedicalTranscriptionJob' :: Text
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AmedicalTranscriptionJobName%3AGetMedicalTranscriptionJob%27"><span class="hs-identifier hs-var">medicalTranscriptionJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679283576"><span class="annot"><span class="annottext">request :: GetMedicalTranscriptionJob -&gt; Request GetMedicalTranscriptionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetMedicalTranscriptionJob -&gt; Request GetMedicalTranscriptionJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679283572"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetMedicalTranscriptionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMedicalTranscriptionJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetMedicalTranscriptionJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetMedicalTranscriptionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMedicalTranscriptionJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283569"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283569"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283568"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283568"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283567"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe MedicalTranscriptionJob
+-&gt; Int -&gt; GetMedicalTranscriptionJobResponse
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var">GetMedicalTranscriptionJobResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MedicalTranscriptionJob
+ -&gt; Int -&gt; GetMedicalTranscriptionJobResponse)
+-&gt; Either String (Maybe MedicalTranscriptionJob)
+-&gt; Either String (Int -&gt; GetMedicalTranscriptionJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MedicalTranscriptionJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MedicalTranscriptionJob&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetMedicalTranscriptionJobResponse)
+-&gt; Either String Int
+-&gt; Either String GetMedicalTranscriptionJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283569"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283559"><span id="local-6989586621679283561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679283552"><span class="annot"><span class="annottext">toHeaders :: GetMedicalTranscriptionJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMedicalTranscriptionJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.GetMedicalTranscriptionJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283542"><span id="local-6989586621679283544"><span id="local-6989586621679283546"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679283540"><span class="annot"><span class="annottext">toJSON :: GetMedicalTranscriptionJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283538"><span class="annot"><span class="annottext">Text
+medicalTranscriptionJobName :: Text
+$sel:medicalTranscriptionJobName:GetMedicalTranscriptionJob' :: GetMedicalTranscriptionJob -&gt; Text
+</span><a href="#local-6989586621679283538"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MedicalTranscriptionJobName&quot;</span></span><span>
+</span><span id="line-122"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283538"><span class="hs-identifier hs-var">medicalTranscriptionJobName</span></a></span><span>
+</span><span id="line-123"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679283532"><span class="annot"><span class="annottext">toPath :: GetMedicalTranscriptionJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMedicalTranscriptionJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJob"><span class="hs-identifier hs-type">GetMedicalTranscriptionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679283528"><span class="annot"><span class="annottext">toQuery :: GetMedicalTranscriptionJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMedicalTranscriptionJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newGetMedicalTranscriptionJobResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679283525"><span id="local-6989586621679283526"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMedicalTranscriptionJobResponse"><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-var">GetMedicalTranscriptionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMedicalTranscriptionJobResponse%27"><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var">GetMedicalTranscriptionJobResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains the results of the medical transcription job.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AmedicalTranscriptionJob%3AGetMedicalTranscriptionJobResponse%27"><span class="annot"><span class="annottext">GetMedicalTranscriptionJobResponse -&gt; Maybe MedicalTranscriptionJob
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AmedicalTranscriptionJob%3AGetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJob.html#MedicalTranscriptionJob"><span class="hs-identifier hs-type">MedicalTranscriptionJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMedicalTranscriptionJobResponse%27"><span class="annot"><span class="annottext">GetMedicalTranscriptionJobResponse -&gt; Int
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AhttpStatus%3AGetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283519"><span id="local-6989586621679283521"><span class="annot"><span class="annottext">GetMedicalTranscriptionJobResponse
+-&gt; GetMedicalTranscriptionJobResponse -&gt; Bool
+(GetMedicalTranscriptionJobResponse
+ -&gt; GetMedicalTranscriptionJobResponse -&gt; Bool)
+-&gt; (GetMedicalTranscriptionJobResponse
+    -&gt; GetMedicalTranscriptionJobResponse -&gt; Bool)
+-&gt; Eq GetMedicalTranscriptionJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMedicalTranscriptionJobResponse
+-&gt; GetMedicalTranscriptionJobResponse -&gt; Bool
+$c/= :: GetMedicalTranscriptionJobResponse
+-&gt; GetMedicalTranscriptionJobResponse -&gt; Bool
+== :: GetMedicalTranscriptionJobResponse
+-&gt; GetMedicalTranscriptionJobResponse -&gt; Bool
+$c== :: GetMedicalTranscriptionJobResponse
+-&gt; GetMedicalTranscriptionJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283511"><span id="local-6989586621679283513"><span id="local-6989586621679283515"><span id="local-6989586621679283517"><span class="annot"><span class="annottext">ReadPrec [GetMedicalTranscriptionJobResponse]
+ReadPrec GetMedicalTranscriptionJobResponse
+Int -&gt; ReadS GetMedicalTranscriptionJobResponse
+ReadS [GetMedicalTranscriptionJobResponse]
+(Int -&gt; ReadS GetMedicalTranscriptionJobResponse)
+-&gt; ReadS [GetMedicalTranscriptionJobResponse]
+-&gt; ReadPrec GetMedicalTranscriptionJobResponse
+-&gt; ReadPrec [GetMedicalTranscriptionJobResponse]
+-&gt; Read GetMedicalTranscriptionJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMedicalTranscriptionJobResponse]
+$creadListPrec :: ReadPrec [GetMedicalTranscriptionJobResponse]
+readPrec :: ReadPrec GetMedicalTranscriptionJobResponse
+$creadPrec :: ReadPrec GetMedicalTranscriptionJobResponse
+readList :: ReadS [GetMedicalTranscriptionJobResponse]
+$creadList :: ReadS [GetMedicalTranscriptionJobResponse]
+readsPrec :: Int -&gt; ReadS GetMedicalTranscriptionJobResponse
+$creadsPrec :: Int -&gt; ReadS GetMedicalTranscriptionJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283505"><span id="local-6989586621679283507"><span id="local-6989586621679283509"><span class="annot"><span class="annottext">Int -&gt; GetMedicalTranscriptionJobResponse -&gt; ShowS
+[GetMedicalTranscriptionJobResponse] -&gt; ShowS
+GetMedicalTranscriptionJobResponse -&gt; String
+(Int -&gt; GetMedicalTranscriptionJobResponse -&gt; ShowS)
+-&gt; (GetMedicalTranscriptionJobResponse -&gt; String)
+-&gt; ([GetMedicalTranscriptionJobResponse] -&gt; ShowS)
+-&gt; Show GetMedicalTranscriptionJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMedicalTranscriptionJobResponse] -&gt; ShowS
+$cshowList :: [GetMedicalTranscriptionJobResponse] -&gt; ShowS
+show :: GetMedicalTranscriptionJobResponse -&gt; String
+$cshow :: GetMedicalTranscriptionJobResponse -&gt; String
+showsPrec :: Int -&gt; GetMedicalTranscriptionJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMedicalTranscriptionJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMedicalTranscriptionJobResponse
+ -&gt; Rep GetMedicalTranscriptionJobResponse x)
+-&gt; (forall x.
+    Rep GetMedicalTranscriptionJobResponse x
+    -&gt; GetMedicalTranscriptionJobResponse)
+-&gt; Generic GetMedicalTranscriptionJobResponse
+forall x.
+Rep GetMedicalTranscriptionJobResponse x
+-&gt; GetMedicalTranscriptionJobResponse
+forall x.
+GetMedicalTranscriptionJobResponse
+-&gt; Rep GetMedicalTranscriptionJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMedicalTranscriptionJobResponse x
+-&gt; GetMedicalTranscriptionJobResponse
+$cfrom :: forall x.
+GetMedicalTranscriptionJobResponse
+-&gt; Rep GetMedicalTranscriptionJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetMedicalTranscriptionJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'medicalTranscriptionJob', 'getMedicalTranscriptionJobResponse_medicalTranscriptionJob' - An object that contains the results of the medical transcription job.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'getMedicalTranscriptionJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#newGetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">newGetMedicalTranscriptionJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetMedicalTranscriptionJobResponse"><span class="annot"><span class="annottext">newGetMedicalTranscriptionJobResponse :: Int -&gt; GetMedicalTranscriptionJobResponse
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#newGetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-var hs-var">newGetMedicalTranscriptionJobResponse</span></a></span></span><span> </span><span id="local-6989586621679283502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283502"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetMedicalTranscriptionJobResponse' :: Maybe MedicalTranscriptionJob
+-&gt; Int -&gt; GetMedicalTranscriptionJobResponse
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:medicalTranscriptionJob:GetMedicalTranscriptionJobResponse' :: Maybe MedicalTranscriptionJob
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AmedicalTranscriptionJob%3AGetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var">medicalTranscriptionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe MedicalTranscriptionJob
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMedicalTranscriptionJobResponse' :: Int
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AhttpStatus%3AGetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283502"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | An object that contains the results of the medical transcription job.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJobResponse_medicalTranscriptionJob"><span class="hs-identifier hs-type">getMedicalTranscriptionJobResponse_medicalTranscriptionJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.MedicalTranscriptionJob.html#MedicalTranscriptionJob"><span class="hs-identifier hs-type">MedicalTranscriptionJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="getMedicalTranscriptionJobResponse_medicalTranscriptionJob"><span class="annot"><span class="annottext">getMedicalTranscriptionJobResponse_medicalTranscriptionJob :: (Maybe MedicalTranscriptionJob
+ -&gt; f (Maybe MedicalTranscriptionJob))
+-&gt; GetMedicalTranscriptionJobResponse
+-&gt; f GetMedicalTranscriptionJobResponse
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJobResponse_medicalTranscriptionJob"><span class="hs-identifier hs-var hs-var">getMedicalTranscriptionJobResponse_medicalTranscriptionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMedicalTranscriptionJobResponse
+ -&gt; Maybe MedicalTranscriptionJob)
+-&gt; (GetMedicalTranscriptionJobResponse
+    -&gt; Maybe MedicalTranscriptionJob
+    -&gt; GetMedicalTranscriptionJobResponse)
+-&gt; Lens
+     GetMedicalTranscriptionJobResponse
+     GetMedicalTranscriptionJobResponse
+     (Maybe MedicalTranscriptionJob)
+     (Maybe MedicalTranscriptionJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283501"><span class="annot"><span class="annottext">Maybe MedicalTranscriptionJob
+medicalTranscriptionJob :: Maybe MedicalTranscriptionJob
+$sel:medicalTranscriptionJob:GetMedicalTranscriptionJobResponse' :: GetMedicalTranscriptionJobResponse -&gt; Maybe MedicalTranscriptionJob
+</span><a href="#local-6989586621679283501"><span class="hs-identifier hs-var hs-var">medicalTranscriptionJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MedicalTranscriptionJob
+</span><a href="#local-6989586621679283501"><span class="hs-identifier hs-var">medicalTranscriptionJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283500"><span class="annot"><span class="annottext">s :: GetMedicalTranscriptionJobResponse
+</span><a href="#local-6989586621679283500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283499"><span class="annot"><span class="annottext">Maybe MedicalTranscriptionJob
+</span><a href="#local-6989586621679283499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedicalTranscriptionJobResponse
+</span><a href="#local-6989586621679283500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:medicalTranscriptionJob:GetMedicalTranscriptionJobResponse' :: Maybe MedicalTranscriptionJob
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AmedicalTranscriptionJob%3AGetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var">medicalTranscriptionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MedicalTranscriptionJob
+</span><a href="#local-6989586621679283499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJobResponse_httpStatus"><span class="hs-identifier hs-type">getMedicalTranscriptionJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="getMedicalTranscriptionJobResponse_httpStatus"><span class="annot"><span class="annottext">getMedicalTranscriptionJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetMedicalTranscriptionJobResponse
+-&gt; f GetMedicalTranscriptionJobResponse
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#getMedicalTranscriptionJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMedicalTranscriptionJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMedicalTranscriptionJobResponse -&gt; Int)
+-&gt; (GetMedicalTranscriptionJobResponse
+    -&gt; Int -&gt; GetMedicalTranscriptionJobResponse)
+-&gt; Lens
+     GetMedicalTranscriptionJobResponse
+     GetMedicalTranscriptionJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283498"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetMedicalTranscriptionJobResponse' :: GetMedicalTranscriptionJobResponse -&gt; Int
+</span><a href="#local-6989586621679283498"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283498"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283497"><span class="annot"><span class="annottext">s :: GetMedicalTranscriptionJobResponse
+</span><a href="#local-6989586621679283497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283496"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedicalTranscriptionJobResponse
+</span><a href="#local-6989586621679283497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMedicalTranscriptionJobResponse' :: Int
+</span><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#%24sel%3AhttpStatus%3AGetMedicalTranscriptionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679283494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.GetMedicalTranscriptionJob.html#GetMedicalTranscriptionJobResponse"><span class="hs-identifier hs-type">GetMedicalTranscriptionJobResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

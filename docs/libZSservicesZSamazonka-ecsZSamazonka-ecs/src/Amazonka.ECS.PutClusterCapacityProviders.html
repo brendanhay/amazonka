@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ECS.PutClusterCapacityProviders</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the available capacity providers and the default capacity</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- provider strategy for a cluster.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You must specify both the available capacity providers and a default</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- capacity provider strategy for the cluster. If the specified cluster has</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- existing capacity providers associated with it, you must specify all</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- existing capacity providers in addition to any new ones you want to add.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Any existing capacity providers associated with a cluster that are</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- omitted from a PutClusterCapacityProviders API call will be</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- disassociated with the cluster. You can only disassociate an existing</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- capacity provider from a cluster if it\'s not being used by any existing</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- tasks.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- When creating a service or running a task on a cluster, if no capacity</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- provider or launch type is specified, then the cluster\'s default</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- capacity provider strategy is used. It is recommended to define a</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- default capacity provider strategy for your cluster, however you may</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- specify an empty array (@[]@) to bypass defining a default strategy.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.PutClusterCapacityProviders</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProviders"><span class="hs-identifier">newPutClusterCapacityProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_cluster"><span class="hs-identifier">putClusterCapacityProviders_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_capacityProviders"><span class="hs-identifier">putClusterCapacityProviders_capacityProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_defaultCapacityProviderStrategy"><span class="hs-identifier">putClusterCapacityProviders_defaultCapacityProviderStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier">PutClusterCapacityProvidersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProvidersResponse"><span class="hs-identifier">newPutClusterCapacityProvidersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProvidersResponse_cluster"><span class="hs-identifier">putClusterCapacityProvidersResponse_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProvidersResponse_httpStatus"><span class="hs-identifier">putClusterCapacityProvidersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.html"><span class="hs-identifier">Amazonka.ECS.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newPutClusterCapacityProviders' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679471607"><span id="local-6989586621679471608"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutClusterCapacityProviders"><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-var">PutClusterCapacityProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutClusterCapacityProviders%27"><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-var">PutClusterCapacityProviders'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster to</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- modify the capacity provider settings for. If you do not specify a</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- cluster, the default cluster is assumed.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Acluster%3APutClusterCapacityProviders%27"><span class="annot"><span class="annottext">PutClusterCapacityProviders -&gt; Text
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The name of one or more capacity providers to associate with the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AcapacityProviders%3APutClusterCapacityProviders%27"><span class="annot"><span class="annottext">PutClusterCapacityProviders -&gt; [Text]
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AcapacityProviders%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var hs-var">capacityProviders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The capacity provider strategy to use by default for the cluster.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- When creating a service or running a task on a cluster, if no capacity</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- provider or launch type is specified then the default capacity provider</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- strategy for the cluster is used.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- A capacity provider strategy consists of one or more capacity providers</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- along with the @base@ and @weight@ to assign to them. A capacity</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- provider must be associated with the cluster to be used in a capacity</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- provider strategy. The PutClusterCapacityProviders API is used to</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- associate a capacity provider with a cluster. Only capacity providers</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- with an @ACTIVE@ or @UPDATING@ status can be used.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AdefaultCapacityProviderStrategy%3APutClusterCapacityProviders%27"><span class="annot"><span class="annottext">PutClusterCapacityProviders -&gt; [CapacityProviderStrategyItem]
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AdefaultCapacityProviderStrategy%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var hs-var">defaultCapacityProviderStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679471599"><span id="local-6989586621679471601"><span class="annot"><span class="annottext">PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
+(PutClusterCapacityProviders
+ -&gt; PutClusterCapacityProviders -&gt; Bool)
+-&gt; (PutClusterCapacityProviders
+    -&gt; PutClusterCapacityProviders -&gt; Bool)
+-&gt; Eq PutClusterCapacityProviders
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
+$c/= :: PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
+== :: PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
+$c== :: PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471590"><span id="local-6989586621679471592"><span id="local-6989586621679471594"><span id="local-6989586621679471596"><span class="annot"><span class="annottext">ReadPrec [PutClusterCapacityProviders]
+ReadPrec PutClusterCapacityProviders
+Int -&gt; ReadS PutClusterCapacityProviders
+ReadS [PutClusterCapacityProviders]
+(Int -&gt; ReadS PutClusterCapacityProviders)
+-&gt; ReadS [PutClusterCapacityProviders]
+-&gt; ReadPrec PutClusterCapacityProviders
+-&gt; ReadPrec [PutClusterCapacityProviders]
+-&gt; Read PutClusterCapacityProviders
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutClusterCapacityProviders]
+$creadListPrec :: ReadPrec [PutClusterCapacityProviders]
+readPrec :: ReadPrec PutClusterCapacityProviders
+$creadPrec :: ReadPrec PutClusterCapacityProviders
+readList :: ReadS [PutClusterCapacityProviders]
+$creadList :: ReadS [PutClusterCapacityProviders]
+readsPrec :: Int -&gt; ReadS PutClusterCapacityProviders
+$creadsPrec :: Int -&gt; ReadS PutClusterCapacityProviders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471583"><span id="local-6989586621679471585"><span id="local-6989586621679471587"><span class="annot"><span class="annottext">Int -&gt; PutClusterCapacityProviders -&gt; ShowS
+[PutClusterCapacityProviders] -&gt; ShowS
+PutClusterCapacityProviders -&gt; String
+(Int -&gt; PutClusterCapacityProviders -&gt; ShowS)
+-&gt; (PutClusterCapacityProviders -&gt; String)
+-&gt; ([PutClusterCapacityProviders] -&gt; ShowS)
+-&gt; Show PutClusterCapacityProviders
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutClusterCapacityProviders] -&gt; ShowS
+$cshowList :: [PutClusterCapacityProviders] -&gt; ShowS
+show :: PutClusterCapacityProviders -&gt; String
+$cshow :: PutClusterCapacityProviders -&gt; String
+showsPrec :: Int -&gt; PutClusterCapacityProviders -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutClusterCapacityProviders -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutClusterCapacityProviders -&gt; Rep PutClusterCapacityProviders x)
+-&gt; (forall x.
+    Rep PutClusterCapacityProviders x -&gt; PutClusterCapacityProviders)
+-&gt; Generic PutClusterCapacityProviders
+forall x.
+Rep PutClusterCapacityProviders x -&gt; PutClusterCapacityProviders
+forall x.
+PutClusterCapacityProviders -&gt; Rep PutClusterCapacityProviders x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutClusterCapacityProviders x -&gt; PutClusterCapacityProviders
+$cfrom :: forall x.
+PutClusterCapacityProviders -&gt; Rep PutClusterCapacityProviders x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'PutClusterCapacityProviders' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'cluster', 'putClusterCapacityProviders_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- modify the capacity provider settings for. If you do not specify a</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- cluster, the default cluster is assumed.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'capacityProviders', 'putClusterCapacityProviders_capacityProviders' - The name of one or more capacity providers to associate with the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'defaultCapacityProviderStrategy', 'putClusterCapacityProviders_defaultCapacityProviderStrategy' - The capacity provider strategy to use by default for the cluster.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- When creating a service or running a task on a cluster, if no capacity</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- provider or launch type is specified then the default capacity provider</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- strategy for the cluster is used.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- A capacity provider strategy consists of one or more capacity providers</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- along with the @base@ and @weight@ to assign to them. A capacity</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- provider must be associated with the cluster to be used in a capacity</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- provider strategy. The PutClusterCapacityProviders API is used to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- associate a capacity provider with a cluster. Only capacity providers</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- with an @ACTIVE@ or @UPDATING@ status can be used.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProviders"><span class="hs-identifier hs-type">newPutClusterCapacityProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'cluster'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span>
+</span><span id="line-160"></span><span id="newPutClusterCapacityProviders"><span class="annot"><span class="annottext">newPutClusterCapacityProviders :: Text -&gt; PutClusterCapacityProviders
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProviders"><span class="hs-identifier hs-var hs-var">newPutClusterCapacityProviders</span></a></span></span><span> </span><span id="local-6989586621679471578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471578"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">PutClusterCapacityProviders' :: Text
+-&gt; [Text]
+-&gt; [CapacityProviderStrategyItem]
+-&gt; PutClusterCapacityProviders
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProviders' :: Text
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471578"><span class="hs-identifier hs-var">pCluster_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityProviders:PutClusterCapacityProviders' :: [Text]
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AcapacityProviders%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: [CapacityProviderStrategyItem]
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AdefaultCapacityProviderStrategy%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster to</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- modify the capacity provider settings for. If you do not specify a</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- cluster, the default cluster is assumed.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_cluster"><span class="hs-identifier hs-type">putClusterCapacityProviders_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-172"></span><span id="putClusterCapacityProviders_cluster"><span class="annot"><span class="annottext">putClusterCapacityProviders_cluster :: (Text -&gt; f Text)
+-&gt; PutClusterCapacityProviders -&gt; f PutClusterCapacityProviders
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_cluster"><span class="hs-identifier hs-var hs-var">putClusterCapacityProviders_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutClusterCapacityProviders -&gt; Text)
+-&gt; (PutClusterCapacityProviders
+    -&gt; Text -&gt; PutClusterCapacityProviders)
+-&gt; Lens
+     PutClusterCapacityProviders PutClusterCapacityProviders Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471575"><span class="annot"><span class="annottext">Text
+cluster :: Text
+$sel:cluster:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; Text
+</span><a href="#local-6989586621679471575"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471575"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471574"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
+</span><a href="#local-6989586621679471574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471573"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
+</span><a href="#local-6989586621679471574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProviders' :: Text
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The name of one or more capacity providers to associate with the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_capacityProviders"><span class="hs-identifier hs-type">putClusterCapacityProviders_capacityProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span id="putClusterCapacityProviders_capacityProviders"><span class="annot"><span class="annottext">putClusterCapacityProviders_capacityProviders :: ([Text] -&gt; f [Text])
+-&gt; PutClusterCapacityProviders -&gt; f PutClusterCapacityProviders
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_capacityProviders"><span class="hs-identifier hs-var hs-var">putClusterCapacityProviders_capacityProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutClusterCapacityProviders -&gt; [Text])
+-&gt; (PutClusterCapacityProviders
+    -&gt; [Text] -&gt; PutClusterCapacityProviders)
+-&gt; Lens
+     PutClusterCapacityProviders
+     PutClusterCapacityProviders
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471572"><span class="annot"><span class="annottext">[Text]
+capacityProviders :: [Text]
+$sel:capacityProviders:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [Text]
+</span><a href="#local-6989586621679471572"><span class="hs-identifier hs-var hs-var">capacityProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679471572"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471571"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
+</span><a href="#local-6989586621679471571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471570"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679471570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
+</span><a href="#local-6989586621679471571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviders:PutClusterCapacityProviders' :: [Text]
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AcapacityProviders%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679471570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; PutClusterCapacityProviders -&gt; f PutClusterCapacityProviders)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; PutClusterCapacityProviders
+-&gt; f PutClusterCapacityProviders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The capacity provider strategy to use by default for the cluster.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- When creating a service or running a task on a cluster, if no capacity</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- provider or launch type is specified then the default capacity provider</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- strategy for the cluster is used.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- A capacity provider strategy consists of one or more capacity providers</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- along with the @base@ and @weight@ to assign to them. A capacity</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- provider must be associated with the cluster to be used in a capacity</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- provider strategy. The PutClusterCapacityProviders API is used to</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- associate a capacity provider with a cluster. Only capacity providers</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- with an @ACTIVE@ or @UPDATING@ status can be used.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- If specifying a capacity provider that uses an Auto Scaling group, the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- capacity provider must already be created. New capacity providers can be</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- created with the CreateCapacityProvider API operation.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- To use a Fargate capacity provider, specify either the @FARGATE@ or</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- available to all accounts and only need to be associated with a cluster</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- to be used.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_defaultCapacityProviderStrategy"><span class="hs-identifier hs-type">putClusterCapacityProviders_defaultCapacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-210"></span><span id="putClusterCapacityProviders_defaultCapacityProviderStrategy"><span class="annot"><span class="annottext">putClusterCapacityProviders_defaultCapacityProviderStrategy :: ([CapacityProviderStrategyItem]
+ -&gt; f [CapacityProviderStrategyItem])
+-&gt; PutClusterCapacityProviders -&gt; f PutClusterCapacityProviders
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProviders_defaultCapacityProviderStrategy"><span class="hs-identifier hs-var hs-var">putClusterCapacityProviders_defaultCapacityProviderStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutClusterCapacityProviders -&gt; [CapacityProviderStrategyItem])
+-&gt; (PutClusterCapacityProviders
+    -&gt; [CapacityProviderStrategyItem] -&gt; PutClusterCapacityProviders)
+-&gt; Lens
+     PutClusterCapacityProviders
+     PutClusterCapacityProviders
+     [CapacityProviderStrategyItem]
+     [CapacityProviderStrategyItem]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471567"><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+defaultCapacityProviderStrategy :: [CapacityProviderStrategyItem]
+$sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471567"><span class="hs-identifier hs-var hs-var">defaultCapacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471567"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471566"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
+</span><a href="#local-6989586621679471566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471565"><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
+</span><a href="#local-6989586621679471566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: [CapacityProviderStrategyItem]
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AdefaultCapacityProviderStrategy%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CapacityProviderStrategyItem]
+  -&gt; f [CapacityProviderStrategyItem])
+ -&gt; PutClusterCapacityProviders -&gt; f PutClusterCapacityProviders)
+-&gt; (([CapacityProviderStrategyItem]
+     -&gt; f [CapacityProviderStrategyItem])
+    -&gt; [CapacityProviderStrategyItem]
+    -&gt; f [CapacityProviderStrategyItem])
+-&gt; ([CapacityProviderStrategyItem]
+    -&gt; f [CapacityProviderStrategyItem])
+-&gt; PutClusterCapacityProviders
+-&gt; f PutClusterCapacityProviders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([CapacityProviderStrategyItem]
+ -&gt; f [CapacityProviderStrategyItem])
+-&gt; [CapacityProviderStrategyItem]
+-&gt; f [CapacityProviderStrategyItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-214"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679471561"><span class="annot"><span class="annottext">request :: PutClusterCapacityProviders -&gt; Request PutClusterCapacityProviders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutClusterCapacityProviders
+-&gt; Request PutClusterCapacityProviders
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679471557"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutClusterCapacityProviders
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutClusterCapacityProviders)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutClusterCapacityProviders))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutClusterCapacityProviders
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutClusterCapacityProviders)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679471554"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471554"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679471553"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679471553"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679471552"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679471552"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; PutClusterCapacityProvidersResponse
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; PutClusterCapacityProvidersResponse)
+-&gt; Either String (Maybe Cluster)
+-&gt; Either String (Int -&gt; PutClusterCapacityProvidersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679471552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutClusterCapacityProvidersResponse)
+-&gt; Either String Int
+-&gt; Either String PutClusterCapacityProvidersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471554"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471544"><span id="local-6989586621679471546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679471537"><span class="annot"><span class="annottext">toHeaders :: PutClusterCapacityProviders -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutClusterCapacityProviders -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-234"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-235"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-236"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-238"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-239"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-240"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471527"><span id="local-6989586621679471529"><span id="local-6989586621679471531"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679471525"><span class="annot"><span class="annottext">toJSON :: PutClusterCapacityProviders -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471521"><span id="local-6989586621679471522"><span id="local-6989586621679471523"><span class="annot"><span class="annottext">[Text]
+[CapacityProviderStrategyItem]
+Text
+defaultCapacityProviderStrategy :: [CapacityProviderStrategyItem]
+capacityProviders :: [Text]
+cluster :: Text
+$sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [CapacityProviderStrategyItem]
+$sel:capacityProviders:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [Text]
+$sel:cluster:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; Text
+</span><a href="#local-6989586621679471521"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-248"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471523"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-250"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacityProviders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679471522"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-252"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultCapacityProviderStrategy&quot;</span></span><span>
+</span><span id="line-253"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [CapacityProviderStrategyItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471521"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span>
+</span><span id="line-254"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679471515"><span class="annot"><span class="annottext">toPath :: PutClusterCapacityProviders -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutClusterCapacityProviders -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679471511"><span class="annot"><span class="annottext">toQuery :: PutClusterCapacityProviders -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutClusterCapacityProviders -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | /See:/ 'newPutClusterCapacityProvidersResponse' smart constructor.</span><span>
+</span><span id="line-265"></span><span id="local-6989586621679471508"><span id="local-6989586621679471509"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutClusterCapacityProvidersResponse"><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutClusterCapacityProvidersResponse%27"><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse'</span></a></span></span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the cluster.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3Acluster%3APutClusterCapacityProvidersResponse%27"><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse -&gt; Maybe Cluster
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse -&gt; Int
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679471502"><span id="local-6989586621679471504"><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
+-&gt; PutClusterCapacityProvidersResponse -&gt; Bool
+(PutClusterCapacityProvidersResponse
+ -&gt; PutClusterCapacityProvidersResponse -&gt; Bool)
+-&gt; (PutClusterCapacityProvidersResponse
+    -&gt; PutClusterCapacityProvidersResponse -&gt; Bool)
+-&gt; Eq PutClusterCapacityProvidersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutClusterCapacityProvidersResponse
+-&gt; PutClusterCapacityProvidersResponse -&gt; Bool
+$c/= :: PutClusterCapacityProvidersResponse
+-&gt; PutClusterCapacityProvidersResponse -&gt; Bool
+== :: PutClusterCapacityProvidersResponse
+-&gt; PutClusterCapacityProvidersResponse -&gt; Bool
+$c== :: PutClusterCapacityProvidersResponse
+-&gt; PutClusterCapacityProvidersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471494"><span id="local-6989586621679471496"><span id="local-6989586621679471498"><span id="local-6989586621679471500"><span class="annot"><span class="annottext">ReadPrec [PutClusterCapacityProvidersResponse]
+ReadPrec PutClusterCapacityProvidersResponse
+Int -&gt; ReadS PutClusterCapacityProvidersResponse
+ReadS [PutClusterCapacityProvidersResponse]
+(Int -&gt; ReadS PutClusterCapacityProvidersResponse)
+-&gt; ReadS [PutClusterCapacityProvidersResponse]
+-&gt; ReadPrec PutClusterCapacityProvidersResponse
+-&gt; ReadPrec [PutClusterCapacityProvidersResponse]
+-&gt; Read PutClusterCapacityProvidersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutClusterCapacityProvidersResponse]
+$creadListPrec :: ReadPrec [PutClusterCapacityProvidersResponse]
+readPrec :: ReadPrec PutClusterCapacityProvidersResponse
+$creadPrec :: ReadPrec PutClusterCapacityProvidersResponse
+readList :: ReadS [PutClusterCapacityProvidersResponse]
+$creadList :: ReadS [PutClusterCapacityProvidersResponse]
+readsPrec :: Int -&gt; ReadS PutClusterCapacityProvidersResponse
+$creadsPrec :: Int -&gt; ReadS PutClusterCapacityProvidersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471488"><span id="local-6989586621679471490"><span id="local-6989586621679471492"><span class="annot"><span class="annottext">Int -&gt; PutClusterCapacityProvidersResponse -&gt; ShowS
+[PutClusterCapacityProvidersResponse] -&gt; ShowS
+PutClusterCapacityProvidersResponse -&gt; String
+(Int -&gt; PutClusterCapacityProvidersResponse -&gt; ShowS)
+-&gt; (PutClusterCapacityProvidersResponse -&gt; String)
+-&gt; ([PutClusterCapacityProvidersResponse] -&gt; ShowS)
+-&gt; Show PutClusterCapacityProvidersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutClusterCapacityProvidersResponse] -&gt; ShowS
+$cshowList :: [PutClusterCapacityProvidersResponse] -&gt; ShowS
+show :: PutClusterCapacityProvidersResponse -&gt; String
+$cshow :: PutClusterCapacityProvidersResponse -&gt; String
+showsPrec :: Int -&gt; PutClusterCapacityProvidersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutClusterCapacityProvidersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutClusterCapacityProvidersResponse
+ -&gt; Rep PutClusterCapacityProvidersResponse x)
+-&gt; (forall x.
+    Rep PutClusterCapacityProvidersResponse x
+    -&gt; PutClusterCapacityProvidersResponse)
+-&gt; Generic PutClusterCapacityProvidersResponse
+forall x.
+Rep PutClusterCapacityProvidersResponse x
+-&gt; PutClusterCapacityProvidersResponse
+forall x.
+PutClusterCapacityProvidersResponse
+-&gt; Rep PutClusterCapacityProvidersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutClusterCapacityProvidersResponse x
+-&gt; PutClusterCapacityProvidersResponse
+$cfrom :: forall x.
+PutClusterCapacityProvidersResponse
+-&gt; Rep PutClusterCapacityProvidersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Create a value of 'PutClusterCapacityProvidersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'cluster', 'putClusterCapacityProvidersResponse_cluster' - Details about the cluster.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'httpStatus', 'putClusterCapacityProvidersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">newPutClusterCapacityProvidersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span>
+</span><span id="line-288"></span><span id="newPutClusterCapacityProvidersResponse"><span class="annot"><span class="annottext">newPutClusterCapacityProvidersResponse :: Int -&gt; PutClusterCapacityProvidersResponse
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProvidersResponse"><span class="hs-identifier hs-var hs-var">newPutClusterCapacityProvidersResponse</span></a></span></span><span> </span><span id="local-6989586621679471485"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471485"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse' :: Maybe Cluster -&gt; Int -&gt; PutClusterCapacityProvidersResponse
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProvidersResponse' :: Maybe Cluster
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">Maybe Cluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutClusterCapacityProvidersResponse' :: Int
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471485"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | Details about the cluster.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProvidersResponse_cluster"><span class="hs-identifier hs-type">putClusterCapacityProvidersResponse_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="putClusterCapacityProvidersResponse_cluster"><span class="annot"><span class="annottext">putClusterCapacityProvidersResponse_cluster :: (Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; PutClusterCapacityProvidersResponse
+-&gt; f PutClusterCapacityProvidersResponse
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProvidersResponse_cluster"><span class="hs-identifier hs-var hs-var">putClusterCapacityProvidersResponse_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutClusterCapacityProvidersResponse -&gt; Maybe Cluster)
+-&gt; (PutClusterCapacityProvidersResponse
+    -&gt; Maybe Cluster -&gt; PutClusterCapacityProvidersResponse)
+-&gt; Lens
+     PutClusterCapacityProvidersResponse
+     PutClusterCapacityProvidersResponse
+     (Maybe Cluster)
+     (Maybe Cluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471484"><span class="annot"><span class="annottext">Maybe Cluster
+cluster :: Maybe Cluster
+$sel:cluster:PutClusterCapacityProvidersResponse' :: PutClusterCapacityProvidersResponse -&gt; Maybe Cluster
+</span><a href="#local-6989586621679471484"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679471484"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471483"><span class="annot"><span class="annottext">s :: PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471482"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679471482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProvidersResponse' :: Maybe Cluster
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679471482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProvidersResponse_httpStatus"><span class="hs-identifier hs-type">putClusterCapacityProvidersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-301"></span><span id="putClusterCapacityProvidersResponse_httpStatus"><span class="annot"><span class="annottext">putClusterCapacityProvidersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutClusterCapacityProvidersResponse
+-&gt; f PutClusterCapacityProvidersResponse
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#putClusterCapacityProvidersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putClusterCapacityProvidersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutClusterCapacityProvidersResponse -&gt; Int)
+-&gt; (PutClusterCapacityProvidersResponse
+    -&gt; Int -&gt; PutClusterCapacityProvidersResponse)
+-&gt; Lens
+     PutClusterCapacityProvidersResponse
+     PutClusterCapacityProvidersResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471481"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutClusterCapacityProvidersResponse' :: PutClusterCapacityProvidersResponse -&gt; Int
+</span><a href="#local-6989586621679471481"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471481"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471480"><span class="annot"><span class="annottext">s :: PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutClusterCapacityProvidersResponse' :: Int
+</span><a href="Amazonka.ECS.PutClusterCapacityProviders.html#%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679471477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span></span><span>
+</span><span id="line-306"></span></pre></body></html>

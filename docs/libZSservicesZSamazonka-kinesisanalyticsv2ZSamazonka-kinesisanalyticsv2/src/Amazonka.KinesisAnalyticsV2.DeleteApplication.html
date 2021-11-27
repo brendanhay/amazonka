@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.DeleteApplication</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified application. Kinesis Data Analytics halts</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- application execution and deletes the application.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.DeleteApplication</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier">DeleteApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#newDeleteApplication"><span class="hs-identifier">newDeleteApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplication_applicationName"><span class="hs-identifier">deleteApplication_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplication_createTimestamp"><span class="hs-identifier">deleteApplication_createTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier">DeleteApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#newDeleteApplicationResponse"><span class="hs-identifier">newDeleteApplicationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplicationResponse_httpStatus"><span class="hs-identifier">deleteApplicationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteApplication' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679305534"><span id="local-6989586621679305535"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplication"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-var">DeleteApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplication%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-var">DeleteApplication'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the application to delete.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AapplicationName%3ADeleteApplication%27"><span class="annot"><span class="annottext">DeleteApplication -&gt; Text
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AapplicationName%3ADeleteApplication%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Use the @DescribeApplication@ operation to get this value.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcreateTimestamp%3ADeleteApplication%27"><span class="annot"><span class="annottext">DeleteApplication -&gt; POSIX
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AcreateTimestamp%3ADeleteApplication%27"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305527"><span id="local-6989586621679305529"><span class="annot"><span class="annottext">DeleteApplication -&gt; DeleteApplication -&gt; Bool
+(DeleteApplication -&gt; DeleteApplication -&gt; Bool)
+-&gt; (DeleteApplication -&gt; DeleteApplication -&gt; Bool)
+-&gt; Eq DeleteApplication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteApplication -&gt; DeleteApplication -&gt; Bool
+$c/= :: DeleteApplication -&gt; DeleteApplication -&gt; Bool
+== :: DeleteApplication -&gt; DeleteApplication -&gt; Bool
+$c== :: DeleteApplication -&gt; DeleteApplication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305518"><span id="local-6989586621679305520"><span id="local-6989586621679305522"><span id="local-6989586621679305524"><span class="annot"><span class="annottext">ReadPrec [DeleteApplication]
+ReadPrec DeleteApplication
+Int -&gt; ReadS DeleteApplication
+ReadS [DeleteApplication]
+(Int -&gt; ReadS DeleteApplication)
+-&gt; ReadS [DeleteApplication]
+-&gt; ReadPrec DeleteApplication
+-&gt; ReadPrec [DeleteApplication]
+-&gt; Read DeleteApplication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteApplication]
+$creadListPrec :: ReadPrec [DeleteApplication]
+readPrec :: ReadPrec DeleteApplication
+$creadPrec :: ReadPrec DeleteApplication
+readList :: ReadS [DeleteApplication]
+$creadList :: ReadS [DeleteApplication]
+readsPrec :: Int -&gt; ReadS DeleteApplication
+$creadsPrec :: Int -&gt; ReadS DeleteApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305511"><span id="local-6989586621679305513"><span id="local-6989586621679305515"><span class="annot"><span class="annottext">Int -&gt; DeleteApplication -&gt; ShowS
+[DeleteApplication] -&gt; ShowS
+DeleteApplication -&gt; String
+(Int -&gt; DeleteApplication -&gt; ShowS)
+-&gt; (DeleteApplication -&gt; String)
+-&gt; ([DeleteApplication] -&gt; ShowS)
+-&gt; Show DeleteApplication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteApplication] -&gt; ShowS
+$cshowList :: [DeleteApplication] -&gt; ShowS
+show :: DeleteApplication -&gt; String
+$cshow :: DeleteApplication -&gt; String
+showsPrec :: Int -&gt; DeleteApplication -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteApplication -&gt; Rep DeleteApplication x)
+-&gt; (forall x. Rep DeleteApplication x -&gt; DeleteApplication)
+-&gt; Generic DeleteApplication
+forall x. Rep DeleteApplication x -&gt; DeleteApplication
+forall x. DeleteApplication -&gt; Rep DeleteApplication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteApplication x -&gt; DeleteApplication
+$cfrom :: forall x. DeleteApplication -&gt; Rep DeleteApplication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteApplication' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'applicationName', 'deleteApplication_applicationName' - The name of the application to delete.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'createTimestamp', 'deleteApplication_createTimestamp' - Use the @DescribeApplication@ operation to get this value.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#newDeleteApplication"><span class="hs-identifier hs-type">newDeleteApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'createTimestamp'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span>
+</span><span id="line-76"></span><span id="newDeleteApplication"><span class="annot"><span class="annottext">newDeleteApplication :: Text -&gt; UTCTime -&gt; DeleteApplication
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#newDeleteApplication"><span class="hs-identifier hs-var hs-var">newDeleteApplication</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679305506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305506"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679305505"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679305505"><span class="hs-identifier hs-var">pCreateTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DeleteApplication' :: Text -&gt; POSIX -&gt; DeleteApplication
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:DeleteApplication' :: Text
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AapplicationName%3ADeleteApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305506"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:createTimestamp:DeleteApplication' :: POSIX
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AcreateTimestamp%3ADeleteApplication%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679305505"><span class="hs-identifier hs-var">pCreateTimestamp_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The name of the application to delete.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplication_applicationName"><span class="hs-identifier hs-type">deleteApplication_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteApplication_applicationName"><span class="annot"><span class="annottext">deleteApplication_applicationName :: (Text -&gt; f Text) -&gt; DeleteApplication -&gt; f DeleteApplication
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplication_applicationName"><span class="hs-identifier hs-var hs-var">deleteApplication_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteApplication -&gt; Text)
+-&gt; (DeleteApplication -&gt; Text -&gt; DeleteApplication)
+-&gt; Lens DeleteApplication DeleteApplication Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305500"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:DeleteApplication' :: DeleteApplication -&gt; Text
+</span><a href="#local-6989586621679305500"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305500"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305499"><span class="annot"><span class="annottext">s :: DeleteApplication
+</span><a href="#local-6989586621679305499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplication
+</span><a href="#local-6989586621679305499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:DeleteApplication' :: Text
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AapplicationName%3ADeleteApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Use the @DescribeApplication@ operation to get this value.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplication_createTimestamp"><span class="hs-identifier hs-type">deleteApplication_createTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-92"></span><span id="deleteApplication_createTimestamp"><span class="annot"><span class="annottext">deleteApplication_createTimestamp :: (UTCTime -&gt; f UTCTime) -&gt; DeleteApplication -&gt; f DeleteApplication
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplication_createTimestamp"><span class="hs-identifier hs-var hs-var">deleteApplication_createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteApplication -&gt; POSIX)
+-&gt; (DeleteApplication -&gt; POSIX -&gt; DeleteApplication)
+-&gt; Lens DeleteApplication DeleteApplication POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305497"><span class="annot"><span class="annottext">POSIX
+createTimestamp :: POSIX
+$sel:createTimestamp:DeleteApplication' :: DeleteApplication -&gt; POSIX
+</span><a href="#local-6989586621679305497"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679305497"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305496"><span class="annot"><span class="annottext">s :: DeleteApplication
+</span><a href="#local-6989586621679305496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305495"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679305495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplication
+</span><a href="#local-6989586621679305496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTimestamp:DeleteApplication' :: POSIX
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AcreateTimestamp%3ADeleteApplication%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679305495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; DeleteApplication -&gt; f DeleteApplication)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DeleteApplication
+-&gt; f DeleteApplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679305490"><span class="annot"><span class="annottext">request :: DeleteApplication -&gt; Request DeleteApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteApplication -&gt; Request DeleteApplication
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679305486"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteApplication)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteApplication))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteApplication)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305483"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305482"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679305482"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305481"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679305481"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationResponse
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-var">DeleteApplicationResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteApplicationResponse)
+-&gt; Either String Int -&gt; Either String DeleteApplicationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305483"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305474"><span id="local-6989586621679305476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679305467"><span class="annot"><span class="annottext">toHeaders :: DeleteApplication -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteApplication -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KinesisAnalytics_20180523.DeleteApplication&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305457"><span id="local-6989586621679305459"><span id="local-6989586621679305461"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679305455"><span class="annot"><span class="annottext">toJSON :: DeleteApplication -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305452"><span id="local-6989586621679305453"><span class="annot"><span class="annottext">Text
+POSIX
+createTimestamp :: POSIX
+applicationName :: Text
+$sel:createTimestamp:DeleteApplication' :: DeleteApplication -&gt; POSIX
+$sel:applicationName:DeleteApplication' :: DeleteApplication -&gt; Text
+</span><a href="#local-6989586621679305452"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305453"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679305452"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679305446"><span class="annot"><span class="annottext">toPath :: DeleteApplication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteApplication -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679305442"><span class="annot"><span class="annottext">toQuery :: DeleteApplication -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteApplication -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDeleteApplicationResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679305439"><span id="local-6989586621679305440"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplicationResponse"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-var">DeleteApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplicationResponse%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-var">DeleteApplicationResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteApplicationResponse%27"><span class="annot"><span class="annottext">DeleteApplicationResponse -&gt; Int
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AhttpStatus%3ADeleteApplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305434"><span id="local-6989586621679305436"><span class="annot"><span class="annottext">DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
+(DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool)
+-&gt; (DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool)
+-&gt; Eq DeleteApplicationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
+$c/= :: DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
+== :: DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
+$c== :: DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305426"><span id="local-6989586621679305428"><span id="local-6989586621679305430"><span id="local-6989586621679305432"><span class="annot"><span class="annottext">ReadPrec [DeleteApplicationResponse]
+ReadPrec DeleteApplicationResponse
+Int -&gt; ReadS DeleteApplicationResponse
+ReadS [DeleteApplicationResponse]
+(Int -&gt; ReadS DeleteApplicationResponse)
+-&gt; ReadS [DeleteApplicationResponse]
+-&gt; ReadPrec DeleteApplicationResponse
+-&gt; ReadPrec [DeleteApplicationResponse]
+-&gt; Read DeleteApplicationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteApplicationResponse]
+$creadListPrec :: ReadPrec [DeleteApplicationResponse]
+readPrec :: ReadPrec DeleteApplicationResponse
+$creadPrec :: ReadPrec DeleteApplicationResponse
+readList :: ReadS [DeleteApplicationResponse]
+$creadList :: ReadS [DeleteApplicationResponse]
+readsPrec :: Int -&gt; ReadS DeleteApplicationResponse
+$creadsPrec :: Int -&gt; ReadS DeleteApplicationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305420"><span id="local-6989586621679305422"><span id="local-6989586621679305424"><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationResponse -&gt; ShowS
+[DeleteApplicationResponse] -&gt; ShowS
+DeleteApplicationResponse -&gt; String
+(Int -&gt; DeleteApplicationResponse -&gt; ShowS)
+-&gt; (DeleteApplicationResponse -&gt; String)
+-&gt; ([DeleteApplicationResponse] -&gt; ShowS)
+-&gt; Show DeleteApplicationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteApplicationResponse] -&gt; ShowS
+$cshowList :: [DeleteApplicationResponse] -&gt; ShowS
+show :: DeleteApplicationResponse -&gt; String
+$cshow :: DeleteApplicationResponse -&gt; String
+showsPrec :: Int -&gt; DeleteApplicationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteApplicationResponse -&gt; Rep DeleteApplicationResponse x)
+-&gt; (forall x.
+    Rep DeleteApplicationResponse x -&gt; DeleteApplicationResponse)
+-&gt; Generic DeleteApplicationResponse
+forall x.
+Rep DeleteApplicationResponse x -&gt; DeleteApplicationResponse
+forall x.
+DeleteApplicationResponse -&gt; Rep DeleteApplicationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteApplicationResponse x -&gt; DeleteApplicationResponse
+$cfrom :: forall x.
+DeleteApplicationResponse -&gt; Rep DeleteApplicationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'DeleteApplicationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'deleteApplicationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#newDeleteApplicationResponse"><span class="hs-identifier hs-type">newDeleteApplicationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newDeleteApplicationResponse"><span class="annot"><span class="annottext">newDeleteApplicationResponse :: Int -&gt; DeleteApplicationResponse
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#newDeleteApplicationResponse"><span class="hs-identifier hs-var hs-var">newDeleteApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679305417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DeleteApplicationResponse' :: Int -&gt; DeleteApplicationResponse
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-type">DeleteApplicationResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApplicationResponse' :: Int
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AhttpStatus%3ADeleteApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplicationResponse_httpStatus"><span class="hs-identifier hs-type">deleteApplicationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="deleteApplicationResponse_httpStatus"><span class="annot"><span class="annottext">deleteApplicationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteApplicationResponse -&gt; f DeleteApplicationResponse
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#deleteApplicationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteApplicationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteApplicationResponse -&gt; Int)
+-&gt; (DeleteApplicationResponse -&gt; Int -&gt; DeleteApplicationResponse)
+-&gt; Lens DeleteApplicationResponse DeleteApplicationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-type">DeleteApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305416"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteApplicationResponse' :: DeleteApplicationResponse -&gt; Int
+</span><a href="#local-6989586621679305416"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305416"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305415"><span class="annot"><span class="annottext">s :: DeleteApplicationResponse
+</span><a href="#local-6989586621679305415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-type">DeleteApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplicationResponse
+</span><a href="#local-6989586621679305415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApplicationResponse' :: Int
+</span><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#%24sel%3AhttpStatus%3ADeleteApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

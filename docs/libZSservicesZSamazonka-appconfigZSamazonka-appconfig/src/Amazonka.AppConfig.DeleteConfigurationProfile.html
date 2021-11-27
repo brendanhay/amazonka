@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppConfig.DeleteConfigurationProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Delete a configuration profile. Deleting a configuration profile does</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- not delete a configuration from a host.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppConfig.DeleteConfigurationProfile</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier">DeleteConfigurationProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#newDeleteConfigurationProfile"><span class="hs-identifier">newDeleteConfigurationProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#deleteConfigurationProfile_applicationId"><span class="hs-identifier">deleteConfigurationProfile_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#deleteConfigurationProfile_configurationProfileId"><span class="hs-identifier">deleteConfigurationProfile_configurationProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse"><span class="hs-identifier">DeleteConfigurationProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#newDeleteConfigurationProfileResponse"><span class="hs-identifier">newDeleteConfigurationProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.html"><span class="hs-identifier">Amazonka.AppConfig.Types</span></a></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newDeleteConfigurationProfile' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679206262"><span id="local-6989586621679206263"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigurationProfile"><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-var">DeleteConfigurationProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigurationProfile%27"><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile%27"><span class="hs-identifier hs-var">DeleteConfigurationProfile'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The application ID that includes the configuration profile you want to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AapplicationId%3ADeleteConfigurationProfile%27"><span class="annot"><span class="annottext">DeleteConfigurationProfile -&gt; Text
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#%24sel%3AapplicationId%3ADeleteConfigurationProfile%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ID of the configuration profile you want to delete.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AconfigurationProfileId%3ADeleteConfigurationProfile%27"><span class="annot"><span class="annottext">DeleteConfigurationProfile -&gt; Text
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#%24sel%3AconfigurationProfileId%3ADeleteConfigurationProfile%27"><span class="hs-identifier hs-var hs-var">configurationProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206255"><span id="local-6989586621679206257"><span class="annot"><span class="annottext">DeleteConfigurationProfile -&gt; DeleteConfigurationProfile -&gt; Bool
+(DeleteConfigurationProfile -&gt; DeleteConfigurationProfile -&gt; Bool)
+-&gt; (DeleteConfigurationProfile
+    -&gt; DeleteConfigurationProfile -&gt; Bool)
+-&gt; Eq DeleteConfigurationProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteConfigurationProfile -&gt; DeleteConfigurationProfile -&gt; Bool
+$c/= :: DeleteConfigurationProfile -&gt; DeleteConfigurationProfile -&gt; Bool
+== :: DeleteConfigurationProfile -&gt; DeleteConfigurationProfile -&gt; Bool
+$c== :: DeleteConfigurationProfile -&gt; DeleteConfigurationProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206246"><span id="local-6989586621679206248"><span id="local-6989586621679206250"><span id="local-6989586621679206252"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigurationProfile]
+ReadPrec DeleteConfigurationProfile
+Int -&gt; ReadS DeleteConfigurationProfile
+ReadS [DeleteConfigurationProfile]
+(Int -&gt; ReadS DeleteConfigurationProfile)
+-&gt; ReadS [DeleteConfigurationProfile]
+-&gt; ReadPrec DeleteConfigurationProfile
+-&gt; ReadPrec [DeleteConfigurationProfile]
+-&gt; Read DeleteConfigurationProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteConfigurationProfile]
+$creadListPrec :: ReadPrec [DeleteConfigurationProfile]
+readPrec :: ReadPrec DeleteConfigurationProfile
+$creadPrec :: ReadPrec DeleteConfigurationProfile
+readList :: ReadS [DeleteConfigurationProfile]
+$creadList :: ReadS [DeleteConfigurationProfile]
+readsPrec :: Int -&gt; ReadS DeleteConfigurationProfile
+$creadsPrec :: Int -&gt; ReadS DeleteConfigurationProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206239"><span id="local-6989586621679206241"><span id="local-6989586621679206243"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigurationProfile -&gt; ShowS
+[DeleteConfigurationProfile] -&gt; ShowS
+DeleteConfigurationProfile -&gt; String
+(Int -&gt; DeleteConfigurationProfile -&gt; ShowS)
+-&gt; (DeleteConfigurationProfile -&gt; String)
+-&gt; ([DeleteConfigurationProfile] -&gt; ShowS)
+-&gt; Show DeleteConfigurationProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteConfigurationProfile] -&gt; ShowS
+$cshowList :: [DeleteConfigurationProfile] -&gt; ShowS
+show :: DeleteConfigurationProfile -&gt; String
+$cshow :: DeleteConfigurationProfile -&gt; String
+showsPrec :: Int -&gt; DeleteConfigurationProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteConfigurationProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteConfigurationProfile -&gt; Rep DeleteConfigurationProfile x)
+-&gt; (forall x.
+    Rep DeleteConfigurationProfile x -&gt; DeleteConfigurationProfile)
+-&gt; Generic DeleteConfigurationProfile
+forall x.
+Rep DeleteConfigurationProfile x -&gt; DeleteConfigurationProfile
+forall x.
+DeleteConfigurationProfile -&gt; Rep DeleteConfigurationProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteConfigurationProfile x -&gt; DeleteConfigurationProfile
+$cfrom :: forall x.
+DeleteConfigurationProfile -&gt; Rep DeleteConfigurationProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteConfigurationProfile' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'applicationId', 'deleteConfigurationProfile_applicationId' - The application ID that includes the configuration profile you want to</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'configurationProfileId', 'deleteConfigurationProfile_configurationProfileId' - The ID of the configuration profile you want to delete.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#newDeleteConfigurationProfile"><span class="hs-identifier hs-type">newDeleteConfigurationProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'configurationProfileId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span>
+</span><span id="line-75"></span><span id="newDeleteConfigurationProfile"><span class="annot"><span class="annottext">newDeleteConfigurationProfile :: Text -&gt; Text -&gt; DeleteConfigurationProfile
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#newDeleteConfigurationProfile"><span class="hs-identifier hs-var hs-var">newDeleteConfigurationProfile</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679206234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206234"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679206233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206233"><span class="hs-identifier hs-var">pConfigurationProfileId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">DeleteConfigurationProfile' :: Text -&gt; Text -&gt; DeleteConfigurationProfile
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile%27"><span class="hs-identifier hs-type">DeleteConfigurationProfile'</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:DeleteConfigurationProfile' :: Text
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#%24sel%3AapplicationId%3ADeleteConfigurationProfile%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206234"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:configurationProfileId:DeleteConfigurationProfile' :: Text
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#%24sel%3AconfigurationProfileId%3ADeleteConfigurationProfile%27"><span class="hs-identifier hs-var">configurationProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206233"><span class="hs-identifier hs-var">pConfigurationProfileId_</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The application ID that includes the configuration profile you want to</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#deleteConfigurationProfile_applicationId"><span class="hs-identifier hs-type">deleteConfigurationProfile_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteConfigurationProfile_applicationId"><span class="annot"><span class="annottext">deleteConfigurationProfile_applicationId :: (Text -&gt; f Text)
+-&gt; DeleteConfigurationProfile -&gt; f DeleteConfigurationProfile
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#deleteConfigurationProfile_applicationId"><span class="hs-identifier hs-var hs-var">deleteConfigurationProfile_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteConfigurationProfile -&gt; Text)
+-&gt; (DeleteConfigurationProfile
+    -&gt; Text -&gt; DeleteConfigurationProfile)
+-&gt; Lens
+     DeleteConfigurationProfile DeleteConfigurationProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile%27"><span class="hs-identifier hs-type">DeleteConfigurationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206230"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:DeleteConfigurationProfile' :: DeleteConfigurationProfile -&gt; Text
+</span><a href="#local-6989586621679206230"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206230"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206229"><span class="annot"><span class="annottext">s :: DeleteConfigurationProfile
+</span><a href="#local-6989586621679206229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile%27"><span class="hs-identifier hs-type">DeleteConfigurationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationProfile
+</span><a href="#local-6989586621679206229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteConfigurationProfile' :: Text
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#%24sel%3AapplicationId%3ADeleteConfigurationProfile%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the configuration profile you want to delete.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#deleteConfigurationProfile_configurationProfileId"><span class="hs-identifier hs-type">deleteConfigurationProfile_configurationProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="deleteConfigurationProfile_configurationProfileId"><span class="annot"><span class="annottext">deleteConfigurationProfile_configurationProfileId :: (Text -&gt; f Text)
+-&gt; DeleteConfigurationProfile -&gt; f DeleteConfigurationProfile
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#deleteConfigurationProfile_configurationProfileId"><span class="hs-identifier hs-var hs-var">deleteConfigurationProfile_configurationProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteConfigurationProfile -&gt; Text)
+-&gt; (DeleteConfigurationProfile
+    -&gt; Text -&gt; DeleteConfigurationProfile)
+-&gt; Lens
+     DeleteConfigurationProfile DeleteConfigurationProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile%27"><span class="hs-identifier hs-type">DeleteConfigurationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206227"><span class="annot"><span class="annottext">Text
+configurationProfileId :: Text
+$sel:configurationProfileId:DeleteConfigurationProfile' :: DeleteConfigurationProfile -&gt; Text
+</span><a href="#local-6989586621679206227"><span class="hs-identifier hs-var hs-var">configurationProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206227"><span class="hs-identifier hs-var">configurationProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206226"><span class="annot"><span class="annottext">s :: DeleteConfigurationProfile
+</span><a href="#local-6989586621679206226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile%27"><span class="hs-identifier hs-type">DeleteConfigurationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationProfile
+</span><a href="#local-6989586621679206226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationProfileId:DeleteConfigurationProfile' :: Text
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#%24sel%3AconfigurationProfileId%3ADeleteConfigurationProfile%27"><span class="hs-identifier hs-var">configurationProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse"><span class="hs-identifier hs-type">DeleteConfigurationProfileResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679206221"><span class="annot"><span class="annottext">request :: DeleteConfigurationProfile -&gt; Request DeleteConfigurationProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteConfigurationProfile -&gt; Request DeleteConfigurationProfile
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679206217"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteConfigurationProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteConfigurationProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteConfigurationProfile
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteConfigurationProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteConfigurationProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteConfigurationProfile
+DeleteConfigurationProfileResponse
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse%27"><span class="hs-identifier hs-var">DeleteConfigurationProfileResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206210"><span id="local-6989586621679206212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679206203"><span class="annot"><span class="annottext">toHeaders :: DeleteConfigurationProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteConfigurationProfile -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679206197"><span class="annot"><span class="annottext">toPath :: DeleteConfigurationProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile%27"><span class="hs-identifier hs-type">DeleteConfigurationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206194"><span id="local-6989586621679206195"><span class="annot"><span class="annottext">Text
+configurationProfileId :: Text
+applicationId :: Text
+$sel:configurationProfileId:DeleteConfigurationProfile' :: DeleteConfigurationProfile -&gt; Text
+$sel:applicationId:DeleteConfigurationProfile' :: DeleteConfigurationProfile -&gt; Text
+</span><a href="#local-6989586621679206194"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/applications/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206195"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/configurationprofiles/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206194"><span class="hs-identifier hs-var">configurationProfileId</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfile"><span class="hs-identifier hs-type">DeleteConfigurationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679206190"><span class="annot"><span class="annottext">toQuery :: DeleteConfigurationProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteConfigurationProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newDeleteConfigurationProfileResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679206187"><span id="local-6989586621679206188"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigurationProfileResponse"><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse"><span class="hs-identifier hs-var">DeleteConfigurationProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigurationProfileResponse%27"><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse%27"><span class="hs-identifier hs-var">DeleteConfigurationProfileResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206183"><span id="local-6989586621679206185"><span class="annot"><span class="annottext">DeleteConfigurationProfileResponse
+-&gt; DeleteConfigurationProfileResponse -&gt; Bool
+(DeleteConfigurationProfileResponse
+ -&gt; DeleteConfigurationProfileResponse -&gt; Bool)
+-&gt; (DeleteConfigurationProfileResponse
+    -&gt; DeleteConfigurationProfileResponse -&gt; Bool)
+-&gt; Eq DeleteConfigurationProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteConfigurationProfileResponse
+-&gt; DeleteConfigurationProfileResponse -&gt; Bool
+$c/= :: DeleteConfigurationProfileResponse
+-&gt; DeleteConfigurationProfileResponse -&gt; Bool
+== :: DeleteConfigurationProfileResponse
+-&gt; DeleteConfigurationProfileResponse -&gt; Bool
+$c== :: DeleteConfigurationProfileResponse
+-&gt; DeleteConfigurationProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206175"><span id="local-6989586621679206177"><span id="local-6989586621679206179"><span id="local-6989586621679206181"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigurationProfileResponse]
+ReadPrec DeleteConfigurationProfileResponse
+Int -&gt; ReadS DeleteConfigurationProfileResponse
+ReadS [DeleteConfigurationProfileResponse]
+(Int -&gt; ReadS DeleteConfigurationProfileResponse)
+-&gt; ReadS [DeleteConfigurationProfileResponse]
+-&gt; ReadPrec DeleteConfigurationProfileResponse
+-&gt; ReadPrec [DeleteConfigurationProfileResponse]
+-&gt; Read DeleteConfigurationProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteConfigurationProfileResponse]
+$creadListPrec :: ReadPrec [DeleteConfigurationProfileResponse]
+readPrec :: ReadPrec DeleteConfigurationProfileResponse
+$creadPrec :: ReadPrec DeleteConfigurationProfileResponse
+readList :: ReadS [DeleteConfigurationProfileResponse]
+$creadList :: ReadS [DeleteConfigurationProfileResponse]
+readsPrec :: Int -&gt; ReadS DeleteConfigurationProfileResponse
+$creadsPrec :: Int -&gt; ReadS DeleteConfigurationProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206169"><span id="local-6989586621679206171"><span id="local-6989586621679206173"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigurationProfileResponse -&gt; ShowS
+[DeleteConfigurationProfileResponse] -&gt; ShowS
+DeleteConfigurationProfileResponse -&gt; String
+(Int -&gt; DeleteConfigurationProfileResponse -&gt; ShowS)
+-&gt; (DeleteConfigurationProfileResponse -&gt; String)
+-&gt; ([DeleteConfigurationProfileResponse] -&gt; ShowS)
+-&gt; Show DeleteConfigurationProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteConfigurationProfileResponse] -&gt; ShowS
+$cshowList :: [DeleteConfigurationProfileResponse] -&gt; ShowS
+show :: DeleteConfigurationProfileResponse -&gt; String
+$cshow :: DeleteConfigurationProfileResponse -&gt; String
+showsPrec :: Int -&gt; DeleteConfigurationProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteConfigurationProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteConfigurationProfileResponse
+ -&gt; Rep DeleteConfigurationProfileResponse x)
+-&gt; (forall x.
+    Rep DeleteConfigurationProfileResponse x
+    -&gt; DeleteConfigurationProfileResponse)
+-&gt; Generic DeleteConfigurationProfileResponse
+forall x.
+Rep DeleteConfigurationProfileResponse x
+-&gt; DeleteConfigurationProfileResponse
+forall x.
+DeleteConfigurationProfileResponse
+-&gt; Rep DeleteConfigurationProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteConfigurationProfileResponse x
+-&gt; DeleteConfigurationProfileResponse
+$cfrom :: forall x.
+DeleteConfigurationProfileResponse
+-&gt; Rep DeleteConfigurationProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'DeleteConfigurationProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#newDeleteConfigurationProfileResponse"><span class="hs-identifier hs-type">newDeleteConfigurationProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse"><span class="hs-identifier hs-type">DeleteConfigurationProfileResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newDeleteConfigurationProfileResponse"><span class="annot"><span class="annottext">newDeleteConfigurationProfileResponse :: DeleteConfigurationProfileResponse
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#newDeleteConfigurationProfileResponse"><span class="hs-identifier hs-var hs-var">newDeleteConfigurationProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DeleteConfigurationProfileResponse
+</span><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse%27"><span class="hs-identifier hs-var">DeleteConfigurationProfileResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679206165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteConfigurationProfile.html#DeleteConfigurationProfileResponse"><span class="hs-identifier hs-type">DeleteConfigurationProfileResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

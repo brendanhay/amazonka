@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.APIGatewayManagementAPI.Types.Identity
+module Amazonka.APIGatewayManagementAPI.Types.Identity
 
 -- | <i>See:</i> <a>newIdentity</a> smart constructor.
 data Identity
@@ -39,16 +39,16 @@ identity_sourceIp :: Lens' Identity Text
 
 -- | The User Agent of the API caller.
 identity_userAgent :: Lens' Identity Text
-instance GHC.Generics.Generic Network.AWS.APIGatewayManagementAPI.Types.Identity.Identity
-instance GHC.Show.Show Network.AWS.APIGatewayManagementAPI.Types.Identity.Identity
-instance GHC.Read.Read Network.AWS.APIGatewayManagementAPI.Types.Identity.Identity
-instance GHC.Classes.Eq Network.AWS.APIGatewayManagementAPI.Types.Identity.Identity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.APIGatewayManagementAPI.Types.Identity.Identity
-instance Data.Hashable.Class.Hashable Network.AWS.APIGatewayManagementAPI.Types.Identity.Identity
-instance Control.DeepSeq.NFData Network.AWS.APIGatewayManagementAPI.Types.Identity.Identity
+instance GHC.Generics.Generic Amazonka.APIGatewayManagementAPI.Types.Identity.Identity
+instance GHC.Show.Show Amazonka.APIGatewayManagementAPI.Types.Identity.Identity
+instance GHC.Read.Read Amazonka.APIGatewayManagementAPI.Types.Identity.Identity
+instance GHC.Classes.Eq Amazonka.APIGatewayManagementAPI.Types.Identity.Identity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.APIGatewayManagementAPI.Types.Identity.Identity
+instance Data.Hashable.Class.Hashable Amazonka.APIGatewayManagementAPI.Types.Identity.Identity
+instance Control.DeepSeq.NFData Amazonka.APIGatewayManagementAPI.Types.Identity.Identity
 
 
-module Network.AWS.APIGatewayManagementAPI.Types
+module Amazonka.APIGatewayManagementAPI.Types
 
 -- | API version <tt>2018-11-29</tt> of the Amazon ApiGatewayManagementApi
 --   SDK configuration.
@@ -102,7 +102,7 @@ identity_userAgent :: Lens' Identity Text
 
 
 -- | Sends the provided data to the specified connection.
-module Network.AWS.APIGatewayManagementAPI.PostToConnection
+module Amazonka.APIGatewayManagementAPI.PostToConnection
 
 -- | <i>See:</i> <a>newPostToConnection</a> smart constructor.
 data PostToConnection
@@ -147,26 +147,26 @@ PostToConnectionResponse' :: PostToConnectionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPostToConnectionResponse :: PostToConnectionResponse
-instance GHC.Generics.Generic Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance GHC.Show.Show Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance GHC.Read.Read Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance GHC.Classes.Eq Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance GHC.Generics.Generic Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
-instance GHC.Show.Show Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
-instance GHC.Read.Read Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
-instance GHC.Classes.Eq Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance Control.DeepSeq.NFData Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance Control.DeepSeq.NFData Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance Network.AWS.Data.Body.ToBody Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance GHC.Generics.Generic Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance GHC.Show.Show Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance GHC.Read.Read Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance GHC.Classes.Eq Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance GHC.Generics.Generic Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
+instance GHC.Show.Show Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
+instance GHC.Read.Read Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
+instance GHC.Classes.Eq Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance Control.DeepSeq.NFData Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance Control.DeepSeq.NFData Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance Amazonka.Data.Body.ToBody Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance Amazonka.Data.Path.ToPath Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.APIGatewayManagementAPI.PostToConnection.PostToConnection
 
 
 -- | Get information about the connection with the provided id.
-module Network.AWS.APIGatewayManagementAPI.GetConnection
+module Amazonka.APIGatewayManagementAPI.GetConnection
 
 -- | <i>See:</i> <a>newGetConnection</a> smart constructor.
 data GetConnection
@@ -239,25 +239,25 @@ getConnectionResponse_identity :: Lens' GetConnectionResponse (Maybe Identity)
 
 -- | The response's http status code.
 getConnectionResponse_httpStatus :: Lens' GetConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance GHC.Show.Show Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance GHC.Read.Read Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance GHC.Classes.Eq Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance GHC.Generics.Generic Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
-instance GHC.Show.Show Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
-instance GHC.Read.Read Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
-instance GHC.Classes.Eq Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance Control.DeepSeq.NFData Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance Control.DeepSeq.NFData Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.APIGatewayManagementAPI.GetConnection.GetConnection
+instance GHC.Generics.Generic Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance GHC.Show.Show Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance GHC.Read.Read Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance GHC.Classes.Eq Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance GHC.Generics.Generic Amazonka.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
+instance GHC.Show.Show Amazonka.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
+instance GHC.Read.Read Amazonka.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
+instance GHC.Classes.Eq Amazonka.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance Control.DeepSeq.NFData Amazonka.APIGatewayManagementAPI.GetConnection.GetConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance Control.DeepSeq.NFData Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance Amazonka.Data.Path.ToPath Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.APIGatewayManagementAPI.GetConnection.GetConnection
 
 
 -- | Delete the connection with the provided id.
-module Network.AWS.APIGatewayManagementAPI.DeleteConnection
+module Amazonka.APIGatewayManagementAPI.DeleteConnection
 
 -- | <i>See:</i> <a>newDeleteConnection</a> smart constructor.
 data DeleteConnection
@@ -290,24 +290,24 @@ DeleteConnectionResponse' :: DeleteConnectionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteConnectionResponse :: DeleteConnectionResponse
-instance GHC.Generics.Generic Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance GHC.Show.Show Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance GHC.Read.Read Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance GHC.Classes.Eq Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance GHC.Generics.Generic Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
-instance GHC.Show.Show Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
-instance GHC.Read.Read Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
-instance GHC.Classes.Eq Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance GHC.Show.Show Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance GHC.Read.Read Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance GHC.Classes.Eq Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
+instance GHC.Show.Show Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
+instance GHC.Read.Read Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
+instance GHC.Classes.Eq Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Path.ToPath Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.APIGatewayManagementAPI.DeleteConnection.DeleteConnection
 
 
-module Network.AWS.APIGatewayManagementAPI.Lens
+module Amazonka.APIGatewayManagementAPI.Lens
 
 -- | Undocumented member.
 deleteConnection_connectionId :: Lens' DeleteConnection Text
@@ -341,7 +341,7 @@ identity_sourceIp :: Lens' Identity Text
 identity_userAgent :: Lens' Identity Text
 
 
-module Network.AWS.APIGatewayManagementAPI.Waiters
+module Amazonka.APIGatewayManagementAPI.Waiters
 
 
 -- | Derived from API version <tt>2018-11-29</tt> of the AWS service
@@ -354,7 +354,7 @@ module Network.AWS.APIGatewayManagementAPI.Waiters
 --   https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or will
 --   be the endpoint corresponding to your API's custom domain and base
 --   path, if applicable.
-module Network.AWS.APIGatewayManagementAPI
+module Amazonka.APIGatewayManagementAPI
 
 -- | API version <tt>2018-11-29</tt> of the Amazon ApiGatewayManagementApi
 --   SDK configuration.

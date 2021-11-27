@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppStream.CreateStreamingURL</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a temporary URL to start an AppStream 2.0 streaming session for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the specified user. A streaming URL enables application streaming to be</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- tested without user setup.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppStream.CreateStreamingURL</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier">CreateStreamingURL</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#newCreateStreamingURL"><span class="hs-identifier">newCreateStreamingURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_sessionContext"><span class="hs-identifier">createStreamingURL_sessionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_applicationId"><span class="hs-identifier">createStreamingURL_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_validity"><span class="hs-identifier">createStreamingURL_validity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_stackName"><span class="hs-identifier">createStreamingURL_stackName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_fleetName"><span class="hs-identifier">createStreamingURL_fleetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_userId"><span class="hs-identifier">createStreamingURL_userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier">CreateStreamingURLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#newCreateStreamingURLResponse"><span class="hs-identifier">newCreateStreamingURLResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_streamingURL"><span class="hs-identifier">createStreamingURLResponse_streamingURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_expires"><span class="hs-identifier">createStreamingURLResponse_expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_httpStatus"><span class="hs-identifier">createStreamingURLResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.html"><span class="hs-identifier">Amazonka.AppStream.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newCreateStreamingURL' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679300862"><span id="local-6989586621679300863"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamingURL"><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-var">CreateStreamingURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamingURL%27"><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-var">CreateStreamingURL'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The session context. For more information, see</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context&gt;</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsessionContext%3ACreateStreamingURL%27"><span class="annot"><span class="annottext">CreateStreamingURL -&gt; Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AsessionContext%3ACreateStreamingURL%27"><span class="hs-identifier hs-var hs-var">sessionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the application to launch after the session starts. This is</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the name that you specified as __Name__ in the Image Assistant. If your</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- fleet is enabled for the __Desktop__ stream view, you can also choose to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- launch directly to the operating system desktop. To do so, specify</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- __Desktop__.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AapplicationId%3ACreateStreamingURL%27"><span class="annot"><span class="annottext">CreateStreamingURL -&gt; Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AapplicationId%3ACreateStreamingURL%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The time that the streaming URL will be valid, in seconds. Specify a</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- value between 1 and 604800 seconds. The default is 60 seconds.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Avalidity%3ACreateStreamingURL%27"><span class="annot"><span class="annottext">CreateStreamingURL -&gt; Maybe Integer
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3Avalidity%3ACreateStreamingURL%27"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the stack.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AstackName%3ACreateStreamingURL%27"><span class="annot"><span class="annottext">CreateStreamingURL -&gt; Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AstackName%3ACreateStreamingURL%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AfleetName%3ACreateStreamingURL%27"><span class="annot"><span class="annottext">CreateStreamingURL -&gt; Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AfleetName%3ACreateStreamingURL%27"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The identifier of the user.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AuserId%3ACreateStreamingURL%27"><span class="annot"><span class="annottext">CreateStreamingURL -&gt; Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AuserId%3ACreateStreamingURL%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300851"><span id="local-6989586621679300853"><span class="annot"><span class="annottext">CreateStreamingURL -&gt; CreateStreamingURL -&gt; Bool
+(CreateStreamingURL -&gt; CreateStreamingURL -&gt; Bool)
+-&gt; (CreateStreamingURL -&gt; CreateStreamingURL -&gt; Bool)
+-&gt; Eq CreateStreamingURL
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStreamingURL -&gt; CreateStreamingURL -&gt; Bool
+$c/= :: CreateStreamingURL -&gt; CreateStreamingURL -&gt; Bool
+== :: CreateStreamingURL -&gt; CreateStreamingURL -&gt; Bool
+$c== :: CreateStreamingURL -&gt; CreateStreamingURL -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300842"><span id="local-6989586621679300844"><span id="local-6989586621679300846"><span id="local-6989586621679300848"><span class="annot"><span class="annottext">ReadPrec [CreateStreamingURL]
+ReadPrec CreateStreamingURL
+Int -&gt; ReadS CreateStreamingURL
+ReadS [CreateStreamingURL]
+(Int -&gt; ReadS CreateStreamingURL)
+-&gt; ReadS [CreateStreamingURL]
+-&gt; ReadPrec CreateStreamingURL
+-&gt; ReadPrec [CreateStreamingURL]
+-&gt; Read CreateStreamingURL
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStreamingURL]
+$creadListPrec :: ReadPrec [CreateStreamingURL]
+readPrec :: ReadPrec CreateStreamingURL
+$creadPrec :: ReadPrec CreateStreamingURL
+readList :: ReadS [CreateStreamingURL]
+$creadList :: ReadS [CreateStreamingURL]
+readsPrec :: Int -&gt; ReadS CreateStreamingURL
+$creadsPrec :: Int -&gt; ReadS CreateStreamingURL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300835"><span id="local-6989586621679300837"><span id="local-6989586621679300839"><span class="annot"><span class="annottext">Int -&gt; CreateStreamingURL -&gt; ShowS
+[CreateStreamingURL] -&gt; ShowS
+CreateStreamingURL -&gt; String
+(Int -&gt; CreateStreamingURL -&gt; ShowS)
+-&gt; (CreateStreamingURL -&gt; String)
+-&gt; ([CreateStreamingURL] -&gt; ShowS)
+-&gt; Show CreateStreamingURL
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStreamingURL] -&gt; ShowS
+$cshowList :: [CreateStreamingURL] -&gt; ShowS
+show :: CreateStreamingURL -&gt; String
+$cshow :: CreateStreamingURL -&gt; String
+showsPrec :: Int -&gt; CreateStreamingURL -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStreamingURL -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateStreamingURL -&gt; Rep CreateStreamingURL x)
+-&gt; (forall x. Rep CreateStreamingURL x -&gt; CreateStreamingURL)
+-&gt; Generic CreateStreamingURL
+forall x. Rep CreateStreamingURL x -&gt; CreateStreamingURL
+forall x. CreateStreamingURL -&gt; Rep CreateStreamingURL x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateStreamingURL x -&gt; CreateStreamingURL
+$cfrom :: forall x. CreateStreamingURL -&gt; Rep CreateStreamingURL x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'CreateStreamingURL' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'sessionContext', 'createStreamingURL_sessionContext' - The session context. For more information, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'applicationId', 'createStreamingURL_applicationId' - The name of the application to launch after the session starts. This is</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the name that you specified as __Name__ in the Image Assistant. If your</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- fleet is enabled for the __Desktop__ stream view, you can also choose to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- launch directly to the operating system desktop. To do so, specify</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- __Desktop__.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'validity', 'createStreamingURL_validity' - The time that the streaming URL will be valid, in seconds. Specify a</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- value between 1 and 604800 seconds. The default is 60 seconds.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'stackName', 'createStreamingURL_stackName' - The name of the stack.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'fleetName', 'createStreamingURL_fleetName' - The name of the fleet.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'userId', 'createStreamingURL_userId' - The identifier of the user.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#newCreateStreamingURL"><span class="hs-identifier hs-type">newCreateStreamingURL</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'stackName'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'fleetName'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'userId'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span>
+</span><span id="line-115"></span><span id="newCreateStreamingURL"><span class="annot"><span class="annottext">newCreateStreamingURL :: Text -&gt; Text -&gt; Text -&gt; CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#newCreateStreamingURL"><span class="hs-identifier hs-var hs-var">newCreateStreamingURL</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679300830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300830"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679300829"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300829"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679300828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300828"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">CreateStreamingURL' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionContext:CreateStreamingURL' :: Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AsessionContext%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">sessionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:CreateStreamingURL' :: Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AapplicationId%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:validity:CreateStreamingURL' :: Maybe Integer
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3Avalidity%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackName:CreateStreamingURL' :: Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AstackName%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300830"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:fleetName:CreateStreamingURL' :: Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AfleetName%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300829"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:CreateStreamingURL' :: Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AuserId%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300828"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The session context. For more information, see</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context&gt;</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_sessionContext"><span class="hs-identifier hs-type">createStreamingURL_sessionContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="createStreamingURL_sessionContext"><span class="annot"><span class="annottext">createStreamingURL_sessionContext :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateStreamingURL -&gt; f CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_sessionContext"><span class="hs-identifier hs-var hs-var">createStreamingURL_sessionContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURL -&gt; Maybe Text)
+-&gt; (CreateStreamingURL -&gt; Maybe Text -&gt; CreateStreamingURL)
+-&gt; Lens
+     CreateStreamingURL CreateStreamingURL (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300825"><span class="annot"><span class="annottext">Maybe Text
+sessionContext :: Maybe Text
+$sel:sessionContext:CreateStreamingURL' :: CreateStreamingURL -&gt; Maybe Text
+</span><a href="#local-6989586621679300825"><span class="hs-identifier hs-var hs-var">sessionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300825"><span class="hs-identifier hs-var">sessionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300824"><span class="annot"><span class="annottext">s :: CreateStreamingURL
+</span><a href="#local-6989586621679300824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURL
+</span><a href="#local-6989586621679300824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionContext:CreateStreamingURL' :: Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AsessionContext%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">sessionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The name of the application to launch after the session starts. This is</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- the name that you specified as __Name__ in the Image Assistant. If your</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- fleet is enabled for the __Desktop__ stream view, you can also choose to</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- launch directly to the operating system desktop. To do so, specify</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- __Desktop__.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_applicationId"><span class="hs-identifier hs-type">createStreamingURL_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="createStreamingURL_applicationId"><span class="annot"><span class="annottext">createStreamingURL_applicationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateStreamingURL -&gt; f CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_applicationId"><span class="hs-identifier hs-var hs-var">createStreamingURL_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURL -&gt; Maybe Text)
+-&gt; (CreateStreamingURL -&gt; Maybe Text -&gt; CreateStreamingURL)
+-&gt; Lens
+     CreateStreamingURL CreateStreamingURL (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300822"><span class="annot"><span class="annottext">Maybe Text
+applicationId :: Maybe Text
+$sel:applicationId:CreateStreamingURL' :: CreateStreamingURL -&gt; Maybe Text
+</span><a href="#local-6989586621679300822"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300822"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300821"><span class="annot"><span class="annottext">s :: CreateStreamingURL
+</span><a href="#local-6989586621679300821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURL
+</span><a href="#local-6989586621679300821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:CreateStreamingURL' :: Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AapplicationId%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The time that the streaming URL will be valid, in seconds. Specify a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- value between 1 and 604800 seconds. The default is 60 seconds.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_validity"><span class="hs-identifier hs-type">createStreamingURL_validity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="createStreamingURL_validity"><span class="annot"><span class="annottext">createStreamingURL_validity :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateStreamingURL -&gt; f CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_validity"><span class="hs-identifier hs-var hs-var">createStreamingURL_validity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURL -&gt; Maybe Integer)
+-&gt; (CreateStreamingURL -&gt; Maybe Integer -&gt; CreateStreamingURL)
+-&gt; Lens
+     CreateStreamingURL
+     CreateStreamingURL
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300819"><span class="annot"><span class="annottext">Maybe Integer
+validity :: Maybe Integer
+$sel:validity:CreateStreamingURL' :: CreateStreamingURL -&gt; Maybe Integer
+</span><a href="#local-6989586621679300819"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679300819"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300818"><span class="annot"><span class="annottext">s :: CreateStreamingURL
+</span><a href="#local-6989586621679300818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300817"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679300817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURL
+</span><a href="#local-6989586621679300818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validity:CreateStreamingURL' :: Maybe Integer
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3Avalidity%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679300817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The name of the stack.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_stackName"><span class="hs-identifier hs-type">createStreamingURL_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-150"></span><span id="createStreamingURL_stackName"><span class="annot"><span class="annottext">createStreamingURL_stackName :: (Text -&gt; f Text) -&gt; CreateStreamingURL -&gt; f CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_stackName"><span class="hs-identifier hs-var hs-var">createStreamingURL_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURL -&gt; Text)
+-&gt; (CreateStreamingURL -&gt; Text -&gt; CreateStreamingURL)
+-&gt; Lens CreateStreamingURL CreateStreamingURL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300816"><span class="annot"><span class="annottext">Text
+stackName :: Text
+$sel:stackName:CreateStreamingURL' :: CreateStreamingURL -&gt; Text
+</span><a href="#local-6989586621679300816"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300816"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300815"><span class="annot"><span class="annottext">s :: CreateStreamingURL
+</span><a href="#local-6989586621679300815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300814"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURL
+</span><a href="#local-6989586621679300815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:CreateStreamingURL' :: Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AstackName%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_fleetName"><span class="hs-identifier hs-type">createStreamingURL_fleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-154"></span><span id="createStreamingURL_fleetName"><span class="annot"><span class="annottext">createStreamingURL_fleetName :: (Text -&gt; f Text) -&gt; CreateStreamingURL -&gt; f CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_fleetName"><span class="hs-identifier hs-var hs-var">createStreamingURL_fleetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURL -&gt; Text)
+-&gt; (CreateStreamingURL -&gt; Text -&gt; CreateStreamingURL)
+-&gt; Lens CreateStreamingURL CreateStreamingURL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300813"><span class="annot"><span class="annottext">Text
+fleetName :: Text
+$sel:fleetName:CreateStreamingURL' :: CreateStreamingURL -&gt; Text
+</span><a href="#local-6989586621679300813"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300813"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300812"><span class="annot"><span class="annottext">s :: CreateStreamingURL
+</span><a href="#local-6989586621679300812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300811"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURL
+</span><a href="#local-6989586621679300812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:CreateStreamingURL' :: Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AfleetName%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The identifier of the user.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_userId"><span class="hs-identifier hs-type">createStreamingURL_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span id="createStreamingURL_userId"><span class="annot"><span class="annottext">createStreamingURL_userId :: (Text -&gt; f Text) -&gt; CreateStreamingURL -&gt; f CreateStreamingURL
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURL_userId"><span class="hs-identifier hs-var hs-var">createStreamingURL_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURL -&gt; Text)
+-&gt; (CreateStreamingURL -&gt; Text -&gt; CreateStreamingURL)
+-&gt; Lens CreateStreamingURL CreateStreamingURL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300810"><span class="annot"><span class="annottext">Text
+userId :: Text
+$sel:userId:CreateStreamingURL' :: CreateStreamingURL -&gt; Text
+</span><a href="#local-6989586621679300810"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300810"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300809"><span class="annot"><span class="annottext">s :: CreateStreamingURL
+</span><a href="#local-6989586621679300809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300808"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURL
+</span><a href="#local-6989586621679300809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateStreamingURL' :: Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AuserId%3ACreateStreamingURL%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679300804"><span class="annot"><span class="annottext">request :: CreateStreamingURL -&gt; Request CreateStreamingURL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateStreamingURL -&gt; Request CreateStreamingURL
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679300800"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateStreamingURL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateStreamingURL)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateStreamingURL))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateStreamingURL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateStreamingURL)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300797"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300796"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679300796"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300795"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; CreateStreamingURLResponse
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-var">CreateStreamingURLResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; CreateStreamingURLResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe POSIX -&gt; Int -&gt; CreateStreamingURLResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamingURL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; CreateStreamingURLResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; CreateStreamingURLResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Expires&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateStreamingURLResponse)
+-&gt; Either String Int -&gt; Either String CreateStreamingURLResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300797"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300787"><span id="local-6989586621679300789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679300780"><span class="annot"><span class="annottext">toHeaders :: CreateStreamingURL -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateStreamingURL -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PhotonAdminProxyService.CreateStreamingURL&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300770"><span id="local-6989586621679300772"><span id="local-6989586621679300774"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679300768"><span class="annot"><span class="annottext">toJSON :: CreateStreamingURL -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL%27"><span class="hs-identifier hs-type">CreateStreamingURL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300761"><span id="local-6989586621679300762"><span id="local-6989586621679300763"><span id="local-6989586621679300764"><span id="local-6989586621679300765"><span id="local-6989586621679300766"><span class="annot"><span class="annottext">Maybe Integer
+Maybe Text
+Text
+userId :: Text
+fleetName :: Text
+stackName :: Text
+validity :: Maybe Integer
+applicationId :: Maybe Text
+sessionContext :: Maybe Text
+$sel:userId:CreateStreamingURL' :: CreateStreamingURL -&gt; Text
+$sel:fleetName:CreateStreamingURL' :: CreateStreamingURL -&gt; Text
+$sel:stackName:CreateStreamingURL' :: CreateStreamingURL -&gt; Text
+$sel:validity:CreateStreamingURL' :: CreateStreamingURL -&gt; Maybe Integer
+$sel:applicationId:CreateStreamingURL' :: CreateStreamingURL -&gt; Maybe Text
+$sel:sessionContext:CreateStreamingURL' :: CreateStreamingURL -&gt; Maybe Text
+</span><a href="#local-6989586621679300761"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300766"><span class="hs-identifier hs-var">sessionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300765"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Validity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679300764"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300763"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300762"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300761"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679300755"><span class="annot"><span class="annottext">toPath :: CreateStreamingURL -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateStreamingURL -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURL"><span class="hs-identifier hs-type">CreateStreamingURL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679300751"><span class="annot"><span class="annottext">toQuery :: CreateStreamingURL -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateStreamingURL -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | /See:/ 'newCreateStreamingURLResponse' smart constructor.</span><span>
+</span><span id="line-214"></span><span id="local-6989586621679300748"><span id="local-6989586621679300749"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamingURLResponse"><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-var">CreateStreamingURLResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamingURLResponse%27"><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-var">CreateStreamingURLResponse'</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL to start the AppStream 2.0 streaming session.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AstreamingURL%3ACreateStreamingURLResponse%27"><span class="annot"><span class="annottext">CreateStreamingURLResponse -&gt; Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AstreamingURL%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var hs-var">streamingURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The elapsed time, in seconds after the Unix epoch, when this URL</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- expires.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3Aexpires%3ACreateStreamingURLResponse%27"><span class="annot"><span class="annottext">CreateStreamingURLResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3Aexpires%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateStreamingURLResponse%27"><span class="annot"><span class="annottext">CreateStreamingURLResponse -&gt; Int
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AhttpStatus%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300741"><span id="local-6989586621679300743"><span class="annot"><span class="annottext">CreateStreamingURLResponse -&gt; CreateStreamingURLResponse -&gt; Bool
+(CreateStreamingURLResponse -&gt; CreateStreamingURLResponse -&gt; Bool)
+-&gt; (CreateStreamingURLResponse
+    -&gt; CreateStreamingURLResponse -&gt; Bool)
+-&gt; Eq CreateStreamingURLResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStreamingURLResponse -&gt; CreateStreamingURLResponse -&gt; Bool
+$c/= :: CreateStreamingURLResponse -&gt; CreateStreamingURLResponse -&gt; Bool
+== :: CreateStreamingURLResponse -&gt; CreateStreamingURLResponse -&gt; Bool
+$c== :: CreateStreamingURLResponse -&gt; CreateStreamingURLResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300733"><span id="local-6989586621679300735"><span id="local-6989586621679300737"><span id="local-6989586621679300739"><span class="annot"><span class="annottext">ReadPrec [CreateStreamingURLResponse]
+ReadPrec CreateStreamingURLResponse
+Int -&gt; ReadS CreateStreamingURLResponse
+ReadS [CreateStreamingURLResponse]
+(Int -&gt; ReadS CreateStreamingURLResponse)
+-&gt; ReadS [CreateStreamingURLResponse]
+-&gt; ReadPrec CreateStreamingURLResponse
+-&gt; ReadPrec [CreateStreamingURLResponse]
+-&gt; Read CreateStreamingURLResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStreamingURLResponse]
+$creadListPrec :: ReadPrec [CreateStreamingURLResponse]
+readPrec :: ReadPrec CreateStreamingURLResponse
+$creadPrec :: ReadPrec CreateStreamingURLResponse
+readList :: ReadS [CreateStreamingURLResponse]
+$creadList :: ReadS [CreateStreamingURLResponse]
+readsPrec :: Int -&gt; ReadS CreateStreamingURLResponse
+$creadsPrec :: Int -&gt; ReadS CreateStreamingURLResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300727"><span id="local-6989586621679300729"><span id="local-6989586621679300731"><span class="annot"><span class="annottext">Int -&gt; CreateStreamingURLResponse -&gt; ShowS
+[CreateStreamingURLResponse] -&gt; ShowS
+CreateStreamingURLResponse -&gt; String
+(Int -&gt; CreateStreamingURLResponse -&gt; ShowS)
+-&gt; (CreateStreamingURLResponse -&gt; String)
+-&gt; ([CreateStreamingURLResponse] -&gt; ShowS)
+-&gt; Show CreateStreamingURLResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStreamingURLResponse] -&gt; ShowS
+$cshowList :: [CreateStreamingURLResponse] -&gt; ShowS
+show :: CreateStreamingURLResponse -&gt; String
+$cshow :: CreateStreamingURLResponse -&gt; String
+showsPrec :: Int -&gt; CreateStreamingURLResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStreamingURLResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateStreamingURLResponse -&gt; Rep CreateStreamingURLResponse x)
+-&gt; (forall x.
+    Rep CreateStreamingURLResponse x -&gt; CreateStreamingURLResponse)
+-&gt; Generic CreateStreamingURLResponse
+forall x.
+Rep CreateStreamingURLResponse x -&gt; CreateStreamingURLResponse
+forall x.
+CreateStreamingURLResponse -&gt; Rep CreateStreamingURLResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateStreamingURLResponse x -&gt; CreateStreamingURLResponse
+$cfrom :: forall x.
+CreateStreamingURLResponse -&gt; Rep CreateStreamingURLResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Create a value of 'CreateStreamingURLResponse' with all optional fields omitted.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'streamingURL', 'createStreamingURLResponse_streamingURL' - The URL to start the AppStream 2.0 streaming session.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'expires', 'createStreamingURLResponse_expires' - The elapsed time, in seconds after the Unix epoch, when this URL</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- expires.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'createStreamingURLResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#newCreateStreamingURLResponse"><span class="hs-identifier hs-type">newCreateStreamingURLResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span>
+</span><span id="line-243"></span><span id="newCreateStreamingURLResponse"><span class="annot"><span class="annottext">newCreateStreamingURLResponse :: Int -&gt; CreateStreamingURLResponse
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#newCreateStreamingURLResponse"><span class="hs-identifier hs-var hs-var">newCreateStreamingURLResponse</span></a></span></span><span> </span><span id="local-6989586621679300724"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300724"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">CreateStreamingURLResponse' :: Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; CreateStreamingURLResponse
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-type">CreateStreamingURLResponse'</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamingURL:CreateStreamingURLResponse' :: Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AstreamingURL%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var">streamingURL</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:expires:CreateStreamingURLResponse' :: Maybe POSIX
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3Aexpires%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamingURLResponse' :: Int
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AhttpStatus%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300724"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The URL to start the AppStream 2.0 streaming session.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_streamingURL"><span class="hs-identifier hs-type">createStreamingURLResponse_streamingURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="createStreamingURLResponse_streamingURL"><span class="annot"><span class="annottext">createStreamingURLResponse_streamingURL :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateStreamingURLResponse -&gt; f CreateStreamingURLResponse
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_streamingURL"><span class="hs-identifier hs-var hs-var">createStreamingURLResponse_streamingURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURLResponse -&gt; Maybe Text)
+-&gt; (CreateStreamingURLResponse
+    -&gt; Maybe Text -&gt; CreateStreamingURLResponse)
+-&gt; Lens
+     CreateStreamingURLResponse
+     CreateStreamingURLResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-type">CreateStreamingURLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300723"><span class="annot"><span class="annottext">Maybe Text
+streamingURL :: Maybe Text
+$sel:streamingURL:CreateStreamingURLResponse' :: CreateStreamingURLResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679300723"><span class="hs-identifier hs-var hs-var">streamingURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300723"><span class="hs-identifier hs-var">streamingURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300722"><span class="annot"><span class="annottext">s :: CreateStreamingURLResponse
+</span><a href="#local-6989586621679300722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-type">CreateStreamingURLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURLResponse
+</span><a href="#local-6989586621679300722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingURL:CreateStreamingURLResponse' :: Maybe Text
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AstreamingURL%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var">streamingURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The elapsed time, in seconds after the Unix epoch, when this URL</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- expires.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_expires"><span class="hs-identifier hs-type">createStreamingURLResponse_expires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="createStreamingURLResponse_expires"><span class="annot"><span class="annottext">createStreamingURLResponse_expires :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateStreamingURLResponse -&gt; f CreateStreamingURLResponse
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_expires"><span class="hs-identifier hs-var hs-var">createStreamingURLResponse_expires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURLResponse -&gt; Maybe POSIX)
+-&gt; (CreateStreamingURLResponse
+    -&gt; Maybe POSIX -&gt; CreateStreamingURLResponse)
+-&gt; Lens
+     CreateStreamingURLResponse
+     CreateStreamingURLResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-type">CreateStreamingURLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300720"><span class="annot"><span class="annottext">Maybe POSIX
+expires :: Maybe POSIX
+$sel:expires:CreateStreamingURLResponse' :: CreateStreamingURLResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679300720"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300720"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300719"><span class="annot"><span class="annottext">s :: CreateStreamingURLResponse
+</span><a href="#local-6989586621679300719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-type">CreateStreamingURLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300718"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURLResponse
+</span><a href="#local-6989586621679300719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:CreateStreamingURLResponse' :: Maybe POSIX
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3Aexpires%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateStreamingURLResponse -&gt; f CreateStreamingURLResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateStreamingURLResponse
+-&gt; f CreateStreamingURLResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_httpStatus"><span class="hs-identifier hs-type">createStreamingURLResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="createStreamingURLResponse_httpStatus"><span class="annot"><span class="annottext">createStreamingURLResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateStreamingURLResponse -&gt; f CreateStreamingURLResponse
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#createStreamingURLResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createStreamingURLResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingURLResponse -&gt; Int)
+-&gt; (CreateStreamingURLResponse
+    -&gt; Int -&gt; CreateStreamingURLResponse)
+-&gt; Lens
+     CreateStreamingURLResponse CreateStreamingURLResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-type">CreateStreamingURLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300714"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateStreamingURLResponse' :: CreateStreamingURLResponse -&gt; Int
+</span><a href="#local-6989586621679300714"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300714"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300713"><span class="annot"><span class="annottext">s :: CreateStreamingURLResponse
+</span><a href="#local-6989586621679300713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse%27"><span class="hs-identifier hs-type">CreateStreamingURLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingURLResponse
+</span><a href="#local-6989586621679300713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamingURLResponse' :: Int
+</span><a href="Amazonka.AppStream.CreateStreamingURL.html#%24sel%3AhttpStatus%3ACreateStreamingURLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.CreateStreamingURL.html#CreateStreamingURLResponse"><span class="hs-identifier hs-type">CreateStreamingURLResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

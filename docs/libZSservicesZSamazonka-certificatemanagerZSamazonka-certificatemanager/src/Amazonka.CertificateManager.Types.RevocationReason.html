@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CertificateManager.Types.RevocationReason</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CertificateManager.Types.RevocationReason</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier">RevocationReason</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_AFFILIATION_CHANGED"><span class="hs-identifier">RevocationReason_AFFILIATION_CHANGED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_A_A_COMPROMISE"><span class="hs-identifier">RevocationReason_A_A_COMPROMISE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CA_COMPROMISE"><span class="hs-identifier">RevocationReason_CA_COMPROMISE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CERTIFICATE_HOLD"><span class="hs-identifier">RevocationReason_CERTIFICATE_HOLD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CESSATION_OF_OPERATION"><span class="hs-identifier">RevocationReason_CESSATION_OF_OPERATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_KEY_COMPROMISE"><span class="hs-identifier">RevocationReason_KEY_COMPROMISE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_PRIVILEGE_WITHDRAWN"><span class="hs-identifier">RevocationReason_PRIVILEGE_WITHDRAWN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_REMOVE_FROM_CRL"><span class="hs-identifier">RevocationReason_REMOVE_FROM_CRL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_SUPERCEDED"><span class="hs-identifier">RevocationReason_SUPERCEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_UNSPECIFIED"><span class="hs-identifier">RevocationReason_UNSPECIFIED</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679189399"><span id="local-6989586621679189400"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RevocationReason"><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-var">RevocationReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevocationReason%27"><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-var">RevocationReason'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRevocationReason"><span class="annot"><span class="annottext">RevocationReason -&gt; Text
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#fromRevocationReason"><span class="hs-identifier hs-var hs-var">fromRevocationReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189391"><span id="local-6989586621679189393"><span id="local-6989586621679189395"><span class="annot"><span class="annottext">Int -&gt; RevocationReason -&gt; ShowS
+[RevocationReason] -&gt; ShowS
+RevocationReason -&gt; String
+(Int -&gt; RevocationReason -&gt; ShowS)
+-&gt; (RevocationReason -&gt; String)
+-&gt; ([RevocationReason] -&gt; ShowS)
+-&gt; Show RevocationReason
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RevocationReason] -&gt; ShowS
+$cshowList :: [RevocationReason] -&gt; ShowS
+show :: RevocationReason -&gt; String
+$cshow :: RevocationReason -&gt; String
+showsPrec :: Int -&gt; RevocationReason -&gt; ShowS
+$cshowsPrec :: Int -&gt; RevocationReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679189382"><span id="local-6989586621679189384"><span id="local-6989586621679189386"><span id="local-6989586621679189388"><span class="annot"><span class="annottext">ReadPrec [RevocationReason]
+ReadPrec RevocationReason
+Int -&gt; ReadS RevocationReason
+ReadS [RevocationReason]
+(Int -&gt; ReadS RevocationReason)
+-&gt; ReadS [RevocationReason]
+-&gt; ReadPrec RevocationReason
+-&gt; ReadPrec [RevocationReason]
+-&gt; Read RevocationReason
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RevocationReason]
+$creadListPrec :: ReadPrec [RevocationReason]
+readPrec :: ReadPrec RevocationReason
+$creadPrec :: ReadPrec RevocationReason
+readList :: ReadS [RevocationReason]
+$creadList :: ReadS [RevocationReason]
+readsPrec :: Int -&gt; ReadS RevocationReason
+$creadsPrec :: Int -&gt; ReadS RevocationReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679189377"><span id="local-6989586621679189379"><span class="annot"><span class="annottext">RevocationReason -&gt; RevocationReason -&gt; Bool
+(RevocationReason -&gt; RevocationReason -&gt; Bool)
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; Bool)
+-&gt; Eq RevocationReason
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RevocationReason -&gt; RevocationReason -&gt; Bool
+$c/= :: RevocationReason -&gt; RevocationReason -&gt; Bool
+== :: RevocationReason -&gt; RevocationReason -&gt; Bool
+$c== :: RevocationReason -&gt; RevocationReason -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679189361"><span id="local-6989586621679189363"><span id="local-6989586621679189365"><span id="local-6989586621679189367"><span id="local-6989586621679189369"><span id="local-6989586621679189371"><span id="local-6989586621679189373"><span class="annot"><span class="annottext">Eq RevocationReason
+Eq RevocationReason
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; Ordering)
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; Bool)
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; Bool)
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; Bool)
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; Bool)
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; RevocationReason)
+-&gt; (RevocationReason -&gt; RevocationReason -&gt; RevocationReason)
+-&gt; Ord RevocationReason
+RevocationReason -&gt; RevocationReason -&gt; Bool
+RevocationReason -&gt; RevocationReason -&gt; Ordering
+RevocationReason -&gt; RevocationReason -&gt; RevocationReason
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RevocationReason -&gt; RevocationReason -&gt; RevocationReason
+$cmin :: RevocationReason -&gt; RevocationReason -&gt; RevocationReason
+max :: RevocationReason -&gt; RevocationReason -&gt; RevocationReason
+$cmax :: RevocationReason -&gt; RevocationReason -&gt; RevocationReason
+&gt;= :: RevocationReason -&gt; RevocationReason -&gt; Bool
+$c&gt;= :: RevocationReason -&gt; RevocationReason -&gt; Bool
+&gt; :: RevocationReason -&gt; RevocationReason -&gt; Bool
+$c&gt; :: RevocationReason -&gt; RevocationReason -&gt; Bool
+&lt;= :: RevocationReason -&gt; RevocationReason -&gt; Bool
+$c&lt;= :: RevocationReason -&gt; RevocationReason -&gt; Bool
+&lt; :: RevocationReason -&gt; RevocationReason -&gt; Bool
+$c&lt; :: RevocationReason -&gt; RevocationReason -&gt; Bool
+compare :: RevocationReason -&gt; RevocationReason -&gt; Ordering
+$ccompare :: RevocationReason -&gt; RevocationReason -&gt; Ordering
+$cp1Ord :: Eq RevocationReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RevocationReason -&gt; Rep RevocationReason x)
+-&gt; (forall x. Rep RevocationReason x -&gt; RevocationReason)
+-&gt; Generic RevocationReason
+forall x. Rep RevocationReason x -&gt; RevocationReason
+forall x. RevocationReason -&gt; Rep RevocationReason x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RevocationReason x -&gt; RevocationReason
+$cfrom :: forall x. RevocationReason -&gt; Rep RevocationReason x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189353"><span id="local-6989586621679189355"><span class="annot"><span class="annottext">Int -&gt; RevocationReason -&gt; Int
+RevocationReason -&gt; Int
+(Int -&gt; RevocationReason -&gt; Int)
+-&gt; (RevocationReason -&gt; Int) -&gt; Hashable RevocationReason
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RevocationReason -&gt; Int
+$chash :: RevocationReason -&gt; Int
+hashWithSalt :: Int -&gt; RevocationReason -&gt; Int
+$chashWithSalt :: Int -&gt; RevocationReason -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679189350"><span class="annot"><span class="annottext">RevocationReason -&gt; ()
+(RevocationReason -&gt; ()) -&gt; NFData RevocationReason
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RevocationReason -&gt; ()
+$crnf :: RevocationReason -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679189347"><span class="annot"><span class="annottext">Text -&gt; Either String RevocationReason
+(Text -&gt; Either String RevocationReason)
+-&gt; FromText RevocationReason
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RevocationReason
+$cfromText :: Text -&gt; Either String RevocationReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679189344"><span class="annot"><span class="annottext">RevocationReason -&gt; Text
+(RevocationReason -&gt; Text) -&gt; ToText RevocationReason
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RevocationReason -&gt; Text
+$ctoText :: RevocationReason -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679189341"><span class="annot"><span class="annottext">RevocationReason -&gt; ByteString
+(RevocationReason -&gt; ByteString) -&gt; ToByteString RevocationReason
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RevocationReason -&gt; ByteString
+$ctoBS :: RevocationReason -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679189338"><span class="annot"><span class="annottext">RevocationReason -&gt; ByteStringBuilder
+(RevocationReason -&gt; ByteStringBuilder) -&gt; ToLog RevocationReason
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RevocationReason -&gt; ByteStringBuilder
+$cbuild :: RevocationReason -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679189335"><span class="annot"><span class="annottext">HeaderName -&gt; RevocationReason -&gt; [Header]
+(HeaderName -&gt; RevocationReason -&gt; [Header])
+-&gt; ToHeader RevocationReason
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RevocationReason -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RevocationReason -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679189332"><span class="annot"><span class="annottext">RevocationReason -&gt; QueryString
+(RevocationReason -&gt; QueryString) -&gt; ToQuery RevocationReason
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RevocationReason -&gt; QueryString
+$ctoQuery :: RevocationReason -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679189327"><span id="local-6989586621679189329"><span class="annot"><span class="annottext">Value -&gt; Parser [RevocationReason]
+Value -&gt; Parser RevocationReason
+(Value -&gt; Parser RevocationReason)
+-&gt; (Value -&gt; Parser [RevocationReason])
+-&gt; FromJSON RevocationReason
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RevocationReason]
+$cparseJSONList :: Value -&gt; Parser [RevocationReason]
+parseJSON :: Value -&gt; Parser RevocationReason
+$cparseJSON :: Value -&gt; Parser RevocationReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679189322"><span id="local-6989586621679189324"><span class="annot"><span class="annottext">FromJSONKeyFunction [RevocationReason]
+FromJSONKeyFunction RevocationReason
+FromJSONKeyFunction RevocationReason
+-&gt; FromJSONKeyFunction [RevocationReason]
+-&gt; FromJSONKey RevocationReason
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RevocationReason]
+$cfromJSONKeyList :: FromJSONKeyFunction [RevocationReason]
+fromJSONKey :: FromJSONKeyFunction RevocationReason
+$cfromJSONKey :: FromJSONKeyFunction RevocationReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679189313"><span id="local-6989586621679189315"><span id="local-6989586621679189317"><span id="local-6989586621679189319"><span class="annot"><span class="annottext">[RevocationReason] -&gt; Encoding
+[RevocationReason] -&gt; Value
+RevocationReason -&gt; Encoding
+RevocationReason -&gt; Value
+(RevocationReason -&gt; Value)
+-&gt; (RevocationReason -&gt; Encoding)
+-&gt; ([RevocationReason] -&gt; Value)
+-&gt; ([RevocationReason] -&gt; Encoding)
+-&gt; ToJSON RevocationReason
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RevocationReason] -&gt; Encoding
+$ctoEncodingList :: [RevocationReason] -&gt; Encoding
+toJSONList :: [RevocationReason] -&gt; Value
+$ctoJSONList :: [RevocationReason] -&gt; Value
+toEncoding :: RevocationReason -&gt; Encoding
+$ctoEncoding :: RevocationReason -&gt; Encoding
+toJSON :: RevocationReason -&gt; Value
+$ctoJSON :: RevocationReason -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679189308"><span id="local-6989586621679189310"><span class="annot"><span class="annottext">ToJSONKeyFunction [RevocationReason]
+ToJSONKeyFunction RevocationReason
+ToJSONKeyFunction RevocationReason
+-&gt; ToJSONKeyFunction [RevocationReason]
+-&gt; ToJSONKey RevocationReason
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RevocationReason]
+$ctoJSONKeyList :: ToJSONKeyFunction [RevocationReason]
+toJSONKey :: ToJSONKeyFunction RevocationReason
+$ctoJSONKey :: ToJSONKeyFunction RevocationReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679189305"><span class="annot"><span class="annottext">[Node] -&gt; Either String RevocationReason
+([Node] -&gt; Either String RevocationReason)
+-&gt; FromXML RevocationReason
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RevocationReason
+$cparseXML :: [Node] -&gt; Either String RevocationReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679189302"><span class="annot"><span class="annottext">RevocationReason -&gt; XML
+(RevocationReason -&gt; XML) -&gt; ToXML RevocationReason
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RevocationReason -&gt; XML
+$ctoXML :: RevocationReason -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_AFFILIATION_CHANGED"><span class="hs-identifier hs-type">RevocationReason_AFFILIATION_CHANGED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_AFFILIATION_CHANGED"><span id="%24mRevocationReason_AFFILIATION_CHANGED"><span id="RevocationReason_AFFILIATION_CHANGED"><span class="annot"><span class="annottext">$bRevocationReason_AFFILIATION_CHANGED :: RevocationReason
+$mRevocationReason_AFFILIATION_CHANGED :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_AFFILIATION_CHANGED"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_AFFILIATION_CHANGED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AFFILIATION_CHANGED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_A_A_COMPROMISE"><span class="hs-identifier hs-type">RevocationReason_A_A_COMPROMISE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_A_A_COMPROMISE"><span id="%24mRevocationReason_A_A_COMPROMISE"><span id="RevocationReason_A_A_COMPROMISE"><span class="annot"><span class="annottext">$bRevocationReason_A_A_COMPROMISE :: RevocationReason
+$mRevocationReason_A_A_COMPROMISE :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_A_A_COMPROMISE"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_A_A_COMPROMISE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;A_A_COMPROMISE&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CA_COMPROMISE"><span class="hs-identifier hs-type">RevocationReason_CA_COMPROMISE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_CA_COMPROMISE"><span id="%24mRevocationReason_CA_COMPROMISE"><span id="RevocationReason_CA_COMPROMISE"><span class="annot"><span class="annottext">$bRevocationReason_CA_COMPROMISE :: RevocationReason
+$mRevocationReason_CA_COMPROMISE :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_CA_COMPROMISE"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_CA_COMPROMISE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CA_COMPROMISE&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CERTIFICATE_HOLD"><span class="hs-identifier hs-type">RevocationReason_CERTIFICATE_HOLD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_CERTIFICATE_HOLD"><span id="%24mRevocationReason_CERTIFICATE_HOLD"><span id="RevocationReason_CERTIFICATE_HOLD"><span class="annot"><span class="annottext">$bRevocationReason_CERTIFICATE_HOLD :: RevocationReason
+$mRevocationReason_CERTIFICATE_HOLD :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_CERTIFICATE_HOLD"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_CERTIFICATE_HOLD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CERTIFICATE_HOLD&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CESSATION_OF_OPERATION"><span class="hs-identifier hs-type">RevocationReason_CESSATION_OF_OPERATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_CESSATION_OF_OPERATION"><span id="%24mRevocationReason_CESSATION_OF_OPERATION"><span id="RevocationReason_CESSATION_OF_OPERATION"><span class="annot"><span class="annottext">$bRevocationReason_CESSATION_OF_OPERATION :: RevocationReason
+$mRevocationReason_CESSATION_OF_OPERATION :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_CESSATION_OF_OPERATION"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_CESSATION_OF_OPERATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CESSATION_OF_OPERATION&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_KEY_COMPROMISE"><span class="hs-identifier hs-type">RevocationReason_KEY_COMPROMISE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_KEY_COMPROMISE"><span id="%24mRevocationReason_KEY_COMPROMISE"><span id="RevocationReason_KEY_COMPROMISE"><span class="annot"><span class="annottext">$bRevocationReason_KEY_COMPROMISE :: RevocationReason
+$mRevocationReason_KEY_COMPROMISE :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_KEY_COMPROMISE"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_KEY_COMPROMISE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KEY_COMPROMISE&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_PRIVILEGE_WITHDRAWN"><span class="hs-identifier hs-type">RevocationReason_PRIVILEGE_WITHDRAWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_PRIVILEGE_WITHDRAWN"><span id="%24mRevocationReason_PRIVILEGE_WITHDRAWN"><span id="RevocationReason_PRIVILEGE_WITHDRAWN"><span class="annot"><span class="annottext">$bRevocationReason_PRIVILEGE_WITHDRAWN :: RevocationReason
+$mRevocationReason_PRIVILEGE_WITHDRAWN :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_PRIVILEGE_WITHDRAWN"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_PRIVILEGE_WITHDRAWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRIVILEGE_WITHDRAWN&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_REMOVE_FROM_CRL"><span class="hs-identifier hs-type">RevocationReason_REMOVE_FROM_CRL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_REMOVE_FROM_CRL"><span id="%24mRevocationReason_REMOVE_FROM_CRL"><span id="RevocationReason_REMOVE_FROM_CRL"><span class="annot"><span class="annottext">$bRevocationReason_REMOVE_FROM_CRL :: RevocationReason
+$mRevocationReason_REMOVE_FROM_CRL :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_REMOVE_FROM_CRL"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_REMOVE_FROM_CRL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REMOVE_FROM_CRL&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_SUPERCEDED"><span class="hs-identifier hs-type">RevocationReason_SUPERCEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_SUPERCEDED"><span id="%24mRevocationReason_SUPERCEDED"><span id="RevocationReason_SUPERCEDED"><span class="annot"><span class="annottext">$bRevocationReason_SUPERCEDED :: RevocationReason
+$mRevocationReason_SUPERCEDED :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_SUPERCEDED"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_SUPERCEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUPERCEDED&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_UNSPECIFIED"><span class="hs-identifier hs-type">RevocationReason_UNSPECIFIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason"><span class="hs-identifier hs-type">RevocationReason</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRevocationReason_UNSPECIFIED"><span id="%24mRevocationReason_UNSPECIFIED"><span id="RevocationReason_UNSPECIFIED"><span class="annot"><span class="annottext">$bRevocationReason_UNSPECIFIED :: RevocationReason
+$mRevocationReason_UNSPECIFIED :: forall r. RevocationReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManager.Types.RevocationReason.html#%24bRevocationReason_UNSPECIFIED"><span class="hs-identifier hs-var hs-var hs-var">RevocationReason_UNSPECIFIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-identifier hs-type">RevocationReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNSPECIFIED&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_AFFILIATION_CHANGED"><span class="hs-pragma hs-type">RevocationReason_AFFILIATION_CHANGED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_A_A_COMPROMISE"><span class="hs-pragma hs-type">RevocationReason_A_A_COMPROMISE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CA_COMPROMISE"><span class="hs-pragma hs-type">RevocationReason_CA_COMPROMISE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CERTIFICATE_HOLD"><span class="hs-pragma hs-type">RevocationReason_CERTIFICATE_HOLD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_CESSATION_OF_OPERATION"><span class="hs-pragma hs-type">RevocationReason_CESSATION_OF_OPERATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_KEY_COMPROMISE"><span class="hs-pragma hs-type">RevocationReason_KEY_COMPROMISE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_PRIVILEGE_WITHDRAWN"><span class="hs-pragma hs-type">RevocationReason_PRIVILEGE_WITHDRAWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_REMOVE_FROM_CRL"><span class="hs-pragma hs-type">RevocationReason_REMOVE_FROM_CRL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_SUPERCEDED"><span class="hs-pragma hs-type">RevocationReason_SUPERCEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason_UNSPECIFIED"><span class="hs-pragma hs-type">RevocationReason_UNSPECIFIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.RevocationReason.html#RevocationReason%27"><span class="hs-pragma hs-type">RevocationReason'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

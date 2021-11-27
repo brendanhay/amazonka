@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Batch.Types.ComputeEnvironmentDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Batch.Types.ComputeEnvironmentDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEState.html"><span class="hs-identifier">Amazonka.Batch.Types.CEState</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEStatus.html"><span class="hs-identifier">Amazonka.Batch.Types.CEStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEType.html"><span class="hs-identifier">Amazonka.Batch.Types.CEType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html"><span class="hs-identifier">Amazonka.Batch.Types.ComputeResource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An object representing an Batch compute environment.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newComputeEnvironmentDetail' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679262093"><span id="local-6989586621679262094"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeEnvironmentDetail"><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-var">ComputeEnvironmentDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeEnvironmentDetail%27"><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">ComputeEnvironmentDetail'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the compute environment (for example, @CREATING@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- or @VALID@).</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Maybe CEStatus
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Astatus%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEStatus.html#CEStatus"><span class="hs-identifier hs-type">CEStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The state of the compute environment. The valid values are @ENABLED@ or</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @DISABLED@.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- If the state is @ENABLED@, then the Batch scheduler can attempt to place</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- jobs from an associated job queue on the compute resources within the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- environment. If the compute environment is managed, then it can scale</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- its instances out or in automatically, based on the job queue demand.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- state continue to progress normally. Managed compute environments in the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- value after instances become idle.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Astate%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Maybe CEState
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Astate%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEState.html#CEState"><span class="hs-identifier hs-type">CEState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The compute resources defined for the compute environment. For more</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments&gt;</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcomputeResources%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Maybe ComputeResource
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeResources%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">computeResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- current status of the compute environment.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AstatusReason%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Maybe Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AstatusReason%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments&gt;</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atype%27%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Maybe CEType
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Atype%27%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEType.html#CEType"><span class="hs-identifier hs-type">CEType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The service role associated with the compute environment that allows</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Batch to make calls to Amazon Web Services API operations on your</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- behalf. For more information, see</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AserviceRole%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Maybe Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AserviceRole%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The tags applied to the compute environment.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Atags%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Atags%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the compute environment. Up to 128 letters (uppercase and</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- lowercase), numbers, hyphens, and underscores are allowed.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcomputeEnvironmentName%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeEnvironmentName%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">computeEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the compute environment.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AcomputeEnvironmentArn%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeEnvironmentArn%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">computeEnvironmentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- by the compute environment.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AecsClusterArn%3AComputeEnvironmentDetail%27"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AecsClusterArn%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262078"><span id="local-6989586621679262080"><span class="annot"><span class="annottext">ComputeEnvironmentDetail -&gt; ComputeEnvironmentDetail -&gt; Bool
+(ComputeEnvironmentDetail -&gt; ComputeEnvironmentDetail -&gt; Bool)
+-&gt; (ComputeEnvironmentDetail -&gt; ComputeEnvironmentDetail -&gt; Bool)
+-&gt; Eq ComputeEnvironmentDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComputeEnvironmentDetail -&gt; ComputeEnvironmentDetail -&gt; Bool
+$c/= :: ComputeEnvironmentDetail -&gt; ComputeEnvironmentDetail -&gt; Bool
+== :: ComputeEnvironmentDetail -&gt; ComputeEnvironmentDetail -&gt; Bool
+$c== :: ComputeEnvironmentDetail -&gt; ComputeEnvironmentDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262069"><span id="local-6989586621679262071"><span id="local-6989586621679262073"><span id="local-6989586621679262075"><span class="annot"><span class="annottext">ReadPrec [ComputeEnvironmentDetail]
+ReadPrec ComputeEnvironmentDetail
+Int -&gt; ReadS ComputeEnvironmentDetail
+ReadS [ComputeEnvironmentDetail]
+(Int -&gt; ReadS ComputeEnvironmentDetail)
+-&gt; ReadS [ComputeEnvironmentDetail]
+-&gt; ReadPrec ComputeEnvironmentDetail
+-&gt; ReadPrec [ComputeEnvironmentDetail]
+-&gt; Read ComputeEnvironmentDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComputeEnvironmentDetail]
+$creadListPrec :: ReadPrec [ComputeEnvironmentDetail]
+readPrec :: ReadPrec ComputeEnvironmentDetail
+$creadPrec :: ReadPrec ComputeEnvironmentDetail
+readList :: ReadS [ComputeEnvironmentDetail]
+$creadList :: ReadS [ComputeEnvironmentDetail]
+readsPrec :: Int -&gt; ReadS ComputeEnvironmentDetail
+$creadsPrec :: Int -&gt; ReadS ComputeEnvironmentDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262062"><span id="local-6989586621679262064"><span id="local-6989586621679262066"><span class="annot"><span class="annottext">Int -&gt; ComputeEnvironmentDetail -&gt; ShowS
+[ComputeEnvironmentDetail] -&gt; ShowS
+ComputeEnvironmentDetail -&gt; String
+(Int -&gt; ComputeEnvironmentDetail -&gt; ShowS)
+-&gt; (ComputeEnvironmentDetail -&gt; String)
+-&gt; ([ComputeEnvironmentDetail] -&gt; ShowS)
+-&gt; Show ComputeEnvironmentDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComputeEnvironmentDetail] -&gt; ShowS
+$cshowList :: [ComputeEnvironmentDetail] -&gt; ShowS
+show :: ComputeEnvironmentDetail -&gt; String
+$cshow :: ComputeEnvironmentDetail -&gt; String
+showsPrec :: Int -&gt; ComputeEnvironmentDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComputeEnvironmentDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ComputeEnvironmentDetail -&gt; Rep ComputeEnvironmentDetail x)
+-&gt; (forall x.
+    Rep ComputeEnvironmentDetail x -&gt; ComputeEnvironmentDetail)
+-&gt; Generic ComputeEnvironmentDetail
+forall x.
+Rep ComputeEnvironmentDetail x -&gt; ComputeEnvironmentDetail
+forall x.
+ComputeEnvironmentDetail -&gt; Rep ComputeEnvironmentDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ComputeEnvironmentDetail x -&gt; ComputeEnvironmentDetail
+$cfrom :: forall x.
+ComputeEnvironmentDetail -&gt; Rep ComputeEnvironmentDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'ComputeEnvironmentDetail' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'status', 'computeEnvironmentDetail_status' - The current status of the compute environment (for example, @CREATING@</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- or @VALID@).</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'state', 'computeEnvironmentDetail_state' - The state of the compute environment. The valid values are @ENABLED@ or</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @DISABLED@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- If the state is @ENABLED@, then the Batch scheduler can attempt to place</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- jobs from an associated job queue on the compute resources within the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- environment. If the compute environment is managed, then it can scale</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- its instances out or in automatically, based on the job queue demand.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- state continue to progress normally. Managed compute environments in the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- value after instances become idle.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'computeResources', 'computeEnvironmentDetail_computeResources' - The compute resources defined for the compute environment. For more</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments&gt;</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'statusReason', 'computeEnvironmentDetail_statusReason' - A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- current status of the compute environment.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'type'', 'computeEnvironmentDetail_type' - The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments&gt;</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'serviceRole', 'computeEnvironmentDetail_serviceRole' - The service role associated with the compute environment that allows</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Batch to make calls to Amazon Web Services API operations on your</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- behalf. For more information, see</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role&gt;</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'tags', 'computeEnvironmentDetail_tags' - The tags applied to the compute environment.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'computeEnvironmentName', 'computeEnvironmentDetail_computeEnvironmentName' - The name of the compute environment. Up to 128 letters (uppercase and</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- lowercase), numbers, hyphens, and underscores are allowed.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'computeEnvironmentArn', 'computeEnvironmentDetail_computeEnvironmentArn' - The Amazon Resource Name (ARN) of the compute environment.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'ecsClusterArn', 'computeEnvironmentDetail_ecsClusterArn' - The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- by the compute environment.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#newComputeEnvironmentDetail"><span class="hs-identifier hs-type">newComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'computeEnvironmentName'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'computeEnvironmentArn'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'ecsClusterArn'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span>
+</span><span id="line-144"></span><span id="newComputeEnvironmentDetail"><span class="annot"><span class="annottext">newComputeEnvironmentDetail :: Text -&gt; Text -&gt; Text -&gt; ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#newComputeEnvironmentDetail"><span class="hs-identifier hs-var hs-var">newComputeEnvironmentDetail</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679262056"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var">pComputeEnvironmentName_</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679262055"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262055"><span class="hs-identifier hs-var">pComputeEnvironmentArn_</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679262054"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262054"><span class="hs-identifier hs-var">pEcsClusterArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail' :: Maybe CEStatus
+-&gt; Maybe CEState
+-&gt; Maybe ComputeResource
+-&gt; Maybe Text
+-&gt; Maybe CEType
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ComputeEnvironmentDetail' :: Maybe CEStatus
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Astatus%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CEStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:ComputeEnvironmentDetail' :: Maybe CEState
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Astate%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CEState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:computeResources:ComputeEnvironmentDetail' :: Maybe ComputeResource
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeResources%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">computeResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusReason:ComputeEnvironmentDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AstatusReason%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':ComputeEnvironmentDetail' :: Maybe CEType
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Atype%27%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CEType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceRole:ComputeEnvironmentDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AserviceRole%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:ComputeEnvironmentDetail' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Atags%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:computeEnvironmentName:ComputeEnvironmentDetail' :: Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeEnvironmentName%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">computeEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var">pComputeEnvironmentName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:computeEnvironmentArn:ComputeEnvironmentDetail' :: Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeEnvironmentArn%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">computeEnvironmentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262055"><span class="hs-identifier hs-var">pComputeEnvironmentArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:ecsClusterArn:ComputeEnvironmentDetail' :: Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AecsClusterArn%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262054"><span class="hs-identifier hs-var">pEcsClusterArn_</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The current status of the compute environment (for example, @CREATING@</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- or @VALID@).</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_status"><span class="hs-identifier hs-type">computeEnvironmentDetail_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEStatus.html#CEStatus"><span class="hs-identifier hs-type">CEStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="computeEnvironmentDetail_status"><span class="annot"><span class="annottext">computeEnvironmentDetail_status :: (Maybe CEStatus -&gt; f (Maybe CEStatus))
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_status"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Maybe CEStatus)
+-&gt; (ComputeEnvironmentDetail
+    -&gt; Maybe CEStatus -&gt; ComputeEnvironmentDetail)
+-&gt; Lens
+     ComputeEnvironmentDetail
+     ComputeEnvironmentDetail
+     (Maybe CEStatus)
+     (Maybe CEStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262050"><span class="annot"><span class="annottext">Maybe CEStatus
+status :: Maybe CEStatus
+$sel:status:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Maybe CEStatus
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CEStatus
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262049"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262048"><span class="annot"><span class="annottext">Maybe CEStatus
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ComputeEnvironmentDetail' :: Maybe CEStatus
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Astatus%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CEStatus
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The state of the compute environment. The valid values are @ENABLED@ or</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- @DISABLED@.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- If the state is @ENABLED@, then the Batch scheduler can attempt to place</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- jobs from an associated job queue on the compute resources within the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- environment. If the compute environment is managed, then it can scale</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- its instances out or in automatically, based on the job queue demand.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- state continue to progress normally. Managed compute environments in the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- value after instances become idle.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_state"><span class="hs-identifier hs-type">computeEnvironmentDetail_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEState.html#CEState"><span class="hs-identifier hs-type">CEState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="computeEnvironmentDetail_state"><span class="annot"><span class="annottext">computeEnvironmentDetail_state :: (Maybe CEState -&gt; f (Maybe CEState))
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_state"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Maybe CEState)
+-&gt; (ComputeEnvironmentDetail
+    -&gt; Maybe CEState -&gt; ComputeEnvironmentDetail)
+-&gt; Lens
+     ComputeEnvironmentDetail
+     ComputeEnvironmentDetail
+     (Maybe CEState)
+     (Maybe CEState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262046"><span class="annot"><span class="annottext">Maybe CEState
+state :: Maybe CEState
+$sel:state:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Maybe CEState
+</span><a href="#local-6989586621679262046"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CEState
+</span><a href="#local-6989586621679262046"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262045"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262044"><span class="annot"><span class="annottext">Maybe CEState
+</span><a href="#local-6989586621679262044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ComputeEnvironmentDetail' :: Maybe CEState
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Astate%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CEState
+</span><a href="#local-6989586621679262044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The compute resources defined for the compute environment. For more</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments&gt;</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeResources"><span class="hs-identifier hs-type">computeEnvironmentDetail_computeResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="computeEnvironmentDetail_computeResources"><span class="annot"><span class="annottext">computeEnvironmentDetail_computeResources :: (Maybe ComputeResource -&gt; f (Maybe ComputeResource))
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeResources"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_computeResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Maybe ComputeResource)
+-&gt; (ComputeEnvironmentDetail
+    -&gt; Maybe ComputeResource -&gt; ComputeEnvironmentDetail)
+-&gt; Lens
+     ComputeEnvironmentDetail
+     ComputeEnvironmentDetail
+     (Maybe ComputeResource)
+     (Maybe ComputeResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262042"><span class="annot"><span class="annottext">Maybe ComputeResource
+computeResources :: Maybe ComputeResource
+$sel:computeResources:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Maybe ComputeResource
+</span><a href="#local-6989586621679262042"><span class="hs-identifier hs-var hs-var">computeResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeResource
+</span><a href="#local-6989586621679262042"><span class="hs-identifier hs-var">computeResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262041"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262040"><span class="annot"><span class="annottext">Maybe ComputeResource
+</span><a href="#local-6989586621679262040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeResources:ComputeEnvironmentDetail' :: Maybe ComputeResource
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeResources%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">computeResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeResource
+</span><a href="#local-6989586621679262040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- current status of the compute environment.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_statusReason"><span class="hs-identifier hs-type">computeEnvironmentDetail_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="computeEnvironmentDetail_statusReason"><span class="annot"><span class="annottext">computeEnvironmentDetail_statusReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_statusReason"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Maybe Text)
+-&gt; (ComputeEnvironmentDetail
+    -&gt; Maybe Text -&gt; ComputeEnvironmentDetail)
+-&gt; Lens
+     ComputeEnvironmentDetail
+     ComputeEnvironmentDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262038"><span class="annot"><span class="annottext">Maybe Text
+statusReason :: Maybe Text
+$sel:statusReason:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679262038"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262038"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262037"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262036"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:ComputeEnvironmentDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AstatusReason%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments&gt;</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_type"><span class="hs-identifier hs-type">computeEnvironmentDetail_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.CEType.html#CEType"><span class="hs-identifier hs-type">CEType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="computeEnvironmentDetail_type"><span class="annot"><span class="annottext">computeEnvironmentDetail_type :: (Maybe CEType -&gt; f (Maybe CEType))
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_type"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Maybe CEType)
+-&gt; (ComputeEnvironmentDetail
+    -&gt; Maybe CEType -&gt; ComputeEnvironmentDetail)
+-&gt; Lens
+     ComputeEnvironmentDetail
+     ComputeEnvironmentDetail
+     (Maybe CEType)
+     (Maybe CEType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262034"><span class="annot"><span class="annottext">Maybe CEType
+type' :: Maybe CEType
+$sel:type':ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Maybe CEType
+</span><a href="#local-6989586621679262034"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CEType
+</span><a href="#local-6989586621679262034"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262033"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262032"><span class="annot"><span class="annottext">Maybe CEType
+</span><a href="#local-6989586621679262032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ComputeEnvironmentDetail' :: Maybe CEType
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Atype%27%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CEType
+</span><a href="#local-6989586621679262032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The service role associated with the compute environment that allows</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Batch to make calls to Amazon Web Services API operations on your</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- behalf. For more information, see</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role&gt;</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_serviceRole"><span class="hs-identifier hs-type">computeEnvironmentDetail_serviceRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="computeEnvironmentDetail_serviceRole"><span class="annot"><span class="annottext">computeEnvironmentDetail_serviceRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_serviceRole"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_serviceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Maybe Text)
+-&gt; (ComputeEnvironmentDetail
+    -&gt; Maybe Text -&gt; ComputeEnvironmentDetail)
+-&gt; Lens
+     ComputeEnvironmentDetail
+     ComputeEnvironmentDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262030"><span class="annot"><span class="annottext">Maybe Text
+serviceRole :: Maybe Text
+$sel:serviceRole:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679262030"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262030"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262029"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262028"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:ComputeEnvironmentDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AserviceRole%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The tags applied to the compute environment.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_tags"><span class="hs-identifier hs-type">computeEnvironmentDetail_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="computeEnvironmentDetail_tags"><span class="annot"><span class="annottext">computeEnvironmentDetail_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_tags"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Maybe (HashMap Text Text))
+-&gt; (ComputeEnvironmentDetail
+    -&gt; Maybe (HashMap Text Text) -&gt; ComputeEnvironmentDetail)
+-&gt; Lens
+     ComputeEnvironmentDetail
+     ComputeEnvironmentDetail
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262026"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679262026"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679262026"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262025"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262024"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679262024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ComputeEnvironmentDetail' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3Atags%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679262024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ComputeEnvironmentDetail
+-&gt; f ComputeEnvironmentDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The name of the compute environment. Up to 128 letters (uppercase and</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- lowercase), numbers, hyphens, and underscores are allowed.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeEnvironmentName"><span class="hs-identifier hs-type">computeEnvironmentDetail_computeEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-216"></span><span id="computeEnvironmentDetail_computeEnvironmentName"><span class="annot"><span class="annottext">computeEnvironmentDetail_computeEnvironmentName :: (Text -&gt; f Text)
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeEnvironmentName"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_computeEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Text)
+-&gt; (ComputeEnvironmentDetail -&gt; Text -&gt; ComputeEnvironmentDetail)
+-&gt; Lens ComputeEnvironmentDetail ComputeEnvironmentDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262019"><span class="annot"><span class="annottext">Text
+computeEnvironmentName :: Text
+$sel:computeEnvironmentName:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Text
+</span><a href="#local-6989586621679262019"><span class="hs-identifier hs-var hs-var">computeEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262019"><span class="hs-identifier hs-var">computeEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262018"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironmentName:ComputeEnvironmentDetail' :: Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeEnvironmentName%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">computeEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the compute environment.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeEnvironmentArn"><span class="hs-identifier hs-type">computeEnvironmentDetail_computeEnvironmentArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-220"></span><span id="computeEnvironmentDetail_computeEnvironmentArn"><span class="annot"><span class="annottext">computeEnvironmentDetail_computeEnvironmentArn :: (Text -&gt; f Text)
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_computeEnvironmentArn"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_computeEnvironmentArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Text)
+-&gt; (ComputeEnvironmentDetail -&gt; Text -&gt; ComputeEnvironmentDetail)
+-&gt; Lens ComputeEnvironmentDetail ComputeEnvironmentDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262015"><span class="annot"><span class="annottext">Text
+computeEnvironmentArn :: Text
+$sel:computeEnvironmentArn:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Text
+</span><a href="#local-6989586621679262015"><span class="hs-identifier hs-var hs-var">computeEnvironmentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262015"><span class="hs-identifier hs-var">computeEnvironmentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262014"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironmentArn:ComputeEnvironmentDetail' :: Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AcomputeEnvironmentArn%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">computeEnvironmentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- by the compute environment.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_ecsClusterArn"><span class="hs-identifier hs-type">computeEnvironmentDetail_ecsClusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-225"></span><span id="computeEnvironmentDetail_ecsClusterArn"><span class="annot"><span class="annottext">computeEnvironmentDetail_ecsClusterArn :: (Text -&gt; f Text)
+-&gt; ComputeEnvironmentDetail -&gt; f ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#computeEnvironmentDetail_ecsClusterArn"><span class="hs-identifier hs-var hs-var">computeEnvironmentDetail_ecsClusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeEnvironmentDetail -&gt; Text)
+-&gt; (ComputeEnvironmentDetail -&gt; Text -&gt; ComputeEnvironmentDetail)
+-&gt; Lens ComputeEnvironmentDetail ComputeEnvironmentDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262011"><span class="annot"><span class="annottext">Text
+ecsClusterArn :: Text
+$sel:ecsClusterArn:ComputeEnvironmentDetail' :: ComputeEnvironmentDetail -&gt; Text
+</span><a href="#local-6989586621679262011"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262011"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262010"><span class="annot"><span class="annottext">s :: ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-type">ComputeEnvironmentDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentDetail
+</span><a href="#local-6989586621679262010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsClusterArn:ComputeEnvironmentDetail' :: Text
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#%24sel%3AecsClusterArn%3AComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262006"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679262004"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeEnvironmentDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ComputeEnvironmentDetail)
+-&gt; Value
+-&gt; Parser ComputeEnvironmentDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ComputeEnvironmentDetail&quot;</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262001"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe CEStatus
+-&gt; Maybe CEState
+-&gt; Maybe ComputeResource
+-&gt; Maybe Text
+-&gt; Maybe CEType
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ComputeEnvironmentDetail
+</span><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail%27"><span class="hs-identifier hs-var">ComputeEnvironmentDetail'</span></a></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CEStatus
+ -&gt; Maybe CEState
+ -&gt; Maybe ComputeResource
+ -&gt; Maybe Text
+ -&gt; Maybe CEType
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ComputeEnvironmentDetail)
+-&gt; Parser (Maybe CEStatus)
+-&gt; Parser
+     (Maybe CEState
+      -&gt; Maybe ComputeResource
+      -&gt; Maybe Text
+      -&gt; Maybe CEType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CEStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CEState
+   -&gt; Maybe ComputeResource
+   -&gt; Maybe Text
+   -&gt; Maybe CEType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ComputeEnvironmentDetail)
+-&gt; Parser (Maybe CEState)
+-&gt; Parser
+     (Maybe ComputeResource
+      -&gt; Maybe Text
+      -&gt; Maybe CEType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CEState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ComputeResource
+   -&gt; Maybe Text
+   -&gt; Maybe CEType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ComputeEnvironmentDetail)
+-&gt; Parser (Maybe ComputeResource)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CEType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComputeResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computeResources&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CEType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ComputeEnvironmentDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CEType
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CEType
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ComputeEnvironmentDetail)
+-&gt; Parser (Maybe CEType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CEType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ComputeEnvironmentDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Text -&gt; Text -&gt; Text -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Text -&gt; Text -&gt; Text -&gt; ComputeEnvironmentDetail)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; ComputeEnvironmentDetail)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computeEnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ComputeEnvironmentDetail)
+-&gt; Parser Text -&gt; Parser (Text -&gt; ComputeEnvironmentDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computeEnvironmentArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ComputeEnvironmentDetail)
+-&gt; Parser Text -&gt; Parser ComputeEnvironmentDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ecsClusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261993"><span id="local-6989586621679261995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span></span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeEnvironmentDetail.html#ComputeEnvironmentDetail"><span class="hs-identifier hs-type">ComputeEnvironmentDetail</span></a></span></span><span>
+</span><span id="line-248"></span></pre></body></html>

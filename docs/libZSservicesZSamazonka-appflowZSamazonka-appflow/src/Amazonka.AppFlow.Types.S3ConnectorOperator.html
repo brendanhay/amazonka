@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.S3ConnectorOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.S3ConnectorOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_ADDITION"><span class="hs-identifier">S3ConnectorOperator_ADDITION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_BETWEEN"><span class="hs-identifier">S3ConnectorOperator_BETWEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_DIVISION"><span class="hs-identifier">S3ConnectorOperator_DIVISION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_EQUAL_TO"><span class="hs-identifier">S3ConnectorOperator_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_GREATER_THAN"><span class="hs-identifier">S3ConnectorOperator_GREATER_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-identifier">S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_LESS_THAN"><span class="hs-identifier">S3ConnectorOperator_LESS_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-identifier">S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_ALL"><span class="hs-identifier">S3ConnectorOperator_MASK_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_FIRST_N"><span class="hs-identifier">S3ConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_LAST_N"><span class="hs-identifier">S3ConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MULTIPLICATION"><span class="hs-identifier">S3ConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_NOT_EQUAL_TO"><span class="hs-identifier">S3ConnectorOperator_NOT_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_NO_OP"><span class="hs-identifier">S3ConnectorOperator_NO_OP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_PROJECTION"><span class="hs-identifier">S3ConnectorOperator_PROJECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_SUBTRACTION"><span class="hs-identifier">S3ConnectorOperator_SUBTRACTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier">S3ConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier">S3ConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier">S3ConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier">S3ConnectorOperator_VALIDATE_NUMERIC</span></a></span><span>
+</span><span id="line-43"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679320509"><span id="local-6989586621679320510"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ConnectorOperator"><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-var">S3ConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ConnectorOperator%27"><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-var">S3ConnectorOperator'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3ConnectorOperator"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; Text
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#fromS3ConnectorOperator"><span class="hs-identifier hs-var hs-var">fromS3ConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679320501"><span id="local-6989586621679320503"><span id="local-6989586621679320505"><span class="annot"><span class="annottext">Int -&gt; S3ConnectorOperator -&gt; ShowS
+[S3ConnectorOperator] -&gt; ShowS
+S3ConnectorOperator -&gt; String
+(Int -&gt; S3ConnectorOperator -&gt; ShowS)
+-&gt; (S3ConnectorOperator -&gt; String)
+-&gt; ([S3ConnectorOperator] -&gt; ShowS)
+-&gt; Show S3ConnectorOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3ConnectorOperator] -&gt; ShowS
+$cshowList :: [S3ConnectorOperator] -&gt; ShowS
+show :: S3ConnectorOperator -&gt; String
+$cshow :: S3ConnectorOperator -&gt; String
+showsPrec :: Int -&gt; S3ConnectorOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3ConnectorOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679320492"><span id="local-6989586621679320494"><span id="local-6989586621679320496"><span id="local-6989586621679320498"><span class="annot"><span class="annottext">ReadPrec [S3ConnectorOperator]
+ReadPrec S3ConnectorOperator
+Int -&gt; ReadS S3ConnectorOperator
+ReadS [S3ConnectorOperator]
+(Int -&gt; ReadS S3ConnectorOperator)
+-&gt; ReadS [S3ConnectorOperator]
+-&gt; ReadPrec S3ConnectorOperator
+-&gt; ReadPrec [S3ConnectorOperator]
+-&gt; Read S3ConnectorOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3ConnectorOperator]
+$creadListPrec :: ReadPrec [S3ConnectorOperator]
+readPrec :: ReadPrec S3ConnectorOperator
+$creadPrec :: ReadPrec S3ConnectorOperator
+readList :: ReadS [S3ConnectorOperator]
+$creadList :: ReadS [S3ConnectorOperator]
+readsPrec :: Int -&gt; ReadS S3ConnectorOperator
+$creadsPrec :: Int -&gt; ReadS S3ConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679320487"><span id="local-6989586621679320489"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+(S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool)
+-&gt; (S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool)
+-&gt; Eq S3ConnectorOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+$c/= :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+== :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+$c== :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679320471"><span id="local-6989586621679320473"><span id="local-6989586621679320475"><span id="local-6989586621679320477"><span id="local-6989586621679320479"><span id="local-6989586621679320481"><span id="local-6989586621679320483"><span class="annot"><span class="annottext">Eq S3ConnectorOperator
+Eq S3ConnectorOperator
+-&gt; (S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Ordering)
+-&gt; (S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool)
+-&gt; (S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool)
+-&gt; (S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool)
+-&gt; (S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool)
+-&gt; (S3ConnectorOperator
+    -&gt; S3ConnectorOperator -&gt; S3ConnectorOperator)
+-&gt; (S3ConnectorOperator
+    -&gt; S3ConnectorOperator -&gt; S3ConnectorOperator)
+-&gt; Ord S3ConnectorOperator
+S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Ordering
+S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; S3ConnectorOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; S3ConnectorOperator
+$cmin :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; S3ConnectorOperator
+max :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; S3ConnectorOperator
+$cmax :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; S3ConnectorOperator
+&gt;= :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+$c&gt;= :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+&gt; :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+$c&gt; :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+&lt;= :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+$c&lt;= :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+&lt; :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+$c&lt; :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Bool
+compare :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Ordering
+$ccompare :: S3ConnectorOperator -&gt; S3ConnectorOperator -&gt; Ordering
+$cp1Ord :: Eq S3ConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">(forall x. S3ConnectorOperator -&gt; Rep S3ConnectorOperator x)
+-&gt; (forall x. Rep S3ConnectorOperator x -&gt; S3ConnectorOperator)
+-&gt; Generic S3ConnectorOperator
+forall x. Rep S3ConnectorOperator x -&gt; S3ConnectorOperator
+forall x. S3ConnectorOperator -&gt; Rep S3ConnectorOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3ConnectorOperator x -&gt; S3ConnectorOperator
+$cfrom :: forall x. S3ConnectorOperator -&gt; Rep S3ConnectorOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679320463"><span id="local-6989586621679320465"><span class="annot"><span class="annottext">Int -&gt; S3ConnectorOperator -&gt; Int
+S3ConnectorOperator -&gt; Int
+(Int -&gt; S3ConnectorOperator -&gt; Int)
+-&gt; (S3ConnectorOperator -&gt; Int) -&gt; Hashable S3ConnectorOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: S3ConnectorOperator -&gt; Int
+$chash :: S3ConnectorOperator -&gt; Int
+hashWithSalt :: Int -&gt; S3ConnectorOperator -&gt; Int
+$chashWithSalt :: Int -&gt; S3ConnectorOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679320460"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; ()
+(S3ConnectorOperator -&gt; ()) -&gt; NFData S3ConnectorOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: S3ConnectorOperator -&gt; ()
+$crnf :: S3ConnectorOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679320457"><span class="annot"><span class="annottext">Text -&gt; Either String S3ConnectorOperator
+(Text -&gt; Either String S3ConnectorOperator)
+-&gt; FromText S3ConnectorOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String S3ConnectorOperator
+$cfromText :: Text -&gt; Either String S3ConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679320454"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; Text
+(S3ConnectorOperator -&gt; Text) -&gt; ToText S3ConnectorOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: S3ConnectorOperator -&gt; Text
+$ctoText :: S3ConnectorOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679320451"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; ByteString
+(S3ConnectorOperator -&gt; ByteString)
+-&gt; ToByteString S3ConnectorOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: S3ConnectorOperator -&gt; ByteString
+$ctoBS :: S3ConnectorOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679320448"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; ByteStringBuilder
+(S3ConnectorOperator -&gt; ByteStringBuilder)
+-&gt; ToLog S3ConnectorOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: S3ConnectorOperator -&gt; ByteStringBuilder
+$cbuild :: S3ConnectorOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679320445"><span class="annot"><span class="annottext">HeaderName -&gt; S3ConnectorOperator -&gt; [Header]
+(HeaderName -&gt; S3ConnectorOperator -&gt; [Header])
+-&gt; ToHeader S3ConnectorOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; S3ConnectorOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; S3ConnectorOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679320442"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; QueryString
+(S3ConnectorOperator -&gt; QueryString) -&gt; ToQuery S3ConnectorOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: S3ConnectorOperator -&gt; QueryString
+$ctoQuery :: S3ConnectorOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679320437"><span id="local-6989586621679320439"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ConnectorOperator]
+Value -&gt; Parser S3ConnectorOperator
+(Value -&gt; Parser S3ConnectorOperator)
+-&gt; (Value -&gt; Parser [S3ConnectorOperator])
+-&gt; FromJSON S3ConnectorOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [S3ConnectorOperator]
+$cparseJSONList :: Value -&gt; Parser [S3ConnectorOperator]
+parseJSON :: Value -&gt; Parser S3ConnectorOperator
+$cparseJSON :: Value -&gt; Parser S3ConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679320432"><span id="local-6989586621679320434"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ConnectorOperator]
+FromJSONKeyFunction S3ConnectorOperator
+FromJSONKeyFunction S3ConnectorOperator
+-&gt; FromJSONKeyFunction [S3ConnectorOperator]
+-&gt; FromJSONKey S3ConnectorOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [S3ConnectorOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [S3ConnectorOperator]
+fromJSONKey :: FromJSONKeyFunction S3ConnectorOperator
+$cfromJSONKey :: FromJSONKeyFunction S3ConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679320423"><span id="local-6989586621679320425"><span id="local-6989586621679320427"><span id="local-6989586621679320429"><span class="annot"><span class="annottext">[S3ConnectorOperator] -&gt; Encoding
+[S3ConnectorOperator] -&gt; Value
+S3ConnectorOperator -&gt; Encoding
+S3ConnectorOperator -&gt; Value
+(S3ConnectorOperator -&gt; Value)
+-&gt; (S3ConnectorOperator -&gt; Encoding)
+-&gt; ([S3ConnectorOperator] -&gt; Value)
+-&gt; ([S3ConnectorOperator] -&gt; Encoding)
+-&gt; ToJSON S3ConnectorOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [S3ConnectorOperator] -&gt; Encoding
+$ctoEncodingList :: [S3ConnectorOperator] -&gt; Encoding
+toJSONList :: [S3ConnectorOperator] -&gt; Value
+$ctoJSONList :: [S3ConnectorOperator] -&gt; Value
+toEncoding :: S3ConnectorOperator -&gt; Encoding
+$ctoEncoding :: S3ConnectorOperator -&gt; Encoding
+toJSON :: S3ConnectorOperator -&gt; Value
+$ctoJSON :: S3ConnectorOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679320418"><span id="local-6989586621679320420"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ConnectorOperator]
+ToJSONKeyFunction S3ConnectorOperator
+ToJSONKeyFunction S3ConnectorOperator
+-&gt; ToJSONKeyFunction [S3ConnectorOperator]
+-&gt; ToJSONKey S3ConnectorOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [S3ConnectorOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [S3ConnectorOperator]
+toJSONKey :: ToJSONKeyFunction S3ConnectorOperator
+$ctoJSONKey :: ToJSONKeyFunction S3ConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679320415"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ConnectorOperator
+([Node] -&gt; Either String S3ConnectorOperator)
+-&gt; FromXML S3ConnectorOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String S3ConnectorOperator
+$cparseXML :: [Node] -&gt; Either String S3ConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679320412"><span class="annot"><span class="annottext">S3ConnectorOperator -&gt; XML
+(S3ConnectorOperator -&gt; XML) -&gt; ToXML S3ConnectorOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: S3ConnectorOperator -&gt; XML
+$ctoXML :: S3ConnectorOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_ADDITION"><span class="hs-identifier hs-type">S3ConnectorOperator_ADDITION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_ADDITION"><span id="%24mS3ConnectorOperator_ADDITION"><span id="S3ConnectorOperator_ADDITION"><span class="annot"><span class="annottext">$bS3ConnectorOperator_ADDITION :: S3ConnectorOperator
+$mS3ConnectorOperator_ADDITION :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_ADDITION"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_ADDITION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDITION&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_BETWEEN"><span class="hs-identifier hs-type">S3ConnectorOperator_BETWEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_BETWEEN"><span id="%24mS3ConnectorOperator_BETWEEN"><span id="S3ConnectorOperator_BETWEEN"><span class="annot"><span class="annottext">$bS3ConnectorOperator_BETWEEN :: S3ConnectorOperator
+$mS3ConnectorOperator_BETWEEN :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_BETWEEN"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_BETWEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BETWEEN&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_DIVISION"><span class="hs-identifier hs-type">S3ConnectorOperator_DIVISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_DIVISION"><span id="%24mS3ConnectorOperator_DIVISION"><span id="S3ConnectorOperator_DIVISION"><span class="annot"><span class="annottext">$bS3ConnectorOperator_DIVISION :: S3ConnectorOperator
+$mS3ConnectorOperator_DIVISION :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_DIVISION"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_DIVISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIVISION&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-type">S3ConnectorOperator_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_EQUAL_TO"><span id="%24mS3ConnectorOperator_EQUAL_TO"><span id="S3ConnectorOperator_EQUAL_TO"><span class="annot"><span class="annottext">$bS3ConnectorOperator_EQUAL_TO :: S3ConnectorOperator
+$mS3ConnectorOperator_EQUAL_TO :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUAL_TO&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-type">S3ConnectorOperator_GREATER_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_GREATER_THAN"><span id="%24mS3ConnectorOperator_GREATER_THAN"><span id="S3ConnectorOperator_GREATER_THAN"><span class="annot"><span class="annottext">$bS3ConnectorOperator_GREATER_THAN :: S3ConnectorOperator
+$mS3ConnectorOperator_GREATER_THAN :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_GREATER_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-type">S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span id="%24mS3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span id="S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="annot"><span class="annottext">$bS3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO :: S3ConnectorOperator
+$mS3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN_OR_EQUAL_TO&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_LESS_THAN"><span class="hs-identifier hs-type">S3ConnectorOperator_LESS_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_LESS_THAN"><span id="%24mS3ConnectorOperator_LESS_THAN"><span id="S3ConnectorOperator_LESS_THAN"><span class="annot"><span class="annottext">$bS3ConnectorOperator_LESS_THAN :: S3ConnectorOperator
+$mS3ConnectorOperator_LESS_THAN :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_LESS_THAN"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_LESS_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-type">S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span id="%24mS3ConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span id="S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="annot"><span class="annottext">$bS3ConnectorOperator_LESS_THAN_OR_EQUAL_TO :: S3ConnectorOperator
+$mS3ConnectorOperator_LESS_THAN_OR_EQUAL_TO :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN_OR_EQUAL_TO&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_ALL"><span class="hs-identifier hs-type">S3ConnectorOperator_MASK_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_MASK_ALL"><span id="%24mS3ConnectorOperator_MASK_ALL"><span id="S3ConnectorOperator_MASK_ALL"><span class="annot"><span class="annottext">$bS3ConnectorOperator_MASK_ALL :: S3ConnectorOperator
+$mS3ConnectorOperator_MASK_ALL :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_MASK_ALL"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_MASK_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_ALL&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-type">S3ConnectorOperator_MASK_FIRST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_MASK_FIRST_N"><span id="%24mS3ConnectorOperator_MASK_FIRST_N"><span id="S3ConnectorOperator_MASK_FIRST_N"><span class="annot"><span class="annottext">$bS3ConnectorOperator_MASK_FIRST_N :: S3ConnectorOperator
+$mS3ConnectorOperator_MASK_FIRST_N :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_MASK_FIRST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_FIRST_N&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-type">S3ConnectorOperator_MASK_LAST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_MASK_LAST_N"><span id="%24mS3ConnectorOperator_MASK_LAST_N"><span id="S3ConnectorOperator_MASK_LAST_N"><span class="annot"><span class="annottext">$bS3ConnectorOperator_MASK_LAST_N :: S3ConnectorOperator
+$mS3ConnectorOperator_MASK_LAST_N :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_MASK_LAST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_LAST_N&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-type">S3ConnectorOperator_MULTIPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_MULTIPLICATION"><span id="%24mS3ConnectorOperator_MULTIPLICATION"><span id="S3ConnectorOperator_MULTIPLICATION"><span class="annot"><span class="annottext">$bS3ConnectorOperator_MULTIPLICATION :: S3ConnectorOperator
+$mS3ConnectorOperator_MULTIPLICATION :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_MULTIPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTIPLICATION&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_NOT_EQUAL_TO"><span class="hs-identifier hs-type">S3ConnectorOperator_NOT_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_NOT_EQUAL_TO"><span id="%24mS3ConnectorOperator_NOT_EQUAL_TO"><span id="S3ConnectorOperator_NOT_EQUAL_TO"><span class="annot"><span class="annottext">$bS3ConnectorOperator_NOT_EQUAL_TO :: S3ConnectorOperator
+$mS3ConnectorOperator_NOT_EQUAL_TO :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_NOT_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_NOT_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_EQUAL_TO&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_NO_OP"><span class="hs-identifier hs-type">S3ConnectorOperator_NO_OP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_NO_OP"><span id="%24mS3ConnectorOperator_NO_OP"><span id="S3ConnectorOperator_NO_OP"><span class="annot"><span class="annottext">$bS3ConnectorOperator_NO_OP :: S3ConnectorOperator
+$mS3ConnectorOperator_NO_OP :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_NO_OP"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_NO_OP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_OP&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_PROJECTION"><span class="hs-identifier hs-type">S3ConnectorOperator_PROJECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_PROJECTION"><span id="%24mS3ConnectorOperator_PROJECTION"><span id="S3ConnectorOperator_PROJECTION"><span class="annot"><span class="annottext">$bS3ConnectorOperator_PROJECTION :: S3ConnectorOperator
+$mS3ConnectorOperator_PROJECTION :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_PROJECTION"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_PROJECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROJECTION&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-type">S3ConnectorOperator_SUBTRACTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_SUBTRACTION"><span id="%24mS3ConnectorOperator_SUBTRACTION"><span id="S3ConnectorOperator_SUBTRACTION"><span class="annot"><span class="annottext">$bS3ConnectorOperator_SUBTRACTION :: S3ConnectorOperator
+$mS3ConnectorOperator_SUBTRACTION :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_SUBTRACTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBTRACTION&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-type">S3ConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="%24mS3ConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="S3ConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="annot"><span class="annottext">$bS3ConnectorOperator_VALIDATE_NON_NEGATIVE :: S3ConnectorOperator
+$mS3ConnectorOperator_VALIDATE_NON_NEGATIVE :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NEGATIVE&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-type">S3ConnectorOperator_VALIDATE_NON_NULL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_VALIDATE_NON_NULL"><span id="%24mS3ConnectorOperator_VALIDATE_NON_NULL"><span id="S3ConnectorOperator_VALIDATE_NON_NULL"><span class="annot"><span class="annottext">$bS3ConnectorOperator_VALIDATE_NON_NULL :: S3ConnectorOperator
+$mS3ConnectorOperator_VALIDATE_NON_NULL :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_VALIDATE_NON_NULL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NULL&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-type">S3ConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_VALIDATE_NON_ZERO"><span id="%24mS3ConnectorOperator_VALIDATE_NON_ZERO"><span id="S3ConnectorOperator_VALIDATE_NON_ZERO"><span class="annot"><span class="annottext">$bS3ConnectorOperator_VALIDATE_NON_ZERO :: S3ConnectorOperator
+$mS3ConnectorOperator_VALIDATE_NON_ZERO :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_VALIDATE_NON_ZERO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_ZERO&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-type">S3ConnectorOperator_VALIDATE_NUMERIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier hs-type">S3ConnectorOperator</span></a></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3ConnectorOperator_VALIDATE_NUMERIC"><span id="%24mS3ConnectorOperator_VALIDATE_NUMERIC"><span id="S3ConnectorOperator_VALIDATE_NUMERIC"><span class="annot"><span class="annottext">$bS3ConnectorOperator_VALIDATE_NUMERIC :: S3ConnectorOperator
+$mS3ConnectorOperator_VALIDATE_NUMERIC :: forall r. S3ConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#%24bS3ConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-var hs-var hs-var">S3ConnectorOperator_VALIDATE_NUMERIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-identifier hs-type">S3ConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NUMERIC&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_ADDITION"><span class="hs-pragma hs-type">S3ConnectorOperator_ADDITION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_BETWEEN"><span class="hs-pragma hs-type">S3ConnectorOperator_BETWEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_DIVISION"><span class="hs-pragma hs-type">S3ConnectorOperator_DIVISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_EQUAL_TO"><span class="hs-pragma hs-type">S3ConnectorOperator_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_GREATER_THAN"><span class="hs-pragma hs-type">S3ConnectorOperator_GREATER_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-pragma hs-type">S3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_LESS_THAN"><span class="hs-pragma hs-type">S3ConnectorOperator_LESS_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-pragma hs-type">S3ConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_ALL"><span class="hs-pragma hs-type">S3ConnectorOperator_MASK_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_FIRST_N"><span class="hs-pragma hs-type">S3ConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MASK_LAST_N"><span class="hs-pragma hs-type">S3ConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_MULTIPLICATION"><span class="hs-pragma hs-type">S3ConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_NOT_EQUAL_TO"><span class="hs-pragma hs-type">S3ConnectorOperator_NOT_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_NO_OP"><span class="hs-pragma hs-type">S3ConnectorOperator_NO_OP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_PROJECTION"><span class="hs-pragma hs-type">S3ConnectorOperator_PROJECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_SUBTRACTION"><span class="hs-pragma hs-type">S3ConnectorOperator_SUBTRACTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-pragma hs-type">S3ConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_NULL"><span class="hs-pragma hs-type">S3ConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-pragma hs-type">S3ConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator_VALIDATE_NUMERIC"><span class="hs-pragma hs-type">S3ConnectorOperator_VALIDATE_NUMERIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.S3ConnectorOperator.html#S3ConnectorOperator%27"><span class="hs-pragma hs-type">S3ConnectorOperator'</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-161"></span></pre></body></html>

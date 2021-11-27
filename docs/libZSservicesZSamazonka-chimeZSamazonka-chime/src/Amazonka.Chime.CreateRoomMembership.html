@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.CreateRoomMembership</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a member to a chat room in an Amazon Chime Enterprise account. A</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- member can be either a user or a bot. The member role designates whether</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the member is a chat room administrator or a general chat room member.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.CreateRoomMembership</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier">CreateRoomMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#newCreateRoomMembership"><span class="hs-identifier">newCreateRoomMembership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_role"><span class="hs-identifier">createRoomMembership_role</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_accountId"><span class="hs-identifier">createRoomMembership_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_roomId"><span class="hs-identifier">createRoomMembership_roomId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_memberId"><span class="hs-identifier">createRoomMembership_memberId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier">CreateRoomMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#newCreateRoomMembershipResponse"><span class="hs-identifier">newCreateRoomMembershipResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembershipResponse_roomMembership"><span class="hs-identifier">createRoomMembershipResponse_roomMembership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembershipResponse_httpStatus"><span class="hs-identifier">createRoomMembershipResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateRoomMembership' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679551857"><span id="local-6989586621679551858"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoomMembership"><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-var">CreateRoomMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoomMembership%27"><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-var">CreateRoomMembership'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The role of the member.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Arole%27%3ACreateRoomMembership%27"><span class="annot"><span class="annottext">CreateRoomMembership -&gt; Maybe RoomMembershipRole
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3Arole%27%3ACreateRoomMembership%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole"><span class="hs-identifier hs-type">RoomMembershipRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AaccountId%3ACreateRoomMembership%27"><span class="annot"><span class="annottext">CreateRoomMembership -&gt; Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AaccountId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The room ID.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AroomId%3ACreateRoomMembership%27"><span class="annot"><span class="annottext">CreateRoomMembership -&gt; Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AroomId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var hs-var">roomId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The Amazon Chime member ID (user ID or bot ID).</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmemberId%3ACreateRoomMembership%27"><span class="annot"><span class="annottext">CreateRoomMembership -&gt; Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AmemberId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551848"><span id="local-6989586621679551850"><span class="annot"><span class="annottext">CreateRoomMembership -&gt; CreateRoomMembership -&gt; Bool
+(CreateRoomMembership -&gt; CreateRoomMembership -&gt; Bool)
+-&gt; (CreateRoomMembership -&gt; CreateRoomMembership -&gt; Bool)
+-&gt; Eq CreateRoomMembership
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRoomMembership -&gt; CreateRoomMembership -&gt; Bool
+$c/= :: CreateRoomMembership -&gt; CreateRoomMembership -&gt; Bool
+== :: CreateRoomMembership -&gt; CreateRoomMembership -&gt; Bool
+$c== :: CreateRoomMembership -&gt; CreateRoomMembership -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551839"><span id="local-6989586621679551841"><span id="local-6989586621679551843"><span id="local-6989586621679551845"><span class="annot"><span class="annottext">ReadPrec [CreateRoomMembership]
+ReadPrec CreateRoomMembership
+Int -&gt; ReadS CreateRoomMembership
+ReadS [CreateRoomMembership]
+(Int -&gt; ReadS CreateRoomMembership)
+-&gt; ReadS [CreateRoomMembership]
+-&gt; ReadPrec CreateRoomMembership
+-&gt; ReadPrec [CreateRoomMembership]
+-&gt; Read CreateRoomMembership
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRoomMembership]
+$creadListPrec :: ReadPrec [CreateRoomMembership]
+readPrec :: ReadPrec CreateRoomMembership
+$creadPrec :: ReadPrec CreateRoomMembership
+readList :: ReadS [CreateRoomMembership]
+$creadList :: ReadS [CreateRoomMembership]
+readsPrec :: Int -&gt; ReadS CreateRoomMembership
+$creadsPrec :: Int -&gt; ReadS CreateRoomMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551832"><span id="local-6989586621679551834"><span id="local-6989586621679551836"><span class="annot"><span class="annottext">Int -&gt; CreateRoomMembership -&gt; ShowS
+[CreateRoomMembership] -&gt; ShowS
+CreateRoomMembership -&gt; String
+(Int -&gt; CreateRoomMembership -&gt; ShowS)
+-&gt; (CreateRoomMembership -&gt; String)
+-&gt; ([CreateRoomMembership] -&gt; ShowS)
+-&gt; Show CreateRoomMembership
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRoomMembership] -&gt; ShowS
+$cshowList :: [CreateRoomMembership] -&gt; ShowS
+show :: CreateRoomMembership -&gt; String
+$cshow :: CreateRoomMembership -&gt; String
+showsPrec :: Int -&gt; CreateRoomMembership -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRoomMembership -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRoomMembership -&gt; Rep CreateRoomMembership x)
+-&gt; (forall x. Rep CreateRoomMembership x -&gt; CreateRoomMembership)
+-&gt; Generic CreateRoomMembership
+forall x. Rep CreateRoomMembership x -&gt; CreateRoomMembership
+forall x. CreateRoomMembership -&gt; Rep CreateRoomMembership x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRoomMembership x -&gt; CreateRoomMembership
+$cfrom :: forall x. CreateRoomMembership -&gt; Rep CreateRoomMembership x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'CreateRoomMembership' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'role'', 'createRoomMembership_role' - The role of the member.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'accountId', 'createRoomMembership_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'roomId', 'createRoomMembership_roomId' - The room ID.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'memberId', 'createRoomMembership_memberId' - The Amazon Chime member ID (user ID or bot ID).</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#newCreateRoomMembership"><span class="hs-identifier hs-type">newCreateRoomMembership</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'roomId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'memberId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span>
+</span><span id="line-90"></span><span id="newCreateRoomMembership"><span class="annot"><span class="annottext">newCreateRoomMembership :: Text -&gt; Text -&gt; Text -&gt; CreateRoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#newCreateRoomMembership"><span class="hs-identifier hs-var hs-var">newCreateRoomMembership</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679551827"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551827"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679551826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551826"><span class="hs-identifier hs-var">pRoomId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679551825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551825"><span class="hs-identifier hs-var">pMemberId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">CreateRoomMembership' :: Maybe RoomMembershipRole
+-&gt; Text -&gt; Text -&gt; Text -&gt; CreateRoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:role':CreateRoomMembership' :: Maybe RoomMembershipRole
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3Arole%27%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:CreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AaccountId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551827"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:roomId:CreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AroomId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">roomId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551826"><span class="hs-identifier hs-var">pRoomId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberId:CreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AmemberId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551825"><span class="hs-identifier hs-var">pMemberId_</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The role of the member.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_role"><span class="hs-identifier hs-type">createRoomMembership_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole"><span class="hs-identifier hs-type">RoomMembershipRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="createRoomMembership_role"><span class="annot"><span class="annottext">createRoomMembership_role :: (Maybe RoomMembershipRole -&gt; f (Maybe RoomMembershipRole))
+-&gt; CreateRoomMembership -&gt; f CreateRoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_role"><span class="hs-identifier hs-var hs-var">createRoomMembership_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoomMembership -&gt; Maybe RoomMembershipRole)
+-&gt; (CreateRoomMembership
+    -&gt; Maybe RoomMembershipRole -&gt; CreateRoomMembership)
+-&gt; Lens
+     CreateRoomMembership
+     CreateRoomMembership
+     (Maybe RoomMembershipRole)
+     (Maybe RoomMembershipRole)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551822"><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+role' :: Maybe RoomMembershipRole
+$sel:role':CreateRoomMembership' :: CreateRoomMembership -&gt; Maybe RoomMembershipRole
+</span><a href="#local-6989586621679551822"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+</span><a href="#local-6989586621679551822"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551821"><span class="annot"><span class="annottext">s :: CreateRoomMembership
+</span><a href="#local-6989586621679551821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551820"><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+</span><a href="#local-6989586621679551820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomMembership
+</span><a href="#local-6989586621679551821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':CreateRoomMembership' :: Maybe RoomMembershipRole
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3Arole%27%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+</span><a href="#local-6989586621679551820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_accountId"><span class="hs-identifier hs-type">createRoomMembership_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="createRoomMembership_accountId"><span class="annot"><span class="annottext">createRoomMembership_accountId :: (Text -&gt; f Text) -&gt; CreateRoomMembership -&gt; f CreateRoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_accountId"><span class="hs-identifier hs-var hs-var">createRoomMembership_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoomMembership -&gt; Text)
+-&gt; (CreateRoomMembership -&gt; Text -&gt; CreateRoomMembership)
+-&gt; Lens CreateRoomMembership CreateRoomMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551819"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+</span><a href="#local-6989586621679551819"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551819"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551818"><span class="annot"><span class="annottext">s :: CreateRoomMembership
+</span><a href="#local-6989586621679551818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomMembership
+</span><a href="#local-6989586621679551818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:CreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AaccountId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The room ID.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_roomId"><span class="hs-identifier hs-type">createRoomMembership_roomId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="createRoomMembership_roomId"><span class="annot"><span class="annottext">createRoomMembership_roomId :: (Text -&gt; f Text) -&gt; CreateRoomMembership -&gt; f CreateRoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_roomId"><span class="hs-identifier hs-var hs-var">createRoomMembership_roomId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoomMembership -&gt; Text)
+-&gt; (CreateRoomMembership -&gt; Text -&gt; CreateRoomMembership)
+-&gt; Lens CreateRoomMembership CreateRoomMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551816"><span class="annot"><span class="annottext">Text
+roomId :: Text
+$sel:roomId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+</span><a href="#local-6989586621679551816"><span class="hs-identifier hs-var hs-var">roomId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551816"><span class="hs-identifier hs-var">roomId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551815"><span class="annot"><span class="annottext">s :: CreateRoomMembership
+</span><a href="#local-6989586621679551815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551814"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomMembership
+</span><a href="#local-6989586621679551815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomId:CreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AroomId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">roomId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Chime member ID (user ID or bot ID).</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_memberId"><span class="hs-identifier hs-type">createRoomMembership_memberId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="createRoomMembership_memberId"><span class="annot"><span class="annottext">createRoomMembership_memberId :: (Text -&gt; f Text) -&gt; CreateRoomMembership -&gt; f CreateRoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembership_memberId"><span class="hs-identifier hs-var hs-var">createRoomMembership_memberId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoomMembership -&gt; Text)
+-&gt; (CreateRoomMembership -&gt; Text -&gt; CreateRoomMembership)
+-&gt; Lens CreateRoomMembership CreateRoomMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551813"><span class="annot"><span class="annottext">Text
+memberId :: Text
+$sel:memberId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+</span><a href="#local-6989586621679551813"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551813"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551812"><span class="annot"><span class="annottext">s :: CreateRoomMembership
+</span><a href="#local-6989586621679551812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551811"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomMembership
+</span><a href="#local-6989586621679551812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberId:CreateRoomMembership' :: Text
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AmemberId%3ACreateRoomMembership%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-type">CreateRoomMembershipResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679551807"><span class="annot"><span class="annottext">request :: CreateRoomMembership -&gt; Request CreateRoomMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRoomMembership -&gt; Request CreateRoomMembership
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679551803"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRoomMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRoomMembership)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateRoomMembership))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRoomMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRoomMembership)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679551800"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679551800"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679551799"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679551799"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679551798"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679551798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe RoomMembership -&gt; Int -&gt; CreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">CreateRoomMembershipResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RoomMembership -&gt; Int -&gt; CreateRoomMembershipResponse)
+-&gt; Either String (Maybe RoomMembership)
+-&gt; Either String (Int -&gt; CreateRoomMembershipResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679551798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RoomMembership)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomMembership&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateRoomMembershipResponse)
+-&gt; Either String Int -&gt; Either String CreateRoomMembershipResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679551800"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551790"><span id="local-6989586621679551792"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551787"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679551783"><span class="annot"><span class="annottext">toHeaders :: CreateRoomMembership -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRoomMembership -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551774"><span id="local-6989586621679551776"><span id="local-6989586621679551778"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679551772"><span class="annot"><span class="annottext">toJSON :: CreateRoomMembership -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551767"><span id="local-6989586621679551768"><span id="local-6989586621679551769"><span id="local-6989586621679551770"><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+Text
+memberId :: Text
+roomId :: Text
+accountId :: Text
+role' :: Maybe RoomMembershipRole
+$sel:memberId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+$sel:roomId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+$sel:accountId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+$sel:role':CreateRoomMembership' :: CreateRoomMembership -&gt; Maybe RoomMembershipRole
+</span><a href="#local-6989586621679551767"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Role&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RoomMembershipRole -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RoomMembershipRole -&gt; Pair)
+-&gt; Maybe RoomMembershipRole -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+</span><a href="#local-6989586621679551770"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551767"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679551761"><span class="annot"><span class="annottext">toPath :: CreateRoomMembership -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership%27"><span class="hs-identifier hs-type">CreateRoomMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551756"><span id="local-6989586621679551757"><span id="local-6989586621679551758"><span id="local-6989586621679551759"><span class="annot"><span class="annottext">Maybe RoomMembershipRole
+Text
+memberId :: Text
+roomId :: Text
+accountId :: Text
+role' :: Maybe RoomMembershipRole
+$sel:memberId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+$sel:roomId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+$sel:accountId:CreateRoomMembership' :: CreateRoomMembership -&gt; Text
+$sel:role':CreateRoomMembership' :: CreateRoomMembership -&gt; Maybe RoomMembershipRole
+</span><a href="#local-6989586621679551756"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551758"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/rooms/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551757"><span class="hs-identifier hs-var">roomId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/memberships&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembership"><span class="hs-identifier hs-type">CreateRoomMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679551752"><span class="annot"><span class="annottext">toQuery :: CreateRoomMembership -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRoomMembership -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newCreateRoomMembershipResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679551749"><span id="local-6989586621679551750"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoomMembershipResponse"><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-var">CreateRoomMembershipResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoomMembershipResponse%27"><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">CreateRoomMembershipResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The room membership details.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AroomMembership%3ACreateRoomMembershipResponse%27"><span class="annot"><span class="annottext">CreateRoomMembershipResponse -&gt; Maybe RoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AroomMembership%3ACreateRoomMembershipResponse%27"><span class="hs-identifier hs-var hs-var">roomMembership</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembership.html#RoomMembership"><span class="hs-identifier hs-type">RoomMembership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRoomMembershipResponse%27"><span class="annot"><span class="annottext">CreateRoomMembershipResponse -&gt; Int
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AhttpStatus%3ACreateRoomMembershipResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551743"><span id="local-6989586621679551745"><span class="annot"><span class="annottext">CreateRoomMembershipResponse
+-&gt; CreateRoomMembershipResponse -&gt; Bool
+(CreateRoomMembershipResponse
+ -&gt; CreateRoomMembershipResponse -&gt; Bool)
+-&gt; (CreateRoomMembershipResponse
+    -&gt; CreateRoomMembershipResponse -&gt; Bool)
+-&gt; Eq CreateRoomMembershipResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRoomMembershipResponse
+-&gt; CreateRoomMembershipResponse -&gt; Bool
+$c/= :: CreateRoomMembershipResponse
+-&gt; CreateRoomMembershipResponse -&gt; Bool
+== :: CreateRoomMembershipResponse
+-&gt; CreateRoomMembershipResponse -&gt; Bool
+$c== :: CreateRoomMembershipResponse
+-&gt; CreateRoomMembershipResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551737"><span id="local-6989586621679551739"><span id="local-6989586621679551741"><span class="annot"><span class="annottext">Int -&gt; CreateRoomMembershipResponse -&gt; ShowS
+[CreateRoomMembershipResponse] -&gt; ShowS
+CreateRoomMembershipResponse -&gt; String
+(Int -&gt; CreateRoomMembershipResponse -&gt; ShowS)
+-&gt; (CreateRoomMembershipResponse -&gt; String)
+-&gt; ([CreateRoomMembershipResponse] -&gt; ShowS)
+-&gt; Show CreateRoomMembershipResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRoomMembershipResponse] -&gt; ShowS
+$cshowList :: [CreateRoomMembershipResponse] -&gt; ShowS
+show :: CreateRoomMembershipResponse -&gt; String
+$cshow :: CreateRoomMembershipResponse -&gt; String
+showsPrec :: Int -&gt; CreateRoomMembershipResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRoomMembershipResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateRoomMembershipResponse -&gt; Rep CreateRoomMembershipResponse x)
+-&gt; (forall x.
+    Rep CreateRoomMembershipResponse x -&gt; CreateRoomMembershipResponse)
+-&gt; Generic CreateRoomMembershipResponse
+forall x.
+Rep CreateRoomMembershipResponse x -&gt; CreateRoomMembershipResponse
+forall x.
+CreateRoomMembershipResponse -&gt; Rep CreateRoomMembershipResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateRoomMembershipResponse x -&gt; CreateRoomMembershipResponse
+$cfrom :: forall x.
+CreateRoomMembershipResponse -&gt; Rep CreateRoomMembershipResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'CreateRoomMembershipResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'roomMembership', 'createRoomMembershipResponse_roomMembership' - The room membership details.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'createRoomMembershipResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#newCreateRoomMembershipResponse"><span class="hs-identifier hs-type">newCreateRoomMembershipResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-type">CreateRoomMembershipResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newCreateRoomMembershipResponse"><span class="annot"><span class="annottext">newCreateRoomMembershipResponse :: Int -&gt; CreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#newCreateRoomMembershipResponse"><span class="hs-identifier hs-var hs-var">newCreateRoomMembershipResponse</span></a></span></span><span> </span><span id="local-6989586621679551734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679551734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">CreateRoomMembershipResponse' :: Maybe RoomMembership -&gt; Int -&gt; CreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">CreateRoomMembershipResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roomMembership:CreateRoomMembershipResponse' :: Maybe RoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AroomMembership%3ACreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">roomMembership</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe RoomMembership
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoomMembershipResponse' :: Int
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AhttpStatus%3ACreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679551734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The room membership details.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembershipResponse_roomMembership"><span class="hs-identifier hs-type">createRoomMembershipResponse_roomMembership</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-type">CreateRoomMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembership.html#RoomMembership"><span class="hs-identifier hs-type">RoomMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="createRoomMembershipResponse_roomMembership"><span class="annot"><span class="annottext">createRoomMembershipResponse_roomMembership :: (Maybe RoomMembership -&gt; f (Maybe RoomMembership))
+-&gt; CreateRoomMembershipResponse -&gt; f CreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembershipResponse_roomMembership"><span class="hs-identifier hs-var hs-var">createRoomMembershipResponse_roomMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoomMembershipResponse -&gt; Maybe RoomMembership)
+-&gt; (CreateRoomMembershipResponse
+    -&gt; Maybe RoomMembership -&gt; CreateRoomMembershipResponse)
+-&gt; Lens
+     CreateRoomMembershipResponse
+     CreateRoomMembershipResponse
+     (Maybe RoomMembership)
+     (Maybe RoomMembership)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">CreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551733"><span class="annot"><span class="annottext">Maybe RoomMembership
+roomMembership :: Maybe RoomMembership
+$sel:roomMembership:CreateRoomMembershipResponse' :: CreateRoomMembershipResponse -&gt; Maybe RoomMembership
+</span><a href="#local-6989586621679551733"><span class="hs-identifier hs-var hs-var">roomMembership</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoomMembership
+</span><a href="#local-6989586621679551733"><span class="hs-identifier hs-var">roomMembership</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551732"><span class="annot"><span class="annottext">s :: CreateRoomMembershipResponse
+</span><a href="#local-6989586621679551732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">CreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551731"><span class="annot"><span class="annottext">Maybe RoomMembership
+</span><a href="#local-6989586621679551731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomMembershipResponse
+</span><a href="#local-6989586621679551732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomMembership:CreateRoomMembershipResponse' :: Maybe RoomMembership
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AroomMembership%3ACreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">roomMembership</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoomMembership
+</span><a href="#local-6989586621679551731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-type">CreateRoomMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembershipResponse_httpStatus"><span class="hs-identifier hs-type">createRoomMembershipResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-type">CreateRoomMembershipResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span id="createRoomMembershipResponse_httpStatus"><span class="annot"><span class="annottext">createRoomMembershipResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateRoomMembershipResponse -&gt; f CreateRoomMembershipResponse
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#createRoomMembershipResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRoomMembershipResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoomMembershipResponse -&gt; Int)
+-&gt; (CreateRoomMembershipResponse
+    -&gt; Int -&gt; CreateRoomMembershipResponse)
+-&gt; Lens
+     CreateRoomMembershipResponse CreateRoomMembershipResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">CreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551730"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRoomMembershipResponse' :: CreateRoomMembershipResponse -&gt; Int
+</span><a href="#local-6989586621679551730"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679551730"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551729"><span class="annot"><span class="annottext">s :: CreateRoomMembershipResponse
+</span><a href="#local-6989586621679551729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse%27"><span class="hs-identifier hs-type">CreateRoomMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679551728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomMembershipResponse
+</span><a href="#local-6989586621679551729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoomMembershipResponse' :: Int
+</span><a href="Amazonka.Chime.CreateRoomMembership.html#%24sel%3AhttpStatus%3ACreateRoomMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679551728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-type">CreateRoomMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreateRoomMembership.html#CreateRoomMembershipResponse"><span class="hs-identifier hs-type">CreateRoomMembershipResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.DeleteResolverRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a Resolver rule. Before you can delete a Resolver rule, you must</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- disassociate it from all the VPCs that you associated the Resolver rule</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- with. For more information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html DisassociateResolverRule&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.DeleteResolverRule</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier">DeleteResolverRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#newDeleteResolverRule"><span class="hs-identifier">newDeleteResolverRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRule_resolverRuleId"><span class="hs-identifier">deleteResolverRule_resolverRuleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier">DeleteResolverRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#newDeleteResolverRuleResponse"><span class="hs-identifier">newDeleteResolverRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRuleResponse_resolverRule"><span class="hs-identifier">deleteResolverRuleResponse_resolverRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRuleResponse_httpStatus"><span class="hs-identifier">deleteResolverRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.html"><span class="hs-identifier">Amazonka.Route53Resolver.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteResolverRule' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679297064"><span id="local-6989586621679297065"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResolverRule"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-var">DeleteResolverRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResolverRule%27"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule%27"><span class="hs-identifier hs-var">DeleteResolverRule'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Resolver rule that you want to delete.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AresolverRuleId%3ADeleteResolverRule%27"><span class="annot"><span class="annottext">DeleteResolverRule -&gt; Text
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AresolverRuleId%3ADeleteResolverRule%27"><span class="hs-identifier hs-var hs-var">resolverRuleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297058"><span id="local-6989586621679297060"><span class="annot"><span class="annottext">DeleteResolverRule -&gt; DeleteResolverRule -&gt; Bool
+(DeleteResolverRule -&gt; DeleteResolverRule -&gt; Bool)
+-&gt; (DeleteResolverRule -&gt; DeleteResolverRule -&gt; Bool)
+-&gt; Eq DeleteResolverRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteResolverRule -&gt; DeleteResolverRule -&gt; Bool
+$c/= :: DeleteResolverRule -&gt; DeleteResolverRule -&gt; Bool
+== :: DeleteResolverRule -&gt; DeleteResolverRule -&gt; Bool
+$c== :: DeleteResolverRule -&gt; DeleteResolverRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297049"><span id="local-6989586621679297051"><span id="local-6989586621679297053"><span id="local-6989586621679297055"><span class="annot"><span class="annottext">ReadPrec [DeleteResolverRule]
+ReadPrec DeleteResolverRule
+Int -&gt; ReadS DeleteResolverRule
+ReadS [DeleteResolverRule]
+(Int -&gt; ReadS DeleteResolverRule)
+-&gt; ReadS [DeleteResolverRule]
+-&gt; ReadPrec DeleteResolverRule
+-&gt; ReadPrec [DeleteResolverRule]
+-&gt; Read DeleteResolverRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteResolverRule]
+$creadListPrec :: ReadPrec [DeleteResolverRule]
+readPrec :: ReadPrec DeleteResolverRule
+$creadPrec :: ReadPrec DeleteResolverRule
+readList :: ReadS [DeleteResolverRule]
+$creadList :: ReadS [DeleteResolverRule]
+readsPrec :: Int -&gt; ReadS DeleteResolverRule
+$creadsPrec :: Int -&gt; ReadS DeleteResolverRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297042"><span id="local-6989586621679297044"><span id="local-6989586621679297046"><span class="annot"><span class="annottext">Int -&gt; DeleteResolverRule -&gt; ShowS
+[DeleteResolverRule] -&gt; ShowS
+DeleteResolverRule -&gt; String
+(Int -&gt; DeleteResolverRule -&gt; ShowS)
+-&gt; (DeleteResolverRule -&gt; String)
+-&gt; ([DeleteResolverRule] -&gt; ShowS)
+-&gt; Show DeleteResolverRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteResolverRule] -&gt; ShowS
+$cshowList :: [DeleteResolverRule] -&gt; ShowS
+show :: DeleteResolverRule -&gt; String
+$cshow :: DeleteResolverRule -&gt; String
+showsPrec :: Int -&gt; DeleteResolverRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteResolverRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteResolverRule -&gt; Rep DeleteResolverRule x)
+-&gt; (forall x. Rep DeleteResolverRule x -&gt; DeleteResolverRule)
+-&gt; Generic DeleteResolverRule
+forall x. Rep DeleteResolverRule x -&gt; DeleteResolverRule
+forall x. DeleteResolverRule -&gt; Rep DeleteResolverRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteResolverRule x -&gt; DeleteResolverRule
+$cfrom :: forall x. DeleteResolverRule -&gt; Rep DeleteResolverRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteResolverRule' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'resolverRuleId', 'deleteResolverRule_resolverRuleId' - The ID of the Resolver rule that you want to delete.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#newDeleteResolverRule"><span class="hs-identifier hs-type">newDeleteResolverRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'resolverRuleId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteResolverRule"><span class="annot"><span class="annottext">newDeleteResolverRule :: Text -&gt; DeleteResolverRule
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#newDeleteResolverRule"><span class="hs-identifier hs-var hs-var">newDeleteResolverRule</span></a></span></span><span> </span><span id="local-6989586621679297037"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297037"><span class="hs-identifier hs-var">pResolverRuleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteResolverRule' :: Text -&gt; DeleteResolverRule
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule%27"><span class="hs-identifier hs-type">DeleteResolverRule'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resolverRuleId:DeleteResolverRule' :: Text
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AresolverRuleId%3ADeleteResolverRule%27"><span class="hs-identifier hs-var">resolverRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297037"><span class="hs-identifier hs-var">pResolverRuleId_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the Resolver rule that you want to delete.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRule_resolverRuleId"><span class="hs-identifier hs-type">deleteResolverRule_resolverRuleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="deleteResolverRule_resolverRuleId"><span class="annot"><span class="annottext">deleteResolverRule_resolverRuleId :: (Text -&gt; f Text) -&gt; DeleteResolverRule -&gt; f DeleteResolverRule
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRule_resolverRuleId"><span class="hs-identifier hs-var hs-var">deleteResolverRule_resolverRuleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteResolverRule -&gt; Text)
+-&gt; (DeleteResolverRule -&gt; Text -&gt; DeleteResolverRule)
+-&gt; Lens DeleteResolverRule DeleteResolverRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule%27"><span class="hs-identifier hs-type">DeleteResolverRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297034"><span class="annot"><span class="annottext">Text
+resolverRuleId :: Text
+$sel:resolverRuleId:DeleteResolverRule' :: DeleteResolverRule -&gt; Text
+</span><a href="#local-6989586621679297034"><span class="hs-identifier hs-var hs-var">resolverRuleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297034"><span class="hs-identifier hs-var">resolverRuleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297033"><span class="annot"><span class="annottext">s :: DeleteResolverRule
+</span><a href="#local-6989586621679297033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule%27"><span class="hs-identifier hs-type">DeleteResolverRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResolverRule
+</span><a href="#local-6989586621679297033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolverRuleId:DeleteResolverRule' :: Text
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AresolverRuleId%3ADeleteResolverRule%27"><span class="hs-identifier hs-var">resolverRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-type">DeleteResolverRuleResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679297028"><span class="annot"><span class="annottext">request :: DeleteResolverRule -&gt; Request DeleteResolverRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteResolverRule -&gt; Request DeleteResolverRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53Resolver.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679297024"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteResolverRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteResolverRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteResolverRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteResolverRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteResolverRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297021"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297021"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297020"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679297020"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297019"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResolverRule -&gt; Int -&gt; DeleteResolverRuleResponse
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse%27"><span class="hs-identifier hs-var">DeleteResolverRuleResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResolverRule -&gt; Int -&gt; DeleteResolverRuleResponse)
+-&gt; Either String (Maybe ResolverRule)
+-&gt; Either String (Int -&gt; DeleteResolverRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResolverRule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResolverRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteResolverRuleResponse)
+-&gt; Either String Int -&gt; Either String DeleteResolverRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297021"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297011"><span id="local-6989586621679297013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679297004"><span class="annot"><span class="annottext">toHeaders :: DeleteResolverRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteResolverRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Resolver.DeleteResolverRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296994"><span id="local-6989586621679296996"><span id="local-6989586621679296998"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679296992"><span class="annot"><span class="annottext">toJSON :: DeleteResolverRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule%27"><span class="hs-identifier hs-type">DeleteResolverRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296990"><span class="annot"><span class="annottext">Text
+resolverRuleId :: Text
+$sel:resolverRuleId:DeleteResolverRule' :: DeleteResolverRule -&gt; Text
+</span><a href="#local-6989586621679296990"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResolverRuleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296990"><span class="hs-identifier hs-var">resolverRuleId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679296984"><span class="annot"><span class="annottext">toPath :: DeleteResolverRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteResolverRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRule"><span class="hs-identifier hs-type">DeleteResolverRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679296980"><span class="annot"><span class="annottext">toQuery :: DeleteResolverRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteResolverRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDeleteResolverRuleResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679296977"><span id="local-6989586621679296978"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResolverRuleResponse"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-var">DeleteResolverRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResolverRuleResponse%27"><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse%27"><span class="hs-identifier hs-var">DeleteResolverRuleResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the @DeleteResolverRule@ request, including the status</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- of the request.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AresolverRule%3ADeleteResolverRuleResponse%27"><span class="annot"><span class="annottext">DeleteResolverRuleResponse -&gt; Maybe ResolverRule
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AresolverRule%3ADeleteResolverRuleResponse%27"><span class="hs-identifier hs-var hs-var">resolverRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverRule.html#ResolverRule"><span class="hs-identifier hs-type">ResolverRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteResolverRuleResponse%27"><span class="annot"><span class="annottext">DeleteResolverRuleResponse -&gt; Int
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AhttpStatus%3ADeleteResolverRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296971"><span id="local-6989586621679296973"><span class="annot"><span class="annottext">DeleteResolverRuleResponse -&gt; DeleteResolverRuleResponse -&gt; Bool
+(DeleteResolverRuleResponse -&gt; DeleteResolverRuleResponse -&gt; Bool)
+-&gt; (DeleteResolverRuleResponse
+    -&gt; DeleteResolverRuleResponse -&gt; Bool)
+-&gt; Eq DeleteResolverRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteResolverRuleResponse -&gt; DeleteResolverRuleResponse -&gt; Bool
+$c/= :: DeleteResolverRuleResponse -&gt; DeleteResolverRuleResponse -&gt; Bool
+== :: DeleteResolverRuleResponse -&gt; DeleteResolverRuleResponse -&gt; Bool
+$c== :: DeleteResolverRuleResponse -&gt; DeleteResolverRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296963"><span id="local-6989586621679296965"><span id="local-6989586621679296967"><span id="local-6989586621679296969"><span class="annot"><span class="annottext">ReadPrec [DeleteResolverRuleResponse]
+ReadPrec DeleteResolverRuleResponse
+Int -&gt; ReadS DeleteResolverRuleResponse
+ReadS [DeleteResolverRuleResponse]
+(Int -&gt; ReadS DeleteResolverRuleResponse)
+-&gt; ReadS [DeleteResolverRuleResponse]
+-&gt; ReadPrec DeleteResolverRuleResponse
+-&gt; ReadPrec [DeleteResolverRuleResponse]
+-&gt; Read DeleteResolverRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteResolverRuleResponse]
+$creadListPrec :: ReadPrec [DeleteResolverRuleResponse]
+readPrec :: ReadPrec DeleteResolverRuleResponse
+$creadPrec :: ReadPrec DeleteResolverRuleResponse
+readList :: ReadS [DeleteResolverRuleResponse]
+$creadList :: ReadS [DeleteResolverRuleResponse]
+readsPrec :: Int -&gt; ReadS DeleteResolverRuleResponse
+$creadsPrec :: Int -&gt; ReadS DeleteResolverRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296957"><span id="local-6989586621679296959"><span id="local-6989586621679296961"><span class="annot"><span class="annottext">Int -&gt; DeleteResolverRuleResponse -&gt; ShowS
+[DeleteResolverRuleResponse] -&gt; ShowS
+DeleteResolverRuleResponse -&gt; String
+(Int -&gt; DeleteResolverRuleResponse -&gt; ShowS)
+-&gt; (DeleteResolverRuleResponse -&gt; String)
+-&gt; ([DeleteResolverRuleResponse] -&gt; ShowS)
+-&gt; Show DeleteResolverRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteResolverRuleResponse] -&gt; ShowS
+$cshowList :: [DeleteResolverRuleResponse] -&gt; ShowS
+show :: DeleteResolverRuleResponse -&gt; String
+$cshow :: DeleteResolverRuleResponse -&gt; String
+showsPrec :: Int -&gt; DeleteResolverRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteResolverRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteResolverRuleResponse -&gt; Rep DeleteResolverRuleResponse x)
+-&gt; (forall x.
+    Rep DeleteResolverRuleResponse x -&gt; DeleteResolverRuleResponse)
+-&gt; Generic DeleteResolverRuleResponse
+forall x.
+Rep DeleteResolverRuleResponse x -&gt; DeleteResolverRuleResponse
+forall x.
+DeleteResolverRuleResponse -&gt; Rep DeleteResolverRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteResolverRuleResponse x -&gt; DeleteResolverRuleResponse
+$cfrom :: forall x.
+DeleteResolverRuleResponse -&gt; Rep DeleteResolverRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'DeleteResolverRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'resolverRule', 'deleteResolverRuleResponse_resolverRule' - Information about the @DeleteResolverRule@ request, including the status</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- of the request.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'deleteResolverRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#newDeleteResolverRuleResponse"><span class="hs-identifier hs-type">newDeleteResolverRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-type">DeleteResolverRuleResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newDeleteResolverRuleResponse"><span class="annot"><span class="annottext">newDeleteResolverRuleResponse :: Int -&gt; DeleteResolverRuleResponse
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#newDeleteResolverRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteResolverRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679296954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DeleteResolverRuleResponse' :: Maybe ResolverRule -&gt; Int -&gt; DeleteResolverRuleResponse
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse%27"><span class="hs-identifier hs-type">DeleteResolverRuleResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resolverRule:DeleteResolverRuleResponse' :: Maybe ResolverRule
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AresolverRule%3ADeleteResolverRuleResponse%27"><span class="hs-identifier hs-var">resolverRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResolverRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteResolverRuleResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AhttpStatus%3ADeleteResolverRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Information about the @DeleteResolverRule@ request, including the status</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- of the request.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRuleResponse_resolverRule"><span class="hs-identifier hs-type">deleteResolverRuleResponse_resolverRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-type">DeleteResolverRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverRule.html#ResolverRule"><span class="hs-identifier hs-type">ResolverRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="deleteResolverRuleResponse_resolverRule"><span class="annot"><span class="annottext">deleteResolverRuleResponse_resolverRule :: (Maybe ResolverRule -&gt; f (Maybe ResolverRule))
+-&gt; DeleteResolverRuleResponse -&gt; f DeleteResolverRuleResponse
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRuleResponse_resolverRule"><span class="hs-identifier hs-var hs-var">deleteResolverRuleResponse_resolverRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteResolverRuleResponse -&gt; Maybe ResolverRule)
+-&gt; (DeleteResolverRuleResponse
+    -&gt; Maybe ResolverRule -&gt; DeleteResolverRuleResponse)
+-&gt; Lens
+     DeleteResolverRuleResponse
+     DeleteResolverRuleResponse
+     (Maybe ResolverRule)
+     (Maybe ResolverRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse%27"><span class="hs-identifier hs-type">DeleteResolverRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296953"><span class="annot"><span class="annottext">Maybe ResolverRule
+resolverRule :: Maybe ResolverRule
+$sel:resolverRule:DeleteResolverRuleResponse' :: DeleteResolverRuleResponse -&gt; Maybe ResolverRule
+</span><a href="#local-6989586621679296953"><span class="hs-identifier hs-var hs-var">resolverRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverRule
+</span><a href="#local-6989586621679296953"><span class="hs-identifier hs-var">resolverRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296952"><span class="annot"><span class="annottext">s :: DeleteResolverRuleResponse
+</span><a href="#local-6989586621679296952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse%27"><span class="hs-identifier hs-type">DeleteResolverRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296951"><span class="annot"><span class="annottext">Maybe ResolverRule
+</span><a href="#local-6989586621679296951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResolverRuleResponse
+</span><a href="#local-6989586621679296952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolverRule:DeleteResolverRuleResponse' :: Maybe ResolverRule
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AresolverRule%3ADeleteResolverRuleResponse%27"><span class="hs-identifier hs-var">resolverRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverRule
+</span><a href="#local-6989586621679296951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-type">DeleteResolverRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRuleResponse_httpStatus"><span class="hs-identifier hs-type">deleteResolverRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-type">DeleteResolverRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="deleteResolverRuleResponse_httpStatus"><span class="annot"><span class="annottext">deleteResolverRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteResolverRuleResponse -&gt; f DeleteResolverRuleResponse
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#deleteResolverRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteResolverRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteResolverRuleResponse -&gt; Int)
+-&gt; (DeleteResolverRuleResponse
+    -&gt; Int -&gt; DeleteResolverRuleResponse)
+-&gt; Lens
+     DeleteResolverRuleResponse DeleteResolverRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse%27"><span class="hs-identifier hs-type">DeleteResolverRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296950"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteResolverRuleResponse' :: DeleteResolverRuleResponse -&gt; Int
+</span><a href="#local-6989586621679296950"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296950"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296949"><span class="annot"><span class="annottext">s :: DeleteResolverRuleResponse
+</span><a href="#local-6989586621679296949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse%27"><span class="hs-identifier hs-type">DeleteResolverRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResolverRuleResponse
+</span><a href="#local-6989586621679296949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteResolverRuleResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#%24sel%3AhttpStatus%3ADeleteResolverRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-type">DeleteResolverRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.DeleteResolverRule.html#DeleteResolverRuleResponse"><span class="hs-identifier hs-type">DeleteResolverRuleResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.RouteTableAssociationState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.RouteTableAssociationState</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationStateCode.html"><span class="hs-identifier">Amazonka.EC2.Types.RouteTableAssociationStateCode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of an association between a route table and a subnet</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- or gateway.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRouteTableAssociationState' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681145688"><span id="local-6989586621681145689"></span></span><span class="hs-keyword">data</span><span> </span><span id="RouteTableAssociationState"><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-var">RouteTableAssociationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteTableAssociationState%27"><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState%27"><span class="hs-identifier hs-var">RouteTableAssociationState'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the association.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3ARouteTableAssociationState%27"><span class="annot"><span class="annottext">RouteTableAssociationState -&gt; Maybe RouteTableAssociationStateCode
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#%24sel%3Astate%3ARouteTableAssociationState%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationStateCode.html#RouteTableAssociationStateCode"><span class="hs-identifier hs-type">RouteTableAssociationStateCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status message, if applicable.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstatusMessage%3ARouteTableAssociationState%27"><span class="annot"><span class="annottext">RouteTableAssociationState -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#%24sel%3AstatusMessage%3ARouteTableAssociationState%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681145681"><span id="local-6989586621681145683"><span class="annot"><span class="annottext">RouteTableAssociationState -&gt; RouteTableAssociationState -&gt; Bool
+(RouteTableAssociationState -&gt; RouteTableAssociationState -&gt; Bool)
+-&gt; (RouteTableAssociationState
+    -&gt; RouteTableAssociationState -&gt; Bool)
+-&gt; Eq RouteTableAssociationState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RouteTableAssociationState -&gt; RouteTableAssociationState -&gt; Bool
+$c/= :: RouteTableAssociationState -&gt; RouteTableAssociationState -&gt; Bool
+== :: RouteTableAssociationState -&gt; RouteTableAssociationState -&gt; Bool
+$c== :: RouteTableAssociationState -&gt; RouteTableAssociationState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681145672"><span id="local-6989586621681145674"><span id="local-6989586621681145676"><span id="local-6989586621681145678"><span class="annot"><span class="annottext">ReadPrec [RouteTableAssociationState]
+ReadPrec RouteTableAssociationState
+Int -&gt; ReadS RouteTableAssociationState
+ReadS [RouteTableAssociationState]
+(Int -&gt; ReadS RouteTableAssociationState)
+-&gt; ReadS [RouteTableAssociationState]
+-&gt; ReadPrec RouteTableAssociationState
+-&gt; ReadPrec [RouteTableAssociationState]
+-&gt; Read RouteTableAssociationState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RouteTableAssociationState]
+$creadListPrec :: ReadPrec [RouteTableAssociationState]
+readPrec :: ReadPrec RouteTableAssociationState
+$creadPrec :: ReadPrec RouteTableAssociationState
+readList :: ReadS [RouteTableAssociationState]
+$creadList :: ReadS [RouteTableAssociationState]
+readsPrec :: Int -&gt; ReadS RouteTableAssociationState
+$creadsPrec :: Int -&gt; ReadS RouteTableAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681145665"><span id="local-6989586621681145667"><span id="local-6989586621681145669"><span class="annot"><span class="annottext">Int -&gt; RouteTableAssociationState -&gt; ShowS
+[RouteTableAssociationState] -&gt; ShowS
+RouteTableAssociationState -&gt; String
+(Int -&gt; RouteTableAssociationState -&gt; ShowS)
+-&gt; (RouteTableAssociationState -&gt; String)
+-&gt; ([RouteTableAssociationState] -&gt; ShowS)
+-&gt; Show RouteTableAssociationState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RouteTableAssociationState] -&gt; ShowS
+$cshowList :: [RouteTableAssociationState] -&gt; ShowS
+show :: RouteTableAssociationState -&gt; String
+$cshow :: RouteTableAssociationState -&gt; String
+showsPrec :: Int -&gt; RouteTableAssociationState -&gt; ShowS
+$cshowsPrec :: Int -&gt; RouteTableAssociationState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RouteTableAssociationState -&gt; Rep RouteTableAssociationState x)
+-&gt; (forall x.
+    Rep RouteTableAssociationState x -&gt; RouteTableAssociationState)
+-&gt; Generic RouteTableAssociationState
+forall x.
+Rep RouteTableAssociationState x -&gt; RouteTableAssociationState
+forall x.
+RouteTableAssociationState -&gt; Rep RouteTableAssociationState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RouteTableAssociationState x -&gt; RouteTableAssociationState
+$cfrom :: forall x.
+RouteTableAssociationState -&gt; Rep RouteTableAssociationState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'RouteTableAssociationState' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'state', 'routeTableAssociationState_state' - The state of the association.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'statusMessage', 'routeTableAssociationState_statusMessage' - The status message, if applicable.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#newRouteTableAssociationState"><span class="hs-identifier hs-type">newRouteTableAssociationState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span><span>
+</span><span id="line-53"></span><span id="newRouteTableAssociationState"><span class="annot"><span class="annottext">newRouteTableAssociationState :: RouteTableAssociationState
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#newRouteTableAssociationState"><span class="hs-identifier hs-var hs-var">newRouteTableAssociationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">RouteTableAssociationState' :: Maybe RouteTableAssociationStateCode
+-&gt; Maybe Text -&gt; RouteTableAssociationState
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState%27"><span class="hs-identifier hs-type">RouteTableAssociationState'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:RouteTableAssociationState' :: Maybe RouteTableAssociationStateCode
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#%24sel%3Astate%3ARouteTableAssociationState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe RouteTableAssociationStateCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:RouteTableAssociationState' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#%24sel%3AstatusMessage%3ARouteTableAssociationState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The state of the association.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#routeTableAssociationState_state"><span class="hs-identifier hs-type">routeTableAssociationState_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationStateCode.html#RouteTableAssociationStateCode"><span class="hs-identifier hs-type">RouteTableAssociationStateCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="routeTableAssociationState_state"><span class="annot"><span class="annottext">routeTableAssociationState_state :: (Maybe RouteTableAssociationStateCode
+ -&gt; f (Maybe RouteTableAssociationStateCode))
+-&gt; RouteTableAssociationState -&gt; f RouteTableAssociationState
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#routeTableAssociationState_state"><span class="hs-identifier hs-var hs-var">routeTableAssociationState_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTableAssociationState
+ -&gt; Maybe RouteTableAssociationStateCode)
+-&gt; (RouteTableAssociationState
+    -&gt; Maybe RouteTableAssociationStateCode
+    -&gt; RouteTableAssociationState)
+-&gt; Lens
+     RouteTableAssociationState
+     RouteTableAssociationState
+     (Maybe RouteTableAssociationStateCode)
+     (Maybe RouteTableAssociationStateCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState%27"><span class="hs-identifier hs-type">RouteTableAssociationState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145656"><span class="annot"><span class="annottext">Maybe RouteTableAssociationStateCode
+state :: Maybe RouteTableAssociationStateCode
+$sel:state:RouteTableAssociationState' :: RouteTableAssociationState -&gt; Maybe RouteTableAssociationStateCode
+</span><a href="#local-6989586621681145656"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RouteTableAssociationStateCode
+</span><a href="#local-6989586621681145656"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145655"><span class="annot"><span class="annottext">s :: RouteTableAssociationState
+</span><a href="#local-6989586621681145655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState%27"><span class="hs-identifier hs-type">RouteTableAssociationState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145654"><span class="annot"><span class="annottext">Maybe RouteTableAssociationStateCode
+</span><a href="#local-6989586621681145654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTableAssociationState
+</span><a href="#local-6989586621681145655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:RouteTableAssociationState' :: Maybe RouteTableAssociationStateCode
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#%24sel%3Astate%3ARouteTableAssociationState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RouteTableAssociationStateCode
+</span><a href="#local-6989586621681145654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The status message, if applicable.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#routeTableAssociationState_statusMessage"><span class="hs-identifier hs-type">routeTableAssociationState_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="routeTableAssociationState_statusMessage"><span class="annot"><span class="annottext">routeTableAssociationState_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RouteTableAssociationState -&gt; f RouteTableAssociationState
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#routeTableAssociationState_statusMessage"><span class="hs-identifier hs-var hs-var">routeTableAssociationState_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTableAssociationState -&gt; Maybe Text)
+-&gt; (RouteTableAssociationState
+    -&gt; Maybe Text -&gt; RouteTableAssociationState)
+-&gt; Lens
+     RouteTableAssociationState
+     RouteTableAssociationState
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState%27"><span class="hs-identifier hs-type">RouteTableAssociationState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145652"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:RouteTableAssociationState' :: RouteTableAssociationState -&gt; Maybe Text
+</span><a href="#local-6989586621681145652"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145652"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145651"><span class="annot"><span class="annottext">s :: RouteTableAssociationState
+</span><a href="#local-6989586621681145651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState%27"><span class="hs-identifier hs-type">RouteTableAssociationState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTableAssociationState
+</span><a href="#local-6989586621681145651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:RouteTableAssociationState' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#%24sel%3AstatusMessage%3ARouteTableAssociationState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621681145647"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RouteTableAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681145645"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145645"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe RouteTableAssociationStateCode
+-&gt; Maybe Text -&gt; RouteTableAssociationState
+</span><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState%27"><span class="hs-identifier hs-var">RouteTableAssociationState'</span></a></span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe RouteTableAssociationStateCode
+ -&gt; Maybe Text -&gt; RouteTableAssociationState)
+-&gt; Either String (Maybe RouteTableAssociationStateCode)
+-&gt; Either String (Maybe Text -&gt; RouteTableAssociationState)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe RouteTableAssociationStateCode)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; RouteTableAssociationState)
+-&gt; Either String (Maybe Text)
+-&gt; Either String RouteTableAssociationState
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681145639"><span id="local-6989586621681145641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681145636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteTableAssociationState.html#RouteTableAssociationState"><span class="hs-identifier hs-type">RouteTableAssociationState</span></a></span></span><span>
+</span><span id="line-77"></span></pre></body></html>

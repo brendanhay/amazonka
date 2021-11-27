@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.ContainerType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.ContainerType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier">ContainerType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_CMFC"><span class="hs-identifier">ContainerType_CMFC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_F4V"><span class="hs-identifier">ContainerType_F4V</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_ISMV"><span class="hs-identifier">ContainerType_ISMV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_M2TS"><span class="hs-identifier">ContainerType_M2TS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_M3U8"><span class="hs-identifier">ContainerType_M3U8</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MOV"><span class="hs-identifier">ContainerType_MOV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MP4"><span class="hs-identifier">ContainerType_MP4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MPD"><span class="hs-identifier">ContainerType_MPD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MXF"><span class="hs-identifier">ContainerType_MXF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_RAW"><span class="hs-identifier">ContainerType_RAW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_WEBM"><span class="hs-identifier">ContainerType_WEBM</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- | Container for this output. Some containers require a container settings</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- object. If not specified, the default object will be created.</span><span>
+</span><span id="line-43"></span><span id="local-6989586621679953280"><span id="local-6989586621679953281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerType"><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-var">ContainerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerType%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-var">ContainerType'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerType"><span class="annot"><span class="annottext">ContainerType -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#fromContainerType"><span class="hs-identifier hs-var hs-var">fromContainerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953272"><span id="local-6989586621679953274"><span id="local-6989586621679953276"><span class="annot"><span class="annottext">Int -&gt; ContainerType -&gt; ShowS
+[ContainerType] -&gt; ShowS
+ContainerType -&gt; String
+(Int -&gt; ContainerType -&gt; ShowS)
+-&gt; (ContainerType -&gt; String)
+-&gt; ([ContainerType] -&gt; ShowS)
+-&gt; Show ContainerType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContainerType] -&gt; ShowS
+$cshowList :: [ContainerType] -&gt; ShowS
+show :: ContainerType -&gt; String
+$cshow :: ContainerType -&gt; String
+showsPrec :: Int -&gt; ContainerType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContainerType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679953263"><span id="local-6989586621679953265"><span id="local-6989586621679953267"><span id="local-6989586621679953269"><span class="annot"><span class="annottext">ReadPrec [ContainerType]
+ReadPrec ContainerType
+Int -&gt; ReadS ContainerType
+ReadS [ContainerType]
+(Int -&gt; ReadS ContainerType)
+-&gt; ReadS [ContainerType]
+-&gt; ReadPrec ContainerType
+-&gt; ReadPrec [ContainerType]
+-&gt; Read ContainerType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContainerType]
+$creadListPrec :: ReadPrec [ContainerType]
+readPrec :: ReadPrec ContainerType
+$creadPrec :: ReadPrec ContainerType
+readList :: ReadS [ContainerType]
+$creadList :: ReadS [ContainerType]
+readsPrec :: Int -&gt; ReadS ContainerType
+$creadsPrec :: Int -&gt; ReadS ContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679953258"><span id="local-6989586621679953260"><span class="annot"><span class="annottext">ContainerType -&gt; ContainerType -&gt; Bool
+(ContainerType -&gt; ContainerType -&gt; Bool)
+-&gt; (ContainerType -&gt; ContainerType -&gt; Bool) -&gt; Eq ContainerType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContainerType -&gt; ContainerType -&gt; Bool
+$c/= :: ContainerType -&gt; ContainerType -&gt; Bool
+== :: ContainerType -&gt; ContainerType -&gt; Bool
+$c== :: ContainerType -&gt; ContainerType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679953242"><span id="local-6989586621679953244"><span id="local-6989586621679953246"><span id="local-6989586621679953248"><span id="local-6989586621679953250"><span id="local-6989586621679953252"><span id="local-6989586621679953254"><span class="annot"><span class="annottext">Eq ContainerType
+Eq ContainerType
+-&gt; (ContainerType -&gt; ContainerType -&gt; Ordering)
+-&gt; (ContainerType -&gt; ContainerType -&gt; Bool)
+-&gt; (ContainerType -&gt; ContainerType -&gt; Bool)
+-&gt; (ContainerType -&gt; ContainerType -&gt; Bool)
+-&gt; (ContainerType -&gt; ContainerType -&gt; Bool)
+-&gt; (ContainerType -&gt; ContainerType -&gt; ContainerType)
+-&gt; (ContainerType -&gt; ContainerType -&gt; ContainerType)
+-&gt; Ord ContainerType
+ContainerType -&gt; ContainerType -&gt; Bool
+ContainerType -&gt; ContainerType -&gt; Ordering
+ContainerType -&gt; ContainerType -&gt; ContainerType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContainerType -&gt; ContainerType -&gt; ContainerType
+$cmin :: ContainerType -&gt; ContainerType -&gt; ContainerType
+max :: ContainerType -&gt; ContainerType -&gt; ContainerType
+$cmax :: ContainerType -&gt; ContainerType -&gt; ContainerType
+&gt;= :: ContainerType -&gt; ContainerType -&gt; Bool
+$c&gt;= :: ContainerType -&gt; ContainerType -&gt; Bool
+&gt; :: ContainerType -&gt; ContainerType -&gt; Bool
+$c&gt; :: ContainerType -&gt; ContainerType -&gt; Bool
+&lt;= :: ContainerType -&gt; ContainerType -&gt; Bool
+$c&lt;= :: ContainerType -&gt; ContainerType -&gt; Bool
+&lt; :: ContainerType -&gt; ContainerType -&gt; Bool
+$c&lt; :: ContainerType -&gt; ContainerType -&gt; Bool
+compare :: ContainerType -&gt; ContainerType -&gt; Ordering
+$ccompare :: ContainerType -&gt; ContainerType -&gt; Ordering
+$cp1Ord :: Eq ContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContainerType -&gt; Rep ContainerType x)
+-&gt; (forall x. Rep ContainerType x -&gt; ContainerType)
+-&gt; Generic ContainerType
+forall x. Rep ContainerType x -&gt; ContainerType
+forall x. ContainerType -&gt; Rep ContainerType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContainerType x -&gt; ContainerType
+$cfrom :: forall x. ContainerType -&gt; Rep ContainerType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953234"><span id="local-6989586621679953236"><span class="annot"><span class="annottext">Int -&gt; ContainerType -&gt; Int
+ContainerType -&gt; Int
+(Int -&gt; ContainerType -&gt; Int)
+-&gt; (ContainerType -&gt; Int) -&gt; Hashable ContainerType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContainerType -&gt; Int
+$chash :: ContainerType -&gt; Int
+hashWithSalt :: Int -&gt; ContainerType -&gt; Int
+$chashWithSalt :: Int -&gt; ContainerType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953231"><span class="annot"><span class="annottext">ContainerType -&gt; ()
+(ContainerType -&gt; ()) -&gt; NFData ContainerType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContainerType -&gt; ()
+$crnf :: ContainerType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953228"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerType
+(Text -&gt; Either String ContainerType) -&gt; FromText ContainerType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContainerType
+$cfromText :: Text -&gt; Either String ContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679953225"><span class="annot"><span class="annottext">ContainerType -&gt; Text
+(ContainerType -&gt; Text) -&gt; ToText ContainerType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContainerType -&gt; Text
+$ctoText :: ContainerType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679953222"><span class="annot"><span class="annottext">ContainerType -&gt; ByteString
+(ContainerType -&gt; ByteString) -&gt; ToByteString ContainerType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContainerType -&gt; ByteString
+$ctoBS :: ContainerType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679953219"><span class="annot"><span class="annottext">ContainerType -&gt; ByteStringBuilder
+(ContainerType -&gt; ByteStringBuilder) -&gt; ToLog ContainerType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContainerType -&gt; ByteStringBuilder
+$cbuild :: ContainerType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679953216"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerType -&gt; [Header]
+(HeaderName -&gt; ContainerType -&gt; [Header]) -&gt; ToHeader ContainerType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContainerType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContainerType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679953213"><span class="annot"><span class="annottext">ContainerType -&gt; QueryString
+(ContainerType -&gt; QueryString) -&gt; ToQuery ContainerType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContainerType -&gt; QueryString
+$ctoQuery :: ContainerType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679953208"><span id="local-6989586621679953210"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerType]
+Value -&gt; Parser ContainerType
+(Value -&gt; Parser ContainerType)
+-&gt; (Value -&gt; Parser [ContainerType]) -&gt; FromJSON ContainerType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContainerType]
+$cparseJSONList :: Value -&gt; Parser [ContainerType]
+parseJSON :: Value -&gt; Parser ContainerType
+$cparseJSON :: Value -&gt; Parser ContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679953203"><span id="local-6989586621679953205"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerType]
+FromJSONKeyFunction ContainerType
+FromJSONKeyFunction ContainerType
+-&gt; FromJSONKeyFunction [ContainerType] -&gt; FromJSONKey ContainerType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContainerType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContainerType]
+fromJSONKey :: FromJSONKeyFunction ContainerType
+$cfromJSONKey :: FromJSONKeyFunction ContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679953194"><span id="local-6989586621679953196"><span id="local-6989586621679953198"><span id="local-6989586621679953200"><span class="annot"><span class="annottext">[ContainerType] -&gt; Encoding
+[ContainerType] -&gt; Value
+ContainerType -&gt; Encoding
+ContainerType -&gt; Value
+(ContainerType -&gt; Value)
+-&gt; (ContainerType -&gt; Encoding)
+-&gt; ([ContainerType] -&gt; Value)
+-&gt; ([ContainerType] -&gt; Encoding)
+-&gt; ToJSON ContainerType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContainerType] -&gt; Encoding
+$ctoEncodingList :: [ContainerType] -&gt; Encoding
+toJSONList :: [ContainerType] -&gt; Value
+$ctoJSONList :: [ContainerType] -&gt; Value
+toEncoding :: ContainerType -&gt; Encoding
+$ctoEncoding :: ContainerType -&gt; Encoding
+toJSON :: ContainerType -&gt; Value
+$ctoJSON :: ContainerType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679953189"><span id="local-6989586621679953191"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerType]
+ToJSONKeyFunction ContainerType
+ToJSONKeyFunction ContainerType
+-&gt; ToJSONKeyFunction [ContainerType] -&gt; ToJSONKey ContainerType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContainerType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContainerType]
+toJSONKey :: ToJSONKeyFunction ContainerType
+$ctoJSONKey :: ToJSONKeyFunction ContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679953186"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerType
+([Node] -&gt; Either String ContainerType) -&gt; FromXML ContainerType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContainerType
+$cparseXML :: [Node] -&gt; Either String ContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679953183"><span class="annot"><span class="annottext">ContainerType -&gt; XML
+(ContainerType -&gt; XML) -&gt; ToXML ContainerType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContainerType -&gt; XML
+$ctoXML :: ContainerType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_CMFC"><span class="hs-identifier hs-type">ContainerType_CMFC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_CMFC"><span id="%24mContainerType_CMFC"><span id="ContainerType_CMFC"><span class="annot"><span class="annottext">$bContainerType_CMFC :: ContainerType
+$mContainerType_CMFC :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_CMFC"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_CMFC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CMFC&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_F4V"><span class="hs-identifier hs-type">ContainerType_F4V</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_F4V"><span id="%24mContainerType_F4V"><span id="ContainerType_F4V"><span class="annot"><span class="annottext">$bContainerType_F4V :: ContainerType
+$mContainerType_F4V :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_F4V"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_F4V</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;F4V&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_ISMV"><span class="hs-identifier hs-type">ContainerType_ISMV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_ISMV"><span id="%24mContainerType_ISMV"><span id="ContainerType_ISMV"><span class="annot"><span class="annottext">$bContainerType_ISMV :: ContainerType
+$mContainerType_ISMV :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_ISMV"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_ISMV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ISMV&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_M2TS"><span class="hs-identifier hs-type">ContainerType_M2TS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_M2TS"><span id="%24mContainerType_M2TS"><span id="ContainerType_M2TS"><span class="annot"><span class="annottext">$bContainerType_M2TS :: ContainerType
+$mContainerType_M2TS :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_M2TS"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_M2TS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;M2TS&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_M3U8"><span class="hs-identifier hs-type">ContainerType_M3U8</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_M3U8"><span id="%24mContainerType_M3U8"><span id="ContainerType_M3U8"><span class="annot"><span class="annottext">$bContainerType_M3U8 :: ContainerType
+$mContainerType_M3U8 :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_M3U8"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_M3U8</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;M3U8&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MOV"><span class="hs-identifier hs-type">ContainerType_MOV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_MOV"><span id="%24mContainerType_MOV"><span id="ContainerType_MOV"><span class="annot"><span class="annottext">$bContainerType_MOV :: ContainerType
+$mContainerType_MOV :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_MOV"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_MOV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MOV&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MP4"><span class="hs-identifier hs-type">ContainerType_MP4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_MP4"><span id="%24mContainerType_MP4"><span id="ContainerType_MP4"><span class="annot"><span class="annottext">$bContainerType_MP4 :: ContainerType
+$mContainerType_MP4 :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_MP4"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_MP4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MP4&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MPD"><span class="hs-identifier hs-type">ContainerType_MPD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_MPD"><span id="%24mContainerType_MPD"><span id="ContainerType_MPD"><span class="annot"><span class="annottext">$bContainerType_MPD :: ContainerType
+$mContainerType_MPD :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_MPD"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_MPD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MPD&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MXF"><span class="hs-identifier hs-type">ContainerType_MXF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_MXF"><span id="%24mContainerType_MXF"><span id="ContainerType_MXF"><span class="annot"><span class="annottext">$bContainerType_MXF :: ContainerType
+$mContainerType_MXF :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_MXF"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_MXF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MXF&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_RAW"><span class="hs-identifier hs-type">ContainerType_RAW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_RAW"><span id="%24mContainerType_RAW"><span id="ContainerType_RAW"><span class="annot"><span class="annottext">$bContainerType_RAW :: ContainerType
+$mContainerType_RAW :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_RAW"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_RAW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RAW&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_WEBM"><span class="hs-identifier hs-type">ContainerType_WEBM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-type">ContainerType</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContainerType_WEBM"><span id="%24mContainerType_WEBM"><span id="ContainerType_WEBM"><span class="annot"><span class="annottext">$bContainerType_WEBM :: ContainerType
+$mContainerType_WEBM :: forall r. ContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ContainerType.html#%24bContainerType_WEBM"><span class="hs-identifier hs-var hs-var hs-var">ContainerType_WEBM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-type">ContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEBM&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_CMFC"><span class="hs-pragma hs-type">ContainerType_CMFC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_F4V"><span class="hs-pragma hs-type">ContainerType_F4V</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_ISMV"><span class="hs-pragma hs-type">ContainerType_ISMV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_M2TS"><span class="hs-pragma hs-type">ContainerType_M2TS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_M3U8"><span class="hs-pragma hs-type">ContainerType_M3U8</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MOV"><span class="hs-pragma hs-type">ContainerType_MOV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MP4"><span class="hs-pragma hs-type">ContainerType_MP4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MPD"><span class="hs-pragma hs-type">ContainerType_MPD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_MXF"><span class="hs-pragma hs-type">ContainerType_MXF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_RAW"><span class="hs-pragma hs-type">ContainerType_RAW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType_WEBM"><span class="hs-pragma hs-type">ContainerType_WEBM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-pragma hs-type">ContainerType'</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-118"></span></pre></body></html>

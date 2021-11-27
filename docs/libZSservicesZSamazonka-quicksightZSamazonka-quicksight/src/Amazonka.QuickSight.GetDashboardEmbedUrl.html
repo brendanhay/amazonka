@@ -1,0 +1,1023 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.GetDashboardEmbedUrl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates a session URL and authorization code that you can use to embed</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- an Amazon Amazon QuickSight read-only dashboard in your web server code.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Before you use this command, make sure that you have configured the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- dashboards and permissions.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Currently, you can use @GetDashboardEmbedURL@ only from the server, not</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- from the user\'s browser. The following rules apply to the combination</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- of URL and authorization code:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   They must be used together.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   They can be used one time only.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   They are valid for 5 minutes after you run this command.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   The resulting user session is valid for 10 hours.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html Embedding Analytics Using GetDashboardEmbedUrl&gt;</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- in the /Amazon QuickSight User Guide/.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- For more information about the high-level steps for embedding and for an</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- interactive demo of the ways you can customize embedding, visit the</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html Amazon QuickSight Developer Portal&gt;.</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.GetDashboardEmbedUrl</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#newGetDashboardEmbedUrl"><span class="hs-identifier">newGetDashboardEmbedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_sessionLifetimeInMinutes"><span class="hs-identifier">getDashboardEmbedUrl_sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_statePersistenceEnabled"><span class="hs-identifier">getDashboardEmbedUrl_statePersistenceEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_namespace"><span class="hs-identifier">getDashboardEmbedUrl_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_additionalDashboardIds"><span class="hs-identifier">getDashboardEmbedUrl_additionalDashboardIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_undoRedoDisabled"><span class="hs-identifier">getDashboardEmbedUrl_undoRedoDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_userArn"><span class="hs-identifier">getDashboardEmbedUrl_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_resetDisabled"><span class="hs-identifier">getDashboardEmbedUrl_resetDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_awsAccountId"><span class="hs-identifier">getDashboardEmbedUrl_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_dashboardId"><span class="hs-identifier">getDashboardEmbedUrl_dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_identityType"><span class="hs-identifier">getDashboardEmbedUrl_identityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier">GetDashboardEmbedUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#newGetDashboardEmbedUrlResponse"><span class="hs-identifier">newGetDashboardEmbedUrlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_requestId"><span class="hs-identifier">getDashboardEmbedUrlResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_embedUrl"><span class="hs-identifier">getDashboardEmbedUrlResponse_embedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_status"><span class="hs-identifier">getDashboardEmbedUrlResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newGetDashboardEmbedUrl' smart constructor.</span><span>
+</span><span id="line-83"></span><span id="local-6989586621679582489"><span id="local-6989586621679582490"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDashboardEmbedUrl"><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-var">GetDashboardEmbedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDashboardEmbedUrl%27"><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">GetDashboardEmbedUrl'</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- 15-600 minutes.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AsessionLifetimeInMinutes%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Maybe Natural
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AsessionLifetimeInMinutes%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Adds persistence of state for the user session in an embedded dashboard.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Persistence applies to the sheet and the parameter settings. These are</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- control settings that the dashboard subscriber (Amazon QuickSight</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- reader) chooses while viewing the dashboard. If this is set to @TRUE@,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- the settings are the same when the subscriber reopens the same dashboard</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- URL. The state is stored in Amazon QuickSight, not in a browser cookie.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- If this is set to FALSE, the state of the user session is not persisted.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- The default is @FALSE@.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AstatePersistenceEnabled%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AstatePersistenceEnabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">statePersistenceEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The Amazon QuickSight namespace that contains the dashboard IDs in this</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- request. If you\'re not using a custom namespace, set</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- @Namespace = default@.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Anamespace%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3Anamespace%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | A list of one or more dashboard IDs that you want to add to a session</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- that includes anonymous users. The @IdentityType@ parameter must be set</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- to @ANONYMOUS@ for this to work, because other identity types</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- authenticate as Amazon QuickSight or IAMusers. For example, if you set</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- \&quot;@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\&quot;,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- the session can access all three dashboards.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AadditionalDashboardIds%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AadditionalDashboardIds%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">additionalDashboardIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Remove the undo\/redo button on the embedded dashboard. The default is</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- FALSE, which enables the undo\/redo button.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AundoRedoDisabled%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AundoRedoDisabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">undoRedoDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- @QUICKSIGHT@ identity type. You can use this for any Amazon QuickSight</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- users in your account (readers, authors, or admins) authenticated as one</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- of the following:</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   Active Directory (AD) users or group members</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   Invited nonfederated users</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   IAMusers and IAMrole-based sessions authenticated through Federated</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     Single Sign-On using SAML, OpenID Connect, or IAMfederation.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- Omit this parameter for users in the third group &#8211; IAMusers and IAM</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- role-based sessions.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AuserArn%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AuserArn%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | Remove the reset button on the embedded dashboard. The default is FALSE,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- which enables the reset button.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AresetDisabled%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AresetDisabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">resetDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AawsAccountId%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AawsAccountId%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The ID for the dashboard, also added to the Identity and Access</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- Management (IAM) policy.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AdashboardId%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AdashboardId%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The authentication method that the user uses to sign in.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AidentityType%3AGetDashboardEmbedUrl%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; EmbeddingIdentityType
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AidentityType%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var hs-var">identityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.EmbeddingIdentityType.html#EmbeddingIdentityType"><span class="hs-identifier hs-type">EmbeddingIdentityType</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582474"><span id="local-6989586621679582476"><span class="annot"><span class="annottext">GetDashboardEmbedUrl -&gt; GetDashboardEmbedUrl -&gt; Bool
+(GetDashboardEmbedUrl -&gt; GetDashboardEmbedUrl -&gt; Bool)
+-&gt; (GetDashboardEmbedUrl -&gt; GetDashboardEmbedUrl -&gt; Bool)
+-&gt; Eq GetDashboardEmbedUrl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDashboardEmbedUrl -&gt; GetDashboardEmbedUrl -&gt; Bool
+$c/= :: GetDashboardEmbedUrl -&gt; GetDashboardEmbedUrl -&gt; Bool
+== :: GetDashboardEmbedUrl -&gt; GetDashboardEmbedUrl -&gt; Bool
+$c== :: GetDashboardEmbedUrl -&gt; GetDashboardEmbedUrl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582465"><span id="local-6989586621679582467"><span id="local-6989586621679582469"><span id="local-6989586621679582471"><span class="annot"><span class="annottext">ReadPrec [GetDashboardEmbedUrl]
+ReadPrec GetDashboardEmbedUrl
+Int -&gt; ReadS GetDashboardEmbedUrl
+ReadS [GetDashboardEmbedUrl]
+(Int -&gt; ReadS GetDashboardEmbedUrl)
+-&gt; ReadS [GetDashboardEmbedUrl]
+-&gt; ReadPrec GetDashboardEmbedUrl
+-&gt; ReadPrec [GetDashboardEmbedUrl]
+-&gt; Read GetDashboardEmbedUrl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDashboardEmbedUrl]
+$creadListPrec :: ReadPrec [GetDashboardEmbedUrl]
+readPrec :: ReadPrec GetDashboardEmbedUrl
+$creadPrec :: ReadPrec GetDashboardEmbedUrl
+readList :: ReadS [GetDashboardEmbedUrl]
+$creadList :: ReadS [GetDashboardEmbedUrl]
+readsPrec :: Int -&gt; ReadS GetDashboardEmbedUrl
+$creadsPrec :: Int -&gt; ReadS GetDashboardEmbedUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582458"><span id="local-6989586621679582460"><span id="local-6989586621679582462"><span class="annot"><span class="annottext">Int -&gt; GetDashboardEmbedUrl -&gt; ShowS
+[GetDashboardEmbedUrl] -&gt; ShowS
+GetDashboardEmbedUrl -&gt; String
+(Int -&gt; GetDashboardEmbedUrl -&gt; ShowS)
+-&gt; (GetDashboardEmbedUrl -&gt; String)
+-&gt; ([GetDashboardEmbedUrl] -&gt; ShowS)
+-&gt; Show GetDashboardEmbedUrl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDashboardEmbedUrl] -&gt; ShowS
+$cshowList :: [GetDashboardEmbedUrl] -&gt; ShowS
+show :: GetDashboardEmbedUrl -&gt; String
+$cshow :: GetDashboardEmbedUrl -&gt; String
+showsPrec :: Int -&gt; GetDashboardEmbedUrl -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDashboardEmbedUrl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDashboardEmbedUrl -&gt; Rep GetDashboardEmbedUrl x)
+-&gt; (forall x. Rep GetDashboardEmbedUrl x -&gt; GetDashboardEmbedUrl)
+-&gt; Generic GetDashboardEmbedUrl
+forall x. Rep GetDashboardEmbedUrl x -&gt; GetDashboardEmbedUrl
+forall x. GetDashboardEmbedUrl -&gt; Rep GetDashboardEmbedUrl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDashboardEmbedUrl x -&gt; GetDashboardEmbedUrl
+$cfrom :: forall x. GetDashboardEmbedUrl -&gt; Rep GetDashboardEmbedUrl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'GetDashboardEmbedUrl' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'sessionLifetimeInMinutes', 'getDashboardEmbedUrl_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 15-600 minutes.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'statePersistenceEnabled', 'getDashboardEmbedUrl_statePersistenceEnabled' - Adds persistence of state for the user session in an embedded dashboard.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Persistence applies to the sheet and the parameter settings. These are</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- control settings that the dashboard subscriber (Amazon QuickSight</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- reader) chooses while viewing the dashboard. If this is set to @TRUE@,</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- the settings are the same when the subscriber reopens the same dashboard</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- URL. The state is stored in Amazon QuickSight, not in a browser cookie.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- If this is set to FALSE, the state of the user session is not persisted.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The default is @FALSE@.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'namespace', 'getDashboardEmbedUrl_namespace' - The Amazon QuickSight namespace that contains the dashboard IDs in this</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- request. If you\'re not using a custom namespace, set</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- @Namespace = default@.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'additionalDashboardIds', 'getDashboardEmbedUrl_additionalDashboardIds' - A list of one or more dashboard IDs that you want to add to a session</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- that includes anonymous users. The @IdentityType@ parameter must be set</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- to @ANONYMOUS@ for this to work, because other identity types</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- authenticate as Amazon QuickSight or IAMusers. For example, if you set</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- \&quot;@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\&quot;,</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- the session can access all three dashboards.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'undoRedoDisabled', 'getDashboardEmbedUrl_undoRedoDisabled' - Remove the undo\/redo button on the embedded dashboard. The default is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- FALSE, which enables the undo\/redo button.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'userArn', 'getDashboardEmbedUrl_userArn' - The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @QUICKSIGHT@ identity type. You can use this for any Amazon QuickSight</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- users in your account (readers, authors, or admins) authenticated as one</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- of the following:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   Active Directory (AD) users or group members</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   Invited nonfederated users</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   IAMusers and IAMrole-based sessions authenticated through Federated</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     Single Sign-On using SAML, OpenID Connect, or IAMfederation.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Omit this parameter for users in the third group &#8211; IAMusers and IAM</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- role-based sessions.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'resetDisabled', 'getDashboardEmbedUrl_resetDisabled' - Remove the reset button on the embedded dashboard. The default is FALSE,</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- which enables the reset button.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'awsAccountId', 'getDashboardEmbedUrl_awsAccountId' - The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'dashboardId', 'getDashboardEmbedUrl_dashboardId' - The ID for the dashboard, also added to the Identity and Access</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Management (IAM) policy.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'identityType', 'getDashboardEmbedUrl_identityType' - The authentication method that the user uses to sign in.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#newGetDashboardEmbedUrl"><span class="hs-identifier hs-type">newGetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'dashboardId'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'identityType'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.EmbeddingIdentityType.html#EmbeddingIdentityType"><span class="hs-identifier hs-type">EmbeddingIdentityType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span>
+</span><span id="line-206"></span><span id="newGetDashboardEmbedUrl"><span class="annot"><span class="annottext">newGetDashboardEmbedUrl :: Text -&gt; Text -&gt; EmbeddingIdentityType -&gt; GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#newGetDashboardEmbedUrl"><span class="hs-identifier hs-var hs-var">newGetDashboardEmbedUrl</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679582453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582453"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679582452"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582452"><span class="hs-identifier hs-var">pDashboardId_</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679582451"><span class="annot"><span class="annottext">EmbeddingIdentityType
+</span><a href="#local-6989586621679582451"><span class="hs-identifier hs-var">pIdentityType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl' :: Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; EmbeddingIdentityType
+-&gt; GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GetDashboardEmbedUrl' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AsessionLifetimeInMinutes%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">$sel:statePersistenceEnabled:GetDashboardEmbedUrl' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AstatePersistenceEnabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">statePersistenceEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:GetDashboardEmbedUrl' :: Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3Anamespace%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:additionalDashboardIds:GetDashboardEmbedUrl' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AadditionalDashboardIds%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">additionalDashboardIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:undoRedoDisabled:GetDashboardEmbedUrl' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AundoRedoDisabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">undoRedoDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:userArn:GetDashboardEmbedUrl' :: Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AuserArn%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:resetDisabled:GetDashboardEmbedUrl' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AresetDisabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">resetDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:GetDashboardEmbedUrl' :: Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AawsAccountId%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582453"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashboardId:GetDashboardEmbedUrl' :: Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AdashboardId%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582452"><span class="hs-identifier hs-var">pDashboardId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityType:GetDashboardEmbedUrl' :: EmbeddingIdentityType
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AidentityType%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">identityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EmbeddingIdentityType
+</span><a href="#local-6989586621679582451"><span class="hs-identifier hs-var">pIdentityType_</span></a></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 15-600 minutes.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_sessionLifetimeInMinutes"><span class="hs-identifier hs-type">getDashboardEmbedUrl_sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="getDashboardEmbedUrl_sessionLifetimeInMinutes"><span class="annot"><span class="annottext">getDashboardEmbedUrl_sessionLifetimeInMinutes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_sessionLifetimeInMinutes"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Maybe Natural)
+-&gt; (GetDashboardEmbedUrl -&gt; Maybe Natural -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl
+     GetDashboardEmbedUrl
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582448"><span class="annot"><span class="annottext">Maybe Natural
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:sessionLifetimeInMinutes:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Natural
+</span><a href="#local-6989586621679582448"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582448"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582447"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582446"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GetDashboardEmbedUrl' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AsessionLifetimeInMinutes%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Adds persistence of state for the user session in an embedded dashboard.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Persistence applies to the sheet and the parameter settings. These are</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- control settings that the dashboard subscriber (Amazon QuickSight</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- reader) chooses while viewing the dashboard. If this is set to @TRUE@,</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- the settings are the same when the subscriber reopens the same dashboard</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- URL. The state is stored in Amazon QuickSight, not in a browser cookie.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- If this is set to FALSE, the state of the user session is not persisted.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- The default is @FALSE@.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_statePersistenceEnabled"><span class="hs-identifier hs-type">getDashboardEmbedUrl_statePersistenceEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="getDashboardEmbedUrl_statePersistenceEnabled"><span class="annot"><span class="annottext">getDashboardEmbedUrl_statePersistenceEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_statePersistenceEnabled"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_statePersistenceEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Maybe Bool)
+-&gt; (GetDashboardEmbedUrl -&gt; Maybe Bool -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl GetDashboardEmbedUrl (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582445"><span class="annot"><span class="annottext">Maybe Bool
+statePersistenceEnabled :: Maybe Bool
+$sel:statePersistenceEnabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+</span><a href="#local-6989586621679582445"><span class="hs-identifier hs-var hs-var">statePersistenceEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582445"><span class="hs-identifier hs-var">statePersistenceEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582444"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582443"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statePersistenceEnabled:GetDashboardEmbedUrl' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AstatePersistenceEnabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">statePersistenceEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The Amazon QuickSight namespace that contains the dashboard IDs in this</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- request. If you\'re not using a custom namespace, set</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- @Namespace = default@.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_namespace"><span class="hs-identifier hs-type">getDashboardEmbedUrl_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="getDashboardEmbedUrl_namespace"><span class="annot"><span class="annottext">getDashboardEmbedUrl_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_namespace"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Maybe Text)
+-&gt; (GetDashboardEmbedUrl -&gt; Maybe Text -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl GetDashboardEmbedUrl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582442"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Text
+</span><a href="#local-6989586621679582442"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582442"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582441"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582440"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:GetDashboardEmbedUrl' :: Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3Anamespace%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | A list of one or more dashboard IDs that you want to add to a session</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- that includes anonymous users. The @IdentityType@ parameter must be set</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- to @ANONYMOUS@ for this to work, because other identity types</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- authenticate as Amazon QuickSight or IAMusers. For example, if you set</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- \&quot;@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\&quot;,</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- the session can access all three dashboards.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_additionalDashboardIds"><span class="hs-identifier hs-type">getDashboardEmbedUrl_additionalDashboardIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="getDashboardEmbedUrl_additionalDashboardIds"><span class="annot"><span class="annottext">getDashboardEmbedUrl_additionalDashboardIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_additionalDashboardIds"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_additionalDashboardIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Maybe (NonEmpty Text))
+-&gt; (GetDashboardEmbedUrl
+    -&gt; Maybe (NonEmpty Text) -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl
+     GetDashboardEmbedUrl
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582439"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+additionalDashboardIds :: Maybe (NonEmpty Text)
+$sel:additionalDashboardIds:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679582439"><span class="hs-identifier hs-var hs-var">additionalDashboardIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679582439"><span class="hs-identifier hs-var">additionalDashboardIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582438"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582437"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679582437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalDashboardIds:GetDashboardEmbedUrl' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AadditionalDashboardIds%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">additionalDashboardIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679582437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetDashboardEmbedUrl
+-&gt; f GetDashboardEmbedUrl
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | Remove the undo\/redo button on the embedded dashboard. The default is</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- FALSE, which enables the undo\/redo button.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_undoRedoDisabled"><span class="hs-identifier hs-type">getDashboardEmbedUrl_undoRedoDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="getDashboardEmbedUrl_undoRedoDisabled"><span class="annot"><span class="annottext">getDashboardEmbedUrl_undoRedoDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_undoRedoDisabled"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_undoRedoDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Maybe Bool)
+-&gt; (GetDashboardEmbedUrl -&gt; Maybe Bool -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl GetDashboardEmbedUrl (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582433"><span class="annot"><span class="annottext">Maybe Bool
+undoRedoDisabled :: Maybe Bool
+$sel:undoRedoDisabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+</span><a href="#local-6989586621679582433"><span class="hs-identifier hs-var hs-var">undoRedoDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582433"><span class="hs-identifier hs-var">undoRedoDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582432"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582431"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:undoRedoDisabled:GetDashboardEmbedUrl' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AundoRedoDisabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">undoRedoDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- @QUICKSIGHT@ identity type. You can use this for any Amazon QuickSight</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- users in your account (readers, authors, or admins) authenticated as one</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- of the following:</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- -   Active Directory (AD) users or group members</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- -   Invited nonfederated users</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- -   IAMusers and IAMrole-based sessions authenticated through Federated</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     Single Sign-On using SAML, OpenID Connect, or IAMfederation.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- Omit this parameter for users in the third group &#8211; IAMusers and IAM</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- role-based sessions.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_userArn"><span class="hs-identifier hs-type">getDashboardEmbedUrl_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="getDashboardEmbedUrl_userArn"><span class="annot"><span class="annottext">getDashboardEmbedUrl_userArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_userArn"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Maybe Text)
+-&gt; (GetDashboardEmbedUrl -&gt; Maybe Text -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl GetDashboardEmbedUrl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582430"><span class="annot"><span class="annottext">Maybe Text
+userArn :: Maybe Text
+$sel:userArn:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Text
+</span><a href="#local-6989586621679582430"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582430"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582429"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:GetDashboardEmbedUrl' :: Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AuserArn%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Remove the reset button on the embedded dashboard. The default is FALSE,</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- which enables the reset button.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_resetDisabled"><span class="hs-identifier hs-type">getDashboardEmbedUrl_resetDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="getDashboardEmbedUrl_resetDisabled"><span class="annot"><span class="annottext">getDashboardEmbedUrl_resetDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_resetDisabled"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_resetDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Maybe Bool)
+-&gt; (GetDashboardEmbedUrl -&gt; Maybe Bool -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl GetDashboardEmbedUrl (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582427"><span class="annot"><span class="annottext">Maybe Bool
+resetDisabled :: Maybe Bool
+$sel:resetDisabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+</span><a href="#local-6989586621679582427"><span class="hs-identifier hs-var hs-var">resetDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582427"><span class="hs-identifier hs-var">resetDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582426"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582425"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resetDisabled:GetDashboardEmbedUrl' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AresetDisabled%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">resetDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_awsAccountId"><span class="hs-identifier hs-type">getDashboardEmbedUrl_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-285"></span><span id="getDashboardEmbedUrl_awsAccountId"><span class="annot"><span class="annottext">getDashboardEmbedUrl_awsAccountId :: (Text -&gt; f Text) -&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_awsAccountId"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Text)
+-&gt; (GetDashboardEmbedUrl -&gt; Text -&gt; GetDashboardEmbedUrl)
+-&gt; Lens GetDashboardEmbedUrl GetDashboardEmbedUrl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582424"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Text
+</span><a href="#local-6989586621679582424"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582424"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582423"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582422"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:GetDashboardEmbedUrl' :: Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AawsAccountId%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The ID for the dashboard, also added to the Identity and Access</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Management (IAM) policy.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_dashboardId"><span class="hs-identifier hs-type">getDashboardEmbedUrl_dashboardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-290"></span><span id="getDashboardEmbedUrl_dashboardId"><span class="annot"><span class="annottext">getDashboardEmbedUrl_dashboardId :: (Text -&gt; f Text) -&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_dashboardId"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_dashboardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; Text)
+-&gt; (GetDashboardEmbedUrl -&gt; Text -&gt; GetDashboardEmbedUrl)
+-&gt; Lens GetDashboardEmbedUrl GetDashboardEmbedUrl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582421"><span class="annot"><span class="annottext">Text
+dashboardId :: Text
+$sel:dashboardId:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Text
+</span><a href="#local-6989586621679582421"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582421"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582420"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardId:GetDashboardEmbedUrl' :: Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AdashboardId%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The authentication method that the user uses to sign in.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_identityType"><span class="hs-identifier hs-type">getDashboardEmbedUrl_identityType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.EmbeddingIdentityType.html#EmbeddingIdentityType"><span class="hs-identifier hs-type">EmbeddingIdentityType</span></a></span><span>
+</span><span id="line-294"></span><span id="getDashboardEmbedUrl_identityType"><span class="annot"><span class="annottext">getDashboardEmbedUrl_identityType :: (EmbeddingIdentityType -&gt; f EmbeddingIdentityType)
+-&gt; GetDashboardEmbedUrl -&gt; f GetDashboardEmbedUrl
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrl_identityType"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrl_identityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrl -&gt; EmbeddingIdentityType)
+-&gt; (GetDashboardEmbedUrl
+    -&gt; EmbeddingIdentityType -&gt; GetDashboardEmbedUrl)
+-&gt; Lens
+     GetDashboardEmbedUrl
+     GetDashboardEmbedUrl
+     EmbeddingIdentityType
+     EmbeddingIdentityType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582418"><span class="annot"><span class="annottext">EmbeddingIdentityType
+identityType :: EmbeddingIdentityType
+$sel:identityType:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; EmbeddingIdentityType
+</span><a href="#local-6989586621679582418"><span class="hs-identifier hs-var hs-var">identityType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddingIdentityType
+</span><a href="#local-6989586621679582418"><span class="hs-identifier hs-var">identityType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582417"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582416"><span class="annot"><span class="annottext">EmbeddingIdentityType
+</span><a href="#local-6989586621679582416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrl
+</span><a href="#local-6989586621679582417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityType:GetDashboardEmbedUrl' :: EmbeddingIdentityType
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AidentityType%3AGetDashboardEmbedUrl%27"><span class="hs-identifier hs-var">identityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EmbeddingIdentityType
+</span><a href="#local-6989586621679582416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-298"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679582412"><span class="annot"><span class="annottext">request :: GetDashboardEmbedUrl -&gt; Request GetDashboardEmbedUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDashboardEmbedUrl -&gt; Request GetDashboardEmbedUrl
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679582408"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDashboardEmbedUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDashboardEmbedUrl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDashboardEmbedUrl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDashboardEmbedUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDashboardEmbedUrl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679582405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582405"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679582404"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679582404"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679582403"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-304"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetDashboardEmbedUrlResponse
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">GetDashboardEmbedUrlResponse'</span></a></span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetDashboardEmbedUrlResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (Sensitive Text) -&gt; Int -&gt; GetDashboardEmbedUrlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive Text) -&gt; Int -&gt; GetDashboardEmbedUrlResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either String (Int -&gt; GetDashboardEmbedUrlResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmbedUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDashboardEmbedUrlResponse)
+-&gt; Either String Int -&gt; Either String GetDashboardEmbedUrlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582405"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582395"><span id="local-6989586621679582397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span></span></span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679582388"><span class="annot"><span class="annottext">toHeaders :: GetDashboardEmbedUrl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDashboardEmbedUrl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-317"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-318"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-319"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-320"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-321"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-323"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621679582382"><span class="annot"><span class="annottext">toPath :: GetDashboardEmbedUrl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582371"><span id="local-6989586621679582372"><span id="local-6989586621679582373"><span id="local-6989586621679582374"><span id="local-6989586621679582375"><span id="local-6989586621679582376"><span id="local-6989586621679582377"><span id="local-6989586621679582378"><span id="local-6989586621679582379"><span id="local-6989586621679582380"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe (NonEmpty Text)
+Maybe Text
+Text
+EmbeddingIdentityType
+identityType :: EmbeddingIdentityType
+dashboardId :: Text
+awsAccountId :: Text
+resetDisabled :: Maybe Bool
+userArn :: Maybe Text
+undoRedoDisabled :: Maybe Bool
+additionalDashboardIds :: Maybe (NonEmpty Text)
+namespace :: Maybe Text
+statePersistenceEnabled :: Maybe Bool
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:identityType:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; EmbeddingIdentityType
+$sel:dashboardId:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Text
+$sel:awsAccountId:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Text
+$sel:resetDisabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+$sel:userArn:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Text
+$sel:undoRedoDisabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+$sel:additionalDashboardIds:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe (NonEmpty Text)
+$sel:namespace:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Text
+$sel:statePersistenceEnabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+$sel:sessionLifetimeInMinutes:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Natural
+</span><a href="#local-6989586621679582371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-328"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582373"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/dashboards/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582372"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/embed-url&quot;</span></span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl"><span class="hs-identifier hs-type">GetDashboardEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621679582367"><span class="annot"><span class="annottext">toQuery :: GetDashboardEmbedUrl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrl%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582356"><span id="local-6989586621679582357"><span id="local-6989586621679582358"><span id="local-6989586621679582359"><span id="local-6989586621679582360"><span id="local-6989586621679582361"><span id="local-6989586621679582362"><span id="local-6989586621679582363"><span id="local-6989586621679582364"><span id="local-6989586621679582365"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe (NonEmpty Text)
+Maybe Text
+Text
+EmbeddingIdentityType
+identityType :: EmbeddingIdentityType
+dashboardId :: Text
+awsAccountId :: Text
+resetDisabled :: Maybe Bool
+userArn :: Maybe Text
+undoRedoDisabled :: Maybe Bool
+additionalDashboardIds :: Maybe (NonEmpty Text)
+namespace :: Maybe Text
+statePersistenceEnabled :: Maybe Bool
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:identityType:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; EmbeddingIdentityType
+$sel:dashboardId:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Text
+$sel:awsAccountId:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Text
+$sel:resetDisabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+$sel:userArn:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Text
+$sel:undoRedoDisabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+$sel:additionalDashboardIds:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe (NonEmpty Text)
+$sel:namespace:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Text
+$sel:statePersistenceEnabled:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Bool
+$sel:sessionLifetimeInMinutes:GetDashboardEmbedUrl' :: GetDashboardEmbedUrl -&gt; Maybe Natural
+</span><a href="#local-6989586621679582356"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-338"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;session-lifetime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582365"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;state-persistence-enabled&quot;</span></span><span>
+</span><span id="line-340"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582364"><span class="hs-identifier hs-var">statePersistenceEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582363"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;additional-dashboard-ids&quot;</span></span><span>
+</span><span id="line-343"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Text -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-345"></span><span>                </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; QueryString)
+-&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679582362"><span class="hs-identifier hs-var">additionalDashboardIds</span></a></span><span>
+</span><span id="line-346"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;undo-redo-disabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582361"><span class="hs-identifier hs-var">undoRedoDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;user-arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582360"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;reset-disabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582359"><span class="hs-identifier hs-var">resetDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;creds-type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EmbeddingIdentityType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">EmbeddingIdentityType
+</span><a href="#local-6989586621679582356"><span class="hs-identifier hs-var">identityType</span></a></span><span>
+</span><span id="line-351"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | Output returned from the @GetDashboardEmbedUrl@ operation.</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- /See:/ 'newGetDashboardEmbedUrlResponse' smart constructor.</span><span>
+</span><span id="line-356"></span><span id="local-6989586621679582352"><span id="local-6989586621679582353"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDashboardEmbedUrlResponse"><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-var">GetDashboardEmbedUrlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDashboardEmbedUrlResponse%27"><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">GetDashboardEmbedUrlResponse'</span></a></span></span><span>
+</span><span id="line-357"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-358"></span><span>    </span><span id="%24sel%3ArequestId%3AGetDashboardEmbedUrlResponse%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3ArequestId%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>    </span><span class="hs-comment">-- | A single-use URL that you can put into your server-side webpage to embed</span><span>
+</span><span id="line-360"></span><span>    </span><span class="hs-comment">-- your dashboard. This URL is valid for 5 minutes. The API operation</span><span>
+</span><span id="line-361"></span><span>    </span><span class="hs-comment">-- provides the URL with an @auth_code@ value that enables one (and only</span><span>
+</span><span id="line-362"></span><span>    </span><span class="hs-comment">-- one) sign-on to a user session that is valid for 10 hours.</span><span>
+</span><span id="line-363"></span><span>    </span><span id="%24sel%3AembedUrl%3AGetDashboardEmbedUrlResponse%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AembedUrl%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-365"></span><span>    </span><span id="%24sel%3Astatus%3AGetDashboardEmbedUrlResponse%27"><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3Astatus%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-366"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-367"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582345"><span id="local-6989586621679582347"><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse
+-&gt; GetDashboardEmbedUrlResponse -&gt; Bool
+(GetDashboardEmbedUrlResponse
+ -&gt; GetDashboardEmbedUrlResponse -&gt; Bool)
+-&gt; (GetDashboardEmbedUrlResponse
+    -&gt; GetDashboardEmbedUrlResponse -&gt; Bool)
+-&gt; Eq GetDashboardEmbedUrlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDashboardEmbedUrlResponse
+-&gt; GetDashboardEmbedUrlResponse -&gt; Bool
+$c/= :: GetDashboardEmbedUrlResponse
+-&gt; GetDashboardEmbedUrlResponse -&gt; Bool
+== :: GetDashboardEmbedUrlResponse
+-&gt; GetDashboardEmbedUrlResponse -&gt; Bool
+$c== :: GetDashboardEmbedUrlResponse
+-&gt; GetDashboardEmbedUrlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582339"><span id="local-6989586621679582341"><span id="local-6989586621679582343"><span class="annot"><span class="annottext">Int -&gt; GetDashboardEmbedUrlResponse -&gt; ShowS
+[GetDashboardEmbedUrlResponse] -&gt; ShowS
+GetDashboardEmbedUrlResponse -&gt; String
+(Int -&gt; GetDashboardEmbedUrlResponse -&gt; ShowS)
+-&gt; (GetDashboardEmbedUrlResponse -&gt; String)
+-&gt; ([GetDashboardEmbedUrlResponse] -&gt; ShowS)
+-&gt; Show GetDashboardEmbedUrlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDashboardEmbedUrlResponse] -&gt; ShowS
+$cshowList :: [GetDashboardEmbedUrlResponse] -&gt; ShowS
+show :: GetDashboardEmbedUrlResponse -&gt; String
+$cshow :: GetDashboardEmbedUrlResponse -&gt; String
+showsPrec :: Int -&gt; GetDashboardEmbedUrlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDashboardEmbedUrlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDashboardEmbedUrlResponse -&gt; Rep GetDashboardEmbedUrlResponse x)
+-&gt; (forall x.
+    Rep GetDashboardEmbedUrlResponse x -&gt; GetDashboardEmbedUrlResponse)
+-&gt; Generic GetDashboardEmbedUrlResponse
+forall x.
+Rep GetDashboardEmbedUrlResponse x -&gt; GetDashboardEmbedUrlResponse
+forall x.
+GetDashboardEmbedUrlResponse -&gt; Rep GetDashboardEmbedUrlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDashboardEmbedUrlResponse x -&gt; GetDashboardEmbedUrlResponse
+$cfrom :: forall x.
+GetDashboardEmbedUrlResponse -&gt; Rep GetDashboardEmbedUrlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- Create a value of 'GetDashboardEmbedUrlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- 'requestId', 'getDashboardEmbedUrlResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- 'embedUrl', 'getDashboardEmbedUrlResponse_embedUrl' - A single-use URL that you can put into your server-side webpage to embed</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- your dashboard. This URL is valid for 5 minutes. The API operation</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- provides the URL with an @auth_code@ value that enables one (and only</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- one) sign-on to a user session that is valid for 10 hours.</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- 'status', 'getDashboardEmbedUrlResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-385"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#newGetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">newGetDashboardEmbedUrlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-386"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-387"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-388"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span>
+</span><span id="line-389"></span><span id="newGetDashboardEmbedUrlResponse"><span class="annot"><span class="annottext">newGetDashboardEmbedUrlResponse :: Int -&gt; GetDashboardEmbedUrlResponse
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#newGetDashboardEmbedUrlResponse"><span class="hs-identifier hs-var hs-var">newGetDashboardEmbedUrlResponse</span></a></span></span><span> </span><span id="local-6989586621679582336"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582336"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-390"></span><span>  </span><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse' :: Maybe Text
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetDashboardEmbedUrlResponse
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse'</span></a></span><span>
+</span><span id="line-391"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:GetDashboardEmbedUrlResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3ArequestId%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-392"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>      </span><span class="annot"><span class="annottext">$sel:embedUrl:GetDashboardEmbedUrlResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AembedUrl%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:GetDashboardEmbedUrlResponse' :: Int
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3Astatus%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582336"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-395"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-398"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_requestId"><span class="hs-identifier hs-type">getDashboardEmbedUrlResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span id="getDashboardEmbedUrlResponse_requestId"><span class="annot"><span class="annottext">getDashboardEmbedUrlResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDashboardEmbedUrlResponse -&gt; f GetDashboardEmbedUrlResponse
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_requestId"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrlResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrlResponse -&gt; Maybe Text)
+-&gt; (GetDashboardEmbedUrlResponse
+    -&gt; Maybe Text -&gt; GetDashboardEmbedUrlResponse)
+-&gt; Lens
+     GetDashboardEmbedUrlResponse
+     GetDashboardEmbedUrlResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582335"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:GetDashboardEmbedUrlResponse' :: GetDashboardEmbedUrlResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679582335"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582335"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582334"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrlResponse
+</span><a href="#local-6989586621679582334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse
+</span><a href="#local-6989586621679582334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:GetDashboardEmbedUrlResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3ArequestId%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- | A single-use URL that you can put into your server-side webpage to embed</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- your dashboard. This URL is valid for 5 minutes. The API operation</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- provides the URL with an @auth_code@ value that enables one (and only</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- one) sign-on to a user session that is valid for 10 hours.</span><span>
+</span><span id="line-405"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_embedUrl"><span class="hs-identifier hs-type">getDashboardEmbedUrlResponse_embedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span id="getDashboardEmbedUrlResponse_embedUrl"><span class="annot"><span class="annottext">getDashboardEmbedUrlResponse_embedUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDashboardEmbedUrlResponse -&gt; f GetDashboardEmbedUrlResponse
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_embedUrl"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrlResponse_embedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrlResponse -&gt; Maybe (Sensitive Text))
+-&gt; (GetDashboardEmbedUrlResponse
+    -&gt; Maybe (Sensitive Text) -&gt; GetDashboardEmbedUrlResponse)
+-&gt; Lens
+     GetDashboardEmbedUrlResponse
+     GetDashboardEmbedUrlResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582332"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+embedUrl :: Maybe (Sensitive Text)
+$sel:embedUrl:GetDashboardEmbedUrlResponse' :: GetDashboardEmbedUrlResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582332"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582332"><span class="hs-identifier hs-var">embedUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582331"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrlResponse
+</span><a href="#local-6989586621679582331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582330"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse
+</span><a href="#local-6989586621679582331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embedUrl:GetDashboardEmbedUrlResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3AembedUrl%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; GetDashboardEmbedUrlResponse -&gt; f GetDashboardEmbedUrlResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDashboardEmbedUrlResponse
+-&gt; f GetDashboardEmbedUrlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_status"><span class="hs-identifier hs-type">getDashboardEmbedUrlResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-410"></span><span id="getDashboardEmbedUrlResponse_status"><span class="annot"><span class="annottext">getDashboardEmbedUrlResponse_status :: (Int -&gt; f Int)
+-&gt; GetDashboardEmbedUrlResponse -&gt; f GetDashboardEmbedUrlResponse
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#getDashboardEmbedUrlResponse_status"><span class="hs-identifier hs-var hs-var">getDashboardEmbedUrlResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDashboardEmbedUrlResponse -&gt; Int)
+-&gt; (GetDashboardEmbedUrlResponse
+    -&gt; Int -&gt; GetDashboardEmbedUrlResponse)
+-&gt; Lens
+     GetDashboardEmbedUrlResponse GetDashboardEmbedUrlResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582328"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:GetDashboardEmbedUrlResponse' :: GetDashboardEmbedUrlResponse -&gt; Int
+</span><a href="#local-6989586621679582328"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582328"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582327"><span class="annot"><span class="annottext">s :: GetDashboardEmbedUrlResponse
+</span><a href="#local-6989586621679582327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582326"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDashboardEmbedUrlResponse
+</span><a href="#local-6989586621679582327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetDashboardEmbedUrlResponse' :: Int
+</span><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#%24sel%3Astatus%3AGetDashboardEmbedUrlResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GetDashboardEmbedUrl.html#GetDashboardEmbedUrlResponse"><span class="hs-identifier hs-type">GetDashboardEmbedUrlResponse</span></a></span></span><span>
+</span><span id="line-413"></span></pre></body></html>

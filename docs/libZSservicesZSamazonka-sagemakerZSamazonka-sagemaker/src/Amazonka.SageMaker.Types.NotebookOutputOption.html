@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.NotebookOutputOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.NotebookOutputOption</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption"><span class="hs-identifier">NotebookOutputOption</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption_Allowed"><span class="hs-identifier">NotebookOutputOption_Allowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption_Disabled"><span class="hs-identifier">NotebookOutputOption_Disabled</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680324259"><span id="local-6989586621680324260"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotebookOutputOption"><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption"><span class="hs-identifier hs-var">NotebookOutputOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookOutputOption%27"><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption%27"><span class="hs-identifier hs-var">NotebookOutputOption'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotebookOutputOption"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#fromNotebookOutputOption"><span class="hs-identifier hs-var hs-var">fromNotebookOutputOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680324251"><span id="local-6989586621680324253"><span id="local-6989586621680324255"><span class="annot"><span class="annottext">Int -&gt; NotebookOutputOption -&gt; ShowS
+[NotebookOutputOption] -&gt; ShowS
+NotebookOutputOption -&gt; String
+(Int -&gt; NotebookOutputOption -&gt; ShowS)
+-&gt; (NotebookOutputOption -&gt; String)
+-&gt; ([NotebookOutputOption] -&gt; ShowS)
+-&gt; Show NotebookOutputOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotebookOutputOption] -&gt; ShowS
+$cshowList :: [NotebookOutputOption] -&gt; ShowS
+show :: NotebookOutputOption -&gt; String
+$cshow :: NotebookOutputOption -&gt; String
+showsPrec :: Int -&gt; NotebookOutputOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotebookOutputOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680324242"><span id="local-6989586621680324244"><span id="local-6989586621680324246"><span id="local-6989586621680324248"><span class="annot"><span class="annottext">ReadPrec [NotebookOutputOption]
+ReadPrec NotebookOutputOption
+Int -&gt; ReadS NotebookOutputOption
+ReadS [NotebookOutputOption]
+(Int -&gt; ReadS NotebookOutputOption)
+-&gt; ReadS [NotebookOutputOption]
+-&gt; ReadPrec NotebookOutputOption
+-&gt; ReadPrec [NotebookOutputOption]
+-&gt; Read NotebookOutputOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotebookOutputOption]
+$creadListPrec :: ReadPrec [NotebookOutputOption]
+readPrec :: ReadPrec NotebookOutputOption
+$creadPrec :: ReadPrec NotebookOutputOption
+readList :: ReadS [NotebookOutputOption]
+$creadList :: ReadS [NotebookOutputOption]
+readsPrec :: Int -&gt; ReadS NotebookOutputOption
+$creadsPrec :: Int -&gt; ReadS NotebookOutputOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680324237"><span id="local-6989586621680324239"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+(NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool)
+-&gt; (NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool)
+-&gt; Eq NotebookOutputOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+$c/= :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+== :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+$c== :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680324221"><span id="local-6989586621680324223"><span id="local-6989586621680324225"><span id="local-6989586621680324227"><span id="local-6989586621680324229"><span id="local-6989586621680324231"><span id="local-6989586621680324233"><span class="annot"><span class="annottext">Eq NotebookOutputOption
+Eq NotebookOutputOption
+-&gt; (NotebookOutputOption -&gt; NotebookOutputOption -&gt; Ordering)
+-&gt; (NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool)
+-&gt; (NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool)
+-&gt; (NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool)
+-&gt; (NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool)
+-&gt; (NotebookOutputOption
+    -&gt; NotebookOutputOption -&gt; NotebookOutputOption)
+-&gt; (NotebookOutputOption
+    -&gt; NotebookOutputOption -&gt; NotebookOutputOption)
+-&gt; Ord NotebookOutputOption
+NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+NotebookOutputOption -&gt; NotebookOutputOption -&gt; Ordering
+NotebookOutputOption
+-&gt; NotebookOutputOption -&gt; NotebookOutputOption
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NotebookOutputOption
+-&gt; NotebookOutputOption -&gt; NotebookOutputOption
+$cmin :: NotebookOutputOption
+-&gt; NotebookOutputOption -&gt; NotebookOutputOption
+max :: NotebookOutputOption
+-&gt; NotebookOutputOption -&gt; NotebookOutputOption
+$cmax :: NotebookOutputOption
+-&gt; NotebookOutputOption -&gt; NotebookOutputOption
+&gt;= :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+$c&gt;= :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+&gt; :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+$c&gt; :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+&lt;= :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+$c&lt;= :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+&lt; :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+$c&lt; :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Bool
+compare :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Ordering
+$ccompare :: NotebookOutputOption -&gt; NotebookOutputOption -&gt; Ordering
+$cp1Ord :: Eq NotebookOutputOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NotebookOutputOption -&gt; Rep NotebookOutputOption x)
+-&gt; (forall x. Rep NotebookOutputOption x -&gt; NotebookOutputOption)
+-&gt; Generic NotebookOutputOption
+forall x. Rep NotebookOutputOption x -&gt; NotebookOutputOption
+forall x. NotebookOutputOption -&gt; Rep NotebookOutputOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NotebookOutputOption x -&gt; NotebookOutputOption
+$cfrom :: forall x. NotebookOutputOption -&gt; Rep NotebookOutputOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680324213"><span id="local-6989586621680324215"><span class="annot"><span class="annottext">Int -&gt; NotebookOutputOption -&gt; Int
+NotebookOutputOption -&gt; Int
+(Int -&gt; NotebookOutputOption -&gt; Int)
+-&gt; (NotebookOutputOption -&gt; Int) -&gt; Hashable NotebookOutputOption
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NotebookOutputOption -&gt; Int
+$chash :: NotebookOutputOption -&gt; Int
+hashWithSalt :: Int -&gt; NotebookOutputOption -&gt; Int
+$chashWithSalt :: Int -&gt; NotebookOutputOption -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680324210"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; ()
+(NotebookOutputOption -&gt; ()) -&gt; NFData NotebookOutputOption
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NotebookOutputOption -&gt; ()
+$crnf :: NotebookOutputOption -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680324207"><span class="annot"><span class="annottext">Text -&gt; Either String NotebookOutputOption
+(Text -&gt; Either String NotebookOutputOption)
+-&gt; FromText NotebookOutputOption
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NotebookOutputOption
+$cfromText :: Text -&gt; Either String NotebookOutputOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680324204"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; Text
+(NotebookOutputOption -&gt; Text) -&gt; ToText NotebookOutputOption
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NotebookOutputOption -&gt; Text
+$ctoText :: NotebookOutputOption -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680324201"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; ByteString
+(NotebookOutputOption -&gt; ByteString)
+-&gt; ToByteString NotebookOutputOption
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NotebookOutputOption -&gt; ByteString
+$ctoBS :: NotebookOutputOption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680324198"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; ByteStringBuilder
+(NotebookOutputOption -&gt; ByteStringBuilder)
+-&gt; ToLog NotebookOutputOption
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NotebookOutputOption -&gt; ByteStringBuilder
+$cbuild :: NotebookOutputOption -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680324195"><span class="annot"><span class="annottext">HeaderName -&gt; NotebookOutputOption -&gt; [Header]
+(HeaderName -&gt; NotebookOutputOption -&gt; [Header])
+-&gt; ToHeader NotebookOutputOption
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NotebookOutputOption -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NotebookOutputOption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680324192"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; QueryString
+(NotebookOutputOption -&gt; QueryString)
+-&gt; ToQuery NotebookOutputOption
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NotebookOutputOption -&gt; QueryString
+$ctoQuery :: NotebookOutputOption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680324187"><span id="local-6989586621680324189"><span class="annot"><span class="annottext">Value -&gt; Parser [NotebookOutputOption]
+Value -&gt; Parser NotebookOutputOption
+(Value -&gt; Parser NotebookOutputOption)
+-&gt; (Value -&gt; Parser [NotebookOutputOption])
+-&gt; FromJSON NotebookOutputOption
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NotebookOutputOption]
+$cparseJSONList :: Value -&gt; Parser [NotebookOutputOption]
+parseJSON :: Value -&gt; Parser NotebookOutputOption
+$cparseJSON :: Value -&gt; Parser NotebookOutputOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680324182"><span id="local-6989586621680324184"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotebookOutputOption]
+FromJSONKeyFunction NotebookOutputOption
+FromJSONKeyFunction NotebookOutputOption
+-&gt; FromJSONKeyFunction [NotebookOutputOption]
+-&gt; FromJSONKey NotebookOutputOption
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NotebookOutputOption]
+$cfromJSONKeyList :: FromJSONKeyFunction [NotebookOutputOption]
+fromJSONKey :: FromJSONKeyFunction NotebookOutputOption
+$cfromJSONKey :: FromJSONKeyFunction NotebookOutputOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680324173"><span id="local-6989586621680324175"><span id="local-6989586621680324177"><span id="local-6989586621680324179"><span class="annot"><span class="annottext">[NotebookOutputOption] -&gt; Encoding
+[NotebookOutputOption] -&gt; Value
+NotebookOutputOption -&gt; Encoding
+NotebookOutputOption -&gt; Value
+(NotebookOutputOption -&gt; Value)
+-&gt; (NotebookOutputOption -&gt; Encoding)
+-&gt; ([NotebookOutputOption] -&gt; Value)
+-&gt; ([NotebookOutputOption] -&gt; Encoding)
+-&gt; ToJSON NotebookOutputOption
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NotebookOutputOption] -&gt; Encoding
+$ctoEncodingList :: [NotebookOutputOption] -&gt; Encoding
+toJSONList :: [NotebookOutputOption] -&gt; Value
+$ctoJSONList :: [NotebookOutputOption] -&gt; Value
+toEncoding :: NotebookOutputOption -&gt; Encoding
+$ctoEncoding :: NotebookOutputOption -&gt; Encoding
+toJSON :: NotebookOutputOption -&gt; Value
+$ctoJSON :: NotebookOutputOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680324168"><span id="local-6989586621680324170"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotebookOutputOption]
+ToJSONKeyFunction NotebookOutputOption
+ToJSONKeyFunction NotebookOutputOption
+-&gt; ToJSONKeyFunction [NotebookOutputOption]
+-&gt; ToJSONKey NotebookOutputOption
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NotebookOutputOption]
+$ctoJSONKeyList :: ToJSONKeyFunction [NotebookOutputOption]
+toJSONKey :: ToJSONKeyFunction NotebookOutputOption
+$ctoJSONKey :: ToJSONKeyFunction NotebookOutputOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680324165"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotebookOutputOption
+([Node] -&gt; Either String NotebookOutputOption)
+-&gt; FromXML NotebookOutputOption
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NotebookOutputOption
+$cparseXML :: [Node] -&gt; Either String NotebookOutputOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680324162"><span class="annot"><span class="annottext">NotebookOutputOption -&gt; XML
+(NotebookOutputOption -&gt; XML) -&gt; ToXML NotebookOutputOption
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NotebookOutputOption -&gt; XML
+$ctoXML :: NotebookOutputOption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption_Allowed"><span class="hs-identifier hs-type">NotebookOutputOption_Allowed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption"><span class="hs-identifier hs-type">NotebookOutputOption</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotebookOutputOption_Allowed"><span id="%24mNotebookOutputOption_Allowed"><span id="NotebookOutputOption_Allowed"><span class="annot"><span class="annottext">$bNotebookOutputOption_Allowed :: NotebookOutputOption
+$mNotebookOutputOption_Allowed :: forall r. NotebookOutputOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#%24bNotebookOutputOption_Allowed"><span class="hs-identifier hs-var hs-var hs-var">NotebookOutputOption_Allowed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption%27"><span class="hs-identifier hs-type">NotebookOutputOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Allowed&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption_Disabled"><span class="hs-identifier hs-type">NotebookOutputOption_Disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption"><span class="hs-identifier hs-type">NotebookOutputOption</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotebookOutputOption_Disabled"><span id="%24mNotebookOutputOption_Disabled"><span id="NotebookOutputOption_Disabled"><span class="annot"><span class="annottext">$bNotebookOutputOption_Disabled :: NotebookOutputOption
+$mNotebookOutputOption_Disabled :: forall r. NotebookOutputOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#%24bNotebookOutputOption_Disabled"><span class="hs-identifier hs-var hs-var hs-var">NotebookOutputOption_Disabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption%27"><span class="hs-identifier hs-type">NotebookOutputOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disabled&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption_Allowed"><span class="hs-pragma hs-type">NotebookOutputOption_Allowed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption_Disabled"><span class="hs-pragma hs-type">NotebookOutputOption_Disabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption%27"><span class="hs-pragma hs-type">NotebookOutputOption'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

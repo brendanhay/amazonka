@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Config.GetDiscoveredResourceCounts</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the resource types, the number of each resource type, and the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- total number of resources that Config is recording in this region for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- your Amazon Web Services account.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __Example__</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- 1.  Config is recording three resource types in the US East (Ohio)</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     buckets.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- 2.  You make a call to the @GetDiscoveredResourceCounts@ action and</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     specify that you want all resource types.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- 3.  Config returns the following:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     -   The resource types (EC2 instances, IAM users, and S3 buckets).</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     -   The number of each resource type (25, 20, and 15).</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     -   The total number of all resources (60).</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The response is paginated. By default, Config lists 100 ResourceCount</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- objects on each page. You can customize this number with the @limit@</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- parameter. The response includes a @nextToken@ string. To get the next</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- page of results, run the request again and specify the string for the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- @nextToken@ parameter.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- If you make a call to the GetDiscoveredResourceCounts action, you might</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- not immediately receive resource counts in the following situations:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   You are a new Config customer.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- -   You just enabled resource recording.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- It might take a few minutes for Config to record and count your</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- resources. Wait a few minutes and then retry the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- GetDiscoveredResourceCounts action.</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.GetDiscoveredResourceCounts</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#newGetDiscoveredResourceCounts"><span class="hs-identifier">newGetDiscoveredResourceCounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_nextToken"><span class="hs-identifier">getDiscoveredResourceCounts_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_limit"><span class="hs-identifier">getDiscoveredResourceCounts_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_resourceTypes"><span class="hs-identifier">getDiscoveredResourceCounts_resourceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier">GetDiscoveredResourceCountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#newGetDiscoveredResourceCountsResponse"><span class="hs-identifier">newGetDiscoveredResourceCountsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_totalDiscoveredResources"><span class="hs-identifier">getDiscoveredResourceCountsResponse_totalDiscoveredResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_nextToken"><span class="hs-identifier">getDiscoveredResourceCountsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_resourceCounts"><span class="hs-identifier">getDiscoveredResourceCountsResponse_resourceCounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_httpStatus"><span class="hs-identifier">getDiscoveredResourceCountsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.html"><span class="hs-identifier">Amazonka.Config.Types</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newGetDiscoveredResourceCounts' smart constructor.</span><span>
+</span><span id="line-90"></span><span id="local-6989586621679419310"><span id="local-6989586621679419311"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiscoveredResourceCounts"><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-var">GetDiscoveredResourceCounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiscoveredResourceCounts%27"><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var">GetDiscoveredResourceCounts'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AnextToken%3AGetDiscoveredResourceCounts%27"><span class="annot"><span class="annottext">GetDiscoveredResourceCounts -&gt; Maybe Text
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AnextToken%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The maximum number of ResourceCount objects returned on each page. The</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- default is 100. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Alimit%3AGetDiscoveredResourceCounts%27"><span class="annot"><span class="annottext">GetDiscoveredResourceCounts -&gt; Maybe Natural
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3Alimit%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The comma-separated list that specifies the resource types that you want</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Config to return (for example, @\&quot;AWS::EC2::Instance\&quot;@,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- @\&quot;AWS::IAM::User\&quot;@).</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- If a value for @resourceTypes@ is not specified, Config returns all</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- resource types that Config is recording in the region for your account.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- If the configuration recorder is turned off, Config returns an empty</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- list of ResourceCount objects. If the configuration recorder is not</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- recording a specific resource type (for example, S3 buckets), that</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- resource type is not returned in the list of ResourceCount objects.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AresourceTypes%3AGetDiscoveredResourceCounts%27"><span class="annot"><span class="annottext">GetDiscoveredResourceCounts -&gt; Maybe [Text]
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AresourceTypes%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419302"><span id="local-6989586621679419304"><span class="annot"><span class="annottext">GetDiscoveredResourceCounts -&gt; GetDiscoveredResourceCounts -&gt; Bool
+(GetDiscoveredResourceCounts
+ -&gt; GetDiscoveredResourceCounts -&gt; Bool)
+-&gt; (GetDiscoveredResourceCounts
+    -&gt; GetDiscoveredResourceCounts -&gt; Bool)
+-&gt; Eq GetDiscoveredResourceCounts
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDiscoveredResourceCounts -&gt; GetDiscoveredResourceCounts -&gt; Bool
+$c/= :: GetDiscoveredResourceCounts -&gt; GetDiscoveredResourceCounts -&gt; Bool
+== :: GetDiscoveredResourceCounts -&gt; GetDiscoveredResourceCounts -&gt; Bool
+$c== :: GetDiscoveredResourceCounts -&gt; GetDiscoveredResourceCounts -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419293"><span id="local-6989586621679419295"><span id="local-6989586621679419297"><span id="local-6989586621679419299"><span class="annot"><span class="annottext">ReadPrec [GetDiscoveredResourceCounts]
+ReadPrec GetDiscoveredResourceCounts
+Int -&gt; ReadS GetDiscoveredResourceCounts
+ReadS [GetDiscoveredResourceCounts]
+(Int -&gt; ReadS GetDiscoveredResourceCounts)
+-&gt; ReadS [GetDiscoveredResourceCounts]
+-&gt; ReadPrec GetDiscoveredResourceCounts
+-&gt; ReadPrec [GetDiscoveredResourceCounts]
+-&gt; Read GetDiscoveredResourceCounts
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDiscoveredResourceCounts]
+$creadListPrec :: ReadPrec [GetDiscoveredResourceCounts]
+readPrec :: ReadPrec GetDiscoveredResourceCounts
+$creadPrec :: ReadPrec GetDiscoveredResourceCounts
+readList :: ReadS [GetDiscoveredResourceCounts]
+$creadList :: ReadS [GetDiscoveredResourceCounts]
+readsPrec :: Int -&gt; ReadS GetDiscoveredResourceCounts
+$creadsPrec :: Int -&gt; ReadS GetDiscoveredResourceCounts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419286"><span id="local-6989586621679419288"><span id="local-6989586621679419290"><span class="annot"><span class="annottext">Int -&gt; GetDiscoveredResourceCounts -&gt; ShowS
+[GetDiscoveredResourceCounts] -&gt; ShowS
+GetDiscoveredResourceCounts -&gt; String
+(Int -&gt; GetDiscoveredResourceCounts -&gt; ShowS)
+-&gt; (GetDiscoveredResourceCounts -&gt; String)
+-&gt; ([GetDiscoveredResourceCounts] -&gt; ShowS)
+-&gt; Show GetDiscoveredResourceCounts
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDiscoveredResourceCounts] -&gt; ShowS
+$cshowList :: [GetDiscoveredResourceCounts] -&gt; ShowS
+show :: GetDiscoveredResourceCounts -&gt; String
+$cshow :: GetDiscoveredResourceCounts -&gt; String
+showsPrec :: Int -&gt; GetDiscoveredResourceCounts -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDiscoveredResourceCounts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDiscoveredResourceCounts -&gt; Rep GetDiscoveredResourceCounts x)
+-&gt; (forall x.
+    Rep GetDiscoveredResourceCounts x -&gt; GetDiscoveredResourceCounts)
+-&gt; Generic GetDiscoveredResourceCounts
+forall x.
+Rep GetDiscoveredResourceCounts x -&gt; GetDiscoveredResourceCounts
+forall x.
+GetDiscoveredResourceCounts -&gt; Rep GetDiscoveredResourceCounts x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDiscoveredResourceCounts x -&gt; GetDiscoveredResourceCounts
+$cfrom :: forall x.
+GetDiscoveredResourceCounts -&gt; Rep GetDiscoveredResourceCounts x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'GetDiscoveredResourceCounts' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'nextToken', 'getDiscoveredResourceCounts_nextToken' - The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'limit', 'getDiscoveredResourceCounts_limit' - The maximum number of ResourceCount objects returned on each page. The</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- default is 100. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'resourceTypes', 'getDiscoveredResourceCounts_resourceTypes' - The comma-separated list that specifies the resource types that you want</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Config to return (for example, @\&quot;AWS::EC2::Instance\&quot;@,</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- @\&quot;AWS::IAM::User\&quot;@).</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- If a value for @resourceTypes@ is not specified, Config returns all</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- resource types that Config is recording in the region for your account.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- If the configuration recorder is turned off, Config returns an empty</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- list of ResourceCount objects. If the configuration recorder is not</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- recording a specific resource type (for example, S3 buckets), that</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- resource type is not returned in the list of ResourceCount objects.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#newGetDiscoveredResourceCounts"><span class="hs-identifier hs-type">newGetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span>
+</span><span id="line-141"></span><span id="newGetDiscoveredResourceCounts"><span class="annot"><span class="annottext">newGetDiscoveredResourceCounts :: GetDiscoveredResourceCounts
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#newGetDiscoveredResourceCounts"><span class="hs-identifier hs-var hs-var">newGetDiscoveredResourceCounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">GetDiscoveredResourceCounts' :: Maybe Text
+-&gt; Maybe Natural -&gt; Maybe [Text] -&gt; GetDiscoveredResourceCounts
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetDiscoveredResourceCounts' :: Maybe Text
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AnextToken%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:GetDiscoveredResourceCounts' :: Maybe Natural
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3Alimit%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTypes:GetDiscoveredResourceCounts' :: Maybe [Text]
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AresourceTypes%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_nextToken"><span class="hs-identifier hs-type">getDiscoveredResourceCounts_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="getDiscoveredResourceCounts_nextToken"><span class="annot"><span class="annottext">getDiscoveredResourceCounts_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDiscoveredResourceCounts -&gt; f GetDiscoveredResourceCounts
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_nextToken"><span class="hs-identifier hs-var hs-var">getDiscoveredResourceCounts_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoveredResourceCounts -&gt; Maybe Text)
+-&gt; (GetDiscoveredResourceCounts
+    -&gt; Maybe Text -&gt; GetDiscoveredResourceCounts)
+-&gt; Lens
+     GetDiscoveredResourceCounts
+     GetDiscoveredResourceCounts
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419279"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetDiscoveredResourceCounts' :: GetDiscoveredResourceCounts -&gt; Maybe Text
+</span><a href="#local-6989586621679419279"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419279"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419278"><span class="annot"><span class="annottext">s :: GetDiscoveredResourceCounts
+</span><a href="#local-6989586621679419278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoveredResourceCounts
+</span><a href="#local-6989586621679419278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDiscoveredResourceCounts' :: Maybe Text
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AnextToken%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The maximum number of ResourceCount objects returned on each page. The</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- default is 100. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_limit"><span class="hs-identifier hs-type">getDiscoveredResourceCounts_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="getDiscoveredResourceCounts_limit"><span class="annot"><span class="annottext">getDiscoveredResourceCounts_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetDiscoveredResourceCounts -&gt; f GetDiscoveredResourceCounts
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_limit"><span class="hs-identifier hs-var hs-var">getDiscoveredResourceCounts_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoveredResourceCounts -&gt; Maybe Natural)
+-&gt; (GetDiscoveredResourceCounts
+    -&gt; Maybe Natural -&gt; GetDiscoveredResourceCounts)
+-&gt; Lens
+     GetDiscoveredResourceCounts
+     GetDiscoveredResourceCounts
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419276"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:GetDiscoveredResourceCounts' :: GetDiscoveredResourceCounts -&gt; Maybe Natural
+</span><a href="#local-6989586621679419276"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419276"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419275"><span class="annot"><span class="annottext">s :: GetDiscoveredResourceCounts
+</span><a href="#local-6989586621679419275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419274"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoveredResourceCounts
+</span><a href="#local-6989586621679419275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetDiscoveredResourceCounts' :: Maybe Natural
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3Alimit%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The comma-separated list that specifies the resource types that you want</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Config to return (for example, @\&quot;AWS::EC2::Instance\&quot;@,</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @\&quot;AWS::IAM::User\&quot;@).</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- If a value for @resourceTypes@ is not specified, Config returns all</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- resource types that Config is recording in the region for your account.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- If the configuration recorder is turned off, Config returns an empty</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- list of ResourceCount objects. If the configuration recorder is not</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- recording a specific resource type (for example, S3 buckets), that</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- resource type is not returned in the list of ResourceCount objects.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_resourceTypes"><span class="hs-identifier hs-type">getDiscoveredResourceCounts_resourceTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="getDiscoveredResourceCounts_resourceTypes"><span class="annot"><span class="annottext">getDiscoveredResourceCounts_resourceTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetDiscoveredResourceCounts -&gt; f GetDiscoveredResourceCounts
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCounts_resourceTypes"><span class="hs-identifier hs-var hs-var">getDiscoveredResourceCounts_resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoveredResourceCounts -&gt; Maybe [Text])
+-&gt; (GetDiscoveredResourceCounts
+    -&gt; Maybe [Text] -&gt; GetDiscoveredResourceCounts)
+-&gt; Lens
+     GetDiscoveredResourceCounts
+     GetDiscoveredResourceCounts
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419273"><span class="annot"><span class="annottext">Maybe [Text]
+resourceTypes :: Maybe [Text]
+$sel:resourceTypes:GetDiscoveredResourceCounts' :: GetDiscoveredResourceCounts -&gt; Maybe [Text]
+</span><a href="#local-6989586621679419273"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679419273"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419272"><span class="annot"><span class="annottext">s :: GetDiscoveredResourceCounts
+</span><a href="#local-6989586621679419272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419271"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679419271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoveredResourceCounts
+</span><a href="#local-6989586621679419272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypes:GetDiscoveredResourceCounts' :: Maybe [Text]
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AresourceTypes%3AGetDiscoveredResourceCounts%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679419271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetDiscoveredResourceCounts -&gt; f GetDiscoveredResourceCounts)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetDiscoveredResourceCounts
+-&gt; f GetDiscoveredResourceCounts
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679419264"><span class="annot"><span class="annottext">request :: GetDiscoveredResourceCounts -&gt; Request GetDiscoveredResourceCounts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetDiscoveredResourceCounts
+-&gt; Request GetDiscoveredResourceCounts
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679419260"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDiscoveredResourceCounts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDiscoveredResourceCounts)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDiscoveredResourceCounts))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDiscoveredResourceCounts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDiscoveredResourceCounts)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679419257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419257"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679419256"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679419256"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679419255"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [ResourceCount]
+-&gt; Int
+-&gt; GetDiscoveredResourceCountsResponse
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">GetDiscoveredResourceCountsResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe [ResourceCount]
+ -&gt; Int
+ -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [ResourceCount]
+      -&gt; Int
+      -&gt; GetDiscoveredResourceCountsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalDiscoveredResources&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [ResourceCount]
+   -&gt; Int
+   -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ResourceCount]
+      -&gt; Int -&gt; GetDiscoveredResourceCountsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ResourceCount]
+   -&gt; Int -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Either String (Maybe [ResourceCount])
+-&gt; Either String (Int -&gt; GetDiscoveredResourceCountsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679419255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ResourceCount]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceCounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceCount]))
+-&gt; Maybe [ResourceCount] -&gt; Either String (Maybe [ResourceCount])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceCount]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Either String Int
+-&gt; Either String GetDiscoveredResourceCountsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419257"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419246"><span id="local-6989586621679419248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679419239"><span class="annot"><span class="annottext">toHeaders :: GetDiscoveredResourceCounts -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDiscoveredResourceCounts -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StarlingDoveService.GetDiscoveredResourceCounts&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-200"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-204"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419229"><span id="local-6989586621679419231"><span id="local-6989586621679419233"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679419227"><span class="annot"><span class="annottext">toJSON :: GetDiscoveredResourceCounts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419223"><span id="local-6989586621679419224"><span id="local-6989586621679419225"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+resourceTypes :: Maybe [Text]
+limit :: Maybe Natural
+nextToken :: Maybe Text
+$sel:resourceTypes:GetDiscoveredResourceCounts' :: GetDiscoveredResourceCounts -&gt; Maybe [Text]
+$sel:limit:GetDiscoveredResourceCounts' :: GetDiscoveredResourceCounts -&gt; Maybe Natural
+$sel:nextToken:GetDiscoveredResourceCounts' :: GetDiscoveredResourceCounts -&gt; Maybe Text
+</span><a href="#local-6989586621679419223"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419225"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679419224"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679419223"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679419217"><span class="annot"><span class="annottext">toPath :: GetDiscoveredResourceCounts -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDiscoveredResourceCounts -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCounts"><span class="hs-identifier hs-type">GetDiscoveredResourceCounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679419213"><span class="annot"><span class="annottext">toQuery :: GetDiscoveredResourceCounts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDiscoveredResourceCounts -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | /See:/ 'newGetDiscoveredResourceCountsResponse' smart constructor.</span><span>
+</span><span id="line-225"></span><span id="local-6989586621679419210"><span id="local-6989586621679419211"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiscoveredResourceCountsResponse"><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-var">GetDiscoveredResourceCountsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiscoveredResourceCountsResponse%27"><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">GetDiscoveredResourceCountsResponse'</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of resources that Config is recording in the region for</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- your account. If you specify resource types in the request, Config</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- returns only the total number of resources for those resource types.</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- __Example__</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- 1.  Config is recording three resource types in the US East (Ohio)</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">--     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">--     buckets, for a total of 60 resources.</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- 2.  You make a call to the @GetDiscoveredResourceCounts@ action and</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">--     specify the resource type, @\&quot;AWS::EC2::Instances\&quot;@, in the</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- 3.  Config returns 25 for @totalDiscoveredResources@.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3AtotalDiscoveredResources%3AGetDiscoveredResourceCountsResponse%27"><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse -&gt; Maybe Integer
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AtotalDiscoveredResources%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var hs-var">totalDiscoveredResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- | The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AnextToken%3AGetDiscoveredResourceCountsResponse%27"><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AnextToken%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- | The list of @ResourceCount@ objects. Each object is listed in descending</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- order by the number of resources.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3AresourceCounts%3AGetDiscoveredResourceCountsResponse%27"><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse -&gt; Maybe [ResourceCount]
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AresourceCounts%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var hs-var">resourceCounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDiscoveredResourceCountsResponse%27"><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse -&gt; Int
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AhttpStatus%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419202"><span id="local-6989586621679419204"><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse
+-&gt; GetDiscoveredResourceCountsResponse -&gt; Bool
+(GetDiscoveredResourceCountsResponse
+ -&gt; GetDiscoveredResourceCountsResponse -&gt; Bool)
+-&gt; (GetDiscoveredResourceCountsResponse
+    -&gt; GetDiscoveredResourceCountsResponse -&gt; Bool)
+-&gt; Eq GetDiscoveredResourceCountsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDiscoveredResourceCountsResponse
+-&gt; GetDiscoveredResourceCountsResponse -&gt; Bool
+$c/= :: GetDiscoveredResourceCountsResponse
+-&gt; GetDiscoveredResourceCountsResponse -&gt; Bool
+== :: GetDiscoveredResourceCountsResponse
+-&gt; GetDiscoveredResourceCountsResponse -&gt; Bool
+$c== :: GetDiscoveredResourceCountsResponse
+-&gt; GetDiscoveredResourceCountsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419194"><span id="local-6989586621679419196"><span id="local-6989586621679419198"><span id="local-6989586621679419200"><span class="annot"><span class="annottext">ReadPrec [GetDiscoveredResourceCountsResponse]
+ReadPrec GetDiscoveredResourceCountsResponse
+Int -&gt; ReadS GetDiscoveredResourceCountsResponse
+ReadS [GetDiscoveredResourceCountsResponse]
+(Int -&gt; ReadS GetDiscoveredResourceCountsResponse)
+-&gt; ReadS [GetDiscoveredResourceCountsResponse]
+-&gt; ReadPrec GetDiscoveredResourceCountsResponse
+-&gt; ReadPrec [GetDiscoveredResourceCountsResponse]
+-&gt; Read GetDiscoveredResourceCountsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDiscoveredResourceCountsResponse]
+$creadListPrec :: ReadPrec [GetDiscoveredResourceCountsResponse]
+readPrec :: ReadPrec GetDiscoveredResourceCountsResponse
+$creadPrec :: ReadPrec GetDiscoveredResourceCountsResponse
+readList :: ReadS [GetDiscoveredResourceCountsResponse]
+$creadList :: ReadS [GetDiscoveredResourceCountsResponse]
+readsPrec :: Int -&gt; ReadS GetDiscoveredResourceCountsResponse
+$creadsPrec :: Int -&gt; ReadS GetDiscoveredResourceCountsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419188"><span id="local-6989586621679419190"><span id="local-6989586621679419192"><span class="annot"><span class="annottext">Int -&gt; GetDiscoveredResourceCountsResponse -&gt; ShowS
+[GetDiscoveredResourceCountsResponse] -&gt; ShowS
+GetDiscoveredResourceCountsResponse -&gt; String
+(Int -&gt; GetDiscoveredResourceCountsResponse -&gt; ShowS)
+-&gt; (GetDiscoveredResourceCountsResponse -&gt; String)
+-&gt; ([GetDiscoveredResourceCountsResponse] -&gt; ShowS)
+-&gt; Show GetDiscoveredResourceCountsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDiscoveredResourceCountsResponse] -&gt; ShowS
+$cshowList :: [GetDiscoveredResourceCountsResponse] -&gt; ShowS
+show :: GetDiscoveredResourceCountsResponse -&gt; String
+$cshow :: GetDiscoveredResourceCountsResponse -&gt; String
+showsPrec :: Int -&gt; GetDiscoveredResourceCountsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDiscoveredResourceCountsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDiscoveredResourceCountsResponse
+ -&gt; Rep GetDiscoveredResourceCountsResponse x)
+-&gt; (forall x.
+    Rep GetDiscoveredResourceCountsResponse x
+    -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Generic GetDiscoveredResourceCountsResponse
+forall x.
+Rep GetDiscoveredResourceCountsResponse x
+-&gt; GetDiscoveredResourceCountsResponse
+forall x.
+GetDiscoveredResourceCountsResponse
+-&gt; Rep GetDiscoveredResourceCountsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDiscoveredResourceCountsResponse x
+-&gt; GetDiscoveredResourceCountsResponse
+$cfrom :: forall x.
+GetDiscoveredResourceCountsResponse
+-&gt; Rep GetDiscoveredResourceCountsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- Create a value of 'GetDiscoveredResourceCountsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'totalDiscoveredResources', 'getDiscoveredResourceCountsResponse_totalDiscoveredResources' - The total number of resources that Config is recording in the region for</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- your account. If you specify resource types in the request, Config</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- returns only the total number of resources for those resource types.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- __Example__</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 1.  Config is recording three resource types in the US East (Ohio)</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     buckets, for a total of 60 resources.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 2.  You make a call to the @GetDiscoveredResourceCounts@ action and</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     specify the resource type, @\&quot;AWS::EC2::Instances\&quot;@, in the</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- 3.  Config returns 25 for @totalDiscoveredResources@.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- 'nextToken', 'getDiscoveredResourceCountsResponse_nextToken' - The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'resourceCounts', 'getDiscoveredResourceCountsResponse_resourceCounts' - The list of @ResourceCount@ objects. Each object is listed in descending</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- order by the number of resources.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'httpStatus', 'getDiscoveredResourceCountsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#newGetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">newGetDiscoveredResourceCountsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span>
+</span><span id="line-288"></span><span id="newGetDiscoveredResourceCountsResponse"><span class="annot"><span class="annottext">newGetDiscoveredResourceCountsResponse :: Int -&gt; GetDiscoveredResourceCountsResponse
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#newGetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-var hs-var">newGetDiscoveredResourceCountsResponse</span></a></span></span><span> </span><span id="local-6989586621679419185"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419185"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse' :: Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [ResourceCount]
+-&gt; Int
+-&gt; GetDiscoveredResourceCountsResponse
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalDiscoveredResources:GetDiscoveredResourceCountsResponse' :: Maybe Integer
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AtotalDiscoveredResources%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">totalDiscoveredResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetDiscoveredResourceCountsResponse' :: Maybe Text
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AnextToken%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceCounts:GetDiscoveredResourceCountsResponse' :: Maybe [ResourceCount]
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AresourceCounts%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">resourceCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceCount]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiscoveredResourceCountsResponse' :: Int
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AhttpStatus%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419185"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The total number of resources that Config is recording in the region for</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- your account. If you specify resource types in the request, Config</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- returns only the total number of resources for those resource types.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- __Example__</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 1.  Config is recording three resource types in the US East (Ohio)</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     buckets, for a total of 60 resources.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- 2.  You make a call to the @GetDiscoveredResourceCounts@ action and</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     specify the resource type, @\&quot;AWS::EC2::Instances\&quot;@, in the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- 3.  Config returns 25 for @totalDiscoveredResources@.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_totalDiscoveredResources"><span class="hs-identifier hs-type">getDiscoveredResourceCountsResponse_totalDiscoveredResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="getDiscoveredResourceCountsResponse_totalDiscoveredResources"><span class="annot"><span class="annottext">getDiscoveredResourceCountsResponse_totalDiscoveredResources :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; GetDiscoveredResourceCountsResponse
+-&gt; f GetDiscoveredResourceCountsResponse
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_totalDiscoveredResources"><span class="hs-identifier hs-var hs-var">getDiscoveredResourceCountsResponse_totalDiscoveredResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoveredResourceCountsResponse -&gt; Maybe Integer)
+-&gt; (GetDiscoveredResourceCountsResponse
+    -&gt; Maybe Integer -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Lens
+     GetDiscoveredResourceCountsResponse
+     GetDiscoveredResourceCountsResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419184"><span class="annot"><span class="annottext">Maybe Integer
+totalDiscoveredResources :: Maybe Integer
+$sel:totalDiscoveredResources:GetDiscoveredResourceCountsResponse' :: GetDiscoveredResourceCountsResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679419184"><span class="hs-identifier hs-var hs-var">totalDiscoveredResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679419184"><span class="hs-identifier hs-var">totalDiscoveredResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419183"><span class="annot"><span class="annottext">s :: GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419182"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679419182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalDiscoveredResources:GetDiscoveredResourceCountsResponse' :: Maybe Integer
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AtotalDiscoveredResources%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">totalDiscoveredResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679419182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_nextToken"><span class="hs-identifier hs-type">getDiscoveredResourceCountsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="getDiscoveredResourceCountsResponse_nextToken"><span class="annot"><span class="annottext">getDiscoveredResourceCountsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDiscoveredResourceCountsResponse
+-&gt; f GetDiscoveredResourceCountsResponse
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getDiscoveredResourceCountsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoveredResourceCountsResponse -&gt; Maybe Text)
+-&gt; (GetDiscoveredResourceCountsResponse
+    -&gt; Maybe Text -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Lens
+     GetDiscoveredResourceCountsResponse
+     GetDiscoveredResourceCountsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419181"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetDiscoveredResourceCountsResponse' :: GetDiscoveredResourceCountsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679419181"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419181"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419180"><span class="annot"><span class="annottext">s :: GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419179"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDiscoveredResourceCountsResponse' :: Maybe Text
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AnextToken%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The list of @ResourceCount@ objects. Each object is listed in descending</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- order by the number of resources.</span><span>
+</span><span id="line-322"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_resourceCounts"><span class="hs-identifier hs-type">getDiscoveredResourceCountsResponse_resourceCounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span id="getDiscoveredResourceCountsResponse_resourceCounts"><span class="annot"><span class="annottext">getDiscoveredResourceCountsResponse_resourceCounts :: (Maybe [ResourceCount] -&gt; f (Maybe [ResourceCount]))
+-&gt; GetDiscoveredResourceCountsResponse
+-&gt; f GetDiscoveredResourceCountsResponse
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_resourceCounts"><span class="hs-identifier hs-var hs-var">getDiscoveredResourceCountsResponse_resourceCounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoveredResourceCountsResponse -&gt; Maybe [ResourceCount])
+-&gt; (GetDiscoveredResourceCountsResponse
+    -&gt; Maybe [ResourceCount] -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Lens
+     GetDiscoveredResourceCountsResponse
+     GetDiscoveredResourceCountsResponse
+     (Maybe [ResourceCount])
+     (Maybe [ResourceCount])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419178"><span class="annot"><span class="annottext">Maybe [ResourceCount]
+resourceCounts :: Maybe [ResourceCount]
+$sel:resourceCounts:GetDiscoveredResourceCountsResponse' :: GetDiscoveredResourceCountsResponse -&gt; Maybe [ResourceCount]
+</span><a href="#local-6989586621679419178"><span class="hs-identifier hs-var hs-var">resourceCounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceCount]
+</span><a href="#local-6989586621679419178"><span class="hs-identifier hs-var">resourceCounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419177"><span class="annot"><span class="annottext">s :: GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419176"><span class="annot"><span class="annottext">Maybe [ResourceCount]
+</span><a href="#local-6989586621679419176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceCounts:GetDiscoveredResourceCountsResponse' :: Maybe [ResourceCount]
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AresourceCounts%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">resourceCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceCount]
+</span><a href="#local-6989586621679419176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceCount] -&gt; f (Maybe [ResourceCount]))
+ -&gt; GetDiscoveredResourceCountsResponse
+ -&gt; f GetDiscoveredResourceCountsResponse)
+-&gt; ((Maybe [ResourceCount] -&gt; f (Maybe [ResourceCount]))
+    -&gt; Maybe [ResourceCount] -&gt; f (Maybe [ResourceCount]))
+-&gt; (Maybe [ResourceCount] -&gt; f (Maybe [ResourceCount]))
+-&gt; GetDiscoveredResourceCountsResponse
+-&gt; f GetDiscoveredResourceCountsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceCount] [ResourceCount] [ResourceCount] [ResourceCount]
+-&gt; Iso
+     (Maybe [ResourceCount])
+     (Maybe [ResourceCount])
+     (Maybe [ResourceCount])
+     (Maybe [ResourceCount])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceCount] [ResourceCount] [ResourceCount] [ResourceCount]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_httpStatus"><span class="hs-identifier hs-type">getDiscoveredResourceCountsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-327"></span><span id="getDiscoveredResourceCountsResponse_httpStatus"><span class="annot"><span class="annottext">getDiscoveredResourceCountsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDiscoveredResourceCountsResponse
+-&gt; f GetDiscoveredResourceCountsResponse
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#getDiscoveredResourceCountsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDiscoveredResourceCountsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoveredResourceCountsResponse -&gt; Int)
+-&gt; (GetDiscoveredResourceCountsResponse
+    -&gt; Int -&gt; GetDiscoveredResourceCountsResponse)
+-&gt; Lens
+     GetDiscoveredResourceCountsResponse
+     GetDiscoveredResourceCountsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419175"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDiscoveredResourceCountsResponse' :: GetDiscoveredResourceCountsResponse -&gt; Int
+</span><a href="#local-6989586621679419175"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419175"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419174"><span class="annot"><span class="annottext">s :: GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419173"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoveredResourceCountsResponse
+</span><a href="#local-6989586621679419174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiscoveredResourceCountsResponse' :: Int
+</span><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#%24sel%3AhttpStatus%3AGetDiscoveredResourceCountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621679419171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><a href="Amazonka.Config.GetDiscoveredResourceCounts.html#GetDiscoveredResourceCountsResponse"><span class="hs-identifier hs-type">GetDiscoveredResourceCountsResponse</span></a></span></span><span>
+</span><span id="line-332"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ConnectContactLens.Types.CharacterOffsets
+module Amazonka.ConnectContactLens.Types.CharacterOffsets
 
 -- | For characters that were detected as issues, where they occur in the
 --   transcript.
@@ -41,16 +41,16 @@ characterOffsets_beginOffsetChar :: Lens' CharacterOffsets Natural
 
 -- | The end of the issue.
 characterOffsets_endOffsetChar :: Lens' CharacterOffsets Natural
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.CharacterOffsets.CharacterOffsets
 
 
-module Network.AWS.ConnectContactLens.Types.IssueDetected
+module Amazonka.ConnectContactLens.Types.IssueDetected
 
 -- | Potential issues that are detected based on an artificial intelligence
 --   analysis of each turn in the conversation.
@@ -78,16 +78,16 @@ newIssueDetected :: CharacterOffsets -> IssueDetected
 
 -- | The offset for when the issue was detected in the segment.
 issueDetected_characterOffsets :: Lens' IssueDetected CharacterOffsets
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.IssueDetected.IssueDetected
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.IssueDetected.IssueDetected
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.IssueDetected.IssueDetected
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.IssueDetected.IssueDetected
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.IssueDetected.IssueDetected
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.IssueDetected.IssueDetected
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.IssueDetected.IssueDetected
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.IssueDetected.IssueDetected
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.IssueDetected.IssueDetected
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.IssueDetected.IssueDetected
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.IssueDetected.IssueDetected
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.IssueDetected.IssueDetected
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.IssueDetected.IssueDetected
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.IssueDetected.IssueDetected
 
 
-module Network.AWS.ConnectContactLens.Types.PointOfInterest
+module Amazonka.ConnectContactLens.Types.PointOfInterest
 
 -- | The section of the contact audio where that category rule was
 --   detected.
@@ -129,16 +129,16 @@ pointOfInterest_beginOffsetMillis :: Lens' PointOfInterest Natural
 -- | The ending offset in milliseconds where the category rule was
 --   detected.
 pointOfInterest_endOffsetMillis :: Lens' PointOfInterest Natural
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.PointOfInterest.PointOfInterest
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.PointOfInterest.PointOfInterest
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.PointOfInterest.PointOfInterest
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.PointOfInterest.PointOfInterest
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.PointOfInterest.PointOfInterest
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.PointOfInterest.PointOfInterest
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.PointOfInterest.PointOfInterest
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.PointOfInterest.PointOfInterest
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.PointOfInterest.PointOfInterest
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.PointOfInterest.PointOfInterest
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.PointOfInterest.PointOfInterest
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.PointOfInterest.PointOfInterest
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.PointOfInterest.PointOfInterest
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.PointOfInterest.PointOfInterest
 
 
-module Network.AWS.ConnectContactLens.Types.CategoryDetails
+module Amazonka.ConnectContactLens.Types.CategoryDetails
 
 -- | Provides information about the category rule that was matched.
 --   
@@ -165,16 +165,16 @@ newCategoryDetails :: CategoryDetails
 
 -- | The section of audio where the category rule was detected.
 categoryDetails_pointsOfInterest :: Lens' CategoryDetails [PointOfInterest]
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.CategoryDetails.CategoryDetails
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.CategoryDetails.CategoryDetails
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.CategoryDetails.CategoryDetails
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.CategoryDetails.CategoryDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.CategoryDetails.CategoryDetails
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.CategoryDetails.CategoryDetails
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.CategoryDetails.CategoryDetails
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.CategoryDetails.CategoryDetails
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.CategoryDetails.CategoryDetails
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.CategoryDetails.CategoryDetails
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.CategoryDetails.CategoryDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.CategoryDetails.CategoryDetails
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.CategoryDetails.CategoryDetails
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.CategoryDetails.CategoryDetails
 
 
-module Network.AWS.ConnectContactLens.Types.Categories
+module Amazonka.ConnectContactLens.Types.Categories
 
 -- | Provides the category rules that are used to automatically categorize
 --   contacts based on uttered keywords and phrases.
@@ -213,44 +213,44 @@ categories_matchedCategories :: Lens' Categories [Text]
 -- | The category rule that was matched and when it occurred in the
 --   transcript.
 categories_matchedDetails :: Lens' Categories (HashMap Text CategoryDetails)
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.Categories.Categories
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.Categories.Categories
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.Categories.Categories
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.Categories.Categories
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.Categories.Categories
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.Categories.Categories
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.Categories.Categories
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.Categories.Categories
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.Categories.Categories
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.Categories.Categories
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.Categories.Categories
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.Categories.Categories
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.Categories.Categories
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.Categories.Categories
 
 
-module Network.AWS.ConnectContactLens.Types.SentimentValue
+module Amazonka.ConnectContactLens.Types.SentimentValue
 newtype SentimentValue
 SentimentValue' :: Text -> SentimentValue
 [fromSentimentValue] :: SentimentValue -> Text
 pattern SentimentValue_NEGATIVE :: SentimentValue
 pattern SentimentValue_NEUTRAL :: SentimentValue
 pattern SentimentValue_POSITIVE :: SentimentValue
-instance Network.AWS.Data.XML.ToXML Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Network.AWS.Data.XML.FromXML Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Network.AWS.Data.Log.ToLog Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Network.AWS.Data.Text.ToText Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Network.AWS.Data.Text.FromText Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance GHC.Classes.Ord Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.XML.ToXML Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.XML.FromXML Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.Headers.ToHeader Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.Log.ToLog Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.Text.ToText Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Amazonka.Data.Text.FromText Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance GHC.Classes.Ord Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.SentimentValue.SentimentValue
 
 
-module Network.AWS.ConnectContactLens.Types.Transcript
+module Amazonka.ConnectContactLens.Types.Transcript
 
 -- | A list of messages in the session.
 --   
@@ -344,16 +344,16 @@ transcript_endOffsetMillis :: Lens' Transcript Natural
 
 -- | The sentiment of the detected for this piece of transcript.
 transcript_sentiment :: Lens' Transcript SentimentValue
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.Transcript.Transcript
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.Transcript.Transcript
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.Transcript.Transcript
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.Transcript.Transcript
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.Transcript.Transcript
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.Transcript.Transcript
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.Transcript.Transcript
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.Transcript.Transcript
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.Transcript.Transcript
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.Transcript.Transcript
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.Transcript.Transcript
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.Transcript.Transcript
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.Transcript.Transcript
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.Transcript.Transcript
 
 
-module Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment
+module Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment
 
 -- | An analyzed segment for a real-time analysis session.
 --   
@@ -391,16 +391,16 @@ realtimeContactAnalysisSegment_categories :: Lens' RealtimeContactAnalysisSegmen
 
 -- | The analyzed transcript.
 realtimeContactAnalysisSegment_transcript :: Lens' RealtimeContactAnalysisSegment (Maybe Transcript)
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
-instance GHC.Show.Show Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
-instance GHC.Read.Read Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
+instance GHC.Show.Show Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
+instance GHC.Read.Read Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment.RealtimeContactAnalysisSegment
 
 
-module Network.AWS.ConnectContactLens.Types
+module Amazonka.ConnectContactLens.Types
 
 -- | API version <tt>2020-08-21</tt> of the Amazon Connect Contact Lens SDK
 --   configuration.
@@ -726,7 +726,7 @@ transcript_sentiment :: Lens' Transcript SentimentValue
 
 
 -- | Provides a list of analysis segments for a real-time analysis session.
-module Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments
+module Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments
 
 -- | <i>See:</i> <a>newListRealtimeContactAnalysisSegments</a> smart
 --   constructor.
@@ -874,25 +874,25 @@ listRealtimeContactAnalysisSegmentsResponse_httpStatus :: Lens' ListRealtimeCont
 
 -- | An analyzed transcript or category.
 listRealtimeContactAnalysisSegmentsResponse_segments :: Lens' ListRealtimeContactAnalysisSegmentsResponse [RealtimeContactAnalysisSegment]
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance GHC.Show.Show Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance GHC.Read.Read Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance GHC.Generics.Generic Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
-instance GHC.Show.Show Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
-instance GHC.Read.Read Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
-instance GHC.Classes.Eq Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance Control.DeepSeq.NFData Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance GHC.Show.Show Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance GHC.Read.Read Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance GHC.Generics.Generic Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
+instance GHC.Show.Show Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
+instance GHC.Read.Read Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
+instance GHC.Classes.Eq Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegmentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance Control.DeepSeq.NFData Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments.ListRealtimeContactAnalysisSegments
 
 
-module Network.AWS.ConnectContactLens.Lens
+module Amazonka.ConnectContactLens.Lens
 
 -- | The token for the next set of results. Use the value returned in the
 --   previous response in the next request to retrieve the next set of
@@ -990,7 +990,7 @@ transcript_endOffsetMillis :: Lens' Transcript Natural
 transcript_sentiment :: Lens' Transcript SentimentValue
 
 
-module Network.AWS.ConnectContactLens.Waiters
+module Amazonka.ConnectContactLens.Waiters
 
 
 -- | Derived from API version <tt>2020-08-21</tt> of the AWS service
@@ -1006,7 +1006,7 @@ module Network.AWS.ConnectContactLens.Waiters
 --   analytics of customer-agent conversations. For more information, see
 --   <a>Analyze conversations using Contact Lens</a> in the <i>Amazon
 --   Connect Administrator Guide</i>.
-module Network.AWS.ConnectContactLens
+module Amazonka.ConnectContactLens
 
 -- | API version <tt>2020-08-21</tt> of the Amazon Connect Contact Lens SDK
 --   configuration.

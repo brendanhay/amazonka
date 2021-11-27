@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.AddTags</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds or overwrites one or more tags for the specified Amazon SageMaker</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- resource. You can add tags to notebook instances, training jobs,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- hyperparameter tuning jobs, batch transform jobs, models, labeling jobs,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- work teams, endpoint configurations, and endpoints.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Each tag consists of a key and an optional value. Tag keys must be</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- unique per resource. For more information about tags, see For more</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Amazon Web Services Tagging Strategies&gt;.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Tags that you add to a hyperparameter tuning job by calling this API are</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- also added to any training jobs that the hyperparameter tuning job</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- launches after you call this API, but not to training jobs that the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- hyperparameter tuning job launched before you called this API. To make</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- sure that the tags associated with a hyperparameter tuning job are also</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- added to all training jobs that the hyperparameter tuning job launches,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- add the tags when you first create the tuning job by specifying them in</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- the @Tags@ parameter of CreateHyperParameterTuningJob</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Tags that you add to a SageMaker Studio Domain or User Profile by</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- calling this API are also added to any Apps that the Domain or User</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Profile launches after you call this API, but not to Apps that the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Domain or User Profile launched before you called this API. To make sure</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- that the tags associated with a Domain or User Profile are also added to</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- all Apps that the Domain or User Profile launches, add the tags when you</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- first create the Domain or User Profile by specifying them in the @Tags@</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- parameter of CreateDomain or CreateUserProfile.</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.AddTags</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier">AddTags</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#newAddTags"><span class="hs-identifier">newAddTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTags_resourceArn"><span class="hs-identifier">addTags_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTags_tags"><span class="hs-identifier">addTags_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier">AddTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#newAddTagsResponse"><span class="hs-identifier">newAddTagsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTagsResponse_tags"><span class="hs-identifier">addTagsResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTagsResponse_httpStatus"><span class="hs-identifier">addTagsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newAddTags' smart constructor.</span><span>
+</span><span id="line-77"></span><span id="local-6989586621680424345"><span id="local-6989586621680424346"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTags"><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-var">AddTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTags%27"><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags%27"><span class="hs-identifier hs-var">AddTags'</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource that you want to tag.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AresourceArn%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; Text
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3AresourceArn%3AAddTags%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Atags%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; [Tag]
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424338"><span id="local-6989586621680424340"><span class="annot"><span class="annottext">AddTags -&gt; AddTags -&gt; Bool
+(AddTags -&gt; AddTags -&gt; Bool)
+-&gt; (AddTags -&gt; AddTags -&gt; Bool) -&gt; Eq AddTags
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddTags -&gt; AddTags -&gt; Bool
+$c/= :: AddTags -&gt; AddTags -&gt; Bool
+== :: AddTags -&gt; AddTags -&gt; Bool
+$c== :: AddTags -&gt; AddTags -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424329"><span id="local-6989586621680424331"><span id="local-6989586621680424333"><span id="local-6989586621680424335"><span class="annot"><span class="annottext">ReadPrec [AddTags]
+ReadPrec AddTags
+Int -&gt; ReadS AddTags
+ReadS [AddTags]
+(Int -&gt; ReadS AddTags)
+-&gt; ReadS [AddTags]
+-&gt; ReadPrec AddTags
+-&gt; ReadPrec [AddTags]
+-&gt; Read AddTags
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddTags]
+$creadListPrec :: ReadPrec [AddTags]
+readPrec :: ReadPrec AddTags
+$creadPrec :: ReadPrec AddTags
+readList :: ReadS [AddTags]
+$creadList :: ReadS [AddTags]
+readsPrec :: Int -&gt; ReadS AddTags
+$creadsPrec :: Int -&gt; ReadS AddTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424322"><span id="local-6989586621680424324"><span id="local-6989586621680424326"><span class="annot"><span class="annottext">Int -&gt; AddTags -&gt; ShowS
+[AddTags] -&gt; ShowS
+AddTags -&gt; String
+(Int -&gt; AddTags -&gt; ShowS)
+-&gt; (AddTags -&gt; String) -&gt; ([AddTags] -&gt; ShowS) -&gt; Show AddTags
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddTags] -&gt; ShowS
+$cshowList :: [AddTags] -&gt; ShowS
+show :: AddTags -&gt; String
+$cshow :: AddTags -&gt; String
+showsPrec :: Int -&gt; AddTags -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddTags -&gt; Rep AddTags x)
+-&gt; (forall x. Rep AddTags x -&gt; AddTags) -&gt; Generic AddTags
+forall x. Rep AddTags x -&gt; AddTags
+forall x. AddTags -&gt; Rep AddTags x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddTags x -&gt; AddTags
+$cfrom :: forall x. AddTags -&gt; Rep AddTags x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'AddTags' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'resourceArn', 'addTags_resourceArn' - The Amazon Resource Name (ARN) of the resource that you want to tag.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'tags', 'addTags_tags' - An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#newAddTags"><span class="hs-identifier hs-type">newAddTags</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span>
+</span><span id="line-106"></span><span id="newAddTags"><span class="annot"><span class="annottext">newAddTags :: Text -&gt; AddTags
+</span><a href="Amazonka.SageMaker.AddTags.html#newAddTags"><span class="hs-identifier hs-var hs-var">newAddTags</span></a></span></span><span> </span><span id="local-6989586621680424317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424317"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">AddTags' :: Text -&gt; [Tag] -&gt; AddTags
+</span><a href="Amazonka.SageMaker.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:AddTags' :: Text
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3AresourceArn%3AAddTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424317"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource that you want to tag.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTags_resourceArn"><span class="hs-identifier hs-type">addTags_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="addTags_resourceArn"><span class="annot"><span class="annottext">addTags_resourceArn :: (Text -&gt; f Text) -&gt; AddTags -&gt; f AddTags
+</span><a href="Amazonka.SageMaker.AddTags.html#addTags_resourceArn"><span class="hs-identifier hs-var hs-var">addTags_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddTags -&gt; Text)
+-&gt; (AddTags -&gt; Text -&gt; AddTags) -&gt; Lens AddTags AddTags Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424314"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:AddTags' :: AddTags -&gt; Text
+</span><a href="#local-6989586621680424314"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424314"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424313"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621680424313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621680424313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:AddTags' :: Text
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3AresourceArn%3AAddTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTags_tags"><span class="hs-identifier hs-type">addTags_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span id="addTags_tags"><span class="annot"><span class="annottext">addTags_tags :: ([Tag] -&gt; f [Tag]) -&gt; AddTags -&gt; f AddTags
+</span><a href="Amazonka.SageMaker.AddTags.html#addTags_tags"><span class="hs-identifier hs-var hs-var">addTags_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddTags -&gt; [Tag])
+-&gt; (AddTags -&gt; [Tag] -&gt; AddTags)
+-&gt; Lens AddTags AddTags [Tag] [Tag]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424311"><span class="annot"><span class="annottext">[Tag]
+tags :: [Tag]
+$sel:tags:AddTags' :: AddTags -&gt; [Tag]
+</span><a href="#local-6989586621680424311"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621680424311"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424310"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621680424310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424309"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621680424309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621680424310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621680424309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTags -&gt; f AddTags)
+-&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
+-&gt; ([Tag] -&gt; f [Tag])
+-&gt; AddTags
+-&gt; f AddTags
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621680424303"><span class="annot"><span class="annottext">request :: AddTags -&gt; Request AddTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddTags -&gt; Request AddTags
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621680424299"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddTags)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddTags))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddTags
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddTags)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680424296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424296"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680424295"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680424295"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680424294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680424294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Tag] -&gt; Int -&gt; AddTagsResponse
+</span><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Tag] -&gt; Int -&gt; AddTagsResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Int -&gt; AddTagsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680424294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
+-&gt; Maybe [Tag] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddTagsResponse)
+-&gt; Either String Int -&gt; Either String AddTagsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424296"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424285"><span id="local-6989586621680424287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621680424278"><span class="annot"><span class="annottext">toHeaders :: AddTags -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddTags -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.AddTags&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424268"><span id="local-6989586621680424270"><span id="local-6989586621680424272"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621680424266"><span class="annot"><span class="annottext">toJSON :: AddTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424263"><span id="local-6989586621680424264"><span class="annot"><span class="annottext">[Tag]
+Text
+tags :: [Tag]
+resourceArn :: Text
+$sel:tags:AddTags' :: AddTags -&gt; [Tag]
+$sel:resourceArn:AddTags' :: AddTags -&gt; Text
+</span><a href="#local-6989586621680424263"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424264"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621680424263"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621680424257"><span class="annot"><span class="annottext">toPath :: AddTags -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddTags -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621680424253"><span class="annot"><span class="annottext">toQuery :: AddTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddTags -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newAddTagsResponse' smart constructor.</span><span>
+</span><span id="line-167"></span><span id="local-6989586621680424250"><span id="local-6989586621680424251"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsResponse"><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-var">AddTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsResponse%27"><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags associated with the Amazon SageMaker resource.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Atags%3AAddTagsResponse%27"><span class="annot"><span class="annottext">AddTagsResponse -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3Atags%3AAddTagsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="annot"><span class="annottext">AddTagsResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424244"><span id="local-6989586621680424246"><span class="annot"><span class="annottext">AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+(AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
+-&gt; (AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
+-&gt; Eq AddTagsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+$c/= :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+== :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+$c== :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424236"><span id="local-6989586621680424238"><span id="local-6989586621680424240"><span id="local-6989586621680424242"><span class="annot"><span class="annottext">ReadPrec [AddTagsResponse]
+ReadPrec AddTagsResponse
+Int -&gt; ReadS AddTagsResponse
+ReadS [AddTagsResponse]
+(Int -&gt; ReadS AddTagsResponse)
+-&gt; ReadS [AddTagsResponse]
+-&gt; ReadPrec AddTagsResponse
+-&gt; ReadPrec [AddTagsResponse]
+-&gt; Read AddTagsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddTagsResponse]
+$creadListPrec :: ReadPrec [AddTagsResponse]
+readPrec :: ReadPrec AddTagsResponse
+$creadPrec :: ReadPrec AddTagsResponse
+readList :: ReadS [AddTagsResponse]
+$creadList :: ReadS [AddTagsResponse]
+readsPrec :: Int -&gt; ReadS AddTagsResponse
+$creadsPrec :: Int -&gt; ReadS AddTagsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424230"><span id="local-6989586621680424232"><span id="local-6989586621680424234"><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse -&gt; ShowS
+[AddTagsResponse] -&gt; ShowS
+AddTagsResponse -&gt; String
+(Int -&gt; AddTagsResponse -&gt; ShowS)
+-&gt; (AddTagsResponse -&gt; String)
+-&gt; ([AddTagsResponse] -&gt; ShowS)
+-&gt; Show AddTagsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddTagsResponse] -&gt; ShowS
+$cshowList :: [AddTagsResponse] -&gt; ShowS
+show :: AddTagsResponse -&gt; String
+$cshow :: AddTagsResponse -&gt; String
+showsPrec :: Int -&gt; AddTagsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddTagsResponse -&gt; Rep AddTagsResponse x)
+-&gt; (forall x. Rep AddTagsResponse x -&gt; AddTagsResponse)
+-&gt; Generic AddTagsResponse
+forall x. Rep AddTagsResponse x -&gt; AddTagsResponse
+forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddTagsResponse x -&gt; AddTagsResponse
+$cfrom :: forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'AddTagsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'tags', 'addTagsResponse_tags' - A list of tags associated with the Amazon SageMaker resource.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-type">newAddTagsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
+</span><span id="line-190"></span><span id="newAddTagsResponse"><span class="annot"><span class="annottext">newAddTagsResponse :: Int -&gt; AddTagsResponse
+</span><a href="Amazonka.SageMaker.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-var hs-var">newAddTagsResponse</span></a></span></span><span> </span><span id="local-6989586621680424227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424227"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">AddTagsResponse' :: Maybe [Tag] -&gt; Int -&gt; AddTagsResponse
+</span><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:AddTagsResponse' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3Atags%3AAddTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424227"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A list of tags associated with the Amazon SageMaker resource.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTagsResponse_tags"><span class="hs-identifier hs-type">addTagsResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="addTagsResponse_tags"><span class="annot"><span class="annottext">addTagsResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; AddTagsResponse -&gt; f AddTagsResponse
+</span><a href="Amazonka.SageMaker.AddTags.html#addTagsResponse_tags"><span class="hs-identifier hs-var hs-var">addTagsResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddTagsResponse -&gt; Maybe [Tag])
+-&gt; (AddTagsResponse -&gt; Maybe [Tag] -&gt; AddTagsResponse)
+-&gt; Lens AddTagsResponse AddTagsResponse (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424226"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:AddTagsResponse' :: AddTagsResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680424226"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680424226"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424225"><span class="annot"><span class="annottext">s :: AddTagsResponse
+</span><a href="#local-6989586621680424225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424224"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680424224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
+</span><a href="#local-6989586621680424225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTagsResponse' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3Atags%3AAddTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680424224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; AddTagsResponse -&gt; f AddTagsResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; AddTagsResponse
+-&gt; f AddTagsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#addTagsResponse_httpStatus"><span class="hs-identifier hs-type">addTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span id="addTagsResponse_httpStatus"><span class="annot"><span class="annottext">addTagsResponse_httpStatus :: (Int -&gt; f Int) -&gt; AddTagsResponse -&gt; f AddTagsResponse
+</span><a href="Amazonka.SageMaker.AddTags.html#addTagsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addTagsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddTagsResponse -&gt; Int)
+-&gt; (AddTagsResponse -&gt; Int -&gt; AddTagsResponse)
+-&gt; Lens AddTagsResponse AddTagsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424222"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddTagsResponse' :: AddTagsResponse -&gt; Int
+</span><a href="#local-6989586621680424222"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424222"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424221"><span class="annot"><span class="annottext">s :: AddTagsResponse
+</span><a href="#local-6989586621680424221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424220"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
+</span><a href="#local-6989586621680424221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
+</span><a href="Amazonka.SageMaker.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680424220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

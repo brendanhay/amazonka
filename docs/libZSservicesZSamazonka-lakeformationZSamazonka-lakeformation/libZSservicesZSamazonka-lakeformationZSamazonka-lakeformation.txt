@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.LakeFormation.Types.CatalogResource
+module Amazonka.LakeFormation.Types.CatalogResource
 
 -- | A structure for the catalog object.
 --   
@@ -19,17 +19,17 @@ CatalogResource' :: CatalogResource
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newCatalogResource :: CatalogResource
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.CatalogResource.CatalogResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.CatalogResource.CatalogResource
 
 
-module Network.AWS.LakeFormation.Types.ColumnWildcard
+module Amazonka.LakeFormation.Types.ColumnWildcard
 
 -- | A wildcard object, consisting of an optional list of excluded column
 --   names or indexes.
@@ -57,17 +57,17 @@ newColumnWildcard :: ColumnWildcard
 
 -- | Excludes column names. Any column with this name will be excluded.
 columnWildcard_excludedColumnNames :: Lens' ColumnWildcard (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance GHC.Show.Show Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance GHC.Read.Read Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.ColumnWildcard.ColumnWildcard
 
 
-module Network.AWS.LakeFormation.Types.ComparisonOperator
+module Amazonka.LakeFormation.Types.ComparisonOperator
 newtype ComparisonOperator
 ComparisonOperator' :: Text -> ComparisonOperator
 [fromComparisonOperator] :: ComparisonOperator -> Text
@@ -82,28 +82,28 @@ pattern ComparisonOperator_LE :: ComparisonOperator
 pattern ComparisonOperator_LT :: ComparisonOperator
 pattern ComparisonOperator_NE :: ComparisonOperator
 pattern ComparisonOperator_NOT_CONTAINS :: ComparisonOperator
-instance Network.AWS.Data.XML.ToXML Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.XML.FromXML Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Log.ToLog Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Text.ToText Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Text.FromText Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Classes.Ord Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.XML.ToXML Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.XML.FromXML Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Headers.ToHeader Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Log.ToLog Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Text.ToText Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Text.FromText Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Classes.Ord Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Read.Read Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Show.Show Amazonka.LakeFormation.Types.ComparisonOperator.ComparisonOperator
 
 
-module Network.AWS.LakeFormation.Types.DataLakePrincipal
+module Amazonka.LakeFormation.Types.DataLakePrincipal
 
 -- | The AWS Lake Formation principal. Supported principals are IAM users
 --   or IAM roles.
@@ -131,17 +131,17 @@ newDataLakePrincipal :: DataLakePrincipal
 
 -- | An identifier for the AWS Lake Formation principal.
 dataLakePrincipal_dataLakePrincipalIdentifier :: Lens' DataLakePrincipal (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance GHC.Show.Show Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance GHC.Read.Read Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.DataLakePrincipal.DataLakePrincipal
 
 
-module Network.AWS.LakeFormation.Types.DataLakeResourceType
+module Amazonka.LakeFormation.Types.DataLakeResourceType
 newtype DataLakeResourceType
 DataLakeResourceType' :: Text -> DataLakeResourceType
 [fromDataLakeResourceType] :: DataLakeResourceType -> Text
@@ -153,28 +153,28 @@ pattern DataLakeResourceType_LF_TAG_POLICY :: DataLakeResourceType
 pattern DataLakeResourceType_LF_TAG_POLICY_DATABASE :: DataLakeResourceType
 pattern DataLakeResourceType_LF_TAG_POLICY_TABLE :: DataLakeResourceType
 pattern DataLakeResourceType_TABLE :: DataLakeResourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance GHC.Classes.Ord Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.XML.ToXML Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.XML.FromXML Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.Log.ToLog Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.Text.ToText Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Amazonka.Data.Text.FromText Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance GHC.Classes.Ord Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance GHC.Read.Read Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
+instance GHC.Show.Show Amazonka.LakeFormation.Types.DataLakeResourceType.DataLakeResourceType
 
 
-module Network.AWS.LakeFormation.Types.DataLocationResource
+module Amazonka.LakeFormation.Types.DataLocationResource
 
 -- | A structure for a data location object where permissions are granted
 --   or revoked.
@@ -219,17 +219,17 @@ dataLocationResource_catalogId :: Lens' DataLocationResource (Maybe Text)
 -- | The Amazon Resource Name (ARN) that uniquely identifies the data
 --   location resource.
 dataLocationResource_resourceArn :: Lens' DataLocationResource Text
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.DataLocationResource.DataLocationResource
 
 
-module Network.AWS.LakeFormation.Types.DatabaseResource
+module Amazonka.LakeFormation.Types.DatabaseResource
 
 -- | A structure for the database object.
 --   
@@ -267,17 +267,17 @@ databaseResource_catalogId :: Lens' DatabaseResource (Maybe Text)
 
 -- | The name of the database resource. Unique to the Data Catalog.
 databaseResource_name :: Lens' DatabaseResource Text
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.DatabaseResource.DatabaseResource
 
 
-module Network.AWS.LakeFormation.Types.DetailsMap
+module Amazonka.LakeFormation.Types.DetailsMap
 
 -- | A structure containing the additional details to be returned in the
 --   <tt>AdditionalDetails</tt> attribute of
@@ -311,16 +311,16 @@ newDetailsMap :: DetailsMap
 -- | A resource share ARN for a catalog resource shared through AWS
 --   Resource Access Manager (AWS RAM).
 detailsMap_resourceShare :: Lens' DetailsMap (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.DetailsMap.DetailsMap
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.DetailsMap.DetailsMap
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.DetailsMap.DetailsMap
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.DetailsMap.DetailsMap
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.DetailsMap.DetailsMap
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.DetailsMap.DetailsMap
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.DetailsMap.DetailsMap
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.DetailsMap.DetailsMap
+instance GHC.Show.Show Amazonka.LakeFormation.Types.DetailsMap.DetailsMap
+instance GHC.Read.Read Amazonka.LakeFormation.Types.DetailsMap.DetailsMap
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.DetailsMap.DetailsMap
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.DetailsMap.DetailsMap
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.DetailsMap.DetailsMap
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.DetailsMap.DetailsMap
 
 
-module Network.AWS.LakeFormation.Types.ErrorDetail
+module Amazonka.LakeFormation.Types.ErrorDetail
 
 -- | Contains details about an error.
 --   
@@ -354,44 +354,44 @@ errorDetail_errorCode :: Lens' ErrorDetail (Maybe Text)
 
 -- | A message describing the error.
 errorDetail_errorMessage :: Lens' ErrorDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.ErrorDetail.ErrorDetail
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.ErrorDetail.ErrorDetail
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.ErrorDetail.ErrorDetail
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.ErrorDetail.ErrorDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.ErrorDetail.ErrorDetail
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.ErrorDetail.ErrorDetail
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.ErrorDetail.ErrorDetail
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.ErrorDetail.ErrorDetail
+instance GHC.Show.Show Amazonka.LakeFormation.Types.ErrorDetail.ErrorDetail
+instance GHC.Read.Read Amazonka.LakeFormation.Types.ErrorDetail.ErrorDetail
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.ErrorDetail.ErrorDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.ErrorDetail.ErrorDetail
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.ErrorDetail.ErrorDetail
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.ErrorDetail.ErrorDetail
 
 
-module Network.AWS.LakeFormation.Types.FieldNameString
+module Amazonka.LakeFormation.Types.FieldNameString
 newtype FieldNameString
 FieldNameString' :: Text -> FieldNameString
 [fromFieldNameString] :: FieldNameString -> Text
 pattern FieldNameString_LAST_MODIFIED :: FieldNameString
 pattern FieldNameString_RESOURCE_ARN :: FieldNameString
 pattern FieldNameString_ROLE_ARN :: FieldNameString
-instance Network.AWS.Data.XML.ToXML Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Network.AWS.Data.XML.FromXML Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Network.AWS.Data.Log.ToLog Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Network.AWS.Data.Text.ToText Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Network.AWS.Data.Text.FromText Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance GHC.Classes.Ord Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.XML.ToXML Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.XML.FromXML Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.Headers.ToHeader Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.Log.ToLog Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.Text.ToText Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Amazonka.Data.Text.FromText Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance GHC.Classes.Ord Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance GHC.Read.Read Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
+instance GHC.Show.Show Amazonka.LakeFormation.Types.FieldNameString.FieldNameString
 
 
-module Network.AWS.LakeFormation.Types.FilterCondition
+module Amazonka.LakeFormation.Types.FilterCondition
 
 -- | This structure describes the filtering of columns in a table based on
 --   a filter condition.
@@ -438,16 +438,16 @@ filterCondition_comparisonOperator :: Lens' FilterCondition (Maybe ComparisonOpe
 
 -- | A string with values used in evaluating the filter condition.
 filterCondition_stringValueList :: Lens' FilterCondition (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.FilterCondition.FilterCondition
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.FilterCondition.FilterCondition
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.FilterCondition.FilterCondition
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.FilterCondition.FilterCondition
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.FilterCondition.FilterCondition
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.FilterCondition.FilterCondition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.FilterCondition.FilterCondition
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.FilterCondition.FilterCondition
+instance GHC.Show.Show Amazonka.LakeFormation.Types.FilterCondition.FilterCondition
+instance GHC.Read.Read Amazonka.LakeFormation.Types.FilterCondition.FilterCondition
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.FilterCondition.FilterCondition
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.FilterCondition.FilterCondition
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.FilterCondition.FilterCondition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.FilterCondition.FilterCondition
 
 
-module Network.AWS.LakeFormation.Types.LFTag
+module Amazonka.LakeFormation.Types.LFTag
 
 -- | A structure that allows an admin to grant user permissions on certain
 --   conditions. For example, granting a role access to all columns not
@@ -483,17 +483,17 @@ lFTag_tagKey :: Lens' LFTag Text
 
 -- | A list of possible values an attribute can take.
 lFTag_tagValues :: Lens' LFTag (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.LFTag.LFTag
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.LFTag.LFTag
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.LFTag.LFTag
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.LFTag.LFTag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.LFTag.LFTag
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.LFTag.LFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.LFTag.LFTag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.LFTag.LFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.LFTag.LFTag
+instance GHC.Show.Show Amazonka.LakeFormation.Types.LFTag.LFTag
+instance GHC.Read.Read Amazonka.LakeFormation.Types.LFTag.LFTag
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.LFTag.LFTag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.LFTag.LFTag
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.LFTag.LFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.LFTag.LFTag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.LFTag.LFTag
 
 
-module Network.AWS.LakeFormation.Types.LFTagKeyResource
+module Amazonka.LakeFormation.Types.LFTagKeyResource
 
 -- | A structure containing a tag key and values for a resource.
 --   
@@ -548,17 +548,17 @@ lFTagKeyResource_tagKey :: Lens' LFTagKeyResource Text
 
 -- | A list of possible values an attribute can take.
 lFTagKeyResource_tagValues :: Lens' LFTagKeyResource (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.LFTagKeyResource.LFTagKeyResource
 
 
-module Network.AWS.LakeFormation.Types.LFTagPair
+module Amazonka.LakeFormation.Types.LFTagPair
 
 -- | A structure containing a tag key-value pair.
 --   
@@ -610,17 +610,17 @@ lFTagPair_tagKey :: Lens' LFTagPair Text
 
 -- | A list of possible values an attribute can take.
 lFTagPair_tagValues :: Lens' LFTagPair (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.LFTagPair.LFTagPair
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
+instance GHC.Show.Show Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
+instance GHC.Read.Read Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.LFTagPair.LFTagPair
 
 
-module Network.AWS.LakeFormation.Types.LFTagError
+module Amazonka.LakeFormation.Types.LFTagError
 
 -- | A structure containing an error related to a <tt>TagResource</tt> or
 --   <tt>UnTagResource</tt> operation.
@@ -655,16 +655,16 @@ lFTagError_lFTag :: Lens' LFTagError (Maybe LFTagPair)
 
 -- | An error that occurred with the attachment or detachment of the tag.
 lFTagError_error :: Lens' LFTagError (Maybe ErrorDetail)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.LFTagError.LFTagError
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.LFTagError.LFTagError
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.LFTagError.LFTagError
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.LFTagError.LFTagError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.LFTagError.LFTagError
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.LFTagError.LFTagError
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.LFTagError.LFTagError
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.LFTagError.LFTagError
+instance GHC.Show.Show Amazonka.LakeFormation.Types.LFTagError.LFTagError
+instance GHC.Read.Read Amazonka.LakeFormation.Types.LFTagError.LFTagError
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.LFTagError.LFTagError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.LFTagError.LFTagError
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.LFTagError.LFTagError
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.LFTagError.LFTagError
 
 
-module Network.AWS.LakeFormation.Types.ColumnLFTag
+module Amazonka.LakeFormation.Types.ColumnLFTag
 
 -- | A structure containing the name of a column resource and the tags
 --   attached to it.
@@ -699,16 +699,16 @@ columnLFTag_name :: Lens' ColumnLFTag (Maybe Text)
 
 -- | The tags attached to a column resource.
 columnLFTag_lFTags :: Lens' ColumnLFTag (Maybe (NonEmpty LFTagPair))
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.ColumnLFTag.ColumnLFTag
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.ColumnLFTag.ColumnLFTag
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.ColumnLFTag.ColumnLFTag
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.ColumnLFTag.ColumnLFTag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.ColumnLFTag.ColumnLFTag
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.ColumnLFTag.ColumnLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.ColumnLFTag.ColumnLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.ColumnLFTag.ColumnLFTag
+instance GHC.Show.Show Amazonka.LakeFormation.Types.ColumnLFTag.ColumnLFTag
+instance GHC.Read.Read Amazonka.LakeFormation.Types.ColumnLFTag.ColumnLFTag
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.ColumnLFTag.ColumnLFTag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.ColumnLFTag.ColumnLFTag
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.ColumnLFTag.ColumnLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.ColumnLFTag.ColumnLFTag
 
 
-module Network.AWS.LakeFormation.Types.Permission
+module Amazonka.LakeFormation.Types.Permission
 newtype Permission
 Permission' :: Text -> Permission
 [fromPermission] :: Permission -> Text
@@ -727,28 +727,28 @@ pattern Permission_DESCRIBE_TAG :: Permission
 pattern Permission_DROP :: Permission
 pattern Permission_INSERT :: Permission
 pattern Permission_SELECT :: Permission
-instance Network.AWS.Data.XML.ToXML Network.AWS.LakeFormation.Types.Permission.Permission
-instance Network.AWS.Data.XML.FromXML Network.AWS.LakeFormation.Types.Permission.Permission
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LakeFormation.Types.Permission.Permission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.Permission.Permission
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LakeFormation.Types.Permission.Permission
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.Permission.Permission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.Types.Permission.Permission
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LakeFormation.Types.Permission.Permission
-instance Network.AWS.Data.Log.ToLog Network.AWS.LakeFormation.Types.Permission.Permission
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LakeFormation.Types.Permission.Permission
-instance Network.AWS.Data.Text.ToText Network.AWS.LakeFormation.Types.Permission.Permission
-instance Network.AWS.Data.Text.FromText Network.AWS.LakeFormation.Types.Permission.Permission
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.Permission.Permission
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.Permission.Permission
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.Permission.Permission
-instance GHC.Classes.Ord Network.AWS.LakeFormation.Types.Permission.Permission
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.Permission.Permission
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.Permission.Permission
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.XML.ToXML Amazonka.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.XML.FromXML Amazonka.LakeFormation.Types.Permission.Permission
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LakeFormation.Types.Permission.Permission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.Permission.Permission
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LakeFormation.Types.Permission.Permission
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.Headers.ToHeader Amazonka.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.Log.ToLog Amazonka.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.Text.ToText Amazonka.LakeFormation.Types.Permission.Permission
+instance Amazonka.Data.Text.FromText Amazonka.LakeFormation.Types.Permission.Permission
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.Permission.Permission
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.Permission.Permission
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.Permission.Permission
+instance GHC.Classes.Ord Amazonka.LakeFormation.Types.Permission.Permission
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.Permission.Permission
+instance GHC.Read.Read Amazonka.LakeFormation.Types.Permission.Permission
+instance GHC.Show.Show Amazonka.LakeFormation.Types.Permission.Permission
 
 
-module Network.AWS.LakeFormation.Types.PrincipalPermissions
+module Amazonka.LakeFormation.Types.PrincipalPermissions
 
 -- | Permissions granted to a principal.
 --   
@@ -785,17 +785,17 @@ principalPermissions_principal :: Lens' PrincipalPermissions (Maybe DataLakePrin
 
 -- | The permissions that are granted to the principal.
 principalPermissions_permissions :: Lens' PrincipalPermissions (Maybe [Permission])
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance GHC.Show.Show Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance GHC.Read.Read Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.PrincipalPermissions.PrincipalPermissions
 
 
-module Network.AWS.LakeFormation.Types.DataLakeSettings
+module Amazonka.LakeFormation.Types.DataLakeSettings
 
 -- | A structure representing a list of AWS Lake Formation principals
 --   designated as data lake administrators and lists of principal
@@ -878,17 +878,17 @@ dataLakeSettings_createDatabaseDefaultPermissions :: Lens' DataLakeSettings (May
 -- | A structure representing a list of up to three principal permissions
 --   entries for default create table permissions.
 dataLakeSettings_createTableDefaultPermissions :: Lens' DataLakeSettings (Maybe [PrincipalPermissions])
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance GHC.Show.Show Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance GHC.Read.Read Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.DataLakeSettings.DataLakeSettings
 
 
-module Network.AWS.LakeFormation.Types.ResourceInfo
+module Amazonka.LakeFormation.Types.ResourceInfo
 
 -- | A structure containing information about an AWS Lake Formation
 --   resource.
@@ -934,70 +934,70 @@ resourceInfo_lastModified :: Lens' ResourceInfo (Maybe UTCTime)
 
 -- | The IAM role that registered a resource.
 resourceInfo_roleArn :: Lens' ResourceInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.ResourceInfo.ResourceInfo
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.ResourceInfo.ResourceInfo
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.ResourceInfo.ResourceInfo
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.ResourceInfo.ResourceInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.ResourceInfo.ResourceInfo
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.ResourceInfo.ResourceInfo
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.ResourceInfo.ResourceInfo
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.ResourceInfo.ResourceInfo
+instance GHC.Show.Show Amazonka.LakeFormation.Types.ResourceInfo.ResourceInfo
+instance GHC.Read.Read Amazonka.LakeFormation.Types.ResourceInfo.ResourceInfo
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.ResourceInfo.ResourceInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.ResourceInfo.ResourceInfo
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.ResourceInfo.ResourceInfo
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.ResourceInfo.ResourceInfo
 
 
-module Network.AWS.LakeFormation.Types.ResourceShareType
+module Amazonka.LakeFormation.Types.ResourceShareType
 newtype ResourceShareType
 ResourceShareType' :: Text -> ResourceShareType
 [fromResourceShareType] :: ResourceShareType -> Text
 pattern ResourceShareType_ALL :: ResourceShareType
 pattern ResourceShareType_FOREIGN :: ResourceShareType
-instance Network.AWS.Data.XML.ToXML Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Network.AWS.Data.XML.FromXML Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Network.AWS.Data.Log.ToLog Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Network.AWS.Data.Text.ToText Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Network.AWS.Data.Text.FromText Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance GHC.Classes.Ord Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.XML.ToXML Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.XML.FromXML Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.Headers.ToHeader Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.Log.ToLog Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.Text.ToText Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Amazonka.Data.Text.FromText Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance GHC.Classes.Ord Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance GHC.Read.Read Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
+instance GHC.Show.Show Amazonka.LakeFormation.Types.ResourceShareType.ResourceShareType
 
 
-module Network.AWS.LakeFormation.Types.ResourceType
+module Amazonka.LakeFormation.Types.ResourceType
 newtype ResourceType
 ResourceType' :: Text -> ResourceType
 [fromResourceType] :: ResourceType -> Text
 pattern ResourceType_DATABASE :: ResourceType
 pattern ResourceType_TABLE :: ResourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance GHC.Classes.Ord Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.ResourceType.ResourceType
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.XML.ToXML Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.XML.FromXML Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.Log.ToLog Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.Text.ToText Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Amazonka.Data.Text.FromText Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance GHC.Classes.Ord Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance GHC.Read.Read Amazonka.LakeFormation.Types.ResourceType.ResourceType
+instance GHC.Show.Show Amazonka.LakeFormation.Types.ResourceType.ResourceType
 
 
-module Network.AWS.LakeFormation.Types.LFTagPolicyResource
+module Amazonka.LakeFormation.Types.LFTagPolicyResource
 
 -- | A structure containing a list of tag conditions that apply to a
 --   resource's tag policy.
@@ -1054,17 +1054,17 @@ lFTagPolicyResource_resourceType :: Lens' LFTagPolicyResource ResourceType
 
 -- | A list of tag conditions that apply to the resource's tag policy.
 lFTagPolicyResource_expression :: Lens' LFTagPolicyResource (NonEmpty LFTag)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.LFTagPolicyResource.LFTagPolicyResource
 
 
-module Network.AWS.LakeFormation.Types.TableWildcard
+module Amazonka.LakeFormation.Types.TableWildcard
 
 -- | A wildcard object representing every table under a database.
 --   
@@ -1078,17 +1078,17 @@ TableWildcard' :: TableWildcard
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTableWildcard :: TableWildcard
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.TableWildcard.TableWildcard
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
+instance GHC.Show.Show Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
+instance GHC.Read.Read Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.TableWildcard.TableWildcard
 
 
-module Network.AWS.LakeFormation.Types.TableResource
+module Amazonka.LakeFormation.Types.TableResource
 
 -- | A structure for the table object. A table is a metadata definition
 --   that represents your data. You can Grant and Revoke table privileges
@@ -1165,17 +1165,17 @@ tableResource_name :: Lens' TableResource (Maybe Text)
 --   logical group. You can Grant and Revoke database privileges to a
 --   principal.
 tableResource_databaseName :: Lens' TableResource Text
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.TableResource.TableResource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.TableResource.TableResource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.TableResource.TableResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.TableResource.TableResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.TableResource.TableResource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.TableResource.TableResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.TableResource.TableResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.TableResource.TableResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.TableResource.TableResource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.TableResource.TableResource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.TableResource.TableResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.TableResource.TableResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.TableResource.TableResource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.TableResource.TableResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.TableResource.TableResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.TableResource.TableResource
 
 
-module Network.AWS.LakeFormation.Types.TableWithColumnsResource
+module Amazonka.LakeFormation.Types.TableWithColumnsResource
 
 -- | A structure for a table with columns object. This object is only used
 --   when granting a SELECT permission.
@@ -1269,17 +1269,17 @@ tableWithColumnsResource_databaseName :: Lens' TableWithColumnsResource Text
 --   represents your data. You can Grant and Revoke table privileges to a
 --   principal.
 tableWithColumnsResource_name :: Lens' TableWithColumnsResource Text
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.TableWithColumnsResource.TableWithColumnsResource
 
 
-module Network.AWS.LakeFormation.Types.Resource
+module Amazonka.LakeFormation.Types.Resource
 
 -- | A structure for the resource.
 --   
@@ -1388,17 +1388,17 @@ resource_table :: Lens' Resource (Maybe TableResource)
 --   to this resource can select metadata from the columns of a table in
 --   the Data Catalog and the underlying data in Amazon S3.
 resource_tableWithColumns :: Lens' Resource (Maybe TableWithColumnsResource)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.Resource.Resource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.LakeFormation.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.LakeFormation.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.Resource.Resource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.Resource.Resource
 
 
-module Network.AWS.LakeFormation.Types.PrincipalResourcePermissions
+module Amazonka.LakeFormation.Types.PrincipalResourcePermissions
 
 -- | The permissions granted or revoked on a resource.
 --   
@@ -1474,16 +1474,16 @@ principalResourcePermissions_resource :: Lens' PrincipalResourcePermissions (May
 
 -- | The permissions to be granted or revoked on the resource.
 principalResourcePermissions_permissions :: Lens' PrincipalResourcePermissions (Maybe [Permission])
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
+instance GHC.Show.Show Amazonka.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
+instance GHC.Read.Read Amazonka.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.PrincipalResourcePermissions.PrincipalResourcePermissions
 
 
-module Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry
+module Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
 
 -- | A permission to a resource granted by batch operation to the
 --   principal.
@@ -1551,17 +1551,17 @@ batchPermissionsRequestEntry_permissions :: Lens' BatchPermissionsRequestEntry (
 
 -- | A unique identifier for the batch permissions request entry.
 batchPermissionsRequestEntry_id :: Lens' BatchPermissionsRequestEntry Text
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance GHC.Show.Show Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance GHC.Read.Read Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry.BatchPermissionsRequestEntry
 
 
-module Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry
+module Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry
 
 -- | A list of failures when performing a batch grant or batch revoke
 --   operation.
@@ -1599,16 +1599,16 @@ batchPermissionsFailureEntry_error :: Lens' BatchPermissionsFailureEntry (Maybe 
 
 -- | An identifier for an entry of the batch request.
 batchPermissionsFailureEntry_requestEntry :: Lens' BatchPermissionsFailureEntry (Maybe BatchPermissionsRequestEntry)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
+instance GHC.Show.Show Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
+instance GHC.Read.Read Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry.BatchPermissionsFailureEntry
 
 
-module Network.AWS.LakeFormation.Types.TaggedDatabase
+module Amazonka.LakeFormation.Types.TaggedDatabase
 
 -- | A structure describing a database resource with tags.
 --   
@@ -1643,16 +1643,16 @@ taggedDatabase_database :: Lens' TaggedDatabase (Maybe DatabaseResource)
 
 -- | A list of tags attached to the database.
 taggedDatabase_lFTags :: Lens' TaggedDatabase (Maybe (NonEmpty LFTagPair))
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.TaggedDatabase.TaggedDatabase
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.TaggedDatabase.TaggedDatabase
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.TaggedDatabase.TaggedDatabase
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.TaggedDatabase.TaggedDatabase
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.TaggedDatabase.TaggedDatabase
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.TaggedDatabase.TaggedDatabase
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.TaggedDatabase.TaggedDatabase
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.TaggedDatabase.TaggedDatabase
+instance GHC.Show.Show Amazonka.LakeFormation.Types.TaggedDatabase.TaggedDatabase
+instance GHC.Read.Read Amazonka.LakeFormation.Types.TaggedDatabase.TaggedDatabase
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.TaggedDatabase.TaggedDatabase
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.TaggedDatabase.TaggedDatabase
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.TaggedDatabase.TaggedDatabase
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.TaggedDatabase.TaggedDatabase
 
 
-module Network.AWS.LakeFormation.Types.TaggedTable
+module Amazonka.LakeFormation.Types.TaggedTable
 
 -- | A structure describing a table resource with tags.
 --   
@@ -1707,16 +1707,16 @@ taggedTable_lFTagsOnColumns :: Lens' TaggedTable (Maybe [ColumnLFTag])
 
 -- | A table that has tags attached to it.
 taggedTable_table :: Lens' TaggedTable (Maybe TableResource)
-instance GHC.Generics.Generic Network.AWS.LakeFormation.Types.TaggedTable.TaggedTable
-instance GHC.Show.Show Network.AWS.LakeFormation.Types.TaggedTable.TaggedTable
-instance GHC.Read.Read Network.AWS.LakeFormation.Types.TaggedTable.TaggedTable
-instance GHC.Classes.Eq Network.AWS.LakeFormation.Types.TaggedTable.TaggedTable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LakeFormation.Types.TaggedTable.TaggedTable
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.Types.TaggedTable.TaggedTable
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.Types.TaggedTable.TaggedTable
+instance GHC.Generics.Generic Amazonka.LakeFormation.Types.TaggedTable.TaggedTable
+instance GHC.Show.Show Amazonka.LakeFormation.Types.TaggedTable.TaggedTable
+instance GHC.Read.Read Amazonka.LakeFormation.Types.TaggedTable.TaggedTable
+instance GHC.Classes.Eq Amazonka.LakeFormation.Types.TaggedTable.TaggedTable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LakeFormation.Types.TaggedTable.TaggedTable
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.Types.TaggedTable.TaggedTable
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.Types.TaggedTable.TaggedTable
 
 
-module Network.AWS.LakeFormation.Types
+module Amazonka.LakeFormation.Types
 
 -- | API version <tt>2017-03-31</tt> of the Amazon Lake Formation SDK
 --   configuration.
@@ -3059,7 +3059,7 @@ taggedTable_table :: Lens' TaggedTable (Maybe TableResource)
 --   use <tt>SearchTablesByLFTags</tt> to find all resources where the
 --   given <tt>LFTag</tt>s are valid to verify whether the returned
 --   resources can be shared.
-module Network.AWS.LakeFormation.SearchTablesByLFTags
+module Amazonka.LakeFormation.SearchTablesByLFTags
 
 -- | <i>See:</i> <a>newSearchTablesByLFTags</a> smart constructor.
 data SearchTablesByLFTags
@@ -3173,22 +3173,22 @@ searchTablesByLFTagsResponse_nextToken :: Lens' SearchTablesByLFTagsResponse (Ma
 
 -- | The response's http status code.
 searchTablesByLFTagsResponse_httpStatus :: Lens' SearchTablesByLFTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance GHC.Show.Show Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance GHC.Read.Read Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance GHC.Classes.Eq Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance GHC.Generics.Generic Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance GHC.Show.Show Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance GHC.Read.Read Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance GHC.Classes.Eq Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.SearchTablesByLFTags.SearchTablesByLFTags
 
 
 -- | This operation allows a search on <tt>DATABASE</tt> resources by
@@ -3197,7 +3197,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.SearchTablesBy
 --   making a grant, the admin can use <tt>SearchDatabasesByTags</tt> to
 --   find all resources where the given <tt>TagConditions</tt> are valid to
 --   verify whether the returned resources can be shared.
-module Network.AWS.LakeFormation.SearchDatabasesByLFTags
+module Amazonka.LakeFormation.SearchDatabasesByLFTags
 
 -- | <i>See:</i> <a>newSearchDatabasesByLFTags</a> smart constructor.
 data SearchDatabasesByLFTags
@@ -3312,28 +3312,28 @@ searchDatabasesByLFTagsResponse_nextToken :: Lens' SearchDatabasesByLFTagsRespon
 
 -- | The response's http status code.
 searchDatabasesByLFTagsResponse_httpStatus :: Lens' SearchDatabasesByLFTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance GHC.Show.Show Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance GHC.Read.Read Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance GHC.Classes.Eq Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance GHC.Generics.Generic Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance GHC.Show.Show Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance GHC.Read.Read Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance GHC.Classes.Eq Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.SearchDatabasesByLFTags.SearchDatabasesByLFTags
 
 
 -- | Revokes permissions to the principal to access metadata in the Data
 --   Catalog and data organized in underlying data storage such as Amazon
 --   S3.
-module Network.AWS.LakeFormation.RevokePermissions
+module Amazonka.LakeFormation.RevokePermissions
 
 -- | <i>See:</i> <a>newRevokePermissions</a> smart constructor.
 data RevokePermissions
@@ -3439,28 +3439,28 @@ newRevokePermissionsResponse :: Int -> RevokePermissionsResponse
 
 -- | The response's http status code.
 revokePermissionsResponse_httpStatus :: Lens' RevokePermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance GHC.Show.Show Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance GHC.Read.Read Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance GHC.Classes.Eq Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance GHC.Generics.Generic Network.AWS.LakeFormation.RevokePermissions.RevokePermissionsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.RevokePermissions.RevokePermissionsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.RevokePermissions.RevokePermissionsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.RevokePermissions.RevokePermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.RevokePermissions.RevokePermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.RevokePermissions.RevokePermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance GHC.Show.Show Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance GHC.Read.Read Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance GHC.Classes.Eq Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.RevokePermissions.RevokePermissionsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.RevokePermissions.RevokePermissionsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.RevokePermissions.RevokePermissionsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.RevokePermissions.RevokePermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.RevokePermissions.RevokePermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.RevokePermissions.RevokePermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.RevokePermissions.RevokePermissions
 
 
 -- | Removes a tag from the resource. Only database, table, or
 --   tableWithColumns resource are allowed. To tag columns, use the column
 --   inclusion list in <tt>tableWithColumns</tt> to specify column input.
-module Network.AWS.LakeFormation.RemoveLFTagsFromResource
+module Amazonka.LakeFormation.RemoveLFTagsFromResource
 
 -- | <i>See:</i> <a>newRemoveLFTagsFromResource</a> smart constructor.
 data RemoveLFTagsFromResource
@@ -3549,22 +3549,22 @@ removeLFTagsFromResourceResponse_failures :: Lens' RemoveLFTagsFromResourceRespo
 
 -- | The response's http status code.
 removeLFTagsFromResourceResponse_httpStatus :: Lens' RemoveLFTagsFromResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance GHC.Show.Show Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance GHC.Read.Read Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance GHC.Generics.Generic Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance GHC.Show.Show Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance GHC.Read.Read Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
+instance GHC.Show.Show Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
+instance GHC.Read.Read Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.RemoveLFTagsFromResource.RemoveLFTagsFromResource
 
 
 -- | Registers the resource as managed by the Data Catalog.
@@ -3592,7 +3592,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.RemoveLFTagsFr
 --   <pre>
 --   arn:aws:iam::12345:role/my-data-access-role
 --   </pre>
-module Network.AWS.LakeFormation.RegisterResource
+module Amazonka.LakeFormation.RegisterResource
 
 -- | <i>See:</i> <a>newRegisterResource</a> smart constructor.
 data RegisterResource
@@ -3679,22 +3679,22 @@ newRegisterResourceResponse :: Int -> RegisterResourceResponse
 
 -- | The response's http status code.
 registerResourceResponse_httpStatus :: Lens' RegisterResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance GHC.Show.Show Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance GHC.Read.Read Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance GHC.Generics.Generic Network.AWS.LakeFormation.RegisterResource.RegisterResourceResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.RegisterResource.RegisterResourceResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.RegisterResource.RegisterResourceResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.RegisterResource.RegisterResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.RegisterResource.RegisterResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.RegisterResource.RegisterResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.RegisterResource.RegisterResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance GHC.Show.Show Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance GHC.Read.Read Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.RegisterResource.RegisterResourceResponse
+instance GHC.Show.Show Amazonka.LakeFormation.RegisterResource.RegisterResourceResponse
+instance GHC.Read.Read Amazonka.LakeFormation.RegisterResource.RegisterResourceResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.RegisterResource.RegisterResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.RegisterResource.RegisterResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.RegisterResource.RegisterResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.RegisterResource.RegisterResource
 
 
 -- | Sets the list of data lake administrators who have admin privileges on
@@ -3704,7 +3704,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.RegisterResour
 --   This API replaces the current list of data lake admins with the new
 --   list being passed. To add an admin, fetch the current list and add the
 --   new admin to that list and pass that list in this API.
-module Network.AWS.LakeFormation.PutDataLakeSettings
+module Amazonka.LakeFormation.PutDataLakeSettings
 
 -- | <i>See:</i> <a>newPutDataLakeSettings</a> smart constructor.
 data PutDataLakeSettings
@@ -3775,26 +3775,26 @@ newPutDataLakeSettingsResponse :: Int -> PutDataLakeSettingsResponse
 
 -- | The response's http status code.
 putDataLakeSettingsResponse_httpStatus :: Lens' PutDataLakeSettingsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance GHC.Show.Show Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance GHC.Read.Read Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance GHC.Classes.Eq Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance GHC.Generics.Generic Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance GHC.Generics.Generic Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance GHC.Show.Show Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance GHC.Read.Read Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance GHC.Classes.Eq Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance GHC.Generics.Generic Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettingsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.PutDataLakeSettings.PutDataLakeSettings
 
 
 -- | Lists the resources registered to be managed by the Data Catalog.
-module Network.AWS.LakeFormation.ListResources
+module Amazonka.LakeFormation.ListResources
 
 -- | <i>See:</i> <a>newListResources</a> smart constructor.
 data ListResources
@@ -3888,22 +3888,22 @@ listResourcesResponse_nextToken :: Lens' ListResourcesResponse (Maybe Text)
 
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens' ListResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.ListResources.ListResources
-instance GHC.Show.Show Network.AWS.LakeFormation.ListResources.ListResources
-instance GHC.Read.Read Network.AWS.LakeFormation.ListResources.ListResources
-instance GHC.Classes.Eq Network.AWS.LakeFormation.ListResources.ListResources
-instance GHC.Generics.Generic Network.AWS.LakeFormation.ListResources.ListResourcesResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.ListResources.ListResourcesResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.ListResources.ListResourcesResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.ListResources.ListResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.ListResources.ListResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.ListResources.ListResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.ListResources.ListResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.ListResources.ListResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.ListResources.ListResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.LakeFormation.ListResources.ListResources
+instance GHC.Show.Show Amazonka.LakeFormation.ListResources.ListResources
+instance GHC.Read.Read Amazonka.LakeFormation.ListResources.ListResources
+instance GHC.Classes.Eq Amazonka.LakeFormation.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.LakeFormation.ListResources.ListResourcesResponse
+instance GHC.Show.Show Amazonka.LakeFormation.ListResources.ListResourcesResponse
+instance GHC.Read.Read Amazonka.LakeFormation.ListResources.ListResourcesResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.ListResources.ListResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.ListResources.ListResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.ListResources.ListResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.ListResources.ListResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.ListResources.ListResources
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.ListResources.ListResources
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.ListResources.ListResources
 
 
 -- | Returns a list of the principal permissions on the resource, filtered
@@ -3916,7 +3916,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.ListResources.
 --   
 --   For information about permissions, see <a>Security and Access Control
 --   to Metadata and Data</a>.
-module Network.AWS.LakeFormation.ListPermissions
+module Amazonka.LakeFormation.ListPermissions
 
 -- | <i>See:</i> <a>newListPermissions</a> smart constructor.
 data ListPermissions
@@ -4062,26 +4062,26 @@ listPermissionsResponse_principalResourcePermissions :: Lens' ListPermissionsRes
 
 -- | The response's http status code.
 listPermissionsResponse_httpStatus :: Lens' ListPermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance GHC.Show.Show Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance GHC.Read.Read Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance GHC.Classes.Eq Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance GHC.Generics.Generic Network.AWS.LakeFormation.ListPermissions.ListPermissionsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.ListPermissions.ListPermissionsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.ListPermissions.ListPermissionsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.ListPermissions.ListPermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.ListPermissions.ListPermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.ListPermissions.ListPermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.ListPermissions.ListPermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance GHC.Show.Show Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance GHC.Read.Read Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance GHC.Classes.Eq Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.ListPermissions.ListPermissionsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.ListPermissions.ListPermissionsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.ListPermissions.ListPermissionsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.ListPermissions.ListPermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.ListPermissions.ListPermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.ListPermissions.ListPermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.ListPermissions.ListPermissions
 
 
 -- | Lists tags that the requester has permission to view.
-module Network.AWS.LakeFormation.ListLFTags
+module Amazonka.LakeFormation.ListLFTags
 
 -- | <i>See:</i> <a>newListLFTags</a> smart constructor.
 data ListLFTags
@@ -4202,22 +4202,22 @@ listLFTagsResponse_lFTags :: Lens' ListLFTagsResponse (Maybe (NonEmpty LFTagPair
 
 -- | The response's http status code.
 listLFTagsResponse_httpStatus :: Lens' ListLFTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance GHC.Show.Show Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance GHC.Read.Read Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance GHC.Classes.Eq Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance GHC.Generics.Generic Network.AWS.LakeFormation.ListLFTags.ListLFTagsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.ListLFTags.ListLFTagsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.ListLFTags.ListLFTagsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.ListLFTags.ListLFTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.ListLFTags.ListLFTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.ListLFTags.ListLFTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.ListLFTags.ListLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance GHC.Show.Show Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance GHC.Read.Read Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance GHC.Classes.Eq Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.ListLFTags.ListLFTagsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.ListLFTags.ListLFTagsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.ListLFTags.ListLFTagsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.ListLFTags.ListLFTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.ListLFTags.ListLFTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.ListLFTags.ListLFTags
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.ListLFTags.ListLFTags
 
 
 -- | Grants permissions to the principal to access metadata in the Data
@@ -4226,7 +4226,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.ListLFTags.Lis
 --   
 --   For information about permissions, see <a>Security and Access Control
 --   to Metadata and Data</a>.
-module Network.AWS.LakeFormation.GrantPermissions
+module Amazonka.LakeFormation.GrantPermissions
 
 -- | <i>See:</i> <a>newGrantPermissions</a> smart constructor.
 data GrantPermissions
@@ -4362,26 +4362,26 @@ newGrantPermissionsResponse :: Int -> GrantPermissionsResponse
 
 -- | The response's http status code.
 grantPermissionsResponse_httpStatus :: Lens' GrantPermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance GHC.Show.Show Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance GHC.Read.Read Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GrantPermissions.GrantPermissionsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.GrantPermissions.GrantPermissionsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.GrantPermissions.GrantPermissionsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GrantPermissions.GrantPermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GrantPermissions.GrantPermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.GrantPermissions.GrantPermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance GHC.Show.Show Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance GHC.Read.Read Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance GHC.Classes.Eq Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.GrantPermissions.GrantPermissionsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.GrantPermissions.GrantPermissionsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.GrantPermissions.GrantPermissionsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.GrantPermissions.GrantPermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GrantPermissions.GrantPermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.GrantPermissions.GrantPermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.GrantPermissions.GrantPermissions
 
 
 -- | Returns the tags applied to a resource.
-module Network.AWS.LakeFormation.GetResourceLFTags
+module Amazonka.LakeFormation.GetResourceLFTags
 
 -- | <i>See:</i> <a>newGetResourceLFTags</a> smart constructor.
 data GetResourceLFTags
@@ -4489,26 +4489,26 @@ getResourceLFTagsResponse_lFTagsOnColumns :: Lens' GetResourceLFTagsResponse (Ma
 
 -- | The response's http status code.
 getResourceLFTagsResponse_httpStatus :: Lens' GetResourceLFTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance GHC.Show.Show Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance GHC.Read.Read Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance GHC.Show.Show Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance GHC.Read.Read Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.GetResourceLFTags.GetResourceLFTags
 
 
 -- | Returns a tag definition.
-module Network.AWS.LakeFormation.GetLFTag
+module Amazonka.LakeFormation.GetLFTag
 
 -- | <i>See:</i> <a>newGetLFTag</a> smart constructor.
 data GetLFTag
@@ -4609,29 +4609,29 @@ getLFTagResponse_tagKey :: Lens' GetLFTagResponse (Maybe Text)
 
 -- | The response's http status code.
 getLFTagResponse_httpStatus :: Lens' GetLFTagResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance GHC.Show.Show Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance GHC.Read.Read Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetLFTag.GetLFTagResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.GetLFTag.GetLFTagResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.GetLFTag.GetLFTagResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetLFTag.GetLFTagResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetLFTag.GetLFTagResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.GetLFTag.GetLFTag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.GetLFTag.GetLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance GHC.Show.Show Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance GHC.Read.Read Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetLFTag.GetLFTagResponse
+instance GHC.Show.Show Amazonka.LakeFormation.GetLFTag.GetLFTagResponse
+instance GHC.Read.Read Amazonka.LakeFormation.GetLFTag.GetLFTagResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetLFTag.GetLFTagResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetLFTag.GetLFTagResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.GetLFTag.GetLFTag
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.GetLFTag.GetLFTag
 
 
 -- | Returns the Lake Formation permissions for a specified table or
 --   database resource located at a path in Amazon S3.
 --   <tt>GetEffectivePermissionsForPath</tt> will not return databases and
 --   tables if the catalog is encrypted.
-module Network.AWS.LakeFormation.GetEffectivePermissionsForPath
+module Amazonka.LakeFormation.GetEffectivePermissionsForPath
 
 -- | <i>See:</i> <a>newGetEffectivePermissionsForPath</a> smart
 --   constructor.
@@ -4752,27 +4752,27 @@ getEffectivePermissionsForPathResponse_permissions :: Lens' GetEffectivePermissi
 
 -- | The response's http status code.
 getEffectivePermissionsForPathResponse_httpStatus :: Lens' GetEffectivePermissionsForPathResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance GHC.Show.Show Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance GHC.Read.Read Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance GHC.Show.Show Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance GHC.Read.Read Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
+instance GHC.Show.Show Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
+instance GHC.Read.Read Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPathResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.GetEffectivePermissionsForPath.GetEffectivePermissionsForPath
 
 
 -- | Retrieves the list of the data lake administrators of a Lake
 --   Formation-managed data lake.
-module Network.AWS.LakeFormation.GetDataLakeSettings
+module Amazonka.LakeFormation.GetDataLakeSettings
 
 -- | <i>See:</i> <a>newGetDataLakeSettings</a> smart constructor.
 data GetDataLakeSettings
@@ -4843,27 +4843,27 @@ getDataLakeSettingsResponse_dataLakeSettings :: Lens' GetDataLakeSettingsRespons
 
 -- | The response's http status code.
 getDataLakeSettingsResponse_httpStatus :: Lens' GetDataLakeSettingsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance GHC.Show.Show Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance GHC.Read.Read Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance GHC.Generics.Generic Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance GHC.Show.Show Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance GHC.Read.Read Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance GHC.Generics.Generic Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettingsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.GetDataLakeSettings.GetDataLakeSettings
 
 
 -- | Retrieves the current data access role for the given resource
 --   registered in AWS Lake Formation.
-module Network.AWS.LakeFormation.DescribeResource
+module Amazonka.LakeFormation.DescribeResource
 
 -- | <i>See:</i> <a>newDescribeResource</a> smart constructor.
 data DescribeResource
@@ -4923,29 +4923,29 @@ describeResourceResponse_resourceInfo :: Lens' DescribeResourceResponse (Maybe R
 
 -- | The response's http status code.
 describeResourceResponse_httpStatus :: Lens' DescribeResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance GHC.Show.Show Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance GHC.Read.Read Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance GHC.Generics.Generic Network.AWS.LakeFormation.DescribeResource.DescribeResourceResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.DescribeResource.DescribeResourceResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.DescribeResource.DescribeResourceResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.DescribeResource.DescribeResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.DescribeResource.DescribeResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.DescribeResource.DescribeResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.DescribeResource.DescribeResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance GHC.Show.Show Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance GHC.Read.Read Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.DescribeResource.DescribeResourceResponse
+instance GHC.Show.Show Amazonka.LakeFormation.DescribeResource.DescribeResourceResponse
+instance GHC.Read.Read Amazonka.LakeFormation.DescribeResource.DescribeResourceResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.DescribeResource.DescribeResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.DescribeResource.DescribeResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.DescribeResource.DescribeResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.DescribeResource.DescribeResource
 
 
 -- | Deregisters the resource as managed by the Data Catalog.
 --   
 --   When you deregister a path, Lake Formation removes the path from the
 --   inline policy attached to your service-linked role.
-module Network.AWS.LakeFormation.DeregisterResource
+module Amazonka.LakeFormation.DeregisterResource
 
 -- | <i>See:</i> <a>newDeregisterResource</a> smart constructor.
 data DeregisterResource
@@ -4996,22 +4996,22 @@ newDeregisterResourceResponse :: Int -> DeregisterResourceResponse
 
 -- | The response's http status code.
 deregisterResourceResponse_httpStatus :: Lens' DeregisterResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance GHC.Show.Show Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance GHC.Read.Read Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance GHC.Generics.Generic Network.AWS.LakeFormation.DeregisterResource.DeregisterResourceResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.DeregisterResource.DeregisterResourceResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.DeregisterResource.DeregisterResourceResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.DeregisterResource.DeregisterResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.DeregisterResource.DeregisterResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.DeregisterResource.DeregisterResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance GHC.Show.Show Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance GHC.Read.Read Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.DeregisterResource.DeregisterResourceResponse
+instance GHC.Show.Show Amazonka.LakeFormation.DeregisterResource.DeregisterResourceResponse
+instance GHC.Read.Read Amazonka.LakeFormation.DeregisterResource.DeregisterResourceResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.DeregisterResource.DeregisterResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.DeregisterResource.DeregisterResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.DeregisterResource.DeregisterResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.DeregisterResource.DeregisterResource
 
 
 -- | Deletes the specified tag key name. If the attribute key does not
@@ -5021,7 +5021,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.DeregisterReso
 --   throws a 400 Exception with the message "Delete not allowed" as the
 --   tag key is still attached with resources. You can consider untagging
 --   resources with this tag key.
-module Network.AWS.LakeFormation.DeleteLFTag
+module Amazonka.LakeFormation.DeleteLFTag
 
 -- | <i>See:</i> <a>newDeleteLFTag</a> smart constructor.
 data DeleteLFTag
@@ -5086,26 +5086,26 @@ newDeleteLFTagResponse :: Int -> DeleteLFTagResponse
 
 -- | The response's http status code.
 deleteLFTagResponse_httpStatus :: Lens' DeleteLFTagResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance GHC.Show.Show Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance GHC.Read.Read Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance GHC.Classes.Eq Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance GHC.Generics.Generic Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTagResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTagResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTagResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTagResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTagResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.DeleteLFTag.DeleteLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance GHC.Show.Show Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance GHC.Read.Read Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance GHC.Classes.Eq Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.DeleteLFTag.DeleteLFTagResponse
+instance GHC.Show.Show Amazonka.LakeFormation.DeleteLFTag.DeleteLFTagResponse
+instance GHC.Read.Read Amazonka.LakeFormation.DeleteLFTag.DeleteLFTagResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.DeleteLFTag.DeleteLFTagResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.DeleteLFTag.DeleteLFTagResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.DeleteLFTag.DeleteLFTag
 
 
 -- | Creates a tag with the specified name and values.
-module Network.AWS.LakeFormation.CreateLFTag
+module Amazonka.LakeFormation.CreateLFTag
 
 -- | <i>See:</i> <a>newCreateLFTag</a> smart constructor.
 data CreateLFTag
@@ -5179,26 +5179,26 @@ newCreateLFTagResponse :: Int -> CreateLFTagResponse
 
 -- | The response's http status code.
 createLFTagResponse_httpStatus :: Lens' CreateLFTagResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance GHC.Show.Show Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance GHC.Read.Read Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance GHC.Classes.Eq Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance GHC.Generics.Generic Network.AWS.LakeFormation.CreateLFTag.CreateLFTagResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.CreateLFTag.CreateLFTagResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.CreateLFTag.CreateLFTagResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.CreateLFTag.CreateLFTagResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.CreateLFTag.CreateLFTagResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.CreateLFTag.CreateLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance GHC.Show.Show Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance GHC.Read.Read Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance GHC.Classes.Eq Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.CreateLFTag.CreateLFTagResponse
+instance GHC.Show.Show Amazonka.LakeFormation.CreateLFTag.CreateLFTagResponse
+instance GHC.Read.Read Amazonka.LakeFormation.CreateLFTag.CreateLFTagResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.CreateLFTag.CreateLFTagResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.CreateLFTag.CreateLFTagResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.CreateLFTag.CreateLFTag
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.CreateLFTag.CreateLFTag
 
 
 -- | Batch operation to revoke permissions from the principal.
-module Network.AWS.LakeFormation.BatchRevokePermissions
+module Amazonka.LakeFormation.BatchRevokePermissions
 
 -- | <i>See:</i> <a>newBatchRevokePermissions</a> smart constructor.
 data BatchRevokePermissions
@@ -5280,26 +5280,26 @@ batchRevokePermissionsResponse_failures :: Lens' BatchRevokePermissionsResponse 
 
 -- | The response's http status code.
 batchRevokePermissionsResponse_httpStatus :: Lens' BatchRevokePermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance GHC.Show.Show Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance GHC.Read.Read Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance GHC.Classes.Eq Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance GHC.Generics.Generic Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance GHC.Show.Show Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance GHC.Read.Read Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance GHC.Classes.Eq Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.BatchRevokePermissions.BatchRevokePermissions
 
 
 -- | Batch operation to grant permissions to the principal.
-module Network.AWS.LakeFormation.BatchGrantPermissions
+module Amazonka.LakeFormation.BatchGrantPermissions
 
 -- | <i>See:</i> <a>newBatchGrantPermissions</a> smart constructor.
 data BatchGrantPermissions
@@ -5380,26 +5380,26 @@ batchGrantPermissionsResponse_failures :: Lens' BatchGrantPermissionsResponse (M
 
 -- | The response's http status code.
 batchGrantPermissionsResponse_httpStatus :: Lens' BatchGrantPermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance GHC.Show.Show Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance GHC.Read.Read Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance GHC.Classes.Eq Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance GHC.Generics.Generic Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance GHC.Show.Show Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance GHC.Read.Read Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance GHC.Classes.Eq Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance GHC.Generics.Generic Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
+instance GHC.Show.Show Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
+instance GHC.Read.Read Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.BatchGrantPermissions.BatchGrantPermissions
 
 
 -- | Attaches one or more tags to an existing resource.
-module Network.AWS.LakeFormation.AddLFTagsToResource
+module Amazonka.LakeFormation.AddLFTagsToResource
 
 -- | <i>See:</i> <a>newAddLFTagsToResource</a> smart constructor.
 data AddLFTagsToResource
@@ -5487,22 +5487,22 @@ addLFTagsToResourceResponse_failures :: Lens' AddLFTagsToResourceResponse (Maybe
 
 -- | The response's http status code.
 addLFTagsToResourceResponse_httpStatus :: Lens' AddLFTagsToResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance GHC.Show.Show Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance GHC.Read.Read Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance GHC.Generics.Generic Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance GHC.Show.Show Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance GHC.Read.Read Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
+instance GHC.Show.Show Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
+instance GHC.Read.Read Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.AddLFTagsToResource.AddLFTagsToResource
 
 
 -- | Updates the list of possible values for the specified tag key. If the
@@ -5511,7 +5511,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.AddLFTagsToRes
 --   possible values. If any value in the delete key values is attached to
 --   a resource, then API errors out with a 400 Exception - "Update not
 --   allowed". Untag the attribute before deleting the tag key's value.
-module Network.AWS.LakeFormation.UpdateLFTag
+module Amazonka.LakeFormation.UpdateLFTag
 
 -- | <i>See:</i> <a>newUpdateLFTag</a> smart constructor.
 data UpdateLFTag
@@ -5596,27 +5596,27 @@ newUpdateLFTagResponse :: Int -> UpdateLFTagResponse
 
 -- | The response's http status code.
 updateLFTagResponse_httpStatus :: Lens' UpdateLFTagResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance GHC.Show.Show Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance GHC.Read.Read Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance GHC.Classes.Eq Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance GHC.Generics.Generic Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTagResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTagResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTagResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTagResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTagResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.UpdateLFTag.UpdateLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance GHC.Show.Show Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance GHC.Read.Read Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance GHC.Classes.Eq Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance GHC.Generics.Generic Amazonka.LakeFormation.UpdateLFTag.UpdateLFTagResponse
+instance GHC.Show.Show Amazonka.LakeFormation.UpdateLFTag.UpdateLFTagResponse
+instance GHC.Read.Read Amazonka.LakeFormation.UpdateLFTag.UpdateLFTagResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.UpdateLFTag.UpdateLFTagResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.UpdateLFTag.UpdateLFTagResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.UpdateLFTag.UpdateLFTag
 
 
 -- | Updates the data access role used for vending access to the given
 --   (registered) resource in AWS Lake Formation.
-module Network.AWS.LakeFormation.UpdateResource
+module Amazonka.LakeFormation.UpdateResource
 
 -- | <i>See:</i> <a>newUpdateResource</a> smart constructor.
 data UpdateResource
@@ -5676,25 +5676,25 @@ newUpdateResourceResponse :: Int -> UpdateResourceResponse
 
 -- | The response's http status code.
 updateResourceResponse_httpStatus :: Lens' UpdateResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance GHC.Show.Show Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance GHC.Read.Read Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance GHC.Classes.Eq Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance GHC.Generics.Generic Network.AWS.LakeFormation.UpdateResource.UpdateResourceResponse
-instance GHC.Show.Show Network.AWS.LakeFormation.UpdateResource.UpdateResourceResponse
-instance GHC.Read.Read Network.AWS.LakeFormation.UpdateResource.UpdateResourceResponse
-instance GHC.Classes.Eq Network.AWS.LakeFormation.UpdateResource.UpdateResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.UpdateResource.UpdateResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance Control.DeepSeq.NFData Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LakeFormation.UpdateResource.UpdateResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LakeFormation.UpdateResource.UpdateResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance GHC.Show.Show Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance GHC.Read.Read Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance GHC.Classes.Eq Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance GHC.Generics.Generic Amazonka.LakeFormation.UpdateResource.UpdateResourceResponse
+instance GHC.Show.Show Amazonka.LakeFormation.UpdateResource.UpdateResourceResponse
+instance GHC.Read.Read Amazonka.LakeFormation.UpdateResource.UpdateResourceResponse
+instance GHC.Classes.Eq Amazonka.LakeFormation.UpdateResource.UpdateResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.UpdateResource.UpdateResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance Control.DeepSeq.NFData Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance Amazonka.Data.Path.ToPath Amazonka.LakeFormation.UpdateResource.UpdateResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LakeFormation.UpdateResource.UpdateResource
 
 
-module Network.AWS.LakeFormation.Lens
+module Amazonka.LakeFormation.Lens
 
 -- | The identifier for the Data Catalog. By default, the account ID. The
 --   Data Catalog is the persistent metadata store. It contains database
@@ -6418,7 +6418,7 @@ taggedTable_lFTagsOnColumns :: Lens' TaggedTable (Maybe [ColumnLFTag])
 taggedTable_table :: Lens' TaggedTable (Maybe TableResource)
 
 
-module Network.AWS.LakeFormation.Waiters
+module Amazonka.LakeFormation.Waiters
 
 
 -- | Derived from API version <tt>2017-03-31</tt> of the AWS service
@@ -6427,7 +6427,7 @@ module Network.AWS.LakeFormation.Waiters
 --   AWS Lake Formation
 --   
 --   Defines the public endpoint for the AWS Lake Formation service.
-module Network.AWS.LakeFormation
+module Amazonka.LakeFormation
 
 -- | API version <tt>2017-03-31</tt> of the Amazon Lake Formation SDK
 --   configuration.

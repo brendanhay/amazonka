@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ManagedBlockChain.Types.NetworkStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.NetworkStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier">NetworkStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_AVAILABLE"><span class="hs-identifier">NetworkStatus_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_CREATE_FAILED"><span class="hs-identifier">NetworkStatus_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_CREATING"><span class="hs-identifier">NetworkStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_DELETED"><span class="hs-identifier">NetworkStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_DELETING"><span class="hs-identifier">NetworkStatus_DELETING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679217294"><span id="local-6989586621679217295"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkStatus"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-var">NetworkStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkStatus%27"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus%27"><span class="hs-identifier hs-var">NetworkStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkStatus"><span class="annot"><span class="annottext">NetworkStatus -&gt; Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#fromNetworkStatus"><span class="hs-identifier hs-var hs-var">fromNetworkStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679217286"><span id="local-6989586621679217288"><span id="local-6989586621679217290"><span class="annot"><span class="annottext">Int -&gt; NetworkStatus -&gt; ShowS
+[NetworkStatus] -&gt; ShowS
+NetworkStatus -&gt; String
+(Int -&gt; NetworkStatus -&gt; ShowS)
+-&gt; (NetworkStatus -&gt; String)
+-&gt; ([NetworkStatus] -&gt; ShowS)
+-&gt; Show NetworkStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkStatus] -&gt; ShowS
+$cshowList :: [NetworkStatus] -&gt; ShowS
+show :: NetworkStatus -&gt; String
+$cshow :: NetworkStatus -&gt; String
+showsPrec :: Int -&gt; NetworkStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679217277"><span id="local-6989586621679217279"><span id="local-6989586621679217281"><span id="local-6989586621679217283"><span class="annot"><span class="annottext">ReadPrec [NetworkStatus]
+ReadPrec NetworkStatus
+Int -&gt; ReadS NetworkStatus
+ReadS [NetworkStatus]
+(Int -&gt; ReadS NetworkStatus)
+-&gt; ReadS [NetworkStatus]
+-&gt; ReadPrec NetworkStatus
+-&gt; ReadPrec [NetworkStatus]
+-&gt; Read NetworkStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkStatus]
+$creadListPrec :: ReadPrec [NetworkStatus]
+readPrec :: ReadPrec NetworkStatus
+$creadPrec :: ReadPrec NetworkStatus
+readList :: ReadS [NetworkStatus]
+$creadList :: ReadS [NetworkStatus]
+readsPrec :: Int -&gt; ReadS NetworkStatus
+$creadsPrec :: Int -&gt; ReadS NetworkStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679217272"><span id="local-6989586621679217274"><span class="annot"><span class="annottext">NetworkStatus -&gt; NetworkStatus -&gt; Bool
+(NetworkStatus -&gt; NetworkStatus -&gt; Bool)
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; Bool) -&gt; Eq NetworkStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+$c/= :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+== :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+$c== :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679217256"><span id="local-6989586621679217258"><span id="local-6989586621679217260"><span id="local-6989586621679217262"><span id="local-6989586621679217264"><span id="local-6989586621679217266"><span id="local-6989586621679217268"><span class="annot"><span class="annottext">Eq NetworkStatus
+Eq NetworkStatus
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; Ordering)
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; Bool)
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; Bool)
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; Bool)
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; Bool)
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; NetworkStatus)
+-&gt; (NetworkStatus -&gt; NetworkStatus -&gt; NetworkStatus)
+-&gt; Ord NetworkStatus
+NetworkStatus -&gt; NetworkStatus -&gt; Bool
+NetworkStatus -&gt; NetworkStatus -&gt; Ordering
+NetworkStatus -&gt; NetworkStatus -&gt; NetworkStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NetworkStatus -&gt; NetworkStatus -&gt; NetworkStatus
+$cmin :: NetworkStatus -&gt; NetworkStatus -&gt; NetworkStatus
+max :: NetworkStatus -&gt; NetworkStatus -&gt; NetworkStatus
+$cmax :: NetworkStatus -&gt; NetworkStatus -&gt; NetworkStatus
+&gt;= :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+$c&gt;= :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+&gt; :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+$c&gt; :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+&lt;= :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+$c&lt;= :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+&lt; :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+$c&lt; :: NetworkStatus -&gt; NetworkStatus -&gt; Bool
+compare :: NetworkStatus -&gt; NetworkStatus -&gt; Ordering
+$ccompare :: NetworkStatus -&gt; NetworkStatus -&gt; Ordering
+$cp1Ord :: Eq NetworkStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NetworkStatus -&gt; Rep NetworkStatus x)
+-&gt; (forall x. Rep NetworkStatus x -&gt; NetworkStatus)
+-&gt; Generic NetworkStatus
+forall x. Rep NetworkStatus x -&gt; NetworkStatus
+forall x. NetworkStatus -&gt; Rep NetworkStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NetworkStatus x -&gt; NetworkStatus
+$cfrom :: forall x. NetworkStatus -&gt; Rep NetworkStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679217248"><span id="local-6989586621679217250"><span class="annot"><span class="annottext">Int -&gt; NetworkStatus -&gt; Int
+NetworkStatus -&gt; Int
+(Int -&gt; NetworkStatus -&gt; Int)
+-&gt; (NetworkStatus -&gt; Int) -&gt; Hashable NetworkStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NetworkStatus -&gt; Int
+$chash :: NetworkStatus -&gt; Int
+hashWithSalt :: Int -&gt; NetworkStatus -&gt; Int
+$chashWithSalt :: Int -&gt; NetworkStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679217245"><span class="annot"><span class="annottext">NetworkStatus -&gt; ()
+(NetworkStatus -&gt; ()) -&gt; NFData NetworkStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NetworkStatus -&gt; ()
+$crnf :: NetworkStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679217242"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkStatus
+(Text -&gt; Either String NetworkStatus) -&gt; FromText NetworkStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NetworkStatus
+$cfromText :: Text -&gt; Either String NetworkStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679217239"><span class="annot"><span class="annottext">NetworkStatus -&gt; Text
+(NetworkStatus -&gt; Text) -&gt; ToText NetworkStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NetworkStatus -&gt; Text
+$ctoText :: NetworkStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679217236"><span class="annot"><span class="annottext">NetworkStatus -&gt; ByteString
+(NetworkStatus -&gt; ByteString) -&gt; ToByteString NetworkStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NetworkStatus -&gt; ByteString
+$ctoBS :: NetworkStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679217233"><span class="annot"><span class="annottext">NetworkStatus -&gt; ByteStringBuilder
+(NetworkStatus -&gt; ByteStringBuilder) -&gt; ToLog NetworkStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NetworkStatus -&gt; ByteStringBuilder
+$cbuild :: NetworkStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679217230"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkStatus -&gt; [Header]
+(HeaderName -&gt; NetworkStatus -&gt; [Header]) -&gt; ToHeader NetworkStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NetworkStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NetworkStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679217227"><span class="annot"><span class="annottext">NetworkStatus -&gt; QueryString
+(NetworkStatus -&gt; QueryString) -&gt; ToQuery NetworkStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NetworkStatus -&gt; QueryString
+$ctoQuery :: NetworkStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679217222"><span id="local-6989586621679217224"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkStatus]
+Value -&gt; Parser NetworkStatus
+(Value -&gt; Parser NetworkStatus)
+-&gt; (Value -&gt; Parser [NetworkStatus]) -&gt; FromJSON NetworkStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NetworkStatus]
+$cparseJSONList :: Value -&gt; Parser [NetworkStatus]
+parseJSON :: Value -&gt; Parser NetworkStatus
+$cparseJSON :: Value -&gt; Parser NetworkStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679217217"><span id="local-6989586621679217219"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkStatus]
+FromJSONKeyFunction NetworkStatus
+FromJSONKeyFunction NetworkStatus
+-&gt; FromJSONKeyFunction [NetworkStatus] -&gt; FromJSONKey NetworkStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NetworkStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [NetworkStatus]
+fromJSONKey :: FromJSONKeyFunction NetworkStatus
+$cfromJSONKey :: FromJSONKeyFunction NetworkStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679217208"><span id="local-6989586621679217210"><span id="local-6989586621679217212"><span id="local-6989586621679217214"><span class="annot"><span class="annottext">[NetworkStatus] -&gt; Encoding
+[NetworkStatus] -&gt; Value
+NetworkStatus -&gt; Encoding
+NetworkStatus -&gt; Value
+(NetworkStatus -&gt; Value)
+-&gt; (NetworkStatus -&gt; Encoding)
+-&gt; ([NetworkStatus] -&gt; Value)
+-&gt; ([NetworkStatus] -&gt; Encoding)
+-&gt; ToJSON NetworkStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NetworkStatus] -&gt; Encoding
+$ctoEncodingList :: [NetworkStatus] -&gt; Encoding
+toJSONList :: [NetworkStatus] -&gt; Value
+$ctoJSONList :: [NetworkStatus] -&gt; Value
+toEncoding :: NetworkStatus -&gt; Encoding
+$ctoEncoding :: NetworkStatus -&gt; Encoding
+toJSON :: NetworkStatus -&gt; Value
+$ctoJSON :: NetworkStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679217203"><span id="local-6989586621679217205"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkStatus]
+ToJSONKeyFunction NetworkStatus
+ToJSONKeyFunction NetworkStatus
+-&gt; ToJSONKeyFunction [NetworkStatus] -&gt; ToJSONKey NetworkStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NetworkStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [NetworkStatus]
+toJSONKey :: ToJSONKeyFunction NetworkStatus
+$ctoJSONKey :: ToJSONKeyFunction NetworkStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679217200"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkStatus
+([Node] -&gt; Either String NetworkStatus) -&gt; FromXML NetworkStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NetworkStatus
+$cparseXML :: [Node] -&gt; Either String NetworkStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679217197"><span class="annot"><span class="annottext">NetworkStatus -&gt; XML
+(NetworkStatus -&gt; XML) -&gt; ToXML NetworkStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NetworkStatus -&gt; XML
+$ctoXML :: NetworkStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_AVAILABLE"><span class="hs-identifier hs-type">NetworkStatus_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-type">NetworkStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkStatus_AVAILABLE"><span id="%24mNetworkStatus_AVAILABLE"><span id="NetworkStatus_AVAILABLE"><span class="annot"><span class="annottext">$bNetworkStatus_AVAILABLE :: NetworkStatus
+$mNetworkStatus_AVAILABLE :: forall r. NetworkStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#%24bNetworkStatus_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">NetworkStatus_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus%27"><span class="hs-identifier hs-type">NetworkStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABLE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_CREATE_FAILED"><span class="hs-identifier hs-type">NetworkStatus_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-type">NetworkStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkStatus_CREATE_FAILED"><span id="%24mNetworkStatus_CREATE_FAILED"><span id="NetworkStatus_CREATE_FAILED"><span class="annot"><span class="annottext">$bNetworkStatus_CREATE_FAILED :: NetworkStatus
+$mNetworkStatus_CREATE_FAILED :: forall r. NetworkStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#%24bNetworkStatus_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">NetworkStatus_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus%27"><span class="hs-identifier hs-type">NetworkStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_CREATING"><span class="hs-identifier hs-type">NetworkStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-type">NetworkStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkStatus_CREATING"><span id="%24mNetworkStatus_CREATING"><span id="NetworkStatus_CREATING"><span class="annot"><span class="annottext">$bNetworkStatus_CREATING :: NetworkStatus
+$mNetworkStatus_CREATING :: forall r. NetworkStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#%24bNetworkStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">NetworkStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus%27"><span class="hs-identifier hs-type">NetworkStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_DELETED"><span class="hs-identifier hs-type">NetworkStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-type">NetworkStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkStatus_DELETED"><span id="%24mNetworkStatus_DELETED"><span id="NetworkStatus_DELETED"><span class="annot"><span class="annottext">$bNetworkStatus_DELETED :: NetworkStatus
+$mNetworkStatus_DELETED :: forall r. NetworkStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#%24bNetworkStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">NetworkStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus%27"><span class="hs-identifier hs-type">NetworkStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_DELETING"><span class="hs-identifier hs-type">NetworkStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-type">NetworkStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkStatus_DELETING"><span id="%24mNetworkStatus_DELETING"><span id="NetworkStatus_DELETING"><span class="annot"><span class="annottext">$bNetworkStatus_DELETING :: NetworkStatus
+$mNetworkStatus_DELETING :: forall r. NetworkStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#%24bNetworkStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">NetworkStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus%27"><span class="hs-identifier hs-type">NetworkStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_AVAILABLE"><span class="hs-pragma hs-type">NetworkStatus_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_CREATE_FAILED"><span class="hs-pragma hs-type">NetworkStatus_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_CREATING"><span class="hs-pragma hs-type">NetworkStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_DELETED"><span class="hs-pragma hs-type">NetworkStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus_DELETING"><span class="hs-pragma hs-type">NetworkStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus%27"><span class="hs-pragma hs-type">NetworkStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

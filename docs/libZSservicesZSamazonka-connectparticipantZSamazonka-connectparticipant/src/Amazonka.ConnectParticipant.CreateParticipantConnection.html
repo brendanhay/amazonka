@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ConnectParticipant.CreateParticipantConnection</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates the participant\'s connection. Note that ParticipantToken is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- used for invoking this API instead of ConnectionToken.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- The participant token is valid for the lifetime of the participant &#8211;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- until they are part of a contact.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The response URL for @WEBSOCKET@ Type has a connect expiry timeout of</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- 100s. Clients must manually connect to the returned websocket URL and</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- subscribe to the desired topic.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- For chat, you need to publish the following on the established websocket</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- connection:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @{\&quot;topic\&quot;:\&quot;aws\/subscribe\&quot;,\&quot;content\&quot;:{\&quot;topics\&quot;:[\&quot;aws\/chat\&quot;]}}@</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Upon websocket URL expiry, as specified in the response ConnectionExpiry</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- parameter, clients need to call this API again to obtain a new websocket</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- URL and perform the same steps as before.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The Amazon Connect Participant Service APIs do not use</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication&gt;.</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ConnectParticipant.CreateParticipantConnection</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier">CreateParticipantConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#newCreateParticipantConnection"><span class="hs-identifier">newCreateParticipantConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnection_type"><span class="hs-identifier">createParticipantConnection_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnection_participantToken"><span class="hs-identifier">createParticipantConnection_participantToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier">CreateParticipantConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#newCreateParticipantConnectionResponse"><span class="hs-identifier">newCreateParticipantConnectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_connectionCredentials"><span class="hs-identifier">createParticipantConnectionResponse_connectionCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_websocket"><span class="hs-identifier">createParticipantConnectionResponse_websocket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_httpStatus"><span class="hs-identifier">createParticipantConnectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.html"><span class="hs-identifier">Amazonka.ConnectParticipant.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newCreateParticipantConnection' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679162803"><span id="local-6989586621679162804"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateParticipantConnection"><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-var">CreateParticipantConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateParticipantConnection%27"><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-var">CreateParticipantConnection'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Type of connection information required.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateParticipantConnection%27"><span class="annot"><span class="annottext">CreateParticipantConnection -&gt; NonEmpty ConnectionType
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3Atype%27%3ACreateParticipantConnection%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | This is a header parameter.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- The Participant Token as obtained from</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html StartChatContact&gt;</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- API response.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AparticipantToken%3ACreateParticipantConnection%27"><span class="annot"><span class="annottext">CreateParticipantConnection -&gt; Text
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AparticipantToken%3ACreateParticipantConnection%27"><span class="hs-identifier hs-var hs-var">participantToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679162796"><span id="local-6989586621679162798"><span class="annot"><span class="annottext">CreateParticipantConnection -&gt; CreateParticipantConnection -&gt; Bool
+(CreateParticipantConnection
+ -&gt; CreateParticipantConnection -&gt; Bool)
+-&gt; (CreateParticipantConnection
+    -&gt; CreateParticipantConnection -&gt; Bool)
+-&gt; Eq CreateParticipantConnection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateParticipantConnection -&gt; CreateParticipantConnection -&gt; Bool
+$c/= :: CreateParticipantConnection -&gt; CreateParticipantConnection -&gt; Bool
+== :: CreateParticipantConnection -&gt; CreateParticipantConnection -&gt; Bool
+$c== :: CreateParticipantConnection -&gt; CreateParticipantConnection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162787"><span id="local-6989586621679162789"><span id="local-6989586621679162791"><span id="local-6989586621679162793"><span class="annot"><span class="annottext">ReadPrec [CreateParticipantConnection]
+ReadPrec CreateParticipantConnection
+Int -&gt; ReadS CreateParticipantConnection
+ReadS [CreateParticipantConnection]
+(Int -&gt; ReadS CreateParticipantConnection)
+-&gt; ReadS [CreateParticipantConnection]
+-&gt; ReadPrec CreateParticipantConnection
+-&gt; ReadPrec [CreateParticipantConnection]
+-&gt; Read CreateParticipantConnection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateParticipantConnection]
+$creadListPrec :: ReadPrec [CreateParticipantConnection]
+readPrec :: ReadPrec CreateParticipantConnection
+$creadPrec :: ReadPrec CreateParticipantConnection
+readList :: ReadS [CreateParticipantConnection]
+$creadList :: ReadS [CreateParticipantConnection]
+readsPrec :: Int -&gt; ReadS CreateParticipantConnection
+$creadsPrec :: Int -&gt; ReadS CreateParticipantConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162780"><span id="local-6989586621679162782"><span id="local-6989586621679162784"><span class="annot"><span class="annottext">Int -&gt; CreateParticipantConnection -&gt; ShowS
+[CreateParticipantConnection] -&gt; ShowS
+CreateParticipantConnection -&gt; String
+(Int -&gt; CreateParticipantConnection -&gt; ShowS)
+-&gt; (CreateParticipantConnection -&gt; String)
+-&gt; ([CreateParticipantConnection] -&gt; ShowS)
+-&gt; Show CreateParticipantConnection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateParticipantConnection] -&gt; ShowS
+$cshowList :: [CreateParticipantConnection] -&gt; ShowS
+show :: CreateParticipantConnection -&gt; String
+$cshow :: CreateParticipantConnection -&gt; String
+showsPrec :: Int -&gt; CreateParticipantConnection -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateParticipantConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateParticipantConnection -&gt; Rep CreateParticipantConnection x)
+-&gt; (forall x.
+    Rep CreateParticipantConnection x -&gt; CreateParticipantConnection)
+-&gt; Generic CreateParticipantConnection
+forall x.
+Rep CreateParticipantConnection x -&gt; CreateParticipantConnection
+forall x.
+CreateParticipantConnection -&gt; Rep CreateParticipantConnection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateParticipantConnection x -&gt; CreateParticipantConnection
+$cfrom :: forall x.
+CreateParticipantConnection -&gt; Rep CreateParticipantConnection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'CreateParticipantConnection' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'type'', 'createParticipantConnection_type' - Type of connection information required.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'participantToken', 'createParticipantConnection_participantToken' - This is a header parameter.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The Participant Token as obtained from</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html StartChatContact&gt;</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- API response.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#newCreateParticipantConnection"><span class="hs-identifier hs-type">newCreateParticipantConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'participantToken'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span>
+</span><span id="line-105"></span><span id="newCreateParticipantConnection"><span class="annot"><span class="annottext">newCreateParticipantConnection :: NonEmpty ConnectionType -&gt; Text -&gt; CreateParticipantConnection
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#newCreateParticipantConnection"><span class="hs-identifier hs-var hs-var">newCreateParticipantConnection</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679162775"><span class="annot"><span class="annottext">NonEmpty ConnectionType
+</span><a href="#local-6989586621679162775"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679162774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162774"><span class="hs-identifier hs-var">pParticipantToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">CreateParticipantConnection' :: NonEmpty ConnectionType -&gt; Text -&gt; CreateParticipantConnection
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-type">CreateParticipantConnection'</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':CreateParticipantConnection' :: NonEmpty ConnectionType
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3Atype%27%3ACreateParticipantConnection%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty ConnectionType) (Identity (NonEmpty ConnectionType))
+-&gt; Tagged
+     (NonEmpty ConnectionType) (Identity (NonEmpty ConnectionType))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty ConnectionType) (Identity (NonEmpty ConnectionType))
+ -&gt; Tagged
+      (NonEmpty ConnectionType) (Identity (NonEmpty ConnectionType)))
+-&gt; NonEmpty ConnectionType -&gt; NonEmpty ConnectionType
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ConnectionType
+</span><a href="#local-6989586621679162775"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:participantToken:CreateParticipantConnection' :: Text
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AparticipantToken%3ACreateParticipantConnection%27"><span class="hs-identifier hs-var">participantToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162774"><span class="hs-identifier hs-var">pParticipantToken_</span></a></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Type of connection information required.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnection_type"><span class="hs-identifier hs-type">createParticipantConnection_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="createParticipantConnection_type"><span class="annot"><span class="annottext">createParticipantConnection_type :: (NonEmpty ConnectionType -&gt; f (NonEmpty ConnectionType))
+-&gt; CreateParticipantConnection -&gt; f CreateParticipantConnection
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnection_type"><span class="hs-identifier hs-var hs-var">createParticipantConnection_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateParticipantConnection -&gt; NonEmpty ConnectionType)
+-&gt; (CreateParticipantConnection
+    -&gt; NonEmpty ConnectionType -&gt; CreateParticipantConnection)
+-&gt; Lens
+     CreateParticipantConnection
+     CreateParticipantConnection
+     (NonEmpty ConnectionType)
+     (NonEmpty ConnectionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-type">CreateParticipantConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162769"><span class="annot"><span class="annottext">NonEmpty ConnectionType
+type' :: NonEmpty ConnectionType
+$sel:type':CreateParticipantConnection' :: CreateParticipantConnection -&gt; NonEmpty ConnectionType
+</span><a href="#local-6989586621679162769"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ConnectionType
+</span><a href="#local-6989586621679162769"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162768"><span class="annot"><span class="annottext">s :: CreateParticipantConnection
+</span><a href="#local-6989586621679162768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-type">CreateParticipantConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162767"><span class="annot"><span class="annottext">NonEmpty ConnectionType
+</span><a href="#local-6989586621679162767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateParticipantConnection
+</span><a href="#local-6989586621679162768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateParticipantConnection' :: NonEmpty ConnectionType
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3Atype%27%3ACreateParticipantConnection%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty ConnectionType
+</span><a href="#local-6989586621679162767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ConnectionType -&gt; f (NonEmpty ConnectionType))
+ -&gt; CreateParticipantConnection -&gt; f CreateParticipantConnection)
+-&gt; ((NonEmpty ConnectionType -&gt; f (NonEmpty ConnectionType))
+    -&gt; NonEmpty ConnectionType -&gt; f (NonEmpty ConnectionType))
+-&gt; (NonEmpty ConnectionType -&gt; f (NonEmpty ConnectionType))
+-&gt; CreateParticipantConnection
+-&gt; f CreateParticipantConnection
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty ConnectionType -&gt; f (NonEmpty ConnectionType))
+-&gt; NonEmpty ConnectionType -&gt; f (NonEmpty ConnectionType)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | This is a header parameter.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- The Participant Token as obtained from</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html StartChatContact&gt;</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- API response.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnection_participantToken"><span class="hs-identifier hs-type">createParticipantConnection_participantToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="createParticipantConnection_participantToken"><span class="annot"><span class="annottext">createParticipantConnection_participantToken :: (Text -&gt; f Text)
+-&gt; CreateParticipantConnection -&gt; f CreateParticipantConnection
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnection_participantToken"><span class="hs-identifier hs-var hs-var">createParticipantConnection_participantToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateParticipantConnection -&gt; Text)
+-&gt; (CreateParticipantConnection
+    -&gt; Text -&gt; CreateParticipantConnection)
+-&gt; Lens
+     CreateParticipantConnection CreateParticipantConnection Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-type">CreateParticipantConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162765"><span class="annot"><span class="annottext">Text
+participantToken :: Text
+$sel:participantToken:CreateParticipantConnection' :: CreateParticipantConnection -&gt; Text
+</span><a href="#local-6989586621679162765"><span class="hs-identifier hs-var hs-var">participantToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162765"><span class="hs-identifier hs-var">participantToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162764"><span class="annot"><span class="annottext">s :: CreateParticipantConnection
+</span><a href="#local-6989586621679162764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-type">CreateParticipantConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateParticipantConnection
+</span><a href="#local-6989586621679162764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantToken:CreateParticipantConnection' :: Text
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AparticipantToken%3ACreateParticipantConnection%27"><span class="hs-identifier hs-var">participantToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679162759"><span class="annot"><span class="annottext">request :: CreateParticipantConnection -&gt; Request CreateParticipantConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateParticipantConnection
+-&gt; Request CreateParticipantConnection
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ConnectParticipant.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679162755"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateParticipantConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateParticipantConnection)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateParticipantConnection))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateParticipantConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateParticipantConnection)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679162752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162752"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679162751"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679162751"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679162750"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConnectionCredentials
+-&gt; Maybe Websocket -&gt; Int -&gt; CreateParticipantConnectionResponse
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">CreateParticipantConnectionResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConnectionCredentials
+ -&gt; Maybe Websocket -&gt; Int -&gt; CreateParticipantConnectionResponse)
+-&gt; Either String (Maybe ConnectionCredentials)
+-&gt; Either
+     String
+     (Maybe Websocket -&gt; Int -&gt; CreateParticipantConnectionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConnectionCredentials)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionCredentials&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Websocket -&gt; Int -&gt; CreateParticipantConnectionResponse)
+-&gt; Either String (Maybe Websocket)
+-&gt; Either String (Int -&gt; CreateParticipantConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Websocket)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Websocket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateParticipantConnectionResponse)
+-&gt; Either String Int
+-&gt; Either String CreateParticipantConnectionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162752"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162742"><span id="local-6989586621679162744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679162735"><span class="annot"><span class="annottext">toHeaders :: CreateParticipantConnection -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-type">CreateParticipantConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162732"><span id="local-6989586621679162733"><span class="annot"><span class="annottext">NonEmpty ConnectionType
+Text
+participantToken :: Text
+type' :: NonEmpty ConnectionType
+$sel:participantToken:CreateParticipantConnection' :: CreateParticipantConnection -&gt; Text
+$sel:type':CreateParticipantConnection' :: CreateParticipantConnection -&gt; NonEmpty ConnectionType
+</span><a href="#local-6989586621679162732"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Bearer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162732"><span class="hs-identifier hs-var">participantToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162724"><span id="local-6989586621679162726"><span id="local-6989586621679162728"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679162722"><span class="annot"><span class="annottext">toJSON :: CreateParticipantConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection%27"><span class="hs-identifier hs-type">CreateParticipantConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162719"><span id="local-6989586621679162720"><span class="annot"><span class="annottext">NonEmpty ConnectionType
+Text
+participantToken :: Text
+type' :: NonEmpty ConnectionType
+$sel:participantToken:CreateParticipantConnection' :: CreateParticipantConnection -&gt; Text
+$sel:type':CreateParticipantConnection' :: CreateParticipantConnection -&gt; NonEmpty ConnectionType
+</span><a href="#local-6989586621679162719"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ConnectionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ConnectionType
+</span><a href="#local-6989586621679162720"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679162713"><span class="annot"><span class="annottext">toPath :: CreateParticipantConnection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateParticipantConnection -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/participant/connection&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnection"><span class="hs-identifier hs-type">CreateParticipantConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679162708"><span class="annot"><span class="annottext">toQuery :: CreateParticipantConnection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateParticipantConnection -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newCreateParticipantConnectionResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679162705"><span id="local-6989586621679162706"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateParticipantConnectionResponse"><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-var">CreateParticipantConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateParticipantConnectionResponse%27"><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">CreateParticipantConnectionResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Creates the participant\'s connection credentials. The authentication</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- token associated with the participant\'s connection.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AconnectionCredentials%3ACreateParticipantConnectionResponse%27"><span class="annot"><span class="annottext">CreateParticipantConnectionResponse -&gt; Maybe ConnectionCredentials
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AconnectionCredentials%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectionCredentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ConnectionCredentials.html#ConnectionCredentials"><span class="hs-identifier hs-type">ConnectionCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | Creates the participant\'s websocket connection.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Awebsocket%3ACreateParticipantConnectionResponse%27"><span class="annot"><span class="annottext">CreateParticipantConnectionResponse -&gt; Maybe Websocket
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3Awebsocket%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var hs-var">websocket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Websocket.html#Websocket"><span class="hs-identifier hs-type">Websocket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateParticipantConnectionResponse%27"><span class="annot"><span class="annottext">CreateParticipantConnectionResponse -&gt; Int
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AhttpStatus%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679162698"><span id="local-6989586621679162700"><span class="annot"><span class="annottext">CreateParticipantConnectionResponse
+-&gt; CreateParticipantConnectionResponse -&gt; Bool
+(CreateParticipantConnectionResponse
+ -&gt; CreateParticipantConnectionResponse -&gt; Bool)
+-&gt; (CreateParticipantConnectionResponse
+    -&gt; CreateParticipantConnectionResponse -&gt; Bool)
+-&gt; Eq CreateParticipantConnectionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateParticipantConnectionResponse
+-&gt; CreateParticipantConnectionResponse -&gt; Bool
+$c/= :: CreateParticipantConnectionResponse
+-&gt; CreateParticipantConnectionResponse -&gt; Bool
+== :: CreateParticipantConnectionResponse
+-&gt; CreateParticipantConnectionResponse -&gt; Bool
+$c== :: CreateParticipantConnectionResponse
+-&gt; CreateParticipantConnectionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162690"><span id="local-6989586621679162692"><span id="local-6989586621679162694"><span id="local-6989586621679162696"><span class="annot"><span class="annottext">ReadPrec [CreateParticipantConnectionResponse]
+ReadPrec CreateParticipantConnectionResponse
+Int -&gt; ReadS CreateParticipantConnectionResponse
+ReadS [CreateParticipantConnectionResponse]
+(Int -&gt; ReadS CreateParticipantConnectionResponse)
+-&gt; ReadS [CreateParticipantConnectionResponse]
+-&gt; ReadPrec CreateParticipantConnectionResponse
+-&gt; ReadPrec [CreateParticipantConnectionResponse]
+-&gt; Read CreateParticipantConnectionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateParticipantConnectionResponse]
+$creadListPrec :: ReadPrec [CreateParticipantConnectionResponse]
+readPrec :: ReadPrec CreateParticipantConnectionResponse
+$creadPrec :: ReadPrec CreateParticipantConnectionResponse
+readList :: ReadS [CreateParticipantConnectionResponse]
+$creadList :: ReadS [CreateParticipantConnectionResponse]
+readsPrec :: Int -&gt; ReadS CreateParticipantConnectionResponse
+$creadsPrec :: Int -&gt; ReadS CreateParticipantConnectionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162684"><span id="local-6989586621679162686"><span id="local-6989586621679162688"><span class="annot"><span class="annottext">Int -&gt; CreateParticipantConnectionResponse -&gt; ShowS
+[CreateParticipantConnectionResponse] -&gt; ShowS
+CreateParticipantConnectionResponse -&gt; String
+(Int -&gt; CreateParticipantConnectionResponse -&gt; ShowS)
+-&gt; (CreateParticipantConnectionResponse -&gt; String)
+-&gt; ([CreateParticipantConnectionResponse] -&gt; ShowS)
+-&gt; Show CreateParticipantConnectionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateParticipantConnectionResponse] -&gt; ShowS
+$cshowList :: [CreateParticipantConnectionResponse] -&gt; ShowS
+show :: CreateParticipantConnectionResponse -&gt; String
+$cshow :: CreateParticipantConnectionResponse -&gt; String
+showsPrec :: Int -&gt; CreateParticipantConnectionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateParticipantConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateParticipantConnectionResponse
+ -&gt; Rep CreateParticipantConnectionResponse x)
+-&gt; (forall x.
+    Rep CreateParticipantConnectionResponse x
+    -&gt; CreateParticipantConnectionResponse)
+-&gt; Generic CreateParticipantConnectionResponse
+forall x.
+Rep CreateParticipantConnectionResponse x
+-&gt; CreateParticipantConnectionResponse
+forall x.
+CreateParticipantConnectionResponse
+-&gt; Rep CreateParticipantConnectionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateParticipantConnectionResponse x
+-&gt; CreateParticipantConnectionResponse
+$cfrom :: forall x.
+CreateParticipantConnectionResponse
+-&gt; Rep CreateParticipantConnectionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Create a value of 'CreateParticipantConnectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'connectionCredentials', 'createParticipantConnectionResponse_connectionCredentials' - Creates the participant\'s connection credentials. The authentication</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- token associated with the participant\'s connection.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'websocket', 'createParticipantConnectionResponse_websocket' - Creates the participant\'s websocket connection.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'createParticipantConnectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#newCreateParticipantConnectionResponse"><span class="hs-identifier hs-type">newCreateParticipantConnectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newCreateParticipantConnectionResponse"><span class="annot"><span class="annottext">newCreateParticipantConnectionResponse :: Int -&gt; CreateParticipantConnectionResponse
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#newCreateParticipantConnectionResponse"><span class="hs-identifier hs-var hs-var">newCreateParticipantConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679162681"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">CreateParticipantConnectionResponse' :: Maybe ConnectionCredentials
+-&gt; Maybe Websocket -&gt; Int -&gt; CreateParticipantConnectionResponse
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionCredentials:CreateParticipantConnectionResponse' :: Maybe ConnectionCredentials
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AconnectionCredentials%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">connectionCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConnectionCredentials
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:websocket:CreateParticipantConnectionResponse' :: Maybe Websocket
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3Awebsocket%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">websocket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Websocket
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateParticipantConnectionResponse' :: Int
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AhttpStatus%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Creates the participant\'s connection credentials. The authentication</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- token associated with the participant\'s connection.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_connectionCredentials"><span class="hs-identifier hs-type">createParticipantConnectionResponse_connectionCredentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ConnectionCredentials.html#ConnectionCredentials"><span class="hs-identifier hs-type">ConnectionCredentials</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="createParticipantConnectionResponse_connectionCredentials"><span class="annot"><span class="annottext">createParticipantConnectionResponse_connectionCredentials :: (Maybe ConnectionCredentials -&gt; f (Maybe ConnectionCredentials))
+-&gt; CreateParticipantConnectionResponse
+-&gt; f CreateParticipantConnectionResponse
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_connectionCredentials"><span class="hs-identifier hs-var hs-var">createParticipantConnectionResponse_connectionCredentials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateParticipantConnectionResponse
+ -&gt; Maybe ConnectionCredentials)
+-&gt; (CreateParticipantConnectionResponse
+    -&gt; Maybe ConnectionCredentials
+    -&gt; CreateParticipantConnectionResponse)
+-&gt; Lens
+     CreateParticipantConnectionResponse
+     CreateParticipantConnectionResponse
+     (Maybe ConnectionCredentials)
+     (Maybe ConnectionCredentials)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162680"><span class="annot"><span class="annottext">Maybe ConnectionCredentials
+connectionCredentials :: Maybe ConnectionCredentials
+$sel:connectionCredentials:CreateParticipantConnectionResponse' :: CreateParticipantConnectionResponse -&gt; Maybe ConnectionCredentials
+</span><a href="#local-6989586621679162680"><span class="hs-identifier hs-var hs-var">connectionCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionCredentials
+</span><a href="#local-6989586621679162680"><span class="hs-identifier hs-var">connectionCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162679"><span class="annot"><span class="annottext">s :: CreateParticipantConnectionResponse
+</span><a href="#local-6989586621679162679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162678"><span class="annot"><span class="annottext">Maybe ConnectionCredentials
+</span><a href="#local-6989586621679162678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateParticipantConnectionResponse
+</span><a href="#local-6989586621679162679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionCredentials:CreateParticipantConnectionResponse' :: Maybe ConnectionCredentials
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AconnectionCredentials%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">connectionCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionCredentials
+</span><a href="#local-6989586621679162678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Creates the participant\'s websocket connection.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_websocket"><span class="hs-identifier hs-type">createParticipantConnectionResponse_websocket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Websocket.html#Websocket"><span class="hs-identifier hs-type">Websocket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="createParticipantConnectionResponse_websocket"><span class="annot"><span class="annottext">createParticipantConnectionResponse_websocket :: (Maybe Websocket -&gt; f (Maybe Websocket))
+-&gt; CreateParticipantConnectionResponse
+-&gt; f CreateParticipantConnectionResponse
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_websocket"><span class="hs-identifier hs-var hs-var">createParticipantConnectionResponse_websocket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateParticipantConnectionResponse -&gt; Maybe Websocket)
+-&gt; (CreateParticipantConnectionResponse
+    -&gt; Maybe Websocket -&gt; CreateParticipantConnectionResponse)
+-&gt; Lens
+     CreateParticipantConnectionResponse
+     CreateParticipantConnectionResponse
+     (Maybe Websocket)
+     (Maybe Websocket)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162677"><span class="annot"><span class="annottext">Maybe Websocket
+websocket :: Maybe Websocket
+$sel:websocket:CreateParticipantConnectionResponse' :: CreateParticipantConnectionResponse -&gt; Maybe Websocket
+</span><a href="#local-6989586621679162677"><span class="hs-identifier hs-var hs-var">websocket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Websocket
+</span><a href="#local-6989586621679162677"><span class="hs-identifier hs-var">websocket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162676"><span class="annot"><span class="annottext">s :: CreateParticipantConnectionResponse
+</span><a href="#local-6989586621679162676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162675"><span class="annot"><span class="annottext">Maybe Websocket
+</span><a href="#local-6989586621679162675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateParticipantConnectionResponse
+</span><a href="#local-6989586621679162676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:websocket:CreateParticipantConnectionResponse' :: Maybe Websocket
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3Awebsocket%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">websocket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Websocket
+</span><a href="#local-6989586621679162675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_httpStatus"><span class="hs-identifier hs-type">createParticipantConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span id="createParticipantConnectionResponse_httpStatus"><span class="annot"><span class="annottext">createParticipantConnectionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateParticipantConnectionResponse
+-&gt; f CreateParticipantConnectionResponse
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#createParticipantConnectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createParticipantConnectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateParticipantConnectionResponse -&gt; Int)
+-&gt; (CreateParticipantConnectionResponse
+    -&gt; Int -&gt; CreateParticipantConnectionResponse)
+-&gt; Lens
+     CreateParticipantConnectionResponse
+     CreateParticipantConnectionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162674"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateParticipantConnectionResponse' :: CreateParticipantConnectionResponse -&gt; Int
+</span><a href="#local-6989586621679162674"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162674"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162673"><span class="annot"><span class="annottext">s :: CreateParticipantConnectionResponse
+</span><a href="#local-6989586621679162673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse%27"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162672"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateParticipantConnectionResponse
+</span><a href="#local-6989586621679162673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateParticipantConnectionResponse' :: Int
+</span><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#%24sel%3AhttpStatus%3ACreateParticipantConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679162670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.ConnectParticipant.CreateParticipantConnection.html#CreateParticipantConnectionResponse"><span class="hs-identifier hs-type">CreateParticipantConnectionResponse</span></a></span></span><span>
+</span><span id="line-219"></span></pre></body></html>

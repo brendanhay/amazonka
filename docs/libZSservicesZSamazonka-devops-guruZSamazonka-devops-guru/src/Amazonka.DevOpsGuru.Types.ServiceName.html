@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.Types.ServiceName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.Types.ServiceName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier">ServiceName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_API_GATEWAY"><span class="hs-identifier">ServiceName_API_GATEWAY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_APPLICATION_ELB"><span class="hs-identifier">ServiceName_APPLICATION_ELB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_AUTO_SCALING_GROUP"><span class="hs-identifier">ServiceName_AUTO_SCALING_GROUP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_CLOUD_FRONT"><span class="hs-identifier">ServiceName_CLOUD_FRONT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_DYNAMO_DB"><span class="hs-identifier">ServiceName_DYNAMO_DB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_EC2"><span class="hs-identifier">ServiceName_EC2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ECS"><span class="hs-identifier">ServiceName_ECS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_EKS"><span class="hs-identifier">ServiceName_EKS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELASTIC_BEANSTALK"><span class="hs-identifier">ServiceName_ELASTIC_BEANSTALK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELASTI_CACHE"><span class="hs-identifier">ServiceName_ELASTI_CACHE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELB"><span class="hs-identifier">ServiceName_ELB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ES"><span class="hs-identifier">ServiceName_ES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_KINESIS"><span class="hs-identifier">ServiceName_KINESIS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_LAMBDA"><span class="hs-identifier">ServiceName_LAMBDA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_NAT_GATEWAY"><span class="hs-identifier">ServiceName_NAT_GATEWAY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_NETWORK_ELB"><span class="hs-identifier">ServiceName_NETWORK_ELB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_RDS"><span class="hs-identifier">ServiceName_RDS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_REDSHIFT"><span class="hs-identifier">ServiceName_REDSHIFT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ROUTE_53"><span class="hs-identifier">ServiceName_ROUTE_53</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_S3"><span class="hs-identifier">ServiceName_S3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SAGE_MAKER"><span class="hs-identifier">ServiceName_SAGE_MAKER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SNS"><span class="hs-identifier">ServiceName_SNS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SQS"><span class="hs-identifier">ServiceName_SQS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_STEP_FUNCTIONS"><span class="hs-identifier">ServiceName_STEP_FUNCTIONS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SWF"><span class="hs-identifier">ServiceName_SWF</span></a></span><span>
+</span><span id="line-48"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679236983"><span id="local-6989586621679236984"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceName"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-var">ServiceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceName%27"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-var">ServiceName'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceName"><span class="annot"><span class="annottext">ServiceName -&gt; Text
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#fromServiceName"><span class="hs-identifier hs-var hs-var">fromServiceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236975"><span id="local-6989586621679236977"><span id="local-6989586621679236979"><span class="annot"><span class="annottext">Int -&gt; ServiceName -&gt; ShowS
+[ServiceName] -&gt; ShowS
+ServiceName -&gt; String
+(Int -&gt; ServiceName -&gt; ShowS)
+-&gt; (ServiceName -&gt; String)
+-&gt; ([ServiceName] -&gt; ShowS)
+-&gt; Show ServiceName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceName] -&gt; ShowS
+$cshowList :: [ServiceName] -&gt; ShowS
+show :: ServiceName -&gt; String
+$cshow :: ServiceName -&gt; String
+showsPrec :: Int -&gt; ServiceName -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679236966"><span id="local-6989586621679236968"><span id="local-6989586621679236970"><span id="local-6989586621679236972"><span class="annot"><span class="annottext">ReadPrec [ServiceName]
+ReadPrec ServiceName
+Int -&gt; ReadS ServiceName
+ReadS [ServiceName]
+(Int -&gt; ReadS ServiceName)
+-&gt; ReadS [ServiceName]
+-&gt; ReadPrec ServiceName
+-&gt; ReadPrec [ServiceName]
+-&gt; Read ServiceName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceName]
+$creadListPrec :: ReadPrec [ServiceName]
+readPrec :: ReadPrec ServiceName
+$creadPrec :: ReadPrec ServiceName
+readList :: ReadS [ServiceName]
+$creadList :: ReadS [ServiceName]
+readsPrec :: Int -&gt; ReadS ServiceName
+$creadsPrec :: Int -&gt; ReadS ServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679236961"><span id="local-6989586621679236963"><span class="annot"><span class="annottext">ServiceName -&gt; ServiceName -&gt; Bool
+(ServiceName -&gt; ServiceName -&gt; Bool)
+-&gt; (ServiceName -&gt; ServiceName -&gt; Bool) -&gt; Eq ServiceName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceName -&gt; ServiceName -&gt; Bool
+$c/= :: ServiceName -&gt; ServiceName -&gt; Bool
+== :: ServiceName -&gt; ServiceName -&gt; Bool
+$c== :: ServiceName -&gt; ServiceName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679236945"><span id="local-6989586621679236947"><span id="local-6989586621679236949"><span id="local-6989586621679236951"><span id="local-6989586621679236953"><span id="local-6989586621679236955"><span id="local-6989586621679236957"><span class="annot"><span class="annottext">Eq ServiceName
+Eq ServiceName
+-&gt; (ServiceName -&gt; ServiceName -&gt; Ordering)
+-&gt; (ServiceName -&gt; ServiceName -&gt; Bool)
+-&gt; (ServiceName -&gt; ServiceName -&gt; Bool)
+-&gt; (ServiceName -&gt; ServiceName -&gt; Bool)
+-&gt; (ServiceName -&gt; ServiceName -&gt; Bool)
+-&gt; (ServiceName -&gt; ServiceName -&gt; ServiceName)
+-&gt; (ServiceName -&gt; ServiceName -&gt; ServiceName)
+-&gt; Ord ServiceName
+ServiceName -&gt; ServiceName -&gt; Bool
+ServiceName -&gt; ServiceName -&gt; Ordering
+ServiceName -&gt; ServiceName -&gt; ServiceName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServiceName -&gt; ServiceName -&gt; ServiceName
+$cmin :: ServiceName -&gt; ServiceName -&gt; ServiceName
+max :: ServiceName -&gt; ServiceName -&gt; ServiceName
+$cmax :: ServiceName -&gt; ServiceName -&gt; ServiceName
+&gt;= :: ServiceName -&gt; ServiceName -&gt; Bool
+$c&gt;= :: ServiceName -&gt; ServiceName -&gt; Bool
+&gt; :: ServiceName -&gt; ServiceName -&gt; Bool
+$c&gt; :: ServiceName -&gt; ServiceName -&gt; Bool
+&lt;= :: ServiceName -&gt; ServiceName -&gt; Bool
+$c&lt;= :: ServiceName -&gt; ServiceName -&gt; Bool
+&lt; :: ServiceName -&gt; ServiceName -&gt; Bool
+$c&lt; :: ServiceName -&gt; ServiceName -&gt; Bool
+compare :: ServiceName -&gt; ServiceName -&gt; Ordering
+$ccompare :: ServiceName -&gt; ServiceName -&gt; Ordering
+$cp1Ord :: Eq ServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ServiceName -&gt; Rep ServiceName x)
+-&gt; (forall x. Rep ServiceName x -&gt; ServiceName)
+-&gt; Generic ServiceName
+forall x. Rep ServiceName x -&gt; ServiceName
+forall x. ServiceName -&gt; Rep ServiceName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServiceName x -&gt; ServiceName
+$cfrom :: forall x. ServiceName -&gt; Rep ServiceName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236937"><span id="local-6989586621679236939"><span class="annot"><span class="annottext">Int -&gt; ServiceName -&gt; Int
+ServiceName -&gt; Int
+(Int -&gt; ServiceName -&gt; Int)
+-&gt; (ServiceName -&gt; Int) -&gt; Hashable ServiceName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServiceName -&gt; Int
+$chash :: ServiceName -&gt; Int
+hashWithSalt :: Int -&gt; ServiceName -&gt; Int
+$chashWithSalt :: Int -&gt; ServiceName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679236934"><span class="annot"><span class="annottext">ServiceName -&gt; ()
+(ServiceName -&gt; ()) -&gt; NFData ServiceName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServiceName -&gt; ()
+$crnf :: ServiceName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679236931"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceName
+(Text -&gt; Either String ServiceName) -&gt; FromText ServiceName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServiceName
+$cfromText :: Text -&gt; Either String ServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679236928"><span class="annot"><span class="annottext">ServiceName -&gt; Text
+(ServiceName -&gt; Text) -&gt; ToText ServiceName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServiceName -&gt; Text
+$ctoText :: ServiceName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679236925"><span class="annot"><span class="annottext">ServiceName -&gt; ByteString
+(ServiceName -&gt; ByteString) -&gt; ToByteString ServiceName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServiceName -&gt; ByteString
+$ctoBS :: ServiceName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679236922"><span class="annot"><span class="annottext">ServiceName -&gt; ByteStringBuilder
+(ServiceName -&gt; ByteStringBuilder) -&gt; ToLog ServiceName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServiceName -&gt; ByteStringBuilder
+$cbuild :: ServiceName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679236919"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceName -&gt; [Header]
+(HeaderName -&gt; ServiceName -&gt; [Header]) -&gt; ToHeader ServiceName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServiceName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServiceName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679236916"><span class="annot"><span class="annottext">ServiceName -&gt; QueryString
+(ServiceName -&gt; QueryString) -&gt; ToQuery ServiceName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServiceName -&gt; QueryString
+$ctoQuery :: ServiceName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679236911"><span id="local-6989586621679236913"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceName]
+Value -&gt; Parser ServiceName
+(Value -&gt; Parser ServiceName)
+-&gt; (Value -&gt; Parser [ServiceName]) -&gt; FromJSON ServiceName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServiceName]
+$cparseJSONList :: Value -&gt; Parser [ServiceName]
+parseJSON :: Value -&gt; Parser ServiceName
+$cparseJSON :: Value -&gt; Parser ServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679236906"><span id="local-6989586621679236908"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceName]
+FromJSONKeyFunction ServiceName
+FromJSONKeyFunction ServiceName
+-&gt; FromJSONKeyFunction [ServiceName] -&gt; FromJSONKey ServiceName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServiceName]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServiceName]
+fromJSONKey :: FromJSONKeyFunction ServiceName
+$cfromJSONKey :: FromJSONKeyFunction ServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679236897"><span id="local-6989586621679236899"><span id="local-6989586621679236901"><span id="local-6989586621679236903"><span class="annot"><span class="annottext">[ServiceName] -&gt; Encoding
+[ServiceName] -&gt; Value
+ServiceName -&gt; Encoding
+ServiceName -&gt; Value
+(ServiceName -&gt; Value)
+-&gt; (ServiceName -&gt; Encoding)
+-&gt; ([ServiceName] -&gt; Value)
+-&gt; ([ServiceName] -&gt; Encoding)
+-&gt; ToJSON ServiceName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServiceName] -&gt; Encoding
+$ctoEncodingList :: [ServiceName] -&gt; Encoding
+toJSONList :: [ServiceName] -&gt; Value
+$ctoJSONList :: [ServiceName] -&gt; Value
+toEncoding :: ServiceName -&gt; Encoding
+$ctoEncoding :: ServiceName -&gt; Encoding
+toJSON :: ServiceName -&gt; Value
+$ctoJSON :: ServiceName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679236892"><span id="local-6989586621679236894"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceName]
+ToJSONKeyFunction ServiceName
+ToJSONKeyFunction ServiceName
+-&gt; ToJSONKeyFunction [ServiceName] -&gt; ToJSONKey ServiceName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServiceName]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServiceName]
+toJSONKey :: ToJSONKeyFunction ServiceName
+$ctoJSONKey :: ToJSONKeyFunction ServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679236889"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceName
+([Node] -&gt; Either String ServiceName) -&gt; FromXML ServiceName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServiceName
+$cparseXML :: [Node] -&gt; Either String ServiceName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679236886"><span class="annot"><span class="annottext">ServiceName -&gt; XML
+(ServiceName -&gt; XML) -&gt; ToXML ServiceName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServiceName -&gt; XML
+$ctoXML :: ServiceName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_API_GATEWAY"><span class="hs-identifier hs-type">ServiceName_API_GATEWAY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_API_GATEWAY"><span id="%24mServiceName_API_GATEWAY"><span id="ServiceName_API_GATEWAY"><span class="annot"><span class="annottext">$bServiceName_API_GATEWAY :: ServiceName
+$mServiceName_API_GATEWAY :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_API_GATEWAY"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_API_GATEWAY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;API_GATEWAY&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_APPLICATION_ELB"><span class="hs-identifier hs-type">ServiceName_APPLICATION_ELB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_APPLICATION_ELB"><span id="%24mServiceName_APPLICATION_ELB"><span id="ServiceName_APPLICATION_ELB"><span class="annot"><span class="annottext">$bServiceName_APPLICATION_ELB :: ServiceName
+$mServiceName_APPLICATION_ELB :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_APPLICATION_ELB"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_APPLICATION_ELB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APPLICATION_ELB&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_AUTO_SCALING_GROUP"><span class="hs-identifier hs-type">ServiceName_AUTO_SCALING_GROUP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_AUTO_SCALING_GROUP"><span id="%24mServiceName_AUTO_SCALING_GROUP"><span id="ServiceName_AUTO_SCALING_GROUP"><span class="annot"><span class="annottext">$bServiceName_AUTO_SCALING_GROUP :: ServiceName
+$mServiceName_AUTO_SCALING_GROUP :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_AUTO_SCALING_GROUP"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_AUTO_SCALING_GROUP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO_SCALING_GROUP&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_CLOUD_FRONT"><span class="hs-identifier hs-type">ServiceName_CLOUD_FRONT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_CLOUD_FRONT"><span id="%24mServiceName_CLOUD_FRONT"><span id="ServiceName_CLOUD_FRONT"><span class="annot"><span class="annottext">$bServiceName_CLOUD_FRONT :: ServiceName
+$mServiceName_CLOUD_FRONT :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_CLOUD_FRONT"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_CLOUD_FRONT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOUD_FRONT&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_DYNAMO_DB"><span class="hs-identifier hs-type">ServiceName_DYNAMO_DB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_DYNAMO_DB"><span id="%24mServiceName_DYNAMO_DB"><span id="ServiceName_DYNAMO_DB"><span class="annot"><span class="annottext">$bServiceName_DYNAMO_DB :: ServiceName
+$mServiceName_DYNAMO_DB :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_DYNAMO_DB"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_DYNAMO_DB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DYNAMO_DB&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_EC2"><span class="hs-identifier hs-type">ServiceName_EC2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_EC2"><span id="%24mServiceName_EC2"><span id="ServiceName_EC2"><span class="annot"><span class="annottext">$bServiceName_EC2 :: ServiceName
+$mServiceName_EC2 :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_EC2"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_EC2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ECS"><span class="hs-identifier hs-type">ServiceName_ECS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_ECS"><span id="%24mServiceName_ECS"><span id="ServiceName_ECS"><span class="annot"><span class="annottext">$bServiceName_ECS :: ServiceName
+$mServiceName_ECS :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_ECS"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_ECS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECS&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_EKS"><span class="hs-identifier hs-type">ServiceName_EKS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_EKS"><span id="%24mServiceName_EKS"><span id="ServiceName_EKS"><span class="annot"><span class="annottext">$bServiceName_EKS :: ServiceName
+$mServiceName_EKS :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_EKS"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_EKS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EKS&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELASTIC_BEANSTALK"><span class="hs-identifier hs-type">ServiceName_ELASTIC_BEANSTALK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_ELASTIC_BEANSTALK"><span id="%24mServiceName_ELASTIC_BEANSTALK"><span id="ServiceName_ELASTIC_BEANSTALK"><span class="annot"><span class="annottext">$bServiceName_ELASTIC_BEANSTALK :: ServiceName
+$mServiceName_ELASTIC_BEANSTALK :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_ELASTIC_BEANSTALK"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_ELASTIC_BEANSTALK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ELASTIC_BEANSTALK&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELASTI_CACHE"><span class="hs-identifier hs-type">ServiceName_ELASTI_CACHE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_ELASTI_CACHE"><span id="%24mServiceName_ELASTI_CACHE"><span id="ServiceName_ELASTI_CACHE"><span class="annot"><span class="annottext">$bServiceName_ELASTI_CACHE :: ServiceName
+$mServiceName_ELASTI_CACHE :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_ELASTI_CACHE"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_ELASTI_CACHE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ELASTI_CACHE&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELB"><span class="hs-identifier hs-type">ServiceName_ELB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_ELB"><span id="%24mServiceName_ELB"><span id="ServiceName_ELB"><span class="annot"><span class="annottext">$bServiceName_ELB :: ServiceName
+$mServiceName_ELB :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_ELB"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_ELB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ELB&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ES"><span class="hs-identifier hs-type">ServiceName_ES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_ES"><span id="%24mServiceName_ES"><span id="ServiceName_ES"><span class="annot"><span class="annottext">$bServiceName_ES :: ServiceName
+$mServiceName_ES :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_ES"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_ES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ES&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_KINESIS"><span class="hs-identifier hs-type">ServiceName_KINESIS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_KINESIS"><span id="%24mServiceName_KINESIS"><span id="ServiceName_KINESIS"><span class="annot"><span class="annottext">$bServiceName_KINESIS :: ServiceName
+$mServiceName_KINESIS :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_KINESIS"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_KINESIS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KINESIS&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_LAMBDA"><span class="hs-identifier hs-type">ServiceName_LAMBDA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_LAMBDA"><span id="%24mServiceName_LAMBDA"><span id="ServiceName_LAMBDA"><span class="annot"><span class="annottext">$bServiceName_LAMBDA :: ServiceName
+$mServiceName_LAMBDA :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_LAMBDA"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_LAMBDA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAMBDA&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_NAT_GATEWAY"><span class="hs-identifier hs-type">ServiceName_NAT_GATEWAY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_NAT_GATEWAY"><span id="%24mServiceName_NAT_GATEWAY"><span id="ServiceName_NAT_GATEWAY"><span class="annot"><span class="annottext">$bServiceName_NAT_GATEWAY :: ServiceName
+$mServiceName_NAT_GATEWAY :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_NAT_GATEWAY"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_NAT_GATEWAY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAT_GATEWAY&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_NETWORK_ELB"><span class="hs-identifier hs-type">ServiceName_NETWORK_ELB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_NETWORK_ELB"><span id="%24mServiceName_NETWORK_ELB"><span id="ServiceName_NETWORK_ELB"><span class="annot"><span class="annottext">$bServiceName_NETWORK_ELB :: ServiceName
+$mServiceName_NETWORK_ELB :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_NETWORK_ELB"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_NETWORK_ELB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NETWORK_ELB&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_RDS"><span class="hs-identifier hs-type">ServiceName_RDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_RDS"><span id="%24mServiceName_RDS"><span id="ServiceName_RDS"><span class="annot"><span class="annottext">$bServiceName_RDS :: ServiceName
+$mServiceName_RDS :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_RDS"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_RDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RDS&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_REDSHIFT"><span class="hs-identifier hs-type">ServiceName_REDSHIFT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_REDSHIFT"><span id="%24mServiceName_REDSHIFT"><span id="ServiceName_REDSHIFT"><span class="annot"><span class="annottext">$bServiceName_REDSHIFT :: ServiceName
+$mServiceName_REDSHIFT :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_REDSHIFT"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_REDSHIFT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REDSHIFT&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ROUTE_53"><span class="hs-identifier hs-type">ServiceName_ROUTE_53</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_ROUTE_53"><span id="%24mServiceName_ROUTE_53"><span id="ServiceName_ROUTE_53"><span class="annot"><span class="annottext">$bServiceName_ROUTE_53 :: ServiceName
+$mServiceName_ROUTE_53 :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_ROUTE_53"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_ROUTE_53</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROUTE_53&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_S3"><span class="hs-identifier hs-type">ServiceName_S3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_S3"><span id="%24mServiceName_S3"><span id="ServiceName_S3"><span class="annot"><span class="annottext">$bServiceName_S3 :: ServiceName
+$mServiceName_S3 :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_S3"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_S3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SAGE_MAKER"><span class="hs-identifier hs-type">ServiceName_SAGE_MAKER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_SAGE_MAKER"><span id="%24mServiceName_SAGE_MAKER"><span id="ServiceName_SAGE_MAKER"><span class="annot"><span class="annottext">$bServiceName_SAGE_MAKER :: ServiceName
+$mServiceName_SAGE_MAKER :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_SAGE_MAKER"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_SAGE_MAKER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SAGE_MAKER&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SNS"><span class="hs-identifier hs-type">ServiceName_SNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_SNS"><span id="%24mServiceName_SNS"><span id="ServiceName_SNS"><span class="annot"><span class="annottext">$bServiceName_SNS :: ServiceName
+$mServiceName_SNS :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_SNS"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_SNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNS&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SQS"><span class="hs-identifier hs-type">ServiceName_SQS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_SQS"><span id="%24mServiceName_SQS"><span id="ServiceName_SQS"><span class="annot"><span class="annottext">$bServiceName_SQS :: ServiceName
+$mServiceName_SQS :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_SQS"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_SQS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SQS&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_STEP_FUNCTIONS"><span class="hs-identifier hs-type">ServiceName_STEP_FUNCTIONS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_STEP_FUNCTIONS"><span id="%24mServiceName_STEP_FUNCTIONS"><span id="ServiceName_STEP_FUNCTIONS"><span class="annot"><span class="annottext">$bServiceName_STEP_FUNCTIONS :: ServiceName
+$mServiceName_STEP_FUNCTIONS :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_STEP_FUNCTIONS"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_STEP_FUNCTIONS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STEP_FUNCTIONS&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SWF"><span class="hs-identifier hs-type">ServiceName_SWF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName"><span class="hs-identifier hs-type">ServiceName</span></a></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceName_SWF"><span id="%24mServiceName_SWF"><span id="ServiceName_SWF"><span class="annot"><span class="annottext">$bServiceName_SWF :: ServiceName
+$mServiceName_SWF :: forall r. ServiceName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#%24bServiceName_SWF"><span class="hs-identifier hs-var hs-var hs-var">ServiceName_SWF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-identifier hs-type">ServiceName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SWF&quot;</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_API_GATEWAY"><span class="hs-pragma hs-type">ServiceName_API_GATEWAY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_APPLICATION_ELB"><span class="hs-pragma hs-type">ServiceName_APPLICATION_ELB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_AUTO_SCALING_GROUP"><span class="hs-pragma hs-type">ServiceName_AUTO_SCALING_GROUP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_CLOUD_FRONT"><span class="hs-pragma hs-type">ServiceName_CLOUD_FRONT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_DYNAMO_DB"><span class="hs-pragma hs-type">ServiceName_DYNAMO_DB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_EC2"><span class="hs-pragma hs-type">ServiceName_EC2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ECS"><span class="hs-pragma hs-type">ServiceName_ECS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_EKS"><span class="hs-pragma hs-type">ServiceName_EKS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELASTIC_BEANSTALK"><span class="hs-pragma hs-type">ServiceName_ELASTIC_BEANSTALK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELASTI_CACHE"><span class="hs-pragma hs-type">ServiceName_ELASTI_CACHE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ELB"><span class="hs-pragma hs-type">ServiceName_ELB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ES"><span class="hs-pragma hs-type">ServiceName_ES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_KINESIS"><span class="hs-pragma hs-type">ServiceName_KINESIS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_LAMBDA"><span class="hs-pragma hs-type">ServiceName_LAMBDA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_NAT_GATEWAY"><span class="hs-pragma hs-type">ServiceName_NAT_GATEWAY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_NETWORK_ELB"><span class="hs-pragma hs-type">ServiceName_NETWORK_ELB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_RDS"><span class="hs-pragma hs-type">ServiceName_RDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_REDSHIFT"><span class="hs-pragma hs-type">ServiceName_REDSHIFT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_ROUTE_53"><span class="hs-pragma hs-type">ServiceName_ROUTE_53</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_S3"><span class="hs-pragma hs-type">ServiceName_S3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SAGE_MAKER"><span class="hs-pragma hs-type">ServiceName_SAGE_MAKER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SNS"><span class="hs-pragma hs-type">ServiceName_SNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SQS"><span class="hs-pragma hs-type">ServiceName_SQS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_STEP_FUNCTIONS"><span class="hs-pragma hs-type">ServiceName_STEP_FUNCTIONS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName_SWF"><span class="hs-pragma hs-type">ServiceName_SWF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceName.html#ServiceName%27"><span class="hs-pragma hs-type">ServiceName'</span></a></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-186"></span></pre></body></html>

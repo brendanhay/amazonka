@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.BatchChannelMemberships</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.BatchChannelMemberships</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembershipType.html"><span class="hs-identifier">Amazonka.Chime.Types.ChannelMembershipType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html"><span class="hs-identifier">Amazonka.Chime.Types.Identity</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The membership information, including member ARNs, the channel ARN, and</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- membership types.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBatchChannelMemberships' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679510805"><span id="local-6989586621679510806"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchChannelMemberships"><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-var">BatchChannelMemberships</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchChannelMemberships%27"><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-var">BatchChannelMemberships'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The users successfully added to the request.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amembers%3ABatchChannelMemberships%27"><span class="annot"><span class="annottext">BatchChannelMemberships -&gt; Maybe [Identity]
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3Amembers%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ARN of the channel to which you\'re adding users.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AchannelArn%3ABatchChannelMemberships%27"><span class="annot"><span class="annottext">BatchChannelMemberships -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3AchannelArn%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The membership types set for the channel users.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3ABatchChannelMemberships%27"><span class="annot"><span class="annottext">BatchChannelMemberships -&gt; Maybe ChannelMembershipType
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3Atype%27%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier hs-type">ChannelMembershipType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The identifier of the member who invited another member.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinvitedBy%3ABatchChannelMemberships%27"><span class="annot"><span class="annottext">BatchChannelMemberships -&gt; Maybe Identity
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3AinvitedBy%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var hs-var">invitedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679510796"><span id="local-6989586621679510798"><span class="annot"><span class="annottext">BatchChannelMemberships -&gt; BatchChannelMemberships -&gt; Bool
+(BatchChannelMemberships -&gt; BatchChannelMemberships -&gt; Bool)
+-&gt; (BatchChannelMemberships -&gt; BatchChannelMemberships -&gt; Bool)
+-&gt; Eq BatchChannelMemberships
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchChannelMemberships -&gt; BatchChannelMemberships -&gt; Bool
+$c/= :: BatchChannelMemberships -&gt; BatchChannelMemberships -&gt; Bool
+== :: BatchChannelMemberships -&gt; BatchChannelMemberships -&gt; Bool
+$c== :: BatchChannelMemberships -&gt; BatchChannelMemberships -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679510789"><span id="local-6989586621679510791"><span id="local-6989586621679510793"><span class="annot"><span class="annottext">Int -&gt; BatchChannelMemberships -&gt; ShowS
+[BatchChannelMemberships] -&gt; ShowS
+BatchChannelMemberships -&gt; String
+(Int -&gt; BatchChannelMemberships -&gt; ShowS)
+-&gt; (BatchChannelMemberships -&gt; String)
+-&gt; ([BatchChannelMemberships] -&gt; ShowS)
+-&gt; Show BatchChannelMemberships
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchChannelMemberships] -&gt; ShowS
+$cshowList :: [BatchChannelMemberships] -&gt; ShowS
+show :: BatchChannelMemberships -&gt; String
+$cshow :: BatchChannelMemberships -&gt; String
+showsPrec :: Int -&gt; BatchChannelMemberships -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchChannelMemberships -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchChannelMemberships -&gt; Rep BatchChannelMemberships x)
+-&gt; (forall x.
+    Rep BatchChannelMemberships x -&gt; BatchChannelMemberships)
+-&gt; Generic BatchChannelMemberships
+forall x. Rep BatchChannelMemberships x -&gt; BatchChannelMemberships
+forall x. BatchChannelMemberships -&gt; Rep BatchChannelMemberships x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchChannelMemberships x -&gt; BatchChannelMemberships
+$cfrom :: forall x. BatchChannelMemberships -&gt; Rep BatchChannelMemberships x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'BatchChannelMemberships' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'members', 'batchChannelMemberships_members' - The users successfully added to the request.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'channelArn', 'batchChannelMemberships_channelArn' - The ARN of the channel to which you\'re adding users.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'type'', 'batchChannelMemberships_type' - The membership types set for the channel users.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'invitedBy', 'batchChannelMemberships_invitedBy' - The identifier of the member who invited another member.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#newBatchChannelMemberships"><span class="hs-identifier hs-type">newBatchChannelMemberships</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span>
+</span><span id="line-61"></span><span id="newBatchChannelMemberships"><span class="annot"><span class="annottext">newBatchChannelMemberships :: BatchChannelMemberships
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#newBatchChannelMemberships"><span class="hs-identifier hs-var hs-var">newBatchChannelMemberships</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">BatchChannelMemberships' :: Maybe [Identity]
+-&gt; Maybe Text
+-&gt; Maybe ChannelMembershipType
+-&gt; Maybe Identity
+-&gt; BatchChannelMemberships
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:members:BatchChannelMemberships' :: Maybe [Identity]
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3Amembers%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Identity]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelArn:BatchChannelMemberships' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3AchannelArn%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':BatchChannelMemberships' :: Maybe ChannelMembershipType
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3Atype%27%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:invitedBy:BatchChannelMemberships' :: Maybe Identity
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3AinvitedBy%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">invitedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The users successfully added to the request.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_members"><span class="hs-identifier hs-type">batchChannelMemberships_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="batchChannelMemberships_members"><span class="annot"><span class="annottext">batchChannelMemberships_members :: (Maybe [Identity] -&gt; f (Maybe [Identity]))
+-&gt; BatchChannelMemberships -&gt; f BatchChannelMemberships
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_members"><span class="hs-identifier hs-var hs-var">batchChannelMemberships_members</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchChannelMemberships -&gt; Maybe [Identity])
+-&gt; (BatchChannelMemberships
+    -&gt; Maybe [Identity] -&gt; BatchChannelMemberships)
+-&gt; Lens
+     BatchChannelMemberships
+     BatchChannelMemberships
+     (Maybe [Identity])
+     (Maybe [Identity])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510780"><span class="annot"><span class="annottext">Maybe [Identity]
+members :: Maybe [Identity]
+$sel:members:BatchChannelMemberships' :: BatchChannelMemberships -&gt; Maybe [Identity]
+</span><a href="#local-6989586621679510780"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Identity]
+</span><a href="#local-6989586621679510780"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510779"><span class="annot"><span class="annottext">s :: BatchChannelMemberships
+</span><a href="#local-6989586621679510779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510778"><span class="annot"><span class="annottext">Maybe [Identity]
+</span><a href="#local-6989586621679510778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchChannelMemberships
+</span><a href="#local-6989586621679510779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:BatchChannelMemberships' :: Maybe [Identity]
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3Amembers%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Identity]
+</span><a href="#local-6989586621679510778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Identity] -&gt; f (Maybe [Identity]))
+ -&gt; BatchChannelMemberships -&gt; f BatchChannelMemberships)
+-&gt; ((Maybe [Identity] -&gt; f (Maybe [Identity]))
+    -&gt; Maybe [Identity] -&gt; f (Maybe [Identity]))
+-&gt; (Maybe [Identity] -&gt; f (Maybe [Identity]))
+-&gt; BatchChannelMemberships
+-&gt; f BatchChannelMemberships
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Identity] [Identity] [Identity] [Identity]
+-&gt; Iso
+     (Maybe [Identity])
+     (Maybe [Identity])
+     (Maybe [Identity])
+     (Maybe [Identity])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Identity] [Identity] [Identity] [Identity]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ARN of the channel to which you\'re adding users.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_channelArn"><span class="hs-identifier hs-type">batchChannelMemberships_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="batchChannelMemberships_channelArn"><span class="annot"><span class="annottext">batchChannelMemberships_channelArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchChannelMemberships -&gt; f BatchChannelMemberships
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_channelArn"><span class="hs-identifier hs-var hs-var">batchChannelMemberships_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchChannelMemberships -&gt; Maybe Text)
+-&gt; (BatchChannelMemberships
+    -&gt; Maybe Text -&gt; BatchChannelMemberships)
+-&gt; Lens
+     BatchChannelMemberships
+     BatchChannelMemberships
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510773"><span class="annot"><span class="annottext">Maybe Text
+channelArn :: Maybe Text
+$sel:channelArn:BatchChannelMemberships' :: BatchChannelMemberships -&gt; Maybe Text
+</span><a href="#local-6989586621679510773"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679510773"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510772"><span class="annot"><span class="annottext">s :: BatchChannelMemberships
+</span><a href="#local-6989586621679510772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679510771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchChannelMemberships
+</span><a href="#local-6989586621679510772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:BatchChannelMemberships' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3AchannelArn%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679510771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The membership types set for the channel users.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_type"><span class="hs-identifier hs-type">batchChannelMemberships_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier hs-type">ChannelMembershipType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="batchChannelMemberships_type"><span class="annot"><span class="annottext">batchChannelMemberships_type :: (Maybe ChannelMembershipType -&gt; f (Maybe ChannelMembershipType))
+-&gt; BatchChannelMemberships -&gt; f BatchChannelMemberships
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_type"><span class="hs-identifier hs-var hs-var">batchChannelMemberships_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchChannelMemberships -&gt; Maybe ChannelMembershipType)
+-&gt; (BatchChannelMemberships
+    -&gt; Maybe ChannelMembershipType -&gt; BatchChannelMemberships)
+-&gt; Lens
+     BatchChannelMemberships
+     BatchChannelMemberships
+     (Maybe ChannelMembershipType)
+     (Maybe ChannelMembershipType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510769"><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+type' :: Maybe ChannelMembershipType
+$sel:type':BatchChannelMemberships' :: BatchChannelMemberships -&gt; Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510769"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510769"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510768"><span class="annot"><span class="annottext">s :: BatchChannelMemberships
+</span><a href="#local-6989586621679510768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510767"><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchChannelMemberships
+</span><a href="#local-6989586621679510768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':BatchChannelMemberships' :: Maybe ChannelMembershipType
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3Atype%27%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The identifier of the member who invited another member.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_invitedBy"><span class="hs-identifier hs-type">batchChannelMemberships_invitedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="batchChannelMemberships_invitedBy"><span class="annot"><span class="annottext">batchChannelMemberships_invitedBy :: (Maybe Identity -&gt; f (Maybe Identity))
+-&gt; BatchChannelMemberships -&gt; f BatchChannelMemberships
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#batchChannelMemberships_invitedBy"><span class="hs-identifier hs-var hs-var">batchChannelMemberships_invitedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchChannelMemberships -&gt; Maybe Identity)
+-&gt; (BatchChannelMemberships
+    -&gt; Maybe Identity -&gt; BatchChannelMemberships)
+-&gt; Lens
+     BatchChannelMemberships
+     BatchChannelMemberships
+     (Maybe Identity)
+     (Maybe Identity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510765"><span class="annot"><span class="annottext">Maybe Identity
+invitedBy :: Maybe Identity
+$sel:invitedBy:BatchChannelMemberships' :: BatchChannelMemberships -&gt; Maybe Identity
+</span><a href="#local-6989586621679510765"><span class="hs-identifier hs-var hs-var">invitedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510765"><span class="hs-identifier hs-var">invitedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510764"><span class="annot"><span class="annottext">s :: BatchChannelMemberships
+</span><a href="#local-6989586621679510764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-type">BatchChannelMemberships'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510763"><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchChannelMemberships
+</span><a href="#local-6989586621679510764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitedBy:BatchChannelMemberships' :: Maybe Identity
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#%24sel%3AinvitedBy%3ABatchChannelMemberships%27"><span class="hs-identifier hs-var">invitedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679510760"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679510758"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchChannelMemberships
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchChannelMemberships)
+-&gt; Value
+-&gt; Parser BatchChannelMemberships
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchChannelMemberships&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679510755"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510755"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Identity]
+-&gt; Maybe Text
+-&gt; Maybe ChannelMembershipType
+-&gt; Maybe Identity
+-&gt; BatchChannelMemberships
+</span><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships%27"><span class="hs-identifier hs-var">BatchChannelMemberships'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Identity]
+ -&gt; Maybe Text
+ -&gt; Maybe ChannelMembershipType
+ -&gt; Maybe Identity
+ -&gt; BatchChannelMemberships)
+-&gt; Parser (Maybe [Identity])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ChannelMembershipType
+      -&gt; Maybe Identity
+      -&gt; BatchChannelMemberships)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Identity]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Members&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Identity]))
+-&gt; Maybe [Identity] -&gt; Parser (Maybe [Identity])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Identity]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ChannelMembershipType
+   -&gt; Maybe Identity
+   -&gt; BatchChannelMemberships)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ChannelMembershipType
+      -&gt; Maybe Identity -&gt; BatchChannelMemberships)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelMembershipType
+   -&gt; Maybe Identity -&gt; BatchChannelMemberships)
+-&gt; Parser (Maybe ChannelMembershipType)
+-&gt; Parser (Maybe Identity -&gt; BatchChannelMemberships)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelMembershipType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Identity -&gt; BatchChannelMemberships)
+-&gt; Parser (Maybe Identity) -&gt; Parser BatchChannelMemberships
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Identity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvitedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679510748"><span id="local-6989586621679510750"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679510745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier hs-type">BatchChannelMemberships</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

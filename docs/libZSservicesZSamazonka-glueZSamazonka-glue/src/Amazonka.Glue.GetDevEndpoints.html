@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glue.GetDevEndpoints</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves all the development endpoints in this AWS account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When you create a development endpoint in a virtual private cloud (VPC),</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Glue returns only a private IP address and the public IP address field</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- is not populated. When you create a non-VPC development endpoint, Glue</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- returns only a public IP address.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.GetDevEndpoints</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier">GetDevEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#newGetDevEndpoints"><span class="hs-identifier">newGetDevEndpoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpoints_nextToken"><span class="hs-identifier">getDevEndpoints_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpoints_maxResults"><span class="hs-identifier">getDevEndpoints_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier">GetDevEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#newGetDevEndpointsResponse"><span class="hs-identifier">newGetDevEndpointsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_nextToken"><span class="hs-identifier">getDevEndpointsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_devEndpoints"><span class="hs-identifier">getDevEndpointsResponse_devEndpoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_httpStatus"><span class="hs-identifier">getDevEndpointsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.html"><span class="hs-identifier">Amazonka.Glue.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetDevEndpoints' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679728097"><span id="local-6989586621679728098"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevEndpoints"><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-var">GetDevEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevEndpoints%27"><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints%27"><span class="hs-identifier hs-var">GetDevEndpoints'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation call.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AGetDevEndpoints%27"><span class="annot"><span class="annottext">GetDevEndpoints -&gt; Maybe Text
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AnextToken%3AGetDevEndpoints%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum size of information to return.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetDevEndpoints%27"><span class="annot"><span class="annottext">GetDevEndpoints -&gt; Maybe Natural
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AmaxResults%3AGetDevEndpoints%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679728090"><span id="local-6989586621679728092"><span class="annot"><span class="annottext">GetDevEndpoints -&gt; GetDevEndpoints -&gt; Bool
+(GetDevEndpoints -&gt; GetDevEndpoints -&gt; Bool)
+-&gt; (GetDevEndpoints -&gt; GetDevEndpoints -&gt; Bool)
+-&gt; Eq GetDevEndpoints
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDevEndpoints -&gt; GetDevEndpoints -&gt; Bool
+$c/= :: GetDevEndpoints -&gt; GetDevEndpoints -&gt; Bool
+== :: GetDevEndpoints -&gt; GetDevEndpoints -&gt; Bool
+$c== :: GetDevEndpoints -&gt; GetDevEndpoints -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728081"><span id="local-6989586621679728083"><span id="local-6989586621679728085"><span id="local-6989586621679728087"><span class="annot"><span class="annottext">ReadPrec [GetDevEndpoints]
+ReadPrec GetDevEndpoints
+Int -&gt; ReadS GetDevEndpoints
+ReadS [GetDevEndpoints]
+(Int -&gt; ReadS GetDevEndpoints)
+-&gt; ReadS [GetDevEndpoints]
+-&gt; ReadPrec GetDevEndpoints
+-&gt; ReadPrec [GetDevEndpoints]
+-&gt; Read GetDevEndpoints
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDevEndpoints]
+$creadListPrec :: ReadPrec [GetDevEndpoints]
+readPrec :: ReadPrec GetDevEndpoints
+$creadPrec :: ReadPrec GetDevEndpoints
+readList :: ReadS [GetDevEndpoints]
+$creadList :: ReadS [GetDevEndpoints]
+readsPrec :: Int -&gt; ReadS GetDevEndpoints
+$creadsPrec :: Int -&gt; ReadS GetDevEndpoints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728074"><span id="local-6989586621679728076"><span id="local-6989586621679728078"><span class="annot"><span class="annottext">Int -&gt; GetDevEndpoints -&gt; ShowS
+[GetDevEndpoints] -&gt; ShowS
+GetDevEndpoints -&gt; String
+(Int -&gt; GetDevEndpoints -&gt; ShowS)
+-&gt; (GetDevEndpoints -&gt; String)
+-&gt; ([GetDevEndpoints] -&gt; ShowS)
+-&gt; Show GetDevEndpoints
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDevEndpoints] -&gt; ShowS
+$cshowList :: [GetDevEndpoints] -&gt; ShowS
+show :: GetDevEndpoints -&gt; String
+$cshow :: GetDevEndpoints -&gt; String
+showsPrec :: Int -&gt; GetDevEndpoints -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDevEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDevEndpoints -&gt; Rep GetDevEndpoints x)
+-&gt; (forall x. Rep GetDevEndpoints x -&gt; GetDevEndpoints)
+-&gt; Generic GetDevEndpoints
+forall x. Rep GetDevEndpoints x -&gt; GetDevEndpoints
+forall x. GetDevEndpoints -&gt; Rep GetDevEndpoints x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDevEndpoints x -&gt; GetDevEndpoints
+$cfrom :: forall x. GetDevEndpoints -&gt; Rep GetDevEndpoints x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'GetDevEndpoints' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'nextToken', 'getDevEndpoints_nextToken' - A continuation token, if this is a continuation call.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'maxResults', 'getDevEndpoints_maxResults' - The maximum size of information to return.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#newGetDevEndpoints"><span class="hs-identifier hs-type">newGetDevEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span>
+</span><span id="line-80"></span><span id="newGetDevEndpoints"><span class="annot"><span class="annottext">newGetDevEndpoints :: GetDevEndpoints
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#newGetDevEndpoints"><span class="hs-identifier hs-var hs-var">newGetDevEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetDevEndpoints' :: Maybe Text -&gt; Maybe Natural -&gt; GetDevEndpoints
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints%27"><span class="hs-identifier hs-type">GetDevEndpoints'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetDevEndpoints' :: Maybe Text
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AnextToken%3AGetDevEndpoints%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetDevEndpoints' :: Maybe Natural
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AmaxResults%3AGetDevEndpoints%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A continuation token, if this is a continuation call.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpoints_nextToken"><span class="hs-identifier hs-type">getDevEndpoints_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="getDevEndpoints_nextToken"><span class="annot"><span class="annottext">getDevEndpoints_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDevEndpoints -&gt; f GetDevEndpoints
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpoints_nextToken"><span class="hs-identifier hs-var hs-var">getDevEndpoints_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevEndpoints -&gt; Maybe Text)
+-&gt; (GetDevEndpoints -&gt; Maybe Text -&gt; GetDevEndpoints)
+-&gt; Lens GetDevEndpoints GetDevEndpoints (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints%27"><span class="hs-identifier hs-type">GetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728068"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetDevEndpoints' :: GetDevEndpoints -&gt; Maybe Text
+</span><a href="#local-6989586621679728068"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679728068"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679728067"><span class="annot"><span class="annottext">s :: GetDevEndpoints
+</span><a href="#local-6989586621679728067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints%27"><span class="hs-identifier hs-type">GetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679728066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679728066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevEndpoints
+</span><a href="#local-6989586621679728067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDevEndpoints' :: Maybe Text
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AnextToken%3AGetDevEndpoints%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679728066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The maximum size of information to return.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpoints_maxResults"><span class="hs-identifier hs-type">getDevEndpoints_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="getDevEndpoints_maxResults"><span class="annot"><span class="annottext">getDevEndpoints_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetDevEndpoints -&gt; f GetDevEndpoints
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpoints_maxResults"><span class="hs-identifier hs-var hs-var">getDevEndpoints_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevEndpoints -&gt; Maybe Natural)
+-&gt; (GetDevEndpoints -&gt; Maybe Natural -&gt; GetDevEndpoints)
+-&gt; Lens
+     GetDevEndpoints GetDevEndpoints (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints%27"><span class="hs-identifier hs-type">GetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728065"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetDevEndpoints' :: GetDevEndpoints -&gt; Maybe Natural
+</span><a href="#local-6989586621679728065"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679728065"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679728064"><span class="annot"><span class="annottext">s :: GetDevEndpoints
+</span><a href="#local-6989586621679728064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints%27"><span class="hs-identifier hs-type">GetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679728063"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679728063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevEndpoints
+</span><a href="#local-6989586621679728064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetDevEndpoints' :: Maybe Natural
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AmaxResults%3AGetDevEndpoints%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679728063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679728059"><span class="annot"><span class="annottext">page :: GetDevEndpoints
+-&gt; AWSResponse GetDevEndpoints -&gt; Maybe GetDevEndpoints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679728057"><span class="annot"><span class="annottext">GetDevEndpoints
+</span><a href="#local-6989586621679728057"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679728056"><span class="annot"><span class="annottext">AWSResponse GetDevEndpoints
+</span><a href="#local-6989586621679728056"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetDevEndpoints
+GetDevEndpointsResponse
+</span><a href="#local-6989586621679728056"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">GetDevEndpointsResponse
+-&gt; Getting (First Text) GetDevEndpointsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetDevEndpointsResponse
+-&gt; Const (First Text) GetDevEndpointsResponse
+Lens' GetDevEndpointsResponse (Maybe Text)
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_nextToken"><span class="hs-identifier hs-var">getDevEndpointsResponse_nextToken</span></a></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetDevEndpointsResponse
+ -&gt; Const (First Text) GetDevEndpointsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetDevEndpointsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-100"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetDevEndpoints
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetDevEndpoints
+GetDevEndpointsResponse
+</span><a href="#local-6989586621679728056"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">GetDevEndpointsResponse
+-&gt; Getting
+     (First [DevEndpoint]) GetDevEndpointsResponse [DevEndpoint]
+-&gt; Maybe [DevEndpoint]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DevEndpoint]
+ -&gt; Const (First [DevEndpoint]) (Maybe [DevEndpoint]))
+-&gt; GetDevEndpointsResponse
+-&gt; Const (First [DevEndpoint]) GetDevEndpointsResponse
+Lens' GetDevEndpointsResponse (Maybe [DevEndpoint])
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_devEndpoints"><span class="hs-identifier hs-var">getDevEndpointsResponse_devEndpoints</span></a></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [DevEndpoint]
+  -&gt; Const (First [DevEndpoint]) (Maybe [DevEndpoint]))
+ -&gt; GetDevEndpointsResponse
+ -&gt; Const (First [DevEndpoint]) GetDevEndpointsResponse)
+-&gt; (([DevEndpoint] -&gt; Const (First [DevEndpoint]) [DevEndpoint])
+    -&gt; Maybe [DevEndpoint]
+    -&gt; Const (First [DevEndpoint]) (Maybe [DevEndpoint]))
+-&gt; Getting
+     (First [DevEndpoint]) GetDevEndpointsResponse [DevEndpoint]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DevEndpoint] -&gt; Const (First [DevEndpoint]) [DevEndpoint])
+-&gt; Maybe [DevEndpoint]
+-&gt; Const (First [DevEndpoint]) (Maybe [DevEndpoint])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-106"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetDevEndpoints
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">GetDevEndpoints -&gt; Maybe GetDevEndpoints
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetDevEndpoints -&gt; Maybe GetDevEndpoints)
+-&gt; GetDevEndpoints -&gt; Maybe GetDevEndpoints
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">GetDevEndpoints
+</span><a href="#local-6989586621679728057"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">GetDevEndpoints
+-&gt; (GetDevEndpoints -&gt; GetDevEndpoints) -&gt; GetDevEndpoints
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetDevEndpoints -&gt; Identity GetDevEndpoints
+Lens GetDevEndpoints GetDevEndpoints (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpoints_nextToken"><span class="hs-identifier hs-var">getDevEndpoints_nextToken</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetDevEndpoints -&gt; Identity GetDevEndpoints)
+-&gt; Maybe Text -&gt; GetDevEndpoints -&gt; GetDevEndpoints
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetDevEndpoints
+GetDevEndpointsResponse
+</span><a href="#local-6989586621679728056"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">GetDevEndpointsResponse
+-&gt; Getting (First Text) GetDevEndpointsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetDevEndpointsResponse
+-&gt; Const (First Text) GetDevEndpointsResponse
+Lens' GetDevEndpointsResponse (Maybe Text)
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_nextToken"><span class="hs-identifier hs-var">getDevEndpointsResponse_nextToken</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetDevEndpointsResponse
+ -&gt; Const (First Text) GetDevEndpointsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetDevEndpointsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679728046"><span class="annot"><span class="annottext">request :: GetDevEndpoints -&gt; Request GetDevEndpoints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDevEndpoints -&gt; Request GetDevEndpoints
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679728042"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDevEndpoints
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDevEndpoints)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDevEndpoints))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDevEndpoints
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDevEndpoints)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679728039"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679728039"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679728038"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679728038"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679728037"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679728037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [DevEndpoint] -&gt; Int -&gt; GetDevEndpointsResponse
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-var">GetDevEndpointsResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DevEndpoint] -&gt; Int -&gt; GetDevEndpointsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [DevEndpoint] -&gt; Int -&gt; GetDevEndpointsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679728037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [DevEndpoint] -&gt; Int -&gt; GetDevEndpointsResponse)
+-&gt; Either String (Maybe [DevEndpoint])
+-&gt; Either String (Int -&gt; GetDevEndpointsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679728037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DevEndpoint]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DevEndpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DevEndpoint]))
+-&gt; Maybe [DevEndpoint] -&gt; Either String (Maybe [DevEndpoint])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDevEndpointsResponse)
+-&gt; Either String Int -&gt; Either String GetDevEndpointsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679728039"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679728028"><span id="local-6989586621679728030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679728025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679728021"><span class="annot"><span class="annottext">toHeaders :: GetDevEndpoints -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDevEndpoints -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.GetDevEndpoints&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679728011"><span id="local-6989586621679728013"><span id="local-6989586621679728015"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679728009"><span class="annot"><span class="annottext">toJSON :: GetDevEndpoints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints%27"><span class="hs-identifier hs-type">GetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728006"><span id="local-6989586621679728007"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:GetDevEndpoints' :: GetDevEndpoints -&gt; Maybe Natural
+$sel:nextToken:GetDevEndpoints' :: GetDevEndpoints -&gt; Maybe Text
+</span><a href="#local-6989586621679728006"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679728007"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679728006"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679728000"><span class="annot"><span class="annottext">toPath :: GetDevEndpoints -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDevEndpoints -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpoints"><span class="hs-identifier hs-type">GetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679727996"><span class="annot"><span class="annottext">toQuery :: GetDevEndpoints -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDevEndpoints -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newGetDevEndpointsResponse' smart constructor.</span><span>
+</span><span id="line-163"></span><span id="local-6989586621679727993"><span id="local-6989586621679727994"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevEndpointsResponse"><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-var">GetDevEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevEndpointsResponse%27"><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-var">GetDevEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if not all @DevEndpoint@ definitions have yet been</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AnextToken%3AGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">GetDevEndpointsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AnextToken%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | A list of @DevEndpoint@ definitions.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AdevEndpoints%3AGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">GetDevEndpointsResponse -&gt; Maybe [DevEndpoint]
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AdevEndpoints%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">devEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpoint.html#DevEndpoint"><span class="hs-identifier hs-type">DevEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">GetDevEndpointsResponse -&gt; Int
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AhttpStatus%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727986"><span id="local-6989586621679727988"><span class="annot"><span class="annottext">GetDevEndpointsResponse -&gt; GetDevEndpointsResponse -&gt; Bool
+(GetDevEndpointsResponse -&gt; GetDevEndpointsResponse -&gt; Bool)
+-&gt; (GetDevEndpointsResponse -&gt; GetDevEndpointsResponse -&gt; Bool)
+-&gt; Eq GetDevEndpointsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDevEndpointsResponse -&gt; GetDevEndpointsResponse -&gt; Bool
+$c/= :: GetDevEndpointsResponse -&gt; GetDevEndpointsResponse -&gt; Bool
+== :: GetDevEndpointsResponse -&gt; GetDevEndpointsResponse -&gt; Bool
+$c== :: GetDevEndpointsResponse -&gt; GetDevEndpointsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727978"><span id="local-6989586621679727980"><span id="local-6989586621679727982"><span id="local-6989586621679727984"><span class="annot"><span class="annottext">ReadPrec [GetDevEndpointsResponse]
+ReadPrec GetDevEndpointsResponse
+Int -&gt; ReadS GetDevEndpointsResponse
+ReadS [GetDevEndpointsResponse]
+(Int -&gt; ReadS GetDevEndpointsResponse)
+-&gt; ReadS [GetDevEndpointsResponse]
+-&gt; ReadPrec GetDevEndpointsResponse
+-&gt; ReadPrec [GetDevEndpointsResponse]
+-&gt; Read GetDevEndpointsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDevEndpointsResponse]
+$creadListPrec :: ReadPrec [GetDevEndpointsResponse]
+readPrec :: ReadPrec GetDevEndpointsResponse
+$creadPrec :: ReadPrec GetDevEndpointsResponse
+readList :: ReadS [GetDevEndpointsResponse]
+$creadList :: ReadS [GetDevEndpointsResponse]
+readsPrec :: Int -&gt; ReadS GetDevEndpointsResponse
+$creadsPrec :: Int -&gt; ReadS GetDevEndpointsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727972"><span id="local-6989586621679727974"><span id="local-6989586621679727976"><span class="annot"><span class="annottext">Int -&gt; GetDevEndpointsResponse -&gt; ShowS
+[GetDevEndpointsResponse] -&gt; ShowS
+GetDevEndpointsResponse -&gt; String
+(Int -&gt; GetDevEndpointsResponse -&gt; ShowS)
+-&gt; (GetDevEndpointsResponse -&gt; String)
+-&gt; ([GetDevEndpointsResponse] -&gt; ShowS)
+-&gt; Show GetDevEndpointsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDevEndpointsResponse] -&gt; ShowS
+$cshowList :: [GetDevEndpointsResponse] -&gt; ShowS
+show :: GetDevEndpointsResponse -&gt; String
+$cshow :: GetDevEndpointsResponse -&gt; String
+showsPrec :: Int -&gt; GetDevEndpointsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDevEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDevEndpointsResponse -&gt; Rep GetDevEndpointsResponse x)
+-&gt; (forall x.
+    Rep GetDevEndpointsResponse x -&gt; GetDevEndpointsResponse)
+-&gt; Generic GetDevEndpointsResponse
+forall x. Rep GetDevEndpointsResponse x -&gt; GetDevEndpointsResponse
+forall x. GetDevEndpointsResponse -&gt; Rep GetDevEndpointsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDevEndpointsResponse x -&gt; GetDevEndpointsResponse
+$cfrom :: forall x. GetDevEndpointsResponse -&gt; Rep GetDevEndpointsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'GetDevEndpointsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'nextToken', 'getDevEndpointsResponse_nextToken' - A continuation token, if not all @DevEndpoint@ definitions have yet been</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'devEndpoints', 'getDevEndpointsResponse_devEndpoints' - A list of @DevEndpoint@ definitions.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'httpStatus', 'getDevEndpointsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#newGetDevEndpointsResponse"><span class="hs-identifier hs-type">newGetDevEndpointsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newGetDevEndpointsResponse"><span class="annot"><span class="annottext">newGetDevEndpointsResponse :: Int -&gt; GetDevEndpointsResponse
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#newGetDevEndpointsResponse"><span class="hs-identifier hs-var hs-var">newGetDevEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679727969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727969"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">GetDevEndpointsResponse' :: Maybe Text -&gt; Maybe [DevEndpoint] -&gt; Int -&gt; GetDevEndpointsResponse
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-type">GetDevEndpointsResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetDevEndpointsResponse' :: Maybe Text
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AnextToken%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:devEndpoints:GetDevEndpointsResponse' :: Maybe [DevEndpoint]
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AdevEndpoints%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDevEndpointsResponse' :: Int
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AhttpStatus%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727969"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | A continuation token, if not all @DevEndpoint@ definitions have yet been</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_nextToken"><span class="hs-identifier hs-type">getDevEndpointsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="getDevEndpointsResponse_nextToken"><span class="annot"><span class="annottext">getDevEndpointsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDevEndpointsResponse -&gt; f GetDevEndpointsResponse
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getDevEndpointsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevEndpointsResponse -&gt; Maybe Text)
+-&gt; (GetDevEndpointsResponse
+    -&gt; Maybe Text -&gt; GetDevEndpointsResponse)
+-&gt; Lens' GetDevEndpointsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-type">GetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727968"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetDevEndpointsResponse' :: GetDevEndpointsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679727968"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679727968"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727967"><span class="annot"><span class="annottext">s :: GetDevEndpointsResponse
+</span><a href="#local-6989586621679727967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-type">GetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727966"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679727966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevEndpointsResponse
+</span><a href="#local-6989586621679727967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDevEndpointsResponse' :: Maybe Text
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AnextToken%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679727966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A list of @DevEndpoint@ definitions.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_devEndpoints"><span class="hs-identifier hs-type">getDevEndpointsResponse_devEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpoint.html#DevEndpoint"><span class="hs-identifier hs-type">DevEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="getDevEndpointsResponse_devEndpoints"><span class="annot"><span class="annottext">getDevEndpointsResponse_devEndpoints :: (Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+-&gt; GetDevEndpointsResponse -&gt; f GetDevEndpointsResponse
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_devEndpoints"><span class="hs-identifier hs-var hs-var">getDevEndpointsResponse_devEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevEndpointsResponse -&gt; Maybe [DevEndpoint])
+-&gt; (GetDevEndpointsResponse
+    -&gt; Maybe [DevEndpoint] -&gt; GetDevEndpointsResponse)
+-&gt; Lens' GetDevEndpointsResponse (Maybe [DevEndpoint])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-type">GetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727965"><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+devEndpoints :: Maybe [DevEndpoint]
+$sel:devEndpoints:GetDevEndpointsResponse' :: GetDevEndpointsResponse -&gt; Maybe [DevEndpoint]
+</span><a href="#local-6989586621679727965"><span class="hs-identifier hs-var hs-var">devEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+</span><a href="#local-6989586621679727965"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727964"><span class="annot"><span class="annottext">s :: GetDevEndpointsResponse
+</span><a href="#local-6989586621679727964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-type">GetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727963"><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+</span><a href="#local-6989586621679727963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevEndpointsResponse
+</span><a href="#local-6989586621679727964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpoints:GetDevEndpointsResponse' :: Maybe [DevEndpoint]
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AdevEndpoints%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+</span><a href="#local-6989586621679727963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+ -&gt; GetDevEndpointsResponse -&gt; f GetDevEndpointsResponse)
+-&gt; ((Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+    -&gt; Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+-&gt; (Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+-&gt; GetDevEndpointsResponse
+-&gt; f GetDevEndpointsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DevEndpoint] [DevEndpoint] [DevEndpoint] [DevEndpoint]
+-&gt; Iso
+     (Maybe [DevEndpoint])
+     (Maybe [DevEndpoint])
+     (Maybe [DevEndpoint])
+     (Maybe [DevEndpoint])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DevEndpoint] [DevEndpoint] [DevEndpoint] [DevEndpoint]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_httpStatus"><span class="hs-identifier hs-type">getDevEndpointsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="getDevEndpointsResponse_httpStatus"><span class="annot"><span class="annottext">getDevEndpointsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDevEndpointsResponse -&gt; f GetDevEndpointsResponse
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#getDevEndpointsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDevEndpointsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevEndpointsResponse -&gt; Int)
+-&gt; (GetDevEndpointsResponse -&gt; Int -&gt; GetDevEndpointsResponse)
+-&gt; Lens GetDevEndpointsResponse GetDevEndpointsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-type">GetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727960"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDevEndpointsResponse' :: GetDevEndpointsResponse -&gt; Int
+</span><a href="#local-6989586621679727960"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727960"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727959"><span class="annot"><span class="annottext">s :: GetDevEndpointsResponse
+</span><a href="#local-6989586621679727959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse%27"><span class="hs-identifier hs-type">GetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727958"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevEndpointsResponse
+</span><a href="#local-6989586621679727959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDevEndpointsResponse' :: Int
+</span><a href="Amazonka.Glue.GetDevEndpoints.html#%24sel%3AhttpStatus%3AGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetDevEndpoints.html#GetDevEndpointsResponse"><span class="hs-identifier hs-type">GetDevEndpointsResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Outposts.Types.LineItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Outposts.Types.LineItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about a line item.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLineItem' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679159897"><span id="local-6989586621679159898"></span></span><span class="hs-keyword">data</span><span> </span><span id="LineItem"><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-var">LineItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LineItem%27"><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-var">LineItem'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the line item.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Astatus%3ALineItem%27"><span class="annot"><span class="annottext">LineItem -&gt; Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3Astatus%3ALineItem%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The quantity of the line item.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aquantity%3ALineItem%27"><span class="annot"><span class="annottext">LineItem -&gt; Maybe Natural
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3Aquantity%3ALineItem%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the catalog item.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcatalogItemId%3ALineItem%27"><span class="annot"><span class="annottext">LineItem -&gt; Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3AcatalogItemId%3ALineItem%27"><span class="hs-identifier hs-var hs-var">catalogItemId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the line item.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlineItemId%3ALineItem%27"><span class="annot"><span class="annottext">LineItem -&gt; Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3AlineItemId%3ALineItem%27"><span class="hs-identifier hs-var hs-var">lineItemId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159888"><span id="local-6989586621679159890"><span class="annot"><span class="annottext">LineItem -&gt; LineItem -&gt; Bool
+(LineItem -&gt; LineItem -&gt; Bool)
+-&gt; (LineItem -&gt; LineItem -&gt; Bool) -&gt; Eq LineItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LineItem -&gt; LineItem -&gt; Bool
+$c/= :: LineItem -&gt; LineItem -&gt; Bool
+== :: LineItem -&gt; LineItem -&gt; Bool
+$c== :: LineItem -&gt; LineItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159879"><span id="local-6989586621679159881"><span id="local-6989586621679159883"><span id="local-6989586621679159885"><span class="annot"><span class="annottext">ReadPrec [LineItem]
+ReadPrec LineItem
+Int -&gt; ReadS LineItem
+ReadS [LineItem]
+(Int -&gt; ReadS LineItem)
+-&gt; ReadS [LineItem]
+-&gt; ReadPrec LineItem
+-&gt; ReadPrec [LineItem]
+-&gt; Read LineItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LineItem]
+$creadListPrec :: ReadPrec [LineItem]
+readPrec :: ReadPrec LineItem
+$creadPrec :: ReadPrec LineItem
+readList :: ReadS [LineItem]
+$creadList :: ReadS [LineItem]
+readsPrec :: Int -&gt; ReadS LineItem
+$creadsPrec :: Int -&gt; ReadS LineItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159872"><span id="local-6989586621679159874"><span id="local-6989586621679159876"><span class="annot"><span class="annottext">Int -&gt; LineItem -&gt; ShowS
+[LineItem] -&gt; ShowS
+LineItem -&gt; String
+(Int -&gt; LineItem -&gt; ShowS)
+-&gt; (LineItem -&gt; String) -&gt; ([LineItem] -&gt; ShowS) -&gt; Show LineItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LineItem] -&gt; ShowS
+$cshowList :: [LineItem] -&gt; ShowS
+show :: LineItem -&gt; String
+$cshow :: LineItem -&gt; String
+showsPrec :: Int -&gt; LineItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; LineItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LineItem -&gt; Rep LineItem x)
+-&gt; (forall x. Rep LineItem x -&gt; LineItem) -&gt; Generic LineItem
+forall x. Rep LineItem x -&gt; LineItem
+forall x. LineItem -&gt; Rep LineItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LineItem x -&gt; LineItem
+$cfrom :: forall x. LineItem -&gt; Rep LineItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'LineItem' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'status', 'lineItem_status' - The status of the line item.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'quantity', 'lineItem_quantity' - The quantity of the line item.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'catalogItemId', 'lineItem_catalogItemId' - The ID of the catalog item.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'lineItemId', 'lineItem_lineItemId' - The ID of the line item.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#newLineItem"><span class="hs-identifier hs-type">newLineItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span>
+</span><span id="line-58"></span><span id="newLineItem"><span class="annot"><span class="annottext">newLineItem :: LineItem
+</span><a href="Amazonka.Outposts.Types.LineItem.html#newLineItem"><span class="hs-identifier hs-var hs-var">newLineItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">LineItem' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; Maybe Text -&gt; LineItem
+</span><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:LineItem' :: Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3Astatus%3ALineItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:LineItem' :: Maybe Natural
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3Aquantity%3ALineItem%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogItemId:LineItem' :: Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3AcatalogItemId%3ALineItem%27"><span class="hs-identifier hs-var">catalogItemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:lineItemId:LineItem' :: Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3AlineItemId%3ALineItem%27"><span class="hs-identifier hs-var">lineItemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The status of the line item.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_status"><span class="hs-identifier hs-type">lineItem_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="lineItem_status"><span class="annot"><span class="annottext">lineItem_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LineItem -&gt; f LineItem
+</span><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_status"><span class="hs-identifier hs-var hs-var">lineItem_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LineItem -&gt; Maybe Text)
+-&gt; (LineItem -&gt; Maybe Text -&gt; LineItem)
+-&gt; Lens LineItem LineItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159863"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:LineItem' :: LineItem -&gt; Maybe Text
+</span><a href="#local-6989586621679159863"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159863"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159862"><span class="annot"><span class="annottext">s :: LineItem
+</span><a href="#local-6989586621679159862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItem
+</span><a href="#local-6989586621679159862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:LineItem' :: Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3Astatus%3ALineItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The quantity of the line item.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_quantity"><span class="hs-identifier hs-type">lineItem_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="lineItem_quantity"><span class="annot"><span class="annottext">lineItem_quantity :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LineItem -&gt; f LineItem
+</span><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_quantity"><span class="hs-identifier hs-var hs-var">lineItem_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LineItem -&gt; Maybe Natural)
+-&gt; (LineItem -&gt; Maybe Natural -&gt; LineItem)
+-&gt; Lens LineItem LineItem (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159859"><span class="annot"><span class="annottext">Maybe Natural
+quantity :: Maybe Natural
+$sel:quantity:LineItem' :: LineItem -&gt; Maybe Natural
+</span><a href="#local-6989586621679159859"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679159859"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159858"><span class="annot"><span class="annottext">s :: LineItem
+</span><a href="#local-6989586621679159858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159857"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679159857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItem
+</span><a href="#local-6989586621679159858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:LineItem' :: Maybe Natural
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3Aquantity%3ALineItem%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679159857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ID of the catalog item.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_catalogItemId"><span class="hs-identifier hs-type">lineItem_catalogItemId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="lineItem_catalogItemId"><span class="annot"><span class="annottext">lineItem_catalogItemId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LineItem -&gt; f LineItem
+</span><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_catalogItemId"><span class="hs-identifier hs-var hs-var">lineItem_catalogItemId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LineItem -&gt; Maybe Text)
+-&gt; (LineItem -&gt; Maybe Text -&gt; LineItem)
+-&gt; Lens LineItem LineItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159855"><span class="annot"><span class="annottext">Maybe Text
+catalogItemId :: Maybe Text
+$sel:catalogItemId:LineItem' :: LineItem -&gt; Maybe Text
+</span><a href="#local-6989586621679159855"><span class="hs-identifier hs-var hs-var">catalogItemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159855"><span class="hs-identifier hs-var">catalogItemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159854"><span class="annot"><span class="annottext">s :: LineItem
+</span><a href="#local-6989586621679159854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159853"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItem
+</span><a href="#local-6989586621679159854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogItemId:LineItem' :: Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3AcatalogItemId%3ALineItem%27"><span class="hs-identifier hs-var">catalogItemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the line item.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_lineItemId"><span class="hs-identifier hs-type">lineItem_lineItemId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="lineItem_lineItemId"><span class="annot"><span class="annottext">lineItem_lineItemId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LineItem -&gt; f LineItem
+</span><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_lineItemId"><span class="hs-identifier hs-var hs-var">lineItem_lineItemId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LineItem -&gt; Maybe Text)
+-&gt; (LineItem -&gt; Maybe Text -&gt; LineItem)
+-&gt; Lens LineItem LineItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159851"><span class="annot"><span class="annottext">Maybe Text
+lineItemId :: Maybe Text
+$sel:lineItemId:LineItem' :: LineItem -&gt; Maybe Text
+</span><a href="#local-6989586621679159851"><span class="hs-identifier hs-var hs-var">lineItemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159851"><span class="hs-identifier hs-var">lineItemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159850"><span class="annot"><span class="annottext">s :: LineItem
+</span><a href="#local-6989586621679159850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-type">LineItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159849"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LineItem
+</span><a href="#local-6989586621679159850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineItemId:LineItem' :: Maybe Text
+</span><a href="Amazonka.Outposts.Types.LineItem.html#%24sel%3AlineItemId%3ALineItem%27"><span class="hs-identifier hs-var">lineItemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159846"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679159844"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LineItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LineItem) -&gt; Value -&gt; Parser LineItem
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LineItem&quot;</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159841"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; Maybe Text -&gt; LineItem
+</span><a href="Amazonka.Outposts.Types.LineItem.html#LineItem%27"><span class="hs-identifier hs-var">LineItem'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Natural -&gt; Maybe Text -&gt; Maybe Text -&gt; LineItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; Maybe Text -&gt; Maybe Text -&gt; LineItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; Maybe Text -&gt; LineItem)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LineItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; LineItem)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; LineItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogItemId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LineItem)
+-&gt; Parser (Maybe Text) -&gt; Parser LineItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LineItemId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159835"><span id="local-6989586621679159837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#LineItem"><span class="hs-identifier hs-type">LineItem</span></a></span></span><span>
+</span><span id="line-97"></span></pre></body></html>

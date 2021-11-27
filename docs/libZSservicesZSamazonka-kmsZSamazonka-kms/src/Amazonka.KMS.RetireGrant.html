@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.KMS.RetireGrant</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a grant. Typically, you retire a grant when you no longer need</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- its permissions. To identify the grant to retire, use a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token grant token&gt;,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- or both the grant ID and a key identifier (key ID or key ARN) of the KMS</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- key. The CreateGrant operation returns both values.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation can be called by the /retiring principal/ for a grant, by</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the /grantee principal/ if the grant allows the @RetireGrant@ operation,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- and by the Amazon Web Services account (root user) in which the grant is</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- created. It can also be called by principals to whom permission for</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- retiring a grant is delegated. For details, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete Retiring and revoking grants&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- For detailed information about grants, including grant terminology, see</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Using grants&gt;</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- in the //Key Management Service Developer Guide// . For examples of</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- working with grants in several programming languages, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html Programming grants&gt;.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- __Cross-account use__: Yes. You can retire a grant on a KMS key in a</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- different Amazon Web Services account.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- __Required permissions:__:Permission to retire a grant is determined</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- primarily by the grant. For details, see</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete Retiring and revoking grants&gt;</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- __Related operations:__</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   CreateGrant</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- -   ListGrants</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- -   ListRetirableGrants</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   RevokeGrant</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KMS.RetireGrant</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier">RetireGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#newRetireGrant"><span class="hs-identifier">newRetireGrant</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#retireGrant_keyId"><span class="hs-identifier">retireGrant_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#retireGrant_grantId"><span class="hs-identifier">retireGrant_grantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#retireGrant_grantToken"><span class="hs-identifier">retireGrant_grantToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse"><span class="hs-identifier">RetireGrantResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#newRetireGrantResponse"><span class="hs-identifier">newRetireGrantResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.html"><span class="hs-identifier">Amazonka.KMS.Types</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newRetireGrant' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679251889"><span id="local-6989586621679251890"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetireGrant"><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-var">RetireGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetireGrant%27"><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-var">RetireGrant'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key ARN KMS key associated with the grant. To find the key ARN, use</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- the ListKeys operation.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AkeyId%3ARetireGrant%27"><span class="annot"><span class="annottext">RetireGrant -&gt; Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AkeyId%3ARetireGrant%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Identifies the grant to retire. To get the grant ID, use CreateGrant,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- ListGrants, or ListRetirableGrants.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   Grant ID Example -</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     0123456789012345678901234567890123456789012345678901234567890123</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AgrantId%3ARetireGrant%27"><span class="annot"><span class="annottext">RetireGrant -&gt; Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AgrantId%3ARetireGrant%27"><span class="hs-identifier hs-var hs-var">grantId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | Identifies the grant to be retired. You can use a grant token to</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- identify a new grant even before it has achieved eventual consistency.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- Only the CreateGrant operation returns a grant token. For details, see</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency Eventual consistency&gt;</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AgrantToken%3ARetireGrant%27"><span class="annot"><span class="annottext">RetireGrant -&gt; Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AgrantToken%3ARetireGrant%27"><span class="hs-identifier hs-var hs-var">grantToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251881"><span id="local-6989586621679251883"><span class="annot"><span class="annottext">RetireGrant -&gt; RetireGrant -&gt; Bool
+(RetireGrant -&gt; RetireGrant -&gt; Bool)
+-&gt; (RetireGrant -&gt; RetireGrant -&gt; Bool) -&gt; Eq RetireGrant
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetireGrant -&gt; RetireGrant -&gt; Bool
+$c/= :: RetireGrant -&gt; RetireGrant -&gt; Bool
+== :: RetireGrant -&gt; RetireGrant -&gt; Bool
+$c== :: RetireGrant -&gt; RetireGrant -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251872"><span id="local-6989586621679251874"><span id="local-6989586621679251876"><span id="local-6989586621679251878"><span class="annot"><span class="annottext">ReadPrec [RetireGrant]
+ReadPrec RetireGrant
+Int -&gt; ReadS RetireGrant
+ReadS [RetireGrant]
+(Int -&gt; ReadS RetireGrant)
+-&gt; ReadS [RetireGrant]
+-&gt; ReadPrec RetireGrant
+-&gt; ReadPrec [RetireGrant]
+-&gt; Read RetireGrant
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RetireGrant]
+$creadListPrec :: ReadPrec [RetireGrant]
+readPrec :: ReadPrec RetireGrant
+$creadPrec :: ReadPrec RetireGrant
+readList :: ReadS [RetireGrant]
+$creadList :: ReadS [RetireGrant]
+readsPrec :: Int -&gt; ReadS RetireGrant
+$creadsPrec :: Int -&gt; ReadS RetireGrant
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251865"><span id="local-6989586621679251867"><span id="local-6989586621679251869"><span class="annot"><span class="annottext">Int -&gt; RetireGrant -&gt; ShowS
+[RetireGrant] -&gt; ShowS
+RetireGrant -&gt; String
+(Int -&gt; RetireGrant -&gt; ShowS)
+-&gt; (RetireGrant -&gt; String)
+-&gt; ([RetireGrant] -&gt; ShowS)
+-&gt; Show RetireGrant
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetireGrant] -&gt; ShowS
+$cshowList :: [RetireGrant] -&gt; ShowS
+show :: RetireGrant -&gt; String
+$cshow :: RetireGrant -&gt; String
+showsPrec :: Int -&gt; RetireGrant -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetireGrant -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RetireGrant -&gt; Rep RetireGrant x)
+-&gt; (forall x. Rep RetireGrant x -&gt; RetireGrant)
+-&gt; Generic RetireGrant
+forall x. Rep RetireGrant x -&gt; RetireGrant
+forall x. RetireGrant -&gt; Rep RetireGrant x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RetireGrant x -&gt; RetireGrant
+$cfrom :: forall x. RetireGrant -&gt; Rep RetireGrant x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Create a value of 'RetireGrant' with all optional fields omitted.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'keyId', 'retireGrant_keyId' - The key ARN KMS key associated with the grant. To find the key ARN, use</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- the ListKeys operation.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'grantId', 'retireGrant_grantId' - Identifies the grant to retire. To get the grant ID, use CreateGrant,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- ListGrants, or ListRetirableGrants.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   Grant ID Example -</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     0123456789012345678901234567890123456789012345678901234567890123</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'grantToken', 'retireGrant_grantToken' - Identifies the grant to be retired. You can use a grant token to</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- identify a new grant even before it has achieved eventual consistency.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Only the CreateGrant operation returns a grant token. For details, see</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency Eventual consistency&gt;</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#newRetireGrant"><span class="hs-identifier hs-type">newRetireGrant</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span>
+</span><span id="line-139"></span><span id="newRetireGrant"><span class="annot"><span class="annottext">newRetireGrant :: RetireGrant
+</span><a href="Amazonka.KMS.RetireGrant.html#newRetireGrant"><span class="hs-identifier hs-var hs-var">newRetireGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">RetireGrant' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RetireGrant
+</span><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:RetireGrant' :: Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AkeyId%3ARetireGrant%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantId:RetireGrant' :: Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AgrantId%3ARetireGrant%27"><span class="hs-identifier hs-var">grantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantToken:RetireGrant' :: Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AgrantToken%3ARetireGrant%27"><span class="hs-identifier hs-var">grantToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The key ARN KMS key associated with the grant. To find the key ARN, use</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the ListKeys operation.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#retireGrant_keyId"><span class="hs-identifier hs-type">retireGrant_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="retireGrant_keyId"><span class="annot"><span class="annottext">retireGrant_keyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RetireGrant -&gt; f RetireGrant
+</span><a href="Amazonka.KMS.RetireGrant.html#retireGrant_keyId"><span class="hs-identifier hs-var hs-var">retireGrant_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetireGrant -&gt; Maybe Text)
+-&gt; (RetireGrant -&gt; Maybe Text -&gt; RetireGrant)
+-&gt; Lens RetireGrant RetireGrant (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251858"><span class="annot"><span class="annottext">Maybe Text
+keyId :: Maybe Text
+$sel:keyId:RetireGrant' :: RetireGrant -&gt; Maybe Text
+</span><a href="#local-6989586621679251858"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251858"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251857"><span class="annot"><span class="annottext">s :: RetireGrant
+</span><a href="#local-6989586621679251857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetireGrant
+</span><a href="#local-6989586621679251857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:RetireGrant' :: Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AkeyId%3ARetireGrant%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Identifies the grant to retire. To get the grant ID, use CreateGrant,</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- ListGrants, or ListRetirableGrants.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   Grant ID Example -</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     0123456789012345678901234567890123456789012345678901234567890123</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#retireGrant_grantId"><span class="hs-identifier hs-type">retireGrant_grantId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="retireGrant_grantId"><span class="annot"><span class="annottext">retireGrant_grantId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RetireGrant -&gt; f RetireGrant
+</span><a href="Amazonka.KMS.RetireGrant.html#retireGrant_grantId"><span class="hs-identifier hs-var hs-var">retireGrant_grantId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetireGrant -&gt; Maybe Text)
+-&gt; (RetireGrant -&gt; Maybe Text -&gt; RetireGrant)
+-&gt; Lens RetireGrant RetireGrant (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251855"><span class="annot"><span class="annottext">Maybe Text
+grantId :: Maybe Text
+$sel:grantId:RetireGrant' :: RetireGrant -&gt; Maybe Text
+</span><a href="#local-6989586621679251855"><span class="hs-identifier hs-var hs-var">grantId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251855"><span class="hs-identifier hs-var">grantId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251854"><span class="annot"><span class="annottext">s :: RetireGrant
+</span><a href="#local-6989586621679251854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251853"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetireGrant
+</span><a href="#local-6989586621679251854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantId:RetireGrant' :: Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AgrantId%3ARetireGrant%27"><span class="hs-identifier hs-var">grantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Identifies the grant to be retired. You can use a grant token to</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- identify a new grant even before it has achieved eventual consistency.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Only the CreateGrant operation returns a grant token. For details, see</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency Eventual consistency&gt;</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#retireGrant_grantToken"><span class="hs-identifier hs-type">retireGrant_grantToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="retireGrant_grantToken"><span class="annot"><span class="annottext">retireGrant_grantToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RetireGrant -&gt; f RetireGrant
+</span><a href="Amazonka.KMS.RetireGrant.html#retireGrant_grantToken"><span class="hs-identifier hs-var hs-var">retireGrant_grantToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetireGrant -&gt; Maybe Text)
+-&gt; (RetireGrant -&gt; Maybe Text -&gt; RetireGrant)
+-&gt; Lens RetireGrant RetireGrant (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251852"><span class="annot"><span class="annottext">Maybe Text
+grantToken :: Maybe Text
+$sel:grantToken:RetireGrant' :: RetireGrant -&gt; Maybe Text
+</span><a href="#local-6989586621679251852"><span class="hs-identifier hs-var hs-var">grantToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251852"><span class="hs-identifier hs-var">grantToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251851"><span class="annot"><span class="annottext">s :: RetireGrant
+</span><a href="#local-6989586621679251851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetireGrant
+</span><a href="#local-6989586621679251851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantToken:RetireGrant' :: Maybe Text
+</span><a href="Amazonka.KMS.RetireGrant.html#%24sel%3AgrantToken%3ARetireGrant%27"><span class="hs-identifier hs-var">grantToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse"><span class="hs-identifier hs-type">RetireGrantResponse</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679251846"><span class="annot"><span class="annottext">request :: RetireGrant -&gt; Request RetireGrant
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RetireGrant -&gt; Request RetireGrant
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679251842"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RetireGrant
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RetireGrant)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse RetireGrant
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RetireGrant
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RetireGrant)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse RetireGrant
+RetireGrantResponse
+</span><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse%27"><span class="hs-identifier hs-var">RetireGrantResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251835"><span id="local-6989586621679251837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679251828"><span class="annot"><span class="annottext">toHeaders :: RetireGrant -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RetireGrant -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrentService.RetireGrant&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251818"><span id="local-6989586621679251820"><span id="local-6989586621679251822"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679251816"><span class="annot"><span class="annottext">toJSON :: RetireGrant -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant%27"><span class="hs-identifier hs-type">RetireGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251812"><span id="local-6989586621679251813"><span id="local-6989586621679251814"><span class="annot"><span class="annottext">Maybe Text
+grantToken :: Maybe Text
+grantId :: Maybe Text
+keyId :: Maybe Text
+$sel:grantToken:RetireGrant' :: RetireGrant -&gt; Maybe Text
+$sel:grantId:RetireGrant' :: RetireGrant -&gt; Maybe Text
+$sel:keyId:RetireGrant' :: RetireGrant -&gt; Maybe Text
+</span><a href="#local-6989586621679251812"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251814"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrantId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251813"><span class="hs-identifier hs-var">grantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrantToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251812"><span class="hs-identifier hs-var">grantToken</span></a></span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679251805"><span class="annot"><span class="annottext">toPath :: RetireGrant -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RetireGrant -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrant"><span class="hs-identifier hs-type">RetireGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679251801"><span class="annot"><span class="annottext">toQuery :: RetireGrant -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RetireGrant -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newRetireGrantResponse' smart constructor.</span><span>
+</span><span id="line-212"></span><span id="local-6989586621679251798"><span id="local-6989586621679251799"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetireGrantResponse"><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse"><span class="hs-identifier hs-var">RetireGrantResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetireGrantResponse%27"><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse%27"><span class="hs-identifier hs-var">RetireGrantResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251794"><span id="local-6989586621679251796"><span class="annot"><span class="annottext">RetireGrantResponse -&gt; RetireGrantResponse -&gt; Bool
+(RetireGrantResponse -&gt; RetireGrantResponse -&gt; Bool)
+-&gt; (RetireGrantResponse -&gt; RetireGrantResponse -&gt; Bool)
+-&gt; Eq RetireGrantResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetireGrantResponse -&gt; RetireGrantResponse -&gt; Bool
+$c/= :: RetireGrantResponse -&gt; RetireGrantResponse -&gt; Bool
+== :: RetireGrantResponse -&gt; RetireGrantResponse -&gt; Bool
+$c== :: RetireGrantResponse -&gt; RetireGrantResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251786"><span id="local-6989586621679251788"><span id="local-6989586621679251790"><span id="local-6989586621679251792"><span class="annot"><span class="annottext">ReadPrec [RetireGrantResponse]
+ReadPrec RetireGrantResponse
+Int -&gt; ReadS RetireGrantResponse
+ReadS [RetireGrantResponse]
+(Int -&gt; ReadS RetireGrantResponse)
+-&gt; ReadS [RetireGrantResponse]
+-&gt; ReadPrec RetireGrantResponse
+-&gt; ReadPrec [RetireGrantResponse]
+-&gt; Read RetireGrantResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RetireGrantResponse]
+$creadListPrec :: ReadPrec [RetireGrantResponse]
+readPrec :: ReadPrec RetireGrantResponse
+$creadPrec :: ReadPrec RetireGrantResponse
+readList :: ReadS [RetireGrantResponse]
+$creadList :: ReadS [RetireGrantResponse]
+readsPrec :: Int -&gt; ReadS RetireGrantResponse
+$creadsPrec :: Int -&gt; ReadS RetireGrantResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251780"><span id="local-6989586621679251782"><span id="local-6989586621679251784"><span class="annot"><span class="annottext">Int -&gt; RetireGrantResponse -&gt; ShowS
+[RetireGrantResponse] -&gt; ShowS
+RetireGrantResponse -&gt; String
+(Int -&gt; RetireGrantResponse -&gt; ShowS)
+-&gt; (RetireGrantResponse -&gt; String)
+-&gt; ([RetireGrantResponse] -&gt; ShowS)
+-&gt; Show RetireGrantResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetireGrantResponse] -&gt; ShowS
+$cshowList :: [RetireGrantResponse] -&gt; ShowS
+show :: RetireGrantResponse -&gt; String
+$cshow :: RetireGrantResponse -&gt; String
+showsPrec :: Int -&gt; RetireGrantResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetireGrantResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RetireGrantResponse -&gt; Rep RetireGrantResponse x)
+-&gt; (forall x. Rep RetireGrantResponse x -&gt; RetireGrantResponse)
+-&gt; Generic RetireGrantResponse
+forall x. Rep RetireGrantResponse x -&gt; RetireGrantResponse
+forall x. RetireGrantResponse -&gt; Rep RetireGrantResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RetireGrantResponse x -&gt; RetireGrantResponse
+$cfrom :: forall x. RetireGrantResponse -&gt; Rep RetireGrantResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'RetireGrantResponse' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#newRetireGrantResponse"><span class="hs-identifier hs-type">newRetireGrantResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse"><span class="hs-identifier hs-type">RetireGrantResponse</span></a></span><span>
+</span><span id="line-223"></span><span id="newRetireGrantResponse"><span class="annot"><span class="annottext">newRetireGrantResponse :: RetireGrantResponse
+</span><a href="Amazonka.KMS.RetireGrant.html#newRetireGrantResponse"><span class="hs-identifier hs-var hs-var">newRetireGrantResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RetireGrantResponse
+</span><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse%27"><span class="hs-identifier hs-var">RetireGrantResponse'</span></a></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.RetireGrant.html#RetireGrantResponse"><span class="hs-identifier hs-type">RetireGrantResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

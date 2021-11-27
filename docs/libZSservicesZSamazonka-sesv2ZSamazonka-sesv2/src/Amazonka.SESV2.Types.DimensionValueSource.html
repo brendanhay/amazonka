@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SESV2.Types.DimensionValueSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SESV2.Types.DimensionValueSource</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier">DimensionValueSource</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_EMAIL_HEADER"><span class="hs-identifier">DimensionValueSource_EMAIL_HEADER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_LINK_TAG"><span class="hs-identifier">DimensionValueSource_LINK_TAG</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_MESSAGE_TAG"><span class="hs-identifier">DimensionValueSource_MESSAGE_TAG</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The location where the Amazon SES API v2 finds the value of a dimension</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- to publish to Amazon CloudWatch. To use the message tags that you</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- email headers, choose @emailHeader@. To use link tags, choose</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @linkTags@.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679326218"><span id="local-6989586621679326219"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DimensionValueSource"><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-var">DimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionValueSource%27"><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-var">DimensionValueSource'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDimensionValueSource"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
+</span><a href="Amazonka.SESV2.Types.DimensionValueSource.html#fromDimensionValueSource"><span class="hs-identifier hs-var hs-var">fromDimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326210"><span id="local-6989586621679326212"><span id="local-6989586621679326214"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; ShowS
+[DimensionValueSource] -&gt; ShowS
+DimensionValueSource -&gt; String
+(Int -&gt; DimensionValueSource -&gt; ShowS)
+-&gt; (DimensionValueSource -&gt; String)
+-&gt; ([DimensionValueSource] -&gt; ShowS)
+-&gt; Show DimensionValueSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DimensionValueSource] -&gt; ShowS
+$cshowList :: [DimensionValueSource] -&gt; ShowS
+show :: DimensionValueSource -&gt; String
+$cshow :: DimensionValueSource -&gt; String
+showsPrec :: Int -&gt; DimensionValueSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DimensionValueSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326201"><span id="local-6989586621679326203"><span id="local-6989586621679326205"><span id="local-6989586621679326207"><span class="annot"><span class="annottext">ReadPrec [DimensionValueSource]
+ReadPrec DimensionValueSource
+Int -&gt; ReadS DimensionValueSource
+ReadS [DimensionValueSource]
+(Int -&gt; ReadS DimensionValueSource)
+-&gt; ReadS [DimensionValueSource]
+-&gt; ReadPrec DimensionValueSource
+-&gt; ReadPrec [DimensionValueSource]
+-&gt; Read DimensionValueSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DimensionValueSource]
+$creadListPrec :: ReadPrec [DimensionValueSource]
+readPrec :: ReadPrec DimensionValueSource
+$creadPrec :: ReadPrec DimensionValueSource
+readList :: ReadS [DimensionValueSource]
+$creadList :: ReadS [DimensionValueSource]
+readsPrec :: Int -&gt; ReadS DimensionValueSource
+$creadsPrec :: Int -&gt; ReadS DimensionValueSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326196"><span id="local-6989586621679326198"><span class="annot"><span class="annottext">DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+(DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
+-&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
+-&gt; Eq DimensionValueSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+$c/= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+== :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+$c== :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326180"><span id="local-6989586621679326182"><span id="local-6989586621679326184"><span id="local-6989586621679326186"><span id="local-6989586621679326188"><span id="local-6989586621679326190"><span id="local-6989586621679326192"><span class="annot"><span class="annottext">Eq DimensionValueSource
+Eq DimensionValueSource
+-&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Ordering)
+-&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
+-&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
+-&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
+-&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
+-&gt; (DimensionValueSource
+    -&gt; DimensionValueSource -&gt; DimensionValueSource)
+-&gt; (DimensionValueSource
+    -&gt; DimensionValueSource -&gt; DimensionValueSource)
+-&gt; Ord DimensionValueSource
+DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+DimensionValueSource -&gt; DimensionValueSource -&gt; Ordering
+DimensionValueSource
+-&gt; DimensionValueSource -&gt; DimensionValueSource
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DimensionValueSource
+-&gt; DimensionValueSource -&gt; DimensionValueSource
+$cmin :: DimensionValueSource
+-&gt; DimensionValueSource -&gt; DimensionValueSource
+max :: DimensionValueSource
+-&gt; DimensionValueSource -&gt; DimensionValueSource
+$cmax :: DimensionValueSource
+-&gt; DimensionValueSource -&gt; DimensionValueSource
+&gt;= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+$c&gt;= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+&gt; :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+$c&gt; :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+&lt;= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+$c&lt;= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+&lt; :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+$c&lt; :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+compare :: DimensionValueSource -&gt; DimensionValueSource -&gt; Ordering
+$ccompare :: DimensionValueSource -&gt; DimensionValueSource -&gt; Ordering
+$cp1Ord :: Eq DimensionValueSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DimensionValueSource -&gt; Rep DimensionValueSource x)
+-&gt; (forall x. Rep DimensionValueSource x -&gt; DimensionValueSource)
+-&gt; Generic DimensionValueSource
+forall x. Rep DimensionValueSource x -&gt; DimensionValueSource
+forall x. DimensionValueSource -&gt; Rep DimensionValueSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DimensionValueSource x -&gt; DimensionValueSource
+$cfrom :: forall x. DimensionValueSource -&gt; Rep DimensionValueSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326172"><span id="local-6989586621679326174"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; Int
+DimensionValueSource -&gt; Int
+(Int -&gt; DimensionValueSource -&gt; Int)
+-&gt; (DimensionValueSource -&gt; Int) -&gt; Hashable DimensionValueSource
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DimensionValueSource -&gt; Int
+$chash :: DimensionValueSource -&gt; Int
+hashWithSalt :: Int -&gt; DimensionValueSource -&gt; Int
+$chashWithSalt :: Int -&gt; DimensionValueSource -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326169"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ()
+(DimensionValueSource -&gt; ()) -&gt; NFData DimensionValueSource
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DimensionValueSource -&gt; ()
+$crnf :: DimensionValueSource -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326166"><span class="annot"><span class="annottext">Text -&gt; Either String DimensionValueSource
+(Text -&gt; Either String DimensionValueSource)
+-&gt; FromText DimensionValueSource
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DimensionValueSource
+$cfromText :: Text -&gt; Either String DimensionValueSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326163"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
+(DimensionValueSource -&gt; Text) -&gt; ToText DimensionValueSource
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DimensionValueSource -&gt; Text
+$ctoText :: DimensionValueSource -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326160"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteString
+(DimensionValueSource -&gt; ByteString)
+-&gt; ToByteString DimensionValueSource
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DimensionValueSource -&gt; ByteString
+$ctoBS :: DimensionValueSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326157"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteStringBuilder
+(DimensionValueSource -&gt; ByteStringBuilder)
+-&gt; ToLog DimensionValueSource
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DimensionValueSource -&gt; ByteStringBuilder
+$cbuild :: DimensionValueSource -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326154"><span class="annot"><span class="annottext">HeaderName -&gt; DimensionValueSource -&gt; [Header]
+(HeaderName -&gt; DimensionValueSource -&gt; [Header])
+-&gt; ToHeader DimensionValueSource
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DimensionValueSource -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DimensionValueSource -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326151"><span class="annot"><span class="annottext">DimensionValueSource -&gt; QueryString
+(DimensionValueSource -&gt; QueryString)
+-&gt; ToQuery DimensionValueSource
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DimensionValueSource -&gt; QueryString
+$ctoQuery :: DimensionValueSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326146"><span id="local-6989586621679326148"><span class="annot"><span class="annottext">Value -&gt; Parser [DimensionValueSource]
+Value -&gt; Parser DimensionValueSource
+(Value -&gt; Parser DimensionValueSource)
+-&gt; (Value -&gt; Parser [DimensionValueSource])
+-&gt; FromJSON DimensionValueSource
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DimensionValueSource]
+$cparseJSONList :: Value -&gt; Parser [DimensionValueSource]
+parseJSON :: Value -&gt; Parser DimensionValueSource
+$cparseJSON :: Value -&gt; Parser DimensionValueSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679326141"><span id="local-6989586621679326143"><span class="annot"><span class="annottext">FromJSONKeyFunction [DimensionValueSource]
+FromJSONKeyFunction DimensionValueSource
+FromJSONKeyFunction DimensionValueSource
+-&gt; FromJSONKeyFunction [DimensionValueSource]
+-&gt; FromJSONKey DimensionValueSource
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DimensionValueSource]
+$cfromJSONKeyList :: FromJSONKeyFunction [DimensionValueSource]
+fromJSONKey :: FromJSONKeyFunction DimensionValueSource
+$cfromJSONKey :: FromJSONKeyFunction DimensionValueSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679326132"><span id="local-6989586621679326134"><span id="local-6989586621679326136"><span id="local-6989586621679326138"><span class="annot"><span class="annottext">[DimensionValueSource] -&gt; Encoding
+[DimensionValueSource] -&gt; Value
+DimensionValueSource -&gt; Encoding
+DimensionValueSource -&gt; Value
+(DimensionValueSource -&gt; Value)
+-&gt; (DimensionValueSource -&gt; Encoding)
+-&gt; ([DimensionValueSource] -&gt; Value)
+-&gt; ([DimensionValueSource] -&gt; Encoding)
+-&gt; ToJSON DimensionValueSource
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DimensionValueSource] -&gt; Encoding
+$ctoEncodingList :: [DimensionValueSource] -&gt; Encoding
+toJSONList :: [DimensionValueSource] -&gt; Value
+$ctoJSONList :: [DimensionValueSource] -&gt; Value
+toEncoding :: DimensionValueSource -&gt; Encoding
+$ctoEncoding :: DimensionValueSource -&gt; Encoding
+toJSON :: DimensionValueSource -&gt; Value
+$ctoJSON :: DimensionValueSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679326127"><span id="local-6989586621679326129"><span class="annot"><span class="annottext">ToJSONKeyFunction [DimensionValueSource]
+ToJSONKeyFunction DimensionValueSource
+ToJSONKeyFunction DimensionValueSource
+-&gt; ToJSONKeyFunction [DimensionValueSource]
+-&gt; ToJSONKey DimensionValueSource
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DimensionValueSource]
+$ctoJSONKeyList :: ToJSONKeyFunction [DimensionValueSource]
+toJSONKey :: ToJSONKeyFunction DimensionValueSource
+$ctoJSONKey :: ToJSONKeyFunction DimensionValueSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679326124"><span class="annot"><span class="annottext">[Node] -&gt; Either String DimensionValueSource
+([Node] -&gt; Either String DimensionValueSource)
+-&gt; FromXML DimensionValueSource
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DimensionValueSource
+$cparseXML :: [Node] -&gt; Either String DimensionValueSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679326121"><span class="annot"><span class="annottext">DimensionValueSource -&gt; XML
+(DimensionValueSource -&gt; XML) -&gt; ToXML DimensionValueSource
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DimensionValueSource -&gt; XML
+$ctoXML :: DimensionValueSource -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_EMAIL_HEADER"><span class="hs-identifier hs-type">DimensionValueSource_EMAIL_HEADER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-type">DimensionValueSource</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDimensionValueSource_EMAIL_HEADER"><span id="%24mDimensionValueSource_EMAIL_HEADER"><span id="DimensionValueSource_EMAIL_HEADER"><span class="annot"><span class="annottext">$bDimensionValueSource_EMAIL_HEADER :: DimensionValueSource
+$mDimensionValueSource_EMAIL_HEADER :: forall r. DimensionValueSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DimensionValueSource.html#%24bDimensionValueSource_EMAIL_HEADER"><span class="hs-identifier hs-var hs-var hs-var">DimensionValueSource_EMAIL_HEADER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-type">DimensionValueSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL_HEADER&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_LINK_TAG"><span class="hs-identifier hs-type">DimensionValueSource_LINK_TAG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-type">DimensionValueSource</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDimensionValueSource_LINK_TAG"><span id="%24mDimensionValueSource_LINK_TAG"><span id="DimensionValueSource_LINK_TAG"><span class="annot"><span class="annottext">$bDimensionValueSource_LINK_TAG :: DimensionValueSource
+$mDimensionValueSource_LINK_TAG :: forall r. DimensionValueSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DimensionValueSource.html#%24bDimensionValueSource_LINK_TAG"><span class="hs-identifier hs-var hs-var hs-var">DimensionValueSource_LINK_TAG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-type">DimensionValueSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LINK_TAG&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_MESSAGE_TAG"><span class="hs-identifier hs-type">DimensionValueSource_MESSAGE_TAG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-type">DimensionValueSource</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDimensionValueSource_MESSAGE_TAG"><span id="%24mDimensionValueSource_MESSAGE_TAG"><span id="DimensionValueSource_MESSAGE_TAG"><span class="annot"><span class="annottext">$bDimensionValueSource_MESSAGE_TAG :: DimensionValueSource
+$mDimensionValueSource_MESSAGE_TAG :: forall r. DimensionValueSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DimensionValueSource.html#%24bDimensionValueSource_MESSAGE_TAG"><span class="hs-identifier hs-var hs-var hs-var">DimensionValueSource_MESSAGE_TAG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-type">DimensionValueSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MESSAGE_TAG&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_EMAIL_HEADER"><span class="hs-pragma hs-type">DimensionValueSource_EMAIL_HEADER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_LINK_TAG"><span class="hs-pragma hs-type">DimensionValueSource_LINK_TAG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource_MESSAGE_TAG"><span class="hs-pragma hs-type">DimensionValueSource_MESSAGE_TAG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-pragma hs-type">DimensionValueSource'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

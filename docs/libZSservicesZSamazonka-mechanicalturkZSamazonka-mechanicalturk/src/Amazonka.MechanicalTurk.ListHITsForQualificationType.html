@@ -1,0 +1,809 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MechanicalTurk.ListHITsForQualificationType</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The @ListHITsForQualificationType@ operation returns the HITs that use</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the given Qualification type for a Qualification requirement. The</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- operation returns HITs of any status, except for HITs that have been</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- deleted with the @DeleteHIT@ operation or that have been auto-deleted.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MechanicalTurk.ListHITsForQualificationType</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#newListHITsForQualificationType"><span class="hs-identifier">newListHITsForQualificationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_nextToken"><span class="hs-identifier">listHITsForQualificationType_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_maxResults"><span class="hs-identifier">listHITsForQualificationType_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_qualificationTypeId"><span class="hs-identifier">listHITsForQualificationType_qualificationTypeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier">ListHITsForQualificationTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#newListHITsForQualificationTypeResponse"><span class="hs-identifier">newListHITsForQualificationTypeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_nextToken"><span class="hs-identifier">listHITsForQualificationTypeResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_numResults"><span class="hs-identifier">listHITsForQualificationTypeResponse_numResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_hITs"><span class="hs-identifier">listHITsForQualificationTypeResponse_hITs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_httpStatus"><span class="hs-identifier">listHITsForQualificationTypeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.html"><span class="hs-identifier">Amazonka.MechanicalTurk.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListHITsForQualificationType' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679249854"><span id="local-6989586621679249855"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHITsForQualificationType"><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-var">ListHITsForQualificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHITsForQualificationType%27"><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-var">ListHITsForQualificationType'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination Token</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListHITsForQualificationType%27"><span class="annot"><span class="annottext">ListHITsForQualificationType -&gt; Maybe Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnextToken%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListHITsForQualificationType%27"><span class="annot"><span class="annottext">ListHITsForQualificationType -&gt; Maybe Natural
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AmaxResults%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the Qualification type to use when querying HITs.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AqualificationTypeId%3AListHITsForQualificationType%27"><span class="annot"><span class="annottext">ListHITsForQualificationType -&gt; Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AqualificationTypeId%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var hs-var">qualificationTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249846"><span id="local-6989586621679249848"><span class="annot"><span class="annottext">ListHITsForQualificationType
+-&gt; ListHITsForQualificationType -&gt; Bool
+(ListHITsForQualificationType
+ -&gt; ListHITsForQualificationType -&gt; Bool)
+-&gt; (ListHITsForQualificationType
+    -&gt; ListHITsForQualificationType -&gt; Bool)
+-&gt; Eq ListHITsForQualificationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListHITsForQualificationType
+-&gt; ListHITsForQualificationType -&gt; Bool
+$c/= :: ListHITsForQualificationType
+-&gt; ListHITsForQualificationType -&gt; Bool
+== :: ListHITsForQualificationType
+-&gt; ListHITsForQualificationType -&gt; Bool
+$c== :: ListHITsForQualificationType
+-&gt; ListHITsForQualificationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249837"><span id="local-6989586621679249839"><span id="local-6989586621679249841"><span id="local-6989586621679249843"><span class="annot"><span class="annottext">ReadPrec [ListHITsForQualificationType]
+ReadPrec ListHITsForQualificationType
+Int -&gt; ReadS ListHITsForQualificationType
+ReadS [ListHITsForQualificationType]
+(Int -&gt; ReadS ListHITsForQualificationType)
+-&gt; ReadS [ListHITsForQualificationType]
+-&gt; ReadPrec ListHITsForQualificationType
+-&gt; ReadPrec [ListHITsForQualificationType]
+-&gt; Read ListHITsForQualificationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListHITsForQualificationType]
+$creadListPrec :: ReadPrec [ListHITsForQualificationType]
+readPrec :: ReadPrec ListHITsForQualificationType
+$creadPrec :: ReadPrec ListHITsForQualificationType
+readList :: ReadS [ListHITsForQualificationType]
+$creadList :: ReadS [ListHITsForQualificationType]
+readsPrec :: Int -&gt; ReadS ListHITsForQualificationType
+$creadsPrec :: Int -&gt; ReadS ListHITsForQualificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249830"><span id="local-6989586621679249832"><span id="local-6989586621679249834"><span class="annot"><span class="annottext">Int -&gt; ListHITsForQualificationType -&gt; ShowS
+[ListHITsForQualificationType] -&gt; ShowS
+ListHITsForQualificationType -&gt; String
+(Int -&gt; ListHITsForQualificationType -&gt; ShowS)
+-&gt; (ListHITsForQualificationType -&gt; String)
+-&gt; ([ListHITsForQualificationType] -&gt; ShowS)
+-&gt; Show ListHITsForQualificationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListHITsForQualificationType] -&gt; ShowS
+$cshowList :: [ListHITsForQualificationType] -&gt; ShowS
+show :: ListHITsForQualificationType -&gt; String
+$cshow :: ListHITsForQualificationType -&gt; String
+showsPrec :: Int -&gt; ListHITsForQualificationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListHITsForQualificationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListHITsForQualificationType -&gt; Rep ListHITsForQualificationType x)
+-&gt; (forall x.
+    Rep ListHITsForQualificationType x -&gt; ListHITsForQualificationType)
+-&gt; Generic ListHITsForQualificationType
+forall x.
+Rep ListHITsForQualificationType x -&gt; ListHITsForQualificationType
+forall x.
+ListHITsForQualificationType -&gt; Rep ListHITsForQualificationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListHITsForQualificationType x -&gt; ListHITsForQualificationType
+$cfrom :: forall x.
+ListHITsForQualificationType -&gt; Rep ListHITsForQualificationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListHITsForQualificationType' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'listHITsForQualificationType_nextToken' - Pagination Token</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'listHITsForQualificationType_maxResults' - Limit the number of results returned.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'qualificationTypeId', 'listHITsForQualificationType_qualificationTypeId' - The ID of the Qualification type to use when querying HITs.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#newListHITsForQualificationType"><span class="hs-identifier hs-type">newListHITsForQualificationType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'qualificationTypeId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span>
+</span><span id="line-86"></span><span id="newListHITsForQualificationType"><span class="annot"><span class="annottext">newListHITsForQualificationType :: Text -&gt; ListHITsForQualificationType
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#newListHITsForQualificationType"><span class="hs-identifier hs-var hs-var">newListHITsForQualificationType</span></a></span></span><span> </span><span id="local-6989586621679249825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249825"><span class="hs-identifier hs-var">pQualificationTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListHITsForQualificationType' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListHITsForQualificationType
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListHITsForQualificationType' :: Maybe Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnextToken%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListHITsForQualificationType' :: Maybe Natural
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AmaxResults%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:qualificationTypeId:ListHITsForQualificationType' :: Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AqualificationTypeId%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249825"><span class="hs-identifier hs-var">pQualificationTypeId_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Pagination Token</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_nextToken"><span class="hs-identifier hs-type">listHITsForQualificationType_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listHITsForQualificationType_nextToken"><span class="annot"><span class="annottext">listHITsForQualificationType_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListHITsForQualificationType -&gt; f ListHITsForQualificationType
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_nextToken"><span class="hs-identifier hs-var hs-var">listHITsForQualificationType_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationType -&gt; Maybe Text)
+-&gt; (ListHITsForQualificationType
+    -&gt; Maybe Text -&gt; ListHITsForQualificationType)
+-&gt; Lens
+     ListHITsForQualificationType
+     ListHITsForQualificationType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249823"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListHITsForQualificationType' :: ListHITsForQualificationType -&gt; Maybe Text
+</span><a href="#local-6989586621679249823"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249823"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249822"><span class="annot"><span class="annottext">s :: ListHITsForQualificationType
+</span><a href="#local-6989586621679249822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHITsForQualificationType
+</span><a href="#local-6989586621679249822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHITsForQualificationType' :: Maybe Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnextToken%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_maxResults"><span class="hs-identifier hs-type">listHITsForQualificationType_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listHITsForQualificationType_maxResults"><span class="annot"><span class="annottext">listHITsForQualificationType_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListHITsForQualificationType -&gt; f ListHITsForQualificationType
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_maxResults"><span class="hs-identifier hs-var hs-var">listHITsForQualificationType_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationType -&gt; Maybe Natural)
+-&gt; (ListHITsForQualificationType
+    -&gt; Maybe Natural -&gt; ListHITsForQualificationType)
+-&gt; Lens
+     ListHITsForQualificationType
+     ListHITsForQualificationType
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249820"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListHITsForQualificationType' :: ListHITsForQualificationType -&gt; Maybe Natural
+</span><a href="#local-6989586621679249820"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249820"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249819"><span class="annot"><span class="annottext">s :: ListHITsForQualificationType
+</span><a href="#local-6989586621679249819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249818"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHITsForQualificationType
+</span><a href="#local-6989586621679249819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListHITsForQualificationType' :: Maybe Natural
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AmaxResults%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The ID of the Qualification type to use when querying HITs.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_qualificationTypeId"><span class="hs-identifier hs-type">listHITsForQualificationType_qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="listHITsForQualificationType_qualificationTypeId"><span class="annot"><span class="annottext">listHITsForQualificationType_qualificationTypeId :: (Text -&gt; f Text)
+-&gt; ListHITsForQualificationType -&gt; f ListHITsForQualificationType
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_qualificationTypeId"><span class="hs-identifier hs-var hs-var">listHITsForQualificationType_qualificationTypeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationType -&gt; Text)
+-&gt; (ListHITsForQualificationType
+    -&gt; Text -&gt; ListHITsForQualificationType)
+-&gt; Lens
+     ListHITsForQualificationType ListHITsForQualificationType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249817"><span class="annot"><span class="annottext">Text
+qualificationTypeId :: Text
+$sel:qualificationTypeId:ListHITsForQualificationType' :: ListHITsForQualificationType -&gt; Text
+</span><a href="#local-6989586621679249817"><span class="hs-identifier hs-var hs-var">qualificationTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249817"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249816"><span class="annot"><span class="annottext">s :: ListHITsForQualificationType
+</span><a href="#local-6989586621679249816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249815"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHITsForQualificationType
+</span><a href="#local-6989586621679249816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationTypeId:ListHITsForQualificationType' :: Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AqualificationTypeId%3AListHITsForQualificationType%27"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679249811"><span class="annot"><span class="annottext">page :: ListHITsForQualificationType
+-&gt; AWSResponse ListHITsForQualificationType
+-&gt; Maybe ListHITsForQualificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679249809"><span class="annot"><span class="annottext">ListHITsForQualificationType
+</span><a href="#local-6989586621679249809"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679249808"><span class="annot"><span class="annottext">AWSResponse ListHITsForQualificationType
+</span><a href="#local-6989586621679249808"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHITsForQualificationType
+ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249808"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+-&gt; Getting (First Text) ListHITsForQualificationTypeResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; Const (First Text) ListHITsForQualificationTypeResponse
+Lens' ListHITsForQualificationTypeResponse (Maybe Text)
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_nextToken"><span class="hs-identifier hs-var">listHITsForQualificationTypeResponse_nextToken</span></a></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListHITsForQualificationTypeResponse
+ -&gt; Const (First Text) ListHITsForQualificationTypeResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListHITsForQualificationTypeResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListHITsForQualificationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHITsForQualificationType
+ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249808"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+-&gt; Getting (First [HIT]) ListHITsForQualificationTypeResponse [HIT]
+-&gt; Maybe [HIT]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [HIT] -&gt; Const (First [HIT]) (Maybe [HIT]))
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; Const (First [HIT]) ListHITsForQualificationTypeResponse
+Lens' ListHITsForQualificationTypeResponse (Maybe [HIT])
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_hITs"><span class="hs-identifier hs-var">listHITsForQualificationTypeResponse_hITs</span></a></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [HIT] -&gt; Const (First [HIT]) (Maybe [HIT]))
+ -&gt; ListHITsForQualificationTypeResponse
+ -&gt; Const (First [HIT]) ListHITsForQualificationTypeResponse)
+-&gt; (([HIT] -&gt; Const (First [HIT]) [HIT])
+    -&gt; Maybe [HIT] -&gt; Const (First [HIT]) (Maybe [HIT]))
+-&gt; Getting (First [HIT]) ListHITsForQualificationTypeResponse [HIT]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([HIT] -&gt; Const (First [HIT]) [HIT])
+-&gt; Maybe [HIT] -&gt; Const (First [HIT]) (Maybe [HIT])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListHITsForQualificationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">ListHITsForQualificationType -&gt; Maybe ListHITsForQualificationType
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationType
+ -&gt; Maybe ListHITsForQualificationType)
+-&gt; ListHITsForQualificationType
+-&gt; Maybe ListHITsForQualificationType
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ListHITsForQualificationType
+</span><a href="#local-6989586621679249809"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListHITsForQualificationType
+-&gt; (ListHITsForQualificationType -&gt; ListHITsForQualificationType)
+-&gt; ListHITsForQualificationType
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListHITsForQualificationType
+-&gt; Identity ListHITsForQualificationType
+Lens
+  ListHITsForQualificationType
+  ListHITsForQualificationType
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationType_nextToken"><span class="hs-identifier hs-var">listHITsForQualificationType_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListHITsForQualificationType
+ -&gt; Identity ListHITsForQualificationType)
+-&gt; Maybe Text
+-&gt; ListHITsForQualificationType
+-&gt; ListHITsForQualificationType
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHITsForQualificationType
+ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249808"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+-&gt; Getting (First Text) ListHITsForQualificationTypeResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; Const (First Text) ListHITsForQualificationTypeResponse
+Lens' ListHITsForQualificationTypeResponse (Maybe Text)
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_nextToken"><span class="hs-identifier hs-var">listHITsForQualificationTypeResponse_nextToken</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListHITsForQualificationTypeResponse
+ -&gt; Const (First Text) ListHITsForQualificationTypeResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListHITsForQualificationTypeResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679249798"><span class="annot"><span class="annottext">request :: ListHITsForQualificationType
+-&gt; Request ListHITsForQualificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListHITsForQualificationType
+-&gt; Request ListHITsForQualificationType
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679249794"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListHITsForQualificationType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListHITsForQualificationType)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListHITsForQualificationType))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListHITsForQualificationType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListHITsForQualificationType)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249791"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249790"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249790"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249789"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [HIT]
+-&gt; Int
+-&gt; ListHITsForQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">ListHITsForQualificationTypeResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe [HIT]
+ -&gt; Int
+ -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe [HIT] -&gt; Int -&gt; ListHITsForQualificationTypeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe [HIT] -&gt; Int -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String (Maybe [HIT] -&gt; Int -&gt; ListHITsForQualificationTypeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumResults&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [HIT] -&gt; Int -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Either String (Maybe [HIT])
+-&gt; Either String (Int -&gt; ListHITsForQualificationTypeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [HIT]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HITs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [HIT]))
+-&gt; Maybe [HIT] -&gt; Either String (Maybe [HIT])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Either String Int
+-&gt; Either String ListHITsForQualificationTypeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249791"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679249780"><span id="local-6989586621679249782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679249773"><span class="annot"><span class="annottext">toHeaders :: ListHITsForQualificationType -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListHITsForQualificationType -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MTurkRequesterServiceV20170117.ListHITsForQualificationType&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-160"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249763"><span id="local-6989586621679249765"><span id="local-6989586621679249767"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679249761"><span class="annot"><span class="annottext">toJSON :: ListHITsForQualificationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType%27"><span class="hs-identifier hs-type">ListHITsForQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249757"><span id="local-6989586621679249758"><span id="local-6989586621679249759"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+qualificationTypeId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:qualificationTypeId:ListHITsForQualificationType' :: ListHITsForQualificationType -&gt; Text
+$sel:maxResults:ListHITsForQualificationType' :: ListHITsForQualificationType -&gt; Maybe Natural
+$sel:nextToken:ListHITsForQualificationType' :: ListHITsForQualificationType -&gt; Maybe Text
+</span><a href="#local-6989586621679249757"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249759"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249758"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QualificationTypeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249757"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679249751"><span class="annot"><span class="annottext">toPath :: ListHITsForQualificationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListHITsForQualificationType -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationType"><span class="hs-identifier hs-type">ListHITsForQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679249747"><span class="annot"><span class="annottext">toQuery :: ListHITsForQualificationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListHITsForQualificationType -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newListHITsForQualificationTypeResponse' smart constructor.</span><span>
+</span><span id="line-182"></span><span id="local-6989586621679249744"><span id="local-6989586621679249745"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHITsForQualificationTypeResponse"><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-var">ListHITsForQualificationTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHITsForQualificationTypeResponse%27"><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">ListHITsForQualificationTypeResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListHITsForQualificationTypeResponse%27"><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse -&gt; Maybe Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnextToken%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The number of HITs on this page in the filtered results list, equivalent</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AnumResults%3AListHITsForQualificationTypeResponse%27"><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse -&gt; Maybe Int
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnumResults%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The list of HIT elements returned by the query.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AhITs%3AListHITsForQualificationTypeResponse%27"><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse -&gt; Maybe [HIT]
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AhITs%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var hs-var">hITs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HIT.html#HIT"><span class="hs-identifier hs-type">HIT</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListHITsForQualificationTypeResponse%27"><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse -&gt; Int
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AhttpStatus%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249736"><span id="local-6989586621679249738"><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+-&gt; ListHITsForQualificationTypeResponse -&gt; Bool
+(ListHITsForQualificationTypeResponse
+ -&gt; ListHITsForQualificationTypeResponse -&gt; Bool)
+-&gt; (ListHITsForQualificationTypeResponse
+    -&gt; ListHITsForQualificationTypeResponse -&gt; Bool)
+-&gt; Eq ListHITsForQualificationTypeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListHITsForQualificationTypeResponse
+-&gt; ListHITsForQualificationTypeResponse -&gt; Bool
+$c/= :: ListHITsForQualificationTypeResponse
+-&gt; ListHITsForQualificationTypeResponse -&gt; Bool
+== :: ListHITsForQualificationTypeResponse
+-&gt; ListHITsForQualificationTypeResponse -&gt; Bool
+$c== :: ListHITsForQualificationTypeResponse
+-&gt; ListHITsForQualificationTypeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249728"><span id="local-6989586621679249730"><span id="local-6989586621679249732"><span id="local-6989586621679249734"><span class="annot"><span class="annottext">ReadPrec [ListHITsForQualificationTypeResponse]
+ReadPrec ListHITsForQualificationTypeResponse
+Int -&gt; ReadS ListHITsForQualificationTypeResponse
+ReadS [ListHITsForQualificationTypeResponse]
+(Int -&gt; ReadS ListHITsForQualificationTypeResponse)
+-&gt; ReadS [ListHITsForQualificationTypeResponse]
+-&gt; ReadPrec ListHITsForQualificationTypeResponse
+-&gt; ReadPrec [ListHITsForQualificationTypeResponse]
+-&gt; Read ListHITsForQualificationTypeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListHITsForQualificationTypeResponse]
+$creadListPrec :: ReadPrec [ListHITsForQualificationTypeResponse]
+readPrec :: ReadPrec ListHITsForQualificationTypeResponse
+$creadPrec :: ReadPrec ListHITsForQualificationTypeResponse
+readList :: ReadS [ListHITsForQualificationTypeResponse]
+$creadList :: ReadS [ListHITsForQualificationTypeResponse]
+readsPrec :: Int -&gt; ReadS ListHITsForQualificationTypeResponse
+$creadsPrec :: Int -&gt; ReadS ListHITsForQualificationTypeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249722"><span id="local-6989586621679249724"><span id="local-6989586621679249726"><span class="annot"><span class="annottext">Int -&gt; ListHITsForQualificationTypeResponse -&gt; ShowS
+[ListHITsForQualificationTypeResponse] -&gt; ShowS
+ListHITsForQualificationTypeResponse -&gt; String
+(Int -&gt; ListHITsForQualificationTypeResponse -&gt; ShowS)
+-&gt; (ListHITsForQualificationTypeResponse -&gt; String)
+-&gt; ([ListHITsForQualificationTypeResponse] -&gt; ShowS)
+-&gt; Show ListHITsForQualificationTypeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListHITsForQualificationTypeResponse] -&gt; ShowS
+$cshowList :: [ListHITsForQualificationTypeResponse] -&gt; ShowS
+show :: ListHITsForQualificationTypeResponse -&gt; String
+$cshow :: ListHITsForQualificationTypeResponse -&gt; String
+showsPrec :: Int -&gt; ListHITsForQualificationTypeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListHITsForQualificationTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListHITsForQualificationTypeResponse
+ -&gt; Rep ListHITsForQualificationTypeResponse x)
+-&gt; (forall x.
+    Rep ListHITsForQualificationTypeResponse x
+    -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Generic ListHITsForQualificationTypeResponse
+forall x.
+Rep ListHITsForQualificationTypeResponse x
+-&gt; ListHITsForQualificationTypeResponse
+forall x.
+ListHITsForQualificationTypeResponse
+-&gt; Rep ListHITsForQualificationTypeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListHITsForQualificationTypeResponse x
+-&gt; ListHITsForQualificationTypeResponse
+$cfrom :: forall x.
+ListHITsForQualificationTypeResponse
+-&gt; Rep ListHITsForQualificationTypeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Create a value of 'ListHITsForQualificationTypeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'nextToken', 'listHITsForQualificationTypeResponse_nextToken' - Undocumented member.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'numResults', 'listHITsForQualificationTypeResponse_numResults' - The number of HITs on this page in the filtered results list, equivalent</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'hITs', 'listHITsForQualificationTypeResponse_hITs' - The list of HIT elements returned by the query.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'listHITsForQualificationTypeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#newListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">newListHITsForQualificationTypeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newListHITsForQualificationTypeResponse"><span class="annot"><span class="annottext">newListHITsForQualificationTypeResponse :: Int -&gt; ListHITsForQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#newListHITsForQualificationTypeResponse"><span class="hs-identifier hs-var hs-var">newListHITsForQualificationTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679249719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [HIT]
+-&gt; Int
+-&gt; ListHITsForQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListHITsForQualificationTypeResponse' :: Maybe Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnextToken%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:ListHITsForQualificationTypeResponse' :: Maybe Int
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnumResults%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITs:ListHITsForQualificationTypeResponse' :: Maybe [HIT]
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AhITs%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">hITs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListHITsForQualificationTypeResponse' :: Int
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AhttpStatus%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_nextToken"><span class="hs-identifier hs-type">listHITsForQualificationTypeResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="listHITsForQualificationTypeResponse_nextToken"><span class="annot"><span class="annottext">listHITsForQualificationTypeResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; f ListHITsForQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_nextToken"><span class="hs-identifier hs-var hs-var">listHITsForQualificationTypeResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationTypeResponse -&gt; Maybe Text)
+-&gt; (ListHITsForQualificationTypeResponse
+    -&gt; Maybe Text -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Lens' ListHITsForQualificationTypeResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249718"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListHITsForQualificationTypeResponse' :: ListHITsForQualificationTypeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249718"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249718"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249717"><span class="annot"><span class="annottext">s :: ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHITsForQualificationTypeResponse' :: Maybe Text
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnextToken%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The number of HITs on this page in the filtered results list, equivalent</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_numResults"><span class="hs-identifier hs-type">listHITsForQualificationTypeResponse_numResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="listHITsForQualificationTypeResponse_numResults"><span class="annot"><span class="annottext">listHITsForQualificationTypeResponse_numResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; f ListHITsForQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_numResults"><span class="hs-identifier hs-var hs-var">listHITsForQualificationTypeResponse_numResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationTypeResponse -&gt; Maybe Int)
+-&gt; (ListHITsForQualificationTypeResponse
+    -&gt; Maybe Int -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Lens
+     ListHITsForQualificationTypeResponse
+     ListHITsForQualificationTypeResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249715"><span class="annot"><span class="annottext">Maybe Int
+numResults :: Maybe Int
+$sel:numResults:ListHITsForQualificationTypeResponse' :: ListHITsForQualificationTypeResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679249715"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249715"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249714"><span class="annot"><span class="annottext">s :: ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249713"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:ListHITsForQualificationTypeResponse' :: Maybe Int
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AnumResults%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The list of HIT elements returned by the query.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_hITs"><span class="hs-identifier hs-type">listHITsForQualificationTypeResponse_hITs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.HIT.html#HIT"><span class="hs-identifier hs-type">HIT</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="listHITsForQualificationTypeResponse_hITs"><span class="annot"><span class="annottext">listHITsForQualificationTypeResponse_hITs :: (Maybe [HIT] -&gt; f (Maybe [HIT]))
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; f ListHITsForQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_hITs"><span class="hs-identifier hs-var hs-var">listHITsForQualificationTypeResponse_hITs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationTypeResponse -&gt; Maybe [HIT])
+-&gt; (ListHITsForQualificationTypeResponse
+    -&gt; Maybe [HIT] -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Lens' ListHITsForQualificationTypeResponse (Maybe [HIT])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249712"><span class="annot"><span class="annottext">Maybe [HIT]
+hITs :: Maybe [HIT]
+$sel:hITs:ListHITsForQualificationTypeResponse' :: ListHITsForQualificationTypeResponse -&gt; Maybe [HIT]
+</span><a href="#local-6989586621679249712"><span class="hs-identifier hs-var hs-var">hITs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
+</span><a href="#local-6989586621679249712"><span class="hs-identifier hs-var">hITs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249711"><span class="annot"><span class="annottext">s :: ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249710"><span class="annot"><span class="annottext">Maybe [HIT]
+</span><a href="#local-6989586621679249710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITs:ListHITsForQualificationTypeResponse' :: Maybe [HIT]
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AhITs%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">hITs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
+</span><a href="#local-6989586621679249710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HIT] -&gt; f (Maybe [HIT]))
+ -&gt; ListHITsForQualificationTypeResponse
+ -&gt; f ListHITsForQualificationTypeResponse)
+-&gt; ((Maybe [HIT] -&gt; f (Maybe [HIT]))
+    -&gt; Maybe [HIT] -&gt; f (Maybe [HIT]))
+-&gt; (Maybe [HIT] -&gt; f (Maybe [HIT]))
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; f ListHITsForQualificationTypeResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [HIT] [HIT] [HIT] [HIT]
+-&gt; Iso (Maybe [HIT]) (Maybe [HIT]) (Maybe [HIT]) (Maybe [HIT])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [HIT] [HIT] [HIT] [HIT]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_httpStatus"><span class="hs-identifier hs-type">listHITsForQualificationTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="listHITsForQualificationTypeResponse_httpStatus"><span class="annot"><span class="annottext">listHITsForQualificationTypeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListHITsForQualificationTypeResponse
+-&gt; f ListHITsForQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#listHITsForQualificationTypeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listHITsForQualificationTypeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListHITsForQualificationTypeResponse -&gt; Int)
+-&gt; (ListHITsForQualificationTypeResponse
+    -&gt; Int -&gt; ListHITsForQualificationTypeResponse)
+-&gt; Lens
+     ListHITsForQualificationTypeResponse
+     ListHITsForQualificationTypeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249707"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListHITsForQualificationTypeResponse' :: ListHITsForQualificationTypeResponse -&gt; Int
+</span><a href="#local-6989586621679249707"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249707"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249706"><span class="annot"><span class="annottext">s :: ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249705"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHITsForQualificationTypeResponse
+</span><a href="#local-6989586621679249706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListHITsForQualificationTypeResponse' :: Int
+</span><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#%24sel%3AhttpStatus%3AListHITsForQualificationTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679249703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.ListHITsForQualificationType.html#ListHITsForQualificationTypeResponse"><span class="hs-identifier hs-type">ListHITsForQualificationTypeResponse</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

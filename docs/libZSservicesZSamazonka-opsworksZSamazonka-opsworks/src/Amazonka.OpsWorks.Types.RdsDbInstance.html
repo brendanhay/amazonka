@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.Types.RdsDbInstance</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.Types.RdsDbInstance</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes an Amazon RDS instance.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRdsDbInstance' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679376202"><span id="local-6989586621679376203"></span></span><span class="hs-keyword">data</span><span> </span><span id="RdsDbInstance"><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-var">RdsDbInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RdsDbInstance%27"><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-var">RdsDbInstance'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance\'s ARN.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3ArdsDbInstanceArn%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3ArdsDbInstanceArn%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">rdsDbInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The master user name.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdbUser%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbUser%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- RDS instance. AWS OpsWorks Stacks attempts to discover the instance only</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- once. If this value is set to @true@, you must deregister the instance,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- and then register it again.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmissingOnRds%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AmissingOnRds%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">missingOnRds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The instance\'s database engine.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aengine%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aengine%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The instance\'s address.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aaddress%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aaddress%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The DB instance identifier.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdbInstanceIdentifier%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbInstanceIdentifier%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The instance\'s AWS region.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aregion%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aregion%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ID of the stack with which the instance is registered.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AstackId%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AstackId%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdbPassword%3ARdsDbInstance%27"><span class="annot"><span class="annottext">RdsDbInstance -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbPassword%3ARdsDbInstance%27"><span class="hs-identifier hs-var hs-var">dbPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376188"><span id="local-6989586621679376190"><span class="annot"><span class="annottext">RdsDbInstance -&gt; RdsDbInstance -&gt; Bool
+(RdsDbInstance -&gt; RdsDbInstance -&gt; Bool)
+-&gt; (RdsDbInstance -&gt; RdsDbInstance -&gt; Bool) -&gt; Eq RdsDbInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RdsDbInstance -&gt; RdsDbInstance -&gt; Bool
+$c/= :: RdsDbInstance -&gt; RdsDbInstance -&gt; Bool
+== :: RdsDbInstance -&gt; RdsDbInstance -&gt; Bool
+$c== :: RdsDbInstance -&gt; RdsDbInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376179"><span id="local-6989586621679376181"><span id="local-6989586621679376183"><span id="local-6989586621679376185"><span class="annot"><span class="annottext">ReadPrec [RdsDbInstance]
+ReadPrec RdsDbInstance
+Int -&gt; ReadS RdsDbInstance
+ReadS [RdsDbInstance]
+(Int -&gt; ReadS RdsDbInstance)
+-&gt; ReadS [RdsDbInstance]
+-&gt; ReadPrec RdsDbInstance
+-&gt; ReadPrec [RdsDbInstance]
+-&gt; Read RdsDbInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RdsDbInstance]
+$creadListPrec :: ReadPrec [RdsDbInstance]
+readPrec :: ReadPrec RdsDbInstance
+$creadPrec :: ReadPrec RdsDbInstance
+readList :: ReadS [RdsDbInstance]
+$creadList :: ReadS [RdsDbInstance]
+readsPrec :: Int -&gt; ReadS RdsDbInstance
+$creadsPrec :: Int -&gt; ReadS RdsDbInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376172"><span id="local-6989586621679376174"><span id="local-6989586621679376176"><span class="annot"><span class="annottext">Int -&gt; RdsDbInstance -&gt; ShowS
+[RdsDbInstance] -&gt; ShowS
+RdsDbInstance -&gt; String
+(Int -&gt; RdsDbInstance -&gt; ShowS)
+-&gt; (RdsDbInstance -&gt; String)
+-&gt; ([RdsDbInstance] -&gt; ShowS)
+-&gt; Show RdsDbInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RdsDbInstance] -&gt; ShowS
+$cshowList :: [RdsDbInstance] -&gt; ShowS
+show :: RdsDbInstance -&gt; String
+$cshow :: RdsDbInstance -&gt; String
+showsPrec :: Int -&gt; RdsDbInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; RdsDbInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RdsDbInstance -&gt; Rep RdsDbInstance x)
+-&gt; (forall x. Rep RdsDbInstance x -&gt; RdsDbInstance)
+-&gt; Generic RdsDbInstance
+forall x. Rep RdsDbInstance x -&gt; RdsDbInstance
+forall x. RdsDbInstance -&gt; Rep RdsDbInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RdsDbInstance x -&gt; RdsDbInstance
+$cfrom :: forall x. RdsDbInstance -&gt; Rep RdsDbInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'RdsDbInstance' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'rdsDbInstanceArn', 'rdsDbInstance_rdsDbInstanceArn' - The instance\'s ARN.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'dbUser', 'rdsDbInstance_dbUser' - The master user name.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'missingOnRds', 'rdsDbInstance_missingOnRds' - Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- RDS instance. AWS OpsWorks Stacks attempts to discover the instance only</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- once. If this value is set to @true@, you must deregister the instance,</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- and then register it again.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'engine', 'rdsDbInstance_engine' - The instance\'s database engine.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'address', 'rdsDbInstance_address' - The instance\'s address.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'dbInstanceIdentifier', 'rdsDbInstance_dbInstanceIdentifier' - The DB instance identifier.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'region', 'rdsDbInstance_region' - The instance\'s AWS region.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'stackId', 'rdsDbInstance_stackId' - The ID of the stack with which the instance is registered.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'dbPassword', 'rdsDbInstance_dbPassword' - AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#newRdsDbInstance"><span class="hs-identifier hs-type">newRdsDbInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span>
+</span><span id="line-86"></span><span id="newRdsDbInstance"><span class="annot"><span class="annottext">newRdsDbInstance :: RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#newRdsDbInstance"><span class="hs-identifier hs-var hs-var">newRdsDbInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">RdsDbInstance' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rdsDbInstanceArn:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3ArdsDbInstanceArn%3ARdsDbInstance%27"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbUser:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbUser%3ARdsDbInstance%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:missingOnRds:RdsDbInstance' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AmissingOnRds%3ARdsDbInstance%27"><span class="hs-identifier hs-var">missingOnRds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aengine%3ARdsDbInstance%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:address:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aaddress%3ARdsDbInstance%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbInstanceIdentifier%3ARdsDbInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aregion%3ARdsDbInstance%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AstackId%3ARdsDbInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbPassword:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbPassword%3ARdsDbInstance%27"><span class="hs-identifier hs-var">dbPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The instance\'s ARN.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_rdsDbInstanceArn"><span class="hs-identifier hs-type">rdsDbInstance_rdsDbInstanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="rdsDbInstance_rdsDbInstanceArn"><span class="annot"><span class="annottext">rdsDbInstance_rdsDbInstanceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_rdsDbInstanceArn"><span class="hs-identifier hs-var hs-var">rdsDbInstance_rdsDbInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376163"><span class="annot"><span class="annottext">Maybe Text
+rdsDbInstanceArn :: Maybe Text
+$sel:rdsDbInstanceArn:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376163"><span class="hs-identifier hs-var hs-var">rdsDbInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376163"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376162"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rdsDbInstanceArn:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3ArdsDbInstanceArn%3ARdsDbInstance%27"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The master user name.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_dbUser"><span class="hs-identifier hs-type">rdsDbInstance_dbUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="rdsDbInstance_dbUser"><span class="annot"><span class="annottext">rdsDbInstance_dbUser :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_dbUser"><span class="hs-identifier hs-var hs-var">rdsDbInstance_dbUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376159"><span class="annot"><span class="annottext">Maybe Text
+dbUser :: Maybe Text
+$sel:dbUser:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376159"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376159"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376158"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbUser:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbUser%3ARdsDbInstance%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- RDS instance. AWS OpsWorks Stacks attempts to discover the instance only</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- once. If this value is set to @true@, you must deregister the instance,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- and then register it again.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_missingOnRds"><span class="hs-identifier hs-type">rdsDbInstance_missingOnRds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="rdsDbInstance_missingOnRds"><span class="annot"><span class="annottext">rdsDbInstance_missingOnRds :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_missingOnRds"><span class="hs-identifier hs-var hs-var">rdsDbInstance_missingOnRds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Bool)
+-&gt; (RdsDbInstance -&gt; Maybe Bool -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376155"><span class="annot"><span class="annottext">Maybe Bool
+missingOnRds :: Maybe Bool
+$sel:missingOnRds:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Bool
+</span><a href="#local-6989586621679376155"><span class="hs-identifier hs-var hs-var">missingOnRds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679376155"><span class="hs-identifier hs-var">missingOnRds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376154"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376153"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679376153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missingOnRds:RdsDbInstance' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AmissingOnRds%3ARdsDbInstance%27"><span class="hs-identifier hs-var">missingOnRds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679376153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The instance\'s database engine.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_engine"><span class="hs-identifier hs-type">rdsDbInstance_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="rdsDbInstance_engine"><span class="annot"><span class="annottext">rdsDbInstance_engine :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_engine"><span class="hs-identifier hs-var hs-var">rdsDbInstance_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376151"><span class="annot"><span class="annottext">Maybe Text
+engine :: Maybe Text
+$sel:engine:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376151"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376151"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376150"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aengine%3ARdsDbInstance%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The instance\'s address.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_address"><span class="hs-identifier hs-type">rdsDbInstance_address</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="rdsDbInstance_address"><span class="annot"><span class="annottext">rdsDbInstance_address :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_address"><span class="hs-identifier hs-var hs-var">rdsDbInstance_address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376147"><span class="annot"><span class="annottext">Maybe Text
+address :: Maybe Text
+$sel:address:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376147"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376147"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376146"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376145"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aaddress%3ARdsDbInstance%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The DB instance identifier.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_dbInstanceIdentifier"><span class="hs-identifier hs-type">rdsDbInstance_dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="rdsDbInstance_dbInstanceIdentifier"><span class="annot"><span class="annottext">rdsDbInstance_dbInstanceIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_dbInstanceIdentifier"><span class="hs-identifier hs-var hs-var">rdsDbInstance_dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376143"><span class="annot"><span class="annottext">Maybe Text
+dbInstanceIdentifier :: Maybe Text
+$sel:dbInstanceIdentifier:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376143"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376143"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376142"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376141"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbInstanceIdentifier%3ARdsDbInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The instance\'s AWS region.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_region"><span class="hs-identifier hs-type">rdsDbInstance_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="rdsDbInstance_region"><span class="annot"><span class="annottext">rdsDbInstance_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_region"><span class="hs-identifier hs-var hs-var">rdsDbInstance_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376139"><span class="annot"><span class="annottext">Maybe Text
+region :: Maybe Text
+$sel:region:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376139"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376139"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376138"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376137"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3Aregion%3ARdsDbInstance%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The ID of the stack with which the instance is registered.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_stackId"><span class="hs-identifier hs-type">rdsDbInstance_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="rdsDbInstance_stackId"><span class="annot"><span class="annottext">rdsDbInstance_stackId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_stackId"><span class="hs-identifier hs-var hs-var">rdsDbInstance_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376135"><span class="annot"><span class="annottext">Maybe Text
+stackId :: Maybe Text
+$sel:stackId:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376135"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376135"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376134"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376133"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AstackId%3ARdsDbInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_dbPassword"><span class="hs-identifier hs-type">rdsDbInstance_dbPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="rdsDbInstance_dbPassword"><span class="annot"><span class="annottext">rdsDbInstance_dbPassword :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RdsDbInstance -&gt; f RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#rdsDbInstance_dbPassword"><span class="hs-identifier hs-var hs-var">rdsDbInstance_dbPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsDbInstance -&gt; Maybe Text)
+-&gt; (RdsDbInstance -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Lens RdsDbInstance RdsDbInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376131"><span class="annot"><span class="annottext">Maybe Text
+dbPassword :: Maybe Text
+$sel:dbPassword:RdsDbInstance' :: RdsDbInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679376131"><span class="hs-identifier hs-var hs-var">dbPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376131"><span class="hs-identifier hs-var">dbPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376130"><span class="annot"><span class="annottext">s :: RdsDbInstance
+</span><a href="#local-6989586621679376130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-type">RdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsDbInstance
+</span><a href="#local-6989586621679376130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbPassword:RdsDbInstance' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#%24sel%3AdbPassword%3ARdsDbInstance%27"><span class="hs-identifier hs-var">dbPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376126"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679376124"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RdsDbInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RdsDbInstance)
+-&gt; Value
+-&gt; Parser RdsDbInstance
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RdsDbInstance&quot;</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376121"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RdsDbInstance
+</span><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance%27"><span class="hs-identifier hs-var">RdsDbInstance'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RdsDbInstanceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbUser&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MissingOnRds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbInstanceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RdsDbInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RdsDbInstance)
+-&gt; Parser (Maybe Text) -&gt; Parser RdsDbInstance
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbPassword&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376115"><span id="local-6989586621679376117"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376112"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.RdsDbInstance.html#RdsDbInstance"><span class="hs-identifier hs-type">RdsDbInstance</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

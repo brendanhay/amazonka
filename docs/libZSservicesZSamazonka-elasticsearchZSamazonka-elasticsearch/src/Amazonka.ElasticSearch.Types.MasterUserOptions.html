@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticSearch.Types.MasterUserOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticSearch.Types.MasterUserOptions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Credentials for the master user: username and password, ARN, or both.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMasterUserOptions' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679296743"><span id="local-6989586621679296744"></span></span><span class="hs-keyword">data</span><span> </span><span id="MasterUserOptions"><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-var">MasterUserOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MasterUserOptions%27"><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-var">MasterUserOptions'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The master user\'s password, which is stored in the Amazon Elasticsearch</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Service domain\'s internal database.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmasterUserPassword%3AMasterUserOptions%27"><span class="annot"><span class="annottext">MasterUserOptions -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserPassword%3AMasterUserOptions%27"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The master user\'s username, which is stored in the Amazon Elasticsearch</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Service domain\'s internal database.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmasterUserName%3AMasterUserOptions%27"><span class="annot"><span class="annottext">MasterUserOptions -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserName%3AMasterUserOptions%27"><span class="hs-identifier hs-var hs-var">masterUserName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | ARN for the master user (if IAM is enabled).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmasterUserARN%3AMasterUserOptions%27"><span class="annot"><span class="annottext">MasterUserOptions -&gt; Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserARN%3AMasterUserOptions%27"><span class="hs-identifier hs-var hs-var">masterUserARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296735"><span id="local-6989586621679296737"><span class="annot"><span class="annottext">MasterUserOptions -&gt; MasterUserOptions -&gt; Bool
+(MasterUserOptions -&gt; MasterUserOptions -&gt; Bool)
+-&gt; (MasterUserOptions -&gt; MasterUserOptions -&gt; Bool)
+-&gt; Eq MasterUserOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MasterUserOptions -&gt; MasterUserOptions -&gt; Bool
+$c/= :: MasterUserOptions -&gt; MasterUserOptions -&gt; Bool
+== :: MasterUserOptions -&gt; MasterUserOptions -&gt; Bool
+$c== :: MasterUserOptions -&gt; MasterUserOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296728"><span id="local-6989586621679296730"><span id="local-6989586621679296732"><span class="annot"><span class="annottext">Int -&gt; MasterUserOptions -&gt; ShowS
+[MasterUserOptions] -&gt; ShowS
+MasterUserOptions -&gt; String
+(Int -&gt; MasterUserOptions -&gt; ShowS)
+-&gt; (MasterUserOptions -&gt; String)
+-&gt; ([MasterUserOptions] -&gt; ShowS)
+-&gt; Show MasterUserOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MasterUserOptions] -&gt; ShowS
+$cshowList :: [MasterUserOptions] -&gt; ShowS
+show :: MasterUserOptions -&gt; String
+$cshow :: MasterUserOptions -&gt; String
+showsPrec :: Int -&gt; MasterUserOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; MasterUserOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MasterUserOptions -&gt; Rep MasterUserOptions x)
+-&gt; (forall x. Rep MasterUserOptions x -&gt; MasterUserOptions)
+-&gt; Generic MasterUserOptions
+forall x. Rep MasterUserOptions x -&gt; MasterUserOptions
+forall x. MasterUserOptions -&gt; Rep MasterUserOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MasterUserOptions x -&gt; MasterUserOptions
+$cfrom :: forall x. MasterUserOptions -&gt; Rep MasterUserOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'MasterUserOptions' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'masterUserPassword', 'masterUserOptions_masterUserPassword' - The master user\'s password, which is stored in the Amazon Elasticsearch</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Service domain\'s internal database.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'masterUserName', 'masterUserOptions_masterUserName' - The master user\'s username, which is stored in the Amazon Elasticsearch</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Service domain\'s internal database.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'masterUserARN', 'masterUserOptions_masterUserARN' - ARN for the master user (if IAM is enabled).</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#newMasterUserOptions"><span class="hs-identifier hs-type">newMasterUserOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span><span>
+</span><span id="line-58"></span><span id="newMasterUserOptions"><span class="annot"><span class="annottext">newMasterUserOptions :: MasterUserOptions
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#newMasterUserOptions"><span class="hs-identifier hs-var hs-var">newMasterUserOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">MasterUserOptions' :: Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; MasterUserOptions
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:masterUserPassword:MasterUserOptions' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserPassword%3AMasterUserOptions%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:masterUserName:MasterUserOptions' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserName%3AMasterUserOptions%27"><span class="hs-identifier hs-var">masterUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:masterUserARN:MasterUserOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserARN%3AMasterUserOptions%27"><span class="hs-identifier hs-var">masterUserARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The master user\'s password, which is stored in the Amazon Elasticsearch</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Service domain\'s internal database.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#masterUserOptions_masterUserPassword"><span class="hs-identifier hs-type">masterUserOptions_masterUserPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="masterUserOptions_masterUserPassword"><span class="annot"><span class="annottext">masterUserOptions_masterUserPassword :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MasterUserOptions -&gt; f MasterUserOptions
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#masterUserOptions_masterUserPassword"><span class="hs-identifier hs-var hs-var">masterUserOptions_masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MasterUserOptions -&gt; Maybe (Sensitive Text))
+-&gt; (MasterUserOptions
+    -&gt; Maybe (Sensitive Text) -&gt; MasterUserOptions)
+-&gt; Lens
+     MasterUserOptions
+     MasterUserOptions
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296719"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+masterUserPassword :: Maybe (Sensitive Text)
+$sel:masterUserPassword:MasterUserOptions' :: MasterUserOptions -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296719"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296719"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296718"><span class="annot"><span class="annottext">s :: MasterUserOptions
+</span><a href="#local-6989586621679296718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296717"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MasterUserOptions
+</span><a href="#local-6989586621679296718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterUserPassword:MasterUserOptions' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserPassword%3AMasterUserOptions%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; MasterUserOptions -&gt; f MasterUserOptions)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; MasterUserOptions
+-&gt; f MasterUserOptions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The master user\'s username, which is stored in the Amazon Elasticsearch</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Service domain\'s internal database.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#masterUserOptions_masterUserName"><span class="hs-identifier hs-type">masterUserOptions_masterUserName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="masterUserOptions_masterUserName"><span class="annot"><span class="annottext">masterUserOptions_masterUserName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MasterUserOptions -&gt; f MasterUserOptions
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#masterUserOptions_masterUserName"><span class="hs-identifier hs-var hs-var">masterUserOptions_masterUserName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MasterUserOptions -&gt; Maybe (Sensitive Text))
+-&gt; (MasterUserOptions
+    -&gt; Maybe (Sensitive Text) -&gt; MasterUserOptions)
+-&gt; Lens
+     MasterUserOptions
+     MasterUserOptions
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296712"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+masterUserName :: Maybe (Sensitive Text)
+$sel:masterUserName:MasterUserOptions' :: MasterUserOptions -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296712"><span class="hs-identifier hs-var hs-var">masterUserName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296712"><span class="hs-identifier hs-var">masterUserName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296711"><span class="annot"><span class="annottext">s :: MasterUserOptions
+</span><a href="#local-6989586621679296711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296710"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MasterUserOptions
+</span><a href="#local-6989586621679296711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterUserName:MasterUserOptions' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserName%3AMasterUserOptions%27"><span class="hs-identifier hs-var">masterUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; MasterUserOptions -&gt; f MasterUserOptions)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; MasterUserOptions
+-&gt; f MasterUserOptions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | ARN for the master user (if IAM is enabled).</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#masterUserOptions_masterUserARN"><span class="hs-identifier hs-type">masterUserOptions_masterUserARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="masterUserOptions_masterUserARN"><span class="annot"><span class="annottext">masterUserOptions_masterUserARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MasterUserOptions -&gt; f MasterUserOptions
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#masterUserOptions_masterUserARN"><span class="hs-identifier hs-var hs-var">masterUserOptions_masterUserARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MasterUserOptions -&gt; Maybe Text)
+-&gt; (MasterUserOptions -&gt; Maybe Text -&gt; MasterUserOptions)
+-&gt; Lens
+     MasterUserOptions MasterUserOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296708"><span class="annot"><span class="annottext">Maybe Text
+masterUserARN :: Maybe Text
+$sel:masterUserARN:MasterUserOptions' :: MasterUserOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679296708"><span class="hs-identifier hs-var hs-var">masterUserARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296708"><span class="hs-identifier hs-var">masterUserARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296707"><span class="annot"><span class="annottext">s :: MasterUserOptions
+</span><a href="#local-6989586621679296707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296706"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MasterUserOptions
+</span><a href="#local-6989586621679296707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterUserARN:MasterUserOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#%24sel%3AmasterUserARN%3AMasterUserOptions%27"><span class="hs-identifier hs-var">masterUserARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296702"><span id="local-6989586621679296704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296691"><span id="local-6989586621679296693"><span id="local-6989586621679296695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions"><span class="hs-identifier hs-type">MasterUserOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679296689"><span class="annot"><span class="annottext">toJSON :: MasterUserOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.MasterUserOptions.html#MasterUserOptions%27"><span class="hs-identifier hs-type">MasterUserOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296685"><span id="local-6989586621679296686"><span id="local-6989586621679296687"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+masterUserARN :: Maybe Text
+masterUserName :: Maybe (Sensitive Text)
+masterUserPassword :: Maybe (Sensitive Text)
+$sel:masterUserARN:MasterUserOptions' :: MasterUserOptions -&gt; Maybe Text
+$sel:masterUserName:MasterUserOptions' :: MasterUserOptions -&gt; Maybe (Sensitive Text)
+$sel:masterUserPassword:MasterUserOptions' :: MasterUserOptions -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296685"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MasterUserPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296687"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MasterUserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296686"><span class="hs-identifier hs-var">masterUserName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MasterUserARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296685"><span class="hs-identifier hs-var">masterUserARN</span></a></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span></pre></body></html>

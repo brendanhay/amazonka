@@ -1,0 +1,834 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AMP.PutRuleGroupsNamespace</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update a rule groups namespace.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AMP.PutRuleGroupsNamespace</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier">PutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#newPutRuleGroupsNamespace"><span class="hs-identifier">newPutRuleGroupsNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_clientToken"><span class="hs-identifier">putRuleGroupsNamespace_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_data"><span class="hs-identifier">putRuleGroupsNamespace_data</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_name"><span class="hs-identifier">putRuleGroupsNamespace_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_workspaceId"><span class="hs-identifier">putRuleGroupsNamespace_workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier">PutRuleGroupsNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#newPutRuleGroupsNamespaceResponse"><span class="hs-identifier">newPutRuleGroupsNamespaceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_tags"><span class="hs-identifier">putRuleGroupsNamespaceResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_httpStatus"><span class="hs-identifier">putRuleGroupsNamespaceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_arn"><span class="hs-identifier">putRuleGroupsNamespaceResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_name"><span class="hs-identifier">putRuleGroupsNamespaceResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_status"><span class="hs-identifier">putRuleGroupsNamespaceResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AMP.Types.html"><span class="hs-identifier">Amazonka.AMP.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | Represents the input of a PutRuleGroupsNamespace operation.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newPutRuleGroupsNamespace' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679171928"><span id="local-6989586621679171929"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRuleGroupsNamespace"><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-var">PutRuleGroupsNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRuleGroupsNamespace%27"><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">PutRuleGroupsNamespace'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AclientToken%3APutRuleGroupsNamespace%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespace -&gt; Maybe Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AclientToken%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The namespace data that define the rule groups.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adata%27%3APutRuleGroupsNamespace%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespace -&gt; Base64
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Adata%27%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The rule groups namespace name.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aname%3APutRuleGroupsNamespace%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespace -&gt; Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aname%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the workspace in which to update the rule group namespace.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AworkspaceId%3APutRuleGroupsNamespace%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespace -&gt; Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AworkspaceId%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171919"><span id="local-6989586621679171921"><span class="annot"><span class="annottext">PutRuleGroupsNamespace -&gt; PutRuleGroupsNamespace -&gt; Bool
+(PutRuleGroupsNamespace -&gt; PutRuleGroupsNamespace -&gt; Bool)
+-&gt; (PutRuleGroupsNamespace -&gt; PutRuleGroupsNamespace -&gt; Bool)
+-&gt; Eq PutRuleGroupsNamespace
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRuleGroupsNamespace -&gt; PutRuleGroupsNamespace -&gt; Bool
+$c/= :: PutRuleGroupsNamespace -&gt; PutRuleGroupsNamespace -&gt; Bool
+== :: PutRuleGroupsNamespace -&gt; PutRuleGroupsNamespace -&gt; Bool
+$c== :: PutRuleGroupsNamespace -&gt; PutRuleGroupsNamespace -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171910"><span id="local-6989586621679171912"><span id="local-6989586621679171914"><span id="local-6989586621679171916"><span class="annot"><span class="annottext">ReadPrec [PutRuleGroupsNamespace]
+ReadPrec PutRuleGroupsNamespace
+Int -&gt; ReadS PutRuleGroupsNamespace
+ReadS [PutRuleGroupsNamespace]
+(Int -&gt; ReadS PutRuleGroupsNamespace)
+-&gt; ReadS [PutRuleGroupsNamespace]
+-&gt; ReadPrec PutRuleGroupsNamespace
+-&gt; ReadPrec [PutRuleGroupsNamespace]
+-&gt; Read PutRuleGroupsNamespace
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRuleGroupsNamespace]
+$creadListPrec :: ReadPrec [PutRuleGroupsNamespace]
+readPrec :: ReadPrec PutRuleGroupsNamespace
+$creadPrec :: ReadPrec PutRuleGroupsNamespace
+readList :: ReadS [PutRuleGroupsNamespace]
+$creadList :: ReadS [PutRuleGroupsNamespace]
+readsPrec :: Int -&gt; ReadS PutRuleGroupsNamespace
+$creadsPrec :: Int -&gt; ReadS PutRuleGroupsNamespace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171903"><span id="local-6989586621679171905"><span id="local-6989586621679171907"><span class="annot"><span class="annottext">Int -&gt; PutRuleGroupsNamespace -&gt; ShowS
+[PutRuleGroupsNamespace] -&gt; ShowS
+PutRuleGroupsNamespace -&gt; String
+(Int -&gt; PutRuleGroupsNamespace -&gt; ShowS)
+-&gt; (PutRuleGroupsNamespace -&gt; String)
+-&gt; ([PutRuleGroupsNamespace] -&gt; ShowS)
+-&gt; Show PutRuleGroupsNamespace
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRuleGroupsNamespace] -&gt; ShowS
+$cshowList :: [PutRuleGroupsNamespace] -&gt; ShowS
+show :: PutRuleGroupsNamespace -&gt; String
+$cshow :: PutRuleGroupsNamespace -&gt; String
+showsPrec :: Int -&gt; PutRuleGroupsNamespace -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRuleGroupsNamespace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutRuleGroupsNamespace -&gt; Rep PutRuleGroupsNamespace x)
+-&gt; (forall x.
+    Rep PutRuleGroupsNamespace x -&gt; PutRuleGroupsNamespace)
+-&gt; Generic PutRuleGroupsNamespace
+forall x. Rep PutRuleGroupsNamespace x -&gt; PutRuleGroupsNamespace
+forall x. PutRuleGroupsNamespace -&gt; Rep PutRuleGroupsNamespace x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutRuleGroupsNamespace x -&gt; PutRuleGroupsNamespace
+$cfrom :: forall x. PutRuleGroupsNamespace -&gt; Rep PutRuleGroupsNamespace x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'PutRuleGroupsNamespace' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'clientToken', 'putRuleGroupsNamespace_clientToken' - Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'data'', 'putRuleGroupsNamespace_data' - The namespace data that define the rule groups.--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'name', 'putRuleGroupsNamespace_name' - The rule groups namespace name.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'workspaceId', 'putRuleGroupsNamespace_workspaceId' - The ID of the workspace in which to update the rule group namespace.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#newPutRuleGroupsNamespace"><span class="hs-identifier hs-type">newPutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'data''</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span>
+</span><span id="line-99"></span><span id="newPutRuleGroupsNamespace"><span class="annot"><span class="annottext">newPutRuleGroupsNamespace :: ByteString -&gt; Text -&gt; Text -&gt; PutRuleGroupsNamespace
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#newPutRuleGroupsNamespace"><span class="hs-identifier hs-var hs-var">newPutRuleGroupsNamespace</span></a></span></span><span> </span><span id="local-6989586621679171898"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679171898"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span id="local-6989586621679171897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171897"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679171896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171896"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">PutRuleGroupsNamespace' :: Maybe Text -&gt; Base64 -&gt; Text -&gt; Text -&gt; PutRuleGroupsNamespace
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:PutRuleGroupsNamespace' :: Maybe Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AclientToken%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:data':PutRuleGroupsNamespace' :: Base64
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Adata%27%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
+-&gt; Tagged Base64 (Identity Base64)
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span> </span><span class="annot"><span class="annottext">(Tagged ByteString (Identity ByteString)
+ -&gt; Tagged Base64 (Identity Base64))
+-&gt; ByteString -&gt; Base64
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679171898"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PutRuleGroupsNamespace' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aname%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171897"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceId:PutRuleGroupsNamespace' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AworkspaceId%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171896"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_clientToken"><span class="hs-identifier hs-type">putRuleGroupsNamespace_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="putRuleGroupsNamespace_clientToken"><span class="annot"><span class="annottext">putRuleGroupsNamespace_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutRuleGroupsNamespace -&gt; f PutRuleGroupsNamespace
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_clientToken"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespace_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespace -&gt; Maybe Text)
+-&gt; (PutRuleGroupsNamespace -&gt; Maybe Text -&gt; PutRuleGroupsNamespace)
+-&gt; Lens
+     PutRuleGroupsNamespace
+     PutRuleGroupsNamespace
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171891"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Maybe Text
+</span><a href="#local-6989586621679171891"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171891"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171890"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:PutRuleGroupsNamespace' :: Maybe Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AclientToken%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The namespace data that define the rule groups.--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_data"><span class="hs-identifier hs-type">putRuleGroupsNamespace_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span id="putRuleGroupsNamespace_data"><span class="annot"><span class="annottext">putRuleGroupsNamespace_data :: (ByteString -&gt; f ByteString)
+-&gt; PutRuleGroupsNamespace -&gt; f PutRuleGroupsNamespace
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_data"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespace_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespace -&gt; Base64)
+-&gt; (PutRuleGroupsNamespace -&gt; Base64 -&gt; PutRuleGroupsNamespace)
+-&gt; Lens PutRuleGroupsNamespace PutRuleGroupsNamespace Base64 Base64
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171888"><span class="annot"><span class="annottext">Base64
+data' :: Base64
+$sel:data':PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Base64
+</span><a href="#local-6989586621679171888"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679171888"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171887"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171886"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679171886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':PutRuleGroupsNamespace' :: Base64
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Adata%27%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679171886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64)
+ -&gt; PutRuleGroupsNamespace -&gt; f PutRuleGroupsNamespace)
+-&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
+-&gt; (ByteString -&gt; f ByteString)
+-&gt; PutRuleGroupsNamespace
+-&gt; f PutRuleGroupsNamespace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The rule groups namespace name.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_name"><span class="hs-identifier hs-type">putRuleGroupsNamespace_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="putRuleGroupsNamespace_name"><span class="annot"><span class="annottext">putRuleGroupsNamespace_name :: (Text -&gt; f Text)
+-&gt; PutRuleGroupsNamespace -&gt; f PutRuleGroupsNamespace
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_name"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespace_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespace -&gt; Text)
+-&gt; (PutRuleGroupsNamespace -&gt; Text -&gt; PutRuleGroupsNamespace)
+-&gt; Lens PutRuleGroupsNamespace PutRuleGroupsNamespace Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171884"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Text
+</span><a href="#local-6989586621679171884"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171884"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171883"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171882"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutRuleGroupsNamespace' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aname%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The ID of the workspace in which to update the rule group namespace.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_workspaceId"><span class="hs-identifier hs-type">putRuleGroupsNamespace_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="putRuleGroupsNamespace_workspaceId"><span class="annot"><span class="annottext">putRuleGroupsNamespace_workspaceId :: (Text -&gt; f Text)
+-&gt; PutRuleGroupsNamespace -&gt; f PutRuleGroupsNamespace
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespace_workspaceId"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespace_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespace -&gt; Text)
+-&gt; (PutRuleGroupsNamespace -&gt; Text -&gt; PutRuleGroupsNamespace)
+-&gt; Lens PutRuleGroupsNamespace PutRuleGroupsNamespace Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171881"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Text
+</span><a href="#local-6989586621679171881"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171881"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171880"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespace
+</span><a href="#local-6989586621679171880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:PutRuleGroupsNamespace' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AworkspaceId%3APutRuleGroupsNamespace%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679171875"><span class="annot"><span class="annottext">request :: PutRuleGroupsNamespace -&gt; Request PutRuleGroupsNamespace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRuleGroupsNamespace -&gt; Request PutRuleGroupsNamespace
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AMP.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679171871"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutRuleGroupsNamespace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutRuleGroupsNamespace)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutRuleGroupsNamespace))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutRuleGroupsNamespace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutRuleGroupsNamespace)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171868"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679171867"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679171867"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679171866"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171866"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; RuleGroupsNamespaceStatus
+-&gt; PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">PutRuleGroupsNamespaceResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; RuleGroupsNamespaceStatus
+ -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; RuleGroupsNamespaceStatus
+      -&gt; PutRuleGroupsNamespaceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; RuleGroupsNamespaceStatus
+   -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; RuleGroupsNamespaceStatus
+      -&gt; PutRuleGroupsNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171868"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; RuleGroupsNamespaceStatus
+   -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; RuleGroupsNamespaceStatus -&gt; PutRuleGroupsNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; RuleGroupsNamespaceStatus -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (RuleGroupsNamespaceStatus -&gt; PutRuleGroupsNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (RuleGroupsNamespaceStatus -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Either String RuleGroupsNamespaceStatus
+-&gt; Either String PutRuleGroupsNamespaceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String RuleGroupsNamespaceStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171856"><span id="local-6989586621679171858"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679171849"><span class="annot"><span class="annottext">toHeaders :: PutRuleGroupsNamespace -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRuleGroupsNamespace -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171839"><span id="local-6989586621679171841"><span id="local-6989586621679171843"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679171837"><span class="annot"><span class="annottext">toJSON :: PutRuleGroupsNamespace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171832"><span id="local-6989586621679171833"><span id="local-6989586621679171834"><span id="local-6989586621679171835"><span class="annot"><span class="annottext">Maybe Text
+Text
+Base64
+workspaceId :: Text
+name :: Text
+data' :: Base64
+clientToken :: Maybe Text
+$sel:workspaceId:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Text
+$sel:name:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Text
+$sel:data':PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Base64
+$sel:clientToken:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Maybe Text
+</span><a href="#local-6989586621679171832"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171835"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679171834"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679171826"><span class="annot"><span class="annottext">toPath :: PutRuleGroupsNamespace -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171821"><span id="local-6989586621679171822"><span id="local-6989586621679171823"><span id="local-6989586621679171824"><span class="annot"><span class="annottext">Maybe Text
+Text
+Base64
+workspaceId :: Text
+name :: Text
+data' :: Base64
+clientToken :: Maybe Text
+$sel:workspaceId:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Text
+$sel:name:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Text
+$sel:data':PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Base64
+$sel:clientToken:PutRuleGroupsNamespace' :: PutRuleGroupsNamespace -&gt; Maybe Text
+</span><a href="#local-6989586621679171821"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workspaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171821"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/rulegroupsnamespaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171822"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespace"><span class="hs-identifier hs-type">PutRuleGroupsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679171817"><span class="annot"><span class="annottext">toQuery :: PutRuleGroupsNamespace -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRuleGroupsNamespace -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Represents the output of a PutRuleGroupsNamespace operation.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- /See:/ 'newPutRuleGroupsNamespaceResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679171814"><span id="local-6989586621679171815"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRuleGroupsNamespaceResponse"><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-var">PutRuleGroupsNamespaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRuleGroupsNamespaceResponse%27"><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">PutRuleGroupsNamespaceResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags of this rule groups namespace.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3Atags%3APutRuleGroupsNamespaceResponse%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Atags%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRuleGroupsNamespaceResponse%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse -&gt; Int
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AhttpStatus%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this rule groups namespace.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3Aarn%3APutRuleGroupsNamespaceResponse%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse -&gt; Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aarn%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The rule groups namespace name.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3Aname%3APutRuleGroupsNamespaceResponse%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse -&gt; Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aname%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The status of rule groups namespace.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3Astatus%3APutRuleGroupsNamespaceResponse%27"><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse -&gt; RuleGroupsNamespaceStatus
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Astatus%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.Types.RuleGroupsNamespaceStatus.html#RuleGroupsNamespaceStatus"><span class="hs-identifier hs-type">RuleGroupsNamespaceStatus</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171805"><span id="local-6989586621679171807"><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse
+-&gt; PutRuleGroupsNamespaceResponse -&gt; Bool
+(PutRuleGroupsNamespaceResponse
+ -&gt; PutRuleGroupsNamespaceResponse -&gt; Bool)
+-&gt; (PutRuleGroupsNamespaceResponse
+    -&gt; PutRuleGroupsNamespaceResponse -&gt; Bool)
+-&gt; Eq PutRuleGroupsNamespaceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRuleGroupsNamespaceResponse
+-&gt; PutRuleGroupsNamespaceResponse -&gt; Bool
+$c/= :: PutRuleGroupsNamespaceResponse
+-&gt; PutRuleGroupsNamespaceResponse -&gt; Bool
+== :: PutRuleGroupsNamespaceResponse
+-&gt; PutRuleGroupsNamespaceResponse -&gt; Bool
+$c== :: PutRuleGroupsNamespaceResponse
+-&gt; PutRuleGroupsNamespaceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171797"><span id="local-6989586621679171799"><span id="local-6989586621679171801"><span id="local-6989586621679171803"><span class="annot"><span class="annottext">ReadPrec [PutRuleGroupsNamespaceResponse]
+ReadPrec PutRuleGroupsNamespaceResponse
+Int -&gt; ReadS PutRuleGroupsNamespaceResponse
+ReadS [PutRuleGroupsNamespaceResponse]
+(Int -&gt; ReadS PutRuleGroupsNamespaceResponse)
+-&gt; ReadS [PutRuleGroupsNamespaceResponse]
+-&gt; ReadPrec PutRuleGroupsNamespaceResponse
+-&gt; ReadPrec [PutRuleGroupsNamespaceResponse]
+-&gt; Read PutRuleGroupsNamespaceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRuleGroupsNamespaceResponse]
+$creadListPrec :: ReadPrec [PutRuleGroupsNamespaceResponse]
+readPrec :: ReadPrec PutRuleGroupsNamespaceResponse
+$creadPrec :: ReadPrec PutRuleGroupsNamespaceResponse
+readList :: ReadS [PutRuleGroupsNamespaceResponse]
+$creadList :: ReadS [PutRuleGroupsNamespaceResponse]
+readsPrec :: Int -&gt; ReadS PutRuleGroupsNamespaceResponse
+$creadsPrec :: Int -&gt; ReadS PutRuleGroupsNamespaceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171791"><span id="local-6989586621679171793"><span id="local-6989586621679171795"><span class="annot"><span class="annottext">Int -&gt; PutRuleGroupsNamespaceResponse -&gt; ShowS
+[PutRuleGroupsNamespaceResponse] -&gt; ShowS
+PutRuleGroupsNamespaceResponse -&gt; String
+(Int -&gt; PutRuleGroupsNamespaceResponse -&gt; ShowS)
+-&gt; (PutRuleGroupsNamespaceResponse -&gt; String)
+-&gt; ([PutRuleGroupsNamespaceResponse] -&gt; ShowS)
+-&gt; Show PutRuleGroupsNamespaceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRuleGroupsNamespaceResponse] -&gt; ShowS
+$cshowList :: [PutRuleGroupsNamespaceResponse] -&gt; ShowS
+show :: PutRuleGroupsNamespaceResponse -&gt; String
+$cshow :: PutRuleGroupsNamespaceResponse -&gt; String
+showsPrec :: Int -&gt; PutRuleGroupsNamespaceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRuleGroupsNamespaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutRuleGroupsNamespaceResponse
+ -&gt; Rep PutRuleGroupsNamespaceResponse x)
+-&gt; (forall x.
+    Rep PutRuleGroupsNamespaceResponse x
+    -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Generic PutRuleGroupsNamespaceResponse
+forall x.
+Rep PutRuleGroupsNamespaceResponse x
+-&gt; PutRuleGroupsNamespaceResponse
+forall x.
+PutRuleGroupsNamespaceResponse
+-&gt; Rep PutRuleGroupsNamespaceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutRuleGroupsNamespaceResponse x
+-&gt; PutRuleGroupsNamespaceResponse
+$cfrom :: forall x.
+PutRuleGroupsNamespaceResponse
+-&gt; Rep PutRuleGroupsNamespaceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'PutRuleGroupsNamespaceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'tags', 'putRuleGroupsNamespaceResponse_tags' - The tags of this rule groups namespace.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'httpStatus', 'putRuleGroupsNamespaceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'arn', 'putRuleGroupsNamespaceResponse_arn' - The Amazon Resource Name (ARN) of this rule groups namespace.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'name', 'putRuleGroupsNamespaceResponse_name' - The rule groups namespace name.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'status', 'putRuleGroupsNamespaceResponse_status' - The status of rule groups namespace.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#newPutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">newPutRuleGroupsNamespaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.Types.RuleGroupsNamespaceStatus.html#RuleGroupsNamespaceStatus"><span class="hs-identifier hs-type">RuleGroupsNamespaceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span>
+</span><span id="line-225"></span><span id="newPutRuleGroupsNamespaceResponse"><span class="annot"><span class="annottext">newPutRuleGroupsNamespaceResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; RuleGroupsNamespaceStatus
+-&gt; PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#newPutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-var hs-var">newPutRuleGroupsNamespaceResponse</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679171788"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171788"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679171787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171787"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679171786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171786"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679171785"><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679171785"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse' :: Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; RuleGroupsNamespaceStatus
+-&gt; PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:PutRuleGroupsNamespaceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Atags%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRuleGroupsNamespaceResponse' :: Int
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AhttpStatus%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171788"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:PutRuleGroupsNamespaceResponse' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aarn%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171787"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:PutRuleGroupsNamespaceResponse' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aname%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171786"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:PutRuleGroupsNamespaceResponse' :: RuleGroupsNamespaceStatus
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Astatus%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679171785"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The tags of this rule groups namespace.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_tags"><span class="hs-identifier hs-type">putRuleGroupsNamespaceResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="putRuleGroupsNamespaceResponse_tags"><span class="annot"><span class="annottext">putRuleGroupsNamespaceResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; PutRuleGroupsNamespaceResponse
+-&gt; f PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_tags"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespaceResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespaceResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (PutRuleGroupsNamespaceResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Lens
+     PutRuleGroupsNamespaceResponse
+     PutRuleGroupsNamespaceResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171784"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:PutRuleGroupsNamespaceResponse' :: PutRuleGroupsNamespaceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171784"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171784"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171783"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171782"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutRuleGroupsNamespaceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Atags%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679171782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; PutRuleGroupsNamespaceResponse
+ -&gt; f PutRuleGroupsNamespaceResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; PutRuleGroupsNamespaceResponse
+-&gt; f PutRuleGroupsNamespaceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_httpStatus"><span class="hs-identifier hs-type">putRuleGroupsNamespaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-245"></span><span id="putRuleGroupsNamespaceResponse_httpStatus"><span class="annot"><span class="annottext">putRuleGroupsNamespaceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutRuleGroupsNamespaceResponse
+-&gt; f PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespaceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespaceResponse -&gt; Int)
+-&gt; (PutRuleGroupsNamespaceResponse
+    -&gt; Int -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Lens
+     PutRuleGroupsNamespaceResponse
+     PutRuleGroupsNamespaceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171779"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutRuleGroupsNamespaceResponse' :: PutRuleGroupsNamespaceResponse -&gt; Int
+</span><a href="#local-6989586621679171779"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171779"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171778"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRuleGroupsNamespaceResponse' :: Int
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3AhttpStatus%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this rule groups namespace.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_arn"><span class="hs-identifier hs-type">putRuleGroupsNamespaceResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-249"></span><span id="putRuleGroupsNamespaceResponse_arn"><span class="annot"><span class="annottext">putRuleGroupsNamespaceResponse_arn :: (Text -&gt; f Text)
+-&gt; PutRuleGroupsNamespaceResponse
+-&gt; f PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_arn"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespaceResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespaceResponse -&gt; Text)
+-&gt; (PutRuleGroupsNamespaceResponse
+    -&gt; Text -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Lens
+     PutRuleGroupsNamespaceResponse
+     PutRuleGroupsNamespaceResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171776"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:PutRuleGroupsNamespaceResponse' :: PutRuleGroupsNamespaceResponse -&gt; Text
+</span><a href="#local-6989586621679171776"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171776"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171775"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PutRuleGroupsNamespaceResponse' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aarn%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The rule groups namespace name.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_name"><span class="hs-identifier hs-type">putRuleGroupsNamespaceResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-253"></span><span id="putRuleGroupsNamespaceResponse_name"><span class="annot"><span class="annottext">putRuleGroupsNamespaceResponse_name :: (Text -&gt; f Text)
+-&gt; PutRuleGroupsNamespaceResponse
+-&gt; f PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_name"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespaceResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespaceResponse -&gt; Text)
+-&gt; (PutRuleGroupsNamespaceResponse
+    -&gt; Text -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Lens
+     PutRuleGroupsNamespaceResponse
+     PutRuleGroupsNamespaceResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171773"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PutRuleGroupsNamespaceResponse' :: PutRuleGroupsNamespaceResponse -&gt; Text
+</span><a href="#local-6989586621679171773"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171773"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171772"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutRuleGroupsNamespaceResponse' :: Text
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Aname%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The status of rule groups namespace.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_status"><span class="hs-identifier hs-type">putRuleGroupsNamespaceResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.AMP.Types.RuleGroupsNamespaceStatus.html#RuleGroupsNamespaceStatus"><span class="hs-identifier hs-type">RuleGroupsNamespaceStatus</span></a></span><span>
+</span><span id="line-257"></span><span id="putRuleGroupsNamespaceResponse_status"><span class="annot"><span class="annottext">putRuleGroupsNamespaceResponse_status :: (RuleGroupsNamespaceStatus -&gt; f RuleGroupsNamespaceStatus)
+-&gt; PutRuleGroupsNamespaceResponse
+-&gt; f PutRuleGroupsNamespaceResponse
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#putRuleGroupsNamespaceResponse_status"><span class="hs-identifier hs-var hs-var">putRuleGroupsNamespaceResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRuleGroupsNamespaceResponse -&gt; RuleGroupsNamespaceStatus)
+-&gt; (PutRuleGroupsNamespaceResponse
+    -&gt; RuleGroupsNamespaceStatus -&gt; PutRuleGroupsNamespaceResponse)
+-&gt; Lens
+     PutRuleGroupsNamespaceResponse
+     PutRuleGroupsNamespaceResponse
+     RuleGroupsNamespaceStatus
+     RuleGroupsNamespaceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171770"><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+status :: RuleGroupsNamespaceStatus
+$sel:status:PutRuleGroupsNamespaceResponse' :: PutRuleGroupsNamespaceResponse -&gt; RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679171770"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679171770"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171769"><span class="annot"><span class="annottext">s :: PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171768"><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679171768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRuleGroupsNamespaceResponse
+</span><a href="#local-6989586621679171769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:PutRuleGroupsNamespaceResponse' :: RuleGroupsNamespaceStatus
+</span><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#%24sel%3Astatus%3APutRuleGroupsNamespaceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679171768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679171766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.PutRuleGroupsNamespace.html#PutRuleGroupsNamespaceResponse"><span class="hs-identifier hs-type">PutRuleGroupsNamespaceResponse</span></a></span></span><span>
+</span><span id="line-262"></span></pre></body></html>

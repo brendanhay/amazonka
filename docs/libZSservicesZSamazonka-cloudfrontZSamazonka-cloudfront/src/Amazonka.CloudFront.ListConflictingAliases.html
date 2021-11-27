@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.ListConflictingAliases</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of aliases (also called CNAMEs or alternate domain names)</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- that conflict or overlap with the provided alias, and the associated</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- CloudFront distributions and Amazon Web Services accounts for each</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- conflicting alias. In the returned list, the distribution and account</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- IDs are partially hidden, which allows you to identify the distributions</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- and accounts that you own, but helps to protect the information of ones</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- that you don&#8217;t own.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Use this operation to find aliases that are in use in CloudFront that</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- conflict or overlap with the provided alias. For example, if you provide</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @www.example.com@ as input, the returned list can include</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @www.example.com@ and the overlapping wildcard alternate domain name</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- (@*.example.com@), if they exist. If you provide @*.example.com@ as</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- input, the returned list can include @*.example.com@ and any alternate</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- domain names covered by that wildcard (for example, @www.example.com@,</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @test.example.com@, @dev.example.com@, and so on), if they exist.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- To list conflicting aliases, you provide the alias to search and the ID</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- of a distribution in your account that has an attached SSL\/TLS</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- certificate that includes the provided alias. For more information,</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- including how to set up the distribution and certificate, see</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move Moving an alternate domain name to a different distribution&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- You can optionally specify the maximum number of items to receive in the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- response. If the total number of items in the list exceeds the maximum</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- that you specify, or the default maximum, the response is paginated. To</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- get the next page of items, send a subsequent request that specifies the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- @NextMarker@ value from the current response as the @Marker@ value in</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- the subsequent request.</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.ListConflictingAliases</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier">ListConflictingAliases</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#newListConflictingAliases"><span class="hs-identifier">newListConflictingAliases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_marker"><span class="hs-identifier">listConflictingAliases_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_maxItems"><span class="hs-identifier">listConflictingAliases_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_distributionId"><span class="hs-identifier">listConflictingAliases_distributionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_alias"><span class="hs-identifier">listConflictingAliases_alias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier">ListConflictingAliasesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#newListConflictingAliasesResponse"><span class="hs-identifier">newListConflictingAliasesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliasesResponse_conflictingAliasesList"><span class="hs-identifier">listConflictingAliasesResponse_conflictingAliasesList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliasesResponse_httpStatus"><span class="hs-identifier">listConflictingAliasesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.html"><span class="hs-identifier">Amazonka.CloudFront.Types</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | /See:/ 'newListConflictingAliases' smart constructor.</span><span>
+</span><span id="line-82"></span><span id="local-6989586621679412389"><span id="local-6989586621679412390"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConflictingAliases"><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-var">ListConflictingAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConflictingAliases%27"><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-var">ListConflictingAliases'</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this field when paginating results to indicate where to begin in the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- list of conflicting aliases. The response includes conflicting aliases</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- in the list that occur after the marker. To get the next page of the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- list, set this field&#8217;s value to the value of @NextMarker@ from the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- current page&#8217;s response.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Amarker%3AListConflictingAliases%27"><span class="annot"><span class="annottext">ListConflictingAliases -&gt; Maybe Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3Amarker%3AListConflictingAliases%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The maximum number of conflicting aliases that you want in the response.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AmaxItems%3AListConflictingAliases%27"><span class="annot"><span class="annottext">ListConflictingAliases -&gt; Maybe Int
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AmaxItems%3AListConflictingAliases%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The ID of a distribution in your account that has an attached SSL\/TLS</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- certificate that includes the provided alias.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AdistributionId%3AListConflictingAliases%27"><span class="annot"><span class="annottext">ListConflictingAliases -&gt; Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AdistributionId%3AListConflictingAliases%27"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The alias (also called a CNAME) to search for conflicting aliases.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Aalias%3AListConflictingAliases%27"><span class="annot"><span class="annottext">ListConflictingAliases -&gt; Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3Aalias%3AListConflictingAliases%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412380"><span id="local-6989586621679412382"><span class="annot"><span class="annottext">ListConflictingAliases -&gt; ListConflictingAliases -&gt; Bool
+(ListConflictingAliases -&gt; ListConflictingAliases -&gt; Bool)
+-&gt; (ListConflictingAliases -&gt; ListConflictingAliases -&gt; Bool)
+-&gt; Eq ListConflictingAliases
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConflictingAliases -&gt; ListConflictingAliases -&gt; Bool
+$c/= :: ListConflictingAliases -&gt; ListConflictingAliases -&gt; Bool
+== :: ListConflictingAliases -&gt; ListConflictingAliases -&gt; Bool
+$c== :: ListConflictingAliases -&gt; ListConflictingAliases -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412371"><span id="local-6989586621679412373"><span id="local-6989586621679412375"><span id="local-6989586621679412377"><span class="annot"><span class="annottext">ReadPrec [ListConflictingAliases]
+ReadPrec ListConflictingAliases
+Int -&gt; ReadS ListConflictingAliases
+ReadS [ListConflictingAliases]
+(Int -&gt; ReadS ListConflictingAliases)
+-&gt; ReadS [ListConflictingAliases]
+-&gt; ReadPrec ListConflictingAliases
+-&gt; ReadPrec [ListConflictingAliases]
+-&gt; Read ListConflictingAliases
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConflictingAliases]
+$creadListPrec :: ReadPrec [ListConflictingAliases]
+readPrec :: ReadPrec ListConflictingAliases
+$creadPrec :: ReadPrec ListConflictingAliases
+readList :: ReadS [ListConflictingAliases]
+$creadList :: ReadS [ListConflictingAliases]
+readsPrec :: Int -&gt; ReadS ListConflictingAliases
+$creadsPrec :: Int -&gt; ReadS ListConflictingAliases
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412364"><span id="local-6989586621679412366"><span id="local-6989586621679412368"><span class="annot"><span class="annottext">Int -&gt; ListConflictingAliases -&gt; ShowS
+[ListConflictingAliases] -&gt; ShowS
+ListConflictingAliases -&gt; String
+(Int -&gt; ListConflictingAliases -&gt; ShowS)
+-&gt; (ListConflictingAliases -&gt; String)
+-&gt; ([ListConflictingAliases] -&gt; ShowS)
+-&gt; Show ListConflictingAliases
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConflictingAliases] -&gt; ShowS
+$cshowList :: [ListConflictingAliases] -&gt; ShowS
+show :: ListConflictingAliases -&gt; String
+$cshow :: ListConflictingAliases -&gt; String
+showsPrec :: Int -&gt; ListConflictingAliases -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConflictingAliases -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListConflictingAliases -&gt; Rep ListConflictingAliases x)
+-&gt; (forall x.
+    Rep ListConflictingAliases x -&gt; ListConflictingAliases)
+-&gt; Generic ListConflictingAliases
+forall x. Rep ListConflictingAliases x -&gt; ListConflictingAliases
+forall x. ListConflictingAliases -&gt; Rep ListConflictingAliases x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListConflictingAliases x -&gt; ListConflictingAliases
+$cfrom :: forall x. ListConflictingAliases -&gt; Rep ListConflictingAliases x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Create a value of 'ListConflictingAliases' with all optional fields omitted.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'marker', 'listConflictingAliases_marker' - Use this field when paginating results to indicate where to begin in the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- list of conflicting aliases. The response includes conflicting aliases</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- in the list that occur after the marker. To get the next page of the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- list, set this field&#8217;s value to the value of @NextMarker@ from the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- current page&#8217;s response.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'maxItems', 'listConflictingAliases_maxItems' - The maximum number of conflicting aliases that you want in the response.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'distributionId', 'listConflictingAliases_distributionId' - The ID of a distribution in your account that has an attached SSL\/TLS</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- certificate that includes the provided alias.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'alias', 'listConflictingAliases_alias' - The alias (also called a CNAME) to search for conflicting aliases.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#newListConflictingAliases"><span class="hs-identifier hs-type">newListConflictingAliases</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'distributionId'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'alias'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span>
+</span><span id="line-125"></span><span id="newListConflictingAliases"><span class="annot"><span class="annottext">newListConflictingAliases :: Text -&gt; Text -&gt; ListConflictingAliases
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#newListConflictingAliases"><span class="hs-identifier hs-var hs-var">newListConflictingAliases</span></a></span></span><span> </span><span id="local-6989586621679412359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412359"><span class="hs-identifier hs-var">pDistributionId_</span></a></span></span><span> </span><span id="local-6989586621679412358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412358"><span class="hs-identifier hs-var">pAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">ListConflictingAliases' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ListConflictingAliases
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListConflictingAliases' :: Maybe Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3Amarker%3AListConflictingAliases%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListConflictingAliases' :: Maybe Int
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AmaxItems%3AListConflictingAliases%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:distributionId:ListConflictingAliases' :: Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AdistributionId%3AListConflictingAliases%27"><span class="hs-identifier hs-var">distributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412359"><span class="hs-identifier hs-var">pDistributionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:ListConflictingAliases' :: Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3Aalias%3AListConflictingAliases%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412358"><span class="hs-identifier hs-var">pAlias_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Use this field when paginating results to indicate where to begin in the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- list of conflicting aliases. The response includes conflicting aliases</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- in the list that occur after the marker. To get the next page of the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- list, set this field&#8217;s value to the value of @NextMarker@ from the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- current page&#8217;s response.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_marker"><span class="hs-identifier hs-type">listConflictingAliases_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="listConflictingAliases_marker"><span class="annot"><span class="annottext">listConflictingAliases_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConflictingAliases -&gt; f ListConflictingAliases
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_marker"><span class="hs-identifier hs-var hs-var">listConflictingAliases_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConflictingAliases -&gt; Maybe Text)
+-&gt; (ListConflictingAliases -&gt; Maybe Text -&gt; ListConflictingAliases)
+-&gt; Lens
+     ListConflictingAliases
+     ListConflictingAliases
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412355"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListConflictingAliases' :: ListConflictingAliases -&gt; Maybe Text
+</span><a href="#local-6989586621679412355"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412355"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412354"><span class="annot"><span class="annottext">s :: ListConflictingAliases
+</span><a href="#local-6989586621679412354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412353"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConflictingAliases
+</span><a href="#local-6989586621679412354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListConflictingAliases' :: Maybe Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3Amarker%3AListConflictingAliases%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The maximum number of conflicting aliases that you want in the response.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_maxItems"><span class="hs-identifier hs-type">listConflictingAliases_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="listConflictingAliases_maxItems"><span class="annot"><span class="annottext">listConflictingAliases_maxItems :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListConflictingAliases -&gt; f ListConflictingAliases
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_maxItems"><span class="hs-identifier hs-var hs-var">listConflictingAliases_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConflictingAliases -&gt; Maybe Int)
+-&gt; (ListConflictingAliases -&gt; Maybe Int -&gt; ListConflictingAliases)
+-&gt; Lens
+     ListConflictingAliases
+     ListConflictingAliases
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412352"><span class="annot"><span class="annottext">Maybe Int
+maxItems :: Maybe Int
+$sel:maxItems:ListConflictingAliases' :: ListConflictingAliases -&gt; Maybe Int
+</span><a href="#local-6989586621679412352"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679412352"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412351"><span class="annot"><span class="annottext">s :: ListConflictingAliases
+</span><a href="#local-6989586621679412351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412350"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679412350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConflictingAliases
+</span><a href="#local-6989586621679412351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListConflictingAliases' :: Maybe Int
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AmaxItems%3AListConflictingAliases%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679412350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The ID of a distribution in your account that has an attached SSL\/TLS</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- certificate that includes the provided alias.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_distributionId"><span class="hs-identifier hs-type">listConflictingAliases_distributionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="listConflictingAliases_distributionId"><span class="annot"><span class="annottext">listConflictingAliases_distributionId :: (Text -&gt; f Text)
+-&gt; ListConflictingAliases -&gt; f ListConflictingAliases
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_distributionId"><span class="hs-identifier hs-var hs-var">listConflictingAliases_distributionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConflictingAliases -&gt; Text)
+-&gt; (ListConflictingAliases -&gt; Text -&gt; ListConflictingAliases)
+-&gt; Lens ListConflictingAliases ListConflictingAliases Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412349"><span class="annot"><span class="annottext">Text
+distributionId :: Text
+$sel:distributionId:ListConflictingAliases' :: ListConflictingAliases -&gt; Text
+</span><a href="#local-6989586621679412349"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412349"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412348"><span class="annot"><span class="annottext">s :: ListConflictingAliases
+</span><a href="#local-6989586621679412348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConflictingAliases
+</span><a href="#local-6989586621679412348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionId:ListConflictingAliases' :: Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AdistributionId%3AListConflictingAliases%27"><span class="hs-identifier hs-var">distributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The alias (also called a CNAME) to search for conflicting aliases.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_alias"><span class="hs-identifier hs-type">listConflictingAliases_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="listConflictingAliases_alias"><span class="annot"><span class="annottext">listConflictingAliases_alias :: (Text -&gt; f Text)
+-&gt; ListConflictingAliases -&gt; f ListConflictingAliases
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliases_alias"><span class="hs-identifier hs-var hs-var">listConflictingAliases_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConflictingAliases -&gt; Text)
+-&gt; (ListConflictingAliases -&gt; Text -&gt; ListConflictingAliases)
+-&gt; Lens ListConflictingAliases ListConflictingAliases Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412346"><span class="annot"><span class="annottext">Text
+alias :: Text
+$sel:alias:ListConflictingAliases' :: ListConflictingAliases -&gt; Text
+</span><a href="#local-6989586621679412346"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412346"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412345"><span class="annot"><span class="annottext">s :: ListConflictingAliases
+</span><a href="#local-6989586621679412345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConflictingAliases
+</span><a href="#local-6989586621679412345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:ListConflictingAliases' :: Text
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3Aalias%3AListConflictingAliases%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-type">ListConflictingAliasesResponse</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679412340"><span class="annot"><span class="annottext">request :: ListConflictingAliases -&gt; Request ListConflictingAliases
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListConflictingAliases -&gt; Request ListConflictingAliases
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679412336"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListConflictingAliases
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListConflictingAliases)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse ListConflictingAliases))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListConflictingAliases
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListConflictingAliases)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412333"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412332"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412332"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412331"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679412331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConflictingAliasesList
+-&gt; Int -&gt; ListConflictingAliasesResponse
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse%27"><span class="hs-identifier hs-var">ListConflictingAliasesResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConflictingAliasesList
+ -&gt; Int -&gt; ListConflictingAliasesResponse)
+-&gt; Either String (Maybe ConflictingAliasesList)
+-&gt; Either String (Int -&gt; ListConflictingAliasesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe ConflictingAliasesList)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679412331"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListConflictingAliasesResponse)
+-&gt; Either String Int
+-&gt; Either String ListConflictingAliasesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412333"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412323"><span id="local-6989586621679412325"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679412316"><span class="annot"><span class="annottext">toHeaders :: ListConflictingAliases -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListConflictingAliases -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679412311"><span class="annot"><span class="annottext">toPath :: ListConflictingAliases -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListConflictingAliases -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/conflicting-alias&quot;</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases"><span class="hs-identifier hs-type">ListConflictingAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679412307"><span class="annot"><span class="annottext">toQuery :: ListConflictingAliases -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliases%27"><span class="hs-identifier hs-type">ListConflictingAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412302"><span id="local-6989586621679412303"><span id="local-6989586621679412304"><span id="local-6989586621679412305"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+alias :: Text
+distributionId :: Text
+maxItems :: Maybe Int
+marker :: Maybe Text
+$sel:alias:ListConflictingAliases' :: ListConflictingAliases -&gt; Text
+$sel:distributionId:ListConflictingAliases' :: ListConflictingAliases -&gt; Text
+$sel:maxItems:ListConflictingAliases' :: ListConflictingAliases -&gt; Maybe Int
+$sel:marker:ListConflictingAliases' :: ListConflictingAliases -&gt; Maybe Text
+</span><a href="#local-6989586621679412302"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412305"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679412304"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DistributionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412303"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Alias&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412302"><span class="hs-identifier hs-var">alias</span></a></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newListConflictingAliasesResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679412299"><span id="local-6989586621679412300"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConflictingAliasesResponse"><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-var">ListConflictingAliasesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConflictingAliasesResponse%27"><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse%27"><span class="hs-identifier hs-var">ListConflictingAliasesResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of conflicting aliases.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AconflictingAliasesList%3AListConflictingAliasesResponse%27"><span class="annot"><span class="annottext">ListConflictingAliasesResponse -&gt; Maybe ConflictingAliasesList
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AconflictingAliasesList%3AListConflictingAliasesResponse%27"><span class="hs-identifier hs-var hs-var">conflictingAliasesList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ConflictingAliasesList.html#ConflictingAliasesList"><span class="hs-identifier hs-type">ConflictingAliasesList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConflictingAliasesResponse%27"><span class="annot"><span class="annottext">ListConflictingAliasesResponse -&gt; Int
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AhttpStatus%3AListConflictingAliasesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412293"><span id="local-6989586621679412295"><span class="annot"><span class="annottext">ListConflictingAliasesResponse
+-&gt; ListConflictingAliasesResponse -&gt; Bool
+(ListConflictingAliasesResponse
+ -&gt; ListConflictingAliasesResponse -&gt; Bool)
+-&gt; (ListConflictingAliasesResponse
+    -&gt; ListConflictingAliasesResponse -&gt; Bool)
+-&gt; Eq ListConflictingAliasesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConflictingAliasesResponse
+-&gt; ListConflictingAliasesResponse -&gt; Bool
+$c/= :: ListConflictingAliasesResponse
+-&gt; ListConflictingAliasesResponse -&gt; Bool
+== :: ListConflictingAliasesResponse
+-&gt; ListConflictingAliasesResponse -&gt; Bool
+$c== :: ListConflictingAliasesResponse
+-&gt; ListConflictingAliasesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412285"><span id="local-6989586621679412287"><span id="local-6989586621679412289"><span id="local-6989586621679412291"><span class="annot"><span class="annottext">ReadPrec [ListConflictingAliasesResponse]
+ReadPrec ListConflictingAliasesResponse
+Int -&gt; ReadS ListConflictingAliasesResponse
+ReadS [ListConflictingAliasesResponse]
+(Int -&gt; ReadS ListConflictingAliasesResponse)
+-&gt; ReadS [ListConflictingAliasesResponse]
+-&gt; ReadPrec ListConflictingAliasesResponse
+-&gt; ReadPrec [ListConflictingAliasesResponse]
+-&gt; Read ListConflictingAliasesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConflictingAliasesResponse]
+$creadListPrec :: ReadPrec [ListConflictingAliasesResponse]
+readPrec :: ReadPrec ListConflictingAliasesResponse
+$creadPrec :: ReadPrec ListConflictingAliasesResponse
+readList :: ReadS [ListConflictingAliasesResponse]
+$creadList :: ReadS [ListConflictingAliasesResponse]
+readsPrec :: Int -&gt; ReadS ListConflictingAliasesResponse
+$creadsPrec :: Int -&gt; ReadS ListConflictingAliasesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412279"><span id="local-6989586621679412281"><span id="local-6989586621679412283"><span class="annot"><span class="annottext">Int -&gt; ListConflictingAliasesResponse -&gt; ShowS
+[ListConflictingAliasesResponse] -&gt; ShowS
+ListConflictingAliasesResponse -&gt; String
+(Int -&gt; ListConflictingAliasesResponse -&gt; ShowS)
+-&gt; (ListConflictingAliasesResponse -&gt; String)
+-&gt; ([ListConflictingAliasesResponse] -&gt; ShowS)
+-&gt; Show ListConflictingAliasesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConflictingAliasesResponse] -&gt; ShowS
+$cshowList :: [ListConflictingAliasesResponse] -&gt; ShowS
+show :: ListConflictingAliasesResponse -&gt; String
+$cshow :: ListConflictingAliasesResponse -&gt; String
+showsPrec :: Int -&gt; ListConflictingAliasesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConflictingAliasesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListConflictingAliasesResponse
+ -&gt; Rep ListConflictingAliasesResponse x)
+-&gt; (forall x.
+    Rep ListConflictingAliasesResponse x
+    -&gt; ListConflictingAliasesResponse)
+-&gt; Generic ListConflictingAliasesResponse
+forall x.
+Rep ListConflictingAliasesResponse x
+-&gt; ListConflictingAliasesResponse
+forall x.
+ListConflictingAliasesResponse
+-&gt; Rep ListConflictingAliasesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListConflictingAliasesResponse x
+-&gt; ListConflictingAliasesResponse
+$cfrom :: forall x.
+ListConflictingAliasesResponse
+-&gt; Rep ListConflictingAliasesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'ListConflictingAliasesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'conflictingAliasesList', 'listConflictingAliasesResponse_conflictingAliasesList' - A list of conflicting aliases.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'listConflictingAliasesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#newListConflictingAliasesResponse"><span class="hs-identifier hs-type">newListConflictingAliasesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-type">ListConflictingAliasesResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newListConflictingAliasesResponse"><span class="annot"><span class="annottext">newListConflictingAliasesResponse :: Int -&gt; ListConflictingAliasesResponse
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#newListConflictingAliasesResponse"><span class="hs-identifier hs-var hs-var">newListConflictingAliasesResponse</span></a></span></span><span> </span><span id="local-6989586621679412276"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412276"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">ListConflictingAliasesResponse' :: Maybe ConflictingAliasesList
+-&gt; Int -&gt; ListConflictingAliasesResponse
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse%27"><span class="hs-identifier hs-type">ListConflictingAliasesResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conflictingAliasesList:ListConflictingAliasesResponse' :: Maybe ConflictingAliasesList
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AconflictingAliasesList%3AListConflictingAliasesResponse%27"><span class="hs-identifier hs-var">conflictingAliasesList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConflictingAliasesList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConflictingAliasesResponse' :: Int
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AhttpStatus%3AListConflictingAliasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412276"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | A list of conflicting aliases.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliasesResponse_conflictingAliasesList"><span class="hs-identifier hs-type">listConflictingAliasesResponse_conflictingAliasesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-type">ListConflictingAliasesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ConflictingAliasesList.html#ConflictingAliasesList"><span class="hs-identifier hs-type">ConflictingAliasesList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="listConflictingAliasesResponse_conflictingAliasesList"><span class="annot"><span class="annottext">listConflictingAliasesResponse_conflictingAliasesList :: (Maybe ConflictingAliasesList -&gt; f (Maybe ConflictingAliasesList))
+-&gt; ListConflictingAliasesResponse
+-&gt; f ListConflictingAliasesResponse
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliasesResponse_conflictingAliasesList"><span class="hs-identifier hs-var hs-var">listConflictingAliasesResponse_conflictingAliasesList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConflictingAliasesResponse -&gt; Maybe ConflictingAliasesList)
+-&gt; (ListConflictingAliasesResponse
+    -&gt; Maybe ConflictingAliasesList -&gt; ListConflictingAliasesResponse)
+-&gt; Lens
+     ListConflictingAliasesResponse
+     ListConflictingAliasesResponse
+     (Maybe ConflictingAliasesList)
+     (Maybe ConflictingAliasesList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse%27"><span class="hs-identifier hs-type">ListConflictingAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412275"><span class="annot"><span class="annottext">Maybe ConflictingAliasesList
+conflictingAliasesList :: Maybe ConflictingAliasesList
+$sel:conflictingAliasesList:ListConflictingAliasesResponse' :: ListConflictingAliasesResponse -&gt; Maybe ConflictingAliasesList
+</span><a href="#local-6989586621679412275"><span class="hs-identifier hs-var hs-var">conflictingAliasesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictingAliasesList
+</span><a href="#local-6989586621679412275"><span class="hs-identifier hs-var">conflictingAliasesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412274"><span class="annot"><span class="annottext">s :: ListConflictingAliasesResponse
+</span><a href="#local-6989586621679412274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse%27"><span class="hs-identifier hs-type">ListConflictingAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412273"><span class="annot"><span class="annottext">Maybe ConflictingAliasesList
+</span><a href="#local-6989586621679412273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConflictingAliasesResponse
+</span><a href="#local-6989586621679412274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictingAliasesList:ListConflictingAliasesResponse' :: Maybe ConflictingAliasesList
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AconflictingAliasesList%3AListConflictingAliasesResponse%27"><span class="hs-identifier hs-var">conflictingAliasesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictingAliasesList
+</span><a href="#local-6989586621679412273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-type">ListConflictingAliasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliasesResponse_httpStatus"><span class="hs-identifier hs-type">listConflictingAliasesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-type">ListConflictingAliasesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="listConflictingAliasesResponse_httpStatus"><span class="annot"><span class="annottext">listConflictingAliasesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListConflictingAliasesResponse
+-&gt; f ListConflictingAliasesResponse
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#listConflictingAliasesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listConflictingAliasesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConflictingAliasesResponse -&gt; Int)
+-&gt; (ListConflictingAliasesResponse
+    -&gt; Int -&gt; ListConflictingAliasesResponse)
+-&gt; Lens
+     ListConflictingAliasesResponse
+     ListConflictingAliasesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse%27"><span class="hs-identifier hs-type">ListConflictingAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412272"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListConflictingAliasesResponse' :: ListConflictingAliasesResponse -&gt; Int
+</span><a href="#local-6989586621679412272"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412272"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412271"><span class="annot"><span class="annottext">s :: ListConflictingAliasesResponse
+</span><a href="#local-6989586621679412271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse%27"><span class="hs-identifier hs-type">ListConflictingAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412270"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConflictingAliasesResponse
+</span><a href="#local-6989586621679412271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConflictingAliasesResponse' :: Int
+</span><a href="Amazonka.CloudFront.ListConflictingAliases.html#%24sel%3AhttpStatus%3AListConflictingAliasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-type">ListConflictingAliasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679412268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.ListConflictingAliases.html#ListConflictingAliasesResponse"><span class="hs-identifier hs-type">ListConflictingAliasesResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

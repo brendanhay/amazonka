@@ -1,0 +1,1167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Rekognition.IndexFaces</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Detects faces in the input image and adds them to the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- collection.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Amazon Rekognition doesn\'t save the actual faces that are detected.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Instead, the underlying detection algorithm first detects the faces in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the input image. For each face, the algorithm extracts facial features</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- into a feature vector, and stores it in the backend database. Amazon</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Rekognition uses feature vectors when it performs face match and search</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- operations using the SearchFaces and SearchFacesByImage operations.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- For more information, see Adding Faces to a Collection in the Amazon</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Rekognition Developer Guide.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- To get the number of faces in a collection, call DescribeCollection.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- If you\'re using version 1.0 of the face detection model, @IndexFaces@</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- indexes the 15 largest faces in the input image. Later versions of the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- face detection model index the 100 largest faces in the input image.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- If you\'re using version 4 or later of the face model, image orientation</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- information is not returned in the @OrientationCorrection@ field.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- To determine which version of the model you\'re using, call</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- DescribeCollection and supply the collection ID. You can also get the</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- model version from the value of @FaceModelVersion@ in the response from</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- @IndexFaces@</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- For more information, see Model Versioning in the Amazon Rekognition</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Developer Guide.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- If you provide the optional @ExternalImageId@ for the input image you</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- provided, Amazon Rekognition associates this ID with all faces that it</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- detects. When you call the ListFaces operation, the response returns the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- external ID. You can use this external image ID to create a client-side</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- index to associate the faces with each image. You can then use the index</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- to find all faces in an image.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- You can specify the maximum number of faces to index with the @MaxFaces@</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- input parameter. This is useful when you want to index the largest faces</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- in an image and don\'t want to index smaller faces, such as those</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- belonging to people standing in the background.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The @QualityFilter@ input parameter allows you to filter out detected</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- faces that don&#8217;t meet a required quality bar. The quality bar is based</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- on a variety of common use cases. By default, @IndexFaces@ chooses the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- quality bar that\'s used to filter faces. You can also explicitly choose</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- the quality bar. Use @QualityFilter@, to set the quality bar by</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- specifying @LOW@, @MEDIUM@, or @HIGH@. If you do not want to filter</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- detected faces, specify @NONE@.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- To use quality filtering, you need a collection associated with version</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 3 of the face model or higher. To get the version of the face model</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- associated with a collection, call DescribeCollection.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Information about faces detected in an image, but not indexed, is</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- returned in an array of UnindexedFace objects, @UnindexedFaces@. Faces</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- aren\'t indexed for reasons such as:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   The number of faces detected exceeds the value of the @MaxFaces@</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     request parameter.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   The face is too small compared to the image dimensions.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   The face is too blurry.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   The image is too dark.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   The face has an extreme pose.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   The face doesn&#8217;t have enough detail to be suitable for face search.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- In response, the @IndexFaces@ operation returns an array of metadata for</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- all detected faces, @FaceRecords@. This includes:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   The bounding box, @BoundingBox@, of the detected face.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   A confidence value, @Confidence@, which indicates the confidence</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     that the bounding box contains a face.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   A face ID, @FaceId@, assigned by the service for each face that\'s</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     detected and stored.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   An image ID, @ImageId@, assigned by the service for the input image.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- If you request all facial attributes (by using the @detectionAttributes@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- parameter), Amazon Rekognition returns detailed facial attributes, such</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- as facial landmarks (for example, location of eye and mouth) and other</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- facial attributes. If you provide the same image, specify the same</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- collection, and use the same external ID in the @IndexFaces@ operation,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Amazon Rekognition doesn\'t save duplicate face metadata.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The input image is passed either as base64-encoded image bytes, or as a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- reference to an image in an Amazon S3 bucket. If you use the AWS CLI to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- call Amazon Rekognition operations, passing image bytes isn\'t</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- supported. The image must be formatted as a PNG or JPEG file.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- This operation requires permissions to perform the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- @rekognition:IndexFaces@ action.</span><span>
+</span><span id="line-121"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Rekognition.IndexFaces</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier">IndexFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#newIndexFaces"><span class="hs-identifier">newIndexFaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_externalImageId"><span class="hs-identifier">indexFaces_externalImageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_qualityFilter"><span class="hs-identifier">indexFaces_qualityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_maxFaces"><span class="hs-identifier">indexFaces_maxFaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_detectionAttributes"><span class="hs-identifier">indexFaces_detectionAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_collectionId"><span class="hs-identifier">indexFaces_collectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_image"><span class="hs-identifier">indexFaces_image</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier">IndexFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#newIndexFacesResponse"><span class="hs-identifier">newIndexFacesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_faceModelVersion"><span class="hs-identifier">indexFacesResponse_faceModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_faceRecords"><span class="hs-identifier">indexFacesResponse_faceRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_orientationCorrection"><span class="hs-identifier">indexFacesResponse_orientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_unindexedFaces"><span class="hs-identifier">indexFacesResponse_unindexedFaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_httpStatus"><span class="hs-identifier">indexFacesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.html"><span class="hs-identifier">Amazonka.Rekognition.Types</span></a></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newIndexFaces' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679341202"><span id="local-6989586621679341203"></span></span><span class="hs-keyword">data</span><span> </span><span id="IndexFaces"><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-var">IndexFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexFaces%27"><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-var">IndexFaces'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID you want to assign to all the faces detected in the image.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AexternalImageId%3AIndexFaces%27"><span class="annot"><span class="annottext">IndexFaces -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AexternalImageId%3AIndexFaces%27"><span class="hs-identifier hs-var hs-var">externalImageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | A filter that specifies a quality bar for how much filtering is done to</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- identify faces. Filtered faces aren\'t indexed. If you specify @AUTO@,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition chooses the quality bar. If you specify @LOW@,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- @MEDIUM@, or @HIGH@, filtering removes all faces that don&#8217;t meet the</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- chosen quality bar. The default value is @AUTO@. The quality bar is</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- based on a variety of common use cases. Low-quality detections can occur</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- for a number of reasons. Some examples are an object that\'s</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- misidentified as a face, a face that\'s too blurry, or a face with a</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- pose that\'s too extreme to use. If you specify @NONE@, no filtering is</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- performed.</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- To use quality filtering, the collection you are using must be</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- associated with version 3 of the face model or higher.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AqualityFilter%3AIndexFaces%27"><span class="annot"><span class="annottext">IndexFaces -&gt; Maybe QualityFilter
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AqualityFilter%3AIndexFaces%27"><span class="hs-identifier hs-var hs-var">qualityFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.QualityFilter.html#QualityFilter"><span class="hs-identifier hs-type">QualityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The maximum number of faces to index. The value of @MaxFaces@ must be</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- greater than or equal to 1. @IndexFaces@ returns no more than 100</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- detected faces in an image, even if you specify a larger value for</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- @MaxFaces@.</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- If @IndexFaces@ detects more faces than the value of @MaxFaces@, the</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- faces with the lowest quality are filtered out first. If there are still</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- more faces than the value of @MaxFaces@, the faces with the smallest</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- bounding boxes are filtered out (up to the number that\'s needed to</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- satisfy the value of @MaxFaces@). Information about the unindexed faces</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- is available in the @UnindexedFaces@ array.</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- The faces that are returned by @IndexFaces@ are sorted by the largest</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- face bounding box size to the smallest size, in descending order.</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- @MaxFaces@ can be used with a collection associated with any version of</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- the face model.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AmaxFaces%3AIndexFaces%27"><span class="annot"><span class="annottext">IndexFaces -&gt; Maybe Natural
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AmaxFaces%3AIndexFaces%27"><span class="hs-identifier hs-var hs-var">maxFaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | An array of facial attributes that you want to be returned. This can be</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- the default list of attributes or all attributes. If you don\'t specify</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- a value for @Attributes@ or if you specify @[\&quot;DEFAULT\&quot;]@, the API</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- returns the following subset of facial attributes: @BoundingBox@,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- @Confidence@, @Pose@, @Quality@, and @Landmarks@. If you provide</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- @[\&quot;ALL\&quot;]@, all facial attributes are returned, but the operation takes</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- longer to complete.</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- If you provide both, @[\&quot;ALL\&quot;, \&quot;DEFAULT\&quot;]@, the service uses a</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- logical AND operator to determine which attributes to return (in this</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- case, all attributes).</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AdetectionAttributes%3AIndexFaces%27"><span class="annot"><span class="annottext">IndexFaces -&gt; Maybe [Attribute]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AdetectionAttributes%3AIndexFaces%27"><span class="hs-identifier hs-var hs-var">detectionAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The ID of an existing collection to which you want to add the faces that</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- are detected in the input images.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AcollectionId%3AIndexFaces%27"><span class="annot"><span class="annottext">IndexFaces -&gt; Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AcollectionId%3AIndexFaces%27"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- image bytes isn\'t supported.</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3Aimage%3AIndexFaces%27"><span class="annot"><span class="annottext">IndexFaces -&gt; Image
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3Aimage%3AIndexFaces%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341191"><span id="local-6989586621679341193"><span class="annot"><span class="annottext">IndexFaces -&gt; IndexFaces -&gt; Bool
+(IndexFaces -&gt; IndexFaces -&gt; Bool)
+-&gt; (IndexFaces -&gt; IndexFaces -&gt; Bool) -&gt; Eq IndexFaces
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IndexFaces -&gt; IndexFaces -&gt; Bool
+$c/= :: IndexFaces -&gt; IndexFaces -&gt; Bool
+== :: IndexFaces -&gt; IndexFaces -&gt; Bool
+$c== :: IndexFaces -&gt; IndexFaces -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341182"><span id="local-6989586621679341184"><span id="local-6989586621679341186"><span id="local-6989586621679341188"><span class="annot"><span class="annottext">ReadPrec [IndexFaces]
+ReadPrec IndexFaces
+Int -&gt; ReadS IndexFaces
+ReadS [IndexFaces]
+(Int -&gt; ReadS IndexFaces)
+-&gt; ReadS [IndexFaces]
+-&gt; ReadPrec IndexFaces
+-&gt; ReadPrec [IndexFaces]
+-&gt; Read IndexFaces
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IndexFaces]
+$creadListPrec :: ReadPrec [IndexFaces]
+readPrec :: ReadPrec IndexFaces
+$creadPrec :: ReadPrec IndexFaces
+readList :: ReadS [IndexFaces]
+$creadList :: ReadS [IndexFaces]
+readsPrec :: Int -&gt; ReadS IndexFaces
+$creadsPrec :: Int -&gt; ReadS IndexFaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341175"><span id="local-6989586621679341177"><span id="local-6989586621679341179"><span class="annot"><span class="annottext">Int -&gt; IndexFaces -&gt; ShowS
+[IndexFaces] -&gt; ShowS
+IndexFaces -&gt; String
+(Int -&gt; IndexFaces -&gt; ShowS)
+-&gt; (IndexFaces -&gt; String)
+-&gt; ([IndexFaces] -&gt; ShowS)
+-&gt; Show IndexFaces
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IndexFaces] -&gt; ShowS
+$cshowList :: [IndexFaces] -&gt; ShowS
+show :: IndexFaces -&gt; String
+$cshow :: IndexFaces -&gt; String
+showsPrec :: Int -&gt; IndexFaces -&gt; ShowS
+$cshowsPrec :: Int -&gt; IndexFaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. IndexFaces -&gt; Rep IndexFaces x)
+-&gt; (forall x. Rep IndexFaces x -&gt; IndexFaces) -&gt; Generic IndexFaces
+forall x. Rep IndexFaces x -&gt; IndexFaces
+forall x. IndexFaces -&gt; Rep IndexFaces x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IndexFaces x -&gt; IndexFaces
+$cfrom :: forall x. IndexFaces -&gt; Rep IndexFaces x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Create a value of 'IndexFaces' with all optional fields omitted.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'externalImageId', 'indexFaces_externalImageId' - The ID you want to assign to all the faces detected in the image.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'qualityFilter', 'indexFaces_qualityFilter' - A filter that specifies a quality bar for how much filtering is done to</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- identify faces. Filtered faces aren\'t indexed. If you specify @AUTO@,</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Amazon Rekognition chooses the quality bar. If you specify @LOW@,</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @MEDIUM@, or @HIGH@, filtering removes all faces that don&#8217;t meet the</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- chosen quality bar. The default value is @AUTO@. The quality bar is</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- based on a variety of common use cases. Low-quality detections can occur</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- for a number of reasons. Some examples are an object that\'s</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- misidentified as a face, a face that\'s too blurry, or a face with a</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- pose that\'s too extreme to use. If you specify @NONE@, no filtering is</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- performed.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- To use quality filtering, the collection you are using must be</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- associated with version 3 of the face model or higher.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'maxFaces', 'indexFaces_maxFaces' - The maximum number of faces to index. The value of @MaxFaces@ must be</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- greater than or equal to 1. @IndexFaces@ returns no more than 100</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- detected faces in an image, even if you specify a larger value for</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- @MaxFaces@.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- If @IndexFaces@ detects more faces than the value of @MaxFaces@, the</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- faces with the lowest quality are filtered out first. If there are still</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- more faces than the value of @MaxFaces@, the faces with the smallest</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- bounding boxes are filtered out (up to the number that\'s needed to</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- satisfy the value of @MaxFaces@). Information about the unindexed faces</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- is available in the @UnindexedFaces@ array.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- The faces that are returned by @IndexFaces@ are sorted by the largest</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- face bounding box size to the smallest size, in descending order.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- @MaxFaces@ can be used with a collection associated with any version of</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- the face model.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'detectionAttributes', 'indexFaces_detectionAttributes' - An array of facial attributes that you want to be returned. This can be</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- the default list of attributes or all attributes. If you don\'t specify</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- a value for @Attributes@ or if you specify @[\&quot;DEFAULT\&quot;]@, the API</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- returns the following subset of facial attributes: @BoundingBox@,</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- @Confidence@, @Pose@, @Quality@, and @Landmarks@. If you provide</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- @[\&quot;ALL\&quot;]@, all facial attributes are returned, but the operation takes</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- longer to complete.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- If you provide both, @[\&quot;ALL\&quot;, \&quot;DEFAULT\&quot;]@, the service uses a</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- logical AND operator to determine which attributes to return (in this</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- case, all attributes).</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'collectionId', 'indexFaces_collectionId' - The ID of an existing collection to which you want to add the faces that</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- are detected in the input images.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'image', 'indexFaces_image' - The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- image bytes isn\'t supported.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#newIndexFaces"><span class="hs-identifier hs-type">newIndexFaces</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-comment">-- | 'collectionId'</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-comment">-- | 'image'</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span>
+</span><span id="line-286"></span><span id="newIndexFaces"><span class="annot"><span class="annottext">newIndexFaces :: Text -&gt; Image -&gt; IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#newIndexFaces"><span class="hs-identifier hs-var hs-var">newIndexFaces</span></a></span></span><span> </span><span id="local-6989586621679341170"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341170"><span class="hs-identifier hs-var">pCollectionId_</span></a></span></span><span> </span><span id="local-6989586621679341169"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679341169"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><span class="annottext">IndexFaces' :: Maybe Text
+-&gt; Maybe QualityFilter
+-&gt; Maybe Natural
+-&gt; Maybe [Attribute]
+-&gt; Text
+-&gt; Image
+-&gt; IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:externalImageId:IndexFaces' :: Maybe Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AexternalImageId%3AIndexFaces%27"><span class="hs-identifier hs-var">externalImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">$sel:qualityFilter:IndexFaces' :: Maybe QualityFilter
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AqualityFilter%3AIndexFaces%27"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxFaces:IndexFaces' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AmaxFaces%3AIndexFaces%27"><span class="hs-identifier hs-var">maxFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectionAttributes:IndexFaces' :: Maybe [Attribute]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AdetectionAttributes%3AIndexFaces%27"><span class="hs-identifier hs-var">detectionAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:collectionId:IndexFaces' :: Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AcollectionId%3AIndexFaces%27"><span class="hs-identifier hs-var">collectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341170"><span class="hs-identifier hs-var">pCollectionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:IndexFaces' :: Image
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3Aimage%3AIndexFaces%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679341169"><span class="hs-identifier hs-var">pImage_</span></a></span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | The ID you want to assign to all the faces detected in the image.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_externalImageId"><span class="hs-identifier hs-type">indexFaces_externalImageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="indexFaces_externalImageId"><span class="annot"><span class="annottext">indexFaces_externalImageId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; IndexFaces -&gt; f IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_externalImageId"><span class="hs-identifier hs-var hs-var">indexFaces_externalImageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFaces -&gt; Maybe Text)
+-&gt; (IndexFaces -&gt; Maybe Text -&gt; IndexFaces)
+-&gt; Lens IndexFaces IndexFaces (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341166"><span class="annot"><span class="annottext">Maybe Text
+externalImageId :: Maybe Text
+$sel:externalImageId:IndexFaces' :: IndexFaces -&gt; Maybe Text
+</span><a href="#local-6989586621679341166"><span class="hs-identifier hs-var hs-var">externalImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341166"><span class="hs-identifier hs-var">externalImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341165"><span class="annot"><span class="annottext">s :: IndexFaces
+</span><a href="#local-6989586621679341165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341164"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFaces
+</span><a href="#local-6989586621679341165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalImageId:IndexFaces' :: Maybe Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AexternalImageId%3AIndexFaces%27"><span class="hs-identifier hs-var">externalImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | A filter that specifies a quality bar for how much filtering is done to</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- identify faces. Filtered faces aren\'t indexed. If you specify @AUTO@,</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- Amazon Rekognition chooses the quality bar. If you specify @LOW@,</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- @MEDIUM@, or @HIGH@, filtering removes all faces that don&#8217;t meet the</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- chosen quality bar. The default value is @AUTO@. The quality bar is</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- based on a variety of common use cases. Low-quality detections can occur</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- for a number of reasons. Some examples are an object that\'s</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- misidentified as a face, a face that\'s too blurry, or a face with a</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- pose that\'s too extreme to use. If you specify @NONE@, no filtering is</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- performed.</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- To use quality filtering, the collection you are using must be</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- associated with version 3 of the face model or higher.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_qualityFilter"><span class="hs-identifier hs-type">indexFaces_qualityFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.QualityFilter.html#QualityFilter"><span class="hs-identifier hs-type">QualityFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span id="indexFaces_qualityFilter"><span class="annot"><span class="annottext">indexFaces_qualityFilter :: (Maybe QualityFilter -&gt; f (Maybe QualityFilter))
+-&gt; IndexFaces -&gt; f IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_qualityFilter"><span class="hs-identifier hs-var hs-var">indexFaces_qualityFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFaces -&gt; Maybe QualityFilter)
+-&gt; (IndexFaces -&gt; Maybe QualityFilter -&gt; IndexFaces)
+-&gt; Lens
+     IndexFaces IndexFaces (Maybe QualityFilter) (Maybe QualityFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341163"><span class="annot"><span class="annottext">Maybe QualityFilter
+qualityFilter :: Maybe QualityFilter
+$sel:qualityFilter:IndexFaces' :: IndexFaces -&gt; Maybe QualityFilter
+</span><a href="#local-6989586621679341163"><span class="hs-identifier hs-var hs-var">qualityFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679341163"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341162"><span class="annot"><span class="annottext">s :: IndexFaces
+</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341161"><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679341161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFaces
+</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualityFilter:IndexFaces' :: Maybe QualityFilter
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AqualityFilter%3AIndexFaces%27"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679341161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | The maximum number of faces to index. The value of @MaxFaces@ must be</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- greater than or equal to 1. @IndexFaces@ returns no more than 100</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- detected faces in an image, even if you specify a larger value for</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- @MaxFaces@.</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- If @IndexFaces@ detects more faces than the value of @MaxFaces@, the</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- faces with the lowest quality are filtered out first. If there are still</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- more faces than the value of @MaxFaces@, the faces with the smallest</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- bounding boxes are filtered out (up to the number that\'s needed to</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- satisfy the value of @MaxFaces@). Information about the unindexed faces</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- is available in the @UnindexedFaces@ array.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- The faces that are returned by @IndexFaces@ are sorted by the largest</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- face bounding box size to the smallest size, in descending order.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- @MaxFaces@ can be used with a collection associated with any version of</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- the face model.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_maxFaces"><span class="hs-identifier hs-type">indexFaces_maxFaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span id="indexFaces_maxFaces"><span class="annot"><span class="annottext">indexFaces_maxFaces :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; IndexFaces -&gt; f IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_maxFaces"><span class="hs-identifier hs-var hs-var">indexFaces_maxFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFaces -&gt; Maybe Natural)
+-&gt; (IndexFaces -&gt; Maybe Natural -&gt; IndexFaces)
+-&gt; Lens IndexFaces IndexFaces (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341160"><span class="annot"><span class="annottext">Maybe Natural
+maxFaces :: Maybe Natural
+$sel:maxFaces:IndexFaces' :: IndexFaces -&gt; Maybe Natural
+</span><a href="#local-6989586621679341160"><span class="hs-identifier hs-var hs-var">maxFaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341160"><span class="hs-identifier hs-var">maxFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341159"><span class="annot"><span class="annottext">s :: IndexFaces
+</span><a href="#local-6989586621679341159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341158"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFaces
+</span><a href="#local-6989586621679341159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFaces:IndexFaces' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AmaxFaces%3AIndexFaces%27"><span class="hs-identifier hs-var">maxFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- | An array of facial attributes that you want to be returned. This can be</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- the default list of attributes or all attributes. If you don\'t specify</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- a value for @Attributes@ or if you specify @[\&quot;DEFAULT\&quot;]@, the API</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- returns the following subset of facial attributes: @BoundingBox@,</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- @Confidence@, @Pose@, @Quality@, and @Landmarks@. If you provide</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- @[\&quot;ALL\&quot;]@, all facial attributes are returned, but the operation takes</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- longer to complete.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- If you provide both, @[\&quot;ALL\&quot;, \&quot;DEFAULT\&quot;]@, the service uses a</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- logical AND operator to determine which attributes to return (in this</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- case, all attributes).</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_detectionAttributes"><span class="hs-identifier hs-type">indexFaces_detectionAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="indexFaces_detectionAttributes"><span class="annot"><span class="annottext">indexFaces_detectionAttributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; IndexFaces -&gt; f IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_detectionAttributes"><span class="hs-identifier hs-var hs-var">indexFaces_detectionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFaces -&gt; Maybe [Attribute])
+-&gt; (IndexFaces -&gt; Maybe [Attribute] -&gt; IndexFaces)
+-&gt; Lens
+     IndexFaces IndexFaces (Maybe [Attribute]) (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341157"><span class="annot"><span class="annottext">Maybe [Attribute]
+detectionAttributes :: Maybe [Attribute]
+$sel:detectionAttributes:IndexFaces' :: IndexFaces -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679341157"><span class="hs-identifier hs-var hs-var">detectionAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679341157"><span class="hs-identifier hs-var">detectionAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341156"><span class="annot"><span class="annottext">s :: IndexFaces
+</span><a href="#local-6989586621679341156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341155"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679341155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFaces
+</span><a href="#local-6989586621679341156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectionAttributes:IndexFaces' :: Maybe [Attribute]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AdetectionAttributes%3AIndexFaces%27"><span class="hs-identifier hs-var">detectionAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679341155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; IndexFaces -&gt; f IndexFaces)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; IndexFaces
+-&gt; f IndexFaces
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | The ID of an existing collection to which you want to add the faces that</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- are detected in the input images.</span><span>
+</span><span id="line-352"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_collectionId"><span class="hs-identifier hs-type">indexFaces_collectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-353"></span><span id="indexFaces_collectionId"><span class="annot"><span class="annottext">indexFaces_collectionId :: (Text -&gt; f Text) -&gt; IndexFaces -&gt; f IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_collectionId"><span class="hs-identifier hs-var hs-var">indexFaces_collectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFaces -&gt; Text)
+-&gt; (IndexFaces -&gt; Text -&gt; IndexFaces)
+-&gt; Lens IndexFaces IndexFaces Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341151"><span class="annot"><span class="annottext">Text
+collectionId :: Text
+$sel:collectionId:IndexFaces' :: IndexFaces -&gt; Text
+</span><a href="#local-6989586621679341151"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341151"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341150"><span class="annot"><span class="annottext">s :: IndexFaces
+</span><a href="#local-6989586621679341150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341149"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFaces
+</span><a href="#local-6989586621679341150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionId:IndexFaces' :: Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AcollectionId%3AIndexFaces%27"><span class="hs-identifier hs-var">collectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- | The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- image bytes isn\'t supported.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-362"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_image"><span class="hs-identifier hs-type">indexFaces_image</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
+</span><span id="line-363"></span><span id="indexFaces_image"><span class="annot"><span class="annottext">indexFaces_image :: (Image -&gt; f Image) -&gt; IndexFaces -&gt; f IndexFaces
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFaces_image"><span class="hs-identifier hs-var hs-var">indexFaces_image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFaces -&gt; Image)
+-&gt; (IndexFaces -&gt; Image -&gt; IndexFaces)
+-&gt; Lens IndexFaces IndexFaces Image Image
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341148"><span class="annot"><span class="annottext">Image
+image :: Image
+$sel:image:IndexFaces' :: IndexFaces -&gt; Image
+</span><a href="#local-6989586621679341148"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679341148"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341147"><span class="annot"><span class="annottext">s :: IndexFaces
+</span><a href="#local-6989586621679341147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341146"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679341146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFaces
+</span><a href="#local-6989586621679341147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:IndexFaces' :: Image
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3Aimage%3AIndexFaces%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679341146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-366"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span>
+</span><span id="line-367"></span><span>  </span><span id="local-6989586621679341142"><span class="annot"><span class="annottext">request :: IndexFaces -&gt; Request IndexFaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; IndexFaces -&gt; Request IndexFaces
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-368"></span><span>  </span><span id="local-6989586621679341138"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy IndexFaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse IndexFaces)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-369"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse IndexFaces))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy IndexFaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse IndexFaces)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-370"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341135"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341135"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341134"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679341134"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341133"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-371"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [FaceRecord]
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe [UnindexedFace]
+-&gt; Int
+-&gt; IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-var">IndexFacesResponse'</span></a></span><span>
+</span><span id="line-372"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [FaceRecord]
+ -&gt; Maybe OrientationCorrection
+ -&gt; Maybe [UnindexedFace]
+ -&gt; Int
+ -&gt; IndexFacesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [FaceRecord]
+      -&gt; Maybe OrientationCorrection
+      -&gt; Maybe [UnindexedFace]
+      -&gt; Int
+      -&gt; IndexFacesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FaceModelVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [FaceRecord]
+   -&gt; Maybe OrientationCorrection
+   -&gt; Maybe [UnindexedFace]
+   -&gt; Int
+   -&gt; IndexFacesResponse)
+-&gt; Either String (Maybe [FaceRecord])
+-&gt; Either
+     String
+     (Maybe OrientationCorrection
+      -&gt; Maybe [UnindexedFace] -&gt; Int -&gt; IndexFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FaceRecord]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FaceRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FaceRecord]))
+-&gt; Maybe [FaceRecord] -&gt; Either String (Maybe [FaceRecord])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FaceRecord]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OrientationCorrection
+   -&gt; Maybe [UnindexedFace] -&gt; Int -&gt; IndexFacesResponse)
+-&gt; Either String (Maybe OrientationCorrection)
+-&gt; Either
+     String (Maybe [UnindexedFace] -&gt; Int -&gt; IndexFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [UnindexedFace] -&gt; Int -&gt; IndexFacesResponse)
+-&gt; Either String (Maybe [UnindexedFace])
+-&gt; Either String (Int -&gt; IndexFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UnindexedFace]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UnindexedFaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UnindexedFace]))
+-&gt; Maybe [UnindexedFace] -&gt; Either String (Maybe [UnindexedFace])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UnindexedFace]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; IndexFacesResponse)
+-&gt; Either String Int -&gt; Either String IndexFacesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341135"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341124"><span id="local-6989586621679341126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span></span></span><span>
+</span><span id="line-380"></span><span>
+</span><span id="line-381"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span></span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-384"></span><span>  </span><span id="local-6989586621679341117"><span class="annot"><span class="annottext">toHeaders :: IndexFaces -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; IndexFaces -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-387"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-388"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RekognitionService.IndexFaces&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-389"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-390"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-392"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-393"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-394"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-396"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341107"><span id="local-6989586621679341109"><span id="local-6989586621679341111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-399"></span><span>  </span><span id="local-6989586621679341105"><span class="annot"><span class="annottext">toJSON :: IndexFaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces%27"><span class="hs-identifier hs-type">IndexFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341098"><span id="local-6989586621679341099"><span id="local-6989586621679341100"><span id="local-6989586621679341101"><span id="local-6989586621679341102"><span id="local-6989586621679341103"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Attribute]
+Maybe Text
+Maybe QualityFilter
+Text
+Image
+image :: Image
+collectionId :: Text
+detectionAttributes :: Maybe [Attribute]
+maxFaces :: Maybe Natural
+qualityFilter :: Maybe QualityFilter
+externalImageId :: Maybe Text
+$sel:image:IndexFaces' :: IndexFaces -&gt; Image
+$sel:collectionId:IndexFaces' :: IndexFaces -&gt; Text
+$sel:detectionAttributes:IndexFaces' :: IndexFaces -&gt; Maybe [Attribute]
+$sel:maxFaces:IndexFaces' :: IndexFaces -&gt; Maybe Natural
+$sel:qualityFilter:IndexFaces' :: IndexFaces -&gt; Maybe QualityFilter
+$sel:externalImageId:IndexFaces' :: IndexFaces -&gt; Maybe Text
+</span><a href="#local-6989586621679341098"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-401"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-402"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExternalImageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-403"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341103"><span class="hs-identifier hs-var">externalImageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QualityFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; QualityFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(QualityFilter -&gt; Pair) -&gt; Maybe QualityFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679341102"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxFaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341101"><span class="hs-identifier hs-var">maxFaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DetectionAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>              </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679341100"><span class="hs-identifier hs-var">detectionAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CollectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341099"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Image&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Image -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679341098"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-411"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span>
+</span><span id="line-413"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-414"></span><span>  </span><span id="local-6989586621679341092"><span class="annot"><span class="annottext">toPath :: IndexFaces -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; IndexFaces -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-415"></span><span>
+</span><span id="line-416"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFaces"><span class="hs-identifier hs-type">IndexFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-417"></span><span>  </span><span id="local-6989586621679341088"><span class="annot"><span class="annottext">toQuery :: IndexFaces -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; IndexFaces -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- | /See:/ 'newIndexFacesResponse' smart constructor.</span><span>
+</span><span id="line-420"></span><span id="local-6989586621679341085"><span id="local-6989586621679341086"></span></span><span class="hs-keyword">data</span><span> </span><span id="IndexFacesResponse"><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-var">IndexFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexFacesResponse%27"><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-var">IndexFacesResponse'</span></a></span></span><span>
+</span><span id="line-421"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version number of the face detection model that\'s associated with</span><span>
+</span><span id="line-422"></span><span>    </span><span class="hs-comment">-- the input collection (@CollectionId@).</span><span>
+</span><span id="line-423"></span><span>    </span><span id="%24sel%3AfaceModelVersion%3AIndexFacesResponse%27"><span class="annot"><span class="annottext">IndexFacesResponse -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AfaceModelVersion%3AIndexFacesResponse%27"><span class="hs-identifier hs-var hs-var">faceModelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>    </span><span class="hs-comment">-- | An array of faces detected and added to the collection. For more</span><span>
+</span><span id="line-425"></span><span>    </span><span class="hs-comment">-- information, see Searching Faces in a Collection in the Amazon</span><span>
+</span><span id="line-426"></span><span>    </span><span class="hs-comment">-- Rekognition Developer Guide.</span><span>
+</span><span id="line-427"></span><span>    </span><span id="%24sel%3AfaceRecords%3AIndexFacesResponse%27"><span class="annot"><span class="annottext">IndexFacesResponse -&gt; Maybe [FaceRecord]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AfaceRecords%3AIndexFacesResponse%27"><span class="hs-identifier hs-var hs-var">faceRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>    </span><span class="hs-comment">-- | If your collection is associated with a face detection model that\'s</span><span>
+</span><span id="line-429"></span><span>    </span><span class="hs-comment">-- later than version 3.0, the value of @OrientationCorrection@ is always</span><span>
+</span><span id="line-430"></span><span>    </span><span class="hs-comment">-- null and no orientation information is returned.</span><span>
+</span><span id="line-431"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-432"></span><span>    </span><span class="hs-comment">-- If your collection is associated with a face detection model that\'s</span><span>
+</span><span id="line-433"></span><span>    </span><span class="hs-comment">-- version 3.0 or earlier, the following applies:</span><span>
+</span><span id="line-434"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-435"></span><span>    </span><span class="hs-comment">-- -   If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-436"></span><span>    </span><span class="hs-comment">--     image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-437"></span><span>    </span><span class="hs-comment">--     orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-comment">--     perform image correction - the bounding box coordinates are</span><span>
+</span><span id="line-439"></span><span>    </span><span class="hs-comment">--     translated to represent object locations after the orientation</span><span>
+</span><span id="line-440"></span><span>    </span><span class="hs-comment">--     information in the Exif metadata is used to correct the image</span><span>
+</span><span id="line-441"></span><span>    </span><span class="hs-comment">--     orientation. Images in .png format don\'t contain Exif metadata. The</span><span>
+</span><span id="line-442"></span><span>    </span><span class="hs-comment">--     value of @OrientationCorrection@ is null.</span><span>
+</span><span id="line-443"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-444"></span><span>    </span><span class="hs-comment">-- -   If the image doesn\'t contain orientation information in its Exif</span><span>
+</span><span id="line-445"></span><span>    </span><span class="hs-comment">--     metadata, Amazon Rekognition returns an estimated orientation</span><span>
+</span><span id="line-446"></span><span>    </span><span class="hs-comment">--     (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition</span><span>
+</span><span id="line-447"></span><span>    </span><span class="hs-comment">--     doesn&#8217;t perform image correction for images. The bounding box</span><span>
+</span><span id="line-448"></span><span>    </span><span class="hs-comment">--     coordinates aren\'t translated and represent the object locations</span><span>
+</span><span id="line-449"></span><span>    </span><span class="hs-comment">--     before the image is rotated.</span><span>
+</span><span id="line-450"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-451"></span><span>    </span><span class="hs-comment">-- Bounding box information is returned in the @FaceRecords@ array. You can</span><span>
+</span><span id="line-452"></span><span>    </span><span class="hs-comment">-- get the version of the face detection model by calling</span><span>
+</span><span id="line-453"></span><span>    </span><span class="hs-comment">-- DescribeCollection.</span><span>
+</span><span id="line-454"></span><span>    </span><span id="%24sel%3AorientationCorrection%3AIndexFacesResponse%27"><span class="annot"><span class="annottext">IndexFacesResponse -&gt; Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AorientationCorrection%3AIndexFacesResponse%27"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-455"></span><span>    </span><span class="hs-comment">-- | An array of faces that were detected in the image but weren\'t indexed.</span><span>
+</span><span id="line-456"></span><span>    </span><span class="hs-comment">-- They weren\'t indexed because the quality filter identified them as low</span><span>
+</span><span id="line-457"></span><span>    </span><span class="hs-comment">-- quality, or the @MaxFaces@ request parameter filtered them out. To use</span><span>
+</span><span id="line-458"></span><span>    </span><span class="hs-comment">-- the quality filter, you specify the @QualityFilter@ request parameter.</span><span>
+</span><span id="line-459"></span><span>    </span><span id="%24sel%3AunindexedFaces%3AIndexFacesResponse%27"><span class="annot"><span class="annottext">IndexFacesResponse -&gt; Maybe [UnindexedFace]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AunindexedFaces%3AIndexFacesResponse%27"><span class="hs-identifier hs-var hs-var">unindexedFaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-460"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-461"></span><span>    </span><span id="%24sel%3AhttpStatus%3AIndexFacesResponse%27"><span class="annot"><span class="annottext">IndexFacesResponse -&gt; Int
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AhttpStatus%3AIndexFacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-462"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-463"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341076"><span id="local-6989586621679341078"><span class="annot"><span class="annottext">IndexFacesResponse -&gt; IndexFacesResponse -&gt; Bool
+(IndexFacesResponse -&gt; IndexFacesResponse -&gt; Bool)
+-&gt; (IndexFacesResponse -&gt; IndexFacesResponse -&gt; Bool)
+-&gt; Eq IndexFacesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IndexFacesResponse -&gt; IndexFacesResponse -&gt; Bool
+$c/= :: IndexFacesResponse -&gt; IndexFacesResponse -&gt; Bool
+== :: IndexFacesResponse -&gt; IndexFacesResponse -&gt; Bool
+$c== :: IndexFacesResponse -&gt; IndexFacesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341068"><span id="local-6989586621679341070"><span id="local-6989586621679341072"><span id="local-6989586621679341074"><span class="annot"><span class="annottext">ReadPrec [IndexFacesResponse]
+ReadPrec IndexFacesResponse
+Int -&gt; ReadS IndexFacesResponse
+ReadS [IndexFacesResponse]
+(Int -&gt; ReadS IndexFacesResponse)
+-&gt; ReadS [IndexFacesResponse]
+-&gt; ReadPrec IndexFacesResponse
+-&gt; ReadPrec [IndexFacesResponse]
+-&gt; Read IndexFacesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IndexFacesResponse]
+$creadListPrec :: ReadPrec [IndexFacesResponse]
+readPrec :: ReadPrec IndexFacesResponse
+$creadPrec :: ReadPrec IndexFacesResponse
+readList :: ReadS [IndexFacesResponse]
+$creadList :: ReadS [IndexFacesResponse]
+readsPrec :: Int -&gt; ReadS IndexFacesResponse
+$creadsPrec :: Int -&gt; ReadS IndexFacesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341062"><span id="local-6989586621679341064"><span id="local-6989586621679341066"><span class="annot"><span class="annottext">Int -&gt; IndexFacesResponse -&gt; ShowS
+[IndexFacesResponse] -&gt; ShowS
+IndexFacesResponse -&gt; String
+(Int -&gt; IndexFacesResponse -&gt; ShowS)
+-&gt; (IndexFacesResponse -&gt; String)
+-&gt; ([IndexFacesResponse] -&gt; ShowS)
+-&gt; Show IndexFacesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IndexFacesResponse] -&gt; ShowS
+$cshowList :: [IndexFacesResponse] -&gt; ShowS
+show :: IndexFacesResponse -&gt; String
+$cshow :: IndexFacesResponse -&gt; String
+showsPrec :: Int -&gt; IndexFacesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; IndexFacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. IndexFacesResponse -&gt; Rep IndexFacesResponse x)
+-&gt; (forall x. Rep IndexFacesResponse x -&gt; IndexFacesResponse)
+-&gt; Generic IndexFacesResponse
+forall x. Rep IndexFacesResponse x -&gt; IndexFacesResponse
+forall x. IndexFacesResponse -&gt; Rep IndexFacesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IndexFacesResponse x -&gt; IndexFacesResponse
+$cfrom :: forall x. IndexFacesResponse -&gt; Rep IndexFacesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-464"></span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- Create a value of 'IndexFacesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-469"></span><span class="hs-comment">--</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-472"></span><span class="hs-comment">--</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- 'faceModelVersion', 'indexFacesResponse_faceModelVersion' - The version number of the face detection model that\'s associated with</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- the input collection (@CollectionId@).</span><span>
+</span><span id="line-475"></span><span class="hs-comment">--</span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- 'faceRecords', 'indexFacesResponse_faceRecords' - An array of faces detected and added to the collection. For more</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- information, see Searching Faces in a Collection in the Amazon</span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- Rekognition Developer Guide.</span><span>
+</span><span id="line-479"></span><span class="hs-comment">--</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- 'orientationCorrection', 'indexFacesResponse_orientationCorrection' - If your collection is associated with a face detection model that\'s</span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- later than version 3.0, the value of @OrientationCorrection@ is always</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- null and no orientation information is returned.</span><span>
+</span><span id="line-483"></span><span class="hs-comment">--</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- If your collection is associated with a face detection model that\'s</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- version 3.0 or earlier, the following applies:</span><span>
+</span><span id="line-486"></span><span class="hs-comment">--</span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- -   If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-488"></span><span class="hs-comment">--     image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-489"></span><span class="hs-comment">--     orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-490"></span><span class="hs-comment">--     perform image correction - the bounding box coordinates are</span><span>
+</span><span id="line-491"></span><span class="hs-comment">--     translated to represent object locations after the orientation</span><span>
+</span><span id="line-492"></span><span class="hs-comment">--     information in the Exif metadata is used to correct the image</span><span>
+</span><span id="line-493"></span><span class="hs-comment">--     orientation. Images in .png format don\'t contain Exif metadata. The</span><span>
+</span><span id="line-494"></span><span class="hs-comment">--     value of @OrientationCorrection@ is null.</span><span>
+</span><span id="line-495"></span><span class="hs-comment">--</span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- -   If the image doesn\'t contain orientation information in its Exif</span><span>
+</span><span id="line-497"></span><span class="hs-comment">--     metadata, Amazon Rekognition returns an estimated orientation</span><span>
+</span><span id="line-498"></span><span class="hs-comment">--     (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition</span><span>
+</span><span id="line-499"></span><span class="hs-comment">--     doesn&#8217;t perform image correction for images. The bounding box</span><span>
+</span><span id="line-500"></span><span class="hs-comment">--     coordinates aren\'t translated and represent the object locations</span><span>
+</span><span id="line-501"></span><span class="hs-comment">--     before the image is rotated.</span><span>
+</span><span id="line-502"></span><span class="hs-comment">--</span><span>
+</span><span id="line-503"></span><span class="hs-comment">-- Bounding box information is returned in the @FaceRecords@ array. You can</span><span>
+</span><span id="line-504"></span><span class="hs-comment">-- get the version of the face detection model by calling</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- DescribeCollection.</span><span>
+</span><span id="line-506"></span><span class="hs-comment">--</span><span>
+</span><span id="line-507"></span><span class="hs-comment">-- 'unindexedFaces', 'indexFacesResponse_unindexedFaces' - An array of faces that were detected in the image but weren\'t indexed.</span><span>
+</span><span id="line-508"></span><span class="hs-comment">-- They weren\'t indexed because the quality filter identified them as low</span><span>
+</span><span id="line-509"></span><span class="hs-comment">-- quality, or the @MaxFaces@ request parameter filtered them out. To use</span><span>
+</span><span id="line-510"></span><span class="hs-comment">-- the quality filter, you specify the @QualityFilter@ request parameter.</span><span>
+</span><span id="line-511"></span><span class="hs-comment">--</span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- 'httpStatus', 'indexFacesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-513"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#newIndexFacesResponse"><span class="hs-identifier hs-type">newIndexFacesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-514"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-515"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-516"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span>
+</span><span id="line-517"></span><span id="newIndexFacesResponse"><span class="annot"><span class="annottext">newIndexFacesResponse :: Int -&gt; IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#newIndexFacesResponse"><span class="hs-identifier hs-var hs-var">newIndexFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679341059"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341059"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-518"></span><span>  </span><span class="annot"><span class="annottext">IndexFacesResponse' :: Maybe Text
+-&gt; Maybe [FaceRecord]
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe [UnindexedFace]
+-&gt; Int
+-&gt; IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span>
+</span><span id="line-519"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:faceModelVersion:IndexFacesResponse' :: Maybe Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AfaceModelVersion%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">faceModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-520"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-521"></span><span>      </span><span class="annot"><span class="annottext">$sel:faceRecords:IndexFacesResponse' :: Maybe [FaceRecord]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AfaceRecords%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">faceRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceRecord]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-522"></span><span>      </span><span class="annot"><span class="annottext">$sel:orientationCorrection:IndexFacesResponse' :: Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AorientationCorrection%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-523"></span><span>      </span><span class="annot"><span class="annottext">$sel:unindexedFaces:IndexFacesResponse' :: Maybe [UnindexedFace]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AunindexedFaces%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">unindexedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnindexedFace]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-524"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:IndexFacesResponse' :: Int
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AhttpStatus%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341059"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-525"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-526"></span><span>
+</span><span id="line-527"></span><span class="hs-comment">-- | The version number of the face detection model that\'s associated with</span><span>
+</span><span id="line-528"></span><span class="hs-comment">-- the input collection (@CollectionId@).</span><span>
+</span><span id="line-529"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_faceModelVersion"><span class="hs-identifier hs-type">indexFacesResponse_faceModelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-530"></span><span id="indexFacesResponse_faceModelVersion"><span class="annot"><span class="annottext">indexFacesResponse_faceModelVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IndexFacesResponse -&gt; f IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_faceModelVersion"><span class="hs-identifier hs-var hs-var">indexFacesResponse_faceModelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFacesResponse -&gt; Maybe Text)
+-&gt; (IndexFacesResponse -&gt; Maybe Text -&gt; IndexFacesResponse)
+-&gt; Lens
+     IndexFacesResponse IndexFacesResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341058"><span class="annot"><span class="annottext">Maybe Text
+faceModelVersion :: Maybe Text
+$sel:faceModelVersion:IndexFacesResponse' :: IndexFacesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679341058"><span class="hs-identifier hs-var hs-var">faceModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341058"><span class="hs-identifier hs-var">faceModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341057"><span class="annot"><span class="annottext">s :: IndexFacesResponse
+</span><a href="#local-6989586621679341057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341056"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFacesResponse
+</span><a href="#local-6989586621679341057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceModelVersion:IndexFacesResponse' :: Maybe Text
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AfaceModelVersion%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">faceModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-531"></span><span>
+</span><span id="line-532"></span><span class="hs-comment">-- | An array of faces detected and added to the collection. For more</span><span>
+</span><span id="line-533"></span><span class="hs-comment">-- information, see Searching Faces in a Collection in the Amazon</span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- Rekognition Developer Guide.</span><span>
+</span><span id="line-535"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_faceRecords"><span class="hs-identifier hs-type">indexFacesResponse_faceRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-536"></span><span id="indexFacesResponse_faceRecords"><span class="annot"><span class="annottext">indexFacesResponse_faceRecords :: (Maybe [FaceRecord] -&gt; f (Maybe [FaceRecord]))
+-&gt; IndexFacesResponse -&gt; f IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_faceRecords"><span class="hs-identifier hs-var hs-var">indexFacesResponse_faceRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFacesResponse -&gt; Maybe [FaceRecord])
+-&gt; (IndexFacesResponse -&gt; Maybe [FaceRecord] -&gt; IndexFacesResponse)
+-&gt; Lens
+     IndexFacesResponse
+     IndexFacesResponse
+     (Maybe [FaceRecord])
+     (Maybe [FaceRecord])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341055"><span class="annot"><span class="annottext">Maybe [FaceRecord]
+faceRecords :: Maybe [FaceRecord]
+$sel:faceRecords:IndexFacesResponse' :: IndexFacesResponse -&gt; Maybe [FaceRecord]
+</span><a href="#local-6989586621679341055"><span class="hs-identifier hs-var hs-var">faceRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceRecord]
+</span><a href="#local-6989586621679341055"><span class="hs-identifier hs-var">faceRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341054"><span class="annot"><span class="annottext">s :: IndexFacesResponse
+</span><a href="#local-6989586621679341054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341053"><span class="annot"><span class="annottext">Maybe [FaceRecord]
+</span><a href="#local-6989586621679341053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFacesResponse
+</span><a href="#local-6989586621679341054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceRecords:IndexFacesResponse' :: Maybe [FaceRecord]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AfaceRecords%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">faceRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceRecord]
+</span><a href="#local-6989586621679341053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FaceRecord] -&gt; f (Maybe [FaceRecord]))
+ -&gt; IndexFacesResponse -&gt; f IndexFacesResponse)
+-&gt; ((Maybe [FaceRecord] -&gt; f (Maybe [FaceRecord]))
+    -&gt; Maybe [FaceRecord] -&gt; f (Maybe [FaceRecord]))
+-&gt; (Maybe [FaceRecord] -&gt; f (Maybe [FaceRecord]))
+-&gt; IndexFacesResponse
+-&gt; f IndexFacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FaceRecord] [FaceRecord] [FaceRecord] [FaceRecord]
+-&gt; Iso
+     (Maybe [FaceRecord])
+     (Maybe [FaceRecord])
+     (Maybe [FaceRecord])
+     (Maybe [FaceRecord])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FaceRecord] [FaceRecord] [FaceRecord] [FaceRecord]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-537"></span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- | If your collection is associated with a face detection model that\'s</span><span>
+</span><span id="line-539"></span><span class="hs-comment">-- later than version 3.0, the value of @OrientationCorrection@ is always</span><span>
+</span><span id="line-540"></span><span class="hs-comment">-- null and no orientation information is returned.</span><span>
+</span><span id="line-541"></span><span class="hs-comment">--</span><span>
+</span><span id="line-542"></span><span class="hs-comment">-- If your collection is associated with a face detection model that\'s</span><span>
+</span><span id="line-543"></span><span class="hs-comment">-- version 3.0 or earlier, the following applies:</span><span>
+</span><span id="line-544"></span><span class="hs-comment">--</span><span>
+</span><span id="line-545"></span><span class="hs-comment">-- -   If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-546"></span><span class="hs-comment">--     image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-547"></span><span class="hs-comment">--     orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-548"></span><span class="hs-comment">--     perform image correction - the bounding box coordinates are</span><span>
+</span><span id="line-549"></span><span class="hs-comment">--     translated to represent object locations after the orientation</span><span>
+</span><span id="line-550"></span><span class="hs-comment">--     information in the Exif metadata is used to correct the image</span><span>
+</span><span id="line-551"></span><span class="hs-comment">--     orientation. Images in .png format don\'t contain Exif metadata. The</span><span>
+</span><span id="line-552"></span><span class="hs-comment">--     value of @OrientationCorrection@ is null.</span><span>
+</span><span id="line-553"></span><span class="hs-comment">--</span><span>
+</span><span id="line-554"></span><span class="hs-comment">-- -   If the image doesn\'t contain orientation information in its Exif</span><span>
+</span><span id="line-555"></span><span class="hs-comment">--     metadata, Amazon Rekognition returns an estimated orientation</span><span>
+</span><span id="line-556"></span><span class="hs-comment">--     (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition</span><span>
+</span><span id="line-557"></span><span class="hs-comment">--     doesn&#8217;t perform image correction for images. The bounding box</span><span>
+</span><span id="line-558"></span><span class="hs-comment">--     coordinates aren\'t translated and represent the object locations</span><span>
+</span><span id="line-559"></span><span class="hs-comment">--     before the image is rotated.</span><span>
+</span><span id="line-560"></span><span class="hs-comment">--</span><span>
+</span><span id="line-561"></span><span class="hs-comment">-- Bounding box information is returned in the @FaceRecords@ array. You can</span><span>
+</span><span id="line-562"></span><span class="hs-comment">-- get the version of the face detection model by calling</span><span>
+</span><span id="line-563"></span><span class="hs-comment">-- DescribeCollection.</span><span>
+</span><span id="line-564"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_orientationCorrection"><span class="hs-identifier hs-type">indexFacesResponse_orientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-565"></span><span id="indexFacesResponse_orientationCorrection"><span class="annot"><span class="annottext">indexFacesResponse_orientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
+-&gt; IndexFacesResponse -&gt; f IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_orientationCorrection"><span class="hs-identifier hs-var hs-var">indexFacesResponse_orientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFacesResponse -&gt; Maybe OrientationCorrection)
+-&gt; (IndexFacesResponse
+    -&gt; Maybe OrientationCorrection -&gt; IndexFacesResponse)
+-&gt; Lens
+     IndexFacesResponse
+     IndexFacesResponse
+     (Maybe OrientationCorrection)
+     (Maybe OrientationCorrection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341052"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+orientationCorrection :: Maybe OrientationCorrection
+$sel:orientationCorrection:IndexFacesResponse' :: IndexFacesResponse -&gt; Maybe OrientationCorrection
+</span><a href="#local-6989586621679341052"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679341052"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341051"><span class="annot"><span class="annottext">s :: IndexFacesResponse
+</span><a href="#local-6989586621679341051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341050"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679341050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFacesResponse
+</span><a href="#local-6989586621679341051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orientationCorrection:IndexFacesResponse' :: Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AorientationCorrection%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679341050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-566"></span><span>
+</span><span id="line-567"></span><span class="hs-comment">-- | An array of faces that were detected in the image but weren\'t indexed.</span><span>
+</span><span id="line-568"></span><span class="hs-comment">-- They weren\'t indexed because the quality filter identified them as low</span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- quality, or the @MaxFaces@ request parameter filtered them out. To use</span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- the quality filter, you specify the @QualityFilter@ request parameter.</span><span>
+</span><span id="line-571"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_unindexedFaces"><span class="hs-identifier hs-type">indexFacesResponse_unindexedFaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-572"></span><span id="indexFacesResponse_unindexedFaces"><span class="annot"><span class="annottext">indexFacesResponse_unindexedFaces :: (Maybe [UnindexedFace] -&gt; f (Maybe [UnindexedFace]))
+-&gt; IndexFacesResponse -&gt; f IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_unindexedFaces"><span class="hs-identifier hs-var hs-var">indexFacesResponse_unindexedFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFacesResponse -&gt; Maybe [UnindexedFace])
+-&gt; (IndexFacesResponse
+    -&gt; Maybe [UnindexedFace] -&gt; IndexFacesResponse)
+-&gt; Lens
+     IndexFacesResponse
+     IndexFacesResponse
+     (Maybe [UnindexedFace])
+     (Maybe [UnindexedFace])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341049"><span class="annot"><span class="annottext">Maybe [UnindexedFace]
+unindexedFaces :: Maybe [UnindexedFace]
+$sel:unindexedFaces:IndexFacesResponse' :: IndexFacesResponse -&gt; Maybe [UnindexedFace]
+</span><a href="#local-6989586621679341049"><span class="hs-identifier hs-var hs-var">unindexedFaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnindexedFace]
+</span><a href="#local-6989586621679341049"><span class="hs-identifier hs-var">unindexedFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341048"><span class="annot"><span class="annottext">s :: IndexFacesResponse
+</span><a href="#local-6989586621679341048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341047"><span class="annot"><span class="annottext">Maybe [UnindexedFace]
+</span><a href="#local-6989586621679341047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFacesResponse
+</span><a href="#local-6989586621679341048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unindexedFaces:IndexFacesResponse' :: Maybe [UnindexedFace]
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AunindexedFaces%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">unindexedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnindexedFace]
+</span><a href="#local-6989586621679341047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnindexedFace] -&gt; f (Maybe [UnindexedFace]))
+ -&gt; IndexFacesResponse -&gt; f IndexFacesResponse)
+-&gt; ((Maybe [UnindexedFace] -&gt; f (Maybe [UnindexedFace]))
+    -&gt; Maybe [UnindexedFace] -&gt; f (Maybe [UnindexedFace]))
+-&gt; (Maybe [UnindexedFace] -&gt; f (Maybe [UnindexedFace]))
+-&gt; IndexFacesResponse
+-&gt; f IndexFacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnindexedFace] [UnindexedFace] [UnindexedFace] [UnindexedFace]
+-&gt; Iso
+     (Maybe [UnindexedFace])
+     (Maybe [UnindexedFace])
+     (Maybe [UnindexedFace])
+     (Maybe [UnindexedFace])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnindexedFace] [UnindexedFace] [UnindexedFace] [UnindexedFace]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-573"></span><span>
+</span><span id="line-574"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-575"></span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_httpStatus"><span class="hs-identifier hs-type">indexFacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-576"></span><span id="indexFacesResponse_httpStatus"><span class="annot"><span class="annottext">indexFacesResponse_httpStatus :: (Int -&gt; f Int) -&gt; IndexFacesResponse -&gt; f IndexFacesResponse
+</span><a href="Amazonka.Rekognition.IndexFaces.html#indexFacesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">indexFacesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexFacesResponse -&gt; Int)
+-&gt; (IndexFacesResponse -&gt; Int -&gt; IndexFacesResponse)
+-&gt; Lens IndexFacesResponse IndexFacesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341046"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:IndexFacesResponse' :: IndexFacesResponse -&gt; Int
+</span><a href="#local-6989586621679341046"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341046"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341045"><span class="annot"><span class="annottext">s :: IndexFacesResponse
+</span><a href="#local-6989586621679341045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse%27"><span class="hs-identifier hs-type">IndexFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341044"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexFacesResponse
+</span><a href="#local-6989586621679341045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:IndexFacesResponse' :: Int
+</span><a href="Amazonka.Rekognition.IndexFaces.html#%24sel%3AhttpStatus%3AIndexFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-577"></span><span>
+</span><span id="line-578"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.IndexFaces.html#IndexFacesResponse"><span class="hs-identifier hs-type">IndexFacesResponse</span></a></span></span><span>
+</span><span id="line-579"></span></pre></body></html>

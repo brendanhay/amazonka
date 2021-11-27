@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Comprehend.DetectSentiment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Inspects text and returns an inference of the prevailing sentiment</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (@POSITIVE@, @NEUTRAL@, @MIXED@, or @NEGATIVE@).</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Comprehend.DetectSentiment</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier">DetectSentiment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#newDetectSentiment"><span class="hs-identifier">newDetectSentiment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentiment_text"><span class="hs-identifier">detectSentiment_text</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentiment_languageCode"><span class="hs-identifier">detectSentiment_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier">DetectSentimentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#newDetectSentimentResponse"><span class="hs-identifier">newDetectSentimentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_sentiment"><span class="hs-identifier">detectSentimentResponse_sentiment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_sentimentScore"><span class="hs-identifier">detectSentimentResponse_sentimentScore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_httpStatus"><span class="hs-identifier">detectSentimentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.html"><span class="hs-identifier">Amazonka.Comprehend.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDetectSentiment' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679360664"><span id="local-6989586621679360665"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectSentiment"><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-var">DetectSentiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectSentiment%27"><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment%27"><span class="hs-identifier hs-var">DetectSentiment'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- UTF-8 encoded characters.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atext%3ADetectSentiment%27"><span class="annot"><span class="annottext">DetectSentiment -&gt; Sensitive Text
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3Atext%3ADetectSentiment%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The language of the input documents. You can specify any of the primary</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- languages supported by Amazon Comprehend. All documents must be in the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- same language.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlanguageCode%3ADetectSentiment%27"><span class="annot"><span class="annottext">DetectSentiment -&gt; LanguageCode
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AlanguageCode%3ADetectSentiment%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360657"><span id="local-6989586621679360659"><span class="annot"><span class="annottext">DetectSentiment -&gt; DetectSentiment -&gt; Bool
+(DetectSentiment -&gt; DetectSentiment -&gt; Bool)
+-&gt; (DetectSentiment -&gt; DetectSentiment -&gt; Bool)
+-&gt; Eq DetectSentiment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectSentiment -&gt; DetectSentiment -&gt; Bool
+$c/= :: DetectSentiment -&gt; DetectSentiment -&gt; Bool
+== :: DetectSentiment -&gt; DetectSentiment -&gt; Bool
+$c== :: DetectSentiment -&gt; DetectSentiment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360650"><span id="local-6989586621679360652"><span id="local-6989586621679360654"><span class="annot"><span class="annottext">Int -&gt; DetectSentiment -&gt; ShowS
+[DetectSentiment] -&gt; ShowS
+DetectSentiment -&gt; String
+(Int -&gt; DetectSentiment -&gt; ShowS)
+-&gt; (DetectSentiment -&gt; String)
+-&gt; ([DetectSentiment] -&gt; ShowS)
+-&gt; Show DetectSentiment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectSentiment] -&gt; ShowS
+$cshowList :: [DetectSentiment] -&gt; ShowS
+show :: DetectSentiment -&gt; String
+$cshow :: DetectSentiment -&gt; String
+showsPrec :: Int -&gt; DetectSentiment -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectSentiment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DetectSentiment -&gt; Rep DetectSentiment x)
+-&gt; (forall x. Rep DetectSentiment x -&gt; DetectSentiment)
+-&gt; Generic DetectSentiment
+forall x. Rep DetectSentiment x -&gt; DetectSentiment
+forall x. DetectSentiment -&gt; Rep DetectSentiment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectSentiment x -&gt; DetectSentiment
+$cfrom :: forall x. DetectSentiment -&gt; Rep DetectSentiment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DetectSentiment' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'text', 'detectSentiment_text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- UTF-8 encoded characters.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'languageCode', 'detectSentiment_languageCode' - The language of the input documents. You can specify any of the primary</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- languages supported by Amazon Comprehend. All documents must be in the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- same language.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#newDetectSentiment"><span class="hs-identifier hs-type">newDetectSentiment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'text'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span>
+</span><span id="line-84"></span><span id="newDetectSentiment"><span class="annot"><span class="annottext">newDetectSentiment :: Text -&gt; LanguageCode -&gt; DetectSentiment
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#newDetectSentiment"><span class="hs-identifier hs-var hs-var">newDetectSentiment</span></a></span></span><span> </span><span id="local-6989586621679360645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360645"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span id="local-6989586621679360644"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679360644"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DetectSentiment' :: Sensitive Text -&gt; LanguageCode -&gt; DetectSentiment
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment%27"><span class="hs-identifier hs-type">DetectSentiment'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:text:DetectSentiment' :: Sensitive Text
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3Atext%3ADetectSentiment%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360645"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:DetectSentiment' :: LanguageCode
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AlanguageCode%3ADetectSentiment%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679360644"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- UTF-8 encoded characters.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentiment_text"><span class="hs-identifier hs-type">detectSentiment_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="detectSentiment_text"><span class="annot"><span class="annottext">detectSentiment_text :: (Text -&gt; f Text) -&gt; DetectSentiment -&gt; f DetectSentiment
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentiment_text"><span class="hs-identifier hs-var hs-var">detectSentiment_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectSentiment -&gt; Sensitive Text)
+-&gt; (DetectSentiment -&gt; Sensitive Text -&gt; DetectSentiment)
+-&gt; Lens
+     DetectSentiment DetectSentiment (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment%27"><span class="hs-identifier hs-type">DetectSentiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360639"><span class="annot"><span class="annottext">Sensitive Text
+text :: Sensitive Text
+$sel:text:DetectSentiment' :: DetectSentiment -&gt; Sensitive Text
+</span><a href="#local-6989586621679360639"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679360639"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360638"><span class="annot"><span class="annottext">s :: DetectSentiment
+</span><a href="#local-6989586621679360638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment%27"><span class="hs-identifier hs-type">DetectSentiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360637"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679360637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectSentiment
+</span><a href="#local-6989586621679360638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:DetectSentiment' :: Sensitive Text
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3Atext%3ADetectSentiment%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679360637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; DetectSentiment -&gt; f DetectSentiment)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; DetectSentiment
+-&gt; f DetectSentiment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The language of the input documents. You can specify any of the primary</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- languages supported by Amazon Comprehend. All documents must be in the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- same language.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentiment_languageCode"><span class="hs-identifier hs-type">detectSentiment_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-100"></span><span id="detectSentiment_languageCode"><span class="annot"><span class="annottext">detectSentiment_languageCode :: (LanguageCode -&gt; f LanguageCode)
+-&gt; DetectSentiment -&gt; f DetectSentiment
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentiment_languageCode"><span class="hs-identifier hs-var hs-var">detectSentiment_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectSentiment -&gt; LanguageCode)
+-&gt; (DetectSentiment -&gt; LanguageCode -&gt; DetectSentiment)
+-&gt; Lens DetectSentiment DetectSentiment LanguageCode LanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment%27"><span class="hs-identifier hs-type">DetectSentiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360635"><span class="annot"><span class="annottext">LanguageCode
+languageCode :: LanguageCode
+$sel:languageCode:DetectSentiment' :: DetectSentiment -&gt; LanguageCode
+</span><a href="#local-6989586621679360635"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679360635"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360634"><span class="annot"><span class="annottext">s :: DetectSentiment
+</span><a href="#local-6989586621679360634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment%27"><span class="hs-identifier hs-type">DetectSentiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360633"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679360633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectSentiment
+</span><a href="#local-6989586621679360634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:DetectSentiment' :: LanguageCode
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AlanguageCode%3ADetectSentiment%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679360633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679360629"><span class="annot"><span class="annottext">request :: DetectSentiment -&gt; Request DetectSentiment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetectSentiment -&gt; Request DetectSentiment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679360625"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DetectSentiment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DetectSentiment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DetectSentiment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DetectSentiment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DetectSentiment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360622"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360622"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679360621"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679360621"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679360620"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360620"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe SentimentType
+-&gt; Maybe SentimentScore -&gt; Int -&gt; DetectSentimentResponse
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-var">DetectSentimentResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SentimentType
+ -&gt; Maybe SentimentScore -&gt; Int -&gt; DetectSentimentResponse)
+-&gt; Either String (Maybe SentimentType)
+-&gt; Either
+     String (Maybe SentimentScore -&gt; Int -&gt; DetectSentimentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SentimentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sentiment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe SentimentScore -&gt; Int -&gt; DetectSentimentResponse)
+-&gt; Either String (Maybe SentimentScore)
+-&gt; Either String (Int -&gt; DetectSentimentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SentimentScore)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SentimentScore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DetectSentimentResponse)
+-&gt; Either String Int -&gt; Either String DetectSentimentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360622"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360612"><span id="local-6989586621679360614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679360605"><span class="annot"><span class="annottext">toHeaders :: DetectSentiment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetectSentiment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comprehend_20171127.DetectSentiment&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-127"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360595"><span id="local-6989586621679360597"><span id="local-6989586621679360599"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679360593"><span class="annot"><span class="annottext">toJSON :: DetectSentiment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment%27"><span class="hs-identifier hs-type">DetectSentiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360590"><span id="local-6989586621679360591"><span class="annot"><span class="annottext">Sensitive Text
+LanguageCode
+languageCode :: LanguageCode
+text :: Sensitive Text
+$sel:languageCode:DetectSentiment' :: DetectSentiment -&gt; LanguageCode
+$sel:text:DetectSentiment' :: DetectSentiment -&gt; Sensitive Text
+</span><a href="#local-6989586621679360590"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679360591"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679360590"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679360584"><span class="annot"><span class="annottext">toPath :: DetectSentiment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetectSentiment -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentiment"><span class="hs-identifier hs-type">DetectSentiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679360580"><span class="annot"><span class="annottext">toQuery :: DetectSentiment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetectSentiment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDetectSentimentResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679360577"><span id="local-6989586621679360578"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectSentimentResponse"><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-var">DetectSentimentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectSentimentResponse%27"><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-var">DetectSentimentResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The inferred sentiment that Amazon Comprehend has the highest level of</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- confidence in.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3Asentiment%3ADetectSentimentResponse%27"><span class="annot"><span class="annottext">DetectSentimentResponse -&gt; Maybe SentimentType
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3Asentiment%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var hs-var">sentiment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.SentimentType.html#SentimentType"><span class="hs-identifier hs-type">SentimentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | An object that lists the sentiments, and their corresponding confidence</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- levels.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AsentimentScore%3ADetectSentimentResponse%27"><span class="annot"><span class="annottext">DetectSentimentResponse -&gt; Maybe SentimentScore
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AsentimentScore%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var hs-var">sentimentScore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.SentimentScore.html#SentimentScore"><span class="hs-identifier hs-type">SentimentScore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetectSentimentResponse%27"><span class="annot"><span class="annottext">DetectSentimentResponse -&gt; Int
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AhttpStatus%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360570"><span id="local-6989586621679360572"><span class="annot"><span class="annottext">DetectSentimentResponse -&gt; DetectSentimentResponse -&gt; Bool
+(DetectSentimentResponse -&gt; DetectSentimentResponse -&gt; Bool)
+-&gt; (DetectSentimentResponse -&gt; DetectSentimentResponse -&gt; Bool)
+-&gt; Eq DetectSentimentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectSentimentResponse -&gt; DetectSentimentResponse -&gt; Bool
+$c/= :: DetectSentimentResponse -&gt; DetectSentimentResponse -&gt; Bool
+== :: DetectSentimentResponse -&gt; DetectSentimentResponse -&gt; Bool
+$c== :: DetectSentimentResponse -&gt; DetectSentimentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360564"><span id="local-6989586621679360566"><span id="local-6989586621679360568"><span class="annot"><span class="annottext">Int -&gt; DetectSentimentResponse -&gt; ShowS
+[DetectSentimentResponse] -&gt; ShowS
+DetectSentimentResponse -&gt; String
+(Int -&gt; DetectSentimentResponse -&gt; ShowS)
+-&gt; (DetectSentimentResponse -&gt; String)
+-&gt; ([DetectSentimentResponse] -&gt; ShowS)
+-&gt; Show DetectSentimentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectSentimentResponse] -&gt; ShowS
+$cshowList :: [DetectSentimentResponse] -&gt; ShowS
+show :: DetectSentimentResponse -&gt; String
+$cshow :: DetectSentimentResponse -&gt; String
+showsPrec :: Int -&gt; DetectSentimentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectSentimentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DetectSentimentResponse -&gt; Rep DetectSentimentResponse x)
+-&gt; (forall x.
+    Rep DetectSentimentResponse x -&gt; DetectSentimentResponse)
+-&gt; Generic DetectSentimentResponse
+forall x. Rep DetectSentimentResponse x -&gt; DetectSentimentResponse
+forall x. DetectSentimentResponse -&gt; Rep DetectSentimentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectSentimentResponse x -&gt; DetectSentimentResponse
+$cfrom :: forall x. DetectSentimentResponse -&gt; Rep DetectSentimentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'DetectSentimentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'sentiment', 'detectSentimentResponse_sentiment' - The inferred sentiment that Amazon Comprehend has the highest level of</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- confidence in.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'sentimentScore', 'detectSentimentResponse_sentimentScore' - An object that lists the sentiments, and their corresponding confidence</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- levels.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'httpStatus', 'detectSentimentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#newDetectSentimentResponse"><span class="hs-identifier hs-type">newDetectSentimentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span>
+</span><span id="line-182"></span><span id="newDetectSentimentResponse"><span class="annot"><span class="annottext">newDetectSentimentResponse :: Int -&gt; DetectSentimentResponse
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#newDetectSentimentResponse"><span class="hs-identifier hs-var hs-var">newDetectSentimentResponse</span></a></span></span><span> </span><span id="local-6989586621679360561"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">DetectSentimentResponse' :: Maybe SentimentType
+-&gt; Maybe SentimentScore -&gt; Int -&gt; DetectSentimentResponse
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-type">DetectSentimentResponse'</span></a></span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sentiment:DetectSentimentResponse' :: Maybe SentimentType
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3Asentiment%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var">sentiment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe SentimentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:sentimentScore:DetectSentimentResponse' :: Maybe SentimentScore
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AsentimentScore%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var">sentimentScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentScore
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetectSentimentResponse' :: Int
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AhttpStatus%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The inferred sentiment that Amazon Comprehend has the highest level of</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- confidence in.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_sentiment"><span class="hs-identifier hs-type">detectSentimentResponse_sentiment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.SentimentType.html#SentimentType"><span class="hs-identifier hs-type">SentimentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="detectSentimentResponse_sentiment"><span class="annot"><span class="annottext">detectSentimentResponse_sentiment :: (Maybe SentimentType -&gt; f (Maybe SentimentType))
+-&gt; DetectSentimentResponse -&gt; f DetectSentimentResponse
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_sentiment"><span class="hs-identifier hs-var hs-var">detectSentimentResponse_sentiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectSentimentResponse -&gt; Maybe SentimentType)
+-&gt; (DetectSentimentResponse
+    -&gt; Maybe SentimentType -&gt; DetectSentimentResponse)
+-&gt; Lens
+     DetectSentimentResponse
+     DetectSentimentResponse
+     (Maybe SentimentType)
+     (Maybe SentimentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-type">DetectSentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360560"><span class="annot"><span class="annottext">Maybe SentimentType
+sentiment :: Maybe SentimentType
+$sel:sentiment:DetectSentimentResponse' :: DetectSentimentResponse -&gt; Maybe SentimentType
+</span><a href="#local-6989586621679360560"><span class="hs-identifier hs-var hs-var">sentiment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentType
+</span><a href="#local-6989586621679360560"><span class="hs-identifier hs-var">sentiment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360559"><span class="annot"><span class="annottext">s :: DetectSentimentResponse
+</span><a href="#local-6989586621679360559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-type">DetectSentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360558"><span class="annot"><span class="annottext">Maybe SentimentType
+</span><a href="#local-6989586621679360558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectSentimentResponse
+</span><a href="#local-6989586621679360559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentiment:DetectSentimentResponse' :: Maybe SentimentType
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3Asentiment%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var">sentiment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentType
+</span><a href="#local-6989586621679360558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | An object that lists the sentiments, and their corresponding confidence</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- levels.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_sentimentScore"><span class="hs-identifier hs-type">detectSentimentResponse_sentimentScore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.SentimentScore.html#SentimentScore"><span class="hs-identifier hs-type">SentimentScore</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="detectSentimentResponse_sentimentScore"><span class="annot"><span class="annottext">detectSentimentResponse_sentimentScore :: (Maybe SentimentScore -&gt; f (Maybe SentimentScore))
+-&gt; DetectSentimentResponse -&gt; f DetectSentimentResponse
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_sentimentScore"><span class="hs-identifier hs-var hs-var">detectSentimentResponse_sentimentScore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectSentimentResponse -&gt; Maybe SentimentScore)
+-&gt; (DetectSentimentResponse
+    -&gt; Maybe SentimentScore -&gt; DetectSentimentResponse)
+-&gt; Lens
+     DetectSentimentResponse
+     DetectSentimentResponse
+     (Maybe SentimentScore)
+     (Maybe SentimentScore)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-type">DetectSentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360557"><span class="annot"><span class="annottext">Maybe SentimentScore
+sentimentScore :: Maybe SentimentScore
+$sel:sentimentScore:DetectSentimentResponse' :: DetectSentimentResponse -&gt; Maybe SentimentScore
+</span><a href="#local-6989586621679360557"><span class="hs-identifier hs-var hs-var">sentimentScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentScore
+</span><a href="#local-6989586621679360557"><span class="hs-identifier hs-var">sentimentScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360556"><span class="annot"><span class="annottext">s :: DetectSentimentResponse
+</span><a href="#local-6989586621679360556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-type">DetectSentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360555"><span class="annot"><span class="annottext">Maybe SentimentScore
+</span><a href="#local-6989586621679360555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectSentimentResponse
+</span><a href="#local-6989586621679360556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentimentScore:DetectSentimentResponse' :: Maybe SentimentScore
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AsentimentScore%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var">sentimentScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentScore
+</span><a href="#local-6989586621679360555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_httpStatus"><span class="hs-identifier hs-type">detectSentimentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span id="detectSentimentResponse_httpStatus"><span class="annot"><span class="annottext">detectSentimentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DetectSentimentResponse -&gt; f DetectSentimentResponse
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#detectSentimentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">detectSentimentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectSentimentResponse -&gt; Int)
+-&gt; (DetectSentimentResponse -&gt; Int -&gt; DetectSentimentResponse)
+-&gt; Lens DetectSentimentResponse DetectSentimentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-type">DetectSentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360554"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DetectSentimentResponse' :: DetectSentimentResponse -&gt; Int
+</span><a href="#local-6989586621679360554"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360554"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360553"><span class="annot"><span class="annottext">s :: DetectSentimentResponse
+</span><a href="#local-6989586621679360553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse%27"><span class="hs-identifier hs-type">DetectSentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectSentimentResponse
+</span><a href="#local-6989586621679360553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectSentimentResponse' :: Int
+</span><a href="Amazonka.Comprehend.DetectSentiment.html#%24sel%3AhttpStatus%3ADetectSentimentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DetectSentiment.html#DetectSentimentResponse"><span class="hs-identifier hs-type">DetectSentimentResponse</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

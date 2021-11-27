@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruProfiler.UpdateProfilingGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a profiling group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruProfiler.UpdateProfilingGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier">UpdateProfilingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#newUpdateProfilingGroup"><span class="hs-identifier">newUpdateProfilingGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroup_agentOrchestrationConfig"><span class="hs-identifier">updateProfilingGroup_agentOrchestrationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroup_profilingGroupName"><span class="hs-identifier">updateProfilingGroup_profilingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier">UpdateProfilingGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#newUpdateProfilingGroupResponse"><span class="hs-identifier">newUpdateProfilingGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroupResponse_httpStatus"><span class="hs-identifier">updateProfilingGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroupResponse_profilingGroup"><span class="hs-identifier">updateProfilingGroupResponse_profilingGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.html"><span class="hs-identifier">Amazonka.CodeGuruProfiler.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | The structure representing the updateProfilingGroupRequest.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newUpdateProfilingGroup' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679205962"><span id="local-6989586621679205963"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProfilingGroup"><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-var">UpdateProfilingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProfilingGroup%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-var">UpdateProfilingGroup'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether profiling is enabled or disabled for a profiling</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AagentOrchestrationConfig%3AUpdateProfilingGroup%27"><span class="annot"><span class="annottext">UpdateProfilingGroup -&gt; AgentOrchestrationConfig
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AagentOrchestrationConfig%3AUpdateProfilingGroup%27"><span class="hs-identifier hs-var hs-var">agentOrchestrationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.html#AgentOrchestrationConfig"><span class="hs-identifier hs-type">AgentOrchestrationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the profiling group to update.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AprofilingGroupName%3AUpdateProfilingGroup%27"><span class="annot"><span class="annottext">UpdateProfilingGroup -&gt; Text
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AprofilingGroupName%3AUpdateProfilingGroup%27"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205955"><span id="local-6989586621679205957"><span class="annot"><span class="annottext">UpdateProfilingGroup -&gt; UpdateProfilingGroup -&gt; Bool
+(UpdateProfilingGroup -&gt; UpdateProfilingGroup -&gt; Bool)
+-&gt; (UpdateProfilingGroup -&gt; UpdateProfilingGroup -&gt; Bool)
+-&gt; Eq UpdateProfilingGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateProfilingGroup -&gt; UpdateProfilingGroup -&gt; Bool
+$c/= :: UpdateProfilingGroup -&gt; UpdateProfilingGroup -&gt; Bool
+== :: UpdateProfilingGroup -&gt; UpdateProfilingGroup -&gt; Bool
+$c== :: UpdateProfilingGroup -&gt; UpdateProfilingGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205946"><span id="local-6989586621679205948"><span id="local-6989586621679205950"><span id="local-6989586621679205952"><span class="annot"><span class="annottext">ReadPrec [UpdateProfilingGroup]
+ReadPrec UpdateProfilingGroup
+Int -&gt; ReadS UpdateProfilingGroup
+ReadS [UpdateProfilingGroup]
+(Int -&gt; ReadS UpdateProfilingGroup)
+-&gt; ReadS [UpdateProfilingGroup]
+-&gt; ReadPrec UpdateProfilingGroup
+-&gt; ReadPrec [UpdateProfilingGroup]
+-&gt; Read UpdateProfilingGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateProfilingGroup]
+$creadListPrec :: ReadPrec [UpdateProfilingGroup]
+readPrec :: ReadPrec UpdateProfilingGroup
+$creadPrec :: ReadPrec UpdateProfilingGroup
+readList :: ReadS [UpdateProfilingGroup]
+$creadList :: ReadS [UpdateProfilingGroup]
+readsPrec :: Int -&gt; ReadS UpdateProfilingGroup
+$creadsPrec :: Int -&gt; ReadS UpdateProfilingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205939"><span id="local-6989586621679205941"><span id="local-6989586621679205943"><span class="annot"><span class="annottext">Int -&gt; UpdateProfilingGroup -&gt; ShowS
+[UpdateProfilingGroup] -&gt; ShowS
+UpdateProfilingGroup -&gt; String
+(Int -&gt; UpdateProfilingGroup -&gt; ShowS)
+-&gt; (UpdateProfilingGroup -&gt; String)
+-&gt; ([UpdateProfilingGroup] -&gt; ShowS)
+-&gt; Show UpdateProfilingGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateProfilingGroup] -&gt; ShowS
+$cshowList :: [UpdateProfilingGroup] -&gt; ShowS
+show :: UpdateProfilingGroup -&gt; String
+$cshow :: UpdateProfilingGroup -&gt; String
+showsPrec :: Int -&gt; UpdateProfilingGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateProfilingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateProfilingGroup -&gt; Rep UpdateProfilingGroup x)
+-&gt; (forall x. Rep UpdateProfilingGroup x -&gt; UpdateProfilingGroup)
+-&gt; Generic UpdateProfilingGroup
+forall x. Rep UpdateProfilingGroup x -&gt; UpdateProfilingGroup
+forall x. UpdateProfilingGroup -&gt; Rep UpdateProfilingGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateProfilingGroup x -&gt; UpdateProfilingGroup
+$cfrom :: forall x. UpdateProfilingGroup -&gt; Rep UpdateProfilingGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'UpdateProfilingGroup' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'agentOrchestrationConfig', 'updateProfilingGroup_agentOrchestrationConfig' - Specifies whether profiling is enabled or disabled for a profiling</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'profilingGroupName', 'updateProfilingGroup_profilingGroupName' - The name of the profiling group to update.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#newUpdateProfilingGroup"><span class="hs-identifier hs-type">newUpdateProfilingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'agentOrchestrationConfig'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.html#AgentOrchestrationConfig"><span class="hs-identifier hs-type">AgentOrchestrationConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'profilingGroupName'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdateProfilingGroup"><span class="annot"><span class="annottext">newUpdateProfilingGroup :: AgentOrchestrationConfig -&gt; Text -&gt; UpdateProfilingGroup
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#newUpdateProfilingGroup"><span class="hs-identifier hs-var hs-var">newUpdateProfilingGroup</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679205934"><span class="annot"><span class="annottext">AgentOrchestrationConfig
+</span><a href="#local-6989586621679205934"><span class="hs-identifier hs-var">pAgentOrchestrationConfig_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679205933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205933"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">UpdateProfilingGroup' :: AgentOrchestrationConfig -&gt; Text -&gt; UpdateProfilingGroup
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-type">UpdateProfilingGroup'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:agentOrchestrationConfig:UpdateProfilingGroup' :: AgentOrchestrationConfig
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AagentOrchestrationConfig%3AUpdateProfilingGroup%27"><span class="hs-identifier hs-var">agentOrchestrationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">AgentOrchestrationConfig
+</span><a href="#local-6989586621679205934"><span class="hs-identifier hs-var">pAgentOrchestrationConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:profilingGroupName:UpdateProfilingGroup' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AprofilingGroupName%3AUpdateProfilingGroup%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205933"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Specifies whether profiling is enabled or disabled for a profiling</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroup_agentOrchestrationConfig"><span class="hs-identifier hs-type">updateProfilingGroup_agentOrchestrationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig.html#AgentOrchestrationConfig"><span class="hs-identifier hs-type">AgentOrchestrationConfig</span></a></span><span>
+</span><span id="line-92"></span><span id="updateProfilingGroup_agentOrchestrationConfig"><span class="annot"><span class="annottext">updateProfilingGroup_agentOrchestrationConfig :: (AgentOrchestrationConfig -&gt; f AgentOrchestrationConfig)
+-&gt; UpdateProfilingGroup -&gt; f UpdateProfilingGroup
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroup_agentOrchestrationConfig"><span class="hs-identifier hs-var hs-var">updateProfilingGroup_agentOrchestrationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfilingGroup -&gt; AgentOrchestrationConfig)
+-&gt; (UpdateProfilingGroup
+    -&gt; AgentOrchestrationConfig -&gt; UpdateProfilingGroup)
+-&gt; Lens
+     UpdateProfilingGroup
+     UpdateProfilingGroup
+     AgentOrchestrationConfig
+     AgentOrchestrationConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-type">UpdateProfilingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205930"><span class="annot"><span class="annottext">AgentOrchestrationConfig
+agentOrchestrationConfig :: AgentOrchestrationConfig
+$sel:agentOrchestrationConfig:UpdateProfilingGroup' :: UpdateProfilingGroup -&gt; AgentOrchestrationConfig
+</span><a href="#local-6989586621679205930"><span class="hs-identifier hs-var hs-var">agentOrchestrationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentOrchestrationConfig
+</span><a href="#local-6989586621679205930"><span class="hs-identifier hs-var">agentOrchestrationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205929"><span class="annot"><span class="annottext">s :: UpdateProfilingGroup
+</span><a href="#local-6989586621679205929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-type">UpdateProfilingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205928"><span class="annot"><span class="annottext">AgentOrchestrationConfig
+</span><a href="#local-6989586621679205928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfilingGroup
+</span><a href="#local-6989586621679205929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentOrchestrationConfig:UpdateProfilingGroup' :: AgentOrchestrationConfig
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AagentOrchestrationConfig%3AUpdateProfilingGroup%27"><span class="hs-identifier hs-var">agentOrchestrationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AgentOrchestrationConfig
+</span><a href="#local-6989586621679205928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the profiling group to update.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroup_profilingGroupName"><span class="hs-identifier hs-type">updateProfilingGroup_profilingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="updateProfilingGroup_profilingGroupName"><span class="annot"><span class="annottext">updateProfilingGroup_profilingGroupName :: (Text -&gt; f Text) -&gt; UpdateProfilingGroup -&gt; f UpdateProfilingGroup
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroup_profilingGroupName"><span class="hs-identifier hs-var hs-var">updateProfilingGroup_profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfilingGroup -&gt; Text)
+-&gt; (UpdateProfilingGroup -&gt; Text -&gt; UpdateProfilingGroup)
+-&gt; Lens UpdateProfilingGroup UpdateProfilingGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-type">UpdateProfilingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205927"><span class="annot"><span class="annottext">Text
+profilingGroupName :: Text
+$sel:profilingGroupName:UpdateProfilingGroup' :: UpdateProfilingGroup -&gt; Text
+</span><a href="#local-6989586621679205927"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205927"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205926"><span class="annot"><span class="annottext">s :: UpdateProfilingGroup
+</span><a href="#local-6989586621679205926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-type">UpdateProfilingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205925"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfilingGroup
+</span><a href="#local-6989586621679205926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroupName:UpdateProfilingGroup' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AprofilingGroupName%3AUpdateProfilingGroup%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679205921"><span class="annot"><span class="annottext">request :: UpdateProfilingGroup -&gt; Request UpdateProfilingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateProfilingGroup -&gt; Request UpdateProfilingGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeGuruProfiler.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679205917"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateProfilingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateProfilingGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateProfilingGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateProfilingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateProfilingGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205914"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205914"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205913"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205913"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205912"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205912"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ProfilingGroupDescription -&gt; UpdateProfilingGroupResponse
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var">UpdateProfilingGroupResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ProfilingGroupDescription -&gt; UpdateProfilingGroupResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (ProfilingGroupDescription -&gt; UpdateProfilingGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205914"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (ProfilingGroupDescription -&gt; UpdateProfilingGroupResponse)
+-&gt; Either String ProfilingGroupDescription
+-&gt; Either String UpdateProfilingGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String ProfilingGroupDescription
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205912"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205904"><span id="local-6989586621679205906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679205897"><span class="annot"><span class="annottext">toHeaders :: UpdateProfilingGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateProfilingGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205887"><span id="local-6989586621679205889"><span id="local-6989586621679205891"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679205885"><span class="annot"><span class="annottext">toJSON :: UpdateProfilingGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-type">UpdateProfilingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205882"><span id="local-6989586621679205883"><span class="annot"><span class="annottext">Text
+AgentOrchestrationConfig
+profilingGroupName :: Text
+agentOrchestrationConfig :: AgentOrchestrationConfig
+$sel:profilingGroupName:UpdateProfilingGroup' :: UpdateProfilingGroup -&gt; Text
+$sel:agentOrchestrationConfig:UpdateProfilingGroup' :: UpdateProfilingGroup -&gt; AgentOrchestrationConfig
+</span><a href="#local-6989586621679205882"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;agentOrchestrationConfig&quot;</span></span><span>
+</span><span id="line-132"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; AgentOrchestrationConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AgentOrchestrationConfig
+</span><a href="#local-6989586621679205883"><span class="hs-identifier hs-var">agentOrchestrationConfig</span></a></span><span>
+</span><span id="line-133"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679205876"><span class="annot"><span class="annottext">toPath :: UpdateProfilingGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup%27"><span class="hs-identifier hs-type">UpdateProfilingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205873"><span id="local-6989586621679205874"><span class="annot"><span class="annottext">Text
+AgentOrchestrationConfig
+profilingGroupName :: Text
+agentOrchestrationConfig :: AgentOrchestrationConfig
+$sel:profilingGroupName:UpdateProfilingGroup' :: UpdateProfilingGroup -&gt; Text
+$sel:agentOrchestrationConfig:UpdateProfilingGroup' :: UpdateProfilingGroup -&gt; AgentOrchestrationConfig
+</span><a href="#local-6989586621679205873"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profilingGroups/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205873"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroup"><span class="hs-identifier hs-type">UpdateProfilingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679205869"><span class="annot"><span class="annottext">toQuery :: UpdateProfilingGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateProfilingGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The structure representing the updateProfilingGroupResponse.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- /See:/ 'newUpdateProfilingGroupResponse' smart constructor.</span><span>
+</span><span id="line-148"></span><span id="local-6989586621679205866"><span id="local-6989586621679205867"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProfilingGroupResponse"><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-var">UpdateProfilingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProfilingGroupResponse%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var">UpdateProfilingGroupResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateProfilingGroupResponse%27"><span class="annot"><span class="annottext">UpdateProfilingGroupResponse -&gt; Int
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AhttpStatus%3AUpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- that contains information about the returned updated profiling group.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AprofilingGroup%3AUpdateProfilingGroupResponse%27"><span class="annot"><span class="annottext">UpdateProfilingGroupResponse -&gt; ProfilingGroupDescription
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AprofilingGroup%3AUpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var hs-var">profilingGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.html#ProfilingGroupDescription"><span class="hs-identifier hs-type">ProfilingGroupDescription</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205860"><span id="local-6989586621679205862"><span class="annot"><span class="annottext">UpdateProfilingGroupResponse
+-&gt; UpdateProfilingGroupResponse -&gt; Bool
+(UpdateProfilingGroupResponse
+ -&gt; UpdateProfilingGroupResponse -&gt; Bool)
+-&gt; (UpdateProfilingGroupResponse
+    -&gt; UpdateProfilingGroupResponse -&gt; Bool)
+-&gt; Eq UpdateProfilingGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateProfilingGroupResponse
+-&gt; UpdateProfilingGroupResponse -&gt; Bool
+$c/= :: UpdateProfilingGroupResponse
+-&gt; UpdateProfilingGroupResponse -&gt; Bool
+== :: UpdateProfilingGroupResponse
+-&gt; UpdateProfilingGroupResponse -&gt; Bool
+$c== :: UpdateProfilingGroupResponse
+-&gt; UpdateProfilingGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205852"><span id="local-6989586621679205854"><span id="local-6989586621679205856"><span id="local-6989586621679205858"><span class="annot"><span class="annottext">ReadPrec [UpdateProfilingGroupResponse]
+ReadPrec UpdateProfilingGroupResponse
+Int -&gt; ReadS UpdateProfilingGroupResponse
+ReadS [UpdateProfilingGroupResponse]
+(Int -&gt; ReadS UpdateProfilingGroupResponse)
+-&gt; ReadS [UpdateProfilingGroupResponse]
+-&gt; ReadPrec UpdateProfilingGroupResponse
+-&gt; ReadPrec [UpdateProfilingGroupResponse]
+-&gt; Read UpdateProfilingGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateProfilingGroupResponse]
+$creadListPrec :: ReadPrec [UpdateProfilingGroupResponse]
+readPrec :: ReadPrec UpdateProfilingGroupResponse
+$creadPrec :: ReadPrec UpdateProfilingGroupResponse
+readList :: ReadS [UpdateProfilingGroupResponse]
+$creadList :: ReadS [UpdateProfilingGroupResponse]
+readsPrec :: Int -&gt; ReadS UpdateProfilingGroupResponse
+$creadsPrec :: Int -&gt; ReadS UpdateProfilingGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205846"><span id="local-6989586621679205848"><span id="local-6989586621679205850"><span class="annot"><span class="annottext">Int -&gt; UpdateProfilingGroupResponse -&gt; ShowS
+[UpdateProfilingGroupResponse] -&gt; ShowS
+UpdateProfilingGroupResponse -&gt; String
+(Int -&gt; UpdateProfilingGroupResponse -&gt; ShowS)
+-&gt; (UpdateProfilingGroupResponse -&gt; String)
+-&gt; ([UpdateProfilingGroupResponse] -&gt; ShowS)
+-&gt; Show UpdateProfilingGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateProfilingGroupResponse] -&gt; ShowS
+$cshowList :: [UpdateProfilingGroupResponse] -&gt; ShowS
+show :: UpdateProfilingGroupResponse -&gt; String
+$cshow :: UpdateProfilingGroupResponse -&gt; String
+showsPrec :: Int -&gt; UpdateProfilingGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateProfilingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateProfilingGroupResponse -&gt; Rep UpdateProfilingGroupResponse x)
+-&gt; (forall x.
+    Rep UpdateProfilingGroupResponse x -&gt; UpdateProfilingGroupResponse)
+-&gt; Generic UpdateProfilingGroupResponse
+forall x.
+Rep UpdateProfilingGroupResponse x -&gt; UpdateProfilingGroupResponse
+forall x.
+UpdateProfilingGroupResponse -&gt; Rep UpdateProfilingGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateProfilingGroupResponse x -&gt; UpdateProfilingGroupResponse
+$cfrom :: forall x.
+UpdateProfilingGroupResponse -&gt; Rep UpdateProfilingGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'UpdateProfilingGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'updateProfilingGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'profilingGroup', 'updateProfilingGroupResponse_profilingGroup' - A</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- that contains information about the returned updated profiling group.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#newUpdateProfilingGroupResponse"><span class="hs-identifier hs-type">newUpdateProfilingGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'profilingGroup'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.html#ProfilingGroupDescription"><span class="hs-identifier hs-type">ProfilingGroupDescription</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newUpdateProfilingGroupResponse"><span class="annot"><span class="annottext">newUpdateProfilingGroupResponse :: Int -&gt; ProfilingGroupDescription -&gt; UpdateProfilingGroupResponse
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#newUpdateProfilingGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateProfilingGroupResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679205843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679205842"><span class="annot"><span class="annottext">ProfilingGroupDescription
+</span><a href="#local-6989586621679205842"><span class="hs-identifier hs-var">pProfilingGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">UpdateProfilingGroupResponse' :: Int -&gt; ProfilingGroupDescription -&gt; UpdateProfilingGroupResponse
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse%27"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProfilingGroupResponse' :: Int
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AhttpStatus%3AUpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:profilingGroup:UpdateProfilingGroupResponse' :: ProfilingGroupDescription
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AprofilingGroup%3AUpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var">profilingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProfilingGroupDescription
+</span><a href="#local-6989586621679205842"><span class="hs-identifier hs-var">pProfilingGroup_</span></a></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateProfilingGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span id="updateProfilingGroupResponse_httpStatus"><span class="annot"><span class="annottext">updateProfilingGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateProfilingGroupResponse -&gt; f UpdateProfilingGroupResponse
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateProfilingGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfilingGroupResponse -&gt; Int)
+-&gt; (UpdateProfilingGroupResponse
+    -&gt; Int -&gt; UpdateProfilingGroupResponse)
+-&gt; Lens
+     UpdateProfilingGroupResponse UpdateProfilingGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse%27"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205841"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateProfilingGroupResponse' :: UpdateProfilingGroupResponse -&gt; Int
+</span><a href="#local-6989586621679205841"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205841"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205840"><span class="annot"><span class="annottext">s :: UpdateProfilingGroupResponse
+</span><a href="#local-6989586621679205840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse%27"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205839"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfilingGroupResponse
+</span><a href="#local-6989586621679205840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProfilingGroupResponse' :: Int
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AhttpStatus%3AUpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- that contains information about the returned updated profiling group.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroupResponse_profilingGroup"><span class="hs-identifier hs-type">updateProfilingGroupResponse_profilingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription.html#ProfilingGroupDescription"><span class="hs-identifier hs-type">ProfilingGroupDescription</span></a></span><span>
+</span><span id="line-194"></span><span id="updateProfilingGroupResponse_profilingGroup"><span class="annot"><span class="annottext">updateProfilingGroupResponse_profilingGroup :: (ProfilingGroupDescription -&gt; f ProfilingGroupDescription)
+-&gt; UpdateProfilingGroupResponse -&gt; f UpdateProfilingGroupResponse
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#updateProfilingGroupResponse_profilingGroup"><span class="hs-identifier hs-var hs-var">updateProfilingGroupResponse_profilingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProfilingGroupResponse -&gt; ProfilingGroupDescription)
+-&gt; (UpdateProfilingGroupResponse
+    -&gt; ProfilingGroupDescription -&gt; UpdateProfilingGroupResponse)
+-&gt; Lens
+     UpdateProfilingGroupResponse
+     UpdateProfilingGroupResponse
+     ProfilingGroupDescription
+     ProfilingGroupDescription
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse%27"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205838"><span class="annot"><span class="annottext">ProfilingGroupDescription
+profilingGroup :: ProfilingGroupDescription
+$sel:profilingGroup:UpdateProfilingGroupResponse' :: UpdateProfilingGroupResponse -&gt; ProfilingGroupDescription
+</span><a href="#local-6989586621679205838"><span class="hs-identifier hs-var hs-var">profilingGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilingGroupDescription
+</span><a href="#local-6989586621679205838"><span class="hs-identifier hs-var">profilingGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205837"><span class="annot"><span class="annottext">s :: UpdateProfilingGroupResponse
+</span><a href="#local-6989586621679205837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse%27"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205836"><span class="annot"><span class="annottext">ProfilingGroupDescription
+</span><a href="#local-6989586621679205836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProfilingGroupResponse
+</span><a href="#local-6989586621679205837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroup:UpdateProfilingGroupResponse' :: ProfilingGroupDescription
+</span><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#%24sel%3AprofilingGroup%3AUpdateProfilingGroupResponse%27"><span class="hs-identifier hs-var">profilingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProfilingGroupDescription
+</span><a href="#local-6989586621679205836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.UpdateProfilingGroup.html#UpdateProfilingGroupResponse"><span class="hs-identifier hs-type">UpdateProfilingGroupResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

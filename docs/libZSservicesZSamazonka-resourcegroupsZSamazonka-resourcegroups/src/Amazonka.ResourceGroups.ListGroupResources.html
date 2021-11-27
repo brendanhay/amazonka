@@ -1,0 +1,1180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroups.ListGroupResources</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of ARNs of the resources that are members of a specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- resource group.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- __Minimum permissions__</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- To run this command, you must have the following permissions:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   @resource-groups:ListGroupResources@</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   @cloudformation:DescribeStacks@</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   @cloudformation:ListStackResources@</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   @tag:GetResources@</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroups.ListGroupResources</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier">ListGroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#newListGroupResources"><span class="hs-identifier">newListGroupResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_group"><span class="hs-identifier">listGroupResources_group</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_filters"><span class="hs-identifier">listGroupResources_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_nextToken"><span class="hs-identifier">listGroupResources_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_groupName"><span class="hs-identifier">listGroupResources_groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_maxResults"><span class="hs-identifier">listGroupResources_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier">ListGroupResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#newListGroupResourcesResponse"><span class="hs-identifier">newListGroupResourcesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resources"><span class="hs-identifier">listGroupResourcesResponse_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_queryErrors"><span class="hs-identifier">listGroupResourcesResponse_queryErrors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_nextToken"><span class="hs-identifier">listGroupResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resourceIdentifiers"><span class="hs-identifier">listGroupResourcesResponse_resourceIdentifiers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_httpStatus"><span class="hs-identifier">listGroupResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.html"><span class="hs-identifier">Amazonka.ResourceGroups.Types</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newListGroupResources' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679178852"><span id="local-6989586621679178853"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupResources"><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-var">ListGroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupResources%27"><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-var">ListGroupResources'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the ARN of the resource group</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Agroup%27%3AListGroupResources%27"><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Agroup%27%3AListGroupResources%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Filters, formatted as ResourceFilter objects, that you want to apply to</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- a @ListGroupResources@ operation. Filters the results to include only</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- those of the specified resource types.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @resource-type@ - Filter resources by their type. Specify up to five</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     resource types in the format @AWS::ServiceCode::ResourceType@. For</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     example, @AWS::EC2::Instance@, or @AWS::S3::Bucket@.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- When you specify a @resource-type@ filter for @ListGroupResources@, AWS</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Resource Groups validates your filter resource types against the types</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- that are defined in the query associated with the group. For example, if</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- a group contains only S3 buckets because its query specifies only that</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- resource type, but your @resource-type@ filter includes EC2 instances,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- AWS Resource Groups does not filter for EC2 instances. In this case, a</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @ListGroupResources@ request returns a @BadRequestException@ error with</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- a message similar to the following:</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- @The resource types specified as filters in the request are not valid.@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- The error includes a list of resource types that failed the validation</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- because they are not part of the query associated with the group. This</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- validation doesn\'t occur when the group query specifies</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @AWS::AllSupported@, because a group based on such a query can contain</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- any of the allowed resource types for the query type (tag-based or AWS</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- CloudFormation stack-based queries).</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Afilters%3AListGroupResources%27"><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe [ResourceFilter]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Afilters%3AListGroupResources%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- provided by a previous call\'s @NextToken@ response to indicate where</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- the output should continue from.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupResources%27"><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResources%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | /__Deprecated - don\'t use this parameter. Use the @Group@ request field</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- instead.__/</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AgroupName%3AListGroupResources%27"><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AgroupName%3AListGroupResources%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- results. Note that the service might return fewer results than the</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AmaxResults%3AListGroupResources%27"><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe Natural
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AmaxResults%3AListGroupResources%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178842"><span id="local-6989586621679178844"><span class="annot"><span class="annottext">ListGroupResources -&gt; ListGroupResources -&gt; Bool
+(ListGroupResources -&gt; ListGroupResources -&gt; Bool)
+-&gt; (ListGroupResources -&gt; ListGroupResources -&gt; Bool)
+-&gt; Eq ListGroupResources
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGroupResources -&gt; ListGroupResources -&gt; Bool
+$c/= :: ListGroupResources -&gt; ListGroupResources -&gt; Bool
+== :: ListGroupResources -&gt; ListGroupResources -&gt; Bool
+$c== :: ListGroupResources -&gt; ListGroupResources -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178833"><span id="local-6989586621679178835"><span id="local-6989586621679178837"><span id="local-6989586621679178839"><span class="annot"><span class="annottext">ReadPrec [ListGroupResources]
+ReadPrec ListGroupResources
+Int -&gt; ReadS ListGroupResources
+ReadS [ListGroupResources]
+(Int -&gt; ReadS ListGroupResources)
+-&gt; ReadS [ListGroupResources]
+-&gt; ReadPrec ListGroupResources
+-&gt; ReadPrec [ListGroupResources]
+-&gt; Read ListGroupResources
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListGroupResources]
+$creadListPrec :: ReadPrec [ListGroupResources]
+readPrec :: ReadPrec ListGroupResources
+$creadPrec :: ReadPrec ListGroupResources
+readList :: ReadS [ListGroupResources]
+$creadList :: ReadS [ListGroupResources]
+readsPrec :: Int -&gt; ReadS ListGroupResources
+$creadsPrec :: Int -&gt; ReadS ListGroupResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178826"><span id="local-6989586621679178828"><span id="local-6989586621679178830"><span class="annot"><span class="annottext">Int -&gt; ListGroupResources -&gt; ShowS
+[ListGroupResources] -&gt; ShowS
+ListGroupResources -&gt; String
+(Int -&gt; ListGroupResources -&gt; ShowS)
+-&gt; (ListGroupResources -&gt; String)
+-&gt; ([ListGroupResources] -&gt; ShowS)
+-&gt; Show ListGroupResources
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGroupResources] -&gt; ShowS
+$cshowList :: [ListGroupResources] -&gt; ShowS
+show :: ListGroupResources -&gt; String
+$cshow :: ListGroupResources -&gt; String
+showsPrec :: Int -&gt; ListGroupResources -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGroupResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListGroupResources -&gt; Rep ListGroupResources x)
+-&gt; (forall x. Rep ListGroupResources x -&gt; ListGroupResources)
+-&gt; Generic ListGroupResources
+forall x. Rep ListGroupResources x -&gt; ListGroupResources
+forall x. ListGroupResources -&gt; Rep ListGroupResources x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListGroupResources x -&gt; ListGroupResources
+$cfrom :: forall x. ListGroupResources -&gt; Rep ListGroupResources x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'ListGroupResources' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'group'', 'listGroupResources_group' - The name or the ARN of the resource group</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'filters', 'listGroupResources_filters' - Filters, formatted as ResourceFilter objects, that you want to apply to</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- a @ListGroupResources@ operation. Filters the results to include only</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- those of the specified resource types.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @resource-type@ - Filter resources by their type. Specify up to five</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     resource types in the format @AWS::ServiceCode::ResourceType@. For</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     example, @AWS::EC2::Instance@, or @AWS::S3::Bucket@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- When you specify a @resource-type@ filter for @ListGroupResources@, AWS</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Resource Groups validates your filter resource types against the types</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- that are defined in the query associated with the group. For example, if</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- a group contains only S3 buckets because its query specifies only that</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- resource type, but your @resource-type@ filter includes EC2 instances,</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- AWS Resource Groups does not filter for EC2 instances. In this case, a</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @ListGroupResources@ request returns a @BadRequestException@ error with</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- a message similar to the following:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @The resource types specified as filters in the request are not valid.@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The error includes a list of resource types that failed the validation</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- because they are not part of the query associated with the group. This</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- validation doesn\'t occur when the group query specifies</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @AWS::AllSupported@, because a group based on such a query can contain</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- any of the allowed resource types for the query type (tag-based or AWS</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- CloudFormation stack-based queries).</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'nextToken', 'listGroupResources_nextToken' - The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- provided by a previous call\'s @NextToken@ response to indicate where</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- the output should continue from.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'groupName', 'listGroupResources_groupName' - /__Deprecated - don\'t use this parameter. Use the @Group@ request field</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- instead.__/</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'maxResults', 'listGroupResources_maxResults' - The total number of results that you want included on each page of the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- results. Note that the service might return fewer results than the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#newListGroupResources"><span class="hs-identifier hs-type">newListGroupResources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span>
+</span><span id="line-181"></span><span id="newListGroupResources"><span class="annot"><span class="annottext">newListGroupResources :: ListGroupResources
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#newListGroupResources"><span class="hs-identifier hs-var hs-var">newListGroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">ListGroupResources' :: Maybe Text
+-&gt; Maybe [ResourceFilter]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; ListGroupResources
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':ListGroupResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Agroup%27%3AListGroupResources%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListGroupResources' :: Maybe [ResourceFilter]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Afilters%3AListGroupResources%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:ListGroupResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AgroupName%3AListGroupResources%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupResources' :: Maybe Natural
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AmaxResults%3AListGroupResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The name or the ARN of the resource group</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_group"><span class="hs-identifier hs-type">listGroupResources_group</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="listGroupResources_group"><span class="annot"><span class="annottext">listGroupResources_group :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroupResources -&gt; f ListGroupResources
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_group"><span class="hs-identifier hs-var hs-var">listGroupResources_group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResources -&gt; Maybe Text)
+-&gt; (ListGroupResources -&gt; Maybe Text -&gt; ListGroupResources)
+-&gt; Lens
+     ListGroupResources ListGroupResources (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178820"><span class="annot"><span class="annottext">Maybe Text
+group' :: Maybe Text
+$sel:group':ListGroupResources' :: ListGroupResources -&gt; Maybe Text
+</span><a href="#local-6989586621679178820"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178820"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178819"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679178819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178818"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679178819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':ListGroupResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Agroup%27%3AListGroupResources%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Filters, formatted as ResourceFilter objects, that you want to apply to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- a @ListGroupResources@ operation. Filters the results to include only</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- those of the specified resource types.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   @resource-type@ - Filter resources by their type. Specify up to five</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     resource types in the format @AWS::ServiceCode::ResourceType@. For</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     example, @AWS::EC2::Instance@, or @AWS::S3::Bucket@.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- When you specify a @resource-type@ filter for @ListGroupResources@, AWS</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Resource Groups validates your filter resource types against the types</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- that are defined in the query associated with the group. For example, if</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- a group contains only S3 buckets because its query specifies only that</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- resource type, but your @resource-type@ filter includes EC2 instances,</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- AWS Resource Groups does not filter for EC2 instances. In this case, a</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- @ListGroupResources@ request returns a @BadRequestException@ error with</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- a message similar to the following:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- @The resource types specified as filters in the request are not valid.@</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- The error includes a list of resource types that failed the validation</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- because they are not part of the query associated with the group. This</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- validation doesn\'t occur when the group query specifies</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- @AWS::AllSupported@, because a group based on such a query can contain</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- any of the allowed resource types for the query type (tag-based or AWS</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- CloudFormation stack-based queries).</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_filters"><span class="hs-identifier hs-type">listGroupResources_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="listGroupResources_filters"><span class="annot"><span class="annottext">listGroupResources_filters :: (Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
+-&gt; ListGroupResources -&gt; f ListGroupResources
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_filters"><span class="hs-identifier hs-var hs-var">listGroupResources_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResources -&gt; Maybe [ResourceFilter])
+-&gt; (ListGroupResources
+    -&gt; Maybe [ResourceFilter] -&gt; ListGroupResources)
+-&gt; Lens
+     ListGroupResources
+     ListGroupResources
+     (Maybe [ResourceFilter])
+     (Maybe [ResourceFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178817"><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+filters :: Maybe [ResourceFilter]
+$sel:filters:ListGroupResources' :: ListGroupResources -&gt; Maybe [ResourceFilter]
+</span><a href="#local-6989586621679178817"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+</span><a href="#local-6989586621679178817"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178816"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679178816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178815"><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+</span><a href="#local-6989586621679178815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679178816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListGroupResources' :: Maybe [ResourceFilter]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Afilters%3AListGroupResources%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+</span><a href="#local-6989586621679178815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
+ -&gt; ListGroupResources -&gt; f ListGroupResources)
+-&gt; ((Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
+    -&gt; Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
+-&gt; (Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
+-&gt; ListGroupResources
+-&gt; f ListGroupResources
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceFilter] [ResourceFilter] [ResourceFilter] [ResourceFilter]
+-&gt; Iso
+     (Maybe [ResourceFilter])
+     (Maybe [ResourceFilter])
+     (Maybe [ResourceFilter])
+     (Maybe [ResourceFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceFilter] [ResourceFilter] [ResourceFilter] [ResourceFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- provided by a previous call\'s @NextToken@ response to indicate where</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- the output should continue from.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_nextToken"><span class="hs-identifier hs-type">listGroupResources_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="listGroupResources_nextToken"><span class="annot"><span class="annottext">listGroupResources_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroupResources -&gt; f ListGroupResources
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_nextToken"><span class="hs-identifier hs-var hs-var">listGroupResources_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResources -&gt; Maybe Text)
+-&gt; (ListGroupResources -&gt; Maybe Text -&gt; ListGroupResources)
+-&gt; Lens
+     ListGroupResources ListGroupResources (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178811"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
+</span><a href="#local-6989586621679178811"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178811"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178810"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679178810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679178810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | /__Deprecated - don\'t use this parameter. Use the @Group@ request field</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- instead.__/</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_groupName"><span class="hs-identifier hs-type">listGroupResources_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="listGroupResources_groupName"><span class="annot"><span class="annottext">listGroupResources_groupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroupResources -&gt; f ListGroupResources
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_groupName"><span class="hs-identifier hs-var hs-var">listGroupResources_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResources -&gt; Maybe Text)
+-&gt; (ListGroupResources -&gt; Maybe Text -&gt; ListGroupResources)
+-&gt; Lens
+     ListGroupResources ListGroupResources (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178808"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
+</span><a href="#local-6989586621679178808"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178808"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178807"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679178807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679178807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:ListGroupResources' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AgroupName%3AListGroupResources%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- results. Note that the service might return fewer results than the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_maxResults"><span class="hs-identifier hs-type">listGroupResources_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="listGroupResources_maxResults"><span class="annot"><span class="annottext">listGroupResources_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListGroupResources -&gt; f ListGroupResources
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_maxResults"><span class="hs-identifier hs-var hs-var">listGroupResources_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResources -&gt; Maybe Natural)
+-&gt; (ListGroupResources -&gt; Maybe Natural -&gt; ListGroupResources)
+-&gt; Lens
+     ListGroupResources
+     ListGroupResources
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178805"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListGroupResources' :: ListGroupResources -&gt; Maybe Natural
+</span><a href="#local-6989586621679178805"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178805"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178804"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679178804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178803"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679178804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupResources' :: Maybe Natural
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AmaxResults%3AListGroupResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679178799"><span class="annot"><span class="annottext">page :: ListGroupResources
+-&gt; AWSResponse ListGroupResources -&gt; Maybe ListGroupResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679178797"><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679178797"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679178796"><span class="annot"><span class="annottext">AWSResponse ListGroupResources
+</span><a href="#local-6989586621679178796"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-251"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
+ListGroupResourcesResponse
+</span><a href="#local-6989586621679178796"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+-&gt; Getting (First Text) ListGroupResourcesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGroupResourcesResponse
+-&gt; Const (First Text) ListGroupResourcesResponse
+Lens' ListGroupResourcesResponse (Maybe Text)
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_nextToken"><span class="hs-identifier hs-var">listGroupResourcesResponse_nextToken</span></a></span><span>
+</span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGroupResourcesResponse
+ -&gt; Const (First Text) ListGroupResourcesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGroupResourcesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-254"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGroupResources
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-257"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
+ListGroupResourcesResponse
+</span><a href="#local-6989586621679178796"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+-&gt; Getting
+     (First [ResourceIdentifier])
+     ListGroupResourcesResponse
+     [ResourceIdentifier]
+-&gt; Maybe [ResourceIdentifier]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ResourceIdentifier]
+ -&gt; Const (First [ResourceIdentifier]) (Maybe [ResourceIdentifier]))
+-&gt; ListGroupResourcesResponse
+-&gt; Const (First [ResourceIdentifier]) ListGroupResourcesResponse
+Lens' ListGroupResourcesResponse (Maybe [ResourceIdentifier])
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resourceIdentifiers"><span class="hs-identifier hs-var">listGroupResourcesResponse_resourceIdentifiers</span></a></span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ResourceIdentifier]
+  -&gt; Const (First [ResourceIdentifier]) (Maybe [ResourceIdentifier]))
+ -&gt; ListGroupResourcesResponse
+ -&gt; Const (First [ResourceIdentifier]) ListGroupResourcesResponse)
+-&gt; (([ResourceIdentifier]
+     -&gt; Const (First [ResourceIdentifier]) [ResourceIdentifier])
+    -&gt; Maybe [ResourceIdentifier]
+    -&gt; Const (First [ResourceIdentifier]) (Maybe [ResourceIdentifier]))
+-&gt; Getting
+     (First [ResourceIdentifier])
+     ListGroupResourcesResponse
+     [ResourceIdentifier]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceIdentifier]
+ -&gt; Const (First [ResourceIdentifier]) [ResourceIdentifier])
+-&gt; Maybe [ResourceIdentifier]
+-&gt; Const (First [ResourceIdentifier]) (Maybe [ResourceIdentifier])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-260"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGroupResources
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-263"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
+ListGroupResourcesResponse
+</span><a href="#local-6989586621679178796"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+-&gt; Getting
+     (First [ListGroupResourcesItem])
+     ListGroupResourcesResponse
+     [ListGroupResourcesItem]
+-&gt; Maybe [ListGroupResourcesItem]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ListGroupResourcesItem]
+ -&gt; Const
+      (First [ListGroupResourcesItem]) (Maybe [ListGroupResourcesItem]))
+-&gt; ListGroupResourcesResponse
+-&gt; Const
+     (First [ListGroupResourcesItem]) ListGroupResourcesResponse
+Lens' ListGroupResourcesResponse (Maybe [ListGroupResourcesItem])
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resources"><span class="hs-identifier hs-var">listGroupResourcesResponse_resources</span></a></span><span>
+</span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ListGroupResourcesItem]
+  -&gt; Const
+       (First [ListGroupResourcesItem]) (Maybe [ListGroupResourcesItem]))
+ -&gt; ListGroupResourcesResponse
+ -&gt; Const
+      (First [ListGroupResourcesItem]) ListGroupResourcesResponse)
+-&gt; (([ListGroupResourcesItem]
+     -&gt; Const (First [ListGroupResourcesItem]) [ListGroupResourcesItem])
+    -&gt; Maybe [ListGroupResourcesItem]
+    -&gt; Const
+         (First [ListGroupResourcesItem]) (Maybe [ListGroupResourcesItem]))
+-&gt; Getting
+     (First [ListGroupResourcesItem])
+     ListGroupResourcesResponse
+     [ListGroupResourcesItem]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ListGroupResourcesItem]
+ -&gt; Const (First [ListGroupResourcesItem]) [ListGroupResourcesItem])
+-&gt; Maybe [ListGroupResourcesItem]
+-&gt; Const
+     (First [ListGroupResourcesItem]) (Maybe [ListGroupResourcesItem])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-266"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGroupResources
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe ListGroupResources
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListGroupResources -&gt; Maybe ListGroupResources)
+-&gt; ListGroupResources -&gt; Maybe ListGroupResources
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679178797"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">ListGroupResources
+-&gt; (ListGroupResources -&gt; ListGroupResources) -&gt; ListGroupResources
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListGroupResources -&gt; Identity ListGroupResources
+Lens
+  ListGroupResources ListGroupResources (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResources_nextToken"><span class="hs-identifier hs-var">listGroupResources_nextToken</span></a></span><span>
+</span><span id="line-272"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListGroupResources -&gt; Identity ListGroupResources)
+-&gt; Maybe Text -&gt; ListGroupResources -&gt; ListGroupResources
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
+ListGroupResourcesResponse
+</span><a href="#local-6989586621679178796"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+-&gt; Getting (First Text) ListGroupResourcesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGroupResourcesResponse
+-&gt; Const (First Text) ListGroupResourcesResponse
+Lens' ListGroupResourcesResponse (Maybe Text)
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_nextToken"><span class="hs-identifier hs-var">listGroupResourcesResponse_nextToken</span></a></span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGroupResourcesResponse
+ -&gt; Const (First Text) ListGroupResourcesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGroupResourcesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-278"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679178787"><span class="annot"><span class="annottext">request :: ListGroupResources -&gt; Request ListGroupResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGroupResources -&gt; Request ListGroupResources
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679178783"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListGroupResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListGroupResources)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListGroupResources))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListGroupResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListGroupResources)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178780"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178780"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178779"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178779"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178778"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178778"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+-&gt; Maybe [QueryError]
+-&gt; Maybe Text
+-&gt; Maybe [ResourceIdentifier]
+-&gt; Int
+-&gt; ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-var">ListGroupResourcesResponse'</span></a></span><span>
+</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ListGroupResourcesItem]
+ -&gt; Maybe [QueryError]
+ -&gt; Maybe Text
+ -&gt; Maybe [ResourceIdentifier]
+ -&gt; Int
+ -&gt; ListGroupResourcesResponse)
+-&gt; Either String (Maybe [ListGroupResourcesItem])
+-&gt; Either
+     String
+     (Maybe [QueryError]
+      -&gt; Maybe Text
+      -&gt; Maybe [ResourceIdentifier]
+      -&gt; Int
+      -&gt; ListGroupResourcesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ListGroupResourcesItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ListGroupResourcesItem]))
+-&gt; Maybe [ListGroupResourcesItem]
+-&gt; Either String (Maybe [ListGroupResourcesItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [QueryError]
+   -&gt; Maybe Text
+   -&gt; Maybe [ResourceIdentifier]
+   -&gt; Int
+   -&gt; ListGroupResourcesResponse)
+-&gt; Either String (Maybe [QueryError])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [ResourceIdentifier] -&gt; Int -&gt; ListGroupResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [QueryError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryErrors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [QueryError]))
+-&gt; Maybe [QueryError] -&gt; Either String (Maybe [QueryError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [ResourceIdentifier] -&gt; Int -&gt; ListGroupResourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ResourceIdentifier] -&gt; Int -&gt; ListGroupResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ResourceIdentifier] -&gt; Int -&gt; ListGroupResourcesResponse)
+-&gt; Either String (Maybe [ResourceIdentifier])
+-&gt; Either String (Int -&gt; ListGroupResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ResourceIdentifier]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceIdentifiers&quot;</span></span><span>
+</span><span id="line-289"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceIdentifier]))
+-&gt; Maybe [ResourceIdentifier]
+-&gt; Either String (Maybe [ResourceIdentifier])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-290"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListGroupResourcesResponse)
+-&gt; Either String Int -&gt; Either String ListGroupResourcesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178780"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178769"><span id="local-6989586621679178771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679178762"><span class="annot"><span class="annottext">toHeaders :: ListGroupResources -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGroupResources -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178753"><span id="local-6989586621679178755"><span id="local-6989586621679178757"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679178751"><span class="annot"><span class="annottext">toJSON :: ListGroupResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178745"><span id="local-6989586621679178746"><span id="local-6989586621679178747"><span id="local-6989586621679178748"><span id="local-6989586621679178749"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [ResourceFilter]
+Maybe Text
+maxResults :: Maybe Natural
+groupName :: Maybe Text
+nextToken :: Maybe Text
+filters :: Maybe [ResourceFilter]
+group' :: Maybe Text
+$sel:maxResults:ListGroupResources' :: ListGroupResources -&gt; Maybe Natural
+$sel:groupName:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
+$sel:nextToken:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
+$sel:filters:ListGroupResources' :: ListGroupResources -&gt; Maybe [ResourceFilter]
+$sel:group':ListGroupResources' :: ListGroupResources -&gt; Maybe Text
+</span><a href="#local-6989586621679178745"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-305"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Group&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178749"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourceFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ResourceFilter] -&gt; Pair) -&gt; Maybe [ResourceFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+</span><a href="#local-6989586621679178748"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178747"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178746"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178745"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-310"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-311"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679178739"><span class="annot"><span class="annottext">toPath :: ListGroupResources -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGroupResources -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/list-group-resources&quot;</span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679178735"><span class="annot"><span class="annottext">toQuery :: ListGroupResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListGroupResources -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | /See:/ 'newListGroupResourcesResponse' smart constructor.</span><span>
+</span><span id="line-320"></span><span id="local-6989586621679178732"><span id="local-6989586621679178733"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupResourcesResponse"><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-var">ListGroupResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupResourcesResponse%27"><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-var">ListGroupResourcesResponse'</span></a></span></span><span>
+</span><span id="line-321"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of resources from which you can determine each resource\'s</span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- identity, type, and group membership status.</span><span>
+</span><span id="line-323"></span><span>    </span><span id="%24sel%3Aresources%3AListGroupResourcesResponse%27"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; Maybe [ListGroupResourcesItem]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Aresources%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ListGroupResourcesItem.html#ListGroupResourcesItem"><span class="hs-identifier hs-type">ListGroupResourcesItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- | A list of @QueryError@ objects. Each error is an object that contains</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
+</span><span id="line-328"></span><span>    </span><span id="%24sel%3AqueryErrors%3AListGroupResourcesResponse%27"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; Maybe [QueryError]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AqueryErrors%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var hs-var">queryErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryError.html#QueryError"><span class="hs-identifier hs-type">QueryError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-332"></span><span>    </span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-334"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupResourcesResponse%27"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>    </span><span class="hs-comment">-- | __/Deprecated - don\'t use this parameter. Use the @Resources@ response</span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-comment">-- field instead./__</span><span>
+</span><span id="line-337"></span><span>    </span><span id="%24sel%3AresourceIdentifiers%3AListGroupResourcesResponse%27"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; Maybe [ResourceIdentifier]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AresourceIdentifiers%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-339"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; Int
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-340"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-341"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178723"><span id="local-6989586621679178725"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
+(ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool)
+-&gt; (ListGroupResourcesResponse
+    -&gt; ListGroupResourcesResponse -&gt; Bool)
+-&gt; Eq ListGroupResourcesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
+$c/= :: ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
+== :: ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
+$c== :: ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178715"><span id="local-6989586621679178717"><span id="local-6989586621679178719"><span id="local-6989586621679178721"><span class="annot"><span class="annottext">ReadPrec [ListGroupResourcesResponse]
+ReadPrec ListGroupResourcesResponse
+Int -&gt; ReadS ListGroupResourcesResponse
+ReadS [ListGroupResourcesResponse]
+(Int -&gt; ReadS ListGroupResourcesResponse)
+-&gt; ReadS [ListGroupResourcesResponse]
+-&gt; ReadPrec ListGroupResourcesResponse
+-&gt; ReadPrec [ListGroupResourcesResponse]
+-&gt; Read ListGroupResourcesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListGroupResourcesResponse]
+$creadListPrec :: ReadPrec [ListGroupResourcesResponse]
+readPrec :: ReadPrec ListGroupResourcesResponse
+$creadPrec :: ReadPrec ListGroupResourcesResponse
+readList :: ReadS [ListGroupResourcesResponse]
+$creadList :: ReadS [ListGroupResourcesResponse]
+readsPrec :: Int -&gt; ReadS ListGroupResourcesResponse
+$creadsPrec :: Int -&gt; ReadS ListGroupResourcesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178709"><span id="local-6989586621679178711"><span id="local-6989586621679178713"><span class="annot"><span class="annottext">Int -&gt; ListGroupResourcesResponse -&gt; ShowS
+[ListGroupResourcesResponse] -&gt; ShowS
+ListGroupResourcesResponse -&gt; String
+(Int -&gt; ListGroupResourcesResponse -&gt; ShowS)
+-&gt; (ListGroupResourcesResponse -&gt; String)
+-&gt; ([ListGroupResourcesResponse] -&gt; ShowS)
+-&gt; Show ListGroupResourcesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGroupResourcesResponse] -&gt; ShowS
+$cshowList :: [ListGroupResourcesResponse] -&gt; ShowS
+show :: ListGroupResourcesResponse -&gt; String
+$cshow :: ListGroupResourcesResponse -&gt; String
+showsPrec :: Int -&gt; ListGroupResourcesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGroupResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListGroupResourcesResponse -&gt; Rep ListGroupResourcesResponse x)
+-&gt; (forall x.
+    Rep ListGroupResourcesResponse x -&gt; ListGroupResourcesResponse)
+-&gt; Generic ListGroupResourcesResponse
+forall x.
+Rep ListGroupResourcesResponse x -&gt; ListGroupResourcesResponse
+forall x.
+ListGroupResourcesResponse -&gt; Rep ListGroupResourcesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListGroupResourcesResponse x -&gt; ListGroupResourcesResponse
+$cfrom :: forall x.
+ListGroupResourcesResponse -&gt; Rep ListGroupResourcesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- Create a value of 'ListGroupResourcesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- 'resources', 'listGroupResourcesResponse_resources' - An array of resources from which you can determine each resource\'s</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- identity, type, and group membership status.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- 'queryErrors', 'listGroupResourcesResponse_queryErrors' - A list of @QueryError@ objects. Each error is an object that contains</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- 'nextToken', 'listGroupResourcesResponse_nextToken' - If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- 'resourceIdentifiers', 'listGroupResourcesResponse_resourceIdentifiers' - __/Deprecated - don\'t use this parameter. Use the @Resources@ response</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- field instead./__</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- 'httpStatus', 'listGroupResourcesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#newListGroupResourcesResponse"><span class="hs-identifier hs-type">newListGroupResourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-370"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-371"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-372"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span>
+</span><span id="line-373"></span><span id="newListGroupResourcesResponse"><span class="annot"><span class="annottext">newListGroupResourcesResponse :: Int -&gt; ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#newListGroupResourcesResponse"><span class="hs-identifier hs-var hs-var">newListGroupResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679178706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-374"></span><span>  </span><span class="annot"><span class="annottext">ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem]
+-&gt; Maybe [QueryError]
+-&gt; Maybe Text
+-&gt; Maybe [ResourceIdentifier]
+-&gt; Int
+-&gt; ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span>
+</span><span id="line-375"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Aresources%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-376"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryErrors:ListGroupResourcesResponse' :: Maybe [QueryError]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AqueryErrors%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">queryErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:ListGroupResourcesResponse' :: Maybe [ResourceIdentifier]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AresourceIdentifiers%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupResourcesResponse' :: Int
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-381"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- | An array of resources from which you can determine each resource\'s</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- identity, type, and group membership status.</span><span>
+</span><span id="line-385"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resources"><span class="hs-identifier hs-type">listGroupResourcesResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ListGroupResourcesItem.html#ListGroupResourcesItem"><span class="hs-identifier hs-type">ListGroupResourcesItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span id="listGroupResourcesResponse_resources"><span class="annot"><span class="annottext">listGroupResourcesResponse_resources :: (Maybe [ListGroupResourcesItem]
+ -&gt; f (Maybe [ListGroupResourcesItem]))
+-&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resources"><span class="hs-identifier hs-var hs-var">listGroupResourcesResponse_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResourcesResponse -&gt; Maybe [ListGroupResourcesItem])
+-&gt; (ListGroupResourcesResponse
+    -&gt; Maybe [ListGroupResourcesItem] -&gt; ListGroupResourcesResponse)
+-&gt; Lens'
+     ListGroupResourcesResponse (Maybe [ListGroupResourcesItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178705"><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+resources :: Maybe [ListGroupResourcesItem]
+$sel:resources:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679178705"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679178705"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178704"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178703"><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679178703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3Aresources%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679178703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ListGroupResourcesItem]
+  -&gt; f (Maybe [ListGroupResourcesItem]))
+ -&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse)
+-&gt; ((Maybe [ListGroupResourcesItem]
+     -&gt; f (Maybe [ListGroupResourcesItem]))
+    -&gt; Maybe [ListGroupResourcesItem]
+    -&gt; f (Maybe [ListGroupResourcesItem]))
+-&gt; (Maybe [ListGroupResourcesItem]
+    -&gt; f (Maybe [ListGroupResourcesItem]))
+-&gt; ListGroupResourcesResponse
+-&gt; f ListGroupResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ListGroupResourcesItem]
+  [ListGroupResourcesItem]
+  [ListGroupResourcesItem]
+  [ListGroupResourcesItem]
+-&gt; Iso
+     (Maybe [ListGroupResourcesItem])
+     (Maybe [ListGroupResourcesItem])
+     (Maybe [ListGroupResourcesItem])
+     (Maybe [ListGroupResourcesItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ListGroupResourcesItem]
+  [ListGroupResourcesItem]
+  [ListGroupResourcesItem]
+  [ListGroupResourcesItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-387"></span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- | A list of @QueryError@ objects. Each error is an object that contains</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
+</span><span id="line-392"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_queryErrors"><span class="hs-identifier hs-type">listGroupResourcesResponse_queryErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryError.html#QueryError"><span class="hs-identifier hs-type">QueryError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span id="listGroupResourcesResponse_queryErrors"><span class="annot"><span class="annottext">listGroupResourcesResponse_queryErrors :: (Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+-&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_queryErrors"><span class="hs-identifier hs-var hs-var">listGroupResourcesResponse_queryErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResourcesResponse -&gt; Maybe [QueryError])
+-&gt; (ListGroupResourcesResponse
+    -&gt; Maybe [QueryError] -&gt; ListGroupResourcesResponse)
+-&gt; Lens
+     ListGroupResourcesResponse
+     ListGroupResourcesResponse
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178702"><span class="annot"><span class="annottext">Maybe [QueryError]
+queryErrors :: Maybe [QueryError]
+$sel:queryErrors:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe [QueryError]
+</span><a href="#local-6989586621679178702"><span class="hs-identifier hs-var hs-var">queryErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178702"><span class="hs-identifier hs-var">queryErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178701"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178700"><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryErrors:ListGroupResourcesResponse' :: Maybe [QueryError]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AqueryErrors%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">queryErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+ -&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse)
+-&gt; ((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+    -&gt; Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+-&gt; (Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+-&gt; ListGroupResourcesResponse
+-&gt; f ListGroupResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [QueryError] [QueryError] [QueryError] [QueryError]
+-&gt; Iso
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [QueryError] [QueryError] [QueryError] [QueryError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-400"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_nextToken"><span class="hs-identifier hs-type">listGroupResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span id="listGroupResourcesResponse_nextToken"><span class="annot"><span class="annottext">listGroupResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGroupResourcesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResourcesResponse -&gt; Maybe Text)
+-&gt; (ListGroupResourcesResponse
+    -&gt; Maybe Text -&gt; ListGroupResourcesResponse)
+-&gt; Lens' ListGroupResourcesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178699"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679178699"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178699"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178698"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178697"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-402"></span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- | __/Deprecated - don\'t use this parameter. Use the @Resources@ response</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- field instead./__</span><span>
+</span><span id="line-405"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resourceIdentifiers"><span class="hs-identifier hs-type">listGroupResourcesResponse_resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span id="listGroupResourcesResponse_resourceIdentifiers"><span class="annot"><span class="annottext">listGroupResourcesResponse_resourceIdentifiers :: (Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+-&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_resourceIdentifiers"><span class="hs-identifier hs-var hs-var">listGroupResourcesResponse_resourceIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResourcesResponse -&gt; Maybe [ResourceIdentifier])
+-&gt; (ListGroupResourcesResponse
+    -&gt; Maybe [ResourceIdentifier] -&gt; ListGroupResourcesResponse)
+-&gt; Lens' ListGroupResourcesResponse (Maybe [ResourceIdentifier])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178696"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+resourceIdentifiers :: Maybe [ResourceIdentifier]
+$sel:resourceIdentifiers:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178696"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178696"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178695"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178694"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:ListGroupResourcesResponse' :: Maybe [ResourceIdentifier]
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AresourceIdentifiers%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+ -&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse)
+-&gt; ((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+    -&gt; Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+-&gt; (Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+-&gt; ListGroupResourcesResponse
+-&gt; f ListGroupResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceIdentifier]
+  [ResourceIdentifier]
+  [ResourceIdentifier]
+  [ResourceIdentifier]
+-&gt; Iso
+     (Maybe [ResourceIdentifier])
+     (Maybe [ResourceIdentifier])
+     (Maybe [ResourceIdentifier])
+     (Maybe [ResourceIdentifier])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceIdentifier]
+  [ResourceIdentifier]
+  [ResourceIdentifier]
+  [ResourceIdentifier]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_httpStatus"><span class="hs-identifier hs-type">listGroupResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-410"></span><span id="listGroupResourcesResponse_httpStatus"><span class="annot"><span class="annottext">listGroupResourcesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#listGroupResourcesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listGroupResourcesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupResourcesResponse -&gt; Int)
+-&gt; (ListGroupResourcesResponse
+    -&gt; Int -&gt; ListGroupResourcesResponse)
+-&gt; Lens
+     ListGroupResourcesResponse ListGroupResourcesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178693"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Int
+</span><a href="#local-6989586621679178693"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178693"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178692"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupResourcesResponse' :: Int
+</span><a href="Amazonka.ResourceGroups.ListGroupResources.html#%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span></span><span>
+</span><span id="line-413"></span></pre></body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IAM.Types.DeletionTaskFailureReasonType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.Types.DeletionTaskFailureReasonType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.RoleUsageType.html"><span class="hs-identifier">Amazonka.IAM.Types.RoleUsageType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The reason that the service-linked role deletion failed.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This data type is used as a response element in the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- GetServiceLinkedRoleDeletionStatus operation.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDeletionTaskFailureReasonType' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679429386"><span id="local-6989586621679429387"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletionTaskFailureReasonType"><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-var">DeletionTaskFailureReasonType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletionTaskFailureReasonType%27"><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var">DeletionTaskFailureReasonType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of objects that contains details about the service-linked role</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- deletion failure, if that information is returned by the service. If the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- service-linked role has active sessions or if any resources that were</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- used by the role have not been deleted from the linked service, the role</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- can\'t be deleted. This parameter includes a list of the resources that</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- are associated with the role and the Region in which the resources are</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- being used.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AroleUsageList%3ADeletionTaskFailureReasonType%27"><span class="annot"><span class="annottext">DeletionTaskFailureReasonType -&gt; Maybe [RoleUsageType]
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#%24sel%3AroleUsageList%3ADeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var hs-var">roleUsageList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A short description of the reason that the service-linked role deletion</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Areason%3ADeletionTaskFailureReasonType%27"><span class="annot"><span class="annottext">DeletionTaskFailureReasonType -&gt; Maybe Text
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#%24sel%3Areason%3ADeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429379"><span id="local-6989586621679429381"><span class="annot"><span class="annottext">DeletionTaskFailureReasonType
+-&gt; DeletionTaskFailureReasonType -&gt; Bool
+(DeletionTaskFailureReasonType
+ -&gt; DeletionTaskFailureReasonType -&gt; Bool)
+-&gt; (DeletionTaskFailureReasonType
+    -&gt; DeletionTaskFailureReasonType -&gt; Bool)
+-&gt; Eq DeletionTaskFailureReasonType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletionTaskFailureReasonType
+-&gt; DeletionTaskFailureReasonType -&gt; Bool
+$c/= :: DeletionTaskFailureReasonType
+-&gt; DeletionTaskFailureReasonType -&gt; Bool
+== :: DeletionTaskFailureReasonType
+-&gt; DeletionTaskFailureReasonType -&gt; Bool
+$c== :: DeletionTaskFailureReasonType
+-&gt; DeletionTaskFailureReasonType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429370"><span id="local-6989586621679429372"><span id="local-6989586621679429374"><span id="local-6989586621679429376"><span class="annot"><span class="annottext">ReadPrec [DeletionTaskFailureReasonType]
+ReadPrec DeletionTaskFailureReasonType
+Int -&gt; ReadS DeletionTaskFailureReasonType
+ReadS [DeletionTaskFailureReasonType]
+(Int -&gt; ReadS DeletionTaskFailureReasonType)
+-&gt; ReadS [DeletionTaskFailureReasonType]
+-&gt; ReadPrec DeletionTaskFailureReasonType
+-&gt; ReadPrec [DeletionTaskFailureReasonType]
+-&gt; Read DeletionTaskFailureReasonType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletionTaskFailureReasonType]
+$creadListPrec :: ReadPrec [DeletionTaskFailureReasonType]
+readPrec :: ReadPrec DeletionTaskFailureReasonType
+$creadPrec :: ReadPrec DeletionTaskFailureReasonType
+readList :: ReadS [DeletionTaskFailureReasonType]
+$creadList :: ReadS [DeletionTaskFailureReasonType]
+readsPrec :: Int -&gt; ReadS DeletionTaskFailureReasonType
+$creadsPrec :: Int -&gt; ReadS DeletionTaskFailureReasonType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429363"><span id="local-6989586621679429365"><span id="local-6989586621679429367"><span class="annot"><span class="annottext">Int -&gt; DeletionTaskFailureReasonType -&gt; ShowS
+[DeletionTaskFailureReasonType] -&gt; ShowS
+DeletionTaskFailureReasonType -&gt; String
+(Int -&gt; DeletionTaskFailureReasonType -&gt; ShowS)
+-&gt; (DeletionTaskFailureReasonType -&gt; String)
+-&gt; ([DeletionTaskFailureReasonType] -&gt; ShowS)
+-&gt; Show DeletionTaskFailureReasonType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletionTaskFailureReasonType] -&gt; ShowS
+$cshowList :: [DeletionTaskFailureReasonType] -&gt; ShowS
+show :: DeletionTaskFailureReasonType -&gt; String
+$cshow :: DeletionTaskFailureReasonType -&gt; String
+showsPrec :: Int -&gt; DeletionTaskFailureReasonType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletionTaskFailureReasonType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletionTaskFailureReasonType
+ -&gt; Rep DeletionTaskFailureReasonType x)
+-&gt; (forall x.
+    Rep DeletionTaskFailureReasonType x
+    -&gt; DeletionTaskFailureReasonType)
+-&gt; Generic DeletionTaskFailureReasonType
+forall x.
+Rep DeletionTaskFailureReasonType x
+-&gt; DeletionTaskFailureReasonType
+forall x.
+DeletionTaskFailureReasonType
+-&gt; Rep DeletionTaskFailureReasonType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeletionTaskFailureReasonType x
+-&gt; DeletionTaskFailureReasonType
+$cfrom :: forall x.
+DeletionTaskFailureReasonType
+-&gt; Rep DeletionTaskFailureReasonType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'DeletionTaskFailureReasonType' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'roleUsageList', 'deletionTaskFailureReasonType_roleUsageList' - A list of objects that contains details about the service-linked role</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- deletion failure, if that information is returned by the service. If the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- service-linked role has active sessions or if any resources that were</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- used by the role have not been deleted from the linked service, the role</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- can\'t be deleted. This parameter includes a list of the resources that</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- are associated with the role and the Region in which the resources are</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- being used.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'reason', 'deletionTaskFailureReasonType_reason' - A short description of the reason that the service-linked role deletion</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#newDeletionTaskFailureReasonType"><span class="hs-identifier hs-type">newDeletionTaskFailureReasonType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeletionTaskFailureReasonType"><span class="annot"><span class="annottext">newDeletionTaskFailureReasonType :: DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#newDeletionTaskFailureReasonType"><span class="hs-identifier hs-var hs-var">newDeletionTaskFailureReasonType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeletionTaskFailureReasonType' :: Maybe [RoleUsageType]
+-&gt; Maybe Text -&gt; DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType%27"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleUsageList:DeletionTaskFailureReasonType' :: Maybe [RoleUsageType]
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#%24sel%3AroleUsageList%3ADeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var">roleUsageList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RoleUsageType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:DeletionTaskFailureReasonType' :: Maybe Text
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#%24sel%3Areason%3ADeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A list of objects that contains details about the service-linked role</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- deletion failure, if that information is returned by the service. If the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- service-linked role has active sessions or if any resources that were</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- used by the role have not been deleted from the linked service, the role</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- can\'t be deleted. This parameter includes a list of the resources that</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- are associated with the role and the Region in which the resources are</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- being used.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#deletionTaskFailureReasonType_roleUsageList"><span class="hs-identifier hs-type">deletionTaskFailureReasonType_roleUsageList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="deletionTaskFailureReasonType_roleUsageList"><span class="annot"><span class="annottext">deletionTaskFailureReasonType_roleUsageList :: (Maybe [RoleUsageType] -&gt; f (Maybe [RoleUsageType]))
+-&gt; DeletionTaskFailureReasonType -&gt; f DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#deletionTaskFailureReasonType_roleUsageList"><span class="hs-identifier hs-var hs-var">deletionTaskFailureReasonType_roleUsageList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletionTaskFailureReasonType -&gt; Maybe [RoleUsageType])
+-&gt; (DeletionTaskFailureReasonType
+    -&gt; Maybe [RoleUsageType] -&gt; DeletionTaskFailureReasonType)
+-&gt; Lens
+     DeletionTaskFailureReasonType
+     DeletionTaskFailureReasonType
+     (Maybe [RoleUsageType])
+     (Maybe [RoleUsageType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType%27"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429354"><span class="annot"><span class="annottext">Maybe [RoleUsageType]
+roleUsageList :: Maybe [RoleUsageType]
+$sel:roleUsageList:DeletionTaskFailureReasonType' :: DeletionTaskFailureReasonType -&gt; Maybe [RoleUsageType]
+</span><a href="#local-6989586621679429354"><span class="hs-identifier hs-var hs-var">roleUsageList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoleUsageType]
+</span><a href="#local-6989586621679429354"><span class="hs-identifier hs-var">roleUsageList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429353"><span class="annot"><span class="annottext">s :: DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679429353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType%27"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429352"><span class="annot"><span class="annottext">Maybe [RoleUsageType]
+</span><a href="#local-6989586621679429352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679429353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleUsageList:DeletionTaskFailureReasonType' :: Maybe [RoleUsageType]
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#%24sel%3AroleUsageList%3ADeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var">roleUsageList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoleUsageType]
+</span><a href="#local-6989586621679429352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoleUsageType] -&gt; f (Maybe [RoleUsageType]))
+ -&gt; DeletionTaskFailureReasonType
+ -&gt; f DeletionTaskFailureReasonType)
+-&gt; ((Maybe [RoleUsageType] -&gt; f (Maybe [RoleUsageType]))
+    -&gt; Maybe [RoleUsageType] -&gt; f (Maybe [RoleUsageType]))
+-&gt; (Maybe [RoleUsageType] -&gt; f (Maybe [RoleUsageType]))
+-&gt; DeletionTaskFailureReasonType
+-&gt; f DeletionTaskFailureReasonType
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RoleUsageType] [RoleUsageType] [RoleUsageType] [RoleUsageType]
+-&gt; Iso
+     (Maybe [RoleUsageType])
+     (Maybe [RoleUsageType])
+     (Maybe [RoleUsageType])
+     (Maybe [RoleUsageType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RoleUsageType] [RoleUsageType] [RoleUsageType] [RoleUsageType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | A short description of the reason that the service-linked role deletion</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#deletionTaskFailureReasonType_reason"><span class="hs-identifier hs-type">deletionTaskFailureReasonType_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="deletionTaskFailureReasonType_reason"><span class="annot"><span class="annottext">deletionTaskFailureReasonType_reason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeletionTaskFailureReasonType -&gt; f DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#deletionTaskFailureReasonType_reason"><span class="hs-identifier hs-var hs-var">deletionTaskFailureReasonType_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletionTaskFailureReasonType -&gt; Maybe Text)
+-&gt; (DeletionTaskFailureReasonType
+    -&gt; Maybe Text -&gt; DeletionTaskFailureReasonType)
+-&gt; Lens
+     DeletionTaskFailureReasonType
+     DeletionTaskFailureReasonType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType%27"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429347"><span class="annot"><span class="annottext">Maybe Text
+reason :: Maybe Text
+$sel:reason:DeletionTaskFailureReasonType' :: DeletionTaskFailureReasonType -&gt; Maybe Text
+</span><a href="#local-6989586621679429347"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429347"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429346"><span class="annot"><span class="annottext">s :: DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679429346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType%27"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429345"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletionTaskFailureReasonType
+</span><a href="#local-6989586621679429346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:DeletionTaskFailureReasonType' :: Maybe Text
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#%24sel%3Areason%3ADeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679429342"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DeletionTaskFailureReasonType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679429340"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429340"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe [RoleUsageType]
+-&gt; Maybe Text -&gt; DeletionTaskFailureReasonType
+</span><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType%27"><span class="hs-identifier hs-var">DeletionTaskFailureReasonType'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [RoleUsageType]
+ -&gt; Maybe Text -&gt; DeletionTaskFailureReasonType)
+-&gt; Either String (Maybe [RoleUsageType])
+-&gt; Either String (Maybe Text -&gt; DeletionTaskFailureReasonType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleUsageList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-94"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [RoleUsageType]))
+-&gt; Either String (Maybe [RoleUsageType])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [RoleUsageType])
+-&gt; [Node] -&gt; Either String (Maybe [RoleUsageType])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [RoleUsageType]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DeletionTaskFailureReasonType)
+-&gt; Either String (Maybe Text)
+-&gt; Either String DeletionTaskFailureReasonType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679429331"><span id="local-6989586621679429333"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.DeletionTaskFailureReasonType.html#DeletionTaskFailureReasonType"><span class="hs-identifier hs-type">DeletionTaskFailureReasonType</span></a></span></span><span>
+</span><span id="line-103"></span></pre></body></html>

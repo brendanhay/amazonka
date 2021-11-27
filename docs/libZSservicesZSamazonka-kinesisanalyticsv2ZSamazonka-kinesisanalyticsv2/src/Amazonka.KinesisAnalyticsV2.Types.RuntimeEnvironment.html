@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_11"><span class="hs-identifier">RuntimeEnvironment_FLINK_1_11</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_13"><span class="hs-identifier">RuntimeEnvironment_FLINK_1_13</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_6"><span class="hs-identifier">RuntimeEnvironment_FLINK_1_6</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_8"><span class="hs-identifier">RuntimeEnvironment_FLINK_1_8</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_SQL_1_0"><span class="hs-identifier">RuntimeEnvironment_SQL_1_0</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_ZEPPELIN_FLINK_1_0"><span class="hs-identifier">RuntimeEnvironment_ZEPPELIN_FLINK_1_0</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_ZEPPELIN_FLINK_2_0"><span class="hs-identifier">RuntimeEnvironment_ZEPPELIN_FLINK_2_0</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679293807"><span id="local-6989586621679293808"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuntimeEnvironment"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-var">RuntimeEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuntimeEnvironment%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-var">RuntimeEnvironment'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuntimeEnvironment"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; Text
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#fromRuntimeEnvironment"><span class="hs-identifier hs-var hs-var">fromRuntimeEnvironment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293799"><span id="local-6989586621679293801"><span id="local-6989586621679293803"><span class="annot"><span class="annottext">Int -&gt; RuntimeEnvironment -&gt; ShowS
+[RuntimeEnvironment] -&gt; ShowS
+RuntimeEnvironment -&gt; String
+(Int -&gt; RuntimeEnvironment -&gt; ShowS)
+-&gt; (RuntimeEnvironment -&gt; String)
+-&gt; ([RuntimeEnvironment] -&gt; ShowS)
+-&gt; Show RuntimeEnvironment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RuntimeEnvironment] -&gt; ShowS
+$cshowList :: [RuntimeEnvironment] -&gt; ShowS
+show :: RuntimeEnvironment -&gt; String
+$cshow :: RuntimeEnvironment -&gt; String
+showsPrec :: Int -&gt; RuntimeEnvironment -&gt; ShowS
+$cshowsPrec :: Int -&gt; RuntimeEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679293790"><span id="local-6989586621679293792"><span id="local-6989586621679293794"><span id="local-6989586621679293796"><span class="annot"><span class="annottext">ReadPrec [RuntimeEnvironment]
+ReadPrec RuntimeEnvironment
+Int -&gt; ReadS RuntimeEnvironment
+ReadS [RuntimeEnvironment]
+(Int -&gt; ReadS RuntimeEnvironment)
+-&gt; ReadS [RuntimeEnvironment]
+-&gt; ReadPrec RuntimeEnvironment
+-&gt; ReadPrec [RuntimeEnvironment]
+-&gt; Read RuntimeEnvironment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RuntimeEnvironment]
+$creadListPrec :: ReadPrec [RuntimeEnvironment]
+readPrec :: ReadPrec RuntimeEnvironment
+$creadPrec :: ReadPrec RuntimeEnvironment
+readList :: ReadS [RuntimeEnvironment]
+$creadList :: ReadS [RuntimeEnvironment]
+readsPrec :: Int -&gt; ReadS RuntimeEnvironment
+$creadsPrec :: Int -&gt; ReadS RuntimeEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679293785"><span id="local-6989586621679293787"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+(RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool)
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool)
+-&gt; Eq RuntimeEnvironment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+$c/= :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+== :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+$c== :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679293769"><span id="local-6989586621679293771"><span id="local-6989586621679293773"><span id="local-6989586621679293775"><span id="local-6989586621679293777"><span id="local-6989586621679293779"><span id="local-6989586621679293781"><span class="annot"><span class="annottext">Eq RuntimeEnvironment
+Eq RuntimeEnvironment
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Ordering)
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool)
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool)
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool)
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool)
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; RuntimeEnvironment)
+-&gt; (RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; RuntimeEnvironment)
+-&gt; Ord RuntimeEnvironment
+RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Ordering
+RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; RuntimeEnvironment
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; RuntimeEnvironment
+$cmin :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; RuntimeEnvironment
+max :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; RuntimeEnvironment
+$cmax :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; RuntimeEnvironment
+&gt;= :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+$c&gt;= :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+&gt; :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+$c&gt; :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+&lt;= :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+$c&lt;= :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+&lt; :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+$c&lt; :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Bool
+compare :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Ordering
+$ccompare :: RuntimeEnvironment -&gt; RuntimeEnvironment -&gt; Ordering
+$cp1Ord :: Eq RuntimeEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RuntimeEnvironment -&gt; Rep RuntimeEnvironment x)
+-&gt; (forall x. Rep RuntimeEnvironment x -&gt; RuntimeEnvironment)
+-&gt; Generic RuntimeEnvironment
+forall x. Rep RuntimeEnvironment x -&gt; RuntimeEnvironment
+forall x. RuntimeEnvironment -&gt; Rep RuntimeEnvironment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RuntimeEnvironment x -&gt; RuntimeEnvironment
+$cfrom :: forall x. RuntimeEnvironment -&gt; Rep RuntimeEnvironment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293761"><span id="local-6989586621679293763"><span class="annot"><span class="annottext">Int -&gt; RuntimeEnvironment -&gt; Int
+RuntimeEnvironment -&gt; Int
+(Int -&gt; RuntimeEnvironment -&gt; Int)
+-&gt; (RuntimeEnvironment -&gt; Int) -&gt; Hashable RuntimeEnvironment
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RuntimeEnvironment -&gt; Int
+$chash :: RuntimeEnvironment -&gt; Int
+hashWithSalt :: Int -&gt; RuntimeEnvironment -&gt; Int
+$chashWithSalt :: Int -&gt; RuntimeEnvironment -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293758"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; ()
+(RuntimeEnvironment -&gt; ()) -&gt; NFData RuntimeEnvironment
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RuntimeEnvironment -&gt; ()
+$crnf :: RuntimeEnvironment -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293755"><span class="annot"><span class="annottext">Text -&gt; Either String RuntimeEnvironment
+(Text -&gt; Either String RuntimeEnvironment)
+-&gt; FromText RuntimeEnvironment
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RuntimeEnvironment
+$cfromText :: Text -&gt; Either String RuntimeEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293752"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; Text
+(RuntimeEnvironment -&gt; Text) -&gt; ToText RuntimeEnvironment
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RuntimeEnvironment -&gt; Text
+$ctoText :: RuntimeEnvironment -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293749"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; ByteString
+(RuntimeEnvironment -&gt; ByteString)
+-&gt; ToByteString RuntimeEnvironment
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RuntimeEnvironment -&gt; ByteString
+$ctoBS :: RuntimeEnvironment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293746"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; ByteStringBuilder
+(RuntimeEnvironment -&gt; ByteStringBuilder)
+-&gt; ToLog RuntimeEnvironment
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RuntimeEnvironment -&gt; ByteStringBuilder
+$cbuild :: RuntimeEnvironment -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293743"><span class="annot"><span class="annottext">HeaderName -&gt; RuntimeEnvironment -&gt; [Header]
+(HeaderName -&gt; RuntimeEnvironment -&gt; [Header])
+-&gt; ToHeader RuntimeEnvironment
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RuntimeEnvironment -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RuntimeEnvironment -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293740"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; QueryString
+(RuntimeEnvironment -&gt; QueryString) -&gt; ToQuery RuntimeEnvironment
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RuntimeEnvironment -&gt; QueryString
+$ctoQuery :: RuntimeEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293735"><span id="local-6989586621679293737"><span class="annot"><span class="annottext">Value -&gt; Parser [RuntimeEnvironment]
+Value -&gt; Parser RuntimeEnvironment
+(Value -&gt; Parser RuntimeEnvironment)
+-&gt; (Value -&gt; Parser [RuntimeEnvironment])
+-&gt; FromJSON RuntimeEnvironment
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RuntimeEnvironment]
+$cparseJSONList :: Value -&gt; Parser [RuntimeEnvironment]
+parseJSON :: Value -&gt; Parser RuntimeEnvironment
+$cparseJSON :: Value -&gt; Parser RuntimeEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679293730"><span id="local-6989586621679293732"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuntimeEnvironment]
+FromJSONKeyFunction RuntimeEnvironment
+FromJSONKeyFunction RuntimeEnvironment
+-&gt; FromJSONKeyFunction [RuntimeEnvironment]
+-&gt; FromJSONKey RuntimeEnvironment
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RuntimeEnvironment]
+$cfromJSONKeyList :: FromJSONKeyFunction [RuntimeEnvironment]
+fromJSONKey :: FromJSONKeyFunction RuntimeEnvironment
+$cfromJSONKey :: FromJSONKeyFunction RuntimeEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679293721"><span id="local-6989586621679293723"><span id="local-6989586621679293725"><span id="local-6989586621679293727"><span class="annot"><span class="annottext">[RuntimeEnvironment] -&gt; Encoding
+[RuntimeEnvironment] -&gt; Value
+RuntimeEnvironment -&gt; Encoding
+RuntimeEnvironment -&gt; Value
+(RuntimeEnvironment -&gt; Value)
+-&gt; (RuntimeEnvironment -&gt; Encoding)
+-&gt; ([RuntimeEnvironment] -&gt; Value)
+-&gt; ([RuntimeEnvironment] -&gt; Encoding)
+-&gt; ToJSON RuntimeEnvironment
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RuntimeEnvironment] -&gt; Encoding
+$ctoEncodingList :: [RuntimeEnvironment] -&gt; Encoding
+toJSONList :: [RuntimeEnvironment] -&gt; Value
+$ctoJSONList :: [RuntimeEnvironment] -&gt; Value
+toEncoding :: RuntimeEnvironment -&gt; Encoding
+$ctoEncoding :: RuntimeEnvironment -&gt; Encoding
+toJSON :: RuntimeEnvironment -&gt; Value
+$ctoJSON :: RuntimeEnvironment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679293716"><span id="local-6989586621679293718"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuntimeEnvironment]
+ToJSONKeyFunction RuntimeEnvironment
+ToJSONKeyFunction RuntimeEnvironment
+-&gt; ToJSONKeyFunction [RuntimeEnvironment]
+-&gt; ToJSONKey RuntimeEnvironment
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RuntimeEnvironment]
+$ctoJSONKeyList :: ToJSONKeyFunction [RuntimeEnvironment]
+toJSONKey :: ToJSONKeyFunction RuntimeEnvironment
+$ctoJSONKey :: ToJSONKeyFunction RuntimeEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679293713"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuntimeEnvironment
+([Node] -&gt; Either String RuntimeEnvironment)
+-&gt; FromXML RuntimeEnvironment
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RuntimeEnvironment
+$cparseXML :: [Node] -&gt; Either String RuntimeEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679293710"><span class="annot"><span class="annottext">RuntimeEnvironment -&gt; XML
+(RuntimeEnvironment -&gt; XML) -&gt; ToXML RuntimeEnvironment
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RuntimeEnvironment -&gt; XML
+$ctoXML :: RuntimeEnvironment -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_11"><span class="hs-identifier hs-type">RuntimeEnvironment_FLINK_1_11</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-type">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuntimeEnvironment_FLINK_1_11"><span id="%24mRuntimeEnvironment_FLINK_1_11"><span id="RuntimeEnvironment_FLINK_1_11"><span class="annot"><span class="annottext">$bRuntimeEnvironment_FLINK_1_11 :: RuntimeEnvironment
+$mRuntimeEnvironment_FLINK_1_11 :: forall r. RuntimeEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#%24bRuntimeEnvironment_FLINK_1_11"><span class="hs-identifier hs-var hs-var hs-var">RuntimeEnvironment_FLINK_1_11</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-type">RuntimeEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FLINK-1_11&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_13"><span class="hs-identifier hs-type">RuntimeEnvironment_FLINK_1_13</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-type">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuntimeEnvironment_FLINK_1_13"><span id="%24mRuntimeEnvironment_FLINK_1_13"><span id="RuntimeEnvironment_FLINK_1_13"><span class="annot"><span class="annottext">$bRuntimeEnvironment_FLINK_1_13 :: RuntimeEnvironment
+$mRuntimeEnvironment_FLINK_1_13 :: forall r. RuntimeEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#%24bRuntimeEnvironment_FLINK_1_13"><span class="hs-identifier hs-var hs-var hs-var">RuntimeEnvironment_FLINK_1_13</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-type">RuntimeEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FLINK-1_13&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_6"><span class="hs-identifier hs-type">RuntimeEnvironment_FLINK_1_6</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-type">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuntimeEnvironment_FLINK_1_6"><span id="%24mRuntimeEnvironment_FLINK_1_6"><span id="RuntimeEnvironment_FLINK_1_6"><span class="annot"><span class="annottext">$bRuntimeEnvironment_FLINK_1_6 :: RuntimeEnvironment
+$mRuntimeEnvironment_FLINK_1_6 :: forall r. RuntimeEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#%24bRuntimeEnvironment_FLINK_1_6"><span class="hs-identifier hs-var hs-var hs-var">RuntimeEnvironment_FLINK_1_6</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-type">RuntimeEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FLINK-1_6&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_8"><span class="hs-identifier hs-type">RuntimeEnvironment_FLINK_1_8</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-type">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuntimeEnvironment_FLINK_1_8"><span id="%24mRuntimeEnvironment_FLINK_1_8"><span id="RuntimeEnvironment_FLINK_1_8"><span class="annot"><span class="annottext">$bRuntimeEnvironment_FLINK_1_8 :: RuntimeEnvironment
+$mRuntimeEnvironment_FLINK_1_8 :: forall r. RuntimeEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#%24bRuntimeEnvironment_FLINK_1_8"><span class="hs-identifier hs-var hs-var hs-var">RuntimeEnvironment_FLINK_1_8</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-type">RuntimeEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FLINK-1_8&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_SQL_1_0"><span class="hs-identifier hs-type">RuntimeEnvironment_SQL_1_0</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-type">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuntimeEnvironment_SQL_1_0"><span id="%24mRuntimeEnvironment_SQL_1_0"><span id="RuntimeEnvironment_SQL_1_0"><span class="annot"><span class="annottext">$bRuntimeEnvironment_SQL_1_0 :: RuntimeEnvironment
+$mRuntimeEnvironment_SQL_1_0 :: forall r. RuntimeEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#%24bRuntimeEnvironment_SQL_1_0"><span class="hs-identifier hs-var hs-var hs-var">RuntimeEnvironment_SQL_1_0</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-type">RuntimeEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SQL-1_0&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_ZEPPELIN_FLINK_1_0"><span class="hs-identifier hs-type">RuntimeEnvironment_ZEPPELIN_FLINK_1_0</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-type">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuntimeEnvironment_ZEPPELIN_FLINK_1_0"><span id="%24mRuntimeEnvironment_ZEPPELIN_FLINK_1_0"><span id="RuntimeEnvironment_ZEPPELIN_FLINK_1_0"><span class="annot"><span class="annottext">$bRuntimeEnvironment_ZEPPELIN_FLINK_1_0 :: RuntimeEnvironment
+$mRuntimeEnvironment_ZEPPELIN_FLINK_1_0 :: forall r. RuntimeEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#%24bRuntimeEnvironment_ZEPPELIN_FLINK_1_0"><span class="hs-identifier hs-var hs-var hs-var">RuntimeEnvironment_ZEPPELIN_FLINK_1_0</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-type">RuntimeEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ZEPPELIN-FLINK-1_0&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_ZEPPELIN_FLINK_2_0"><span class="hs-identifier hs-type">RuntimeEnvironment_ZEPPELIN_FLINK_2_0</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment"><span class="hs-identifier hs-type">RuntimeEnvironment</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuntimeEnvironment_ZEPPELIN_FLINK_2_0"><span id="%24mRuntimeEnvironment_ZEPPELIN_FLINK_2_0"><span id="RuntimeEnvironment_ZEPPELIN_FLINK_2_0"><span class="annot"><span class="annottext">$bRuntimeEnvironment_ZEPPELIN_FLINK_2_0 :: RuntimeEnvironment
+$mRuntimeEnvironment_ZEPPELIN_FLINK_2_0 :: forall r. RuntimeEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#%24bRuntimeEnvironment_ZEPPELIN_FLINK_2_0"><span class="hs-identifier hs-var hs-var hs-var">RuntimeEnvironment_ZEPPELIN_FLINK_2_0</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-identifier hs-type">RuntimeEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ZEPPELIN-FLINK-2_0&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_11"><span class="hs-pragma hs-type">RuntimeEnvironment_FLINK_1_11</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_13"><span class="hs-pragma hs-type">RuntimeEnvironment_FLINK_1_13</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_6"><span class="hs-pragma hs-type">RuntimeEnvironment_FLINK_1_6</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_FLINK_1_8"><span class="hs-pragma hs-type">RuntimeEnvironment_FLINK_1_8</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_SQL_1_0"><span class="hs-pragma hs-type">RuntimeEnvironment_SQL_1_0</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_ZEPPELIN_FLINK_1_0"><span class="hs-pragma hs-type">RuntimeEnvironment_ZEPPELIN_FLINK_1_0</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment_ZEPPELIN_FLINK_2_0"><span class="hs-pragma hs-type">RuntimeEnvironment_ZEPPELIN_FLINK_2_0</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.RuntimeEnvironment.html#RuntimeEnvironment%27"><span class="hs-pragma hs-type">RuntimeEnvironment'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Backup.GetBackupPlanFromTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the template specified by its @templateId@ as a backup plan.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Backup.GetBackupPlanFromTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier">GetBackupPlanFromTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#newGetBackupPlanFromTemplate"><span class="hs-identifier">newGetBackupPlanFromTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplate_backupPlanTemplateId"><span class="hs-identifier">getBackupPlanFromTemplate_backupPlanTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier">GetBackupPlanFromTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#newGetBackupPlanFromTemplateResponse"><span class="hs-identifier">newGetBackupPlanFromTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplateResponse_backupPlanDocument"><span class="hs-identifier">getBackupPlanFromTemplateResponse_backupPlanDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplateResponse_httpStatus"><span class="hs-identifier">getBackupPlanFromTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.html"><span class="hs-identifier">Amazonka.Backup.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetBackupPlanFromTemplate' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679317932"><span id="local-6989586621679317933"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBackupPlanFromTemplate"><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-var">GetBackupPlanFromTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBackupPlanFromTemplate%27"><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate%27"><span class="hs-identifier hs-var">GetBackupPlanFromTemplate'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Uniquely identifies a stored backup plan template.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AbackupPlanTemplateId%3AGetBackupPlanFromTemplate%27"><span class="annot"><span class="annottext">GetBackupPlanFromTemplate -&gt; Text
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AbackupPlanTemplateId%3AGetBackupPlanFromTemplate%27"><span class="hs-identifier hs-var hs-var">backupPlanTemplateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317926"><span id="local-6989586621679317928"><span class="annot"><span class="annottext">GetBackupPlanFromTemplate -&gt; GetBackupPlanFromTemplate -&gt; Bool
+(GetBackupPlanFromTemplate -&gt; GetBackupPlanFromTemplate -&gt; Bool)
+-&gt; (GetBackupPlanFromTemplate -&gt; GetBackupPlanFromTemplate -&gt; Bool)
+-&gt; Eq GetBackupPlanFromTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBackupPlanFromTemplate -&gt; GetBackupPlanFromTemplate -&gt; Bool
+$c/= :: GetBackupPlanFromTemplate -&gt; GetBackupPlanFromTemplate -&gt; Bool
+== :: GetBackupPlanFromTemplate -&gt; GetBackupPlanFromTemplate -&gt; Bool
+$c== :: GetBackupPlanFromTemplate -&gt; GetBackupPlanFromTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317917"><span id="local-6989586621679317919"><span id="local-6989586621679317921"><span id="local-6989586621679317923"><span class="annot"><span class="annottext">ReadPrec [GetBackupPlanFromTemplate]
+ReadPrec GetBackupPlanFromTemplate
+Int -&gt; ReadS GetBackupPlanFromTemplate
+ReadS [GetBackupPlanFromTemplate]
+(Int -&gt; ReadS GetBackupPlanFromTemplate)
+-&gt; ReadS [GetBackupPlanFromTemplate]
+-&gt; ReadPrec GetBackupPlanFromTemplate
+-&gt; ReadPrec [GetBackupPlanFromTemplate]
+-&gt; Read GetBackupPlanFromTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBackupPlanFromTemplate]
+$creadListPrec :: ReadPrec [GetBackupPlanFromTemplate]
+readPrec :: ReadPrec GetBackupPlanFromTemplate
+$creadPrec :: ReadPrec GetBackupPlanFromTemplate
+readList :: ReadS [GetBackupPlanFromTemplate]
+$creadList :: ReadS [GetBackupPlanFromTemplate]
+readsPrec :: Int -&gt; ReadS GetBackupPlanFromTemplate
+$creadsPrec :: Int -&gt; ReadS GetBackupPlanFromTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317910"><span id="local-6989586621679317912"><span id="local-6989586621679317914"><span class="annot"><span class="annottext">Int -&gt; GetBackupPlanFromTemplate -&gt; ShowS
+[GetBackupPlanFromTemplate] -&gt; ShowS
+GetBackupPlanFromTemplate -&gt; String
+(Int -&gt; GetBackupPlanFromTemplate -&gt; ShowS)
+-&gt; (GetBackupPlanFromTemplate -&gt; String)
+-&gt; ([GetBackupPlanFromTemplate] -&gt; ShowS)
+-&gt; Show GetBackupPlanFromTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBackupPlanFromTemplate] -&gt; ShowS
+$cshowList :: [GetBackupPlanFromTemplate] -&gt; ShowS
+show :: GetBackupPlanFromTemplate -&gt; String
+$cshow :: GetBackupPlanFromTemplate -&gt; String
+showsPrec :: Int -&gt; GetBackupPlanFromTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBackupPlanFromTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBackupPlanFromTemplate -&gt; Rep GetBackupPlanFromTemplate x)
+-&gt; (forall x.
+    Rep GetBackupPlanFromTemplate x -&gt; GetBackupPlanFromTemplate)
+-&gt; Generic GetBackupPlanFromTemplate
+forall x.
+Rep GetBackupPlanFromTemplate x -&gt; GetBackupPlanFromTemplate
+forall x.
+GetBackupPlanFromTemplate -&gt; Rep GetBackupPlanFromTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBackupPlanFromTemplate x -&gt; GetBackupPlanFromTemplate
+$cfrom :: forall x.
+GetBackupPlanFromTemplate -&gt; Rep GetBackupPlanFromTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetBackupPlanFromTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'backupPlanTemplateId', 'getBackupPlanFromTemplate_backupPlanTemplateId' - Uniquely identifies a stored backup plan template.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#newGetBackupPlanFromTemplate"><span class="hs-identifier hs-type">newGetBackupPlanFromTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'backupPlanTemplateId'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetBackupPlanFromTemplate"><span class="annot"><span class="annottext">newGetBackupPlanFromTemplate :: Text -&gt; GetBackupPlanFromTemplate
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#newGetBackupPlanFromTemplate"><span class="hs-identifier hs-var hs-var">newGetBackupPlanFromTemplate</span></a></span></span><span> </span><span id="local-6989586621679317905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317905"><span class="hs-identifier hs-var">pBackupPlanTemplateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetBackupPlanFromTemplate' :: Text -&gt; GetBackupPlanFromTemplate
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupPlanTemplateId:GetBackupPlanFromTemplate' :: Text
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AbackupPlanTemplateId%3AGetBackupPlanFromTemplate%27"><span class="hs-identifier hs-var">backupPlanTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317905"><span class="hs-identifier hs-var">pBackupPlanTemplateId_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Uniquely identifies a stored backup plan template.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplate_backupPlanTemplateId"><span class="hs-identifier hs-type">getBackupPlanFromTemplate_backupPlanTemplateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="getBackupPlanFromTemplate_backupPlanTemplateId"><span class="annot"><span class="annottext">getBackupPlanFromTemplate_backupPlanTemplateId :: (Text -&gt; f Text)
+-&gt; GetBackupPlanFromTemplate -&gt; f GetBackupPlanFromTemplate
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplate_backupPlanTemplateId"><span class="hs-identifier hs-var hs-var">getBackupPlanFromTemplate_backupPlanTemplateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackupPlanFromTemplate -&gt; Text)
+-&gt; (GetBackupPlanFromTemplate -&gt; Text -&gt; GetBackupPlanFromTemplate)
+-&gt; Lens
+     GetBackupPlanFromTemplate GetBackupPlanFromTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317902"><span class="annot"><span class="annottext">Text
+backupPlanTemplateId :: Text
+$sel:backupPlanTemplateId:GetBackupPlanFromTemplate' :: GetBackupPlanFromTemplate -&gt; Text
+</span><a href="#local-6989586621679317902"><span class="hs-identifier hs-var hs-var">backupPlanTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317902"><span class="hs-identifier hs-var">backupPlanTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317901"><span class="annot"><span class="annottext">s :: GetBackupPlanFromTemplate
+</span><a href="#local-6989586621679317901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackupPlanFromTemplate
+</span><a href="#local-6989586621679317901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupPlanTemplateId:GetBackupPlanFromTemplate' :: Text
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AbackupPlanTemplateId%3AGetBackupPlanFromTemplate%27"><span class="hs-identifier hs-var">backupPlanTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679317896"><span class="annot"><span class="annottext">request :: GetBackupPlanFromTemplate -&gt; Request GetBackupPlanFromTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetBackupPlanFromTemplate -&gt; Request GetBackupPlanFromTemplate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679317892"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBackupPlanFromTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBackupPlanFromTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBackupPlanFromTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBackupPlanFromTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBackupPlanFromTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317889"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317888"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317888"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317887"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe BackupPlan -&gt; Int -&gt; GetBackupPlanFromTemplateResponse
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var">GetBackupPlanFromTemplateResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BackupPlan -&gt; Int -&gt; GetBackupPlanFromTemplateResponse)
+-&gt; Either String (Maybe BackupPlan)
+-&gt; Either String (Int -&gt; GetBackupPlanFromTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BackupPlan)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupPlanDocument&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBackupPlanFromTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String GetBackupPlanFromTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317889"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317879"><span id="local-6989586621679317881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679317872"><span class="annot"><span class="annottext">toHeaders :: GetBackupPlanFromTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBackupPlanFromTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679317866"><span class="annot"><span class="annottext">toPath :: GetBackupPlanFromTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317864"><span class="annot"><span class="annottext">Text
+backupPlanTemplateId :: Text
+$sel:backupPlanTemplateId:GetBackupPlanFromTemplate' :: GetBackupPlanFromTemplate -&gt; Text
+</span><a href="#local-6989586621679317864"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backup/template/plans/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317864"><span class="hs-identifier hs-var">backupPlanTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/toPlan&quot;</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplate"><span class="hs-identifier hs-type">GetBackupPlanFromTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679317860"><span class="annot"><span class="annottext">toQuery :: GetBackupPlanFromTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBackupPlanFromTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newGetBackupPlanFromTemplateResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679317857"><span id="local-6989586621679317858"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBackupPlanFromTemplateResponse"><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-var">GetBackupPlanFromTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBackupPlanFromTemplateResponse%27"><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var">GetBackupPlanFromTemplateResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns the body of a backup plan based on the target template,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- including the name, rules, and backup vault of the plan.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AbackupPlanDocument%3AGetBackupPlanFromTemplateResponse%27"><span class="annot"><span class="annottext">GetBackupPlanFromTemplateResponse -&gt; Maybe BackupPlan
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AbackupPlanDocument%3AGetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var hs-var">backupPlanDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.BackupPlan.html#BackupPlan"><span class="hs-identifier hs-type">BackupPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBackupPlanFromTemplateResponse%27"><span class="annot"><span class="annottext">GetBackupPlanFromTemplateResponse -&gt; Int
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AhttpStatus%3AGetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317851"><span id="local-6989586621679317853"><span class="annot"><span class="annottext">GetBackupPlanFromTemplateResponse
+-&gt; GetBackupPlanFromTemplateResponse -&gt; Bool
+(GetBackupPlanFromTemplateResponse
+ -&gt; GetBackupPlanFromTemplateResponse -&gt; Bool)
+-&gt; (GetBackupPlanFromTemplateResponse
+    -&gt; GetBackupPlanFromTemplateResponse -&gt; Bool)
+-&gt; Eq GetBackupPlanFromTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBackupPlanFromTemplateResponse
+-&gt; GetBackupPlanFromTemplateResponse -&gt; Bool
+$c/= :: GetBackupPlanFromTemplateResponse
+-&gt; GetBackupPlanFromTemplateResponse -&gt; Bool
+== :: GetBackupPlanFromTemplateResponse
+-&gt; GetBackupPlanFromTemplateResponse -&gt; Bool
+$c== :: GetBackupPlanFromTemplateResponse
+-&gt; GetBackupPlanFromTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317845"><span id="local-6989586621679317847"><span id="local-6989586621679317849"><span class="annot"><span class="annottext">Int -&gt; GetBackupPlanFromTemplateResponse -&gt; ShowS
+[GetBackupPlanFromTemplateResponse] -&gt; ShowS
+GetBackupPlanFromTemplateResponse -&gt; String
+(Int -&gt; GetBackupPlanFromTemplateResponse -&gt; ShowS)
+-&gt; (GetBackupPlanFromTemplateResponse -&gt; String)
+-&gt; ([GetBackupPlanFromTemplateResponse] -&gt; ShowS)
+-&gt; Show GetBackupPlanFromTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBackupPlanFromTemplateResponse] -&gt; ShowS
+$cshowList :: [GetBackupPlanFromTemplateResponse] -&gt; ShowS
+show :: GetBackupPlanFromTemplateResponse -&gt; String
+$cshow :: GetBackupPlanFromTemplateResponse -&gt; String
+showsPrec :: Int -&gt; GetBackupPlanFromTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBackupPlanFromTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBackupPlanFromTemplateResponse
+ -&gt; Rep GetBackupPlanFromTemplateResponse x)
+-&gt; (forall x.
+    Rep GetBackupPlanFromTemplateResponse x
+    -&gt; GetBackupPlanFromTemplateResponse)
+-&gt; Generic GetBackupPlanFromTemplateResponse
+forall x.
+Rep GetBackupPlanFromTemplateResponse x
+-&gt; GetBackupPlanFromTemplateResponse
+forall x.
+GetBackupPlanFromTemplateResponse
+-&gt; Rep GetBackupPlanFromTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBackupPlanFromTemplateResponse x
+-&gt; GetBackupPlanFromTemplateResponse
+$cfrom :: forall x.
+GetBackupPlanFromTemplateResponse
+-&gt; Rep GetBackupPlanFromTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'GetBackupPlanFromTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'backupPlanDocument', 'getBackupPlanFromTemplateResponse_backupPlanDocument' - Returns the body of a backup plan based on the target template,</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- including the name, rules, and backup vault of the plan.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'httpStatus', 'getBackupPlanFromTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#newGetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">newGetBackupPlanFromTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse</span></a></span><span>
+</span><span id="line-144"></span><span id="newGetBackupPlanFromTemplateResponse"><span class="annot"><span class="annottext">newGetBackupPlanFromTemplateResponse :: Int -&gt; GetBackupPlanFromTemplateResponse
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#newGetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-var hs-var">newGetBackupPlanFromTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679317842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317842"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetBackupPlanFromTemplateResponse' :: Maybe BackupPlan -&gt; Int -&gt; GetBackupPlanFromTemplateResponse
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupPlanDocument:GetBackupPlanFromTemplateResponse' :: Maybe BackupPlan
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AbackupPlanDocument%3AGetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var">backupPlanDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Maybe BackupPlan
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBackupPlanFromTemplateResponse' :: Int
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AhttpStatus%3AGetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317842"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Returns the body of a backup plan based on the target template,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- including the name, rules, and backup vault of the plan.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplateResponse_backupPlanDocument"><span class="hs-identifier hs-type">getBackupPlanFromTemplateResponse_backupPlanDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.BackupPlan.html#BackupPlan"><span class="hs-identifier hs-type">BackupPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="getBackupPlanFromTemplateResponse_backupPlanDocument"><span class="annot"><span class="annottext">getBackupPlanFromTemplateResponse_backupPlanDocument :: (Maybe BackupPlan -&gt; f (Maybe BackupPlan))
+-&gt; GetBackupPlanFromTemplateResponse
+-&gt; f GetBackupPlanFromTemplateResponse
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplateResponse_backupPlanDocument"><span class="hs-identifier hs-var hs-var">getBackupPlanFromTemplateResponse_backupPlanDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackupPlanFromTemplateResponse -&gt; Maybe BackupPlan)
+-&gt; (GetBackupPlanFromTemplateResponse
+    -&gt; Maybe BackupPlan -&gt; GetBackupPlanFromTemplateResponse)
+-&gt; Lens
+     GetBackupPlanFromTemplateResponse
+     GetBackupPlanFromTemplateResponse
+     (Maybe BackupPlan)
+     (Maybe BackupPlan)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317841"><span class="annot"><span class="annottext">Maybe BackupPlan
+backupPlanDocument :: Maybe BackupPlan
+$sel:backupPlanDocument:GetBackupPlanFromTemplateResponse' :: GetBackupPlanFromTemplateResponse -&gt; Maybe BackupPlan
+</span><a href="#local-6989586621679317841"><span class="hs-identifier hs-var hs-var">backupPlanDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupPlan
+</span><a href="#local-6989586621679317841"><span class="hs-identifier hs-var">backupPlanDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317840"><span class="annot"><span class="annottext">s :: GetBackupPlanFromTemplateResponse
+</span><a href="#local-6989586621679317840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317839"><span class="annot"><span class="annottext">Maybe BackupPlan
+</span><a href="#local-6989586621679317839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackupPlanFromTemplateResponse
+</span><a href="#local-6989586621679317840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupPlanDocument:GetBackupPlanFromTemplateResponse' :: Maybe BackupPlan
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AbackupPlanDocument%3AGetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var">backupPlanDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupPlan
+</span><a href="#local-6989586621679317839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplateResponse_httpStatus"><span class="hs-identifier hs-type">getBackupPlanFromTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="getBackupPlanFromTemplateResponse_httpStatus"><span class="annot"><span class="annottext">getBackupPlanFromTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBackupPlanFromTemplateResponse
+-&gt; f GetBackupPlanFromTemplateResponse
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#getBackupPlanFromTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBackupPlanFromTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackupPlanFromTemplateResponse -&gt; Int)
+-&gt; (GetBackupPlanFromTemplateResponse
+    -&gt; Int -&gt; GetBackupPlanFromTemplateResponse)
+-&gt; Lens
+     GetBackupPlanFromTemplateResponse
+     GetBackupPlanFromTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317838"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBackupPlanFromTemplateResponse' :: GetBackupPlanFromTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679317838"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317838"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317837"><span class="annot"><span class="annottext">s :: GetBackupPlanFromTemplateResponse
+</span><a href="#local-6989586621679317837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317836"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackupPlanFromTemplateResponse
+</span><a href="#local-6989586621679317837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBackupPlanFromTemplateResponse' :: Int
+</span><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#%24sel%3AhttpStatus%3AGetBackupPlanFromTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679317834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.GetBackupPlanFromTemplate.html#GetBackupPlanFromTemplateResponse"><span class="hs-identifier hs-type">GetBackupPlanFromTemplateResponse</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

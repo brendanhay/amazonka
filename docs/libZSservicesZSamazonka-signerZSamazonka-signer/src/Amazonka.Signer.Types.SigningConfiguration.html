@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Signer.Types.SigningConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Signer.Types.SigningConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.EncryptionAlgorithmOptions.html"><span class="hs-identifier">Amazonka.Signer.Types.EncryptionAlgorithmOptions</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.HashAlgorithmOptions.html"><span class="hs-identifier">Amazonka.Signer.Types.HashAlgorithmOptions</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The configuration of a code signing operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSigningConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679199656"><span id="local-6989586621679199657"></span></span><span class="hs-keyword">data</span><span> </span><span id="SigningConfiguration"><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-var">SigningConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigningConfiguration%27"><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration%27"><span class="hs-identifier hs-var">SigningConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption algorithm options that are available for a code signing</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AencryptionAlgorithmOptions%3ASigningConfiguration%27"><span class="annot"><span class="annottext">SigningConfiguration -&gt; EncryptionAlgorithmOptions
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#%24sel%3AencryptionAlgorithmOptions%3ASigningConfiguration%27"><span class="hs-identifier hs-var hs-var">encryptionAlgorithmOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.EncryptionAlgorithmOptions.html#EncryptionAlgorithmOptions"><span class="hs-identifier hs-type">EncryptionAlgorithmOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The hash algorithm options that are available for a code signing job.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AhashAlgorithmOptions%3ASigningConfiguration%27"><span class="annot"><span class="annottext">SigningConfiguration -&gt; HashAlgorithmOptions
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#%24sel%3AhashAlgorithmOptions%3ASigningConfiguration%27"><span class="hs-identifier hs-var hs-var">hashAlgorithmOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.HashAlgorithmOptions.html#HashAlgorithmOptions"><span class="hs-identifier hs-type">HashAlgorithmOptions</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199649"><span id="local-6989586621679199651"><span class="annot"><span class="annottext">SigningConfiguration -&gt; SigningConfiguration -&gt; Bool
+(SigningConfiguration -&gt; SigningConfiguration -&gt; Bool)
+-&gt; (SigningConfiguration -&gt; SigningConfiguration -&gt; Bool)
+-&gt; Eq SigningConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SigningConfiguration -&gt; SigningConfiguration -&gt; Bool
+$c/= :: SigningConfiguration -&gt; SigningConfiguration -&gt; Bool
+== :: SigningConfiguration -&gt; SigningConfiguration -&gt; Bool
+$c== :: SigningConfiguration -&gt; SigningConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199640"><span id="local-6989586621679199642"><span id="local-6989586621679199644"><span id="local-6989586621679199646"><span class="annot"><span class="annottext">ReadPrec [SigningConfiguration]
+ReadPrec SigningConfiguration
+Int -&gt; ReadS SigningConfiguration
+ReadS [SigningConfiguration]
+(Int -&gt; ReadS SigningConfiguration)
+-&gt; ReadS [SigningConfiguration]
+-&gt; ReadPrec SigningConfiguration
+-&gt; ReadPrec [SigningConfiguration]
+-&gt; Read SigningConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SigningConfiguration]
+$creadListPrec :: ReadPrec [SigningConfiguration]
+readPrec :: ReadPrec SigningConfiguration
+$creadPrec :: ReadPrec SigningConfiguration
+readList :: ReadS [SigningConfiguration]
+$creadList :: ReadS [SigningConfiguration]
+readsPrec :: Int -&gt; ReadS SigningConfiguration
+$creadsPrec :: Int -&gt; ReadS SigningConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199633"><span id="local-6989586621679199635"><span id="local-6989586621679199637"><span class="annot"><span class="annottext">Int -&gt; SigningConfiguration -&gt; ShowS
+[SigningConfiguration] -&gt; ShowS
+SigningConfiguration -&gt; String
+(Int -&gt; SigningConfiguration -&gt; ShowS)
+-&gt; (SigningConfiguration -&gt; String)
+-&gt; ([SigningConfiguration] -&gt; ShowS)
+-&gt; Show SigningConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SigningConfiguration] -&gt; ShowS
+$cshowList :: [SigningConfiguration] -&gt; ShowS
+show :: SigningConfiguration -&gt; String
+$cshow :: SigningConfiguration -&gt; String
+showsPrec :: Int -&gt; SigningConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; SigningConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SigningConfiguration -&gt; Rep SigningConfiguration x)
+-&gt; (forall x. Rep SigningConfiguration x -&gt; SigningConfiguration)
+-&gt; Generic SigningConfiguration
+forall x. Rep SigningConfiguration x -&gt; SigningConfiguration
+forall x. SigningConfiguration -&gt; Rep SigningConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SigningConfiguration x -&gt; SigningConfiguration
+$cfrom :: forall x. SigningConfiguration -&gt; Rep SigningConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'SigningConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'encryptionAlgorithmOptions', 'signingConfiguration_encryptionAlgorithmOptions' - The encryption algorithm options that are available for a code signing</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'hashAlgorithmOptions', 'signingConfiguration_hashAlgorithmOptions' - The hash algorithm options that are available for a code signing job.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#newSigningConfiguration"><span class="hs-identifier hs-type">newSigningConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'encryptionAlgorithmOptions'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.Types.EncryptionAlgorithmOptions.html#EncryptionAlgorithmOptions"><span class="hs-identifier hs-type">EncryptionAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'hashAlgorithmOptions'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.Types.HashAlgorithmOptions.html#HashAlgorithmOptions"><span class="hs-identifier hs-type">HashAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span><span>
+</span><span id="line-58"></span><span id="newSigningConfiguration"><span class="annot"><span class="annottext">newSigningConfiguration :: EncryptionAlgorithmOptions
+-&gt; HashAlgorithmOptions -&gt; SigningConfiguration
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#newSigningConfiguration"><span class="hs-identifier hs-var hs-var">newSigningConfiguration</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679199627"><span class="annot"><span class="annottext">EncryptionAlgorithmOptions
+</span><a href="#local-6989586621679199627"><span class="hs-identifier hs-var">pEncryptionAlgorithmOptions_</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679199626"><span class="annot"><span class="annottext">HashAlgorithmOptions
+</span><a href="#local-6989586621679199626"><span class="hs-identifier hs-var">pHashAlgorithmOptions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">SigningConfiguration' :: EncryptionAlgorithmOptions
+-&gt; HashAlgorithmOptions -&gt; SigningConfiguration
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration%27"><span class="hs-identifier hs-type">SigningConfiguration'</span></a></span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionAlgorithmOptions:SigningConfiguration' :: EncryptionAlgorithmOptions
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#%24sel%3AencryptionAlgorithmOptions%3ASigningConfiguration%27"><span class="hs-identifier hs-var">encryptionAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">EncryptionAlgorithmOptions
+</span><a href="#local-6989586621679199627"><span class="hs-identifier hs-var">pEncryptionAlgorithmOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">$sel:hashAlgorithmOptions:SigningConfiguration' :: HashAlgorithmOptions
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#%24sel%3AhashAlgorithmOptions%3ASigningConfiguration%27"><span class="hs-identifier hs-var">hashAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashAlgorithmOptions
+</span><a href="#local-6989586621679199626"><span class="hs-identifier hs-var">pHashAlgorithmOptions_</span></a></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The encryption algorithm options that are available for a code signing</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#signingConfiguration_encryptionAlgorithmOptions"><span class="hs-identifier hs-type">signingConfiguration_encryptionAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.EncryptionAlgorithmOptions.html#EncryptionAlgorithmOptions"><span class="hs-identifier hs-type">EncryptionAlgorithmOptions</span></a></span><span>
+</span><span id="line-70"></span><span id="signingConfiguration_encryptionAlgorithmOptions"><span class="annot"><span class="annottext">signingConfiguration_encryptionAlgorithmOptions :: (EncryptionAlgorithmOptions -&gt; f EncryptionAlgorithmOptions)
+-&gt; SigningConfiguration -&gt; f SigningConfiguration
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#signingConfiguration_encryptionAlgorithmOptions"><span class="hs-identifier hs-var hs-var">signingConfiguration_encryptionAlgorithmOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SigningConfiguration -&gt; EncryptionAlgorithmOptions)
+-&gt; (SigningConfiguration
+    -&gt; EncryptionAlgorithmOptions -&gt; SigningConfiguration)
+-&gt; Lens
+     SigningConfiguration
+     SigningConfiguration
+     EncryptionAlgorithmOptions
+     EncryptionAlgorithmOptions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration%27"><span class="hs-identifier hs-type">SigningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199622"><span class="annot"><span class="annottext">EncryptionAlgorithmOptions
+encryptionAlgorithmOptions :: EncryptionAlgorithmOptions
+$sel:encryptionAlgorithmOptions:SigningConfiguration' :: SigningConfiguration -&gt; EncryptionAlgorithmOptions
+</span><a href="#local-6989586621679199622"><span class="hs-identifier hs-var hs-var">encryptionAlgorithmOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionAlgorithmOptions
+</span><a href="#local-6989586621679199622"><span class="hs-identifier hs-var">encryptionAlgorithmOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199621"><span class="annot"><span class="annottext">s :: SigningConfiguration
+</span><a href="#local-6989586621679199621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration%27"><span class="hs-identifier hs-type">SigningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199620"><span class="annot"><span class="annottext">EncryptionAlgorithmOptions
+</span><a href="#local-6989586621679199620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningConfiguration
+</span><a href="#local-6989586621679199621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAlgorithmOptions:SigningConfiguration' :: EncryptionAlgorithmOptions
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#%24sel%3AencryptionAlgorithmOptions%3ASigningConfiguration%27"><span class="hs-identifier hs-var">encryptionAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionAlgorithmOptions
+</span><a href="#local-6989586621679199620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The hash algorithm options that are available for a code signing job.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#signingConfiguration_hashAlgorithmOptions"><span class="hs-identifier hs-type">signingConfiguration_hashAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.HashAlgorithmOptions.html#HashAlgorithmOptions"><span class="hs-identifier hs-type">HashAlgorithmOptions</span></a></span><span>
+</span><span id="line-74"></span><span id="signingConfiguration_hashAlgorithmOptions"><span class="annot"><span class="annottext">signingConfiguration_hashAlgorithmOptions :: (HashAlgorithmOptions -&gt; f HashAlgorithmOptions)
+-&gt; SigningConfiguration -&gt; f SigningConfiguration
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#signingConfiguration_hashAlgorithmOptions"><span class="hs-identifier hs-var hs-var">signingConfiguration_hashAlgorithmOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SigningConfiguration -&gt; HashAlgorithmOptions)
+-&gt; (SigningConfiguration
+    -&gt; HashAlgorithmOptions -&gt; SigningConfiguration)
+-&gt; Lens
+     SigningConfiguration
+     SigningConfiguration
+     HashAlgorithmOptions
+     HashAlgorithmOptions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration%27"><span class="hs-identifier hs-type">SigningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199618"><span class="annot"><span class="annottext">HashAlgorithmOptions
+hashAlgorithmOptions :: HashAlgorithmOptions
+$sel:hashAlgorithmOptions:SigningConfiguration' :: SigningConfiguration -&gt; HashAlgorithmOptions
+</span><a href="#local-6989586621679199618"><span class="hs-identifier hs-var hs-var">hashAlgorithmOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashAlgorithmOptions
+</span><a href="#local-6989586621679199618"><span class="hs-identifier hs-var">hashAlgorithmOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199617"><span class="annot"><span class="annottext">s :: SigningConfiguration
+</span><a href="#local-6989586621679199617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration%27"><span class="hs-identifier hs-type">SigningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199616"><span class="annot"><span class="annottext">HashAlgorithmOptions
+</span><a href="#local-6989586621679199616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningConfiguration
+</span><a href="#local-6989586621679199617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hashAlgorithmOptions:SigningConfiguration' :: HashAlgorithmOptions
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#%24sel%3AhashAlgorithmOptions%3ASigningConfiguration%27"><span class="hs-identifier hs-var">hashAlgorithmOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashAlgorithmOptions
+</span><a href="#local-6989586621679199616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199613"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679199611"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SigningConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SigningConfiguration)
+-&gt; Value
+-&gt; Parser SigningConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SigningConfiguration&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199608"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199608"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">EncryptionAlgorithmOptions
+-&gt; HashAlgorithmOptions -&gt; SigningConfiguration
+</span><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration%27"><span class="hs-identifier hs-var">SigningConfiguration'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(EncryptionAlgorithmOptions
+ -&gt; HashAlgorithmOptions -&gt; SigningConfiguration)
+-&gt; Parser EncryptionAlgorithmOptions
+-&gt; Parser (HashAlgorithmOptions -&gt; SigningConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionAlgorithmOptions
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionAlgorithmOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (HashAlgorithmOptions -&gt; SigningConfiguration)
+-&gt; Parser HashAlgorithmOptions -&gt; Parser SigningConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HashAlgorithmOptions
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hashAlgorithmOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199602"><span id="local-6989586621679199604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.SigningConfiguration.html#SigningConfiguration"><span class="hs-identifier hs-type">SigningConfiguration</span></a></span></span><span>
+</span><span id="line-89"></span></pre></body></html>

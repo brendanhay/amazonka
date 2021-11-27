@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECR.Types.ReplicationDestination</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECR.Types.ReplicationDestination</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An array of objects representing the destination for a replication rule.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newReplicationDestination' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679233932"><span id="local-6989586621679233933"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationDestination"><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-var">ReplicationDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationDestination%27"><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-var">ReplicationDestination'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Region to replicate to.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aregion%3AReplicationDestination%27"><span class="annot"><span class="annottext">ReplicationDestination -&gt; Text
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#%24sel%3Aregion%3AReplicationDestination%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID of the Amazon ECR private registry to</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- replicate to. When configuring cross-Region replication within your own</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- registry, specify your own account ID.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AregistryId%3AReplicationDestination%27"><span class="annot"><span class="annottext">ReplicationDestination -&gt; Text
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#%24sel%3AregistryId%3AReplicationDestination%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233925"><span id="local-6989586621679233927"><span class="annot"><span class="annottext">ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
+(ReplicationDestination -&gt; ReplicationDestination -&gt; Bool)
+-&gt; (ReplicationDestination -&gt; ReplicationDestination -&gt; Bool)
+-&gt; Eq ReplicationDestination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
+$c/= :: ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
+== :: ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
+$c== :: ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233916"><span id="local-6989586621679233918"><span id="local-6989586621679233920"><span id="local-6989586621679233922"><span class="annot"><span class="annottext">ReadPrec [ReplicationDestination]
+ReadPrec ReplicationDestination
+Int -&gt; ReadS ReplicationDestination
+ReadS [ReplicationDestination]
+(Int -&gt; ReadS ReplicationDestination)
+-&gt; ReadS [ReplicationDestination]
+-&gt; ReadPrec ReplicationDestination
+-&gt; ReadPrec [ReplicationDestination]
+-&gt; Read ReplicationDestination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationDestination]
+$creadListPrec :: ReadPrec [ReplicationDestination]
+readPrec :: ReadPrec ReplicationDestination
+$creadPrec :: ReadPrec ReplicationDestination
+readList :: ReadS [ReplicationDestination]
+$creadList :: ReadS [ReplicationDestination]
+readsPrec :: Int -&gt; ReadS ReplicationDestination
+$creadsPrec :: Int -&gt; ReadS ReplicationDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233909"><span id="local-6989586621679233911"><span id="local-6989586621679233913"><span class="annot"><span class="annottext">Int -&gt; ReplicationDestination -&gt; ShowS
+[ReplicationDestination] -&gt; ShowS
+ReplicationDestination -&gt; String
+(Int -&gt; ReplicationDestination -&gt; ShowS)
+-&gt; (ReplicationDestination -&gt; String)
+-&gt; ([ReplicationDestination] -&gt; ShowS)
+-&gt; Show ReplicationDestination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationDestination] -&gt; ShowS
+$cshowList :: [ReplicationDestination] -&gt; ShowS
+show :: ReplicationDestination -&gt; String
+$cshow :: ReplicationDestination -&gt; String
+showsPrec :: Int -&gt; ReplicationDestination -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReplicationDestination -&gt; Rep ReplicationDestination x)
+-&gt; (forall x.
+    Rep ReplicationDestination x -&gt; ReplicationDestination)
+-&gt; Generic ReplicationDestination
+forall x. Rep ReplicationDestination x -&gt; ReplicationDestination
+forall x. ReplicationDestination -&gt; Rep ReplicationDestination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicationDestination x -&gt; ReplicationDestination
+$cfrom :: forall x. ReplicationDestination -&gt; Rep ReplicationDestination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ReplicationDestination' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'region', 'replicationDestination_region' - The Region to replicate to.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'registryId', 'replicationDestination_registryId' - The Amazon Web Services account ID of the Amazon ECR private registry to</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- replicate to. When configuring cross-Region replication within your own</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- registry, specify your own account ID.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#newReplicationDestination"><span class="hs-identifier hs-type">newReplicationDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'region'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'registryId'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span>
+</span><span id="line-58"></span><span id="newReplicationDestination"><span class="annot"><span class="annottext">newReplicationDestination :: Text -&gt; Text -&gt; ReplicationDestination
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#newReplicationDestination"><span class="hs-identifier hs-var hs-var">newReplicationDestination</span></a></span></span><span> </span><span id="local-6989586621679233903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233903"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span> </span><span id="local-6989586621679233902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233902"><span class="hs-identifier hs-var">pRegistryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ReplicationDestination' :: Text -&gt; Text -&gt; ReplicationDestination
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:region:ReplicationDestination' :: Text
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#%24sel%3Aregion%3AReplicationDestination%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233903"><span class="hs-identifier hs-var">pRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryId:ReplicationDestination' :: Text
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#%24sel%3AregistryId%3AReplicationDestination%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233902"><span class="hs-identifier hs-var">pRegistryId_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The Region to replicate to.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#replicationDestination_region"><span class="hs-identifier hs-type">replicationDestination_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span id="replicationDestination_region"><span class="annot"><span class="annottext">replicationDestination_region :: (Text -&gt; f Text)
+-&gt; ReplicationDestination -&gt; f ReplicationDestination
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#replicationDestination_region"><span class="hs-identifier hs-var hs-var">replicationDestination_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationDestination -&gt; Text)
+-&gt; (ReplicationDestination -&gt; Text -&gt; ReplicationDestination)
+-&gt; Lens ReplicationDestination ReplicationDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233898"><span class="annot"><span class="annottext">Text
+region :: Text
+$sel:region:ReplicationDestination' :: ReplicationDestination -&gt; Text
+</span><a href="#local-6989586621679233898"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233898"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233897"><span class="annot"><span class="annottext">s :: ReplicationDestination
+</span><a href="#local-6989586621679233897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationDestination
+</span><a href="#local-6989586621679233897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ReplicationDestination' :: Text
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#%24sel%3Aregion%3AReplicationDestination%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The Amazon Web Services account ID of the Amazon ECR private registry to</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- replicate to. When configuring cross-Region replication within your own</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- registry, specify your own account ID.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#replicationDestination_registryId"><span class="hs-identifier hs-type">replicationDestination_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span id="replicationDestination_registryId"><span class="annot"><span class="annottext">replicationDestination_registryId :: (Text -&gt; f Text)
+-&gt; ReplicationDestination -&gt; f ReplicationDestination
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#replicationDestination_registryId"><span class="hs-identifier hs-var hs-var">replicationDestination_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationDestination -&gt; Text)
+-&gt; (ReplicationDestination -&gt; Text -&gt; ReplicationDestination)
+-&gt; Lens ReplicationDestination ReplicationDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233894"><span class="annot"><span class="annottext">Text
+registryId :: Text
+$sel:registryId:ReplicationDestination' :: ReplicationDestination -&gt; Text
+</span><a href="#local-6989586621679233894"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233894"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233893"><span class="annot"><span class="annottext">s :: ReplicationDestination
+</span><a href="#local-6989586621679233893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233892"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationDestination
+</span><a href="#local-6989586621679233893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:ReplicationDestination' :: Text
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#%24sel%3AregistryId%3AReplicationDestination%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233889"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679233887"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReplicationDestination)
+-&gt; Value
+-&gt; Parser ReplicationDestination
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReplicationDestination&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233884"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ReplicationDestination
+</span><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-var">ReplicationDestination'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ReplicationDestination)
+-&gt; Parser Text -&gt; Parser (Text -&gt; ReplicationDestination)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ReplicationDestination)
+-&gt; Parser Text -&gt; Parser ReplicationDestination
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233878"><span id="local-6989586621679233880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233867"><span id="local-6989586621679233869"><span id="local-6989586621679233871"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679233865"><span class="annot"><span class="annottext">toJSON :: ReplicationDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233862"><span id="local-6989586621679233863"><span class="annot"><span class="annottext">Text
+registryId :: Text
+region :: Text
+$sel:registryId:ReplicationDestination' :: ReplicationDestination -&gt; Text
+$sel:region:ReplicationDestination' :: ReplicationDestination -&gt; Text
+</span><a href="#local-6989586621679233862"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233863"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233862"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span></pre></body></html>

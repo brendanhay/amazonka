@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.Duration.html"><span class="hs-identifier">Amazonka.OpenSearch.Types.Duration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies the Auto-Tune maintenance schedule. See</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAutoTuneMaintenanceSchedule' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679306737"><span id="local-6989586621679306738"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoTuneMaintenanceSchedule"><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneMaintenanceSchedule%27"><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp at which the Auto-Tune maintenance schedule starts.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstartAt%3AAutoTuneMaintenanceSchedule%27"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; Maybe POSIX
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AstartAt%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var hs-var">startAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A cron expression for a recurring maintenance schedule. See</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcronExpressionForRecurrence%3AAutoTuneMaintenanceSchedule%27"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AcronExpressionForRecurrence%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var hs-var">cronExpressionForRecurrence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies maintenance schedule duration: duration value and duration</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- unit. See</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aduration%3AAutoTuneMaintenanceSchedule%27"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; Maybe Duration
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3Aduration%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306729"><span id="local-6989586621679306731"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
+(AutoTuneMaintenanceSchedule
+ -&gt; AutoTuneMaintenanceSchedule -&gt; Bool)
+-&gt; (AutoTuneMaintenanceSchedule
+    -&gt; AutoTuneMaintenanceSchedule -&gt; Bool)
+-&gt; Eq AutoTuneMaintenanceSchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
+$c/= :: AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
+== :: AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
+$c== :: AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306720"><span id="local-6989586621679306722"><span id="local-6989586621679306724"><span id="local-6989586621679306726"><span class="annot"><span class="annottext">ReadPrec [AutoTuneMaintenanceSchedule]
+ReadPrec AutoTuneMaintenanceSchedule
+Int -&gt; ReadS AutoTuneMaintenanceSchedule
+ReadS [AutoTuneMaintenanceSchedule]
+(Int -&gt; ReadS AutoTuneMaintenanceSchedule)
+-&gt; ReadS [AutoTuneMaintenanceSchedule]
+-&gt; ReadPrec AutoTuneMaintenanceSchedule
+-&gt; ReadPrec [AutoTuneMaintenanceSchedule]
+-&gt; Read AutoTuneMaintenanceSchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoTuneMaintenanceSchedule]
+$creadListPrec :: ReadPrec [AutoTuneMaintenanceSchedule]
+readPrec :: ReadPrec AutoTuneMaintenanceSchedule
+$creadPrec :: ReadPrec AutoTuneMaintenanceSchedule
+readList :: ReadS [AutoTuneMaintenanceSchedule]
+$creadList :: ReadS [AutoTuneMaintenanceSchedule]
+readsPrec :: Int -&gt; ReadS AutoTuneMaintenanceSchedule
+$creadsPrec :: Int -&gt; ReadS AutoTuneMaintenanceSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306713"><span id="local-6989586621679306715"><span id="local-6989586621679306717"><span class="annot"><span class="annottext">Int -&gt; AutoTuneMaintenanceSchedule -&gt; ShowS
+[AutoTuneMaintenanceSchedule] -&gt; ShowS
+AutoTuneMaintenanceSchedule -&gt; String
+(Int -&gt; AutoTuneMaintenanceSchedule -&gt; ShowS)
+-&gt; (AutoTuneMaintenanceSchedule -&gt; String)
+-&gt; ([AutoTuneMaintenanceSchedule] -&gt; ShowS)
+-&gt; Show AutoTuneMaintenanceSchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoTuneMaintenanceSchedule] -&gt; ShowS
+$cshowList :: [AutoTuneMaintenanceSchedule] -&gt; ShowS
+show :: AutoTuneMaintenanceSchedule -&gt; String
+$cshow :: AutoTuneMaintenanceSchedule -&gt; String
+showsPrec :: Int -&gt; AutoTuneMaintenanceSchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoTuneMaintenanceSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AutoTuneMaintenanceSchedule -&gt; Rep AutoTuneMaintenanceSchedule x)
+-&gt; (forall x.
+    Rep AutoTuneMaintenanceSchedule x -&gt; AutoTuneMaintenanceSchedule)
+-&gt; Generic AutoTuneMaintenanceSchedule
+forall x.
+Rep AutoTuneMaintenanceSchedule x -&gt; AutoTuneMaintenanceSchedule
+forall x.
+AutoTuneMaintenanceSchedule -&gt; Rep AutoTuneMaintenanceSchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AutoTuneMaintenanceSchedule x -&gt; AutoTuneMaintenanceSchedule
+$cfrom :: forall x.
+AutoTuneMaintenanceSchedule -&gt; Rep AutoTuneMaintenanceSchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'AutoTuneMaintenanceSchedule' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'startAt', 'autoTuneMaintenanceSchedule_startAt' - The timestamp at which the Auto-Tune maintenance schedule starts.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'cronExpressionForRecurrence', 'autoTuneMaintenanceSchedule_cronExpressionForRecurrence' - A cron expression for a recurring maintenance schedule. See</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'duration', 'autoTuneMaintenanceSchedule_duration' - Specifies maintenance schedule duration: duration value and duration</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- unit. See</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#newAutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">newAutoTuneMaintenanceSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span>
+</span><span id="line-67"></span><span id="newAutoTuneMaintenanceSchedule"><span class="annot"><span class="annottext">newAutoTuneMaintenanceSchedule :: AutoTuneMaintenanceSchedule
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#newAutoTuneMaintenanceSchedule"><span class="hs-identifier hs-var hs-var">newAutoTuneMaintenanceSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule' :: Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startAt:AutoTuneMaintenanceSchedule' :: Maybe POSIX
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AstartAt%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">startAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AcronExpressionForRecurrence%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:AutoTuneMaintenanceSchedule' :: Maybe Duration
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3Aduration%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The timestamp at which the Auto-Tune maintenance schedule starts.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#autoTuneMaintenanceSchedule_startAt"><span class="hs-identifier hs-type">autoTuneMaintenanceSchedule_startAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="autoTuneMaintenanceSchedule_startAt"><span class="annot"><span class="annottext">autoTuneMaintenanceSchedule_startAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoTuneMaintenanceSchedule -&gt; f AutoTuneMaintenanceSchedule
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#autoTuneMaintenanceSchedule_startAt"><span class="hs-identifier hs-var hs-var">autoTuneMaintenanceSchedule_startAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoTuneMaintenanceSchedule -&gt; Maybe POSIX)
+-&gt; (AutoTuneMaintenanceSchedule
+    -&gt; Maybe POSIX -&gt; AutoTuneMaintenanceSchedule)
+-&gt; Lens
+     AutoTuneMaintenanceSchedule
+     AutoTuneMaintenanceSchedule
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306704"><span class="annot"><span class="annottext">Maybe POSIX
+startAt :: Maybe POSIX
+$sel:startAt:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe POSIX
+</span><a href="#local-6989586621679306704"><span class="hs-identifier hs-var hs-var">startAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679306704"><span class="hs-identifier hs-var">startAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306703"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679306703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306702"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679306702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679306703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startAt:AutoTuneMaintenanceSchedule' :: Maybe POSIX
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AstartAt%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">startAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679306702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AutoTuneMaintenanceSchedule -&gt; f AutoTuneMaintenanceSchedule)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoTuneMaintenanceSchedule
+-&gt; f AutoTuneMaintenanceSchedule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A cron expression for a recurring maintenance schedule. See</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#autoTuneMaintenanceSchedule_cronExpressionForRecurrence"><span class="hs-identifier hs-type">autoTuneMaintenanceSchedule_cronExpressionForRecurrence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="autoTuneMaintenanceSchedule_cronExpressionForRecurrence"><span class="annot"><span class="annottext">autoTuneMaintenanceSchedule_cronExpressionForRecurrence :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoTuneMaintenanceSchedule -&gt; f AutoTuneMaintenanceSchedule
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#autoTuneMaintenanceSchedule_cronExpressionForRecurrence"><span class="hs-identifier hs-var hs-var">autoTuneMaintenanceSchedule_cronExpressionForRecurrence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoTuneMaintenanceSchedule -&gt; Maybe Text)
+-&gt; (AutoTuneMaintenanceSchedule
+    -&gt; Maybe Text -&gt; AutoTuneMaintenanceSchedule)
+-&gt; Lens
+     AutoTuneMaintenanceSchedule
+     AutoTuneMaintenanceSchedule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306697"><span class="annot"><span class="annottext">Maybe Text
+cronExpressionForRecurrence :: Maybe Text
+$sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679306697"><span class="hs-identifier hs-var hs-var">cronExpressionForRecurrence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306697"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306696"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679306696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679306696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AcronExpressionForRecurrence%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Specifies maintenance schedule duration: duration value and duration</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- unit. See</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#autoTuneMaintenanceSchedule_duration"><span class="hs-identifier hs-type">autoTuneMaintenanceSchedule_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="autoTuneMaintenanceSchedule_duration"><span class="annot"><span class="annottext">autoTuneMaintenanceSchedule_duration :: (Maybe Duration -&gt; f (Maybe Duration))
+-&gt; AutoTuneMaintenanceSchedule -&gt; f AutoTuneMaintenanceSchedule
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#autoTuneMaintenanceSchedule_duration"><span class="hs-identifier hs-var hs-var">autoTuneMaintenanceSchedule_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoTuneMaintenanceSchedule -&gt; Maybe Duration)
+-&gt; (AutoTuneMaintenanceSchedule
+    -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
+-&gt; Lens
+     AutoTuneMaintenanceSchedule
+     AutoTuneMaintenanceSchedule
+     (Maybe Duration)
+     (Maybe Duration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306693"><span class="annot"><span class="annottext">Maybe Duration
+duration :: Maybe Duration
+$sel:duration:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Duration
+</span><a href="#local-6989586621679306693"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679306693"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306692"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679306692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306691"><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679306691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679306692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:AutoTuneMaintenanceSchedule' :: Maybe Duration
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3Aduration%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679306691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306688"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679306686"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoTuneMaintenanceSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoTuneMaintenanceSchedule)
+-&gt; Value
+-&gt; Parser AutoTuneMaintenanceSchedule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoTuneMaintenanceSchedule&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306683"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CronExpressionForRecurrence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
+-&gt; Parser (Maybe Duration) -&gt; Parser AutoTuneMaintenanceSchedule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Duration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306677"><span id="local-6989586621679306679"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306666"><span id="local-6989586621679306668"><span id="local-6989586621679306670"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679306664"><span class="annot"><span class="annottext">toJSON :: AutoTuneMaintenanceSchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306660"><span id="local-6989586621679306661"><span id="local-6989586621679306662"><span class="annot"><span class="annottext">Maybe Text
+Maybe POSIX
+Maybe Duration
+duration :: Maybe Duration
+cronExpressionForRecurrence :: Maybe Text
+startAt :: Maybe POSIX
+$sel:duration:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Duration
+$sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Text
+$sel:startAt:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe POSIX
+</span><a href="#local-6989586621679306660"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartAt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679306662"><span class="hs-identifier hs-var">startAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CronExpressionForRecurrence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306661"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Duration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Duration -&gt; Pair) -&gt; Maybe Duration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679306660"><span class="hs-identifier hs-var">duration</span></a></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span></pre></body></html>

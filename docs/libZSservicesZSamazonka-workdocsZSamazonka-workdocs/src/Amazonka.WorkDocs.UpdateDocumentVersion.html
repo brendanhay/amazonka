@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkDocs.UpdateDocumentVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the status of the document version to ACTIVE.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Amazon WorkDocs also sets its document container to ACTIVE. This is the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- last step in a document upload, after the client uploads the document to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- an S3-presigned URL returned by InitiateDocumentVersionUpload.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkDocs.UpdateDocumentVersion</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersion"><span class="hs-identifier">newUpdateDocumentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier">updateDocumentVersion_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier">updateDocumentVersion_versionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_documentId"><span class="hs-identifier">updateDocumentVersion_documentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionId"><span class="hs-identifier">updateDocumentVersion_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier">UpdateDocumentVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersionResponse"><span class="hs-identifier">newUpdateDocumentVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.html"><span class="hs-identifier">Amazonka.WorkDocs.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocumentVersion' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679275927"><span id="local-6989586621679275928"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentVersion"><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-var">UpdateDocumentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentVersion%27"><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-var">UpdateDocumentVersion'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The status of the version.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">versionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionStatus.html#DocumentVersionStatus"><span class="hs-identifier hs-type">DocumentVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the document.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Text
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The version ID of the document.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Text
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275918"><span id="local-6989586621679275920"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
+(UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool)
+-&gt; (UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool)
+-&gt; Eq UpdateDocumentVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
+$c/= :: UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
+== :: UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
+$c== :: UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275911"><span id="local-6989586621679275913"><span id="local-6989586621679275915"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentVersion -&gt; ShowS
+[UpdateDocumentVersion] -&gt; ShowS
+UpdateDocumentVersion -&gt; String
+(Int -&gt; UpdateDocumentVersion -&gt; ShowS)
+-&gt; (UpdateDocumentVersion -&gt; String)
+-&gt; ([UpdateDocumentVersion] -&gt; ShowS)
+-&gt; Show UpdateDocumentVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDocumentVersion] -&gt; ShowS
+$cshowList :: [UpdateDocumentVersion] -&gt; ShowS
+show :: UpdateDocumentVersion -&gt; String
+$cshow :: UpdateDocumentVersion -&gt; String
+showsPrec :: Int -&gt; UpdateDocumentVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDocumentVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDocumentVersion -&gt; Rep UpdateDocumentVersion x)
+-&gt; (forall x. Rep UpdateDocumentVersion x -&gt; UpdateDocumentVersion)
+-&gt; Generic UpdateDocumentVersion
+forall x. Rep UpdateDocumentVersion x -&gt; UpdateDocumentVersion
+forall x. UpdateDocumentVersion -&gt; Rep UpdateDocumentVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDocumentVersion x -&gt; UpdateDocumentVersion
+$cfrom :: forall x. UpdateDocumentVersion -&gt; Rep UpdateDocumentVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'UpdateDocumentVersion' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'authenticationToken', 'updateDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'versionStatus', 'updateDocumentVersion_versionStatus' - The status of the version.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'documentId', 'updateDocumentVersion_documentId' - The ID of the document.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'versionId', 'updateDocumentVersion_versionId' - The version ID of the document.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersion"><span class="hs-identifier hs-type">newUpdateDocumentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'documentId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'versionId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span>
+</span><span id="line-88"></span><span id="newUpdateDocumentVersion"><span class="annot"><span class="annottext">newUpdateDocumentVersion :: Text -&gt; Text -&gt; UpdateDocumentVersion
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersion"><span class="hs-identifier hs-var hs-var">newUpdateDocumentVersion</span></a></span></span><span> </span><span id="local-6989586621679275906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275906"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span id="local-6989586621679275905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275905"><span class="hs-identifier hs-var">pVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocumentVersion' :: Maybe (Sensitive Text)
+-&gt; Maybe DocumentVersionStatus
+-&gt; Text
+-&gt; Text
+-&gt; UpdateDocumentVersion
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocumentVersion' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionStatus:UpdateDocumentVersion' :: Maybe DocumentVersionStatus
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocumentVersion' :: Text
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275906"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:UpdateDocumentVersion' :: Text
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275905"><span class="hs-identifier hs-var">pVersionId_</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier hs-type">updateDocumentVersion_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="updateDocumentVersion_authenticationToken"><span class="annot"><span class="annottext">updateDocumentVersion_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier hs-var hs-var">updateDocumentVersion_authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocumentVersion -&gt; Maybe (Sensitive Text))
+-&gt; (UpdateDocumentVersion
+    -&gt; Maybe (Sensitive Text) -&gt; UpdateDocumentVersion)
+-&gt; Lens
+     UpdateDocumentVersion
+     UpdateDocumentVersion
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275902"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+authenticationToken :: Maybe (Sensitive Text)
+$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275902"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275902"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275901"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679275901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275900"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679275901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocumentVersion' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDocumentVersion
+-&gt; f UpdateDocumentVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The status of the version.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier hs-type">updateDocumentVersion_versionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.DocumentVersionStatus.html#DocumentVersionStatus"><span class="hs-identifier hs-type">DocumentVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="updateDocumentVersion_versionStatus"><span class="annot"><span class="annottext">updateDocumentVersion_versionStatus :: (Maybe DocumentVersionStatus -&gt; f (Maybe DocumentVersionStatus))
+-&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier hs-var hs-var">updateDocumentVersion_versionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus)
+-&gt; (UpdateDocumentVersion
+    -&gt; Maybe DocumentVersionStatus -&gt; UpdateDocumentVersion)
+-&gt; Lens
+     UpdateDocumentVersion
+     UpdateDocumentVersion
+     (Maybe DocumentVersionStatus)
+     (Maybe DocumentVersionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275896"><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+versionStatus :: Maybe DocumentVersionStatus
+$sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679275896"><span class="hs-identifier hs-var hs-var">versionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679275896"><span class="hs-identifier hs-var">versionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275895"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679275895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275894"><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679275894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679275895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionStatus:UpdateDocumentVersion' :: Maybe DocumentVersionStatus
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679275894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the document.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_documentId"><span class="hs-identifier hs-type">updateDocumentVersion_documentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="updateDocumentVersion_documentId"><span class="annot"><span class="annottext">updateDocumentVersion_documentId :: (Text -&gt; f Text)
+-&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_documentId"><span class="hs-identifier hs-var hs-var">updateDocumentVersion_documentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocumentVersion -&gt; Text)
+-&gt; (UpdateDocumentVersion -&gt; Text -&gt; UpdateDocumentVersion)
+-&gt; Lens UpdateDocumentVersion UpdateDocumentVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275893"><span class="annot"><span class="annottext">Text
+documentId :: Text
+$sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+</span><a href="#local-6989586621679275893"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275893"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275892"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679275892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679275892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocumentVersion' :: Text
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The version ID of the document.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionId"><span class="hs-identifier hs-type">updateDocumentVersion_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="updateDocumentVersion_versionId"><span class="annot"><span class="annottext">updateDocumentVersion_versionId :: (Text -&gt; f Text)
+-&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionId"><span class="hs-identifier hs-var hs-var">updateDocumentVersion_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocumentVersion -&gt; Text)
+-&gt; (UpdateDocumentVersion -&gt; Text -&gt; UpdateDocumentVersion)
+-&gt; Lens UpdateDocumentVersion UpdateDocumentVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275890"><span class="annot"><span class="annottext">Text
+versionId :: Text
+$sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+</span><a href="#local-6989586621679275890"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275890"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275889"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679275889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679275889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:UpdateDocumentVersion' :: Text
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-type">UpdateDocumentVersionResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679275884"><span class="annot"><span class="annottext">request :: UpdateDocumentVersion -&gt; Request UpdateDocumentVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDocumentVersion -&gt; Request UpdateDocumentVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679275880"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDocumentVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDocumentVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UpdateDocumentVersion
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDocumentVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDocumentVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateDocumentVersion
+UpdateDocumentVersionResponse
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse%27"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse'</span></a></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275873"><span id="local-6989586621679275875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679275866"><span class="annot"><span class="annottext">toHeaders :: UpdateDocumentVersion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275861"><span id="local-6989586621679275862"><span id="local-6989586621679275863"><span id="local-6989586621679275864"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Maybe DocumentVersionStatus
+Text
+versionId :: Text
+documentId :: Text
+versionStatus :: Maybe DocumentVersionStatus
+authenticationToken :: Maybe (Sensitive Text)
+$sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+$sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+$sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
+$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275861"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275864"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275853"><span id="local-6989586621679275855"><span id="local-6989586621679275857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679275851"><span class="annot"><span class="annottext">toJSON :: UpdateDocumentVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275846"><span id="local-6989586621679275847"><span id="local-6989586621679275848"><span id="local-6989586621679275849"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Maybe DocumentVersionStatus
+Text
+versionId :: Text
+documentId :: Text
+versionStatus :: Maybe DocumentVersionStatus
+authenticationToken :: Maybe (Sensitive Text)
+$sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+$sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+$sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
+$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275846"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentVersionStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(DocumentVersionStatus -&gt; Pair)
+-&gt; Maybe DocumentVersionStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679275848"><span class="hs-identifier hs-var">versionStatus</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679275839"><span class="annot"><span class="annottext">toPath :: UpdateDocumentVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275834"><span id="local-6989586621679275835"><span id="local-6989586621679275836"><span id="local-6989586621679275837"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Maybe DocumentVersionStatus
+Text
+versionId :: Text
+documentId :: Text
+versionStatus :: Maybe DocumentVersionStatus
+authenticationToken :: Maybe (Sensitive Text)
+$sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+$sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
+$sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
+$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275834"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/api/v1/documents/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275835"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275834"><span class="hs-identifier hs-var">versionId</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679275830"><span class="annot"><span class="annottext">toQuery :: UpdateDocumentVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDocumentVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocumentVersionResponse' smart constructor.</span><span>
+</span><span id="line-156"></span><span id="local-6989586621679275826"><span id="local-6989586621679275827"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentVersionResponse"><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentVersionResponse%27"><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse%27"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275822"><span id="local-6989586621679275824"><span class="annot"><span class="annottext">UpdateDocumentVersionResponse
+-&gt; UpdateDocumentVersionResponse -&gt; Bool
+(UpdateDocumentVersionResponse
+ -&gt; UpdateDocumentVersionResponse -&gt; Bool)
+-&gt; (UpdateDocumentVersionResponse
+    -&gt; UpdateDocumentVersionResponse -&gt; Bool)
+-&gt; Eq UpdateDocumentVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDocumentVersionResponse
+-&gt; UpdateDocumentVersionResponse -&gt; Bool
+$c/= :: UpdateDocumentVersionResponse
+-&gt; UpdateDocumentVersionResponse -&gt; Bool
+== :: UpdateDocumentVersionResponse
+-&gt; UpdateDocumentVersionResponse -&gt; Bool
+$c== :: UpdateDocumentVersionResponse
+-&gt; UpdateDocumentVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275814"><span id="local-6989586621679275816"><span id="local-6989586621679275818"><span id="local-6989586621679275820"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentVersionResponse]
+ReadPrec UpdateDocumentVersionResponse
+Int -&gt; ReadS UpdateDocumentVersionResponse
+ReadS [UpdateDocumentVersionResponse]
+(Int -&gt; ReadS UpdateDocumentVersionResponse)
+-&gt; ReadS [UpdateDocumentVersionResponse]
+-&gt; ReadPrec UpdateDocumentVersionResponse
+-&gt; ReadPrec [UpdateDocumentVersionResponse]
+-&gt; Read UpdateDocumentVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDocumentVersionResponse]
+$creadListPrec :: ReadPrec [UpdateDocumentVersionResponse]
+readPrec :: ReadPrec UpdateDocumentVersionResponse
+$creadPrec :: ReadPrec UpdateDocumentVersionResponse
+readList :: ReadS [UpdateDocumentVersionResponse]
+$creadList :: ReadS [UpdateDocumentVersionResponse]
+readsPrec :: Int -&gt; ReadS UpdateDocumentVersionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDocumentVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275807"><span id="local-6989586621679275809"><span id="local-6989586621679275811"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentVersionResponse -&gt; ShowS
+[UpdateDocumentVersionResponse] -&gt; ShowS
+UpdateDocumentVersionResponse -&gt; String
+(Int -&gt; UpdateDocumentVersionResponse -&gt; ShowS)
+-&gt; (UpdateDocumentVersionResponse -&gt; String)
+-&gt; ([UpdateDocumentVersionResponse] -&gt; ShowS)
+-&gt; Show UpdateDocumentVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDocumentVersionResponse] -&gt; ShowS
+$cshowList :: [UpdateDocumentVersionResponse] -&gt; ShowS
+show :: UpdateDocumentVersionResponse -&gt; String
+$cshow :: UpdateDocumentVersionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDocumentVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDocumentVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDocumentVersionResponse
+ -&gt; Rep UpdateDocumentVersionResponse x)
+-&gt; (forall x.
+    Rep UpdateDocumentVersionResponse x
+    -&gt; UpdateDocumentVersionResponse)
+-&gt; Generic UpdateDocumentVersionResponse
+forall x.
+Rep UpdateDocumentVersionResponse x
+-&gt; UpdateDocumentVersionResponse
+forall x.
+UpdateDocumentVersionResponse
+-&gt; Rep UpdateDocumentVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDocumentVersionResponse x
+-&gt; UpdateDocumentVersionResponse
+$cfrom :: forall x.
+UpdateDocumentVersionResponse
+-&gt; Rep UpdateDocumentVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'UpdateDocumentVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersionResponse"><span class="hs-identifier hs-type">newUpdateDocumentVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-type">UpdateDocumentVersionResponse</span></a></span><span>
+</span><span id="line-167"></span><span id="newUpdateDocumentVersionResponse"><span class="annot"><span class="annottext">newUpdateDocumentVersionResponse :: UpdateDocumentVersionResponse
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersionResponse"><span class="hs-identifier hs-var hs-var">newUpdateDocumentVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocumentVersionResponse
+</span><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse%27"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-type">UpdateDocumentVersionResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppSync.CreateResolver</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a @Resolver@ object.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- A resolver converts incoming requests into a format that a data source</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- can understand and converts the data source\'s responses into GraphQL.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppSync.CreateResolver</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#newCreateResolver"><span class="hs-identifier">newCreateResolver</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_dataSourceName"><span class="hs-identifier">createResolver_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_requestMappingTemplate"><span class="hs-identifier">createResolver_requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_kind"><span class="hs-identifier">createResolver_kind</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_cachingConfig"><span class="hs-identifier">createResolver_cachingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_responseMappingTemplate"><span class="hs-identifier">createResolver_responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_syncConfig"><span class="hs-identifier">createResolver_syncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_pipelineConfig"><span class="hs-identifier">createResolver_pipelineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_apiId"><span class="hs-identifier">createResolver_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_typeName"><span class="hs-identifier">createResolver_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_fieldName"><span class="hs-identifier">createResolver_fieldName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier">CreateResolverResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#newCreateResolverResponse"><span class="hs-identifier">newCreateResolverResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolverResponse_resolver"><span class="hs-identifier">createResolverResponse_resolver</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolverResponse_httpStatus"><span class="hs-identifier">createResolverResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.html"><span class="hs-identifier">Amazonka.AppSync.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateResolver' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679259204"><span id="local-6989586621679259205"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateResolver"><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-var">CreateResolver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateResolver%27"><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-var">CreateResolver'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the data source for which the resolver is being created.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AdataSourceName%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The mapping template to be used for requests.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- A resolver uses a request mapping template to convert a GraphQL</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- expression into a format that a data source can understand. Mapping</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- templates are written in Apache Velocity Template Language (VTL).</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- VTL request mapping templates are optional when using a Lambda data</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- source. For all other data sources, VTL request and response mapping</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- templates are required.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3ArequestMappingTemplate%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3ArequestMappingTemplate%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">requestMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The resolver type.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     resolver type. A UNIT resolver enables you to execute a GraphQL</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     query against a single data source.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     you to execute a series of @Function@ in a serial manner. You can</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     use a pipeline resolver to execute a GraphQL query against multiple</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     data sources.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Akind%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Maybe ResolverKind
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3Akind%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">kind</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.ResolverKind.html#ResolverKind"><span class="hs-identifier hs-type">ResolverKind</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The caching configuration for the resolver.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AcachingConfig%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Maybe CachingConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AcachingConfig%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">cachingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.CachingConfig.html#CachingConfig"><span class="hs-identifier hs-type">CachingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The mapping template to be used for responses from the data source.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AresponseMappingTemplate%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AresponseMappingTemplate%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">responseMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The @SyncConfig@ for a resolver attached to a versioned datasource.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AsyncConfig%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Maybe SyncConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AsyncConfig%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">syncConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The @PipelineConfig@.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3ApipelineConfig%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Maybe PipelineConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3ApipelineConfig%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">pipelineConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The ID for the GraphQL API for which the resolver is being created.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AapiId%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AapiId%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The name of the @Type@.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AtypeName%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AtypeName%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The name of the field to attach the resolver to.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AfieldName%3ACreateResolver%27"><span class="annot"><span class="annottext">CreateResolver -&gt; Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AfieldName%3ACreateResolver%27"><span class="hs-identifier hs-var hs-var">fieldName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259189"><span id="local-6989586621679259191"><span class="annot"><span class="annottext">CreateResolver -&gt; CreateResolver -&gt; Bool
+(CreateResolver -&gt; CreateResolver -&gt; Bool)
+-&gt; (CreateResolver -&gt; CreateResolver -&gt; Bool) -&gt; Eq CreateResolver
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateResolver -&gt; CreateResolver -&gt; Bool
+$c/= :: CreateResolver -&gt; CreateResolver -&gt; Bool
+== :: CreateResolver -&gt; CreateResolver -&gt; Bool
+$c== :: CreateResolver -&gt; CreateResolver -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259180"><span id="local-6989586621679259182"><span id="local-6989586621679259184"><span id="local-6989586621679259186"><span class="annot"><span class="annottext">ReadPrec [CreateResolver]
+ReadPrec CreateResolver
+Int -&gt; ReadS CreateResolver
+ReadS [CreateResolver]
+(Int -&gt; ReadS CreateResolver)
+-&gt; ReadS [CreateResolver]
+-&gt; ReadPrec CreateResolver
+-&gt; ReadPrec [CreateResolver]
+-&gt; Read CreateResolver
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateResolver]
+$creadListPrec :: ReadPrec [CreateResolver]
+readPrec :: ReadPrec CreateResolver
+$creadPrec :: ReadPrec CreateResolver
+readList :: ReadS [CreateResolver]
+$creadList :: ReadS [CreateResolver]
+readsPrec :: Int -&gt; ReadS CreateResolver
+$creadsPrec :: Int -&gt; ReadS CreateResolver
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259173"><span id="local-6989586621679259175"><span id="local-6989586621679259177"><span class="annot"><span class="annottext">Int -&gt; CreateResolver -&gt; ShowS
+[CreateResolver] -&gt; ShowS
+CreateResolver -&gt; String
+(Int -&gt; CreateResolver -&gt; ShowS)
+-&gt; (CreateResolver -&gt; String)
+-&gt; ([CreateResolver] -&gt; ShowS)
+-&gt; Show CreateResolver
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateResolver] -&gt; ShowS
+$cshowList :: [CreateResolver] -&gt; ShowS
+show :: CreateResolver -&gt; String
+$cshow :: CreateResolver -&gt; String
+showsPrec :: Int -&gt; CreateResolver -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateResolver -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateResolver -&gt; Rep CreateResolver x)
+-&gt; (forall x. Rep CreateResolver x -&gt; CreateResolver)
+-&gt; Generic CreateResolver
+forall x. Rep CreateResolver x -&gt; CreateResolver
+forall x. CreateResolver -&gt; Rep CreateResolver x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateResolver x -&gt; CreateResolver
+$cfrom :: forall x. CreateResolver -&gt; Rep CreateResolver x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Create a value of 'CreateResolver' with all optional fields omitted.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'dataSourceName', 'createResolver_dataSourceName' - The name of the data source for which the resolver is being created.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'requestMappingTemplate', 'createResolver_requestMappingTemplate' - The mapping template to be used for requests.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- A resolver uses a request mapping template to convert a GraphQL</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- expression into a format that a data source can understand. Mapping</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- templates are written in Apache Velocity Template Language (VTL).</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- VTL request mapping templates are optional when using a Lambda data</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- source. For all other data sources, VTL request and response mapping</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- templates are required.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'kind', 'createResolver_kind' - The resolver type.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     resolver type. A UNIT resolver enables you to execute a GraphQL</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     query against a single data source.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     you to execute a series of @Function@ in a serial manner. You can</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     use a pipeline resolver to execute a GraphQL query against multiple</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     data sources.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'cachingConfig', 'createResolver_cachingConfig' - The caching configuration for the resolver.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'responseMappingTemplate', 'createResolver_responseMappingTemplate' - The mapping template to be used for responses from the data source.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'syncConfig', 'createResolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'pipelineConfig', 'createResolver_pipelineConfig' - The @PipelineConfig@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'apiId', 'createResolver_apiId' - The ID for the GraphQL API for which the resolver is being created.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'typeName', 'createResolver_typeName' - The name of the @Type@.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'fieldName', 'createResolver_fieldName' - The name of the field to attach the resolver to.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#newCreateResolver"><span class="hs-identifier hs-type">newCreateResolver</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'typeName'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'fieldName'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span>
+</span><span id="line-155"></span><span id="newCreateResolver"><span class="annot"><span class="annottext">newCreateResolver :: Text -&gt; Text -&gt; Text -&gt; CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#newCreateResolver"><span class="hs-identifier hs-var hs-var">newCreateResolver</span></a></span></span><span> </span><span id="local-6989586621679259168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259168"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span id="local-6989586621679259167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259167"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span id="local-6989586621679259166"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259166"><span class="hs-identifier hs-var">pFieldName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">CreateResolver' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResolverKind
+-&gt; Maybe CachingConfig
+-&gt; Maybe Text
+-&gt; Maybe SyncConfig
+-&gt; Maybe PipelineConfig
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateResolver' :: Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AdataSourceName%3ACreateResolver%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestMappingTemplate:CreateResolver' :: Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3ArequestMappingTemplate%3ACreateResolver%27"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:kind:CreateResolver' :: Maybe ResolverKind
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3Akind%3ACreateResolver%27"><span class="hs-identifier hs-var">kind</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverKind
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:cachingConfig:CreateResolver' :: Maybe CachingConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AcachingConfig%3ACreateResolver%27"><span class="hs-identifier hs-var">cachingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CachingConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseMappingTemplate:CreateResolver' :: Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AresponseMappingTemplate%3ACreateResolver%27"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:syncConfig:CreateResolver' :: Maybe SyncConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AsyncConfig%3ACreateResolver%27"><span class="hs-identifier hs-var">syncConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineConfig:CreateResolver' :: Maybe PipelineConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3ApipelineConfig%3ACreateResolver%27"><span class="hs-identifier hs-var">pipelineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:CreateResolver' :: Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AapiId%3ACreateResolver%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259168"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:CreateResolver' :: Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AtypeName%3ACreateResolver%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259167"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:fieldName:CreateResolver' :: Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AfieldName%3ACreateResolver%27"><span class="hs-identifier hs-var">fieldName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259166"><span class="hs-identifier hs-var">pFieldName_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The name of the data source for which the resolver is being created.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_dataSourceName"><span class="hs-identifier hs-type">createResolver_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="createResolver_dataSourceName"><span class="annot"><span class="annottext">createResolver_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_dataSourceName"><span class="hs-identifier hs-var hs-var">createResolver_dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Maybe Text)
+-&gt; (CreateResolver -&gt; Maybe Text -&gt; CreateResolver)
+-&gt; Lens CreateResolver CreateResolver (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259163"><span class="annot"><span class="annottext">Maybe Text
+dataSourceName :: Maybe Text
+$sel:dataSourceName:CreateResolver' :: CreateResolver -&gt; Maybe Text
+</span><a href="#local-6989586621679259163"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259163"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259162"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateResolver' :: Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AdataSourceName%3ACreateResolver%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The mapping template to be used for requests.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- A resolver uses a request mapping template to convert a GraphQL</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- expression into a format that a data source can understand. Mapping</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- templates are written in Apache Velocity Template Language (VTL).</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- VTL request mapping templates are optional when using a Lambda data</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- source. For all other data sources, VTL request and response mapping</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- templates are required.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_requestMappingTemplate"><span class="hs-identifier hs-type">createResolver_requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="createResolver_requestMappingTemplate"><span class="annot"><span class="annottext">createResolver_requestMappingTemplate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_requestMappingTemplate"><span class="hs-identifier hs-var hs-var">createResolver_requestMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Maybe Text)
+-&gt; (CreateResolver -&gt; Maybe Text -&gt; CreateResolver)
+-&gt; Lens CreateResolver CreateResolver (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259160"><span class="annot"><span class="annottext">Maybe Text
+requestMappingTemplate :: Maybe Text
+$sel:requestMappingTemplate:CreateResolver' :: CreateResolver -&gt; Maybe Text
+</span><a href="#local-6989586621679259160"><span class="hs-identifier hs-var hs-var">requestMappingTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259160"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259159"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259158"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestMappingTemplate:CreateResolver' :: Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3ArequestMappingTemplate%3ACreateResolver%27"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The resolver type.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     resolver type. A UNIT resolver enables you to execute a GraphQL</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     query against a single data source.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     you to execute a series of @Function@ in a serial manner. You can</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     use a pipeline resolver to execute a GraphQL query against multiple</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     data sources.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_kind"><span class="hs-identifier hs-type">createResolver_kind</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.ResolverKind.html#ResolverKind"><span class="hs-identifier hs-type">ResolverKind</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="createResolver_kind"><span class="annot"><span class="annottext">createResolver_kind :: (Maybe ResolverKind -&gt; f (Maybe ResolverKind))
+-&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_kind"><span class="hs-identifier hs-var hs-var">createResolver_kind</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Maybe ResolverKind)
+-&gt; (CreateResolver -&gt; Maybe ResolverKind -&gt; CreateResolver)
+-&gt; Lens
+     CreateResolver
+     CreateResolver
+     (Maybe ResolverKind)
+     (Maybe ResolverKind)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259157"><span class="annot"><span class="annottext">Maybe ResolverKind
+kind :: Maybe ResolverKind
+$sel:kind:CreateResolver' :: CreateResolver -&gt; Maybe ResolverKind
+</span><a href="#local-6989586621679259157"><span class="hs-identifier hs-var hs-var">kind</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverKind
+</span><a href="#local-6989586621679259157"><span class="hs-identifier hs-var">kind</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259156"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259155"><span class="annot"><span class="annottext">Maybe ResolverKind
+</span><a href="#local-6989586621679259155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kind:CreateResolver' :: Maybe ResolverKind
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3Akind%3ACreateResolver%27"><span class="hs-identifier hs-var">kind</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverKind
+</span><a href="#local-6989586621679259155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The caching configuration for the resolver.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_cachingConfig"><span class="hs-identifier hs-type">createResolver_cachingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.CachingConfig.html#CachingConfig"><span class="hs-identifier hs-type">CachingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="createResolver_cachingConfig"><span class="annot"><span class="annottext">createResolver_cachingConfig :: (Maybe CachingConfig -&gt; f (Maybe CachingConfig))
+-&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_cachingConfig"><span class="hs-identifier hs-var hs-var">createResolver_cachingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Maybe CachingConfig)
+-&gt; (CreateResolver -&gt; Maybe CachingConfig -&gt; CreateResolver)
+-&gt; Lens
+     CreateResolver
+     CreateResolver
+     (Maybe CachingConfig)
+     (Maybe CachingConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259154"><span class="annot"><span class="annottext">Maybe CachingConfig
+cachingConfig :: Maybe CachingConfig
+$sel:cachingConfig:CreateResolver' :: CreateResolver -&gt; Maybe CachingConfig
+</span><a href="#local-6989586621679259154"><span class="hs-identifier hs-var hs-var">cachingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CachingConfig
+</span><a href="#local-6989586621679259154"><span class="hs-identifier hs-var">cachingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259153"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259152"><span class="annot"><span class="annottext">Maybe CachingConfig
+</span><a href="#local-6989586621679259152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachingConfig:CreateResolver' :: Maybe CachingConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AcachingConfig%3ACreateResolver%27"><span class="hs-identifier hs-var">cachingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CachingConfig
+</span><a href="#local-6989586621679259152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The mapping template to be used for responses from the data source.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_responseMappingTemplate"><span class="hs-identifier hs-type">createResolver_responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="createResolver_responseMappingTemplate"><span class="annot"><span class="annottext">createResolver_responseMappingTemplate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_responseMappingTemplate"><span class="hs-identifier hs-var hs-var">createResolver_responseMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Maybe Text)
+-&gt; (CreateResolver -&gt; Maybe Text -&gt; CreateResolver)
+-&gt; Lens CreateResolver CreateResolver (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259151"><span class="annot"><span class="annottext">Maybe Text
+responseMappingTemplate :: Maybe Text
+$sel:responseMappingTemplate:CreateResolver' :: CreateResolver -&gt; Maybe Text
+</span><a href="#local-6989586621679259151"><span class="hs-identifier hs-var hs-var">responseMappingTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259151"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259150"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseMappingTemplate:CreateResolver' :: Maybe Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AresponseMappingTemplate%3ACreateResolver%27"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The @SyncConfig@ for a resolver attached to a versioned datasource.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_syncConfig"><span class="hs-identifier hs-type">createResolver_syncConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="createResolver_syncConfig"><span class="annot"><span class="annottext">createResolver_syncConfig :: (Maybe SyncConfig -&gt; f (Maybe SyncConfig))
+-&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_syncConfig"><span class="hs-identifier hs-var hs-var">createResolver_syncConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Maybe SyncConfig)
+-&gt; (CreateResolver -&gt; Maybe SyncConfig -&gt; CreateResolver)
+-&gt; Lens
+     CreateResolver CreateResolver (Maybe SyncConfig) (Maybe SyncConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259148"><span class="annot"><span class="annottext">Maybe SyncConfig
+syncConfig :: Maybe SyncConfig
+$sel:syncConfig:CreateResolver' :: CreateResolver -&gt; Maybe SyncConfig
+</span><a href="#local-6989586621679259148"><span class="hs-identifier hs-var hs-var">syncConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
+</span><a href="#local-6989586621679259148"><span class="hs-identifier hs-var">syncConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259147"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259146"><span class="annot"><span class="annottext">Maybe SyncConfig
+</span><a href="#local-6989586621679259146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncConfig:CreateResolver' :: Maybe SyncConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AsyncConfig%3ACreateResolver%27"><span class="hs-identifier hs-var">syncConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
+</span><a href="#local-6989586621679259146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The @PipelineConfig@.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_pipelineConfig"><span class="hs-identifier hs-type">createResolver_pipelineConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="createResolver_pipelineConfig"><span class="annot"><span class="annottext">createResolver_pipelineConfig :: (Maybe PipelineConfig -&gt; f (Maybe PipelineConfig))
+-&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_pipelineConfig"><span class="hs-identifier hs-var hs-var">createResolver_pipelineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Maybe PipelineConfig)
+-&gt; (CreateResolver -&gt; Maybe PipelineConfig -&gt; CreateResolver)
+-&gt; Lens
+     CreateResolver
+     CreateResolver
+     (Maybe PipelineConfig)
+     (Maybe PipelineConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259145"><span class="annot"><span class="annottext">Maybe PipelineConfig
+pipelineConfig :: Maybe PipelineConfig
+$sel:pipelineConfig:CreateResolver' :: CreateResolver -&gt; Maybe PipelineConfig
+</span><a href="#local-6989586621679259145"><span class="hs-identifier hs-var hs-var">pipelineConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineConfig
+</span><a href="#local-6989586621679259145"><span class="hs-identifier hs-var">pipelineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259144"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259143"><span class="annot"><span class="annottext">Maybe PipelineConfig
+</span><a href="#local-6989586621679259143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineConfig:CreateResolver' :: Maybe PipelineConfig
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3ApipelineConfig%3ACreateResolver%27"><span class="hs-identifier hs-var">pipelineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineConfig
+</span><a href="#local-6989586621679259143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The ID for the GraphQL API for which the resolver is being created.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_apiId"><span class="hs-identifier hs-type">createResolver_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-216"></span><span id="createResolver_apiId"><span class="annot"><span class="annottext">createResolver_apiId :: (Text -&gt; f Text) -&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_apiId"><span class="hs-identifier hs-var hs-var">createResolver_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Text)
+-&gt; (CreateResolver -&gt; Text -&gt; CreateResolver)
+-&gt; Lens CreateResolver CreateResolver Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259142"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:CreateResolver' :: CreateResolver -&gt; Text
+</span><a href="#local-6989586621679259142"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259142"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259141"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259140"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:CreateResolver' :: Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AapiId%3ACreateResolver%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The name of the @Type@.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_typeName"><span class="hs-identifier hs-type">createResolver_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-220"></span><span id="createResolver_typeName"><span class="annot"><span class="annottext">createResolver_typeName :: (Text -&gt; f Text) -&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_typeName"><span class="hs-identifier hs-var hs-var">createResolver_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Text)
+-&gt; (CreateResolver -&gt; Text -&gt; CreateResolver)
+-&gt; Lens CreateResolver CreateResolver Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259139"><span class="annot"><span class="annottext">Text
+typeName :: Text
+$sel:typeName:CreateResolver' :: CreateResolver -&gt; Text
+</span><a href="#local-6989586621679259139"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259139"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259138"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259137"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:CreateResolver' :: Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AtypeName%3ACreateResolver%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The name of the field to attach the resolver to.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolver_fieldName"><span class="hs-identifier hs-type">createResolver_fieldName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-224"></span><span id="createResolver_fieldName"><span class="annot"><span class="annottext">createResolver_fieldName :: (Text -&gt; f Text) -&gt; CreateResolver -&gt; f CreateResolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolver_fieldName"><span class="hs-identifier hs-var hs-var">createResolver_fieldName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolver -&gt; Text)
+-&gt; (CreateResolver -&gt; Text -&gt; CreateResolver)
+-&gt; Lens CreateResolver CreateResolver Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259136"><span class="annot"><span class="annottext">Text
+fieldName :: Text
+$sel:fieldName:CreateResolver' :: CreateResolver -&gt; Text
+</span><a href="#local-6989586621679259136"><span class="hs-identifier hs-var hs-var">fieldName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259136"><span class="hs-identifier hs-var">fieldName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259135"><span class="annot"><span class="annottext">s :: CreateResolver
+</span><a href="#local-6989586621679259135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolver
+</span><a href="#local-6989586621679259135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldName:CreateResolver' :: Text
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AfieldName%3ACreateResolver%27"><span class="hs-identifier hs-var">fieldName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-228"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-type">CreateResolverResponse</span></a></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679259130"><span class="annot"><span class="annottext">request :: CreateResolver -&gt; Request CreateResolver
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateResolver -&gt; Request CreateResolver
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679259126"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateResolver
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateResolver)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateResolver))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateResolver
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateResolver)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259123"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259123"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259122"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259122"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259121"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259121"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Maybe Resolver -&gt; Int -&gt; CreateResolverResponse
+</span><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse%27"><span class="hs-identifier hs-var">CreateResolverResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Resolver -&gt; Int -&gt; CreateResolverResponse)
+-&gt; Either String (Maybe Resolver)
+-&gt; Either String (Int -&gt; CreateResolverResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Resolver)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resolver&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateResolverResponse)
+-&gt; Either String Int -&gt; Either String CreateResolverResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259123"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259113"><span id="local-6989586621679259115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679259106"><span class="annot"><span class="annottext">toHeaders :: CreateResolver -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateResolver -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-248"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-249"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-250"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259096"><span id="local-6989586621679259098"><span id="local-6989586621679259100"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679259094"><span class="annot"><span class="annottext">toJSON :: CreateResolver -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259083"><span id="local-6989586621679259084"><span id="local-6989586621679259085"><span id="local-6989586621679259086"><span id="local-6989586621679259087"><span id="local-6989586621679259088"><span id="local-6989586621679259089"><span id="local-6989586621679259090"><span id="local-6989586621679259091"><span id="local-6989586621679259092"><span class="annot"><span class="annottext">Maybe Text
+Maybe CachingConfig
+Maybe PipelineConfig
+Maybe ResolverKind
+Maybe SyncConfig
+Text
+fieldName :: Text
+typeName :: Text
+apiId :: Text
+pipelineConfig :: Maybe PipelineConfig
+syncConfig :: Maybe SyncConfig
+responseMappingTemplate :: Maybe Text
+cachingConfig :: Maybe CachingConfig
+kind :: Maybe ResolverKind
+requestMappingTemplate :: Maybe Text
+dataSourceName :: Maybe Text
+$sel:fieldName:CreateResolver' :: CreateResolver -&gt; Text
+$sel:typeName:CreateResolver' :: CreateResolver -&gt; Text
+$sel:apiId:CreateResolver' :: CreateResolver -&gt; Text
+$sel:pipelineConfig:CreateResolver' :: CreateResolver -&gt; Maybe PipelineConfig
+$sel:syncConfig:CreateResolver' :: CreateResolver -&gt; Maybe SyncConfig
+$sel:responseMappingTemplate:CreateResolver' :: CreateResolver -&gt; Maybe Text
+$sel:cachingConfig:CreateResolver' :: CreateResolver -&gt; Maybe CachingConfig
+$sel:kind:CreateResolver' :: CreateResolver -&gt; Maybe ResolverKind
+$sel:requestMappingTemplate:CreateResolver' :: CreateResolver -&gt; Maybe Text
+$sel:dataSourceName:CreateResolver' :: CreateResolver -&gt; Maybe Text
+</span><a href="#local-6989586621679259083"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-258"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259092"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestMappingTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259091"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kind&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResolverKind -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ResolverKind -&gt; Pair) -&gt; Maybe ResolverKind -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResolverKind
+</span><a href="#local-6989586621679259090"><span class="hs-identifier hs-var">kind</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cachingConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CachingConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CachingConfig -&gt; Pair) -&gt; Maybe CachingConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CachingConfig
+</span><a href="#local-6989586621679259089"><span class="hs-identifier hs-var">cachingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseMappingTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259088"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;syncConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SyncConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SyncConfig -&gt; Pair) -&gt; Maybe SyncConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
+</span><a href="#local-6989586621679259087"><span class="hs-identifier hs-var">syncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PipelineConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">(PipelineConfig -&gt; Pair) -&gt; Maybe PipelineConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PipelineConfig
+</span><a href="#local-6989586621679259086"><span class="hs-identifier hs-var">pipelineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fieldName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259083"><span class="hs-identifier hs-var">fieldName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679259077"><span class="annot"><span class="annottext">toPath :: CreateResolver -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver%27"><span class="hs-identifier hs-type">CreateResolver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259066"><span id="local-6989586621679259067"><span id="local-6989586621679259068"><span id="local-6989586621679259069"><span id="local-6989586621679259070"><span id="local-6989586621679259071"><span id="local-6989586621679259072"><span id="local-6989586621679259073"><span id="local-6989586621679259074"><span id="local-6989586621679259075"><span class="annot"><span class="annottext">Maybe Text
+Maybe CachingConfig
+Maybe PipelineConfig
+Maybe ResolverKind
+Maybe SyncConfig
+Text
+fieldName :: Text
+typeName :: Text
+apiId :: Text
+pipelineConfig :: Maybe PipelineConfig
+syncConfig :: Maybe SyncConfig
+responseMappingTemplate :: Maybe Text
+cachingConfig :: Maybe CachingConfig
+kind :: Maybe ResolverKind
+requestMappingTemplate :: Maybe Text
+dataSourceName :: Maybe Text
+$sel:fieldName:CreateResolver' :: CreateResolver -&gt; Text
+$sel:typeName:CreateResolver' :: CreateResolver -&gt; Text
+$sel:apiId:CreateResolver' :: CreateResolver -&gt; Text
+$sel:pipelineConfig:CreateResolver' :: CreateResolver -&gt; Maybe PipelineConfig
+$sel:syncConfig:CreateResolver' :: CreateResolver -&gt; Maybe SyncConfig
+$sel:responseMappingTemplate:CreateResolver' :: CreateResolver -&gt; Maybe Text
+$sel:cachingConfig:CreateResolver' :: CreateResolver -&gt; Maybe CachingConfig
+$sel:kind:CreateResolver' :: CreateResolver -&gt; Maybe ResolverKind
+$sel:requestMappingTemplate:CreateResolver' :: CreateResolver -&gt; Maybe Text
+$sel:dataSourceName:CreateResolver' :: CreateResolver -&gt; Maybe Text
+</span><a href="#local-6989586621679259066"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259068"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/types/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259067"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/resolvers&quot;</span></span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolver"><span class="hs-identifier hs-type">CreateResolver</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679259062"><span class="annot"><span class="annottext">toQuery :: CreateResolver -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateResolver -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | /See:/ 'newCreateResolverResponse' smart constructor.</span><span>
+</span><span id="line-287"></span><span id="local-6989586621679259059"><span id="local-6989586621679259060"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateResolverResponse"><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-var">CreateResolverResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateResolverResponse%27"><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse%27"><span class="hs-identifier hs-var">CreateResolverResponse'</span></a></span></span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @Resolver@ object.</span><span>
+</span><span id="line-289"></span><span>    </span><span id="%24sel%3Aresolver%3ACreateResolverResponse%27"><span class="annot"><span class="annottext">CreateResolverResponse -&gt; Maybe Resolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3Aresolver%3ACreateResolverResponse%27"><span class="hs-identifier hs-var hs-var">resolver</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.Resolver.html#Resolver"><span class="hs-identifier hs-type">Resolver</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-291"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateResolverResponse%27"><span class="annot"><span class="annottext">CreateResolverResponse -&gt; Int
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AhttpStatus%3ACreateResolverResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-292"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259053"><span id="local-6989586621679259055"><span class="annot"><span class="annottext">CreateResolverResponse -&gt; CreateResolverResponse -&gt; Bool
+(CreateResolverResponse -&gt; CreateResolverResponse -&gt; Bool)
+-&gt; (CreateResolverResponse -&gt; CreateResolverResponse -&gt; Bool)
+-&gt; Eq CreateResolverResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateResolverResponse -&gt; CreateResolverResponse -&gt; Bool
+$c/= :: CreateResolverResponse -&gt; CreateResolverResponse -&gt; Bool
+== :: CreateResolverResponse -&gt; CreateResolverResponse -&gt; Bool
+$c== :: CreateResolverResponse -&gt; CreateResolverResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259045"><span id="local-6989586621679259047"><span id="local-6989586621679259049"><span id="local-6989586621679259051"><span class="annot"><span class="annottext">ReadPrec [CreateResolverResponse]
+ReadPrec CreateResolverResponse
+Int -&gt; ReadS CreateResolverResponse
+ReadS [CreateResolverResponse]
+(Int -&gt; ReadS CreateResolverResponse)
+-&gt; ReadS [CreateResolverResponse]
+-&gt; ReadPrec CreateResolverResponse
+-&gt; ReadPrec [CreateResolverResponse]
+-&gt; Read CreateResolverResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateResolverResponse]
+$creadListPrec :: ReadPrec [CreateResolverResponse]
+readPrec :: ReadPrec CreateResolverResponse
+$creadPrec :: ReadPrec CreateResolverResponse
+readList :: ReadS [CreateResolverResponse]
+$creadList :: ReadS [CreateResolverResponse]
+readsPrec :: Int -&gt; ReadS CreateResolverResponse
+$creadsPrec :: Int -&gt; ReadS CreateResolverResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259039"><span id="local-6989586621679259041"><span id="local-6989586621679259043"><span class="annot"><span class="annottext">Int -&gt; CreateResolverResponse -&gt; ShowS
+[CreateResolverResponse] -&gt; ShowS
+CreateResolverResponse -&gt; String
+(Int -&gt; CreateResolverResponse -&gt; ShowS)
+-&gt; (CreateResolverResponse -&gt; String)
+-&gt; ([CreateResolverResponse] -&gt; ShowS)
+-&gt; Show CreateResolverResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateResolverResponse] -&gt; ShowS
+$cshowList :: [CreateResolverResponse] -&gt; ShowS
+show :: CreateResolverResponse -&gt; String
+$cshow :: CreateResolverResponse -&gt; String
+showsPrec :: Int -&gt; CreateResolverResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateResolverResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateResolverResponse -&gt; Rep CreateResolverResponse x)
+-&gt; (forall x.
+    Rep CreateResolverResponse x -&gt; CreateResolverResponse)
+-&gt; Generic CreateResolverResponse
+forall x. Rep CreateResolverResponse x -&gt; CreateResolverResponse
+forall x. CreateResolverResponse -&gt; Rep CreateResolverResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateResolverResponse x -&gt; CreateResolverResponse
+$cfrom :: forall x. CreateResolverResponse -&gt; Rep CreateResolverResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Create a value of 'CreateResolverResponse' with all optional fields omitted.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'resolver', 'createResolverResponse_resolver' - The @Resolver@ object.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- 'httpStatus', 'createResolverResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#newCreateResolverResponse"><span class="hs-identifier hs-type">newCreateResolverResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-type">CreateResolverResponse</span></a></span><span>
+</span><span id="line-310"></span><span id="newCreateResolverResponse"><span class="annot"><span class="annottext">newCreateResolverResponse :: Int -&gt; CreateResolverResponse
+</span><a href="Amazonka.AppSync.CreateResolver.html#newCreateResolverResponse"><span class="hs-identifier hs-var hs-var">newCreateResolverResponse</span></a></span></span><span> </span><span id="local-6989586621679259036"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>  </span><span class="annot"><span class="annottext">CreateResolverResponse' :: Maybe Resolver -&gt; Int -&gt; CreateResolverResponse
+</span><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse%27"><span class="hs-identifier hs-type">CreateResolverResponse'</span></a></span><span>
+</span><span id="line-312"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resolver:CreateResolverResponse' :: Maybe Resolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3Aresolver%3ACreateResolverResponse%27"><span class="hs-identifier hs-var">resolver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Resolver
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateResolverResponse' :: Int
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AhttpStatus%3ACreateResolverResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | The @Resolver@ object.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolverResponse_resolver"><span class="hs-identifier hs-type">createResolverResponse_resolver</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-type">CreateResolverResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.Resolver.html#Resolver"><span class="hs-identifier hs-type">Resolver</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="createResolverResponse_resolver"><span class="annot"><span class="annottext">createResolverResponse_resolver :: (Maybe Resolver -&gt; f (Maybe Resolver))
+-&gt; CreateResolverResponse -&gt; f CreateResolverResponse
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolverResponse_resolver"><span class="hs-identifier hs-var hs-var">createResolverResponse_resolver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolverResponse -&gt; Maybe Resolver)
+-&gt; (CreateResolverResponse
+    -&gt; Maybe Resolver -&gt; CreateResolverResponse)
+-&gt; Lens
+     CreateResolverResponse
+     CreateResolverResponse
+     (Maybe Resolver)
+     (Maybe Resolver)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse%27"><span class="hs-identifier hs-type">CreateResolverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259035"><span class="annot"><span class="annottext">Maybe Resolver
+resolver :: Maybe Resolver
+$sel:resolver:CreateResolverResponse' :: CreateResolverResponse -&gt; Maybe Resolver
+</span><a href="#local-6989586621679259035"><span class="hs-identifier hs-var hs-var">resolver</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Resolver
+</span><a href="#local-6989586621679259035"><span class="hs-identifier hs-var">resolver</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259034"><span class="annot"><span class="annottext">s :: CreateResolverResponse
+</span><a href="#local-6989586621679259034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse%27"><span class="hs-identifier hs-type">CreateResolverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259033"><span class="annot"><span class="annottext">Maybe Resolver
+</span><a href="#local-6989586621679259033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolverResponse
+</span><a href="#local-6989586621679259034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolver:CreateResolverResponse' :: Maybe Resolver
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3Aresolver%3ACreateResolverResponse%27"><span class="hs-identifier hs-var">resolver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Resolver
+</span><a href="#local-6989586621679259033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-type">CreateResolverResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#createResolverResponse_httpStatus"><span class="hs-identifier hs-type">createResolverResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-type">CreateResolverResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-322"></span><span id="createResolverResponse_httpStatus"><span class="annot"><span class="annottext">createResolverResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateResolverResponse -&gt; f CreateResolverResponse
+</span><a href="Amazonka.AppSync.CreateResolver.html#createResolverResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createResolverResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateResolverResponse -&gt; Int)
+-&gt; (CreateResolverResponse -&gt; Int -&gt; CreateResolverResponse)
+-&gt; Lens CreateResolverResponse CreateResolverResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse%27"><span class="hs-identifier hs-type">CreateResolverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259032"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateResolverResponse' :: CreateResolverResponse -&gt; Int
+</span><a href="#local-6989586621679259032"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259032"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259031"><span class="annot"><span class="annottext">s :: CreateResolverResponse
+</span><a href="#local-6989586621679259031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse%27"><span class="hs-identifier hs-type">CreateResolverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateResolverResponse
+</span><a href="#local-6989586621679259031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateResolverResponse' :: Int
+</span><a href="Amazonka.AppSync.CreateResolver.html#%24sel%3AhttpStatus%3ACreateResolverResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-type">CreateResolverResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259028"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.CreateResolver.html#CreateResolverResponse"><span class="hs-identifier hs-type">CreateResolverResponse</span></a></span></span><span>
+</span><span id="line-325"></span></pre></body></html>

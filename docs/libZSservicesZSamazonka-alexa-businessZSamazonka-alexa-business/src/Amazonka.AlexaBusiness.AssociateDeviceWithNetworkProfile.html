@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates a device with the specified network profile.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier">AssociateDeviceWithNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#newAssociateDeviceWithNetworkProfile"><span class="hs-identifier">newAssociateDeviceWithNetworkProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfile_deviceArn"><span class="hs-identifier">associateDeviceWithNetworkProfile_deviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfile_networkProfileArn"><span class="hs-identifier">associateDeviceWithNetworkProfile_networkProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier">AssociateDeviceWithNetworkProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#newAssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier">newAssociateDeviceWithNetworkProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfileResponse_httpStatus"><span class="hs-identifier">associateDeviceWithNetworkProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newAssociateDeviceWithNetworkProfile' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679393808"><span id="local-6989586621679393809"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateDeviceWithNetworkProfile"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-var">AssociateDeviceWithNetworkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateDeviceWithNetworkProfile%27"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-var">AssociateDeviceWithNetworkProfile'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The device ARN.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdeviceArn%3AAssociateDeviceWithNetworkProfile%27"><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfile -&gt; Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AdeviceArn%3AAssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The ARN of the network profile to associate with a device.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AnetworkProfileArn%3AAssociateDeviceWithNetworkProfile%27"><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfile -&gt; Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AnetworkProfileArn%3AAssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393801"><span id="local-6989586621679393803"><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfile
+-&gt; AssociateDeviceWithNetworkProfile -&gt; Bool
+(AssociateDeviceWithNetworkProfile
+ -&gt; AssociateDeviceWithNetworkProfile -&gt; Bool)
+-&gt; (AssociateDeviceWithNetworkProfile
+    -&gt; AssociateDeviceWithNetworkProfile -&gt; Bool)
+-&gt; Eq AssociateDeviceWithNetworkProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateDeviceWithNetworkProfile
+-&gt; AssociateDeviceWithNetworkProfile -&gt; Bool
+$c/= :: AssociateDeviceWithNetworkProfile
+-&gt; AssociateDeviceWithNetworkProfile -&gt; Bool
+== :: AssociateDeviceWithNetworkProfile
+-&gt; AssociateDeviceWithNetworkProfile -&gt; Bool
+$c== :: AssociateDeviceWithNetworkProfile
+-&gt; AssociateDeviceWithNetworkProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393792"><span id="local-6989586621679393794"><span id="local-6989586621679393796"><span id="local-6989586621679393798"><span class="annot"><span class="annottext">ReadPrec [AssociateDeviceWithNetworkProfile]
+ReadPrec AssociateDeviceWithNetworkProfile
+Int -&gt; ReadS AssociateDeviceWithNetworkProfile
+ReadS [AssociateDeviceWithNetworkProfile]
+(Int -&gt; ReadS AssociateDeviceWithNetworkProfile)
+-&gt; ReadS [AssociateDeviceWithNetworkProfile]
+-&gt; ReadPrec AssociateDeviceWithNetworkProfile
+-&gt; ReadPrec [AssociateDeviceWithNetworkProfile]
+-&gt; Read AssociateDeviceWithNetworkProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateDeviceWithNetworkProfile]
+$creadListPrec :: ReadPrec [AssociateDeviceWithNetworkProfile]
+readPrec :: ReadPrec AssociateDeviceWithNetworkProfile
+$creadPrec :: ReadPrec AssociateDeviceWithNetworkProfile
+readList :: ReadS [AssociateDeviceWithNetworkProfile]
+$creadList :: ReadS [AssociateDeviceWithNetworkProfile]
+readsPrec :: Int -&gt; ReadS AssociateDeviceWithNetworkProfile
+$creadsPrec :: Int -&gt; ReadS AssociateDeviceWithNetworkProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393785"><span id="local-6989586621679393787"><span id="local-6989586621679393789"><span class="annot"><span class="annottext">Int -&gt; AssociateDeviceWithNetworkProfile -&gt; ShowS
+[AssociateDeviceWithNetworkProfile] -&gt; ShowS
+AssociateDeviceWithNetworkProfile -&gt; String
+(Int -&gt; AssociateDeviceWithNetworkProfile -&gt; ShowS)
+-&gt; (AssociateDeviceWithNetworkProfile -&gt; String)
+-&gt; ([AssociateDeviceWithNetworkProfile] -&gt; ShowS)
+-&gt; Show AssociateDeviceWithNetworkProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateDeviceWithNetworkProfile] -&gt; ShowS
+$cshowList :: [AssociateDeviceWithNetworkProfile] -&gt; ShowS
+show :: AssociateDeviceWithNetworkProfile -&gt; String
+$cshow :: AssociateDeviceWithNetworkProfile -&gt; String
+showsPrec :: Int -&gt; AssociateDeviceWithNetworkProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateDeviceWithNetworkProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateDeviceWithNetworkProfile
+ -&gt; Rep AssociateDeviceWithNetworkProfile x)
+-&gt; (forall x.
+    Rep AssociateDeviceWithNetworkProfile x
+    -&gt; AssociateDeviceWithNetworkProfile)
+-&gt; Generic AssociateDeviceWithNetworkProfile
+forall x.
+Rep AssociateDeviceWithNetworkProfile x
+-&gt; AssociateDeviceWithNetworkProfile
+forall x.
+AssociateDeviceWithNetworkProfile
+-&gt; Rep AssociateDeviceWithNetworkProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateDeviceWithNetworkProfile x
+-&gt; AssociateDeviceWithNetworkProfile
+$cfrom :: forall x.
+AssociateDeviceWithNetworkProfile
+-&gt; Rep AssociateDeviceWithNetworkProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'AssociateDeviceWithNetworkProfile' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'deviceArn', 'associateDeviceWithNetworkProfile_deviceArn' - The device ARN.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'networkProfileArn', 'associateDeviceWithNetworkProfile_networkProfileArn' - The ARN of the network profile to associate with a device.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#newAssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">newAssociateDeviceWithNetworkProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'deviceArn'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'networkProfileArn'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span>
+</span><span id="line-75"></span><span id="newAssociateDeviceWithNetworkProfile"><span class="annot"><span class="annottext">newAssociateDeviceWithNetworkProfile :: Text -&gt; Text -&gt; AssociateDeviceWithNetworkProfile
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#newAssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-var hs-var">newAssociateDeviceWithNetworkProfile</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679393780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393780"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679393779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393779"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfile' :: Text -&gt; Text -&gt; AssociateDeviceWithNetworkProfile
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile'</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceArn:AssociateDeviceWithNetworkProfile' :: Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AdeviceArn%3AAssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393780"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkProfileArn:AssociateDeviceWithNetworkProfile' :: Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AnetworkProfileArn%3AAssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393779"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The device ARN.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfile_deviceArn"><span class="hs-identifier hs-type">associateDeviceWithNetworkProfile_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="associateDeviceWithNetworkProfile_deviceArn"><span class="annot"><span class="annottext">associateDeviceWithNetworkProfile_deviceArn :: (Text -&gt; f Text)
+-&gt; AssociateDeviceWithNetworkProfile
+-&gt; f AssociateDeviceWithNetworkProfile
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfile_deviceArn"><span class="hs-identifier hs-var hs-var">associateDeviceWithNetworkProfile_deviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateDeviceWithNetworkProfile -&gt; Text)
+-&gt; (AssociateDeviceWithNetworkProfile
+    -&gt; Text -&gt; AssociateDeviceWithNetworkProfile)
+-&gt; Lens
+     AssociateDeviceWithNetworkProfile
+     AssociateDeviceWithNetworkProfile
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393776"><span class="annot"><span class="annottext">Text
+deviceArn :: Text
+$sel:deviceArn:AssociateDeviceWithNetworkProfile' :: AssociateDeviceWithNetworkProfile -&gt; Text
+</span><a href="#local-6989586621679393776"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393776"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393775"><span class="annot"><span class="annottext">s :: AssociateDeviceWithNetworkProfile
+</span><a href="#local-6989586621679393775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfile
+</span><a href="#local-6989586621679393775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:AssociateDeviceWithNetworkProfile' :: Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AdeviceArn%3AAssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ARN of the network profile to associate with a device.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfile_networkProfileArn"><span class="hs-identifier hs-type">associateDeviceWithNetworkProfile_networkProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="associateDeviceWithNetworkProfile_networkProfileArn"><span class="annot"><span class="annottext">associateDeviceWithNetworkProfile_networkProfileArn :: (Text -&gt; f Text)
+-&gt; AssociateDeviceWithNetworkProfile
+-&gt; f AssociateDeviceWithNetworkProfile
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfile_networkProfileArn"><span class="hs-identifier hs-var hs-var">associateDeviceWithNetworkProfile_networkProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateDeviceWithNetworkProfile -&gt; Text)
+-&gt; (AssociateDeviceWithNetworkProfile
+    -&gt; Text -&gt; AssociateDeviceWithNetworkProfile)
+-&gt; Lens
+     AssociateDeviceWithNetworkProfile
+     AssociateDeviceWithNetworkProfile
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393773"><span class="annot"><span class="annottext">Text
+networkProfileArn :: Text
+$sel:networkProfileArn:AssociateDeviceWithNetworkProfile' :: AssociateDeviceWithNetworkProfile -&gt; Text
+</span><a href="#local-6989586621679393773"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393773"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393772"><span class="annot"><span class="annottext">s :: AssociateDeviceWithNetworkProfile
+</span><a href="#local-6989586621679393772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfile
+</span><a href="#local-6989586621679393772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfileArn:AssociateDeviceWithNetworkProfile' :: Text
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AnetworkProfileArn%3AAssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679393767"><span class="annot"><span class="annottext">request :: AssociateDeviceWithNetworkProfile
+-&gt; Request AssociateDeviceWithNetworkProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AssociateDeviceWithNetworkProfile
+-&gt; Request AssociateDeviceWithNetworkProfile
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679393763"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateDeviceWithNetworkProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateDeviceWithNetworkProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateDeviceWithNetworkProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateDeviceWithNetworkProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateDeviceWithNetworkProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393760"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393759"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393759"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393758"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679393758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateDeviceWithNetworkProfileResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-var">AssociateDeviceWithNetworkProfileResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateDeviceWithNetworkProfileResponse)
+-&gt; Either String Int
+-&gt; Either String AssociateDeviceWithNetworkProfileResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393760"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679393751"><span id="local-6989586621679393753"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679393748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679393744"><span class="annot"><span class="annottext">toHeaders :: AssociateDeviceWithNetworkProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; AssociateDeviceWithNetworkProfile -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.AssociateDeviceWithNetworkProfile&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679393734"><span id="local-6989586621679393736"><span id="local-6989586621679393738"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span></span></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679393732"><span class="annot"><span class="annottext">toJSON :: AssociateDeviceWithNetworkProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393729"><span id="local-6989586621679393730"><span class="annot"><span class="annottext">Text
+networkProfileArn :: Text
+deviceArn :: Text
+$sel:networkProfileArn:AssociateDeviceWithNetworkProfile' :: AssociateDeviceWithNetworkProfile -&gt; Text
+$sel:deviceArn:AssociateDeviceWithNetworkProfile' :: AssociateDeviceWithNetworkProfile -&gt; Text
+</span><a href="#local-6989586621679393729"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393730"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393729"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679393723"><span class="annot"><span class="annottext">toPath :: AssociateDeviceWithNetworkProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateDeviceWithNetworkProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfile"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfile</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679393719"><span class="annot"><span class="annottext">toQuery :: AssociateDeviceWithNetworkProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateDeviceWithNetworkProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newAssociateDeviceWithNetworkProfileResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679393716"><span id="local-6989586621679393717"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateDeviceWithNetworkProfileResponse"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-var">AssociateDeviceWithNetworkProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateDeviceWithNetworkProfileResponse%27"><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-var">AssociateDeviceWithNetworkProfileResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateDeviceWithNetworkProfileResponse%27"><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfileResponse -&gt; Int
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AhttpStatus%3AAssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393711"><span id="local-6989586621679393713"><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfileResponse
+-&gt; AssociateDeviceWithNetworkProfileResponse -&gt; Bool
+(AssociateDeviceWithNetworkProfileResponse
+ -&gt; AssociateDeviceWithNetworkProfileResponse -&gt; Bool)
+-&gt; (AssociateDeviceWithNetworkProfileResponse
+    -&gt; AssociateDeviceWithNetworkProfileResponse -&gt; Bool)
+-&gt; Eq AssociateDeviceWithNetworkProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateDeviceWithNetworkProfileResponse
+-&gt; AssociateDeviceWithNetworkProfileResponse -&gt; Bool
+$c/= :: AssociateDeviceWithNetworkProfileResponse
+-&gt; AssociateDeviceWithNetworkProfileResponse -&gt; Bool
+== :: AssociateDeviceWithNetworkProfileResponse
+-&gt; AssociateDeviceWithNetworkProfileResponse -&gt; Bool
+$c== :: AssociateDeviceWithNetworkProfileResponse
+-&gt; AssociateDeviceWithNetworkProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393703"><span id="local-6989586621679393705"><span id="local-6989586621679393707"><span id="local-6989586621679393709"><span class="annot"><span class="annottext">ReadPrec [AssociateDeviceWithNetworkProfileResponse]
+ReadPrec AssociateDeviceWithNetworkProfileResponse
+Int -&gt; ReadS AssociateDeviceWithNetworkProfileResponse
+ReadS [AssociateDeviceWithNetworkProfileResponse]
+(Int -&gt; ReadS AssociateDeviceWithNetworkProfileResponse)
+-&gt; ReadS [AssociateDeviceWithNetworkProfileResponse]
+-&gt; ReadPrec AssociateDeviceWithNetworkProfileResponse
+-&gt; ReadPrec [AssociateDeviceWithNetworkProfileResponse]
+-&gt; Read AssociateDeviceWithNetworkProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateDeviceWithNetworkProfileResponse]
+$creadListPrec :: ReadPrec [AssociateDeviceWithNetworkProfileResponse]
+readPrec :: ReadPrec AssociateDeviceWithNetworkProfileResponse
+$creadPrec :: ReadPrec AssociateDeviceWithNetworkProfileResponse
+readList :: ReadS [AssociateDeviceWithNetworkProfileResponse]
+$creadList :: ReadS [AssociateDeviceWithNetworkProfileResponse]
+readsPrec :: Int -&gt; ReadS AssociateDeviceWithNetworkProfileResponse
+$creadsPrec :: Int -&gt; ReadS AssociateDeviceWithNetworkProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393697"><span id="local-6989586621679393699"><span id="local-6989586621679393701"><span class="annot"><span class="annottext">Int -&gt; AssociateDeviceWithNetworkProfileResponse -&gt; ShowS
+[AssociateDeviceWithNetworkProfileResponse] -&gt; ShowS
+AssociateDeviceWithNetworkProfileResponse -&gt; String
+(Int -&gt; AssociateDeviceWithNetworkProfileResponse -&gt; ShowS)
+-&gt; (AssociateDeviceWithNetworkProfileResponse -&gt; String)
+-&gt; ([AssociateDeviceWithNetworkProfileResponse] -&gt; ShowS)
+-&gt; Show AssociateDeviceWithNetworkProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateDeviceWithNetworkProfileResponse] -&gt; ShowS
+$cshowList :: [AssociateDeviceWithNetworkProfileResponse] -&gt; ShowS
+show :: AssociateDeviceWithNetworkProfileResponse -&gt; String
+$cshow :: AssociateDeviceWithNetworkProfileResponse -&gt; String
+showsPrec :: Int -&gt; AssociateDeviceWithNetworkProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateDeviceWithNetworkProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateDeviceWithNetworkProfileResponse
+ -&gt; Rep AssociateDeviceWithNetworkProfileResponse x)
+-&gt; (forall x.
+    Rep AssociateDeviceWithNetworkProfileResponse x
+    -&gt; AssociateDeviceWithNetworkProfileResponse)
+-&gt; Generic AssociateDeviceWithNetworkProfileResponse
+forall x.
+Rep AssociateDeviceWithNetworkProfileResponse x
+-&gt; AssociateDeviceWithNetworkProfileResponse
+forall x.
+AssociateDeviceWithNetworkProfileResponse
+-&gt; Rep AssociateDeviceWithNetworkProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateDeviceWithNetworkProfileResponse x
+-&gt; AssociateDeviceWithNetworkProfileResponse
+$cfrom :: forall x.
+AssociateDeviceWithNetworkProfileResponse
+-&gt; Rep AssociateDeviceWithNetworkProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Create a value of 'AssociateDeviceWithNetworkProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'associateDeviceWithNetworkProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#newAssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-type">newAssociateDeviceWithNetworkProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse</span></a></span><span>
+</span><span id="line-178"></span><span id="newAssociateDeviceWithNetworkProfileResponse"><span class="annot"><span class="annottext">newAssociateDeviceWithNetworkProfileResponse :: Int -&gt; AssociateDeviceWithNetworkProfileResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#newAssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-var hs-var">newAssociateDeviceWithNetworkProfileResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679393694"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393694"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfileResponse' :: Int -&gt; AssociateDeviceWithNetworkProfileResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateDeviceWithNetworkProfileResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AhttpStatus%3AAssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393694"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfileResponse_httpStatus"><span class="hs-identifier hs-type">associateDeviceWithNetworkProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span id="associateDeviceWithNetworkProfileResponse_httpStatus"><span class="annot"><span class="annottext">associateDeviceWithNetworkProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateDeviceWithNetworkProfileResponse
+-&gt; f AssociateDeviceWithNetworkProfileResponse
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#associateDeviceWithNetworkProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateDeviceWithNetworkProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateDeviceWithNetworkProfileResponse -&gt; Int)
+-&gt; (AssociateDeviceWithNetworkProfileResponse
+    -&gt; Int -&gt; AssociateDeviceWithNetworkProfileResponse)
+-&gt; Lens
+     AssociateDeviceWithNetworkProfileResponse
+     AssociateDeviceWithNetworkProfileResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393693"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateDeviceWithNetworkProfileResponse' :: AssociateDeviceWithNetworkProfileResponse -&gt; Int
+</span><a href="#local-6989586621679393693"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393693"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393692"><span class="annot"><span class="annottext">s :: AssociateDeviceWithNetworkProfileResponse
+</span><a href="#local-6989586621679393692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDeviceWithNetworkProfileResponse
+</span><a href="#local-6989586621679393692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateDeviceWithNetworkProfileResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#%24sel%3AhttpStatus%3AAssociateDeviceWithNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679393689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile.html#AssociateDeviceWithNetworkProfileResponse"><span class="hs-identifier hs-type">AssociateDeviceWithNetworkProfileResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

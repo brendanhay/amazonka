@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Inspector.Types.AssessmentTemplateFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Inspector.Types.AssessmentTemplateFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.DurationRange.html"><span class="hs-identifier">Amazonka.Inspector.Types.DurationRange</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Used as the request parameter in the ListAssessmentTemplates action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssessmentTemplateFilter' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679245351"><span id="local-6989586621679245352"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentTemplateFilter"><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-var">AssessmentTemplateFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentTemplateFilter%27"><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-var">AssessmentTemplateFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For a record to match a filter, an explicit value or a string that</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- contains a wildcard that is specified for this data type property must</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- match the value of the __assessmentTemplateName__ property of the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- AssessmentTemplate data type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnamePattern%3AAssessmentTemplateFilter%27"><span class="annot"><span class="annottext">AssessmentTemplateFilter -&gt; Maybe Text
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3AnamePattern%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var hs-var">namePattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the values that are specified for this</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- __rulesPackageArns__ property of the AssessmentTemplate data type.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3AAssessmentTemplateFilter%27"><span class="annot"><span class="annottext">AssessmentTemplateFilter -&gt; Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3ArulesPackageArns%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value specified for this data type</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- property must inclusively match any value between the specified minimum</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- and maximum values of the __durationInSeconds__ property of the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- AssessmentTemplate data type.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdurationRange%3AAssessmentTemplateFilter%27"><span class="annot"><span class="annottext">AssessmentTemplateFilter -&gt; Maybe DurationRange
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3AdurationRange%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var hs-var">durationRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.DurationRange.html#DurationRange"><span class="hs-identifier hs-type">DurationRange</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245343"><span id="local-6989586621679245345"><span class="annot"><span class="annottext">AssessmentTemplateFilter -&gt; AssessmentTemplateFilter -&gt; Bool
+(AssessmentTemplateFilter -&gt; AssessmentTemplateFilter -&gt; Bool)
+-&gt; (AssessmentTemplateFilter -&gt; AssessmentTemplateFilter -&gt; Bool)
+-&gt; Eq AssessmentTemplateFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssessmentTemplateFilter -&gt; AssessmentTemplateFilter -&gt; Bool
+$c/= :: AssessmentTemplateFilter -&gt; AssessmentTemplateFilter -&gt; Bool
+== :: AssessmentTemplateFilter -&gt; AssessmentTemplateFilter -&gt; Bool
+$c== :: AssessmentTemplateFilter -&gt; AssessmentTemplateFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245334"><span id="local-6989586621679245336"><span id="local-6989586621679245338"><span id="local-6989586621679245340"><span class="annot"><span class="annottext">ReadPrec [AssessmentTemplateFilter]
+ReadPrec AssessmentTemplateFilter
+Int -&gt; ReadS AssessmentTemplateFilter
+ReadS [AssessmentTemplateFilter]
+(Int -&gt; ReadS AssessmentTemplateFilter)
+-&gt; ReadS [AssessmentTemplateFilter]
+-&gt; ReadPrec AssessmentTemplateFilter
+-&gt; ReadPrec [AssessmentTemplateFilter]
+-&gt; Read AssessmentTemplateFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssessmentTemplateFilter]
+$creadListPrec :: ReadPrec [AssessmentTemplateFilter]
+readPrec :: ReadPrec AssessmentTemplateFilter
+$creadPrec :: ReadPrec AssessmentTemplateFilter
+readList :: ReadS [AssessmentTemplateFilter]
+$creadList :: ReadS [AssessmentTemplateFilter]
+readsPrec :: Int -&gt; ReadS AssessmentTemplateFilter
+$creadsPrec :: Int -&gt; ReadS AssessmentTemplateFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245327"><span id="local-6989586621679245329"><span id="local-6989586621679245331"><span class="annot"><span class="annottext">Int -&gt; AssessmentTemplateFilter -&gt; ShowS
+[AssessmentTemplateFilter] -&gt; ShowS
+AssessmentTemplateFilter -&gt; String
+(Int -&gt; AssessmentTemplateFilter -&gt; ShowS)
+-&gt; (AssessmentTemplateFilter -&gt; String)
+-&gt; ([AssessmentTemplateFilter] -&gt; ShowS)
+-&gt; Show AssessmentTemplateFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssessmentTemplateFilter] -&gt; ShowS
+$cshowList :: [AssessmentTemplateFilter] -&gt; ShowS
+show :: AssessmentTemplateFilter -&gt; String
+$cshow :: AssessmentTemplateFilter -&gt; String
+showsPrec :: Int -&gt; AssessmentTemplateFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssessmentTemplateFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssessmentTemplateFilter -&gt; Rep AssessmentTemplateFilter x)
+-&gt; (forall x.
+    Rep AssessmentTemplateFilter x -&gt; AssessmentTemplateFilter)
+-&gt; Generic AssessmentTemplateFilter
+forall x.
+Rep AssessmentTemplateFilter x -&gt; AssessmentTemplateFilter
+forall x.
+AssessmentTemplateFilter -&gt; Rep AssessmentTemplateFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssessmentTemplateFilter x -&gt; AssessmentTemplateFilter
+$cfrom :: forall x.
+AssessmentTemplateFilter -&gt; Rep AssessmentTemplateFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'AssessmentTemplateFilter' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'namePattern', 'assessmentTemplateFilter_namePattern' - For a record to match a filter, an explicit value or a string that</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- contains a wildcard that is specified for this data type property must</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- match the value of the __assessmentTemplateName__ property of the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- AssessmentTemplate data type.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'rulesPackageArns', 'assessmentTemplateFilter_rulesPackageArns' - For a record to match a filter, the values that are specified for this</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- __rulesPackageArns__ property of the AssessmentTemplate data type.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'durationRange', 'assessmentTemplateFilter_durationRange' - For a record to match a filter, the value specified for this data type</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- property must inclusively match any value between the specified minimum</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- and maximum values of the __durationInSeconds__ property of the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- AssessmentTemplate data type.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#newAssessmentTemplateFilter"><span class="hs-identifier hs-type">newAssessmentTemplateFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span>
+</span><span id="line-71"></span><span id="newAssessmentTemplateFilter"><span class="annot"><span class="annottext">newAssessmentTemplateFilter :: AssessmentTemplateFilter
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#newAssessmentTemplateFilter"><span class="hs-identifier hs-var hs-var">newAssessmentTemplateFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">AssessmentTemplateFilter' :: Maybe Text
+-&gt; Maybe [Text] -&gt; Maybe DurationRange -&gt; AssessmentTemplateFilter
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namePattern:AssessmentTemplateFilter' :: Maybe Text
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3AnamePattern%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var">namePattern</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentTemplateFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3ArulesPackageArns%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationRange:AssessmentTemplateFilter' :: Maybe DurationRange
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3AdurationRange%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var">durationRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | For a record to match a filter, an explicit value or a string that</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- contains a wildcard that is specified for this data type property must</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- match the value of the __assessmentTemplateName__ property of the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- AssessmentTemplate data type.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#assessmentTemplateFilter_namePattern"><span class="hs-identifier hs-type">assessmentTemplateFilter_namePattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="assessmentTemplateFilter_namePattern"><span class="annot"><span class="annottext">assessmentTemplateFilter_namePattern :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentTemplateFilter -&gt; f AssessmentTemplateFilter
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#assessmentTemplateFilter_namePattern"><span class="hs-identifier hs-var hs-var">assessmentTemplateFilter_namePattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentTemplateFilter -&gt; Maybe Text)
+-&gt; (AssessmentTemplateFilter
+    -&gt; Maybe Text -&gt; AssessmentTemplateFilter)
+-&gt; Lens
+     AssessmentTemplateFilter
+     AssessmentTemplateFilter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245318"><span class="annot"><span class="annottext">Maybe Text
+namePattern :: Maybe Text
+$sel:namePattern:AssessmentTemplateFilter' :: AssessmentTemplateFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679245318"><span class="hs-identifier hs-var hs-var">namePattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245318"><span class="hs-identifier hs-var">namePattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245317"><span class="annot"><span class="annottext">s :: AssessmentTemplateFilter
+</span><a href="#local-6989586621679245317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplateFilter
+</span><a href="#local-6989586621679245317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePattern:AssessmentTemplateFilter' :: Maybe Text
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3AnamePattern%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var">namePattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | For a record to match a filter, the values that are specified for this</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- __rulesPackageArns__ property of the AssessmentTemplate data type.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#assessmentTemplateFilter_rulesPackageArns"><span class="hs-identifier hs-type">assessmentTemplateFilter_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="assessmentTemplateFilter_rulesPackageArns"><span class="annot"><span class="annottext">assessmentTemplateFilter_rulesPackageArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AssessmentTemplateFilter -&gt; f AssessmentTemplateFilter
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#assessmentTemplateFilter_rulesPackageArns"><span class="hs-identifier hs-var hs-var">assessmentTemplateFilter_rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentTemplateFilter -&gt; Maybe [Text])
+-&gt; (AssessmentTemplateFilter
+    -&gt; Maybe [Text] -&gt; AssessmentTemplateFilter)
+-&gt; Lens
+     AssessmentTemplateFilter
+     AssessmentTemplateFilter
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245314"><span class="annot"><span class="annottext">Maybe [Text]
+rulesPackageArns :: Maybe [Text]
+$sel:rulesPackageArns:AssessmentTemplateFilter' :: AssessmentTemplateFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679245314"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245314"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245313"><span class="annot"><span class="annottext">s :: AssessmentTemplateFilter
+</span><a href="#local-6989586621679245313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245312"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplateFilter
+</span><a href="#local-6989586621679245313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentTemplateFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3ArulesPackageArns%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AssessmentTemplateFilter -&gt; f AssessmentTemplateFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AssessmentTemplateFilter
+-&gt; f AssessmentTemplateFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | For a record to match a filter, the value specified for this data type</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- property must inclusively match any value between the specified minimum</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- and maximum values of the __durationInSeconds__ property of the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- AssessmentTemplate data type.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#assessmentTemplateFilter_durationRange"><span class="hs-identifier hs-type">assessmentTemplateFilter_durationRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.DurationRange.html#DurationRange"><span class="hs-identifier hs-type">DurationRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="assessmentTemplateFilter_durationRange"><span class="annot"><span class="annottext">assessmentTemplateFilter_durationRange :: (Maybe DurationRange -&gt; f (Maybe DurationRange))
+-&gt; AssessmentTemplateFilter -&gt; f AssessmentTemplateFilter
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#assessmentTemplateFilter_durationRange"><span class="hs-identifier hs-var hs-var">assessmentTemplateFilter_durationRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentTemplateFilter -&gt; Maybe DurationRange)
+-&gt; (AssessmentTemplateFilter
+    -&gt; Maybe DurationRange -&gt; AssessmentTemplateFilter)
+-&gt; Lens
+     AssessmentTemplateFilter
+     AssessmentTemplateFilter
+     (Maybe DurationRange)
+     (Maybe DurationRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245307"><span class="annot"><span class="annottext">Maybe DurationRange
+durationRange :: Maybe DurationRange
+$sel:durationRange:AssessmentTemplateFilter' :: AssessmentTemplateFilter -&gt; Maybe DurationRange
+</span><a href="#local-6989586621679245307"><span class="hs-identifier hs-var hs-var">durationRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679245307"><span class="hs-identifier hs-var">durationRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245306"><span class="annot"><span class="annottext">s :: AssessmentTemplateFilter
+</span><a href="#local-6989586621679245306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245305"><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679245305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplateFilter
+</span><a href="#local-6989586621679245306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationRange:AssessmentTemplateFilter' :: Maybe DurationRange
+</span><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#%24sel%3AdurationRange%3AAssessmentTemplateFilter%27"><span class="hs-identifier hs-var">durationRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679245305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245301"><span id="local-6989586621679245303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245290"><span id="local-6989586621679245292"><span id="local-6989586621679245294"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679245288"><span class="annot"><span class="annottext">toJSON :: AssessmentTemplateFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter%27"><span class="hs-identifier hs-type">AssessmentTemplateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245284"><span id="local-6989586621679245285"><span id="local-6989586621679245286"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Maybe DurationRange
+durationRange :: Maybe DurationRange
+rulesPackageArns :: Maybe [Text]
+namePattern :: Maybe Text
+$sel:durationRange:AssessmentTemplateFilter' :: AssessmentTemplateFilter -&gt; Maybe DurationRange
+$sel:rulesPackageArns:AssessmentTemplateFilter' :: AssessmentTemplateFilter -&gt; Maybe [Text]
+$sel:namePattern:AssessmentTemplateFilter' :: AssessmentTemplateFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679245284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namePattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245286"><span class="hs-identifier hs-var">namePattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245285"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;durationRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DurationRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DurationRange -&gt; Pair) -&gt; Maybe DurationRange -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679245284"><span class="hs-identifier hs-var">durationRange</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span></pre></body></html>

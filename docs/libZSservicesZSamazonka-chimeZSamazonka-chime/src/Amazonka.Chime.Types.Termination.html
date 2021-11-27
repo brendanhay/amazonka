@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.Termination</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.Termination</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Termination settings enable your SIP hosts to make outbound calls using</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- your Amazon Chime Voice Connector.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTermination' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679519426"><span id="local-6989586621679519427"></span></span><span class="hs-keyword">data</span><span> </span><span id="Termination"><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-var">Termination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Termination%27"><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-var">Termination'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default caller ID phone number.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdefaultPhoneNumber%3ATermination%27"><span class="annot"><span class="annottext">Termination -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AdefaultPhoneNumber%3ATermination%27"><span class="hs-identifier hs-var hs-var">defaultPhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | When termination settings are disabled, outbound calls can not be made.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Adisabled%3ATermination%27"><span class="annot"><span class="annottext">Termination -&gt; Maybe Bool
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3Adisabled%3ATermination%27"><span class="hs-identifier hs-var hs-var">disabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Required.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcallingRegions%3ATermination%27"><span class="annot"><span class="annottext">Termination -&gt; Maybe [Text]
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcallingRegions%3ATermination%27"><span class="hs-identifier hs-var hs-var">callingRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The limit on calls per second. Max value based on account service quota.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Default value of 1.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcpsLimit%3ATermination%27"><span class="annot"><span class="annottext">Termination -&gt; Maybe Natural
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcpsLimit%3ATermination%27"><span class="hs-identifier hs-var hs-var">cpsLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The IP addresses allowed to make calls, in CIDR format. Required.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcidrAllowedList%3ATermination%27"><span class="annot"><span class="annottext">Termination -&gt; Maybe [Text]
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcidrAllowedList%3ATermination%27"><span class="hs-identifier hs-var hs-var">cidrAllowedList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679519416"><span id="local-6989586621679519418"><span class="annot"><span class="annottext">Termination -&gt; Termination -&gt; Bool
+(Termination -&gt; Termination -&gt; Bool)
+-&gt; (Termination -&gt; Termination -&gt; Bool) -&gt; Eq Termination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Termination -&gt; Termination -&gt; Bool
+$c/= :: Termination -&gt; Termination -&gt; Bool
+== :: Termination -&gt; Termination -&gt; Bool
+$c== :: Termination -&gt; Termination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679519409"><span id="local-6989586621679519411"><span id="local-6989586621679519413"><span class="annot"><span class="annottext">Int -&gt; Termination -&gt; ShowS
+[Termination] -&gt; ShowS
+Termination -&gt; String
+(Int -&gt; Termination -&gt; ShowS)
+-&gt; (Termination -&gt; String)
+-&gt; ([Termination] -&gt; ShowS)
+-&gt; Show Termination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Termination] -&gt; ShowS
+$cshowList :: [Termination] -&gt; ShowS
+show :: Termination -&gt; String
+$cshow :: Termination -&gt; String
+showsPrec :: Int -&gt; Termination -&gt; ShowS
+$cshowsPrec :: Int -&gt; Termination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Termination -&gt; Rep Termination x)
+-&gt; (forall x. Rep Termination x -&gt; Termination)
+-&gt; Generic Termination
+forall x. Rep Termination x -&gt; Termination
+forall x. Termination -&gt; Rep Termination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Termination x -&gt; Termination
+$cfrom :: forall x. Termination -&gt; Rep Termination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'Termination' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'defaultPhoneNumber', 'termination_defaultPhoneNumber' - The default caller ID phone number.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'disabled', 'termination_disabled' - When termination settings are disabled, outbound calls can not be made.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'callingRegions', 'termination_callingRegions' - The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Required.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'cpsLimit', 'termination_cpsLimit' - The limit on calls per second. Max value based on account service quota.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Default value of 1.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'cidrAllowedList', 'termination_cidrAllowedList' - The IP addresses allowed to make calls, in CIDR format. Required.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#newTermination"><span class="hs-identifier hs-type">newTermination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span>
+</span><span id="line-67"></span><span id="newTermination"><span class="annot"><span class="annottext">newTermination :: Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#newTermination"><span class="hs-identifier hs-var hs-var">newTermination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Termination' :: Maybe (Sensitive Text)
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Maybe [Text]
+-&gt; Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultPhoneNumber:Termination' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AdefaultPhoneNumber%3ATermination%27"><span class="hs-identifier hs-var">defaultPhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:disabled:Termination' :: Maybe Bool
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3Adisabled%3ATermination%27"><span class="hs-identifier hs-var">disabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:callingRegions:Termination' :: Maybe [Text]
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcallingRegions%3ATermination%27"><span class="hs-identifier hs-var">callingRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:cpsLimit:Termination' :: Maybe Natural
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcpsLimit%3ATermination%27"><span class="hs-identifier hs-var">cpsLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrAllowedList:Termination' :: Maybe [Text]
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcidrAllowedList%3ATermination%27"><span class="hs-identifier hs-var">cidrAllowedList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The default caller ID phone number.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#termination_defaultPhoneNumber"><span class="hs-identifier hs-type">termination_defaultPhoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="termination_defaultPhoneNumber"><span class="annot"><span class="annottext">termination_defaultPhoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Termination -&gt; f Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#termination_defaultPhoneNumber"><span class="hs-identifier hs-var hs-var">termination_defaultPhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Termination -&gt; Maybe (Sensitive Text))
+-&gt; (Termination -&gt; Maybe (Sensitive Text) -&gt; Termination)
+-&gt; Lens
+     Termination
+     Termination
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519400"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+defaultPhoneNumber :: Maybe (Sensitive Text)
+$sel:defaultPhoneNumber:Termination' :: Termination -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679519400"><span class="hs-identifier hs-var hs-var">defaultPhoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679519400"><span class="hs-identifier hs-var">defaultPhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519399"><span class="annot"><span class="annottext">s :: Termination
+</span><a href="#local-6989586621679519399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519398"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679519398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Termination
+</span><a href="#local-6989586621679519399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultPhoneNumber:Termination' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AdefaultPhoneNumber%3ATermination%27"><span class="hs-identifier hs-var">defaultPhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679519398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; Termination -&gt; f Termination)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; Termination
+-&gt; f Termination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | When termination settings are disabled, outbound calls can not be made.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#termination_disabled"><span class="hs-identifier hs-type">termination_disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="termination_disabled"><span class="annot"><span class="annottext">termination_disabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Termination -&gt; f Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#termination_disabled"><span class="hs-identifier hs-var hs-var">termination_disabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Termination -&gt; Maybe Bool)
+-&gt; (Termination -&gt; Maybe Bool -&gt; Termination)
+-&gt; Lens Termination Termination (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519393"><span class="annot"><span class="annottext">Maybe Bool
+disabled :: Maybe Bool
+$sel:disabled:Termination' :: Termination -&gt; Maybe Bool
+</span><a href="#local-6989586621679519393"><span class="hs-identifier hs-var hs-var">disabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679519393"><span class="hs-identifier hs-var">disabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519392"><span class="annot"><span class="annottext">s :: Termination
+</span><a href="#local-6989586621679519392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519391"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679519391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Termination
+</span><a href="#local-6989586621679519392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabled:Termination' :: Maybe Bool
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3Adisabled%3ATermination%27"><span class="hs-identifier hs-var">disabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679519391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Required.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#termination_callingRegions"><span class="hs-identifier hs-type">termination_callingRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="termination_callingRegions"><span class="annot"><span class="annottext">termination_callingRegions :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Termination -&gt; f Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#termination_callingRegions"><span class="hs-identifier hs-var hs-var">termination_callingRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Termination -&gt; Maybe [Text])
+-&gt; (Termination -&gt; Maybe [Text] -&gt; Termination)
+-&gt; Lens Termination Termination (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519389"><span class="annot"><span class="annottext">Maybe [Text]
+callingRegions :: Maybe [Text]
+$sel:callingRegions:Termination' :: Termination -&gt; Maybe [Text]
+</span><a href="#local-6989586621679519389"><span class="hs-identifier hs-var hs-var">callingRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519389"><span class="hs-identifier hs-var">callingRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519388"><span class="annot"><span class="annottext">s :: Termination
+</span><a href="#local-6989586621679519388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519387"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Termination
+</span><a href="#local-6989586621679519388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callingRegions:Termination' :: Maybe [Text]
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcallingRegions%3ATermination%27"><span class="hs-identifier hs-var">callingRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Termination -&gt; f Termination)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Termination
+-&gt; f Termination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The limit on calls per second. Max value based on account service quota.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Default value of 1.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#termination_cpsLimit"><span class="hs-identifier hs-type">termination_cpsLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="termination_cpsLimit"><span class="annot"><span class="annottext">termination_cpsLimit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Termination -&gt; f Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#termination_cpsLimit"><span class="hs-identifier hs-var hs-var">termination_cpsLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Termination -&gt; Maybe Natural)
+-&gt; (Termination -&gt; Maybe Natural -&gt; Termination)
+-&gt; Lens Termination Termination (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519384"><span class="annot"><span class="annottext">Maybe Natural
+cpsLimit :: Maybe Natural
+$sel:cpsLimit:Termination' :: Termination -&gt; Maybe Natural
+</span><a href="#local-6989586621679519384"><span class="hs-identifier hs-var hs-var">cpsLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679519384"><span class="hs-identifier hs-var">cpsLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519383"><span class="annot"><span class="annottext">s :: Termination
+</span><a href="#local-6989586621679519383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519382"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679519382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Termination
+</span><a href="#local-6989586621679519383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpsLimit:Termination' :: Maybe Natural
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcpsLimit%3ATermination%27"><span class="hs-identifier hs-var">cpsLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679519382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The IP addresses allowed to make calls, in CIDR format. Required.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#termination_cidrAllowedList"><span class="hs-identifier hs-type">termination_cidrAllowedList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="termination_cidrAllowedList"><span class="annot"><span class="annottext">termination_cidrAllowedList :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Termination -&gt; f Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#termination_cidrAllowedList"><span class="hs-identifier hs-var hs-var">termination_cidrAllowedList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Termination -&gt; Maybe [Text])
+-&gt; (Termination -&gt; Maybe [Text] -&gt; Termination)
+-&gt; Lens Termination Termination (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519380"><span class="annot"><span class="annottext">Maybe [Text]
+cidrAllowedList :: Maybe [Text]
+$sel:cidrAllowedList:Termination' :: Termination -&gt; Maybe [Text]
+</span><a href="#local-6989586621679519380"><span class="hs-identifier hs-var hs-var">cidrAllowedList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519380"><span class="hs-identifier hs-var">cidrAllowedList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519379"><span class="annot"><span class="annottext">s :: Termination
+</span><a href="#local-6989586621679519379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519378"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Termination
+</span><a href="#local-6989586621679519379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrAllowedList:Termination' :: Maybe [Text]
+</span><a href="Amazonka.Chime.Types.Termination.html#%24sel%3AcidrAllowedList%3ATermination%27"><span class="hs-identifier hs-var">cidrAllowedList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Termination -&gt; f Termination)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Termination
+-&gt; f Termination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679519375"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679519373"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Termination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Termination) -&gt; Value -&gt; Parser Termination
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Termination&quot;</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679519370"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679519370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Maybe [Text]
+-&gt; Termination
+</span><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-var">Termination'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
+ -&gt; Maybe Bool
+ -&gt; Maybe [Text]
+ -&gt; Maybe Natural
+ -&gt; Maybe [Text]
+ -&gt; Termination)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; Maybe [Text] -&gt; Termination)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679519370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultPhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; Maybe [Text] -&gt; Termination)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [Text] -&gt; Maybe Natural -&gt; Maybe [Text] -&gt; Termination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679519370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Disabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text] -&gt; Maybe Natural -&gt; Maybe [Text] -&gt; Termination)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Natural -&gt; Maybe [Text] -&gt; Termination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679519370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CallingRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe [Text] -&gt; Termination)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe [Text] -&gt; Termination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679519370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CpsLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Termination)
+-&gt; Parser (Maybe [Text]) -&gt; Parser Termination
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679519370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CidrAllowedList&quot;</span></span><span>
+</span><span id="line-109"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679519363"><span id="local-6989586621679519365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679519360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679519352"><span id="local-6989586621679519354"><span id="local-6989586621679519356"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination"><span class="hs-identifier hs-type">Termination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679519350"><span class="annot"><span class="annottext">toJSON :: Termination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Termination.html#Termination%27"><span class="hs-identifier hs-type">Termination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519344"><span id="local-6989586621679519345"><span id="local-6989586621679519346"><span id="local-6989586621679519347"><span id="local-6989586621679519348"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [Text]
+Maybe (Sensitive Text)
+cidrAllowedList :: Maybe [Text]
+cpsLimit :: Maybe Natural
+callingRegions :: Maybe [Text]
+disabled :: Maybe Bool
+defaultPhoneNumber :: Maybe (Sensitive Text)
+$sel:cidrAllowedList:Termination' :: Termination -&gt; Maybe [Text]
+$sel:cpsLimit:Termination' :: Termination -&gt; Maybe Natural
+$sel:callingRegions:Termination' :: Termination -&gt; Maybe [Text]
+$sel:disabled:Termination' :: Termination -&gt; Maybe Bool
+$sel:defaultPhoneNumber:Termination' :: Termination -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679519344"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultPhoneNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679519348"><span class="hs-identifier hs-var">defaultPhoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Disabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679519347"><span class="hs-identifier hs-var">disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CallingRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519346"><span class="hs-identifier hs-var">callingRegions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CpsLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679519345"><span class="hs-identifier hs-var">cpsLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CidrAllowedList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679519344"><span class="hs-identifier hs-var">cidrAllowedList</span></a></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span></pre></body></html>

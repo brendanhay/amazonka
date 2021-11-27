@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.CreatePolicyVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new version of the specified IoT policy. To update a policy,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- create a new policy version. A managed policy can have up to five</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- versions. If the policy has five versions, you must use</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- DeletePolicyVersion to delete an existing version before you create a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- new one.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Optionally, you can set the new version as the policy\'s default</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- version. The default version is the operative version (that is, the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- version that is in effect for the certificates to which the policy is</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- attached).</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreatePolicyVersion&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.CreatePolicyVersion</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier">CreatePolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#newCreatePolicyVersion"><span class="hs-identifier">newCreatePolicyVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_setAsDefault"><span class="hs-identifier">createPolicyVersion_setAsDefault</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_policyName"><span class="hs-identifier">createPolicyVersion_policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_policyDocument"><span class="hs-identifier">createPolicyVersion_policyDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier">CreatePolicyVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#newCreatePolicyVersionResponse"><span class="hs-identifier">newCreatePolicyVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyDocument"><span class="hs-identifier">createPolicyVersionResponse_policyDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyVersionId"><span class="hs-identifier">createPolicyVersionResponse_policyVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyArn"><span class="hs-identifier">createPolicyVersionResponse_policyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_isDefaultVersion"><span class="hs-identifier">createPolicyVersionResponse_isDefaultVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_httpStatus"><span class="hs-identifier">createPolicyVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The input for the CreatePolicyVersion operation.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newCreatePolicyVersion' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679849918"><span id="local-6989586621679849919"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePolicyVersion"><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-var">CreatePolicyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePolicyVersion%27"><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-var">CreatePolicyVersion'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the policy version is set as the default. When this</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- parameter is true, the new policy version becomes the operative version</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- (that is, the version that is in effect for the certificates to which</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the policy is attached).</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AsetAsDefault%3ACreatePolicyVersion%27"><span class="annot"><span class="annottext">CreatePolicyVersion -&gt; Maybe Bool
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AsetAsDefault%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var hs-var">setAsDefault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The policy name.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApolicyName%3ACreatePolicyVersion%27"><span class="annot"><span class="annottext">CreatePolicyVersion -&gt; Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyName%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The JSON document that describes the policy. Minimum length of 1.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Maximum length of 2048, excluding whitespace.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3ApolicyDocument%3ACreatePolicyVersion%27"><span class="annot"><span class="annottext">CreatePolicyVersion -&gt; Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyDocument%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849910"><span id="local-6989586621679849912"><span class="annot"><span class="annottext">CreatePolicyVersion -&gt; CreatePolicyVersion -&gt; Bool
+(CreatePolicyVersion -&gt; CreatePolicyVersion -&gt; Bool)
+-&gt; (CreatePolicyVersion -&gt; CreatePolicyVersion -&gt; Bool)
+-&gt; Eq CreatePolicyVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePolicyVersion -&gt; CreatePolicyVersion -&gt; Bool
+$c/= :: CreatePolicyVersion -&gt; CreatePolicyVersion -&gt; Bool
+== :: CreatePolicyVersion -&gt; CreatePolicyVersion -&gt; Bool
+$c== :: CreatePolicyVersion -&gt; CreatePolicyVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849901"><span id="local-6989586621679849903"><span id="local-6989586621679849905"><span id="local-6989586621679849907"><span class="annot"><span class="annottext">ReadPrec [CreatePolicyVersion]
+ReadPrec CreatePolicyVersion
+Int -&gt; ReadS CreatePolicyVersion
+ReadS [CreatePolicyVersion]
+(Int -&gt; ReadS CreatePolicyVersion)
+-&gt; ReadS [CreatePolicyVersion]
+-&gt; ReadPrec CreatePolicyVersion
+-&gt; ReadPrec [CreatePolicyVersion]
+-&gt; Read CreatePolicyVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePolicyVersion]
+$creadListPrec :: ReadPrec [CreatePolicyVersion]
+readPrec :: ReadPrec CreatePolicyVersion
+$creadPrec :: ReadPrec CreatePolicyVersion
+readList :: ReadS [CreatePolicyVersion]
+$creadList :: ReadS [CreatePolicyVersion]
+readsPrec :: Int -&gt; ReadS CreatePolicyVersion
+$creadsPrec :: Int -&gt; ReadS CreatePolicyVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849894"><span id="local-6989586621679849896"><span id="local-6989586621679849898"><span class="annot"><span class="annottext">Int -&gt; CreatePolicyVersion -&gt; ShowS
+[CreatePolicyVersion] -&gt; ShowS
+CreatePolicyVersion -&gt; String
+(Int -&gt; CreatePolicyVersion -&gt; ShowS)
+-&gt; (CreatePolicyVersion -&gt; String)
+-&gt; ([CreatePolicyVersion] -&gt; ShowS)
+-&gt; Show CreatePolicyVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePolicyVersion] -&gt; ShowS
+$cshowList :: [CreatePolicyVersion] -&gt; ShowS
+show :: CreatePolicyVersion -&gt; String
+$cshow :: CreatePolicyVersion -&gt; String
+showsPrec :: Int -&gt; CreatePolicyVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePolicyVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreatePolicyVersion -&gt; Rep CreatePolicyVersion x)
+-&gt; (forall x. Rep CreatePolicyVersion x -&gt; CreatePolicyVersion)
+-&gt; Generic CreatePolicyVersion
+forall x. Rep CreatePolicyVersion x -&gt; CreatePolicyVersion
+forall x. CreatePolicyVersion -&gt; Rep CreatePolicyVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreatePolicyVersion x -&gt; CreatePolicyVersion
+$cfrom :: forall x. CreatePolicyVersion -&gt; Rep CreatePolicyVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'CreatePolicyVersion' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'setAsDefault', 'createPolicyVersion_setAsDefault' - Specifies whether the policy version is set as the default. When this</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- parameter is true, the new policy version becomes the operative version</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- (that is, the version that is in effect for the certificates to which</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the policy is attached).</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'policyName', 'createPolicyVersion_policyName' - The policy name.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'policyDocument', 'createPolicyVersion_policyDocument' - The JSON document that describes the policy. Minimum length of 1.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Maximum length of 2048, excluding whitespace.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#newCreatePolicyVersion"><span class="hs-identifier hs-type">newCreatePolicyVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'policyName'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'policyDocument'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span>
+</span><span id="line-107"></span><span id="newCreatePolicyVersion"><span class="annot"><span class="annottext">newCreatePolicyVersion :: Text -&gt; Text -&gt; CreatePolicyVersion
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#newCreatePolicyVersion"><span class="hs-identifier hs-var hs-var">newCreatePolicyVersion</span></a></span></span><span> </span><span id="local-6989586621679849889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849889"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span id="local-6989586621679849888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849888"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">CreatePolicyVersion' :: Maybe Bool -&gt; Text -&gt; Text -&gt; CreatePolicyVersion
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:setAsDefault:CreatePolicyVersion' :: Maybe Bool
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AsetAsDefault%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var">setAsDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:CreatePolicyVersion' :: Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyName%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849889"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyDocument:CreatePolicyVersion' :: Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyDocument%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849888"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Specifies whether the policy version is set as the default. When this</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- parameter is true, the new policy version becomes the operative version</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- (that is, the version that is in effect for the certificates to which</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- the policy is attached).</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_setAsDefault"><span class="hs-identifier hs-type">createPolicyVersion_setAsDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="createPolicyVersion_setAsDefault"><span class="annot"><span class="annottext">createPolicyVersion_setAsDefault :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreatePolicyVersion -&gt; f CreatePolicyVersion
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_setAsDefault"><span class="hs-identifier hs-var hs-var">createPolicyVersion_setAsDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersion -&gt; Maybe Bool)
+-&gt; (CreatePolicyVersion -&gt; Maybe Bool -&gt; CreatePolicyVersion)
+-&gt; Lens
+     CreatePolicyVersion CreatePolicyVersion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849885"><span class="annot"><span class="annottext">Maybe Bool
+setAsDefault :: Maybe Bool
+$sel:setAsDefault:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679849885"><span class="hs-identifier hs-var hs-var">setAsDefault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679849885"><span class="hs-identifier hs-var">setAsDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849884"><span class="annot"><span class="annottext">s :: CreatePolicyVersion
+</span><a href="#local-6989586621679849884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849883"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679849883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersion
+</span><a href="#local-6989586621679849884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setAsDefault:CreatePolicyVersion' :: Maybe Bool
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AsetAsDefault%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var">setAsDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679849883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The policy name.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_policyName"><span class="hs-identifier hs-type">createPolicyVersion_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="createPolicyVersion_policyName"><span class="annot"><span class="annottext">createPolicyVersion_policyName :: (Text -&gt; f Text) -&gt; CreatePolicyVersion -&gt; f CreatePolicyVersion
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_policyName"><span class="hs-identifier hs-var hs-var">createPolicyVersion_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersion -&gt; Text)
+-&gt; (CreatePolicyVersion -&gt; Text -&gt; CreatePolicyVersion)
+-&gt; Lens CreatePolicyVersion CreatePolicyVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849882"><span class="annot"><span class="annottext">Text
+policyName :: Text
+$sel:policyName:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+</span><a href="#local-6989586621679849882"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849882"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849881"><span class="annot"><span class="annottext">s :: CreatePolicyVersion
+</span><a href="#local-6989586621679849881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersion
+</span><a href="#local-6989586621679849881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:CreatePolicyVersion' :: Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyName%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The JSON document that describes the policy. Minimum length of 1.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Maximum length of 2048, excluding whitespace.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_policyDocument"><span class="hs-identifier hs-type">createPolicyVersion_policyDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="createPolicyVersion_policyDocument"><span class="annot"><span class="annottext">createPolicyVersion_policyDocument :: (Text -&gt; f Text) -&gt; CreatePolicyVersion -&gt; f CreatePolicyVersion
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersion_policyDocument"><span class="hs-identifier hs-var hs-var">createPolicyVersion_policyDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersion -&gt; Text)
+-&gt; (CreatePolicyVersion -&gt; Text -&gt; CreatePolicyVersion)
+-&gt; Lens CreatePolicyVersion CreatePolicyVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849879"><span class="annot"><span class="annottext">Text
+policyDocument :: Text
+$sel:policyDocument:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+</span><a href="#local-6989586621679849879"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849879"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849878"><span class="annot"><span class="annottext">s :: CreatePolicyVersion
+</span><a href="#local-6989586621679849878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersion
+</span><a href="#local-6989586621679849878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDocument:CreatePolicyVersion' :: Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyDocument%3ACreatePolicyVersion%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679849873"><span class="annot"><span class="annottext">request :: CreatePolicyVersion -&gt; Request CreatePolicyVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePolicyVersion -&gt; Request CreatePolicyVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679849869"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreatePolicyVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePolicyVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreatePolicyVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreatePolicyVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePolicyVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679849866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849866"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679849865"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679849865"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679849864"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849864"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">CreatePolicyVersionResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Int
+ -&gt; CreatePolicyVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; CreatePolicyVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policyDocument&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; CreatePolicyVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; CreatePolicyVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policyVersionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; CreatePolicyVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; Int -&gt; CreatePolicyVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; CreatePolicyVersionResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; CreatePolicyVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isDefaultVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreatePolicyVersionResponse)
+-&gt; Either String Int -&gt; Either String CreatePolicyVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849866"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849856"><span id="local-6989586621679849858"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679849849"><span class="annot"><span class="annottext">toHeaders :: CreatePolicyVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePolicyVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849840"><span id="local-6989586621679849842"><span id="local-6989586621679849844"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679849838"><span class="annot"><span class="annottext">toJSON :: CreatePolicyVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849834"><span id="local-6989586621679849835"><span id="local-6989586621679849836"><span class="annot"><span class="annottext">Maybe Bool
+Text
+policyDocument :: Text
+policyName :: Text
+setAsDefault :: Maybe Bool
+$sel:policyDocument:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+$sel:policyName:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+$sel:setAsDefault:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679849834"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policyDocument&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849834"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679849828"><span class="annot"><span class="annottext">toPath :: CreatePolicyVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849824"><span id="local-6989586621679849825"><span id="local-6989586621679849826"><span class="annot"><span class="annottext">Maybe Bool
+Text
+policyDocument :: Text
+policyName :: Text
+setAsDefault :: Maybe Bool
+$sel:policyDocument:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+$sel:policyName:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+$sel:setAsDefault:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679849824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/policies/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849825"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/version&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion"><span class="hs-identifier hs-type">CreatePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679849820"><span class="annot"><span class="annottext">toQuery :: CreatePolicyVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersion%27"><span class="hs-identifier hs-type">CreatePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849816"><span id="local-6989586621679849817"><span id="local-6989586621679849818"><span class="annot"><span class="annottext">Maybe Bool
+Text
+policyDocument :: Text
+policyName :: Text
+setAsDefault :: Maybe Bool
+$sel:policyDocument:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+$sel:policyName:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Text
+$sel:setAsDefault:CreatePolicyVersion' :: CreatePolicyVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679849816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;setAsDefault&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679849818"><span class="hs-identifier hs-var">setAsDefault</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The output of the CreatePolicyVersion operation.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- /See:/ 'newCreatePolicyVersionResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679849813"><span id="local-6989586621679849814"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePolicyVersionResponse"><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-var">CreatePolicyVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePolicyVersionResponse%27"><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">CreatePolicyVersionResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The JSON document that describes the policy.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3ApolicyDocument%3ACreatePolicyVersionResponse%27"><span class="annot"><span class="annottext">CreatePolicyVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyDocument%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The policy version ID.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3ApolicyVersionId%3ACreatePolicyVersionResponse%27"><span class="annot"><span class="annottext">CreatePolicyVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyVersionId%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var hs-var">policyVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The policy ARN.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3ApolicyArn%3ACreatePolicyVersionResponse%27"><span class="annot"><span class="annottext">CreatePolicyVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyArn%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | Specifies whether the policy version is the default.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AisDefaultVersion%3ACreatePolicyVersionResponse%27"><span class="annot"><span class="annottext">CreatePolicyVersionResponse -&gt; Maybe Bool
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AisDefaultVersion%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePolicyVersionResponse%27"><span class="annot"><span class="annottext">CreatePolicyVersionResponse -&gt; Int
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AhttpStatus%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849804"><span id="local-6989586621679849806"><span class="annot"><span class="annottext">CreatePolicyVersionResponse -&gt; CreatePolicyVersionResponse -&gt; Bool
+(CreatePolicyVersionResponse
+ -&gt; CreatePolicyVersionResponse -&gt; Bool)
+-&gt; (CreatePolicyVersionResponse
+    -&gt; CreatePolicyVersionResponse -&gt; Bool)
+-&gt; Eq CreatePolicyVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePolicyVersionResponse -&gt; CreatePolicyVersionResponse -&gt; Bool
+$c/= :: CreatePolicyVersionResponse -&gt; CreatePolicyVersionResponse -&gt; Bool
+== :: CreatePolicyVersionResponse -&gt; CreatePolicyVersionResponse -&gt; Bool
+$c== :: CreatePolicyVersionResponse -&gt; CreatePolicyVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849796"><span id="local-6989586621679849798"><span id="local-6989586621679849800"><span id="local-6989586621679849802"><span class="annot"><span class="annottext">ReadPrec [CreatePolicyVersionResponse]
+ReadPrec CreatePolicyVersionResponse
+Int -&gt; ReadS CreatePolicyVersionResponse
+ReadS [CreatePolicyVersionResponse]
+(Int -&gt; ReadS CreatePolicyVersionResponse)
+-&gt; ReadS [CreatePolicyVersionResponse]
+-&gt; ReadPrec CreatePolicyVersionResponse
+-&gt; ReadPrec [CreatePolicyVersionResponse]
+-&gt; Read CreatePolicyVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePolicyVersionResponse]
+$creadListPrec :: ReadPrec [CreatePolicyVersionResponse]
+readPrec :: ReadPrec CreatePolicyVersionResponse
+$creadPrec :: ReadPrec CreatePolicyVersionResponse
+readList :: ReadS [CreatePolicyVersionResponse]
+$creadList :: ReadS [CreatePolicyVersionResponse]
+readsPrec :: Int -&gt; ReadS CreatePolicyVersionResponse
+$creadsPrec :: Int -&gt; ReadS CreatePolicyVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849790"><span id="local-6989586621679849792"><span id="local-6989586621679849794"><span class="annot"><span class="annottext">Int -&gt; CreatePolicyVersionResponse -&gt; ShowS
+[CreatePolicyVersionResponse] -&gt; ShowS
+CreatePolicyVersionResponse -&gt; String
+(Int -&gt; CreatePolicyVersionResponse -&gt; ShowS)
+-&gt; (CreatePolicyVersionResponse -&gt; String)
+-&gt; ([CreatePolicyVersionResponse] -&gt; ShowS)
+-&gt; Show CreatePolicyVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePolicyVersionResponse] -&gt; ShowS
+$cshowList :: [CreatePolicyVersionResponse] -&gt; ShowS
+show :: CreatePolicyVersionResponse -&gt; String
+$cshow :: CreatePolicyVersionResponse -&gt; String
+showsPrec :: Int -&gt; CreatePolicyVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePolicyVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreatePolicyVersionResponse -&gt; Rep CreatePolicyVersionResponse x)
+-&gt; (forall x.
+    Rep CreatePolicyVersionResponse x -&gt; CreatePolicyVersionResponse)
+-&gt; Generic CreatePolicyVersionResponse
+forall x.
+Rep CreatePolicyVersionResponse x -&gt; CreatePolicyVersionResponse
+forall x.
+CreatePolicyVersionResponse -&gt; Rep CreatePolicyVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreatePolicyVersionResponse x -&gt; CreatePolicyVersionResponse
+$cfrom :: forall x.
+CreatePolicyVersionResponse -&gt; Rep CreatePolicyVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'CreatePolicyVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'policyDocument', 'createPolicyVersionResponse_policyDocument' - The JSON document that describes the policy.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'policyVersionId', 'createPolicyVersionResponse_policyVersionId' - The policy version ID.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'policyArn', 'createPolicyVersionResponse_policyArn' - The policy ARN.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'isDefaultVersion', 'createPolicyVersionResponse_isDefaultVersion' - Specifies whether the policy version is the default.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'createPolicyVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#newCreatePolicyVersionResponse"><span class="hs-identifier hs-type">newCreatePolicyVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newCreatePolicyVersionResponse"><span class="annot"><span class="annottext">newCreatePolicyVersionResponse :: Int -&gt; CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#newCreatePolicyVersionResponse"><span class="hs-identifier hs-var hs-var">newCreatePolicyVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679849787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">CreatePolicyVersionResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyDocument:CreatePolicyVersionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyDocument%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyVersionId:CreatePolicyVersionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyVersionId%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">policyVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:CreatePolicyVersionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyArn%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDefaultVersion:CreatePolicyVersionResponse' :: Maybe Bool
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AisDefaultVersion%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePolicyVersionResponse' :: Int
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AhttpStatus%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The JSON document that describes the policy.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyDocument"><span class="hs-identifier hs-type">createPolicyVersionResponse_policyDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="createPolicyVersionResponse_policyDocument"><span class="annot"><span class="annottext">createPolicyVersionResponse_policyDocument :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePolicyVersionResponse -&gt; f CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyDocument"><span class="hs-identifier hs-var hs-var">createPolicyVersionResponse_policyDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersionResponse -&gt; Maybe Text)
+-&gt; (CreatePolicyVersionResponse
+    -&gt; Maybe Text -&gt; CreatePolicyVersionResponse)
+-&gt; Lens
+     CreatePolicyVersionResponse
+     CreatePolicyVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849786"><span class="annot"><span class="annottext">Maybe Text
+policyDocument :: Maybe Text
+$sel:policyDocument:CreatePolicyVersionResponse' :: CreatePolicyVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849786"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849786"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849785"><span class="annot"><span class="annottext">s :: CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849784"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDocument:CreatePolicyVersionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyDocument%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The policy version ID.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyVersionId"><span class="hs-identifier hs-type">createPolicyVersionResponse_policyVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="createPolicyVersionResponse_policyVersionId"><span class="annot"><span class="annottext">createPolicyVersionResponse_policyVersionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePolicyVersionResponse -&gt; f CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyVersionId"><span class="hs-identifier hs-var hs-var">createPolicyVersionResponse_policyVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersionResponse -&gt; Maybe Text)
+-&gt; (CreatePolicyVersionResponse
+    -&gt; Maybe Text -&gt; CreatePolicyVersionResponse)
+-&gt; Lens
+     CreatePolicyVersionResponse
+     CreatePolicyVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849783"><span class="annot"><span class="annottext">Maybe Text
+policyVersionId :: Maybe Text
+$sel:policyVersionId:CreatePolicyVersionResponse' :: CreatePolicyVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849783"><span class="hs-identifier hs-var hs-var">policyVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849783"><span class="hs-identifier hs-var">policyVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849782"><span class="annot"><span class="annottext">s :: CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyVersionId:CreatePolicyVersionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyVersionId%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">policyVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The policy ARN.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyArn"><span class="hs-identifier hs-type">createPolicyVersionResponse_policyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="createPolicyVersionResponse_policyArn"><span class="annot"><span class="annottext">createPolicyVersionResponse_policyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePolicyVersionResponse -&gt; f CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_policyArn"><span class="hs-identifier hs-var hs-var">createPolicyVersionResponse_policyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersionResponse -&gt; Maybe Text)
+-&gt; (CreatePolicyVersionResponse
+    -&gt; Maybe Text -&gt; CreatePolicyVersionResponse)
+-&gt; Lens
+     CreatePolicyVersionResponse
+     CreatePolicyVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849780"><span class="annot"><span class="annottext">Maybe Text
+policyArn :: Maybe Text
+$sel:policyArn:CreatePolicyVersionResponse' :: CreatePolicyVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849780"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849780"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849779"><span class="annot"><span class="annottext">s :: CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:CreatePolicyVersionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3ApolicyArn%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | Specifies whether the policy version is the default.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_isDefaultVersion"><span class="hs-identifier hs-type">createPolicyVersionResponse_isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="createPolicyVersionResponse_isDefaultVersion"><span class="annot"><span class="annottext">createPolicyVersionResponse_isDefaultVersion :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreatePolicyVersionResponse -&gt; f CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_isDefaultVersion"><span class="hs-identifier hs-var hs-var">createPolicyVersionResponse_isDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersionResponse -&gt; Maybe Bool)
+-&gt; (CreatePolicyVersionResponse
+    -&gt; Maybe Bool -&gt; CreatePolicyVersionResponse)
+-&gt; Lens
+     CreatePolicyVersionResponse
+     CreatePolicyVersionResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849777"><span class="annot"><span class="annottext">Maybe Bool
+isDefaultVersion :: Maybe Bool
+$sel:isDefaultVersion:CreatePolicyVersionResponse' :: CreatePolicyVersionResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679849777"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679849777"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849776"><span class="annot"><span class="annottext">s :: CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849775"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679849775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultVersion:CreatePolicyVersionResponse' :: Maybe Bool
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AisDefaultVersion%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679849775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_httpStatus"><span class="hs-identifier hs-type">createPolicyVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-239"></span><span id="createPolicyVersionResponse_httpStatus"><span class="annot"><span class="annottext">createPolicyVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreatePolicyVersionResponse -&gt; f CreatePolicyVersionResponse
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#createPolicyVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createPolicyVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePolicyVersionResponse -&gt; Int)
+-&gt; (CreatePolicyVersionResponse
+    -&gt; Int -&gt; CreatePolicyVersionResponse)
+-&gt; Lens
+     CreatePolicyVersionResponse CreatePolicyVersionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849774"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreatePolicyVersionResponse' :: CreatePolicyVersionResponse -&gt; Int
+</span><a href="#local-6989586621679849774"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849774"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849773"><span class="annot"><span class="annottext">s :: CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse%27"><span class="hs-identifier hs-type">CreatePolicyVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849772"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyVersionResponse
+</span><a href="#local-6989586621679849773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePolicyVersionResponse' :: Int
+</span><a href="Amazonka.IoT.CreatePolicyVersion.html#%24sel%3AhttpStatus%3ACreatePolicyVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.CreatePolicyVersion.html#CreatePolicyVersionResponse"><span class="hs-identifier hs-type">CreatePolicyVersionResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

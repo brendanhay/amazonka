@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.KinesisVideoMedia.Types.StartSelectorType
+module Amazonka.KinesisVideoMedia.Types.StartSelectorType
 newtype StartSelectorType
 StartSelectorType' :: Text -> StartSelectorType
 [fromStartSelectorType] :: StartSelectorType -> Text
@@ -15,28 +15,28 @@ pattern StartSelectorType_FRAGMENT_NUMBER :: StartSelectorType
 pattern StartSelectorType_NOW :: StartSelectorType
 pattern StartSelectorType_PRODUCER_TIMESTAMP :: StartSelectorType
 pattern StartSelectorType_SERVER_TIMESTAMP :: StartSelectorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance GHC.Generics.Generic Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance GHC.Classes.Ord Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance GHC.Classes.Eq Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance GHC.Read.Read Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
-instance GHC.Show.Show Network.AWS.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance GHC.Generics.Generic Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance GHC.Classes.Ord Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance GHC.Classes.Eq Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance GHC.Read.Read Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
+instance GHC.Show.Show Amazonka.KinesisVideoMedia.Types.StartSelectorType.StartSelectorType
 
 
-module Network.AWS.KinesisVideoMedia.Types.StartSelector
+module Amazonka.KinesisVideoMedia.Types.StartSelector
 
 -- | Identifies the chunk on the Kinesis video stream where you want the
 --   <tt>GetMedia</tt> API to start returning media data. You have the
@@ -176,16 +176,16 @@ startSelector_startTimestamp :: Lens' StartSelector (Maybe UTCTime)
 --   <tt>startSelectorType</tt>, you don't provide any additional
 --   information in the <tt>startSelector</tt>.
 startSelector_startSelectorType :: Lens' StartSelector StartSelectorType
-instance GHC.Generics.Generic Network.AWS.KinesisVideoMedia.Types.StartSelector.StartSelector
-instance GHC.Show.Show Network.AWS.KinesisVideoMedia.Types.StartSelector.StartSelector
-instance GHC.Read.Read Network.AWS.KinesisVideoMedia.Types.StartSelector.StartSelector
-instance GHC.Classes.Eq Network.AWS.KinesisVideoMedia.Types.StartSelector.StartSelector
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoMedia.Types.StartSelector.StartSelector
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoMedia.Types.StartSelector.StartSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoMedia.Types.StartSelector.StartSelector
+instance GHC.Generics.Generic Amazonka.KinesisVideoMedia.Types.StartSelector.StartSelector
+instance GHC.Show.Show Amazonka.KinesisVideoMedia.Types.StartSelector.StartSelector
+instance GHC.Read.Read Amazonka.KinesisVideoMedia.Types.StartSelector.StartSelector
+instance GHC.Classes.Eq Amazonka.KinesisVideoMedia.Types.StartSelector.StartSelector
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoMedia.Types.StartSelector.StartSelector
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoMedia.Types.StartSelector.StartSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoMedia.Types.StartSelector.StartSelector
 
 
-module Network.AWS.KinesisVideoMedia.Types
+module Amazonka.KinesisVideoMedia.Types
 
 -- | API version <tt>2017-09-30</tt> of the Amazon Kinesis Video Streams
 --   Media SDK configuration.
@@ -410,7 +410,7 @@ startSelector_startSelectorType :: Lens' StartSelector StartSelectorType
 --   
 --   For more information, see the <b>Errors</b> section at the bottom of
 --   this topic, as well as <a>Common Errors</a>.
-module Network.AWS.KinesisVideoMedia.GetMedia
+module Amazonka.KinesisVideoMedia.GetMedia
 
 -- | <i>See:</i> <a>newGetMedia</a> smart constructor.
 data GetMedia
@@ -634,22 +634,22 @@ getMediaResponse_httpStatus :: Lens' GetMediaResponse Int
 --   <li>5000 - Internal error</li>
 --   </ul>
 getMediaResponse_payload :: Lens' GetMediaResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance GHC.Show.Show Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance GHC.Read.Read Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance GHC.Classes.Eq Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance GHC.Generics.Generic Network.AWS.KinesisVideoMedia.GetMedia.GetMediaResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoMedia.GetMedia.GetMediaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoMedia.GetMedia.GetMedia
+instance GHC.Generics.Generic Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance GHC.Show.Show Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance GHC.Read.Read Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance GHC.Classes.Eq Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance GHC.Generics.Generic Amazonka.KinesisVideoMedia.GetMedia.GetMediaResponse
+instance GHC.Show.Show Amazonka.KinesisVideoMedia.GetMedia.GetMediaResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoMedia.GetMedia.GetMedia
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoMedia.GetMedia.GetMedia
 
 
-module Network.AWS.KinesisVideoMedia.Lens
+module Amazonka.KinesisVideoMedia.Lens
 
 -- | The ARN of the stream from where you want to get the media content. If
 --   you don't specify the <tt>streamARN</tt>, you must specify the
@@ -752,12 +752,12 @@ startSelector_startTimestamp :: Lens' StartSelector (Maybe UTCTime)
 startSelector_startSelectorType :: Lens' StartSelector StartSelectorType
 
 
-module Network.AWS.KinesisVideoMedia.Waiters
+module Amazonka.KinesisVideoMedia.Waiters
 
 
 -- | Derived from API version <tt>2017-09-30</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
-module Network.AWS.KinesisVideoMedia
+module Amazonka.KinesisVideoMedia
 
 -- | API version <tt>2017-09-30</tt> of the Amazon Kinesis Video Streams
 --   Media SDK configuration.

@@ -1,0 +1,1331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ServiceCatalog.DescribeProvisioningParameters</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about the configuration required to provision the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified product using the specified provisioning artifact.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If the output contains a TagOption key with an empty list of values,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- there is a TagOption conflict for that key. The end user cannot take</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- action to fix the conflict, and launch is not blocked. In subsequent</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- calls to ProvisionProduct, do not include conflicted TagOption keys as</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- tags, or this causes the error \&quot;Parameter validation failed: Missing</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- required parameter in Tags[/N/]:/Value/\&quot;. Tag the provisioned product</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- with the value @sc-tagoption-conflict-portfolioId-productId@.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceCatalog.DescribeProvisioningParameters</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#newDescribeProvisioningParameters"><span class="hs-identifier">newDescribeProvisioningParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_productName"><span class="hs-identifier">describeProvisioningParameters_productName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_provisioningArtifactId"><span class="hs-identifier">describeProvisioningParameters_provisioningArtifactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_provisioningArtifactName"><span class="hs-identifier">describeProvisioningParameters_provisioningArtifactName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_pathName"><span class="hs-identifier">describeProvisioningParameters_pathName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_acceptLanguage"><span class="hs-identifier">describeProvisioningParameters_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_pathId"><span class="hs-identifier">describeProvisioningParameters_pathId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_productId"><span class="hs-identifier">describeProvisioningParameters_productId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#newDescribeProvisioningParametersResponse"><span class="hs-identifier">newDescribeProvisioningParametersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactPreferences"><span class="hs-identifier">describeProvisioningParametersResponse_provisioningArtifactPreferences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactParameters"><span class="hs-identifier">describeProvisioningParametersResponse_provisioningArtifactParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_usageInstructions"><span class="hs-identifier">describeProvisioningParametersResponse_usageInstructions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_constraintSummaries"><span class="hs-identifier">describeProvisioningParametersResponse_constraintSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_tagOptions"><span class="hs-identifier">describeProvisioningParametersResponse_tagOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactOutputs"><span class="hs-identifier">describeProvisioningParametersResponse_provisioningArtifactOutputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_httpStatus"><span class="hs-identifier">describeProvisioningParametersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.html"><span class="hs-identifier">Amazonka.ServiceCatalog.Types</span></a></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newDescribeProvisioningParameters' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679421080"><span id="local-6989586621679421081"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProvisioningParameters"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-var">DescribeProvisioningParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProvisioningParameters%27"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-var">DescribeProvisioningParameters'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the product. You must provide the name or ID, but not both.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AproductName%3ADescribeProvisioningParameters%27"><span class="annot"><span class="annottext">DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AproductName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var hs-var">productName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The identifier of the provisioning artifact. You must provide the name</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- or ID, but not both.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AprovisioningArtifactId%3ADescribeProvisioningParameters%27"><span class="annot"><span class="annottext">DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the provisioning artifact. You must provide the name or ID,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- but not both.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AprovisioningArtifactName%3ADescribeProvisioningParameters%27"><span class="annot"><span class="annottext">DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The name of the path. You must provide the name or ID, but not both.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3ApathName%3ADescribeProvisioningParameters%27"><span class="annot"><span class="annottext">DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3ApathName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var hs-var">pathName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AacceptLanguage%3ADescribeProvisioningParameters%27"><span class="annot"><span class="annottext">DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AacceptLanguage%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The path identifier of the product. This value is optional if the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- product has a default path, and required if the product has more than</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- one path. To list the paths for a product, use ListLaunchPaths. You must</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- provide the name or ID, but not both.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3ApathId%3ADescribeProvisioningParameters%27"><span class="annot"><span class="annottext">DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3ApathId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var hs-var">pathId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The product identifier. You must provide the product name or ID, but not</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AproductId%3ADescribeProvisioningParameters%27"><span class="annot"><span class="annottext">DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AproductId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421068"><span id="local-6989586621679421070"><span class="annot"><span class="annottext">DescribeProvisioningParameters
+-&gt; DescribeProvisioningParameters -&gt; Bool
+(DescribeProvisioningParameters
+ -&gt; DescribeProvisioningParameters -&gt; Bool)
+-&gt; (DescribeProvisioningParameters
+    -&gt; DescribeProvisioningParameters -&gt; Bool)
+-&gt; Eq DescribeProvisioningParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProvisioningParameters
+-&gt; DescribeProvisioningParameters -&gt; Bool
+$c/= :: DescribeProvisioningParameters
+-&gt; DescribeProvisioningParameters -&gt; Bool
+== :: DescribeProvisioningParameters
+-&gt; DescribeProvisioningParameters -&gt; Bool
+$c== :: DescribeProvisioningParameters
+-&gt; DescribeProvisioningParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421059"><span id="local-6989586621679421061"><span id="local-6989586621679421063"><span id="local-6989586621679421065"><span class="annot"><span class="annottext">ReadPrec [DescribeProvisioningParameters]
+ReadPrec DescribeProvisioningParameters
+Int -&gt; ReadS DescribeProvisioningParameters
+ReadS [DescribeProvisioningParameters]
+(Int -&gt; ReadS DescribeProvisioningParameters)
+-&gt; ReadS [DescribeProvisioningParameters]
+-&gt; ReadPrec DescribeProvisioningParameters
+-&gt; ReadPrec [DescribeProvisioningParameters]
+-&gt; Read DescribeProvisioningParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProvisioningParameters]
+$creadListPrec :: ReadPrec [DescribeProvisioningParameters]
+readPrec :: ReadPrec DescribeProvisioningParameters
+$creadPrec :: ReadPrec DescribeProvisioningParameters
+readList :: ReadS [DescribeProvisioningParameters]
+$creadList :: ReadS [DescribeProvisioningParameters]
+readsPrec :: Int -&gt; ReadS DescribeProvisioningParameters
+$creadsPrec :: Int -&gt; ReadS DescribeProvisioningParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421052"><span id="local-6989586621679421054"><span id="local-6989586621679421056"><span class="annot"><span class="annottext">Int -&gt; DescribeProvisioningParameters -&gt; ShowS
+[DescribeProvisioningParameters] -&gt; ShowS
+DescribeProvisioningParameters -&gt; String
+(Int -&gt; DescribeProvisioningParameters -&gt; ShowS)
+-&gt; (DescribeProvisioningParameters -&gt; String)
+-&gt; ([DescribeProvisioningParameters] -&gt; ShowS)
+-&gt; Show DescribeProvisioningParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProvisioningParameters] -&gt; ShowS
+$cshowList :: [DescribeProvisioningParameters] -&gt; ShowS
+show :: DescribeProvisioningParameters -&gt; String
+$cshow :: DescribeProvisioningParameters -&gt; String
+showsPrec :: Int -&gt; DescribeProvisioningParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProvisioningParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeProvisioningParameters
+ -&gt; Rep DescribeProvisioningParameters x)
+-&gt; (forall x.
+    Rep DescribeProvisioningParameters x
+    -&gt; DescribeProvisioningParameters)
+-&gt; Generic DescribeProvisioningParameters
+forall x.
+Rep DescribeProvisioningParameters x
+-&gt; DescribeProvisioningParameters
+forall x.
+DescribeProvisioningParameters
+-&gt; Rep DescribeProvisioningParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeProvisioningParameters x
+-&gt; DescribeProvisioningParameters
+$cfrom :: forall x.
+DescribeProvisioningParameters
+-&gt; Rep DescribeProvisioningParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'DescribeProvisioningParameters' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'productName', 'describeProvisioningParameters_productName' - The name of the product. You must provide the name or ID, but not both.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'provisioningArtifactId', 'describeProvisioningParameters_provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- or ID, but not both.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'provisioningArtifactName', 'describeProvisioningParameters_provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID,</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- but not both.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'pathName', 'describeProvisioningParameters_pathName' - The name of the path. You must provide the name or ID, but not both.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'acceptLanguage', 'describeProvisioningParameters_acceptLanguage' - The language code.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'pathId', 'describeProvisioningParameters_pathId' - The path identifier of the product. This value is optional if the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- product has a default path, and required if the product has more than</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- one path. To list the paths for a product, use ListLaunchPaths. You must</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- provide the name or ID, but not both.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'productId', 'describeProvisioningParameters_productId' - The product identifier. You must provide the product name or ID, but not</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#newDescribeProvisioningParameters"><span class="hs-identifier hs-type">newDescribeProvisioningParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span>
+</span><span id="line-135"></span><span id="newDescribeProvisioningParameters"><span class="annot"><span class="annottext">newDescribeProvisioningParameters :: DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#newDescribeProvisioningParameters"><span class="hs-identifier hs-var hs-var">newDescribeProvisioningParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DescribeProvisioningParameters' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:productName:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AproductName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">productName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioningArtifactName:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">provisioningArtifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:pathName:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3ApathName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">pathName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptLanguage:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AacceptLanguage%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:pathId:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3ApathId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">pathId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:productId:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AproductId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The name of the product. You must provide the name or ID, but not both.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_productName"><span class="hs-identifier hs-type">describeProvisioningParameters_productName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="describeProvisioningParameters_productName"><span class="annot"><span class="annottext">describeProvisioningParameters_productName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningParameters
+-&gt; f DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_productName"><span class="hs-identifier hs-var hs-var">describeProvisioningParameters_productName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParameters -&gt; Maybe Text)
+-&gt; (DescribeProvisioningParameters
+    -&gt; Maybe Text -&gt; DescribeProvisioningParameters)
+-&gt; Lens
+     DescribeProvisioningParameters
+     DescribeProvisioningParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421045"><span class="annot"><span class="annottext">Maybe Text
+productName :: Maybe Text
+$sel:productName:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679421045"><span class="hs-identifier hs-var hs-var">productName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421045"><span class="hs-identifier hs-var">productName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421044"><span class="annot"><span class="annottext">s :: DescribeProvisioningParameters
+</span><a href="#local-6989586621679421044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParameters
+</span><a href="#local-6989586621679421044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productName:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AproductName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">productName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The identifier of the provisioning artifact. You must provide the name</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- or ID, but not both.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_provisioningArtifactId"><span class="hs-identifier hs-type">describeProvisioningParameters_provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="describeProvisioningParameters_provisioningArtifactId"><span class="annot"><span class="annottext">describeProvisioningParameters_provisioningArtifactId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningParameters
+-&gt; f DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_provisioningArtifactId"><span class="hs-identifier hs-var hs-var">describeProvisioningParameters_provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParameters -&gt; Maybe Text)
+-&gt; (DescribeProvisioningParameters
+    -&gt; Maybe Text -&gt; DescribeProvisioningParameters)
+-&gt; Lens
+     DescribeProvisioningParameters
+     DescribeProvisioningParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421042"><span class="annot"><span class="annottext">Maybe Text
+provisioningArtifactId :: Maybe Text
+$sel:provisioningArtifactId:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679421042"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421042"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421041"><span class="annot"><span class="annottext">s :: DescribeProvisioningParameters
+</span><a href="#local-6989586621679421041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParameters
+</span><a href="#local-6989586621679421041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The name of the provisioning artifact. You must provide the name or ID,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- but not both.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_provisioningArtifactName"><span class="hs-identifier hs-type">describeProvisioningParameters_provisioningArtifactName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="describeProvisioningParameters_provisioningArtifactName"><span class="annot"><span class="annottext">describeProvisioningParameters_provisioningArtifactName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningParameters
+-&gt; f DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_provisioningArtifactName"><span class="hs-identifier hs-var hs-var">describeProvisioningParameters_provisioningArtifactName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParameters -&gt; Maybe Text)
+-&gt; (DescribeProvisioningParameters
+    -&gt; Maybe Text -&gt; DescribeProvisioningParameters)
+-&gt; Lens
+     DescribeProvisioningParameters
+     DescribeProvisioningParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421039"><span class="annot"><span class="annottext">Maybe Text
+provisioningArtifactName :: Maybe Text
+$sel:provisioningArtifactName:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679421039"><span class="hs-identifier hs-var hs-var">provisioningArtifactName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421039"><span class="hs-identifier hs-var">provisioningArtifactName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421038"><span class="annot"><span class="annottext">s :: DescribeProvisioningParameters
+</span><a href="#local-6989586621679421038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421037"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParameters
+</span><a href="#local-6989586621679421038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactName:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">provisioningArtifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The name of the path. You must provide the name or ID, but not both.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_pathName"><span class="hs-identifier hs-type">describeProvisioningParameters_pathName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="describeProvisioningParameters_pathName"><span class="annot"><span class="annottext">describeProvisioningParameters_pathName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningParameters
+-&gt; f DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_pathName"><span class="hs-identifier hs-var hs-var">describeProvisioningParameters_pathName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParameters -&gt; Maybe Text)
+-&gt; (DescribeProvisioningParameters
+    -&gt; Maybe Text -&gt; DescribeProvisioningParameters)
+-&gt; Lens
+     DescribeProvisioningParameters
+     DescribeProvisioningParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421036"><span class="annot"><span class="annottext">Maybe Text
+pathName :: Maybe Text
+$sel:pathName:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679421036"><span class="hs-identifier hs-var hs-var">pathName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421036"><span class="hs-identifier hs-var">pathName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421035"><span class="annot"><span class="annottext">s :: DescribeProvisioningParameters
+</span><a href="#local-6989586621679421035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421034"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParameters
+</span><a href="#local-6989586621679421035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathName:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3ApathName%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">pathName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_acceptLanguage"><span class="hs-identifier hs-type">describeProvisioningParameters_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeProvisioningParameters_acceptLanguage"><span class="annot"><span class="annottext">describeProvisioningParameters_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningParameters
+-&gt; f DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_acceptLanguage"><span class="hs-identifier hs-var hs-var">describeProvisioningParameters_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParameters -&gt; Maybe Text)
+-&gt; (DescribeProvisioningParameters
+    -&gt; Maybe Text -&gt; DescribeProvisioningParameters)
+-&gt; Lens
+     DescribeProvisioningParameters
+     DescribeProvisioningParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421033"><span class="annot"><span class="annottext">Maybe Text
+acceptLanguage :: Maybe Text
+$sel:acceptLanguage:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679421033"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421033"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421032"><span class="annot"><span class="annottext">s :: DescribeProvisioningParameters
+</span><a href="#local-6989586621679421032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParameters
+</span><a href="#local-6989586621679421032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AacceptLanguage%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The path identifier of the product. This value is optional if the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- product has a default path, and required if the product has more than</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- one path. To list the paths for a product, use ListLaunchPaths. You must</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- provide the name or ID, but not both.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_pathId"><span class="hs-identifier hs-type">describeProvisioningParameters_pathId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="describeProvisioningParameters_pathId"><span class="annot"><span class="annottext">describeProvisioningParameters_pathId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningParameters
+-&gt; f DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_pathId"><span class="hs-identifier hs-var hs-var">describeProvisioningParameters_pathId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParameters -&gt; Maybe Text)
+-&gt; (DescribeProvisioningParameters
+    -&gt; Maybe Text -&gt; DescribeProvisioningParameters)
+-&gt; Lens
+     DescribeProvisioningParameters
+     DescribeProvisioningParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421030"><span class="annot"><span class="annottext">Maybe Text
+pathId :: Maybe Text
+$sel:pathId:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679421030"><span class="hs-identifier hs-var hs-var">pathId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421030"><span class="hs-identifier hs-var">pathId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421029"><span class="annot"><span class="annottext">s :: DescribeProvisioningParameters
+</span><a href="#local-6989586621679421029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421028"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParameters
+</span><a href="#local-6989586621679421029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathId:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3ApathId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">pathId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The product identifier. You must provide the product name or ID, but not</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_productId"><span class="hs-identifier hs-type">describeProvisioningParameters_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="describeProvisioningParameters_productId"><span class="annot"><span class="annottext">describeProvisioningParameters_productId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningParameters
+-&gt; f DescribeProvisioningParameters
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParameters_productId"><span class="hs-identifier hs-var hs-var">describeProvisioningParameters_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParameters -&gt; Maybe Text)
+-&gt; (DescribeProvisioningParameters
+    -&gt; Maybe Text -&gt; DescribeProvisioningParameters)
+-&gt; Lens
+     DescribeProvisioningParameters
+     DescribeProvisioningParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421027"><span class="annot"><span class="annottext">Maybe Text
+productId :: Maybe Text
+$sel:productId:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679421027"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421027"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421026"><span class="annot"><span class="annottext">s :: DescribeProvisioningParameters
+</span><a href="#local-6989586621679421026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParameters
+</span><a href="#local-6989586621679421026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:DescribeProvisioningParameters' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AproductId%3ADescribeProvisioningParameters%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679421025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-192"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679421021"><span class="annot"><span class="annottext">request :: DescribeProvisioningParameters
+-&gt; Request DescribeProvisioningParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeProvisioningParameters
+-&gt; Request DescribeProvisioningParameters
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679421017"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeProvisioningParameters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeProvisioningParameters)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeProvisioningParameters))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeProvisioningParameters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeProvisioningParameters)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679421014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421014"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679421013"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679421013"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679421012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactPreferences
+-&gt; Maybe [ProvisioningArtifactParameter]
+-&gt; Maybe [UsageInstruction]
+-&gt; Maybe [ConstraintSummary]
+-&gt; Maybe [TagOptionSummary]
+-&gt; Maybe [ProvisioningArtifactOutput]
+-&gt; Int
+-&gt; DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">DescribeProvisioningParametersResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProvisioningArtifactPreferences
+ -&gt; Maybe [ProvisioningArtifactParameter]
+ -&gt; Maybe [UsageInstruction]
+ -&gt; Maybe [ConstraintSummary]
+ -&gt; Maybe [TagOptionSummary]
+ -&gt; Maybe [ProvisioningArtifactOutput]
+ -&gt; Int
+ -&gt; DescribeProvisioningParametersResponse)
+-&gt; Either String (Maybe ProvisioningArtifactPreferences)
+-&gt; Either
+     String
+     (Maybe [ProvisioningArtifactParameter]
+      -&gt; Maybe [UsageInstruction]
+      -&gt; Maybe [ConstraintSummary]
+      -&gt; Maybe [TagOptionSummary]
+      -&gt; Maybe [ProvisioningArtifactOutput]
+      -&gt; Int
+      -&gt; DescribeProvisioningParametersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe ProvisioningArtifactPreferences)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactPreferences&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ProvisioningArtifactParameter]
+   -&gt; Maybe [UsageInstruction]
+   -&gt; Maybe [ConstraintSummary]
+   -&gt; Maybe [TagOptionSummary]
+   -&gt; Maybe [ProvisioningArtifactOutput]
+   -&gt; Int
+   -&gt; DescribeProvisioningParametersResponse)
+-&gt; Either String (Maybe [ProvisioningArtifactParameter])
+-&gt; Either
+     String
+     (Maybe [UsageInstruction]
+      -&gt; Maybe [ConstraintSummary]
+      -&gt; Maybe [TagOptionSummary]
+      -&gt; Maybe [ProvisioningArtifactOutput]
+      -&gt; Int
+      -&gt; DescribeProvisioningParametersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ProvisioningArtifactParameter]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactParameters&quot;</span></span><span>
+</span><span id="line-201"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProvisioningArtifactParameter]))
+-&gt; Maybe [ProvisioningArtifactParameter]
+-&gt; Either String (Maybe [ProvisioningArtifactParameter])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactParameter]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-202"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [UsageInstruction]
+   -&gt; Maybe [ConstraintSummary]
+   -&gt; Maybe [TagOptionSummary]
+   -&gt; Maybe [ProvisioningArtifactOutput]
+   -&gt; Int
+   -&gt; DescribeProvisioningParametersResponse)
+-&gt; Either String (Maybe [UsageInstruction])
+-&gt; Either
+     String
+     (Maybe [ConstraintSummary]
+      -&gt; Maybe [TagOptionSummary]
+      -&gt; Maybe [ProvisioningArtifactOutput]
+      -&gt; Int
+      -&gt; DescribeProvisioningParametersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UsageInstruction]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsageInstructions&quot;</span></span><span>
+</span><span id="line-204"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UsageInstruction]))
+-&gt; Maybe [UsageInstruction]
+-&gt; Either String (Maybe [UsageInstruction])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UsageInstruction]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-205"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ConstraintSummary]
+   -&gt; Maybe [TagOptionSummary]
+   -&gt; Maybe [ProvisioningArtifactOutput]
+   -&gt; Int
+   -&gt; DescribeProvisioningParametersResponse)
+-&gt; Either String (Maybe [ConstraintSummary])
+-&gt; Either
+     String
+     (Maybe [TagOptionSummary]
+      -&gt; Maybe [ProvisioningArtifactOutput]
+      -&gt; Int
+      -&gt; DescribeProvisioningParametersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConstraintSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConstraintSummaries&quot;</span></span><span>
+</span><span id="line-207"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConstraintSummary]))
+-&gt; Maybe [ConstraintSummary]
+-&gt; Either String (Maybe [ConstraintSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-208"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [TagOptionSummary]
+   -&gt; Maybe [ProvisioningArtifactOutput]
+   -&gt; Int
+   -&gt; DescribeProvisioningParametersResponse)
+-&gt; Either String (Maybe [TagOptionSummary])
+-&gt; Either
+     String
+     (Maybe [ProvisioningArtifactOutput]
+      -&gt; Int -&gt; DescribeProvisioningParametersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TagOptionSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TagOptionSummary]))
+-&gt; Maybe [TagOptionSummary]
+-&gt; Either String (Maybe [TagOptionSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagOptionSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ProvisioningArtifactOutput]
+   -&gt; Int -&gt; DescribeProvisioningParametersResponse)
+-&gt; Either String (Maybe [ProvisioningArtifactOutput])
+-&gt; Either String (Int -&gt; DescribeProvisioningParametersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679421012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ProvisioningArtifactOutput]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactOutputs&quot;</span></span><span>
+</span><span id="line-211"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProvisioningArtifactOutput]))
+-&gt; Maybe [ProvisioningArtifactOutput]
+-&gt; Either String (Maybe [ProvisioningArtifactOutput])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactOutput]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-212"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeProvisioningParametersResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeProvisioningParametersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421014"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679421003"><span id="local-6989586621679421005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span></span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679421000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679420996"><span class="annot"><span class="annottext">toHeaders :: DescribeProvisioningParameters -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeProvisioningParameters -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-232"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS242ServiceCatalogService.DescribeProvisioningParameters&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-233"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-234"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-236"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-238"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420986"><span id="local-6989586621679420988"><span id="local-6989586621679420990"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679420984"><span class="annot"><span class="annottext">toJSON :: DescribeProvisioningParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters%27"><span class="hs-identifier hs-type">DescribeProvisioningParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420976"><span id="local-6989586621679420977"><span id="local-6989586621679420978"><span id="local-6989586621679420979"><span id="local-6989586621679420980"><span id="local-6989586621679420981"><span id="local-6989586621679420982"><span class="annot"><span class="annottext">Maybe Text
+productId :: Maybe Text
+pathId :: Maybe Text
+acceptLanguage :: Maybe Text
+pathName :: Maybe Text
+provisioningArtifactName :: Maybe Text
+provisioningArtifactId :: Maybe Text
+productName :: Maybe Text
+$sel:productId:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+$sel:pathId:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+$sel:acceptLanguage:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+$sel:pathName:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+$sel:provisioningArtifactName:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+$sel:provisioningArtifactId:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+$sel:productName:DescribeProvisioningParameters' :: DescribeProvisioningParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679420976"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420982"><span class="hs-identifier hs-var">productName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420981"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420980"><span class="hs-identifier hs-var">provisioningArtifactName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PathName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420979"><span class="hs-identifier hs-var">pathName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420978"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PathId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420977"><span class="hs-identifier hs-var">pathId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420976"><span class="hs-identifier hs-var">productId</span></a></span><span>
+</span><span id="line-256"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679420970"><span class="annot"><span class="annottext">toPath :: DescribeProvisioningParameters -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeProvisioningParameters -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParameters"><span class="hs-identifier hs-type">DescribeProvisioningParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679420966"><span class="annot"><span class="annottext">toQuery :: DescribeProvisioningParameters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeProvisioningParameters -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | /See:/ 'newDescribeProvisioningParametersResponse' smart constructor.</span><span>
+</span><span id="line-266"></span><span id="local-6989586621679420963"><span id="local-6989586621679420964"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProvisioningParametersResponse"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-var">DescribeProvisioningParametersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProvisioningParametersResponse%27"><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">DescribeProvisioningParametersResponse'</span></a></span></span><span>
+</span><span id="line-267"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains information about preferences, such as regions</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- and accounts, for the provisioning artifact.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AprovisioningArtifactPreferences%3ADescribeProvisioningParametersResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+-&gt; Maybe ProvisioningArtifactPreferences
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactPreferences%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactPreferences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- | Information about the parameters used to provision the product.</span><span>
+</span><span id="line-271"></span><span>    </span><span id="%24sel%3AprovisioningArtifactParameters%3ADescribeProvisioningParametersResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+-&gt; Maybe [ProvisioningArtifactParameter]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactParameters%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisioningArtifactParameter.html#ProvisioningArtifactParameter"><span class="hs-identifier hs-type">ProvisioningArtifactParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- | Any additional metadata specifically related to the provisioning of the</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- product. For example, see the @Version@ field of the CloudFormation</span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-275"></span><span>    </span><span id="%24sel%3AusageInstructions%3ADescribeProvisioningParametersResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse -&gt; Maybe [UsageInstruction]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AusageInstructions%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var hs-var">usageInstructions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.UsageInstruction.html#UsageInstruction"><span class="hs-identifier hs-type">UsageInstruction</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- | Information about the constraints used to provision the product.</span><span>
+</span><span id="line-277"></span><span>    </span><span id="%24sel%3AconstraintSummaries%3ADescribeProvisioningParametersResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse -&gt; Maybe [ConstraintSummary]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AconstraintSummaries%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var hs-var">constraintSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ConstraintSummary.html#ConstraintSummary"><span class="hs-identifier hs-type">ConstraintSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- | Information about the TagOptions associated with the resource.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3AtagOptions%3ADescribeProvisioningParametersResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse -&gt; Maybe [TagOptionSummary]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AtagOptions%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var hs-var">tagOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- | The output of the provisioning artifact.</span><span>
+</span><span id="line-281"></span><span>    </span><span id="%24sel%3AprovisioningArtifactOutputs%3ADescribeProvisioningParametersResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+-&gt; Maybe [ProvisioningArtifactOutput]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactOutputs%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactOutputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisioningArtifactOutput.html#ProvisioningArtifactOutput"><span class="hs-identifier hs-type">ProvisioningArtifactOutput</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-283"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeProvisioningParametersResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse -&gt; Int
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AhttpStatus%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420952"><span id="local-6989586621679420954"><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+-&gt; DescribeProvisioningParametersResponse -&gt; Bool
+(DescribeProvisioningParametersResponse
+ -&gt; DescribeProvisioningParametersResponse -&gt; Bool)
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; DescribeProvisioningParametersResponse -&gt; Bool)
+-&gt; Eq DescribeProvisioningParametersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProvisioningParametersResponse
+-&gt; DescribeProvisioningParametersResponse -&gt; Bool
+$c/= :: DescribeProvisioningParametersResponse
+-&gt; DescribeProvisioningParametersResponse -&gt; Bool
+== :: DescribeProvisioningParametersResponse
+-&gt; DescribeProvisioningParametersResponse -&gt; Bool
+$c== :: DescribeProvisioningParametersResponse
+-&gt; DescribeProvisioningParametersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420944"><span id="local-6989586621679420946"><span id="local-6989586621679420948"><span id="local-6989586621679420950"><span class="annot"><span class="annottext">ReadPrec [DescribeProvisioningParametersResponse]
+ReadPrec DescribeProvisioningParametersResponse
+Int -&gt; ReadS DescribeProvisioningParametersResponse
+ReadS [DescribeProvisioningParametersResponse]
+(Int -&gt; ReadS DescribeProvisioningParametersResponse)
+-&gt; ReadS [DescribeProvisioningParametersResponse]
+-&gt; ReadPrec DescribeProvisioningParametersResponse
+-&gt; ReadPrec [DescribeProvisioningParametersResponse]
+-&gt; Read DescribeProvisioningParametersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProvisioningParametersResponse]
+$creadListPrec :: ReadPrec [DescribeProvisioningParametersResponse]
+readPrec :: ReadPrec DescribeProvisioningParametersResponse
+$creadPrec :: ReadPrec DescribeProvisioningParametersResponse
+readList :: ReadS [DescribeProvisioningParametersResponse]
+$creadList :: ReadS [DescribeProvisioningParametersResponse]
+readsPrec :: Int -&gt; ReadS DescribeProvisioningParametersResponse
+$creadsPrec :: Int -&gt; ReadS DescribeProvisioningParametersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420938"><span id="local-6989586621679420940"><span id="local-6989586621679420942"><span class="annot"><span class="annottext">Int -&gt; DescribeProvisioningParametersResponse -&gt; ShowS
+[DescribeProvisioningParametersResponse] -&gt; ShowS
+DescribeProvisioningParametersResponse -&gt; String
+(Int -&gt; DescribeProvisioningParametersResponse -&gt; ShowS)
+-&gt; (DescribeProvisioningParametersResponse -&gt; String)
+-&gt; ([DescribeProvisioningParametersResponse] -&gt; ShowS)
+-&gt; Show DescribeProvisioningParametersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProvisioningParametersResponse] -&gt; ShowS
+$cshowList :: [DescribeProvisioningParametersResponse] -&gt; ShowS
+show :: DescribeProvisioningParametersResponse -&gt; String
+$cshow :: DescribeProvisioningParametersResponse -&gt; String
+showsPrec :: Int -&gt; DescribeProvisioningParametersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProvisioningParametersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeProvisioningParametersResponse
+ -&gt; Rep DescribeProvisioningParametersResponse x)
+-&gt; (forall x.
+    Rep DescribeProvisioningParametersResponse x
+    -&gt; DescribeProvisioningParametersResponse)
+-&gt; Generic DescribeProvisioningParametersResponse
+forall x.
+Rep DescribeProvisioningParametersResponse x
+-&gt; DescribeProvisioningParametersResponse
+forall x.
+DescribeProvisioningParametersResponse
+-&gt; Rep DescribeProvisioningParametersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeProvisioningParametersResponse x
+-&gt; DescribeProvisioningParametersResponse
+$cfrom :: forall x.
+DescribeProvisioningParametersResponse
+-&gt; Rep DescribeProvisioningParametersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Create a value of 'DescribeProvisioningParametersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'provisioningArtifactPreferences', 'describeProvisioningParametersResponse_provisioningArtifactPreferences' - An object that contains information about preferences, such as regions</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- and accounts, for the provisioning artifact.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'provisioningArtifactParameters', 'describeProvisioningParametersResponse_provisioningArtifactParameters' - Information about the parameters used to provision the product.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- 'usageInstructions', 'describeProvisioningParametersResponse_usageInstructions' - Any additional metadata specifically related to the provisioning of the</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- product. For example, see the @Version@ field of the CloudFormation</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- 'constraintSummaries', 'describeProvisioningParametersResponse_constraintSummaries' - Information about the constraints used to provision the product.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- 'tagOptions', 'describeProvisioningParametersResponse_tagOptions' - Information about the TagOptions associated with the resource.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- 'provisioningArtifactOutputs', 'describeProvisioningParametersResponse_provisioningArtifactOutputs' - The output of the provisioning artifact.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- 'httpStatus', 'describeProvisioningParametersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#newDescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">newDescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-312"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-313"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-314"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span>
+</span><span id="line-315"></span><span id="newDescribeProvisioningParametersResponse"><span class="annot"><span class="annottext">newDescribeProvisioningParametersResponse :: Int -&gt; DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#newDescribeProvisioningParametersResponse"><span class="hs-identifier hs-var hs-var">newDescribeProvisioningParametersResponse</span></a></span></span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679420935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse' :: Maybe ProvisioningArtifactPreferences
+-&gt; Maybe [ProvisioningArtifactParameter]
+-&gt; Maybe [UsageInstruction]
+-&gt; Maybe [ConstraintSummary]
+-&gt; Maybe [TagOptionSummary]
+-&gt; Maybe [ProvisioningArtifactOutput]
+-&gt; Int
+-&gt; DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span>
+</span><span id="line-318"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisioningArtifactPreferences:DescribeProvisioningParametersResponse' :: Maybe ProvisioningArtifactPreferences
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactPreferences%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">provisioningArtifactPreferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactPreferences
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisioningArtifactParameters:DescribeProvisioningParametersResponse' :: Maybe [ProvisioningArtifactParameter]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactParameters%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">provisioningArtifactParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-321"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactParameter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>        </span><span class="annot"><span class="annottext">$sel:usageInstructions:DescribeProvisioningParametersResponse' :: Maybe [UsageInstruction]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AusageInstructions%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">usageInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageInstruction]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>        </span><span class="annot"><span class="annottext">$sel:constraintSummaries:DescribeProvisioningParametersResponse' :: Maybe [ConstraintSummary]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AconstraintSummaries%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">constraintSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">$sel:tagOptions:DescribeProvisioningParametersResponse' :: Maybe [TagOptionSummary]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AtagOptions%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">tagOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagOptionSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisioningArtifactOutputs:DescribeProvisioningParametersResponse' :: Maybe [ProvisioningArtifactOutput]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactOutputs%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">provisioningArtifactOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactOutput]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProvisioningParametersResponse' :: Int
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AhttpStatus%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- | An object that contains information about preferences, such as regions</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- and accounts, for the provisioning artifact.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactPreferences"><span class="hs-identifier hs-type">describeProvisioningParametersResponse_provisioningArtifactPreferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisioningArtifactPreferences.html#ProvisioningArtifactPreferences"><span class="hs-identifier hs-type">ProvisioningArtifactPreferences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span id="describeProvisioningParametersResponse_provisioningArtifactPreferences"><span class="annot"><span class="annottext">describeProvisioningParametersResponse_provisioningArtifactPreferences :: (Maybe ProvisioningArtifactPreferences
+ -&gt; f (Maybe ProvisioningArtifactPreferences))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactPreferences"><span class="hs-identifier hs-var hs-var">describeProvisioningParametersResponse_provisioningArtifactPreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParametersResponse
+ -&gt; Maybe ProvisioningArtifactPreferences)
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; Maybe ProvisioningArtifactPreferences
+    -&gt; DescribeProvisioningParametersResponse)
+-&gt; Lens
+     DescribeProvisioningParametersResponse
+     DescribeProvisioningParametersResponse
+     (Maybe ProvisioningArtifactPreferences)
+     (Maybe ProvisioningArtifactPreferences)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420934"><span class="annot"><span class="annottext">Maybe ProvisioningArtifactPreferences
+provisioningArtifactPreferences :: Maybe ProvisioningArtifactPreferences
+$sel:provisioningArtifactPreferences:DescribeProvisioningParametersResponse' :: DescribeProvisioningParametersResponse
+-&gt; Maybe ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679420934"><span class="hs-identifier hs-var hs-var">provisioningArtifactPreferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679420934"><span class="hs-identifier hs-var">provisioningArtifactPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420933"><span class="annot"><span class="annottext">s :: DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420932"><span class="annot"><span class="annottext">Maybe ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679420932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactPreferences:DescribeProvisioningParametersResponse' :: Maybe ProvisioningArtifactPreferences
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactPreferences%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">provisioningArtifactPreferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactPreferences
+</span><a href="#local-6989586621679420932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- | Information about the parameters used to provision the product.</span><span>
+</span><span id="line-337"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactParameters"><span class="hs-identifier hs-type">describeProvisioningParametersResponse_provisioningArtifactParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisioningArtifactParameter.html#ProvisioningArtifactParameter"><span class="hs-identifier hs-type">ProvisioningArtifactParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span id="describeProvisioningParametersResponse_provisioningArtifactParameters"><span class="annot"><span class="annottext">describeProvisioningParametersResponse_provisioningArtifactParameters :: (Maybe [ProvisioningArtifactParameter]
+ -&gt; f (Maybe [ProvisioningArtifactParameter]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactParameters"><span class="hs-identifier hs-var hs-var">describeProvisioningParametersResponse_provisioningArtifactParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParametersResponse
+ -&gt; Maybe [ProvisioningArtifactParameter])
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; Maybe [ProvisioningArtifactParameter]
+    -&gt; DescribeProvisioningParametersResponse)
+-&gt; Lens
+     DescribeProvisioningParametersResponse
+     DescribeProvisioningParametersResponse
+     (Maybe [ProvisioningArtifactParameter])
+     (Maybe [ProvisioningArtifactParameter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420931"><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactParameter]
+provisioningArtifactParameters :: Maybe [ProvisioningArtifactParameter]
+$sel:provisioningArtifactParameters:DescribeProvisioningParametersResponse' :: DescribeProvisioningParametersResponse
+-&gt; Maybe [ProvisioningArtifactParameter]
+</span><a href="#local-6989586621679420931"><span class="hs-identifier hs-var hs-var">provisioningArtifactParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactParameter]
+</span><a href="#local-6989586621679420931"><span class="hs-identifier hs-var">provisioningArtifactParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420930"><span class="annot"><span class="annottext">s :: DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420929"><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactParameter]
+</span><a href="#local-6989586621679420929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactParameters:DescribeProvisioningParametersResponse' :: Maybe [ProvisioningArtifactParameter]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactParameters%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">provisioningArtifactParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactParameter]
+</span><a href="#local-6989586621679420929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisioningArtifactParameter]
+  -&gt; f (Maybe [ProvisioningArtifactParameter]))
+ -&gt; DescribeProvisioningParametersResponse
+ -&gt; f DescribeProvisioningParametersResponse)
+-&gt; ((Maybe [ProvisioningArtifactParameter]
+     -&gt; f (Maybe [ProvisioningArtifactParameter]))
+    -&gt; Maybe [ProvisioningArtifactParameter]
+    -&gt; f (Maybe [ProvisioningArtifactParameter]))
+-&gt; (Maybe [ProvisioningArtifactParameter]
+    -&gt; f (Maybe [ProvisioningArtifactParameter]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProvisioningArtifactParameter]
+  [ProvisioningArtifactParameter]
+  [ProvisioningArtifactParameter]
+  [ProvisioningArtifactParameter]
+-&gt; Iso
+     (Maybe [ProvisioningArtifactParameter])
+     (Maybe [ProvisioningArtifactParameter])
+     (Maybe [ProvisioningArtifactParameter])
+     (Maybe [ProvisioningArtifactParameter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProvisioningArtifactParameter]
+  [ProvisioningArtifactParameter]
+  [ProvisioningArtifactParameter]
+  [ProvisioningArtifactParameter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- | Any additional metadata specifically related to the provisioning of the</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- product. For example, see the @Version@ field of the CloudFormation</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_usageInstructions"><span class="hs-identifier hs-type">describeProvisioningParametersResponse_usageInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.UsageInstruction.html#UsageInstruction"><span class="hs-identifier hs-type">UsageInstruction</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span id="describeProvisioningParametersResponse_usageInstructions"><span class="annot"><span class="annottext">describeProvisioningParametersResponse_usageInstructions :: (Maybe [UsageInstruction] -&gt; f (Maybe [UsageInstruction]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_usageInstructions"><span class="hs-identifier hs-var hs-var">describeProvisioningParametersResponse_usageInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParametersResponse
+ -&gt; Maybe [UsageInstruction])
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; Maybe [UsageInstruction]
+    -&gt; DescribeProvisioningParametersResponse)
+-&gt; Lens
+     DescribeProvisioningParametersResponse
+     DescribeProvisioningParametersResponse
+     (Maybe [UsageInstruction])
+     (Maybe [UsageInstruction])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420925"><span class="annot"><span class="annottext">Maybe [UsageInstruction]
+usageInstructions :: Maybe [UsageInstruction]
+$sel:usageInstructions:DescribeProvisioningParametersResponse' :: DescribeProvisioningParametersResponse -&gt; Maybe [UsageInstruction]
+</span><a href="#local-6989586621679420925"><span class="hs-identifier hs-var hs-var">usageInstructions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageInstruction]
+</span><a href="#local-6989586621679420925"><span class="hs-identifier hs-var">usageInstructions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420924"><span class="annot"><span class="annottext">s :: DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420923"><span class="annot"><span class="annottext">Maybe [UsageInstruction]
+</span><a href="#local-6989586621679420923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageInstructions:DescribeProvisioningParametersResponse' :: Maybe [UsageInstruction]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AusageInstructions%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">usageInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageInstruction]
+</span><a href="#local-6989586621679420923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageInstruction] -&gt; f (Maybe [UsageInstruction]))
+ -&gt; DescribeProvisioningParametersResponse
+ -&gt; f DescribeProvisioningParametersResponse)
+-&gt; ((Maybe [UsageInstruction] -&gt; f (Maybe [UsageInstruction]))
+    -&gt; Maybe [UsageInstruction] -&gt; f (Maybe [UsageInstruction]))
+-&gt; (Maybe [UsageInstruction] -&gt; f (Maybe [UsageInstruction]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UsageInstruction]
+  [UsageInstruction]
+  [UsageInstruction]
+  [UsageInstruction]
+-&gt; Iso
+     (Maybe [UsageInstruction])
+     (Maybe [UsageInstruction])
+     (Maybe [UsageInstruction])
+     (Maybe [UsageInstruction])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UsageInstruction]
+  [UsageInstruction]
+  [UsageInstruction]
+  [UsageInstruction]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | Information about the constraints used to provision the product.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_constraintSummaries"><span class="hs-identifier hs-type">describeProvisioningParametersResponse_constraintSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ConstraintSummary.html#ConstraintSummary"><span class="hs-identifier hs-type">ConstraintSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="describeProvisioningParametersResponse_constraintSummaries"><span class="annot"><span class="annottext">describeProvisioningParametersResponse_constraintSummaries :: (Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_constraintSummaries"><span class="hs-identifier hs-var hs-var">describeProvisioningParametersResponse_constraintSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParametersResponse
+ -&gt; Maybe [ConstraintSummary])
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; Maybe [ConstraintSummary]
+    -&gt; DescribeProvisioningParametersResponse)
+-&gt; Lens
+     DescribeProvisioningParametersResponse
+     DescribeProvisioningParametersResponse
+     (Maybe [ConstraintSummary])
+     (Maybe [ConstraintSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420922"><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+constraintSummaries :: Maybe [ConstraintSummary]
+$sel:constraintSummaries:DescribeProvisioningParametersResponse' :: DescribeProvisioningParametersResponse -&gt; Maybe [ConstraintSummary]
+</span><a href="#local-6989586621679420922"><span class="hs-identifier hs-var hs-var">constraintSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+</span><a href="#local-6989586621679420922"><span class="hs-identifier hs-var">constraintSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420921"><span class="annot"><span class="annottext">s :: DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420920"><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+</span><a href="#local-6989586621679420920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintSummaries:DescribeProvisioningParametersResponse' :: Maybe [ConstraintSummary]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AconstraintSummaries%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">constraintSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+</span><a href="#local-6989586621679420920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
+ -&gt; DescribeProvisioningParametersResponse
+ -&gt; f DescribeProvisioningParametersResponse)
+-&gt; ((Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
+    -&gt; Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
+-&gt; (Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConstraintSummary]
+  [ConstraintSummary]
+  [ConstraintSummary]
+  [ConstraintSummary]
+-&gt; Iso
+     (Maybe [ConstraintSummary])
+     (Maybe [ConstraintSummary])
+     (Maybe [ConstraintSummary])
+     (Maybe [ConstraintSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConstraintSummary]
+  [ConstraintSummary]
+  [ConstraintSummary]
+  [ConstraintSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | Information about the TagOptions associated with the resource.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_tagOptions"><span class="hs-identifier hs-type">describeProvisioningParametersResponse_tagOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="describeProvisioningParametersResponse_tagOptions"><span class="annot"><span class="annottext">describeProvisioningParametersResponse_tagOptions :: (Maybe [TagOptionSummary] -&gt; f (Maybe [TagOptionSummary]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_tagOptions"><span class="hs-identifier hs-var hs-var">describeProvisioningParametersResponse_tagOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParametersResponse
+ -&gt; Maybe [TagOptionSummary])
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; Maybe [TagOptionSummary]
+    -&gt; DescribeProvisioningParametersResponse)
+-&gt; Lens
+     DescribeProvisioningParametersResponse
+     DescribeProvisioningParametersResponse
+     (Maybe [TagOptionSummary])
+     (Maybe [TagOptionSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420919"><span class="annot"><span class="annottext">Maybe [TagOptionSummary]
+tagOptions :: Maybe [TagOptionSummary]
+$sel:tagOptions:DescribeProvisioningParametersResponse' :: DescribeProvisioningParametersResponse -&gt; Maybe [TagOptionSummary]
+</span><a href="#local-6989586621679420919"><span class="hs-identifier hs-var hs-var">tagOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagOptionSummary]
+</span><a href="#local-6989586621679420919"><span class="hs-identifier hs-var">tagOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420918"><span class="annot"><span class="annottext">s :: DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420917"><span class="annot"><span class="annottext">Maybe [TagOptionSummary]
+</span><a href="#local-6989586621679420917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagOptions:DescribeProvisioningParametersResponse' :: Maybe [TagOptionSummary]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AtagOptions%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">tagOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagOptionSummary]
+</span><a href="#local-6989586621679420917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagOptionSummary] -&gt; f (Maybe [TagOptionSummary]))
+ -&gt; DescribeProvisioningParametersResponse
+ -&gt; f DescribeProvisioningParametersResponse)
+-&gt; ((Maybe [TagOptionSummary] -&gt; f (Maybe [TagOptionSummary]))
+    -&gt; Maybe [TagOptionSummary] -&gt; f (Maybe [TagOptionSummary]))
+-&gt; (Maybe [TagOptionSummary] -&gt; f (Maybe [TagOptionSummary]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagOptionSummary]
+  [TagOptionSummary]
+  [TagOptionSummary]
+  [TagOptionSummary]
+-&gt; Iso
+     (Maybe [TagOptionSummary])
+     (Maybe [TagOptionSummary])
+     (Maybe [TagOptionSummary])
+     (Maybe [TagOptionSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagOptionSummary]
+  [TagOptionSummary]
+  [TagOptionSummary]
+  [TagOptionSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The output of the provisioning artifact.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactOutputs"><span class="hs-identifier hs-type">describeProvisioningParametersResponse_provisioningArtifactOutputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisioningArtifactOutput.html#ProvisioningArtifactOutput"><span class="hs-identifier hs-type">ProvisioningArtifactOutput</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span id="describeProvisioningParametersResponse_provisioningArtifactOutputs"><span class="annot"><span class="annottext">describeProvisioningParametersResponse_provisioningArtifactOutputs :: (Maybe [ProvisioningArtifactOutput]
+ -&gt; f (Maybe [ProvisioningArtifactOutput]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_provisioningArtifactOutputs"><span class="hs-identifier hs-var hs-var">describeProvisioningParametersResponse_provisioningArtifactOutputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParametersResponse
+ -&gt; Maybe [ProvisioningArtifactOutput])
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; Maybe [ProvisioningArtifactOutput]
+    -&gt; DescribeProvisioningParametersResponse)
+-&gt; Lens
+     DescribeProvisioningParametersResponse
+     DescribeProvisioningParametersResponse
+     (Maybe [ProvisioningArtifactOutput])
+     (Maybe [ProvisioningArtifactOutput])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420916"><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactOutput]
+provisioningArtifactOutputs :: Maybe [ProvisioningArtifactOutput]
+$sel:provisioningArtifactOutputs:DescribeProvisioningParametersResponse' :: DescribeProvisioningParametersResponse
+-&gt; Maybe [ProvisioningArtifactOutput]
+</span><a href="#local-6989586621679420916"><span class="hs-identifier hs-var hs-var">provisioningArtifactOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactOutput]
+</span><a href="#local-6989586621679420916"><span class="hs-identifier hs-var">provisioningArtifactOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420915"><span class="annot"><span class="annottext">s :: DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420914"><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactOutput]
+</span><a href="#local-6989586621679420914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactOutputs:DescribeProvisioningParametersResponse' :: Maybe [ProvisioningArtifactOutput]
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AprovisioningArtifactOutputs%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">provisioningArtifactOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningArtifactOutput]
+</span><a href="#local-6989586621679420914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisioningArtifactOutput]
+  -&gt; f (Maybe [ProvisioningArtifactOutput]))
+ -&gt; DescribeProvisioningParametersResponse
+ -&gt; f DescribeProvisioningParametersResponse)
+-&gt; ((Maybe [ProvisioningArtifactOutput]
+     -&gt; f (Maybe [ProvisioningArtifactOutput]))
+    -&gt; Maybe [ProvisioningArtifactOutput]
+    -&gt; f (Maybe [ProvisioningArtifactOutput]))
+-&gt; (Maybe [ProvisioningArtifactOutput]
+    -&gt; f (Maybe [ProvisioningArtifactOutput]))
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProvisioningArtifactOutput]
+  [ProvisioningArtifactOutput]
+  [ProvisioningArtifactOutput]
+  [ProvisioningArtifactOutput]
+-&gt; Iso
+     (Maybe [ProvisioningArtifactOutput])
+     (Maybe [ProvisioningArtifactOutput])
+     (Maybe [ProvisioningArtifactOutput])
+     (Maybe [ProvisioningArtifactOutput])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProvisioningArtifactOutput]
+  [ProvisioningArtifactOutput]
+  [ProvisioningArtifactOutput]
+  [ProvisioningArtifactOutput]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_httpStatus"><span class="hs-identifier hs-type">describeProvisioningParametersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-360"></span><span id="describeProvisioningParametersResponse_httpStatus"><span class="annot"><span class="annottext">describeProvisioningParametersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeProvisioningParametersResponse
+-&gt; f DescribeProvisioningParametersResponse
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#describeProvisioningParametersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeProvisioningParametersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningParametersResponse -&gt; Int)
+-&gt; (DescribeProvisioningParametersResponse
+    -&gt; Int -&gt; DescribeProvisioningParametersResponse)
+-&gt; Lens
+     DescribeProvisioningParametersResponse
+     DescribeProvisioningParametersResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420913"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeProvisioningParametersResponse' :: DescribeProvisioningParametersResponse -&gt; Int
+</span><a href="#local-6989586621679420913"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420913"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420912"><span class="annot"><span class="annottext">s :: DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420911"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningParametersResponse
+</span><a href="#local-6989586621679420912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProvisioningParametersResponse' :: Int
+</span><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#%24sel%3AhttpStatus%3ADescribeProvisioningParametersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-363"></span><span>  </span><span id="local-6989586621679420909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-364"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.DescribeProvisioningParameters.html#DescribeProvisioningParametersResponse"><span class="hs-identifier hs-type">DescribeProvisioningParametersResponse</span></a></span></span><span>
+</span><span id="line-365"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SDB.Types.Attribute
+module Amazonka.SDB.Types.Attribute
 
 -- | <i>See:</i> <a>newAttribute</a> smart constructor.
 data Attribute
@@ -49,17 +49,17 @@ attribute_name :: Lens' Attribute Text
 
 -- | The value of the attribute.
 attribute_value :: Lens' Attribute Text
-instance GHC.Generics.Generic Network.AWS.SDB.Types.Attribute.Attribute
-instance GHC.Show.Show Network.AWS.SDB.Types.Attribute.Attribute
-instance GHC.Read.Read Network.AWS.SDB.Types.Attribute.Attribute
-instance GHC.Classes.Eq Network.AWS.SDB.Types.Attribute.Attribute
-instance Network.AWS.Data.XML.FromXML Network.AWS.SDB.Types.Attribute.Attribute
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.Types.Attribute.Attribute
-instance Control.DeepSeq.NFData Network.AWS.SDB.Types.Attribute.Attribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.Types.Attribute.Attribute
+instance GHC.Generics.Generic Amazonka.SDB.Types.Attribute.Attribute
+instance GHC.Show.Show Amazonka.SDB.Types.Attribute.Attribute
+instance GHC.Read.Read Amazonka.SDB.Types.Attribute.Attribute
+instance GHC.Classes.Eq Amazonka.SDB.Types.Attribute.Attribute
+instance Amazonka.Data.XML.FromXML Amazonka.SDB.Types.Attribute.Attribute
+instance Data.Hashable.Class.Hashable Amazonka.SDB.Types.Attribute.Attribute
+instance Control.DeepSeq.NFData Amazonka.SDB.Types.Attribute.Attribute
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.Types.Attribute.Attribute
 
 
-module Network.AWS.SDB.Types.DeletableItem
+module Amazonka.SDB.Types.DeletableItem
 
 -- | <i>See:</i> <a>newDeletableItem</a> smart constructor.
 data DeletableItem
@@ -88,16 +88,16 @@ deletableItem_attributes :: Lens' DeletableItem (Maybe [Attribute])
 
 -- | Undocumented member.
 deletableItem_name :: Lens' DeletableItem Text
-instance GHC.Generics.Generic Network.AWS.SDB.Types.DeletableItem.DeletableItem
-instance GHC.Show.Show Network.AWS.SDB.Types.DeletableItem.DeletableItem
-instance GHC.Read.Read Network.AWS.SDB.Types.DeletableItem.DeletableItem
-instance GHC.Classes.Eq Network.AWS.SDB.Types.DeletableItem.DeletableItem
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.Types.DeletableItem.DeletableItem
-instance Control.DeepSeq.NFData Network.AWS.SDB.Types.DeletableItem.DeletableItem
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.Types.DeletableItem.DeletableItem
+instance GHC.Generics.Generic Amazonka.SDB.Types.DeletableItem.DeletableItem
+instance GHC.Show.Show Amazonka.SDB.Types.DeletableItem.DeletableItem
+instance GHC.Read.Read Amazonka.SDB.Types.DeletableItem.DeletableItem
+instance GHC.Classes.Eq Amazonka.SDB.Types.DeletableItem.DeletableItem
+instance Data.Hashable.Class.Hashable Amazonka.SDB.Types.DeletableItem.DeletableItem
+instance Control.DeepSeq.NFData Amazonka.SDB.Types.DeletableItem.DeletableItem
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.Types.DeletableItem.DeletableItem
 
 
-module Network.AWS.SDB.Types.Item
+module Amazonka.SDB.Types.Item
 
 -- | <i>See:</i> <a>newItem</a> smart constructor.
 data Item
@@ -134,16 +134,16 @@ item_name :: Lens' Item Text
 
 -- | A list of attributes.
 item_attributes :: Lens' Item [Attribute]
-instance GHC.Generics.Generic Network.AWS.SDB.Types.Item.Item
-instance GHC.Show.Show Network.AWS.SDB.Types.Item.Item
-instance GHC.Read.Read Network.AWS.SDB.Types.Item.Item
-instance GHC.Classes.Eq Network.AWS.SDB.Types.Item.Item
-instance Network.AWS.Data.XML.FromXML Network.AWS.SDB.Types.Item.Item
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.Types.Item.Item
-instance Control.DeepSeq.NFData Network.AWS.SDB.Types.Item.Item
+instance GHC.Generics.Generic Amazonka.SDB.Types.Item.Item
+instance GHC.Show.Show Amazonka.SDB.Types.Item.Item
+instance GHC.Read.Read Amazonka.SDB.Types.Item.Item
+instance GHC.Classes.Eq Amazonka.SDB.Types.Item.Item
+instance Amazonka.Data.XML.FromXML Amazonka.SDB.Types.Item.Item
+instance Data.Hashable.Class.Hashable Amazonka.SDB.Types.Item.Item
+instance Control.DeepSeq.NFData Amazonka.SDB.Types.Item.Item
 
 
-module Network.AWS.SDB.Types.ReplaceableAttribute
+module Amazonka.SDB.Types.ReplaceableAttribute
 
 -- | <i>See:</i> <a>newReplaceableAttribute</a> smart constructor.
 data ReplaceableAttribute
@@ -193,16 +193,16 @@ replaceableAttribute_name :: Lens' ReplaceableAttribute Text
 
 -- | The value of the replaceable attribute.
 replaceableAttribute_value :: Lens' ReplaceableAttribute Text
-instance GHC.Generics.Generic Network.AWS.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
-instance GHC.Show.Show Network.AWS.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
-instance GHC.Read.Read Network.AWS.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
-instance GHC.Classes.Eq Network.AWS.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
-instance Control.DeepSeq.NFData Network.AWS.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
+instance GHC.Generics.Generic Amazonka.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
+instance GHC.Show.Show Amazonka.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
+instance GHC.Read.Read Amazonka.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
+instance GHC.Classes.Eq Amazonka.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
+instance Data.Hashable.Class.Hashable Amazonka.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
+instance Control.DeepSeq.NFData Amazonka.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.Types.ReplaceableAttribute.ReplaceableAttribute
 
 
-module Network.AWS.SDB.Types.ReplaceableItem
+module Amazonka.SDB.Types.ReplaceableItem
 
 -- | <i>See:</i> <a>newReplaceableItem</a> smart constructor.
 data ReplaceableItem
@@ -236,16 +236,16 @@ replaceableItem_name :: Lens' ReplaceableItem Text
 
 -- | The list of attributes for a replaceable item.
 replaceableItem_attributes :: Lens' ReplaceableItem [ReplaceableAttribute]
-instance GHC.Generics.Generic Network.AWS.SDB.Types.ReplaceableItem.ReplaceableItem
-instance GHC.Show.Show Network.AWS.SDB.Types.ReplaceableItem.ReplaceableItem
-instance GHC.Read.Read Network.AWS.SDB.Types.ReplaceableItem.ReplaceableItem
-instance GHC.Classes.Eq Network.AWS.SDB.Types.ReplaceableItem.ReplaceableItem
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.Types.ReplaceableItem.ReplaceableItem
-instance Control.DeepSeq.NFData Network.AWS.SDB.Types.ReplaceableItem.ReplaceableItem
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.Types.ReplaceableItem.ReplaceableItem
+instance GHC.Generics.Generic Amazonka.SDB.Types.ReplaceableItem.ReplaceableItem
+instance GHC.Show.Show Amazonka.SDB.Types.ReplaceableItem.ReplaceableItem
+instance GHC.Read.Read Amazonka.SDB.Types.ReplaceableItem.ReplaceableItem
+instance GHC.Classes.Eq Amazonka.SDB.Types.ReplaceableItem.ReplaceableItem
+instance Data.Hashable.Class.Hashable Amazonka.SDB.Types.ReplaceableItem.ReplaceableItem
+instance Control.DeepSeq.NFData Amazonka.SDB.Types.ReplaceableItem.ReplaceableItem
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.Types.ReplaceableItem.ReplaceableItem
 
 
-module Network.AWS.SDB.Types.UpdateCondition
+module Amazonka.SDB.Types.UpdateCondition
 
 -- | Specifies the conditions under which data should be updated. If an
 --   update condition is specified for a request, the data will only be
@@ -311,16 +311,16 @@ updateCondition_value :: Lens' UpdateCondition (Maybe Text)
 
 -- | The name of the attribute involved in the condition.
 updateCondition_name :: Lens' UpdateCondition (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
-instance GHC.Show.Show Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
-instance GHC.Read.Read Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
-instance GHC.Classes.Eq Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
-instance Control.DeepSeq.NFData Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
+instance GHC.Generics.Generic Amazonka.SDB.Types.UpdateCondition.UpdateCondition
+instance GHC.Show.Show Amazonka.SDB.Types.UpdateCondition.UpdateCondition
+instance GHC.Read.Read Amazonka.SDB.Types.UpdateCondition.UpdateCondition
+instance GHC.Classes.Eq Amazonka.SDB.Types.UpdateCondition.UpdateCondition
+instance Data.Hashable.Class.Hashable Amazonka.SDB.Types.UpdateCondition.UpdateCondition
+instance Control.DeepSeq.NFData Amazonka.SDB.Types.UpdateCondition.UpdateCondition
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.Types.UpdateCondition.UpdateCondition
 
 
-module Network.AWS.SDB.Types
+module Amazonka.SDB.Types
 
 -- | API version <tt>2009-04-15</tt> of the Amazon SimpleDB SDK
 --   configuration.
@@ -648,7 +648,7 @@ updateCondition_name :: Lens' UpdateCondition (Maybe Text)
 --   Select to Create Amazon SimpleDB Queries in the Developer Guide.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SDB.Select
+module Amazonka.SDB.Select
 
 -- | <i>See:</i> <a>newSelect</a> smart constructor.
 data Select
@@ -751,22 +751,22 @@ selectResponse_nextToken :: Lens' SelectResponse (Maybe Text)
 
 -- | The response's http status code.
 selectResponse_httpStatus :: Lens' SelectResponse Int
-instance GHC.Generics.Generic Network.AWS.SDB.Select.Select
-instance GHC.Show.Show Network.AWS.SDB.Select.Select
-instance GHC.Read.Read Network.AWS.SDB.Select.Select
-instance GHC.Classes.Eq Network.AWS.SDB.Select.Select
-instance GHC.Generics.Generic Network.AWS.SDB.Select.SelectResponse
-instance GHC.Show.Show Network.AWS.SDB.Select.SelectResponse
-instance GHC.Read.Read Network.AWS.SDB.Select.SelectResponse
-instance GHC.Classes.Eq Network.AWS.SDB.Select.SelectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.Select.Select
-instance Control.DeepSeq.NFData Network.AWS.SDB.Select.SelectResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SDB.Select.Select
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.Select.Select
-instance Control.DeepSeq.NFData Network.AWS.SDB.Select.Select
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.Select.Select
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.Select.Select
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.Select.Select
+instance GHC.Generics.Generic Amazonka.SDB.Select.Select
+instance GHC.Show.Show Amazonka.SDB.Select.Select
+instance GHC.Read.Read Amazonka.SDB.Select.Select
+instance GHC.Classes.Eq Amazonka.SDB.Select.Select
+instance GHC.Generics.Generic Amazonka.SDB.Select.SelectResponse
+instance GHC.Show.Show Amazonka.SDB.Select.SelectResponse
+instance GHC.Read.Read Amazonka.SDB.Select.SelectResponse
+instance GHC.Classes.Eq Amazonka.SDB.Select.SelectResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.Select.Select
+instance Control.DeepSeq.NFData Amazonka.SDB.Select.SelectResponse
+instance Amazonka.Pager.AWSPager Amazonka.SDB.Select.Select
+instance Data.Hashable.Class.Hashable Amazonka.SDB.Select.Select
+instance Control.DeepSeq.NFData Amazonka.SDB.Select.Select
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.Select.Select
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.Select.Select
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.Select.Select
 
 
 -- | The PutAttributes operation creates or replaces attributes in an item.
@@ -809,7 +809,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.Select.Select
 --   <li>One billion attributes per domain</li>
 --   <li>10 GB of total user data storage per domain</li>
 --   </ul>
-module Network.AWS.SDB.PutAttributes
+module Amazonka.SDB.PutAttributes
 
 -- | <i>See:</i> <a>newPutAttributes</a> smart constructor.
 data PutAttributes
@@ -880,21 +880,21 @@ PutAttributesResponse' :: PutAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutAttributesResponse :: PutAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SDB.PutAttributes.PutAttributes
-instance GHC.Show.Show Network.AWS.SDB.PutAttributes.PutAttributes
-instance GHC.Read.Read Network.AWS.SDB.PutAttributes.PutAttributes
-instance GHC.Classes.Eq Network.AWS.SDB.PutAttributes.PutAttributes
-instance GHC.Generics.Generic Network.AWS.SDB.PutAttributes.PutAttributesResponse
-instance GHC.Show.Show Network.AWS.SDB.PutAttributes.PutAttributesResponse
-instance GHC.Read.Read Network.AWS.SDB.PutAttributes.PutAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SDB.PutAttributes.PutAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.PutAttributes.PutAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.PutAttributes.PutAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.PutAttributes.PutAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.PutAttributes.PutAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.PutAttributes.PutAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.PutAttributes.PutAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.PutAttributes.PutAttributes
+instance GHC.Generics.Generic Amazonka.SDB.PutAttributes.PutAttributes
+instance GHC.Show.Show Amazonka.SDB.PutAttributes.PutAttributes
+instance GHC.Read.Read Amazonka.SDB.PutAttributes.PutAttributes
+instance GHC.Classes.Eq Amazonka.SDB.PutAttributes.PutAttributes
+instance GHC.Generics.Generic Amazonka.SDB.PutAttributes.PutAttributesResponse
+instance GHC.Show.Show Amazonka.SDB.PutAttributes.PutAttributesResponse
+instance GHC.Read.Read Amazonka.SDB.PutAttributes.PutAttributesResponse
+instance GHC.Classes.Eq Amazonka.SDB.PutAttributes.PutAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.PutAttributes.PutAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.PutAttributes.PutAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.PutAttributes.PutAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.PutAttributes.PutAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.PutAttributes.PutAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.PutAttributes.PutAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.PutAttributes.PutAttributes
 
 
 -- | The <tt>ListDomains</tt> operation lists all domains associated with
@@ -906,7 +906,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.PutAttributes.PutAttribu
 --   more domain names with each successive operation call.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SDB.ListDomains
+module Amazonka.SDB.ListDomains
 
 -- | <i>See:</i> <a>newListDomains</a> smart constructor.
 data ListDomains
@@ -992,22 +992,22 @@ listDomainsResponse_nextToken :: Lens' ListDomainsResponse (Maybe Text)
 
 -- | The response's http status code.
 listDomainsResponse_httpStatus :: Lens' ListDomainsResponse Int
-instance GHC.Generics.Generic Network.AWS.SDB.ListDomains.ListDomains
-instance GHC.Show.Show Network.AWS.SDB.ListDomains.ListDomains
-instance GHC.Read.Read Network.AWS.SDB.ListDomains.ListDomains
-instance GHC.Classes.Eq Network.AWS.SDB.ListDomains.ListDomains
-instance GHC.Generics.Generic Network.AWS.SDB.ListDomains.ListDomainsResponse
-instance GHC.Show.Show Network.AWS.SDB.ListDomains.ListDomainsResponse
-instance GHC.Read.Read Network.AWS.SDB.ListDomains.ListDomainsResponse
-instance GHC.Classes.Eq Network.AWS.SDB.ListDomains.ListDomainsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.SDB.ListDomains.ListDomainsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SDB.ListDomains.ListDomains
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.SDB.ListDomains.ListDomains
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.ListDomains.ListDomains
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.ListDomains.ListDomains
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.SDB.ListDomains.ListDomains
+instance GHC.Show.Show Amazonka.SDB.ListDomains.ListDomains
+instance GHC.Read.Read Amazonka.SDB.ListDomains.ListDomains
+instance GHC.Classes.Eq Amazonka.SDB.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.SDB.ListDomains.ListDomainsResponse
+instance GHC.Show.Show Amazonka.SDB.ListDomains.ListDomainsResponse
+instance GHC.Read.Read Amazonka.SDB.ListDomains.ListDomainsResponse
+instance GHC.Classes.Eq Amazonka.SDB.ListDomains.ListDomainsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.SDB.ListDomains.ListDomainsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SDB.ListDomains.ListDomains
+instance Data.Hashable.Class.Hashable Amazonka.SDB.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.SDB.ListDomains.ListDomains
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.ListDomains.ListDomains
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.ListDomains.ListDomains
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.ListDomains.ListDomains
 
 
 -- | Returns all of the attributes associated with the specified item.
@@ -1018,7 +1018,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.ListDomains.ListDomains
 --   operation, an empty set is returned. The system does not return an
 --   error as it cannot guarantee the item does not exist on other
 --   replicas.
-module Network.AWS.SDB.GetAttributes
+module Amazonka.SDB.GetAttributes
 
 -- | <i>See:</i> <a>newGetAttributes</a> smart constructor.
 data GetAttributes
@@ -1115,27 +1115,27 @@ getAttributesResponse_attributes :: Lens' GetAttributesResponse (Maybe [Attribut
 
 -- | The response's http status code.
 getAttributesResponse_httpStatus :: Lens' GetAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SDB.GetAttributes.GetAttributes
-instance GHC.Show.Show Network.AWS.SDB.GetAttributes.GetAttributes
-instance GHC.Read.Read Network.AWS.SDB.GetAttributes.GetAttributes
-instance GHC.Classes.Eq Network.AWS.SDB.GetAttributes.GetAttributes
-instance GHC.Generics.Generic Network.AWS.SDB.GetAttributes.GetAttributesResponse
-instance GHC.Show.Show Network.AWS.SDB.GetAttributes.GetAttributesResponse
-instance GHC.Read.Read Network.AWS.SDB.GetAttributes.GetAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SDB.GetAttributes.GetAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.GetAttributes.GetAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.GetAttributes.GetAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.GetAttributes.GetAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.GetAttributes.GetAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.GetAttributes.GetAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.GetAttributes.GetAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.GetAttributes.GetAttributes
+instance GHC.Generics.Generic Amazonka.SDB.GetAttributes.GetAttributes
+instance GHC.Show.Show Amazonka.SDB.GetAttributes.GetAttributes
+instance GHC.Read.Read Amazonka.SDB.GetAttributes.GetAttributes
+instance GHC.Classes.Eq Amazonka.SDB.GetAttributes.GetAttributes
+instance GHC.Generics.Generic Amazonka.SDB.GetAttributes.GetAttributesResponse
+instance GHC.Show.Show Amazonka.SDB.GetAttributes.GetAttributesResponse
+instance GHC.Read.Read Amazonka.SDB.GetAttributes.GetAttributesResponse
+instance GHC.Classes.Eq Amazonka.SDB.GetAttributes.GetAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.GetAttributes.GetAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.GetAttributes.GetAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.GetAttributes.GetAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.GetAttributes.GetAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.GetAttributes.GetAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.GetAttributes.GetAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.GetAttributes.GetAttributes
 
 
 -- | Returns information about the domain, including when the domain was
 --   created, the number of items and attributes in the domain, and the
 --   size of the attribute names and values.
-module Network.AWS.SDB.DomainMetadata
+module Amazonka.SDB.DomainMetadata
 
 -- | <i>See:</i> <a>newDomainMetadata</a> smart constructor.
 data DomainMetadata
@@ -1256,28 +1256,28 @@ domainMetadataResponse_timestamp :: Lens' DomainMetadataResponse (Maybe Int)
 
 -- | The response's http status code.
 domainMetadataResponse_httpStatus :: Lens' DomainMetadataResponse Int
-instance GHC.Generics.Generic Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance GHC.Show.Show Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance GHC.Read.Read Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance GHC.Classes.Eq Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance GHC.Generics.Generic Network.AWS.SDB.DomainMetadata.DomainMetadataResponse
-instance GHC.Show.Show Network.AWS.SDB.DomainMetadata.DomainMetadataResponse
-instance GHC.Read.Read Network.AWS.SDB.DomainMetadata.DomainMetadataResponse
-instance GHC.Classes.Eq Network.AWS.SDB.DomainMetadata.DomainMetadataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance Control.DeepSeq.NFData Network.AWS.SDB.DomainMetadata.DomainMetadataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance Control.DeepSeq.NFData Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.DomainMetadata.DomainMetadata
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.DomainMetadata.DomainMetadata
+instance GHC.Generics.Generic Amazonka.SDB.DomainMetadata.DomainMetadata
+instance GHC.Show.Show Amazonka.SDB.DomainMetadata.DomainMetadata
+instance GHC.Read.Read Amazonka.SDB.DomainMetadata.DomainMetadata
+instance GHC.Classes.Eq Amazonka.SDB.DomainMetadata.DomainMetadata
+instance GHC.Generics.Generic Amazonka.SDB.DomainMetadata.DomainMetadataResponse
+instance GHC.Show.Show Amazonka.SDB.DomainMetadata.DomainMetadataResponse
+instance GHC.Read.Read Amazonka.SDB.DomainMetadata.DomainMetadataResponse
+instance GHC.Classes.Eq Amazonka.SDB.DomainMetadata.DomainMetadataResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.DomainMetadata.DomainMetadata
+instance Control.DeepSeq.NFData Amazonka.SDB.DomainMetadata.DomainMetadataResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.DomainMetadata.DomainMetadata
+instance Control.DeepSeq.NFData Amazonka.SDB.DomainMetadata.DomainMetadata
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.DomainMetadata.DomainMetadata
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.DomainMetadata.DomainMetadata
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.DomainMetadata.DomainMetadata
 
 
 -- | The <tt>DeleteDomain</tt> operation deletes a domain. Any items (and
 --   their attributes) in the domain are deleted as well. The
 --   <tt>DeleteDomain</tt> operation might take 10 or more seconds to
 --   complete.
-module Network.AWS.SDB.DeleteDomain
+module Amazonka.SDB.DeleteDomain
 
 -- | <i>See:</i> <a>newDeleteDomain</a> smart constructor.
 data DeleteDomain
@@ -1312,21 +1312,21 @@ DeleteDomainResponse' :: DeleteDomainResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteDomainResponse :: DeleteDomainResponse
-instance GHC.Generics.Generic Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance GHC.Show.Show Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance GHC.Read.Read Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance GHC.Classes.Eq Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance GHC.Generics.Generic Network.AWS.SDB.DeleteDomain.DeleteDomainResponse
-instance GHC.Show.Show Network.AWS.SDB.DeleteDomain.DeleteDomainResponse
-instance GHC.Read.Read Network.AWS.SDB.DeleteDomain.DeleteDomainResponse
-instance GHC.Classes.Eq Network.AWS.SDB.DeleteDomain.DeleteDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance Control.DeepSeq.NFData Network.AWS.SDB.DeleteDomain.DeleteDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance Control.DeepSeq.NFData Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.DeleteDomain.DeleteDomain
+instance GHC.Generics.Generic Amazonka.SDB.DeleteDomain.DeleteDomain
+instance GHC.Show.Show Amazonka.SDB.DeleteDomain.DeleteDomain
+instance GHC.Read.Read Amazonka.SDB.DeleteDomain.DeleteDomain
+instance GHC.Classes.Eq Amazonka.SDB.DeleteDomain.DeleteDomain
+instance GHC.Generics.Generic Amazonka.SDB.DeleteDomain.DeleteDomainResponse
+instance GHC.Show.Show Amazonka.SDB.DeleteDomain.DeleteDomainResponse
+instance GHC.Read.Read Amazonka.SDB.DeleteDomain.DeleteDomainResponse
+instance GHC.Classes.Eq Amazonka.SDB.DeleteDomain.DeleteDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.DeleteDomain.DeleteDomain
+instance Control.DeepSeq.NFData Amazonka.SDB.DeleteDomain.DeleteDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.DeleteDomain.DeleteDomain
+instance Control.DeepSeq.NFData Amazonka.SDB.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.DeleteDomain.DeleteDomain
 
 
 -- | Deletes one or more attributes associated with an item. If all
@@ -1340,7 +1340,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.DeleteDomain.DeleteDomai
 --   eventual consistency update model, performing a GetAttributes or
 --   Select operation (read) immediately after a <tt>DeleteAttributes</tt>
 --   or PutAttributes operation (write) might not return updated item data.
-module Network.AWS.SDB.DeleteAttributes
+module Amazonka.SDB.DeleteAttributes
 
 -- | <i>See:</i> <a>newDeleteAttributes</a> smart constructor.
 data DeleteAttributes
@@ -1422,21 +1422,21 @@ DeleteAttributesResponse' :: DeleteAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAttributesResponse :: DeleteAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance GHC.Show.Show Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance GHC.Read.Read Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance GHC.Classes.Eq Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance GHC.Generics.Generic Network.AWS.SDB.DeleteAttributes.DeleteAttributesResponse
-instance GHC.Show.Show Network.AWS.SDB.DeleteAttributes.DeleteAttributesResponse
-instance GHC.Read.Read Network.AWS.SDB.DeleteAttributes.DeleteAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SDB.DeleteAttributes.DeleteAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.DeleteAttributes.DeleteAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.DeleteAttributes.DeleteAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.DeleteAttributes.DeleteAttributes
+instance GHC.Generics.Generic Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance GHC.Show.Show Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance GHC.Read.Read Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance GHC.Classes.Eq Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance GHC.Generics.Generic Amazonka.SDB.DeleteAttributes.DeleteAttributesResponse
+instance GHC.Show.Show Amazonka.SDB.DeleteAttributes.DeleteAttributesResponse
+instance GHC.Read.Read Amazonka.SDB.DeleteAttributes.DeleteAttributesResponse
+instance GHC.Classes.Eq Amazonka.SDB.DeleteAttributes.DeleteAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.DeleteAttributes.DeleteAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.DeleteAttributes.DeleteAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.DeleteAttributes.DeleteAttributes
 
 
 -- | The <tt>CreateDomain</tt> operation creates a new domain. The domain
@@ -1448,7 +1448,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.DeleteAttributes.DeleteA
 --   
 --   If the client requires additional domains, go to
 --   <a>http://aws.amazon.com/contact-us/simpledb-limit-request/</a>.
-module Network.AWS.SDB.CreateDomain
+module Amazonka.SDB.CreateDomain
 
 -- | <i>See:</i> <a>newCreateDomain</a> smart constructor.
 data CreateDomain
@@ -1489,21 +1489,21 @@ CreateDomainResponse' :: CreateDomainResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newCreateDomainResponse :: CreateDomainResponse
-instance GHC.Generics.Generic Network.AWS.SDB.CreateDomain.CreateDomain
-instance GHC.Show.Show Network.AWS.SDB.CreateDomain.CreateDomain
-instance GHC.Read.Read Network.AWS.SDB.CreateDomain.CreateDomain
-instance GHC.Classes.Eq Network.AWS.SDB.CreateDomain.CreateDomain
-instance GHC.Generics.Generic Network.AWS.SDB.CreateDomain.CreateDomainResponse
-instance GHC.Show.Show Network.AWS.SDB.CreateDomain.CreateDomainResponse
-instance GHC.Read.Read Network.AWS.SDB.CreateDomain.CreateDomainResponse
-instance GHC.Classes.Eq Network.AWS.SDB.CreateDomain.CreateDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.CreateDomain.CreateDomain
-instance Control.DeepSeq.NFData Network.AWS.SDB.CreateDomain.CreateDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.CreateDomain.CreateDomain
-instance Control.DeepSeq.NFData Network.AWS.SDB.CreateDomain.CreateDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.CreateDomain.CreateDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.CreateDomain.CreateDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.CreateDomain.CreateDomain
+instance GHC.Generics.Generic Amazonka.SDB.CreateDomain.CreateDomain
+instance GHC.Show.Show Amazonka.SDB.CreateDomain.CreateDomain
+instance GHC.Read.Read Amazonka.SDB.CreateDomain.CreateDomain
+instance GHC.Classes.Eq Amazonka.SDB.CreateDomain.CreateDomain
+instance GHC.Generics.Generic Amazonka.SDB.CreateDomain.CreateDomainResponse
+instance GHC.Show.Show Amazonka.SDB.CreateDomain.CreateDomainResponse
+instance GHC.Read.Read Amazonka.SDB.CreateDomain.CreateDomainResponse
+instance GHC.Classes.Eq Amazonka.SDB.CreateDomain.CreateDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.CreateDomain.CreateDomain
+instance Control.DeepSeq.NFData Amazonka.SDB.CreateDomain.CreateDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.CreateDomain.CreateDomain
+instance Control.DeepSeq.NFData Amazonka.SDB.CreateDomain.CreateDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.CreateDomain.CreateDomain
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.CreateDomain.CreateDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.CreateDomain.CreateDomain
 
 
 -- | The <tt>BatchPutAttributes</tt> operation creates or replaces
@@ -1558,7 +1558,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.CreateDomain.CreateDomai
 --   <li>10 GB of total user data storage per domain</li>
 --   <li>25 item limit per <tt>BatchPutAttributes</tt> operation</li>
 --   </ul>
-module Network.AWS.SDB.BatchPutAttributes
+module Amazonka.SDB.BatchPutAttributes
 
 -- | <i>See:</i> <a>newBatchPutAttributes</a> smart constructor.
 data BatchPutAttributes
@@ -1603,21 +1603,21 @@ BatchPutAttributesResponse' :: BatchPutAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newBatchPutAttributesResponse :: BatchPutAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance GHC.Show.Show Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance GHC.Read.Read Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance GHC.Classes.Eq Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance GHC.Generics.Generic Network.AWS.SDB.BatchPutAttributes.BatchPutAttributesResponse
-instance GHC.Show.Show Network.AWS.SDB.BatchPutAttributes.BatchPutAttributesResponse
-instance GHC.Read.Read Network.AWS.SDB.BatchPutAttributes.BatchPutAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SDB.BatchPutAttributes.BatchPutAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.BatchPutAttributes.BatchPutAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.BatchPutAttributes.BatchPutAttributes
+instance GHC.Generics.Generic Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance GHC.Show.Show Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance GHC.Read.Read Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance GHC.Classes.Eq Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance GHC.Generics.Generic Amazonka.SDB.BatchPutAttributes.BatchPutAttributesResponse
+instance GHC.Show.Show Amazonka.SDB.BatchPutAttributes.BatchPutAttributesResponse
+instance GHC.Read.Read Amazonka.SDB.BatchPutAttributes.BatchPutAttributesResponse
+instance GHC.Classes.Eq Amazonka.SDB.BatchPutAttributes.BatchPutAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.BatchPutAttributes.BatchPutAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.BatchPutAttributes.BatchPutAttributes
 
 
 -- | Performs multiple DeleteAttributes operations in a single call, which
@@ -1630,7 +1630,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.BatchPutAttributes.Batch
 --   <li>1 MB request size</li>
 --   <li>25 item limit per BatchDeleteAttributes operation</li>
 --   </ul>
-module Network.AWS.SDB.BatchDeleteAttributes
+module Amazonka.SDB.BatchDeleteAttributes
 
 -- | <i>See:</i> <a>newBatchDeleteAttributes</a> smart constructor.
 data BatchDeleteAttributes
@@ -1676,24 +1676,24 @@ BatchDeleteAttributesResponse' :: BatchDeleteAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance GHC.Show.Show Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance GHC.Read.Read Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance GHC.Classes.Eq Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance GHC.Generics.Generic Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
-instance GHC.Show.Show Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
-instance GHC.Read.Read Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance Control.DeepSeq.NFData Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance GHC.Generics.Generic Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance GHC.Show.Show Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance GHC.Read.Read Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance GHC.Classes.Eq Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance GHC.Generics.Generic Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
+instance GHC.Show.Show Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
+instance GHC.Read.Read Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
+instance GHC.Classes.Eq Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance Control.DeepSeq.NFData Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SDB.BatchDeleteAttributes.BatchDeleteAttributes
 
 
-module Network.AWS.SDB.Lens
+module Amazonka.SDB.Lens
 
 -- | The name of the domain in which the attributes are being deleted.
 batchDeleteAttributes_domainName :: Lens' BatchDeleteAttributes Text
@@ -1898,7 +1898,7 @@ updateCondition_value :: Lens' UpdateCondition (Maybe Text)
 updateCondition_name :: Lens' UpdateCondition (Maybe Text)
 
 
-module Network.AWS.SDB.Waiters
+module Amazonka.SDB.Waiters
 
 
 -- | Derived from API version <tt>2009-04-15</tt> of the AWS service
@@ -1921,7 +1921,7 @@ module Network.AWS.SDB.Waiters
 --   to scale instantly, and pay only for what they use.
 --   
 --   Visit <a>http://aws.amazon.com/simpledb/</a> for more information.
-module Network.AWS.SDB
+module Amazonka.SDB
 
 -- | API version <tt>2009-04-15</tt> of the Amazon SimpleDB SDK
 --   configuration.

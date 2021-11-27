@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SESV2.Types.DkimStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SESV2.Types.DkimStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus"><span class="hs-identifier">DkimStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_FAILED"><span class="hs-identifier">DkimStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_NOT_STARTED"><span class="hs-identifier">DkimStatus_NOT_STARTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_PENDING"><span class="hs-identifier">DkimStatus_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_SUCCESS"><span class="hs-identifier">DkimStatus_SUCCESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_TEMPORARY_FAILURE"><span class="hs-identifier">DkimStatus_TEMPORARY_FAILURE</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | The DKIM authentication status of the identity. The status can be one of</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- the following:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   @PENDING@ &#8211; The verification process was initiated, but Amazon SES</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     hasn\'t yet detected the DKIM records in the DNS configuration for</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     the domain.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   @SUCCESS@ &#8211; The verification process completed successfully.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   @FAILED@ &#8211; The verification process failed. This typically occurs</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     when Amazon SES fails to find the DKIM records in the DNS</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     configuration of the domain.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   @TEMPORARY_FAILURE@ &#8211; A temporary issue is preventing Amazon SES</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     from determining the DKIM authentication status of the domain.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   @NOT_STARTED@ &#8211; The DKIM verification process hasn\'t been initiated</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     for the domain.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679327084"><span id="local-6989586621679327085"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DkimStatus"><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus"><span class="hs-identifier hs-var">DkimStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DkimStatus%27"><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus%27"><span class="hs-identifier hs-var">DkimStatus'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDkimStatus"><span class="annot"><span class="annottext">DkimStatus -&gt; Text
+</span><a href="Amazonka.SESV2.Types.DkimStatus.html#fromDkimStatus"><span class="hs-identifier hs-var hs-var">fromDkimStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327076"><span id="local-6989586621679327078"><span id="local-6989586621679327080"><span class="annot"><span class="annottext">Int -&gt; DkimStatus -&gt; ShowS
+[DkimStatus] -&gt; ShowS
+DkimStatus -&gt; String
+(Int -&gt; DkimStatus -&gt; ShowS)
+-&gt; (DkimStatus -&gt; String)
+-&gt; ([DkimStatus] -&gt; ShowS)
+-&gt; Show DkimStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DkimStatus] -&gt; ShowS
+$cshowList :: [DkimStatus] -&gt; ShowS
+show :: DkimStatus -&gt; String
+$cshow :: DkimStatus -&gt; String
+showsPrec :: Int -&gt; DkimStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DkimStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679327067"><span id="local-6989586621679327069"><span id="local-6989586621679327071"><span id="local-6989586621679327073"><span class="annot"><span class="annottext">ReadPrec [DkimStatus]
+ReadPrec DkimStatus
+Int -&gt; ReadS DkimStatus
+ReadS [DkimStatus]
+(Int -&gt; ReadS DkimStatus)
+-&gt; ReadS [DkimStatus]
+-&gt; ReadPrec DkimStatus
+-&gt; ReadPrec [DkimStatus]
+-&gt; Read DkimStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DkimStatus]
+$creadListPrec :: ReadPrec [DkimStatus]
+readPrec :: ReadPrec DkimStatus
+$creadPrec :: ReadPrec DkimStatus
+readList :: ReadS [DkimStatus]
+$creadList :: ReadS [DkimStatus]
+readsPrec :: Int -&gt; ReadS DkimStatus
+$creadsPrec :: Int -&gt; ReadS DkimStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679327062"><span id="local-6989586621679327064"><span class="annot"><span class="annottext">DkimStatus -&gt; DkimStatus -&gt; Bool
+(DkimStatus -&gt; DkimStatus -&gt; Bool)
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; Bool) -&gt; Eq DkimStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DkimStatus -&gt; DkimStatus -&gt; Bool
+$c/= :: DkimStatus -&gt; DkimStatus -&gt; Bool
+== :: DkimStatus -&gt; DkimStatus -&gt; Bool
+$c== :: DkimStatus -&gt; DkimStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679327046"><span id="local-6989586621679327048"><span id="local-6989586621679327050"><span id="local-6989586621679327052"><span id="local-6989586621679327054"><span id="local-6989586621679327056"><span id="local-6989586621679327058"><span class="annot"><span class="annottext">Eq DkimStatus
+Eq DkimStatus
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; Ordering)
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; Bool)
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; Bool)
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; Bool)
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; Bool)
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; DkimStatus)
+-&gt; (DkimStatus -&gt; DkimStatus -&gt; DkimStatus)
+-&gt; Ord DkimStatus
+DkimStatus -&gt; DkimStatus -&gt; Bool
+DkimStatus -&gt; DkimStatus -&gt; Ordering
+DkimStatus -&gt; DkimStatus -&gt; DkimStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DkimStatus -&gt; DkimStatus -&gt; DkimStatus
+$cmin :: DkimStatus -&gt; DkimStatus -&gt; DkimStatus
+max :: DkimStatus -&gt; DkimStatus -&gt; DkimStatus
+$cmax :: DkimStatus -&gt; DkimStatus -&gt; DkimStatus
+&gt;= :: DkimStatus -&gt; DkimStatus -&gt; Bool
+$c&gt;= :: DkimStatus -&gt; DkimStatus -&gt; Bool
+&gt; :: DkimStatus -&gt; DkimStatus -&gt; Bool
+$c&gt; :: DkimStatus -&gt; DkimStatus -&gt; Bool
+&lt;= :: DkimStatus -&gt; DkimStatus -&gt; Bool
+$c&lt;= :: DkimStatus -&gt; DkimStatus -&gt; Bool
+&lt; :: DkimStatus -&gt; DkimStatus -&gt; Bool
+$c&lt; :: DkimStatus -&gt; DkimStatus -&gt; Bool
+compare :: DkimStatus -&gt; DkimStatus -&gt; Ordering
+$ccompare :: DkimStatus -&gt; DkimStatus -&gt; Ordering
+$cp1Ord :: Eq DkimStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DkimStatus -&gt; Rep DkimStatus x)
+-&gt; (forall x. Rep DkimStatus x -&gt; DkimStatus) -&gt; Generic DkimStatus
+forall x. Rep DkimStatus x -&gt; DkimStatus
+forall x. DkimStatus -&gt; Rep DkimStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DkimStatus x -&gt; DkimStatus
+$cfrom :: forall x. DkimStatus -&gt; Rep DkimStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327038"><span id="local-6989586621679327040"><span class="annot"><span class="annottext">Int -&gt; DkimStatus -&gt; Int
+DkimStatus -&gt; Int
+(Int -&gt; DkimStatus -&gt; Int)
+-&gt; (DkimStatus -&gt; Int) -&gt; Hashable DkimStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DkimStatus -&gt; Int
+$chash :: DkimStatus -&gt; Int
+hashWithSalt :: Int -&gt; DkimStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DkimStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679327035"><span class="annot"><span class="annottext">DkimStatus -&gt; ()
+(DkimStatus -&gt; ()) -&gt; NFData DkimStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DkimStatus -&gt; ()
+$crnf :: DkimStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679327032"><span class="annot"><span class="annottext">Text -&gt; Either String DkimStatus
+(Text -&gt; Either String DkimStatus) -&gt; FromText DkimStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DkimStatus
+$cfromText :: Text -&gt; Either String DkimStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679327029"><span class="annot"><span class="annottext">DkimStatus -&gt; Text
+(DkimStatus -&gt; Text) -&gt; ToText DkimStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DkimStatus -&gt; Text
+$ctoText :: DkimStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679327026"><span class="annot"><span class="annottext">DkimStatus -&gt; ByteString
+(DkimStatus -&gt; ByteString) -&gt; ToByteString DkimStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DkimStatus -&gt; ByteString
+$ctoBS :: DkimStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679327023"><span class="annot"><span class="annottext">DkimStatus -&gt; ByteStringBuilder
+(DkimStatus -&gt; ByteStringBuilder) -&gt; ToLog DkimStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DkimStatus -&gt; ByteStringBuilder
+$cbuild :: DkimStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679327020"><span class="annot"><span class="annottext">HeaderName -&gt; DkimStatus -&gt; [Header]
+(HeaderName -&gt; DkimStatus -&gt; [Header]) -&gt; ToHeader DkimStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DkimStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DkimStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679327017"><span class="annot"><span class="annottext">DkimStatus -&gt; QueryString
+(DkimStatus -&gt; QueryString) -&gt; ToQuery DkimStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DkimStatus -&gt; QueryString
+$ctoQuery :: DkimStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679327012"><span id="local-6989586621679327014"><span class="annot"><span class="annottext">Value -&gt; Parser [DkimStatus]
+Value -&gt; Parser DkimStatus
+(Value -&gt; Parser DkimStatus)
+-&gt; (Value -&gt; Parser [DkimStatus]) -&gt; FromJSON DkimStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DkimStatus]
+$cparseJSONList :: Value -&gt; Parser [DkimStatus]
+parseJSON :: Value -&gt; Parser DkimStatus
+$cparseJSON :: Value -&gt; Parser DkimStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679327007"><span id="local-6989586621679327009"><span class="annot"><span class="annottext">FromJSONKeyFunction [DkimStatus]
+FromJSONKeyFunction DkimStatus
+FromJSONKeyFunction DkimStatus
+-&gt; FromJSONKeyFunction [DkimStatus] -&gt; FromJSONKey DkimStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DkimStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DkimStatus]
+fromJSONKey :: FromJSONKeyFunction DkimStatus
+$cfromJSONKey :: FromJSONKeyFunction DkimStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679326998"><span id="local-6989586621679327000"><span id="local-6989586621679327002"><span id="local-6989586621679327004"><span class="annot"><span class="annottext">[DkimStatus] -&gt; Encoding
+[DkimStatus] -&gt; Value
+DkimStatus -&gt; Encoding
+DkimStatus -&gt; Value
+(DkimStatus -&gt; Value)
+-&gt; (DkimStatus -&gt; Encoding)
+-&gt; ([DkimStatus] -&gt; Value)
+-&gt; ([DkimStatus] -&gt; Encoding)
+-&gt; ToJSON DkimStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DkimStatus] -&gt; Encoding
+$ctoEncodingList :: [DkimStatus] -&gt; Encoding
+toJSONList :: [DkimStatus] -&gt; Value
+$ctoJSONList :: [DkimStatus] -&gt; Value
+toEncoding :: DkimStatus -&gt; Encoding
+$ctoEncoding :: DkimStatus -&gt; Encoding
+toJSON :: DkimStatus -&gt; Value
+$ctoJSON :: DkimStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679326993"><span id="local-6989586621679326995"><span class="annot"><span class="annottext">ToJSONKeyFunction [DkimStatus]
+ToJSONKeyFunction DkimStatus
+ToJSONKeyFunction DkimStatus
+-&gt; ToJSONKeyFunction [DkimStatus] -&gt; ToJSONKey DkimStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DkimStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DkimStatus]
+toJSONKey :: ToJSONKeyFunction DkimStatus
+$ctoJSONKey :: ToJSONKeyFunction DkimStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679326990"><span class="annot"><span class="annottext">[Node] -&gt; Either String DkimStatus
+([Node] -&gt; Either String DkimStatus) -&gt; FromXML DkimStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DkimStatus
+$cparseXML :: [Node] -&gt; Either String DkimStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679326987"><span class="annot"><span class="annottext">DkimStatus -&gt; XML
+(DkimStatus -&gt; XML) -&gt; ToXML DkimStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DkimStatus -&gt; XML
+$ctoXML :: DkimStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_FAILED"><span class="hs-identifier hs-type">DkimStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus"><span class="hs-identifier hs-type">DkimStatus</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDkimStatus_FAILED"><span id="%24mDkimStatus_FAILED"><span id="DkimStatus_FAILED"><span class="annot"><span class="annottext">$bDkimStatus_FAILED :: DkimStatus
+$mDkimStatus_FAILED :: forall r. DkimStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DkimStatus.html#%24bDkimStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DkimStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus%27"><span class="hs-identifier hs-type">DkimStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_NOT_STARTED"><span class="hs-identifier hs-type">DkimStatus_NOT_STARTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus"><span class="hs-identifier hs-type">DkimStatus</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDkimStatus_NOT_STARTED"><span id="%24mDkimStatus_NOT_STARTED"><span id="DkimStatus_NOT_STARTED"><span class="annot"><span class="annottext">$bDkimStatus_NOT_STARTED :: DkimStatus
+$mDkimStatus_NOT_STARTED :: forall r. DkimStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DkimStatus.html#%24bDkimStatus_NOT_STARTED"><span class="hs-identifier hs-var hs-var hs-var">DkimStatus_NOT_STARTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus%27"><span class="hs-identifier hs-type">DkimStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_STARTED&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_PENDING"><span class="hs-identifier hs-type">DkimStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus"><span class="hs-identifier hs-type">DkimStatus</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDkimStatus_PENDING"><span id="%24mDkimStatus_PENDING"><span id="DkimStatus_PENDING"><span class="annot"><span class="annottext">$bDkimStatus_PENDING :: DkimStatus
+$mDkimStatus_PENDING :: forall r. DkimStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DkimStatus.html#%24bDkimStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">DkimStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus%27"><span class="hs-identifier hs-type">DkimStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_SUCCESS"><span class="hs-identifier hs-type">DkimStatus_SUCCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus"><span class="hs-identifier hs-type">DkimStatus</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDkimStatus_SUCCESS"><span id="%24mDkimStatus_SUCCESS"><span id="DkimStatus_SUCCESS"><span class="annot"><span class="annottext">$bDkimStatus_SUCCESS :: DkimStatus
+$mDkimStatus_SUCCESS :: forall r. DkimStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DkimStatus.html#%24bDkimStatus_SUCCESS"><span class="hs-identifier hs-var hs-var hs-var">DkimStatus_SUCCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus%27"><span class="hs-identifier hs-type">DkimStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCESS&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_TEMPORARY_FAILURE"><span class="hs-identifier hs-type">DkimStatus_TEMPORARY_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus"><span class="hs-identifier hs-type">DkimStatus</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDkimStatus_TEMPORARY_FAILURE"><span id="%24mDkimStatus_TEMPORARY_FAILURE"><span id="DkimStatus_TEMPORARY_FAILURE"><span class="annot"><span class="annottext">$bDkimStatus_TEMPORARY_FAILURE :: DkimStatus
+$mDkimStatus_TEMPORARY_FAILURE :: forall r. DkimStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SESV2.Types.DkimStatus.html#%24bDkimStatus_TEMPORARY_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">DkimStatus_TEMPORARY_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus%27"><span class="hs-identifier hs-type">DkimStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEMPORARY_FAILURE&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_FAILED"><span class="hs-pragma hs-type">DkimStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_NOT_STARTED"><span class="hs-pragma hs-type">DkimStatus_NOT_STARTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_PENDING"><span class="hs-pragma hs-type">DkimStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_SUCCESS"><span class="hs-pragma hs-type">DkimStatus_SUCCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus_TEMPORARY_FAILURE"><span class="hs-pragma hs-type">DkimStatus_TEMPORARY_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.DkimStatus.html#DkimStatus%27"><span class="hs-pragma hs-type">DkimStatus'</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-104"></span></pre></body></html>

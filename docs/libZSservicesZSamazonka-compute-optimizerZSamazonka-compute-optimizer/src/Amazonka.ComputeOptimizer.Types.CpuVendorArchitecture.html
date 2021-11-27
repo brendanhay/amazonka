@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture"><span class="hs-identifier">CpuVendorArchitecture</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture_AWS_ARM64"><span class="hs-identifier">CpuVendorArchitecture_AWS_ARM64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture_CURRENT"><span class="hs-identifier">CpuVendorArchitecture_CURRENT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679235260"><span id="local-6989586621679235261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CpuVendorArchitecture"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture"><span class="hs-identifier hs-var">CpuVendorArchitecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CpuVendorArchitecture%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture%27"><span class="hs-identifier hs-var">CpuVendorArchitecture'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCpuVendorArchitecture"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; Text
+</span><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#fromCpuVendorArchitecture"><span class="hs-identifier hs-var hs-var">fromCpuVendorArchitecture</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235252"><span id="local-6989586621679235254"><span id="local-6989586621679235256"><span class="annot"><span class="annottext">Int -&gt; CpuVendorArchitecture -&gt; ShowS
+[CpuVendorArchitecture] -&gt; ShowS
+CpuVendorArchitecture -&gt; String
+(Int -&gt; CpuVendorArchitecture -&gt; ShowS)
+-&gt; (CpuVendorArchitecture -&gt; String)
+-&gt; ([CpuVendorArchitecture] -&gt; ShowS)
+-&gt; Show CpuVendorArchitecture
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CpuVendorArchitecture] -&gt; ShowS
+$cshowList :: [CpuVendorArchitecture] -&gt; ShowS
+show :: CpuVendorArchitecture -&gt; String
+$cshow :: CpuVendorArchitecture -&gt; String
+showsPrec :: Int -&gt; CpuVendorArchitecture -&gt; ShowS
+$cshowsPrec :: Int -&gt; CpuVendorArchitecture -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679235243"><span id="local-6989586621679235245"><span id="local-6989586621679235247"><span id="local-6989586621679235249"><span class="annot"><span class="annottext">ReadPrec [CpuVendorArchitecture]
+ReadPrec CpuVendorArchitecture
+Int -&gt; ReadS CpuVendorArchitecture
+ReadS [CpuVendorArchitecture]
+(Int -&gt; ReadS CpuVendorArchitecture)
+-&gt; ReadS [CpuVendorArchitecture]
+-&gt; ReadPrec CpuVendorArchitecture
+-&gt; ReadPrec [CpuVendorArchitecture]
+-&gt; Read CpuVendorArchitecture
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CpuVendorArchitecture]
+$creadListPrec :: ReadPrec [CpuVendorArchitecture]
+readPrec :: ReadPrec CpuVendorArchitecture
+$creadPrec :: ReadPrec CpuVendorArchitecture
+readList :: ReadS [CpuVendorArchitecture]
+$creadList :: ReadS [CpuVendorArchitecture]
+readsPrec :: Int -&gt; ReadS CpuVendorArchitecture
+$creadsPrec :: Int -&gt; ReadS CpuVendorArchitecture
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235238"><span id="local-6989586621679235240"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+(CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool)
+-&gt; (CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool)
+-&gt; Eq CpuVendorArchitecture
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+$c/= :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+== :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+$c== :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235222"><span id="local-6989586621679235224"><span id="local-6989586621679235226"><span id="local-6989586621679235228"><span id="local-6989586621679235230"><span id="local-6989586621679235232"><span id="local-6989586621679235234"><span class="annot"><span class="annottext">Eq CpuVendorArchitecture
+Eq CpuVendorArchitecture
+-&gt; (CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Ordering)
+-&gt; (CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool)
+-&gt; (CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool)
+-&gt; (CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool)
+-&gt; (CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool)
+-&gt; (CpuVendorArchitecture
+    -&gt; CpuVendorArchitecture -&gt; CpuVendorArchitecture)
+-&gt; (CpuVendorArchitecture
+    -&gt; CpuVendorArchitecture -&gt; CpuVendorArchitecture)
+-&gt; Ord CpuVendorArchitecture
+CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Ordering
+CpuVendorArchitecture
+-&gt; CpuVendorArchitecture -&gt; CpuVendorArchitecture
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CpuVendorArchitecture
+-&gt; CpuVendorArchitecture -&gt; CpuVendorArchitecture
+$cmin :: CpuVendorArchitecture
+-&gt; CpuVendorArchitecture -&gt; CpuVendorArchitecture
+max :: CpuVendorArchitecture
+-&gt; CpuVendorArchitecture -&gt; CpuVendorArchitecture
+$cmax :: CpuVendorArchitecture
+-&gt; CpuVendorArchitecture -&gt; CpuVendorArchitecture
+&gt;= :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+$c&gt;= :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+&gt; :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+$c&gt; :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+&lt;= :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+$c&lt;= :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+&lt; :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+$c&lt; :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Bool
+compare :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Ordering
+$ccompare :: CpuVendorArchitecture -&gt; CpuVendorArchitecture -&gt; Ordering
+$cp1Ord :: Eq CpuVendorArchitecture
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CpuVendorArchitecture -&gt; Rep CpuVendorArchitecture x)
+-&gt; (forall x. Rep CpuVendorArchitecture x -&gt; CpuVendorArchitecture)
+-&gt; Generic CpuVendorArchitecture
+forall x. Rep CpuVendorArchitecture x -&gt; CpuVendorArchitecture
+forall x. CpuVendorArchitecture -&gt; Rep CpuVendorArchitecture x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CpuVendorArchitecture x -&gt; CpuVendorArchitecture
+$cfrom :: forall x. CpuVendorArchitecture -&gt; Rep CpuVendorArchitecture x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235214"><span id="local-6989586621679235216"><span class="annot"><span class="annottext">Int -&gt; CpuVendorArchitecture -&gt; Int
+CpuVendorArchitecture -&gt; Int
+(Int -&gt; CpuVendorArchitecture -&gt; Int)
+-&gt; (CpuVendorArchitecture -&gt; Int) -&gt; Hashable CpuVendorArchitecture
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CpuVendorArchitecture -&gt; Int
+$chash :: CpuVendorArchitecture -&gt; Int
+hashWithSalt :: Int -&gt; CpuVendorArchitecture -&gt; Int
+$chashWithSalt :: Int -&gt; CpuVendorArchitecture -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679235211"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; ()
+(CpuVendorArchitecture -&gt; ()) -&gt; NFData CpuVendorArchitecture
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CpuVendorArchitecture -&gt; ()
+$crnf :: CpuVendorArchitecture -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235208"><span class="annot"><span class="annottext">Text -&gt; Either String CpuVendorArchitecture
+(Text -&gt; Either String CpuVendorArchitecture)
+-&gt; FromText CpuVendorArchitecture
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CpuVendorArchitecture
+$cfromText :: Text -&gt; Either String CpuVendorArchitecture
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235205"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; Text
+(CpuVendorArchitecture -&gt; Text) -&gt; ToText CpuVendorArchitecture
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CpuVendorArchitecture -&gt; Text
+$ctoText :: CpuVendorArchitecture -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235202"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; ByteString
+(CpuVendorArchitecture -&gt; ByteString)
+-&gt; ToByteString CpuVendorArchitecture
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CpuVendorArchitecture -&gt; ByteString
+$ctoBS :: CpuVendorArchitecture -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235199"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; ByteStringBuilder
+(CpuVendorArchitecture -&gt; ByteStringBuilder)
+-&gt; ToLog CpuVendorArchitecture
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CpuVendorArchitecture -&gt; ByteStringBuilder
+$cbuild :: CpuVendorArchitecture -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235196"><span class="annot"><span class="annottext">HeaderName -&gt; CpuVendorArchitecture -&gt; [Header]
+(HeaderName -&gt; CpuVendorArchitecture -&gt; [Header])
+-&gt; ToHeader CpuVendorArchitecture
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CpuVendorArchitecture -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CpuVendorArchitecture -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235193"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; QueryString
+(CpuVendorArchitecture -&gt; QueryString)
+-&gt; ToQuery CpuVendorArchitecture
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CpuVendorArchitecture -&gt; QueryString
+$ctoQuery :: CpuVendorArchitecture -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235188"><span id="local-6989586621679235190"><span class="annot"><span class="annottext">Value -&gt; Parser [CpuVendorArchitecture]
+Value -&gt; Parser CpuVendorArchitecture
+(Value -&gt; Parser CpuVendorArchitecture)
+-&gt; (Value -&gt; Parser [CpuVendorArchitecture])
+-&gt; FromJSON CpuVendorArchitecture
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CpuVendorArchitecture]
+$cparseJSONList :: Value -&gt; Parser [CpuVendorArchitecture]
+parseJSON :: Value -&gt; Parser CpuVendorArchitecture
+$cparseJSON :: Value -&gt; Parser CpuVendorArchitecture
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235183"><span id="local-6989586621679235185"><span class="annot"><span class="annottext">FromJSONKeyFunction [CpuVendorArchitecture]
+FromJSONKeyFunction CpuVendorArchitecture
+FromJSONKeyFunction CpuVendorArchitecture
+-&gt; FromJSONKeyFunction [CpuVendorArchitecture]
+-&gt; FromJSONKey CpuVendorArchitecture
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CpuVendorArchitecture]
+$cfromJSONKeyList :: FromJSONKeyFunction [CpuVendorArchitecture]
+fromJSONKey :: FromJSONKeyFunction CpuVendorArchitecture
+$cfromJSONKey :: FromJSONKeyFunction CpuVendorArchitecture
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235174"><span id="local-6989586621679235176"><span id="local-6989586621679235178"><span id="local-6989586621679235180"><span class="annot"><span class="annottext">[CpuVendorArchitecture] -&gt; Encoding
+[CpuVendorArchitecture] -&gt; Value
+CpuVendorArchitecture -&gt; Encoding
+CpuVendorArchitecture -&gt; Value
+(CpuVendorArchitecture -&gt; Value)
+-&gt; (CpuVendorArchitecture -&gt; Encoding)
+-&gt; ([CpuVendorArchitecture] -&gt; Value)
+-&gt; ([CpuVendorArchitecture] -&gt; Encoding)
+-&gt; ToJSON CpuVendorArchitecture
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CpuVendorArchitecture] -&gt; Encoding
+$ctoEncodingList :: [CpuVendorArchitecture] -&gt; Encoding
+toJSONList :: [CpuVendorArchitecture] -&gt; Value
+$ctoJSONList :: [CpuVendorArchitecture] -&gt; Value
+toEncoding :: CpuVendorArchitecture -&gt; Encoding
+$ctoEncoding :: CpuVendorArchitecture -&gt; Encoding
+toJSON :: CpuVendorArchitecture -&gt; Value
+$ctoJSON :: CpuVendorArchitecture -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235169"><span id="local-6989586621679235171"><span class="annot"><span class="annottext">ToJSONKeyFunction [CpuVendorArchitecture]
+ToJSONKeyFunction CpuVendorArchitecture
+ToJSONKeyFunction CpuVendorArchitecture
+-&gt; ToJSONKeyFunction [CpuVendorArchitecture]
+-&gt; ToJSONKey CpuVendorArchitecture
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CpuVendorArchitecture]
+$ctoJSONKeyList :: ToJSONKeyFunction [CpuVendorArchitecture]
+toJSONKey :: ToJSONKeyFunction CpuVendorArchitecture
+$ctoJSONKey :: ToJSONKeyFunction CpuVendorArchitecture
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235166"><span class="annot"><span class="annottext">[Node] -&gt; Either String CpuVendorArchitecture
+([Node] -&gt; Either String CpuVendorArchitecture)
+-&gt; FromXML CpuVendorArchitecture
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CpuVendorArchitecture
+$cparseXML :: [Node] -&gt; Either String CpuVendorArchitecture
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235163"><span class="annot"><span class="annottext">CpuVendorArchitecture -&gt; XML
+(CpuVendorArchitecture -&gt; XML) -&gt; ToXML CpuVendorArchitecture
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CpuVendorArchitecture -&gt; XML
+$ctoXML :: CpuVendorArchitecture -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture_AWS_ARM64"><span class="hs-identifier hs-type">CpuVendorArchitecture_AWS_ARM64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture"><span class="hs-identifier hs-type">CpuVendorArchitecture</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCpuVendorArchitecture_AWS_ARM64"><span id="%24mCpuVendorArchitecture_AWS_ARM64"><span id="CpuVendorArchitecture_AWS_ARM64"><span class="annot"><span class="annottext">$bCpuVendorArchitecture_AWS_ARM64 :: CpuVendorArchitecture
+$mCpuVendorArchitecture_AWS_ARM64 :: forall r.
+CpuVendorArchitecture -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#%24bCpuVendorArchitecture_AWS_ARM64"><span class="hs-identifier hs-var hs-var hs-var">CpuVendorArchitecture_AWS_ARM64</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture%27"><span class="hs-identifier hs-type">CpuVendorArchitecture'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_ARM64&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture_CURRENT"><span class="hs-identifier hs-type">CpuVendorArchitecture_CURRENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture"><span class="hs-identifier hs-type">CpuVendorArchitecture</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCpuVendorArchitecture_CURRENT"><span id="%24mCpuVendorArchitecture_CURRENT"><span id="CpuVendorArchitecture_CURRENT"><span class="annot"><span class="annottext">$bCpuVendorArchitecture_CURRENT :: CpuVendorArchitecture
+$mCpuVendorArchitecture_CURRENT :: forall r.
+CpuVendorArchitecture -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#%24bCpuVendorArchitecture_CURRENT"><span class="hs-identifier hs-var hs-var hs-var">CpuVendorArchitecture_CURRENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture%27"><span class="hs-identifier hs-type">CpuVendorArchitecture'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CURRENT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture_AWS_ARM64"><span class="hs-pragma hs-type">CpuVendorArchitecture_AWS_ARM64</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture_CURRENT"><span class="hs-pragma hs-type">CpuVendorArchitecture_CURRENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture.html#CpuVendorArchitecture%27"><span class="hs-pragma hs-type">CpuVendorArchitecture'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatch.Types.Metric</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatch.Types.Metric</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.Dimension</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents a specific metric.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMetric' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679254809"><span id="local-6989586621679254810"></span></span><span class="hs-keyword">data</span><span> </span><span id="Metric"><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-var">Metric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Metric%27"><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-var">Metric'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric. This is a required field.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmetricName%3AMetric%27"><span class="annot"><span class="annottext">Metric -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3AmetricName%3AMetric%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The namespace of the metric.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Anamespace%3AMetric%27"><span class="annot"><span class="annottext">Metric -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3Anamespace%3AMetric%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The dimensions for the metric.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Adimensions%3AMetric%27"><span class="annot"><span class="annottext">Metric -&gt; Maybe [Dimension]
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3Adimensions%3AMetric%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254801"><span id="local-6989586621679254803"><span class="annot"><span class="annottext">Metric -&gt; Metric -&gt; Bool
+(Metric -&gt; Metric -&gt; Bool)
+-&gt; (Metric -&gt; Metric -&gt; Bool) -&gt; Eq Metric
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Metric -&gt; Metric -&gt; Bool
+$c/= :: Metric -&gt; Metric -&gt; Bool
+== :: Metric -&gt; Metric -&gt; Bool
+$c== :: Metric -&gt; Metric -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254792"><span id="local-6989586621679254794"><span id="local-6989586621679254796"><span id="local-6989586621679254798"><span class="annot"><span class="annottext">ReadPrec [Metric]
+ReadPrec Metric
+Int -&gt; ReadS Metric
+ReadS [Metric]
+(Int -&gt; ReadS Metric)
+-&gt; ReadS [Metric]
+-&gt; ReadPrec Metric
+-&gt; ReadPrec [Metric]
+-&gt; Read Metric
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Metric]
+$creadListPrec :: ReadPrec [Metric]
+readPrec :: ReadPrec Metric
+$creadPrec :: ReadPrec Metric
+readList :: ReadS [Metric]
+$creadList :: ReadS [Metric]
+readsPrec :: Int -&gt; ReadS Metric
+$creadsPrec :: Int -&gt; ReadS Metric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254785"><span id="local-6989586621679254787"><span id="local-6989586621679254789"><span class="annot"><span class="annottext">Int -&gt; Metric -&gt; ShowS
+[Metric] -&gt; ShowS
+Metric -&gt; String
+(Int -&gt; Metric -&gt; ShowS)
+-&gt; (Metric -&gt; String) -&gt; ([Metric] -&gt; ShowS) -&gt; Show Metric
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Metric] -&gt; ShowS
+$cshowList :: [Metric] -&gt; ShowS
+show :: Metric -&gt; String
+$cshow :: Metric -&gt; String
+showsPrec :: Int -&gt; Metric -&gt; ShowS
+$cshowsPrec :: Int -&gt; Metric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Metric -&gt; Rep Metric x)
+-&gt; (forall x. Rep Metric x -&gt; Metric) -&gt; Generic Metric
+forall x. Rep Metric x -&gt; Metric
+forall x. Metric -&gt; Rep Metric x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Metric x -&gt; Metric
+$cfrom :: forall x. Metric -&gt; Rep Metric x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'Metric' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'metricName', 'metric_metricName' - The name of the metric. This is a required field.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'namespace', 'metric_namespace' - The namespace of the metric.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'dimensions', 'metric_dimensions' - The dimensions for the metric.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#newMetric"><span class="hs-identifier hs-type">newMetric</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span>
+</span><span id="line-55"></span><span id="newMetric"><span class="annot"><span class="annottext">newMetric :: Metric
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#newMetric"><span class="hs-identifier hs-var hs-var">newMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Metric' :: Maybe Text -&gt; Maybe Text -&gt; Maybe [Dimension] -&gt; Metric
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricName:Metric' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3AmetricName%3AMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:Metric' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3Anamespace%3AMetric%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:Metric' :: Maybe [Dimension]
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3Adimensions%3AMetric%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The name of the metric. This is a required field.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#metric_metricName"><span class="hs-identifier hs-type">metric_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="metric_metricName"><span class="annot"><span class="annottext">metric_metricName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Metric -&gt; f Metric
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#metric_metricName"><span class="hs-identifier hs-var hs-var">metric_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Metric -&gt; Maybe Text)
+-&gt; (Metric -&gt; Maybe Text -&gt; Metric)
+-&gt; Lens Metric Metric (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254776"><span class="annot"><span class="annottext">Maybe Text
+metricName :: Maybe Text
+$sel:metricName:Metric' :: Metric -&gt; Maybe Text
+</span><a href="#local-6989586621679254776"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254776"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254775"><span class="annot"><span class="annottext">s :: Metric
+</span><a href="#local-6989586621679254775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254774"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679254775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:Metric' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3AmetricName%3AMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The namespace of the metric.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#metric_namespace"><span class="hs-identifier hs-type">metric_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="metric_namespace"><span class="annot"><span class="annottext">metric_namespace :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Metric -&gt; f Metric
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#metric_namespace"><span class="hs-identifier hs-var hs-var">metric_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Metric -&gt; Maybe Text)
+-&gt; (Metric -&gt; Maybe Text -&gt; Metric)
+-&gt; Lens Metric Metric (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254772"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:Metric' :: Metric -&gt; Maybe Text
+</span><a href="#local-6989586621679254772"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254772"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254771"><span class="annot"><span class="annottext">s :: Metric
+</span><a href="#local-6989586621679254771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679254771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:Metric' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3Anamespace%3AMetric%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The dimensions for the metric.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#metric_dimensions"><span class="hs-identifier hs-type">metric_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="metric_dimensions"><span class="annot"><span class="annottext">metric_dimensions :: (Maybe [Dimension] -&gt; f (Maybe [Dimension])) -&gt; Metric -&gt; f Metric
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#metric_dimensions"><span class="hs-identifier hs-var hs-var">metric_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Metric -&gt; Maybe [Dimension])
+-&gt; (Metric -&gt; Maybe [Dimension] -&gt; Metric)
+-&gt; Lens Metric Metric (Maybe [Dimension]) (Maybe [Dimension])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254768"><span class="annot"><span class="annottext">Maybe [Dimension]
+dimensions :: Maybe [Dimension]
+$sel:dimensions:Metric' :: Metric -&gt; Maybe [Dimension]
+</span><a href="#local-6989586621679254768"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679254768"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254767"><span class="annot"><span class="annottext">s :: Metric
+</span><a href="#local-6989586621679254767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254766"><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679254766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679254767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:Metric' :: Maybe [Dimension]
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#%24sel%3Adimensions%3AMetric%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679254766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+ -&gt; Metric -&gt; f Metric)
+-&gt; ((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+    -&gt; Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; (Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; Metric
+-&gt; f Metric
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Dimension] [Dimension] [Dimension] [Dimension]
+-&gt; Iso
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Dimension] [Dimension] [Dimension] [Dimension]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679254760"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Metric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679254758"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Dimension] -&gt; Metric
+</span><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-var">Metric'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Dimension] -&gt; Metric)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe [Dimension] -&gt; Metric)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Dimension] -&gt; Metric)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Dimension] -&gt; Metric)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Dimension] -&gt; Metric)
+-&gt; Either String (Maybe [Dimension]) -&gt; Either String Metric
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Dimension]))
+-&gt; Either String (Maybe [Dimension])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Dimension])
+-&gt; [Node] -&gt; Either String (Maybe [Dimension])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Dimension]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254749"><span id="local-6989586621679254751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679254742"><span class="annot"><span class="annottext">toQuery :: Metric -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric%27"><span class="hs-identifier hs-type">Metric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254738"><span id="local-6989586621679254739"><span id="local-6989586621679254740"><span class="annot"><span class="annottext">Maybe [Dimension]
+Maybe Text
+dimensions :: Maybe [Dimension]
+namespace :: Maybe Text
+metricName :: Maybe Text
+$sel:dimensions:Metric' :: Metric -&gt; Maybe [Dimension]
+$sel:namespace:Metric' :: Metric -&gt; Maybe Text
+$sel:metricName:Metric' :: Metric -&gt; Maybe Text
+</span><a href="#local-6989586621679254738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254740"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254739"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Dimension] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Dimension] -&gt; QueryString)
+-&gt; Maybe [Dimension] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-96"></span></pre></body></html>

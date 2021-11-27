@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.AlphaBehavior</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.AlphaBehavior</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier">AlphaBehavior</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior_DISCARD"><span class="hs-identifier">AlphaBehavior_DISCARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior_REMAP_TO_LUMA"><span class="hs-identifier">AlphaBehavior_REMAP_TO_LUMA</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Ignore this setting unless this input is a QuickTime animation with an</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- alpha channel. Use this setting to create separate Key and Fill outputs.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- In each output, specify which part of the input MediaConvert uses. Leave</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- this setting at the default value DISCARD to delete the alpha channel</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- map the alpha channel to the luma channel of your outputs.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679939854"><span id="local-6989586621679939855"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlphaBehavior"><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier hs-var">AlphaBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlphaBehavior%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior%27"><span class="hs-identifier hs-var">AlphaBehavior'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlphaBehavior"><span class="annot"><span class="annottext">AlphaBehavior -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#fromAlphaBehavior"><span class="hs-identifier hs-var hs-var">fromAlphaBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939846"><span id="local-6989586621679939848"><span id="local-6989586621679939850"><span class="annot"><span class="annottext">Int -&gt; AlphaBehavior -&gt; ShowS
+[AlphaBehavior] -&gt; ShowS
+AlphaBehavior -&gt; String
+(Int -&gt; AlphaBehavior -&gt; ShowS)
+-&gt; (AlphaBehavior -&gt; String)
+-&gt; ([AlphaBehavior] -&gt; ShowS)
+-&gt; Show AlphaBehavior
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlphaBehavior] -&gt; ShowS
+$cshowList :: [AlphaBehavior] -&gt; ShowS
+show :: AlphaBehavior -&gt; String
+$cshow :: AlphaBehavior -&gt; String
+showsPrec :: Int -&gt; AlphaBehavior -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlphaBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679939837"><span id="local-6989586621679939839"><span id="local-6989586621679939841"><span id="local-6989586621679939843"><span class="annot"><span class="annottext">ReadPrec [AlphaBehavior]
+ReadPrec AlphaBehavior
+Int -&gt; ReadS AlphaBehavior
+ReadS [AlphaBehavior]
+(Int -&gt; ReadS AlphaBehavior)
+-&gt; ReadS [AlphaBehavior]
+-&gt; ReadPrec AlphaBehavior
+-&gt; ReadPrec [AlphaBehavior]
+-&gt; Read AlphaBehavior
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlphaBehavior]
+$creadListPrec :: ReadPrec [AlphaBehavior]
+readPrec :: ReadPrec AlphaBehavior
+$creadPrec :: ReadPrec AlphaBehavior
+readList :: ReadS [AlphaBehavior]
+$creadList :: ReadS [AlphaBehavior]
+readsPrec :: Int -&gt; ReadS AlphaBehavior
+$creadsPrec :: Int -&gt; ReadS AlphaBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679939832"><span id="local-6989586621679939834"><span class="annot"><span class="annottext">AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+(AlphaBehavior -&gt; AlphaBehavior -&gt; Bool)
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool) -&gt; Eq AlphaBehavior
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+$c/= :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+== :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+$c== :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679939816"><span id="local-6989586621679939818"><span id="local-6989586621679939820"><span id="local-6989586621679939822"><span id="local-6989586621679939824"><span id="local-6989586621679939826"><span id="local-6989586621679939828"><span class="annot"><span class="annottext">Eq AlphaBehavior
+Eq AlphaBehavior
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Ordering)
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool)
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool)
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool)
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool)
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; AlphaBehavior)
+-&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; AlphaBehavior)
+-&gt; Ord AlphaBehavior
+AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+AlphaBehavior -&gt; AlphaBehavior -&gt; Ordering
+AlphaBehavior -&gt; AlphaBehavior -&gt; AlphaBehavior
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AlphaBehavior -&gt; AlphaBehavior -&gt; AlphaBehavior
+$cmin :: AlphaBehavior -&gt; AlphaBehavior -&gt; AlphaBehavior
+max :: AlphaBehavior -&gt; AlphaBehavior -&gt; AlphaBehavior
+$cmax :: AlphaBehavior -&gt; AlphaBehavior -&gt; AlphaBehavior
+&gt;= :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+$c&gt;= :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+&gt; :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+$c&gt; :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+&lt;= :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+$c&lt;= :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+&lt; :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+$c&lt; :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+compare :: AlphaBehavior -&gt; AlphaBehavior -&gt; Ordering
+$ccompare :: AlphaBehavior -&gt; AlphaBehavior -&gt; Ordering
+$cp1Ord :: Eq AlphaBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AlphaBehavior -&gt; Rep AlphaBehavior x)
+-&gt; (forall x. Rep AlphaBehavior x -&gt; AlphaBehavior)
+-&gt; Generic AlphaBehavior
+forall x. Rep AlphaBehavior x -&gt; AlphaBehavior
+forall x. AlphaBehavior -&gt; Rep AlphaBehavior x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlphaBehavior x -&gt; AlphaBehavior
+$cfrom :: forall x. AlphaBehavior -&gt; Rep AlphaBehavior x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939808"><span id="local-6989586621679939810"><span class="annot"><span class="annottext">Int -&gt; AlphaBehavior -&gt; Int
+AlphaBehavior -&gt; Int
+(Int -&gt; AlphaBehavior -&gt; Int)
+-&gt; (AlphaBehavior -&gt; Int) -&gt; Hashable AlphaBehavior
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AlphaBehavior -&gt; Int
+$chash :: AlphaBehavior -&gt; Int
+hashWithSalt :: Int -&gt; AlphaBehavior -&gt; Int
+$chashWithSalt :: Int -&gt; AlphaBehavior -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679939805"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ()
+(AlphaBehavior -&gt; ()) -&gt; NFData AlphaBehavior
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AlphaBehavior -&gt; ()
+$crnf :: AlphaBehavior -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679939802"><span class="annot"><span class="annottext">Text -&gt; Either String AlphaBehavior
+(Text -&gt; Either String AlphaBehavior) -&gt; FromText AlphaBehavior
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AlphaBehavior
+$cfromText :: Text -&gt; Either String AlphaBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679939799"><span class="annot"><span class="annottext">AlphaBehavior -&gt; Text
+(AlphaBehavior -&gt; Text) -&gt; ToText AlphaBehavior
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AlphaBehavior -&gt; Text
+$ctoText :: AlphaBehavior -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679939796"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ByteString
+(AlphaBehavior -&gt; ByteString) -&gt; ToByteString AlphaBehavior
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AlphaBehavior -&gt; ByteString
+$ctoBS :: AlphaBehavior -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679939793"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ByteStringBuilder
+(AlphaBehavior -&gt; ByteStringBuilder) -&gt; ToLog AlphaBehavior
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AlphaBehavior -&gt; ByteStringBuilder
+$cbuild :: AlphaBehavior -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679939790"><span class="annot"><span class="annottext">HeaderName -&gt; AlphaBehavior -&gt; [Header]
+(HeaderName -&gt; AlphaBehavior -&gt; [Header]) -&gt; ToHeader AlphaBehavior
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AlphaBehavior -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AlphaBehavior -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679939787"><span class="annot"><span class="annottext">AlphaBehavior -&gt; QueryString
+(AlphaBehavior -&gt; QueryString) -&gt; ToQuery AlphaBehavior
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AlphaBehavior -&gt; QueryString
+$ctoQuery :: AlphaBehavior -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679939782"><span id="local-6989586621679939784"><span class="annot"><span class="annottext">Value -&gt; Parser [AlphaBehavior]
+Value -&gt; Parser AlphaBehavior
+(Value -&gt; Parser AlphaBehavior)
+-&gt; (Value -&gt; Parser [AlphaBehavior]) -&gt; FromJSON AlphaBehavior
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AlphaBehavior]
+$cparseJSONList :: Value -&gt; Parser [AlphaBehavior]
+parseJSON :: Value -&gt; Parser AlphaBehavior
+$cparseJSON :: Value -&gt; Parser AlphaBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679939777"><span id="local-6989586621679939779"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlphaBehavior]
+FromJSONKeyFunction AlphaBehavior
+FromJSONKeyFunction AlphaBehavior
+-&gt; FromJSONKeyFunction [AlphaBehavior] -&gt; FromJSONKey AlphaBehavior
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AlphaBehavior]
+$cfromJSONKeyList :: FromJSONKeyFunction [AlphaBehavior]
+fromJSONKey :: FromJSONKeyFunction AlphaBehavior
+$cfromJSONKey :: FromJSONKeyFunction AlphaBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679939768"><span id="local-6989586621679939770"><span id="local-6989586621679939772"><span id="local-6989586621679939774"><span class="annot"><span class="annottext">[AlphaBehavior] -&gt; Encoding
+[AlphaBehavior] -&gt; Value
+AlphaBehavior -&gt; Encoding
+AlphaBehavior -&gt; Value
+(AlphaBehavior -&gt; Value)
+-&gt; (AlphaBehavior -&gt; Encoding)
+-&gt; ([AlphaBehavior] -&gt; Value)
+-&gt; ([AlphaBehavior] -&gt; Encoding)
+-&gt; ToJSON AlphaBehavior
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AlphaBehavior] -&gt; Encoding
+$ctoEncodingList :: [AlphaBehavior] -&gt; Encoding
+toJSONList :: [AlphaBehavior] -&gt; Value
+$ctoJSONList :: [AlphaBehavior] -&gt; Value
+toEncoding :: AlphaBehavior -&gt; Encoding
+$ctoEncoding :: AlphaBehavior -&gt; Encoding
+toJSON :: AlphaBehavior -&gt; Value
+$ctoJSON :: AlphaBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679939763"><span id="local-6989586621679939765"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlphaBehavior]
+ToJSONKeyFunction AlphaBehavior
+ToJSONKeyFunction AlphaBehavior
+-&gt; ToJSONKeyFunction [AlphaBehavior] -&gt; ToJSONKey AlphaBehavior
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AlphaBehavior]
+$ctoJSONKeyList :: ToJSONKeyFunction [AlphaBehavior]
+toJSONKey :: ToJSONKeyFunction AlphaBehavior
+$ctoJSONKey :: ToJSONKeyFunction AlphaBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679939760"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlphaBehavior
+([Node] -&gt; Either String AlphaBehavior) -&gt; FromXML AlphaBehavior
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AlphaBehavior
+$cparseXML :: [Node] -&gt; Either String AlphaBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679939757"><span class="annot"><span class="annottext">AlphaBehavior -&gt; XML
+(AlphaBehavior -&gt; XML) -&gt; ToXML AlphaBehavior
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AlphaBehavior -&gt; XML
+$ctoXML :: AlphaBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior_DISCARD"><span class="hs-identifier hs-type">AlphaBehavior_DISCARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier hs-type">AlphaBehavior</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlphaBehavior_DISCARD"><span id="%24mAlphaBehavior_DISCARD"><span id="AlphaBehavior_DISCARD"><span class="annot"><span class="annottext">$bAlphaBehavior_DISCARD :: AlphaBehavior
+$mAlphaBehavior_DISCARD :: forall r. AlphaBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#%24bAlphaBehavior_DISCARD"><span class="hs-identifier hs-var hs-var hs-var">AlphaBehavior_DISCARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior%27"><span class="hs-identifier hs-type">AlphaBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISCARD&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior_REMAP_TO_LUMA"><span class="hs-identifier hs-type">AlphaBehavior_REMAP_TO_LUMA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier hs-type">AlphaBehavior</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlphaBehavior_REMAP_TO_LUMA"><span id="%24mAlphaBehavior_REMAP_TO_LUMA"><span id="AlphaBehavior_REMAP_TO_LUMA"><span class="annot"><span class="annottext">$bAlphaBehavior_REMAP_TO_LUMA :: AlphaBehavior
+$mAlphaBehavior_REMAP_TO_LUMA :: forall r. AlphaBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#%24bAlphaBehavior_REMAP_TO_LUMA"><span class="hs-identifier hs-var hs-var hs-var">AlphaBehavior_REMAP_TO_LUMA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior%27"><span class="hs-identifier hs-type">AlphaBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REMAP_TO_LUMA&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior_DISCARD"><span class="hs-pragma hs-type">AlphaBehavior_DISCARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior_REMAP_TO_LUMA"><span class="hs-pragma hs-type">AlphaBehavior_REMAP_TO_LUMA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior%27"><span class="hs-pragma hs-type">AlphaBehavior'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

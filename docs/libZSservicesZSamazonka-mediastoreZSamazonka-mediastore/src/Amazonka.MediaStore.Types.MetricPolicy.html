@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaStore.Types.MetricPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaStore.Types.MetricPolicy</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.ContainerLevelMetrics.html"><span class="hs-identifier">Amazonka.MediaStore.Types.ContainerLevelMetrics</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicyRule.html"><span class="hs-identifier">Amazonka.MediaStore.Types.MetricPolicyRule</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The metric policy that is associated with the container. A metric policy</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. In</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the policy, you must indicate whether you want MediaStore to send</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- container-level metrics. You can also include rules to define groups of</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- objects that you want MediaStore to send object-level metrics for.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- To view examples of how to construct a metric policy for your use case,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediastore/latest/ug/policies-metric-examples.html Example Metric Policies&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newMetricPolicy' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679163880"><span id="local-6989586621679163881"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricPolicy"><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-var">MetricPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricPolicy%27"><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-var">MetricPolicy'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A parameter that holds an array of rules that enable metrics at the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- object level. This parameter is optional, but if you choose to include</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- it, you must also include at least one rule. By default, you can include</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- up to five rules. You can also</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase&gt;</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- to allow up to 300 rules per policy.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AmetricPolicyRules%3AMetricPolicy%27"><span class="annot"><span class="annottext">MetricPolicy -&gt; Maybe (NonEmpty MetricPolicyRule)
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#%24sel%3AmetricPolicyRules%3AMetricPolicy%27"><span class="hs-identifier hs-var hs-var">metricPolicyRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A setting to enable or disable metrics at the container level.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="annot"><span class="annottext">MetricPolicy -&gt; ContainerLevelMetrics
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="hs-identifier hs-var hs-var">containerLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics"><span class="hs-identifier hs-type">ContainerLevelMetrics</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163873"><span id="local-6989586621679163875"><span class="annot"><span class="annottext">MetricPolicy -&gt; MetricPolicy -&gt; Bool
+(MetricPolicy -&gt; MetricPolicy -&gt; Bool)
+-&gt; (MetricPolicy -&gt; MetricPolicy -&gt; Bool) -&gt; Eq MetricPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricPolicy -&gt; MetricPolicy -&gt; Bool
+$c/= :: MetricPolicy -&gt; MetricPolicy -&gt; Bool
+== :: MetricPolicy -&gt; MetricPolicy -&gt; Bool
+$c== :: MetricPolicy -&gt; MetricPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163864"><span id="local-6989586621679163866"><span id="local-6989586621679163868"><span id="local-6989586621679163870"><span class="annot"><span class="annottext">ReadPrec [MetricPolicy]
+ReadPrec MetricPolicy
+Int -&gt; ReadS MetricPolicy
+ReadS [MetricPolicy]
+(Int -&gt; ReadS MetricPolicy)
+-&gt; ReadS [MetricPolicy]
+-&gt; ReadPrec MetricPolicy
+-&gt; ReadPrec [MetricPolicy]
+-&gt; Read MetricPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricPolicy]
+$creadListPrec :: ReadPrec [MetricPolicy]
+readPrec :: ReadPrec MetricPolicy
+$creadPrec :: ReadPrec MetricPolicy
+readList :: ReadS [MetricPolicy]
+$creadList :: ReadS [MetricPolicy]
+readsPrec :: Int -&gt; ReadS MetricPolicy
+$creadsPrec :: Int -&gt; ReadS MetricPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163857"><span id="local-6989586621679163859"><span id="local-6989586621679163861"><span class="annot"><span class="annottext">Int -&gt; MetricPolicy -&gt; ShowS
+[MetricPolicy] -&gt; ShowS
+MetricPolicy -&gt; String
+(Int -&gt; MetricPolicy -&gt; ShowS)
+-&gt; (MetricPolicy -&gt; String)
+-&gt; ([MetricPolicy] -&gt; ShowS)
+-&gt; Show MetricPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricPolicy] -&gt; ShowS
+$cshowList :: [MetricPolicy] -&gt; ShowS
+show :: MetricPolicy -&gt; String
+$cshow :: MetricPolicy -&gt; String
+showsPrec :: Int -&gt; MetricPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MetricPolicy -&gt; Rep MetricPolicy x)
+-&gt; (forall x. Rep MetricPolicy x -&gt; MetricPolicy)
+-&gt; Generic MetricPolicy
+forall x. Rep MetricPolicy x -&gt; MetricPolicy
+forall x. MetricPolicy -&gt; Rep MetricPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricPolicy x -&gt; MetricPolicy
+$cfrom :: forall x. MetricPolicy -&gt; Rep MetricPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'MetricPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'metricPolicyRules', 'metricPolicy_metricPolicyRules' - A parameter that holds an array of rules that enable metrics at the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- object level. This parameter is optional, but if you choose to include</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- it, you must also include at least one rule. By default, you can include</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- up to five rules. You can also</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase&gt;</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- to allow up to 300 rules per policy.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'containerLevelMetrics', 'metricPolicy_containerLevelMetrics' - A setting to enable or disable metrics at the container level.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#newMetricPolicy"><span class="hs-identifier hs-type">newMetricPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'containerLevelMetrics'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics"><span class="hs-identifier hs-type">ContainerLevelMetrics</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span>
+</span><span id="line-72"></span><span id="newMetricPolicy"><span class="annot"><span class="annottext">newMetricPolicy :: ContainerLevelMetrics -&gt; MetricPolicy
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#newMetricPolicy"><span class="hs-identifier hs-var hs-var">newMetricPolicy</span></a></span></span><span> </span><span id="local-6989586621679163851"><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679163851"><span class="hs-identifier hs-var">pContainerLevelMetrics_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">MetricPolicy' :: Maybe (NonEmpty MetricPolicyRule)
+-&gt; ContainerLevelMetrics -&gt; MetricPolicy
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricPolicyRules:MetricPolicy' :: Maybe (NonEmpty MetricPolicyRule)
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#%24sel%3AmetricPolicyRules%3AMetricPolicy%27"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerLevelMetrics:MetricPolicy' :: ContainerLevelMetrics
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679163851"><span class="hs-identifier hs-var">pContainerLevelMetrics_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | A parameter that holds an array of rules that enable metrics at the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- object level. This parameter is optional, but if you choose to include</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- it, you must also include at least one rule. By default, you can include</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- up to five rules. You can also</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase&gt;</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- to allow up to 300 rules per policy.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#metricPolicy_metricPolicyRules"><span class="hs-identifier hs-type">metricPolicy_metricPolicyRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="metricPolicy_metricPolicyRules"><span class="annot"><span class="annottext">metricPolicy_metricPolicyRules :: (Maybe (NonEmpty MetricPolicyRule)
+ -&gt; f (Maybe (NonEmpty MetricPolicyRule)))
+-&gt; MetricPolicy -&gt; f MetricPolicy
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#metricPolicy_metricPolicyRules"><span class="hs-identifier hs-var hs-var">metricPolicy_metricPolicyRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricPolicy -&gt; Maybe (NonEmpty MetricPolicyRule))
+-&gt; (MetricPolicy
+    -&gt; Maybe (NonEmpty MetricPolicyRule) -&gt; MetricPolicy)
+-&gt; Lens
+     MetricPolicy
+     MetricPolicy
+     (Maybe (NonEmpty MetricPolicyRule))
+     (Maybe (NonEmpty MetricPolicyRule))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163847"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+metricPolicyRules :: Maybe (NonEmpty MetricPolicyRule)
+$sel:metricPolicyRules:MetricPolicy' :: MetricPolicy -&gt; Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679163847"><span class="hs-identifier hs-var hs-var">metricPolicyRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679163847"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163846"><span class="annot"><span class="annottext">s :: MetricPolicy
+</span><a href="#local-6989586621679163846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163845"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679163845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicy
+</span><a href="#local-6989586621679163846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricPolicyRules:MetricPolicy' :: Maybe (NonEmpty MetricPolicyRule)
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#%24sel%3AmetricPolicyRules%3AMetricPolicy%27"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679163845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MetricPolicyRule)
+  -&gt; f (Maybe (NonEmpty MetricPolicyRule)))
+ -&gt; MetricPolicy -&gt; f MetricPolicy)
+-&gt; ((Maybe (NonEmpty MetricPolicyRule)
+     -&gt; f (Maybe (NonEmpty MetricPolicyRule)))
+    -&gt; Maybe (NonEmpty MetricPolicyRule)
+    -&gt; f (Maybe (NonEmpty MetricPolicyRule)))
+-&gt; (Maybe (NonEmpty MetricPolicyRule)
+    -&gt; f (Maybe (NonEmpty MetricPolicyRule)))
+-&gt; MetricPolicy
+-&gt; f MetricPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty MetricPolicyRule)
+  (NonEmpty MetricPolicyRule)
+  (NonEmpty MetricPolicyRule)
+  (NonEmpty MetricPolicyRule)
+-&gt; Iso
+     (Maybe (NonEmpty MetricPolicyRule))
+     (Maybe (NonEmpty MetricPolicyRule))
+     (Maybe (NonEmpty MetricPolicyRule))
+     (Maybe (NonEmpty MetricPolicyRule))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty MetricPolicyRule)
+  (NonEmpty MetricPolicyRule)
+  (NonEmpty MetricPolicyRule)
+  (NonEmpty MetricPolicyRule)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A setting to enable or disable metrics at the container level.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#metricPolicy_containerLevelMetrics"><span class="hs-identifier hs-type">metricPolicy_containerLevelMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics"><span class="hs-identifier hs-type">ContainerLevelMetrics</span></a></span><span>
+</span><span id="line-89"></span><span id="metricPolicy_containerLevelMetrics"><span class="annot"><span class="annottext">metricPolicy_containerLevelMetrics :: (ContainerLevelMetrics -&gt; f ContainerLevelMetrics)
+-&gt; MetricPolicy -&gt; f MetricPolicy
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#metricPolicy_containerLevelMetrics"><span class="hs-identifier hs-var hs-var">metricPolicy_containerLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricPolicy -&gt; ContainerLevelMetrics)
+-&gt; (MetricPolicy -&gt; ContainerLevelMetrics -&gt; MetricPolicy)
+-&gt; Lens
+     MetricPolicy
+     MetricPolicy
+     ContainerLevelMetrics
+     ContainerLevelMetrics
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163840"><span class="annot"><span class="annottext">ContainerLevelMetrics
+containerLevelMetrics :: ContainerLevelMetrics
+$sel:containerLevelMetrics:MetricPolicy' :: MetricPolicy -&gt; ContainerLevelMetrics
+</span><a href="#local-6989586621679163840"><span class="hs-identifier hs-var hs-var">containerLevelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679163840"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163839"><span class="annot"><span class="annottext">s :: MetricPolicy
+</span><a href="#local-6989586621679163839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163838"><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679163838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicy
+</span><a href="#local-6989586621679163839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerLevelMetrics:MetricPolicy' :: ContainerLevelMetrics
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679163838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163835"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679163833"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MetricPolicy) -&gt; Value -&gt; Parser MetricPolicy
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MetricPolicy&quot;</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163830"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163830"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+-&gt; ContainerLevelMetrics -&gt; MetricPolicy
+</span><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-var">MetricPolicy'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty MetricPolicyRule)
+ -&gt; ContainerLevelMetrics -&gt; MetricPolicy)
+-&gt; Parser (Maybe (NonEmpty MetricPolicyRule))
+-&gt; Parser (ContainerLevelMetrics -&gt; MetricPolicy)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty MetricPolicyRule))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricPolicyRules&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (ContainerLevelMetrics -&gt; MetricPolicy)
+-&gt; Parser ContainerLevelMetrics -&gt; Parser MetricPolicy
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContainerLevelMetrics
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerLevelMetrics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163823"><span id="local-6989586621679163825"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163812"><span id="local-6989586621679163814"><span id="local-6989586621679163816"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679163810"><span class="annot"><span class="annottext">toJSON :: MetricPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163807"><span id="local-6989586621679163808"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+ContainerLevelMetrics
+containerLevelMetrics :: ContainerLevelMetrics
+metricPolicyRules :: Maybe (NonEmpty MetricPolicyRule)
+$sel:containerLevelMetrics:MetricPolicy' :: MetricPolicy -&gt; ContainerLevelMetrics
+$sel:metricPolicyRules:MetricPolicy' :: MetricPolicy -&gt; Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679163807"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricPolicyRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty MetricPolicyRule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty MetricPolicyRule -&gt; Pair)
+-&gt; Maybe (NonEmpty MetricPolicyRule) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679163808"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerLevelMetrics&quot;</span></span><span>
+</span><span id="line-113"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ContainerLevelMetrics -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679163807"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span>
+</span><span id="line-114"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span></pre></body></html>

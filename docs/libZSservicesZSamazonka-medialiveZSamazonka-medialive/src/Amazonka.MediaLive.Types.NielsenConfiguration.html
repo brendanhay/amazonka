@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.NielsenConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.NielsenConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenPcmToId3TaggingState.html"><span class="hs-identifier">Amazonka.MediaLive.Types.NielsenPcmToId3TaggingState</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Nielsen Configuration</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNielsenConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679908548"><span id="local-6989586621679908549"></span></span><span class="hs-keyword">data</span><span> </span><span id="NielsenConfiguration"><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-var">NielsenConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NielsenConfiguration%27"><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-var">NielsenConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enter the Distributor ID assigned to your organization by Nielsen.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdistributorId%3ANielsenConfiguration%27"><span class="annot"><span class="annottext">NielsenConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#%24sel%3AdistributorId%3ANielsenConfiguration%27"><span class="hs-identifier hs-var hs-var">distributorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Enables Nielsen PCM to ID3 tagging</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnielsenPcmToId3Tagging%3ANielsenConfiguration%27"><span class="annot"><span class="annottext">NielsenConfiguration -&gt; Maybe NielsenPcmToId3TaggingState
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#%24sel%3AnielsenPcmToId3Tagging%3ANielsenConfiguration%27"><span class="hs-identifier hs-var hs-var">nielsenPcmToId3Tagging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenPcmToId3TaggingState.html#NielsenPcmToId3TaggingState"><span class="hs-identifier hs-type">NielsenPcmToId3TaggingState</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679908541"><span id="local-6989586621679908543"><span class="annot"><span class="annottext">NielsenConfiguration -&gt; NielsenConfiguration -&gt; Bool
+(NielsenConfiguration -&gt; NielsenConfiguration -&gt; Bool)
+-&gt; (NielsenConfiguration -&gt; NielsenConfiguration -&gt; Bool)
+-&gt; Eq NielsenConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NielsenConfiguration -&gt; NielsenConfiguration -&gt; Bool
+$c/= :: NielsenConfiguration -&gt; NielsenConfiguration -&gt; Bool
+== :: NielsenConfiguration -&gt; NielsenConfiguration -&gt; Bool
+$c== :: NielsenConfiguration -&gt; NielsenConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908532"><span id="local-6989586621679908534"><span id="local-6989586621679908536"><span id="local-6989586621679908538"><span class="annot"><span class="annottext">ReadPrec [NielsenConfiguration]
+ReadPrec NielsenConfiguration
+Int -&gt; ReadS NielsenConfiguration
+ReadS [NielsenConfiguration]
+(Int -&gt; ReadS NielsenConfiguration)
+-&gt; ReadS [NielsenConfiguration]
+-&gt; ReadPrec NielsenConfiguration
+-&gt; ReadPrec [NielsenConfiguration]
+-&gt; Read NielsenConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NielsenConfiguration]
+$creadListPrec :: ReadPrec [NielsenConfiguration]
+readPrec :: ReadPrec NielsenConfiguration
+$creadPrec :: ReadPrec NielsenConfiguration
+readList :: ReadS [NielsenConfiguration]
+$creadList :: ReadS [NielsenConfiguration]
+readsPrec :: Int -&gt; ReadS NielsenConfiguration
+$creadsPrec :: Int -&gt; ReadS NielsenConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908525"><span id="local-6989586621679908527"><span id="local-6989586621679908529"><span class="annot"><span class="annottext">Int -&gt; NielsenConfiguration -&gt; ShowS
+[NielsenConfiguration] -&gt; ShowS
+NielsenConfiguration -&gt; String
+(Int -&gt; NielsenConfiguration -&gt; ShowS)
+-&gt; (NielsenConfiguration -&gt; String)
+-&gt; ([NielsenConfiguration] -&gt; ShowS)
+-&gt; Show NielsenConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NielsenConfiguration] -&gt; ShowS
+$cshowList :: [NielsenConfiguration] -&gt; ShowS
+show :: NielsenConfiguration -&gt; String
+$cshow :: NielsenConfiguration -&gt; String
+showsPrec :: Int -&gt; NielsenConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; NielsenConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NielsenConfiguration -&gt; Rep NielsenConfiguration x)
+-&gt; (forall x. Rep NielsenConfiguration x -&gt; NielsenConfiguration)
+-&gt; Generic NielsenConfiguration
+forall x. Rep NielsenConfiguration x -&gt; NielsenConfiguration
+forall x. NielsenConfiguration -&gt; Rep NielsenConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NielsenConfiguration x -&gt; NielsenConfiguration
+$cfrom :: forall x. NielsenConfiguration -&gt; Rep NielsenConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'NielsenConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'distributorId', 'nielsenConfiguration_distributorId' - Enter the Distributor ID assigned to your organization by Nielsen.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'nielsenPcmToId3Tagging', 'nielsenConfiguration_nielsenPcmToId3Tagging' - Enables Nielsen PCM to ID3 tagging</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#newNielsenConfiguration"><span class="hs-identifier hs-type">newNielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span>
+</span><span id="line-51"></span><span id="newNielsenConfiguration"><span class="annot"><span class="annottext">newNielsenConfiguration :: NielsenConfiguration
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#newNielsenConfiguration"><span class="hs-identifier hs-var hs-var">newNielsenConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">NielsenConfiguration' :: Maybe Text
+-&gt; Maybe NielsenPcmToId3TaggingState -&gt; NielsenConfiguration
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-type">NielsenConfiguration'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:distributorId:NielsenConfiguration' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#%24sel%3AdistributorId%3ANielsenConfiguration%27"><span class="hs-identifier hs-var">distributorId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:nielsenPcmToId3Tagging:NielsenConfiguration' :: Maybe NielsenPcmToId3TaggingState
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#%24sel%3AnielsenPcmToId3Tagging%3ANielsenConfiguration%27"><span class="hs-identifier hs-var">nielsenPcmToId3Tagging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenPcmToId3TaggingState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Enter the Distributor ID assigned to your organization by Nielsen.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#nielsenConfiguration_distributorId"><span class="hs-identifier hs-type">nielsenConfiguration_distributorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="nielsenConfiguration_distributorId"><span class="annot"><span class="annottext">nielsenConfiguration_distributorId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NielsenConfiguration -&gt; f NielsenConfiguration
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#nielsenConfiguration_distributorId"><span class="hs-identifier hs-var hs-var">nielsenConfiguration_distributorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenConfiguration -&gt; Maybe Text)
+-&gt; (NielsenConfiguration -&gt; Maybe Text -&gt; NielsenConfiguration)
+-&gt; Lens
+     NielsenConfiguration NielsenConfiguration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-type">NielsenConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908516"><span class="annot"><span class="annottext">Maybe Text
+distributorId :: Maybe Text
+$sel:distributorId:NielsenConfiguration' :: NielsenConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679908516"><span class="hs-identifier hs-var hs-var">distributorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679908516"><span class="hs-identifier hs-var">distributorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908515"><span class="annot"><span class="annottext">s :: NielsenConfiguration
+</span><a href="#local-6989586621679908515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-type">NielsenConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679908514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenConfiguration
+</span><a href="#local-6989586621679908515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributorId:NielsenConfiguration' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#%24sel%3AdistributorId%3ANielsenConfiguration%27"><span class="hs-identifier hs-var">distributorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679908514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Enables Nielsen PCM to ID3 tagging</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#nielsenConfiguration_nielsenPcmToId3Tagging"><span class="hs-identifier hs-type">nielsenConfiguration_nielsenPcmToId3Tagging</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenPcmToId3TaggingState.html#NielsenPcmToId3TaggingState"><span class="hs-identifier hs-type">NielsenPcmToId3TaggingState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="nielsenConfiguration_nielsenPcmToId3Tagging"><span class="annot"><span class="annottext">nielsenConfiguration_nielsenPcmToId3Tagging :: (Maybe NielsenPcmToId3TaggingState
+ -&gt; f (Maybe NielsenPcmToId3TaggingState))
+-&gt; NielsenConfiguration -&gt; f NielsenConfiguration
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#nielsenConfiguration_nielsenPcmToId3Tagging"><span class="hs-identifier hs-var hs-var">nielsenConfiguration_nielsenPcmToId3Tagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NielsenConfiguration -&gt; Maybe NielsenPcmToId3TaggingState)
+-&gt; (NielsenConfiguration
+    -&gt; Maybe NielsenPcmToId3TaggingState -&gt; NielsenConfiguration)
+-&gt; Lens
+     NielsenConfiguration
+     NielsenConfiguration
+     (Maybe NielsenPcmToId3TaggingState)
+     (Maybe NielsenPcmToId3TaggingState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-type">NielsenConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908512"><span class="annot"><span class="annottext">Maybe NielsenPcmToId3TaggingState
+nielsenPcmToId3Tagging :: Maybe NielsenPcmToId3TaggingState
+$sel:nielsenPcmToId3Tagging:NielsenConfiguration' :: NielsenConfiguration -&gt; Maybe NielsenPcmToId3TaggingState
+</span><a href="#local-6989586621679908512"><span class="hs-identifier hs-var hs-var">nielsenPcmToId3Tagging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenPcmToId3TaggingState
+</span><a href="#local-6989586621679908512"><span class="hs-identifier hs-var">nielsenPcmToId3Tagging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908511"><span class="annot"><span class="annottext">s :: NielsenConfiguration
+</span><a href="#local-6989586621679908511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-type">NielsenConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908510"><span class="annot"><span class="annottext">Maybe NielsenPcmToId3TaggingState
+</span><a href="#local-6989586621679908510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NielsenConfiguration
+</span><a href="#local-6989586621679908511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenPcmToId3Tagging:NielsenConfiguration' :: Maybe NielsenPcmToId3TaggingState
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#%24sel%3AnielsenPcmToId3Tagging%3ANielsenConfiguration%27"><span class="hs-identifier hs-var">nielsenPcmToId3Tagging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenPcmToId3TaggingState
+</span><a href="#local-6989586621679908510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908507"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679908505"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NielsenConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NielsenConfiguration)
+-&gt; Value
+-&gt; Parser NielsenConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NielsenConfiguration&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679908502"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679908502"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe NielsenPcmToId3TaggingState -&gt; NielsenConfiguration
+</span><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-var">NielsenConfiguration'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe NielsenPcmToId3TaggingState -&gt; NielsenConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe NielsenPcmToId3TaggingState -&gt; NielsenConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679908502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;distributorId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NielsenPcmToId3TaggingState -&gt; NielsenConfiguration)
+-&gt; Parser (Maybe NielsenPcmToId3TaggingState)
+-&gt; Parser NielsenConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679908502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenPcmToId3TaggingState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenPcmToId3Tagging&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908496"><span id="local-6989586621679908498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908485"><span id="local-6989586621679908487"><span id="local-6989586621679908489"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration"><span class="hs-identifier hs-type">NielsenConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679908483"><span class="annot"><span class="annottext">toJSON :: NielsenConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.NielsenConfiguration.html#NielsenConfiguration%27"><span class="hs-identifier hs-type">NielsenConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908480"><span id="local-6989586621679908481"><span class="annot"><span class="annottext">Maybe Text
+Maybe NielsenPcmToId3TaggingState
+nielsenPcmToId3Tagging :: Maybe NielsenPcmToId3TaggingState
+distributorId :: Maybe Text
+$sel:nielsenPcmToId3Tagging:NielsenConfiguration' :: NielsenConfiguration -&gt; Maybe NielsenPcmToId3TaggingState
+$sel:distributorId:NielsenConfiguration' :: NielsenConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679908480"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;distributorId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679908481"><span class="hs-identifier hs-var">distributorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenPcmToId3Tagging&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenPcmToId3TaggingState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">(NielsenPcmToId3TaggingState -&gt; Pair)
+-&gt; Maybe NielsenPcmToId3TaggingState -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenPcmToId3TaggingState
+</span><a href="#local-6989586621679908480"><span class="hs-identifier hs-var">nielsenPcmToId3Tagging</span></a></span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span></pre></body></html>

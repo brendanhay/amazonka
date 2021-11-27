@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.Account.Types.AlternateContactType
+module Amazonka.Account.Types.AlternateContactType
 newtype AlternateContactType
 AlternateContactType' :: Text -> AlternateContactType
 [fromAlternateContactType] :: AlternateContactType -> Text
 pattern AlternateContactType_BILLING :: AlternateContactType
 pattern AlternateContactType_OPERATIONS :: AlternateContactType
 pattern AlternateContactType_SECURITY :: AlternateContactType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Network.AWS.Data.Text.ToText Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Network.AWS.Data.Text.FromText Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Control.DeepSeq.NFData Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance Data.Hashable.Class.Hashable Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance GHC.Generics.Generic Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance GHC.Classes.Ord Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance GHC.Classes.Eq Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance GHC.Read.Read Network.AWS.Account.Types.AlternateContactType.AlternateContactType
-instance GHC.Show.Show Network.AWS.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.XML.ToXML Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.XML.FromXML Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.Query.ToQuery Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.Log.ToLog Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.Text.ToText Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Amazonka.Data.Text.FromText Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Control.DeepSeq.NFData Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance Data.Hashable.Class.Hashable Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance GHC.Generics.Generic Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance GHC.Classes.Ord Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance GHC.Classes.Eq Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance GHC.Read.Read Amazonka.Account.Types.AlternateContactType.AlternateContactType
+instance GHC.Show.Show Amazonka.Account.Types.AlternateContactType.AlternateContactType
 
 
-module Network.AWS.Account.Types.AlternateContact
+module Amazonka.Account.Types.AlternateContact
 
 -- | A structure that contains the details of an alternate contact
 --   associated with an Amazon Web Services account
@@ -99,15 +99,15 @@ alternateContact_emailAddress :: Lens' AlternateContact (Maybe Text)
 
 -- | The title associated with this alternate contact.
 alternateContact_title :: Lens' AlternateContact (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Account.Types.AlternateContact.AlternateContact
-instance GHC.Show.Show Network.AWS.Account.Types.AlternateContact.AlternateContact
-instance GHC.Classes.Eq Network.AWS.Account.Types.AlternateContact.AlternateContact
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Account.Types.AlternateContact.AlternateContact
-instance Data.Hashable.Class.Hashable Network.AWS.Account.Types.AlternateContact.AlternateContact
-instance Control.DeepSeq.NFData Network.AWS.Account.Types.AlternateContact.AlternateContact
+instance GHC.Generics.Generic Amazonka.Account.Types.AlternateContact.AlternateContact
+instance GHC.Show.Show Amazonka.Account.Types.AlternateContact.AlternateContact
+instance GHC.Classes.Eq Amazonka.Account.Types.AlternateContact.AlternateContact
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Account.Types.AlternateContact.AlternateContact
+instance Data.Hashable.Class.Hashable Amazonka.Account.Types.AlternateContact.AlternateContact
+instance Control.DeepSeq.NFData Amazonka.Account.Types.AlternateContact.AlternateContact
 
 
-module Network.AWS.Account.Types
+module Amazonka.Account.Types
 
 -- | API version <tt>2021-02-01</tt> of the Amazon Account SDK
 --   configuration.
@@ -209,7 +209,7 @@ alternateContact_title :: Lens' AlternateContact (Maybe Text)
 --   
 --   For complete details about how to use the alternate contact
 --   operations, see <a>Access or updating the alternate contacts</a>.
-module Network.AWS.Account.PutAlternateContact
+module Amazonka.Account.PutAlternateContact
 
 -- | <i>See:</i> <a>newPutAlternateContact</a> smart constructor.
 data PutAlternateContact
@@ -357,21 +357,21 @@ PutAlternateContactResponse' :: PutAlternateContactResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutAlternateContactResponse :: PutAlternateContactResponse
-instance GHC.Generics.Generic Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance GHC.Show.Show Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance GHC.Classes.Eq Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance GHC.Generics.Generic Network.AWS.Account.PutAlternateContact.PutAlternateContactResponse
-instance GHC.Show.Show Network.AWS.Account.PutAlternateContact.PutAlternateContactResponse
-instance GHC.Read.Read Network.AWS.Account.PutAlternateContact.PutAlternateContactResponse
-instance GHC.Classes.Eq Network.AWS.Account.PutAlternateContact.PutAlternateContactResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance Control.DeepSeq.NFData Network.AWS.Account.PutAlternateContact.PutAlternateContactResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance Control.DeepSeq.NFData Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance Network.AWS.Data.Path.ToPath Network.AWS.Account.PutAlternateContact.PutAlternateContact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Account.PutAlternateContact.PutAlternateContact
+instance GHC.Generics.Generic Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance GHC.Show.Show Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance GHC.Classes.Eq Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance GHC.Generics.Generic Amazonka.Account.PutAlternateContact.PutAlternateContactResponse
+instance GHC.Show.Show Amazonka.Account.PutAlternateContact.PutAlternateContactResponse
+instance GHC.Read.Read Amazonka.Account.PutAlternateContact.PutAlternateContactResponse
+instance GHC.Classes.Eq Amazonka.Account.PutAlternateContact.PutAlternateContactResponse
+instance Amazonka.Types.AWSRequest Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance Control.DeepSeq.NFData Amazonka.Account.PutAlternateContact.PutAlternateContactResponse
+instance Data.Hashable.Class.Hashable Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance Control.DeepSeq.NFData Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance Amazonka.Data.Path.ToPath Amazonka.Account.PutAlternateContact.PutAlternateContact
+instance Amazonka.Data.Query.ToQuery Amazonka.Account.PutAlternateContact.PutAlternateContact
 
 
 -- | Retrieves the specified alternate contact attached to an Amazon Web
@@ -379,7 +379,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Account.PutAlternateContact.
 --   
 --   For complete details about how to use the alternate contact
 --   operations, see <a>Access or updating the alternate contacts</a>.
-module Network.AWS.Account.GetAlternateContact
+module Amazonka.Account.GetAlternateContact
 
 -- | <i>See:</i> <a>newGetAlternateContact</a> smart constructor.
 data GetAlternateContact
@@ -513,21 +513,21 @@ getAlternateContactResponse_alternateContact :: Lens' GetAlternateContactRespons
 
 -- | The response's http status code.
 getAlternateContactResponse_httpStatus :: Lens' GetAlternateContactResponse Int
-instance GHC.Generics.Generic Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance GHC.Show.Show Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance GHC.Read.Read Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance GHC.Classes.Eq Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance GHC.Generics.Generic Network.AWS.Account.GetAlternateContact.GetAlternateContactResponse
-instance GHC.Show.Show Network.AWS.Account.GetAlternateContact.GetAlternateContactResponse
-instance GHC.Classes.Eq Network.AWS.Account.GetAlternateContact.GetAlternateContactResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance Control.DeepSeq.NFData Network.AWS.Account.GetAlternateContact.GetAlternateContactResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance Control.DeepSeq.NFData Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance Network.AWS.Data.Path.ToPath Network.AWS.Account.GetAlternateContact.GetAlternateContact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Account.GetAlternateContact.GetAlternateContact
+instance GHC.Generics.Generic Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance GHC.Show.Show Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance GHC.Read.Read Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance GHC.Classes.Eq Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance GHC.Generics.Generic Amazonka.Account.GetAlternateContact.GetAlternateContactResponse
+instance GHC.Show.Show Amazonka.Account.GetAlternateContact.GetAlternateContactResponse
+instance GHC.Classes.Eq Amazonka.Account.GetAlternateContact.GetAlternateContactResponse
+instance Amazonka.Types.AWSRequest Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance Control.DeepSeq.NFData Amazonka.Account.GetAlternateContact.GetAlternateContactResponse
+instance Data.Hashable.Class.Hashable Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance Control.DeepSeq.NFData Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance Amazonka.Data.Path.ToPath Amazonka.Account.GetAlternateContact.GetAlternateContact
+instance Amazonka.Data.Query.ToQuery Amazonka.Account.GetAlternateContact.GetAlternateContact
 
 
 -- | Deletes the specified alternate contact from an Amazon Web Services
@@ -535,7 +535,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Account.GetAlternateContact.
 --   
 --   For complete details about how to use the alternate contact
 --   operations, see <a>Access or updating the alternate contacts</a>.
-module Network.AWS.Account.DeleteAlternateContact
+module Amazonka.Account.DeleteAlternateContact
 
 -- | <i>See:</i> <a>newDeleteAlternateContact</a> smart constructor.
 data DeleteAlternateContact
@@ -645,25 +645,25 @@ DeleteAlternateContactResponse' :: DeleteAlternateContactResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAlternateContactResponse :: DeleteAlternateContactResponse
-instance GHC.Generics.Generic Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance GHC.Show.Show Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance GHC.Read.Read Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance GHC.Classes.Eq Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance GHC.Generics.Generic Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContactResponse
-instance GHC.Show.Show Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContactResponse
-instance GHC.Read.Read Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContactResponse
-instance GHC.Classes.Eq Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContactResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance Control.DeepSeq.NFData Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContactResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance Control.DeepSeq.NFData Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance Network.AWS.Data.Path.ToPath Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Account.DeleteAlternateContact.DeleteAlternateContact
+instance GHC.Generics.Generic Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance GHC.Show.Show Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance GHC.Read.Read Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance GHC.Classes.Eq Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance GHC.Generics.Generic Amazonka.Account.DeleteAlternateContact.DeleteAlternateContactResponse
+instance GHC.Show.Show Amazonka.Account.DeleteAlternateContact.DeleteAlternateContactResponse
+instance GHC.Read.Read Amazonka.Account.DeleteAlternateContact.DeleteAlternateContactResponse
+instance GHC.Classes.Eq Amazonka.Account.DeleteAlternateContact.DeleteAlternateContactResponse
+instance Amazonka.Types.AWSRequest Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance Control.DeepSeq.NFData Amazonka.Account.DeleteAlternateContact.DeleteAlternateContactResponse
+instance Data.Hashable.Class.Hashable Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance Control.DeepSeq.NFData Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance Amazonka.Data.Path.ToPath Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
+instance Amazonka.Data.Query.ToQuery Amazonka.Account.DeleteAlternateContact.DeleteAlternateContact
 
 
-module Network.AWS.Account.Lens
+module Amazonka.Account.Lens
 
 -- | Specifies the 12 digit account ID number of the Amazon Web Services
 --   account that you want to access or modify with this operation.
@@ -781,14 +781,14 @@ alternateContact_emailAddress :: Lens' AlternateContact (Maybe Text)
 alternateContact_title :: Lens' AlternateContact (Maybe Text)
 
 
-module Network.AWS.Account.Waiters
+module Amazonka.Account.Waiters
 
 
 -- | Derived from API version <tt>2021-02-01</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Operations for Amazon Web Services Account Management
-module Network.AWS.Account
+module Amazonka.Account
 
 -- | API version <tt>2021-02-01</tt> of the Amazon Account SDK
 --   configuration.

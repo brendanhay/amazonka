@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Config.StartConfigRulesEvaluation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Runs an on-demand evaluation for the specified Config rules against the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- last known configuration state of the resources. Use</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @StartConfigRulesEvaluation@ when you want to test that a rule you</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- updated is working as expected. @StartConfigRulesEvaluation@ does not</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- re-record the latest configuration state for your resources. It re-runs</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- an evaluation against the last known state of your resources.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- You can specify up to 25 Config rules per request.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- An existing @StartConfigRulesEvaluation@ call for the specified rules</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- must complete before you can call the API again. If you chose to have</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Config stream to an Amazon SNS topic, you will receive a</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- @ConfigRuleEvaluationStarted@ notification when the evaluation starts.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- You don\'t need to call the @StartConfigRulesEvaluation@ API to run an</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- evaluation for a new rule. When you create a rule, Config evaluates your</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- resources against the rule automatically.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The @StartConfigRulesEvaluation@ API is useful if you want to run</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- on-demand evaluations, such as the following example:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 1.  You have a custom rule that evaluates your IAM resources every 24</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     hours.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 2.  You update your Lambda function to add additional conditions to your</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     rule.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 3.  Instead of waiting for the next periodic evaluation, you call the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     @StartConfigRulesEvaluation@ API.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 4.  Config invokes your Lambda function and evaluates your IAM</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     resources.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 5.  Your custom rule will still run periodic evaluations every 24 hours.</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.StartConfigRulesEvaluation</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier">StartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#newStartConfigRulesEvaluation"><span class="hs-identifier">newStartConfigRulesEvaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#startConfigRulesEvaluation_configRuleNames"><span class="hs-identifier">startConfigRulesEvaluation_configRuleNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse"><span class="hs-identifier">StartConfigRulesEvaluationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#newStartConfigRulesEvaluationResponse"><span class="hs-identifier">newStartConfigRulesEvaluationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#startConfigRulesEvaluationResponse_httpStatus"><span class="hs-identifier">startConfigRulesEvaluationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.html"><span class="hs-identifier">Amazonka.Config.Types</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- /See:/ 'newStartConfigRulesEvaluation' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679412769"><span id="local-6989586621679412770"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartConfigRulesEvaluation"><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-var">StartConfigRulesEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartConfigRulesEvaluation%27"><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation%27"><span class="hs-identifier hs-var">StartConfigRulesEvaluation'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of names of Config rules that you want to run evaluations for.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AconfigRuleNames%3AStartConfigRulesEvaluation%27"><span class="annot"><span class="annottext">StartConfigRulesEvaluation -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#%24sel%3AconfigRuleNames%3AStartConfigRulesEvaluation%27"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412763"><span id="local-6989586621679412765"><span class="annot"><span class="annottext">StartConfigRulesEvaluation -&gt; StartConfigRulesEvaluation -&gt; Bool
+(StartConfigRulesEvaluation -&gt; StartConfigRulesEvaluation -&gt; Bool)
+-&gt; (StartConfigRulesEvaluation
+    -&gt; StartConfigRulesEvaluation -&gt; Bool)
+-&gt; Eq StartConfigRulesEvaluation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartConfigRulesEvaluation -&gt; StartConfigRulesEvaluation -&gt; Bool
+$c/= :: StartConfigRulesEvaluation -&gt; StartConfigRulesEvaluation -&gt; Bool
+== :: StartConfigRulesEvaluation -&gt; StartConfigRulesEvaluation -&gt; Bool
+$c== :: StartConfigRulesEvaluation -&gt; StartConfigRulesEvaluation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412754"><span id="local-6989586621679412756"><span id="local-6989586621679412758"><span id="local-6989586621679412760"><span class="annot"><span class="annottext">ReadPrec [StartConfigRulesEvaluation]
+ReadPrec StartConfigRulesEvaluation
+Int -&gt; ReadS StartConfigRulesEvaluation
+ReadS [StartConfigRulesEvaluation]
+(Int -&gt; ReadS StartConfigRulesEvaluation)
+-&gt; ReadS [StartConfigRulesEvaluation]
+-&gt; ReadPrec StartConfigRulesEvaluation
+-&gt; ReadPrec [StartConfigRulesEvaluation]
+-&gt; Read StartConfigRulesEvaluation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartConfigRulesEvaluation]
+$creadListPrec :: ReadPrec [StartConfigRulesEvaluation]
+readPrec :: ReadPrec StartConfigRulesEvaluation
+$creadPrec :: ReadPrec StartConfigRulesEvaluation
+readList :: ReadS [StartConfigRulesEvaluation]
+$creadList :: ReadS [StartConfigRulesEvaluation]
+readsPrec :: Int -&gt; ReadS StartConfigRulesEvaluation
+$creadsPrec :: Int -&gt; ReadS StartConfigRulesEvaluation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412747"><span id="local-6989586621679412749"><span id="local-6989586621679412751"><span class="annot"><span class="annottext">Int -&gt; StartConfigRulesEvaluation -&gt; ShowS
+[StartConfigRulesEvaluation] -&gt; ShowS
+StartConfigRulesEvaluation -&gt; String
+(Int -&gt; StartConfigRulesEvaluation -&gt; ShowS)
+-&gt; (StartConfigRulesEvaluation -&gt; String)
+-&gt; ([StartConfigRulesEvaluation] -&gt; ShowS)
+-&gt; Show StartConfigRulesEvaluation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartConfigRulesEvaluation] -&gt; ShowS
+$cshowList :: [StartConfigRulesEvaluation] -&gt; ShowS
+show :: StartConfigRulesEvaluation -&gt; String
+$cshow :: StartConfigRulesEvaluation -&gt; String
+showsPrec :: Int -&gt; StartConfigRulesEvaluation -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartConfigRulesEvaluation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartConfigRulesEvaluation -&gt; Rep StartConfigRulesEvaluation x)
+-&gt; (forall x.
+    Rep StartConfigRulesEvaluation x -&gt; StartConfigRulesEvaluation)
+-&gt; Generic StartConfigRulesEvaluation
+forall x.
+Rep StartConfigRulesEvaluation x -&gt; StartConfigRulesEvaluation
+forall x.
+StartConfigRulesEvaluation -&gt; Rep StartConfigRulesEvaluation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartConfigRulesEvaluation x -&gt; StartConfigRulesEvaluation
+$cfrom :: forall x.
+StartConfigRulesEvaluation -&gt; Rep StartConfigRulesEvaluation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'StartConfigRulesEvaluation' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'configRuleNames', 'startConfigRulesEvaluation_configRuleNames' - The list of names of Config rules that you want to run evaluations for.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#newStartConfigRulesEvaluation"><span class="hs-identifier hs-type">newStartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span>
+</span><span id="line-101"></span><span id="newStartConfigRulesEvaluation"><span class="annot"><span class="annottext">newStartConfigRulesEvaluation :: StartConfigRulesEvaluation
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#newStartConfigRulesEvaluation"><span class="hs-identifier hs-var hs-var">newStartConfigRulesEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">StartConfigRulesEvaluation' :: Maybe (NonEmpty Text) -&gt; StartConfigRulesEvaluation
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation%27"><span class="hs-identifier hs-type">StartConfigRulesEvaluation'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configRuleNames:StartConfigRulesEvaluation' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#%24sel%3AconfigRuleNames%3AStartConfigRulesEvaluation%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The list of names of Config rules that you want to run evaluations for.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#startConfigRulesEvaluation_configRuleNames"><span class="hs-identifier hs-type">startConfigRulesEvaluation_configRuleNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="startConfigRulesEvaluation_configRuleNames"><span class="annot"><span class="annottext">startConfigRulesEvaluation_configRuleNames :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; StartConfigRulesEvaluation -&gt; f StartConfigRulesEvaluation
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#startConfigRulesEvaluation_configRuleNames"><span class="hs-identifier hs-var hs-var">startConfigRulesEvaluation_configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartConfigRulesEvaluation -&gt; Maybe (NonEmpty Text))
+-&gt; (StartConfigRulesEvaluation
+    -&gt; Maybe (NonEmpty Text) -&gt; StartConfigRulesEvaluation)
+-&gt; Lens
+     StartConfigRulesEvaluation
+     StartConfigRulesEvaluation
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation%27"><span class="hs-identifier hs-type">StartConfigRulesEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412740"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+configRuleNames :: Maybe (NonEmpty Text)
+$sel:configRuleNames:StartConfigRulesEvaluation' :: StartConfigRulesEvaluation -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412740"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412740"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412739"><span class="annot"><span class="annottext">s :: StartConfigRulesEvaluation
+</span><a href="#local-6989586621679412739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation%27"><span class="hs-identifier hs-type">StartConfigRulesEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412738"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartConfigRulesEvaluation
+</span><a href="#local-6989586621679412739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleNames:StartConfigRulesEvaluation' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#%24sel%3AconfigRuleNames%3AStartConfigRulesEvaluation%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; StartConfigRulesEvaluation -&gt; f StartConfigRulesEvaluation)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; StartConfigRulesEvaluation
+-&gt; f StartConfigRulesEvaluation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679412731"><span class="annot"><span class="annottext">request :: StartConfigRulesEvaluation -&gt; Request StartConfigRulesEvaluation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartConfigRulesEvaluation -&gt; Request StartConfigRulesEvaluation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679412727"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartConfigRulesEvaluation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartConfigRulesEvaluation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse StartConfigRulesEvaluation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartConfigRulesEvaluation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartConfigRulesEvaluation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412724"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412724"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412723"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412723"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412722"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679412722"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartConfigRulesEvaluationResponse
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-var">StartConfigRulesEvaluationResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartConfigRulesEvaluationResponse)
+-&gt; Either String Int
+-&gt; Either String StartConfigRulesEvaluationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412724"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412715"><span id="local-6989586621679412717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679412708"><span class="annot"><span class="annottext">toHeaders :: StartConfigRulesEvaluation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartConfigRulesEvaluation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StarlingDoveService.StartConfigRulesEvaluation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412698"><span id="local-6989586621679412700"><span id="local-6989586621679412702"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679412696"><span class="annot"><span class="annottext">toJSON :: StartConfigRulesEvaluation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation%27"><span class="hs-identifier hs-type">StartConfigRulesEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412694"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+configRuleNames :: Maybe (NonEmpty Text)
+$sel:configRuleNames:StartConfigRulesEvaluation' :: StartConfigRulesEvaluation -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412694"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigRuleNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412694"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679412688"><span class="annot"><span class="annottext">toPath :: StartConfigRulesEvaluation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartConfigRulesEvaluation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluation"><span class="hs-identifier hs-type">StartConfigRulesEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679412684"><span class="annot"><span class="annottext">toQuery :: StartConfigRulesEvaluation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartConfigRulesEvaluation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The output when you start the evaluation for the specified Config rule.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- /See:/ 'newStartConfigRulesEvaluationResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679412681"><span id="local-6989586621679412682"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartConfigRulesEvaluationResponse"><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse"><span class="hs-identifier hs-var">StartConfigRulesEvaluationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartConfigRulesEvaluationResponse%27"><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-var">StartConfigRulesEvaluationResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartConfigRulesEvaluationResponse%27"><span class="annot"><span class="annottext">StartConfigRulesEvaluationResponse -&gt; Int
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#%24sel%3AhttpStatus%3AStartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412676"><span id="local-6989586621679412678"><span class="annot"><span class="annottext">StartConfigRulesEvaluationResponse
+-&gt; StartConfigRulesEvaluationResponse -&gt; Bool
+(StartConfigRulesEvaluationResponse
+ -&gt; StartConfigRulesEvaluationResponse -&gt; Bool)
+-&gt; (StartConfigRulesEvaluationResponse
+    -&gt; StartConfigRulesEvaluationResponse -&gt; Bool)
+-&gt; Eq StartConfigRulesEvaluationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartConfigRulesEvaluationResponse
+-&gt; StartConfigRulesEvaluationResponse -&gt; Bool
+$c/= :: StartConfigRulesEvaluationResponse
+-&gt; StartConfigRulesEvaluationResponse -&gt; Bool
+== :: StartConfigRulesEvaluationResponse
+-&gt; StartConfigRulesEvaluationResponse -&gt; Bool
+$c== :: StartConfigRulesEvaluationResponse
+-&gt; StartConfigRulesEvaluationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412668"><span id="local-6989586621679412670"><span id="local-6989586621679412672"><span id="local-6989586621679412674"><span class="annot"><span class="annottext">ReadPrec [StartConfigRulesEvaluationResponse]
+ReadPrec StartConfigRulesEvaluationResponse
+Int -&gt; ReadS StartConfigRulesEvaluationResponse
+ReadS [StartConfigRulesEvaluationResponse]
+(Int -&gt; ReadS StartConfigRulesEvaluationResponse)
+-&gt; ReadS [StartConfigRulesEvaluationResponse]
+-&gt; ReadPrec StartConfigRulesEvaluationResponse
+-&gt; ReadPrec [StartConfigRulesEvaluationResponse]
+-&gt; Read StartConfigRulesEvaluationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartConfigRulesEvaluationResponse]
+$creadListPrec :: ReadPrec [StartConfigRulesEvaluationResponse]
+readPrec :: ReadPrec StartConfigRulesEvaluationResponse
+$creadPrec :: ReadPrec StartConfigRulesEvaluationResponse
+readList :: ReadS [StartConfigRulesEvaluationResponse]
+$creadList :: ReadS [StartConfigRulesEvaluationResponse]
+readsPrec :: Int -&gt; ReadS StartConfigRulesEvaluationResponse
+$creadsPrec :: Int -&gt; ReadS StartConfigRulesEvaluationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412662"><span id="local-6989586621679412664"><span id="local-6989586621679412666"><span class="annot"><span class="annottext">Int -&gt; StartConfigRulesEvaluationResponse -&gt; ShowS
+[StartConfigRulesEvaluationResponse] -&gt; ShowS
+StartConfigRulesEvaluationResponse -&gt; String
+(Int -&gt; StartConfigRulesEvaluationResponse -&gt; ShowS)
+-&gt; (StartConfigRulesEvaluationResponse -&gt; String)
+-&gt; ([StartConfigRulesEvaluationResponse] -&gt; ShowS)
+-&gt; Show StartConfigRulesEvaluationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartConfigRulesEvaluationResponse] -&gt; ShowS
+$cshowList :: [StartConfigRulesEvaluationResponse] -&gt; ShowS
+show :: StartConfigRulesEvaluationResponse -&gt; String
+$cshow :: StartConfigRulesEvaluationResponse -&gt; String
+showsPrec :: Int -&gt; StartConfigRulesEvaluationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartConfigRulesEvaluationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartConfigRulesEvaluationResponse
+ -&gt; Rep StartConfigRulesEvaluationResponse x)
+-&gt; (forall x.
+    Rep StartConfigRulesEvaluationResponse x
+    -&gt; StartConfigRulesEvaluationResponse)
+-&gt; Generic StartConfigRulesEvaluationResponse
+forall x.
+Rep StartConfigRulesEvaluationResponse x
+-&gt; StartConfigRulesEvaluationResponse
+forall x.
+StartConfigRulesEvaluationResponse
+-&gt; Rep StartConfigRulesEvaluationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartConfigRulesEvaluationResponse x
+-&gt; StartConfigRulesEvaluationResponse
+$cfrom :: forall x.
+StartConfigRulesEvaluationResponse
+-&gt; Rep StartConfigRulesEvaluationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'StartConfigRulesEvaluationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'startConfigRulesEvaluationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#newStartConfigRulesEvaluationResponse"><span class="hs-identifier hs-type">newStartConfigRulesEvaluationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newStartConfigRulesEvaluationResponse"><span class="annot"><span class="annottext">newStartConfigRulesEvaluationResponse :: Int -&gt; StartConfigRulesEvaluationResponse
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#newStartConfigRulesEvaluationResponse"><span class="hs-identifier hs-var hs-var">newStartConfigRulesEvaluationResponse</span></a></span></span><span> </span><span id="local-6989586621679412659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412659"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">StartConfigRulesEvaluationResponse' :: Int -&gt; StartConfigRulesEvaluationResponse
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartConfigRulesEvaluationResponse' :: Int
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#%24sel%3AhttpStatus%3AStartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412659"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#startConfigRulesEvaluationResponse_httpStatus"><span class="hs-identifier hs-type">startConfigRulesEvaluationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span id="startConfigRulesEvaluationResponse_httpStatus"><span class="annot"><span class="annottext">startConfigRulesEvaluationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartConfigRulesEvaluationResponse
+-&gt; f StartConfigRulesEvaluationResponse
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#startConfigRulesEvaluationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startConfigRulesEvaluationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartConfigRulesEvaluationResponse -&gt; Int)
+-&gt; (StartConfigRulesEvaluationResponse
+    -&gt; Int -&gt; StartConfigRulesEvaluationResponse)
+-&gt; Lens
+     StartConfigRulesEvaluationResponse
+     StartConfigRulesEvaluationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412658"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartConfigRulesEvaluationResponse' :: StartConfigRulesEvaluationResponse -&gt; Int
+</span><a href="#local-6989586621679412658"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412658"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412657"><span class="annot"><span class="annottext">s :: StartConfigRulesEvaluationResponse
+</span><a href="#local-6989586621679412657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartConfigRulesEvaluationResponse
+</span><a href="#local-6989586621679412657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartConfigRulesEvaluationResponse' :: Int
+</span><a href="Amazonka.Config.StartConfigRulesEvaluation.html#%24sel%3AhttpStatus%3AStartConfigRulesEvaluationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679412654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.Config.StartConfigRulesEvaluation.html#StartConfigRulesEvaluationResponse"><span class="hs-identifier hs-type">StartConfigRulesEvaluationResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.Types.StreamingSessionStreamState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.Types.StreamingSessionStreamState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier">StreamingSessionStreamState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_CREATE_FAILED"><span class="hs-identifier">StreamingSessionStreamState_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_CREATE_IN_PROGRESS"><span class="hs-identifier">StreamingSessionStreamState_CREATE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETED"><span class="hs-identifier">StreamingSessionStreamState_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETE_FAILED"><span class="hs-identifier">StreamingSessionStreamState_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETE_IN_PROGRESS"><span class="hs-identifier">StreamingSessionStreamState_DELETE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_READY"><span class="hs-identifier">StreamingSessionStreamState_READY</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679285725"><span id="local-6989586621679285726"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamingSessionStreamState"><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier hs-var">StreamingSessionStreamState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamingSessionStreamState%27"><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-identifier hs-var">StreamingSessionStreamState'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStreamingSessionStreamState"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; Text
+</span><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#fromStreamingSessionStreamState"><span class="hs-identifier hs-var hs-var">fromStreamingSessionStreamState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285717"><span id="local-6989586621679285719"><span id="local-6989586621679285721"><span class="annot"><span class="annottext">Int -&gt; StreamingSessionStreamState -&gt; ShowS
+[StreamingSessionStreamState] -&gt; ShowS
+StreamingSessionStreamState -&gt; String
+(Int -&gt; StreamingSessionStreamState -&gt; ShowS)
+-&gt; (StreamingSessionStreamState -&gt; String)
+-&gt; ([StreamingSessionStreamState] -&gt; ShowS)
+-&gt; Show StreamingSessionStreamState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StreamingSessionStreamState] -&gt; ShowS
+$cshowList :: [StreamingSessionStreamState] -&gt; ShowS
+show :: StreamingSessionStreamState -&gt; String
+$cshow :: StreamingSessionStreamState -&gt; String
+showsPrec :: Int -&gt; StreamingSessionStreamState -&gt; ShowS
+$cshowsPrec :: Int -&gt; StreamingSessionStreamState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679285708"><span id="local-6989586621679285710"><span id="local-6989586621679285712"><span id="local-6989586621679285714"><span class="annot"><span class="annottext">ReadPrec [StreamingSessionStreamState]
+ReadPrec StreamingSessionStreamState
+Int -&gt; ReadS StreamingSessionStreamState
+ReadS [StreamingSessionStreamState]
+(Int -&gt; ReadS StreamingSessionStreamState)
+-&gt; ReadS [StreamingSessionStreamState]
+-&gt; ReadPrec StreamingSessionStreamState
+-&gt; ReadPrec [StreamingSessionStreamState]
+-&gt; Read StreamingSessionStreamState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StreamingSessionStreamState]
+$creadListPrec :: ReadPrec [StreamingSessionStreamState]
+readPrec :: ReadPrec StreamingSessionStreamState
+$creadPrec :: ReadPrec StreamingSessionStreamState
+readList :: ReadS [StreamingSessionStreamState]
+$creadList :: ReadS [StreamingSessionStreamState]
+readsPrec :: Int -&gt; ReadS StreamingSessionStreamState
+$creadsPrec :: Int -&gt; ReadS StreamingSessionStreamState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679285703"><span id="local-6989586621679285705"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+(StreamingSessionStreamState
+ -&gt; StreamingSessionStreamState -&gt; Bool)
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; Bool)
+-&gt; Eq StreamingSessionStreamState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+$c/= :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+== :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+$c== :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679285687"><span id="local-6989586621679285689"><span id="local-6989586621679285691"><span id="local-6989586621679285693"><span id="local-6989586621679285695"><span id="local-6989586621679285697"><span id="local-6989586621679285699"><span class="annot"><span class="annottext">Eq StreamingSessionStreamState
+Eq StreamingSessionStreamState
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; Ordering)
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; Bool)
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; Bool)
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; Bool)
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; Bool)
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; StreamingSessionStreamState)
+-&gt; (StreamingSessionStreamState
+    -&gt; StreamingSessionStreamState -&gt; StreamingSessionStreamState)
+-&gt; Ord StreamingSessionStreamState
+StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; Ordering
+StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; StreamingSessionStreamState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; StreamingSessionStreamState
+$cmin :: StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; StreamingSessionStreamState
+max :: StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; StreamingSessionStreamState
+$cmax :: StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; StreamingSessionStreamState
+&gt;= :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+$c&gt;= :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+&gt; :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+$c&gt; :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+&lt;= :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+$c&lt;= :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+&lt; :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+$c&lt; :: StreamingSessionStreamState -&gt; StreamingSessionStreamState -&gt; Bool
+compare :: StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; Ordering
+$ccompare :: StreamingSessionStreamState
+-&gt; StreamingSessionStreamState -&gt; Ordering
+$cp1Ord :: Eq StreamingSessionStreamState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ StreamingSessionStreamState -&gt; Rep StreamingSessionStreamState x)
+-&gt; (forall x.
+    Rep StreamingSessionStreamState x -&gt; StreamingSessionStreamState)
+-&gt; Generic StreamingSessionStreamState
+forall x.
+Rep StreamingSessionStreamState x -&gt; StreamingSessionStreamState
+forall x.
+StreamingSessionStreamState -&gt; Rep StreamingSessionStreamState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StreamingSessionStreamState x -&gt; StreamingSessionStreamState
+$cfrom :: forall x.
+StreamingSessionStreamState -&gt; Rep StreamingSessionStreamState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285679"><span id="local-6989586621679285681"><span class="annot"><span class="annottext">Int -&gt; StreamingSessionStreamState -&gt; Int
+StreamingSessionStreamState -&gt; Int
+(Int -&gt; StreamingSessionStreamState -&gt; Int)
+-&gt; (StreamingSessionStreamState -&gt; Int)
+-&gt; Hashable StreamingSessionStreamState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StreamingSessionStreamState -&gt; Int
+$chash :: StreamingSessionStreamState -&gt; Int
+hashWithSalt :: Int -&gt; StreamingSessionStreamState -&gt; Int
+$chashWithSalt :: Int -&gt; StreamingSessionStreamState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679285676"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; ()
+(StreamingSessionStreamState -&gt; ())
+-&gt; NFData StreamingSessionStreamState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StreamingSessionStreamState -&gt; ()
+$crnf :: StreamingSessionStreamState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679285673"><span class="annot"><span class="annottext">Text -&gt; Either String StreamingSessionStreamState
+(Text -&gt; Either String StreamingSessionStreamState)
+-&gt; FromText StreamingSessionStreamState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StreamingSessionStreamState
+$cfromText :: Text -&gt; Either String StreamingSessionStreamState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679285670"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; Text
+(StreamingSessionStreamState -&gt; Text)
+-&gt; ToText StreamingSessionStreamState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StreamingSessionStreamState -&gt; Text
+$ctoText :: StreamingSessionStreamState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679285667"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; ByteString
+(StreamingSessionStreamState -&gt; ByteString)
+-&gt; ToByteString StreamingSessionStreamState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StreamingSessionStreamState -&gt; ByteString
+$ctoBS :: StreamingSessionStreamState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679285664"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; ByteStringBuilder
+(StreamingSessionStreamState -&gt; ByteStringBuilder)
+-&gt; ToLog StreamingSessionStreamState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StreamingSessionStreamState -&gt; ByteStringBuilder
+$cbuild :: StreamingSessionStreamState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679285661"><span class="annot"><span class="annottext">HeaderName -&gt; StreamingSessionStreamState -&gt; [Header]
+(HeaderName -&gt; StreamingSessionStreamState -&gt; [Header])
+-&gt; ToHeader StreamingSessionStreamState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StreamingSessionStreamState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StreamingSessionStreamState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679285658"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; QueryString
+(StreamingSessionStreamState -&gt; QueryString)
+-&gt; ToQuery StreamingSessionStreamState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StreamingSessionStreamState -&gt; QueryString
+$ctoQuery :: StreamingSessionStreamState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679285653"><span id="local-6989586621679285655"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamingSessionStreamState]
+Value -&gt; Parser StreamingSessionStreamState
+(Value -&gt; Parser StreamingSessionStreamState)
+-&gt; (Value -&gt; Parser [StreamingSessionStreamState])
+-&gt; FromJSON StreamingSessionStreamState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StreamingSessionStreamState]
+$cparseJSONList :: Value -&gt; Parser [StreamingSessionStreamState]
+parseJSON :: Value -&gt; Parser StreamingSessionStreamState
+$cparseJSON :: Value -&gt; Parser StreamingSessionStreamState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679285648"><span id="local-6989586621679285650"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamingSessionStreamState]
+FromJSONKeyFunction StreamingSessionStreamState
+FromJSONKeyFunction StreamingSessionStreamState
+-&gt; FromJSONKeyFunction [StreamingSessionStreamState]
+-&gt; FromJSONKey StreamingSessionStreamState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StreamingSessionStreamState]
+$cfromJSONKeyList :: FromJSONKeyFunction [StreamingSessionStreamState]
+fromJSONKey :: FromJSONKeyFunction StreamingSessionStreamState
+$cfromJSONKey :: FromJSONKeyFunction StreamingSessionStreamState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679285639"><span id="local-6989586621679285641"><span id="local-6989586621679285643"><span id="local-6989586621679285645"><span class="annot"><span class="annottext">[StreamingSessionStreamState] -&gt; Encoding
+[StreamingSessionStreamState] -&gt; Value
+StreamingSessionStreamState -&gt; Encoding
+StreamingSessionStreamState -&gt; Value
+(StreamingSessionStreamState -&gt; Value)
+-&gt; (StreamingSessionStreamState -&gt; Encoding)
+-&gt; ([StreamingSessionStreamState] -&gt; Value)
+-&gt; ([StreamingSessionStreamState] -&gt; Encoding)
+-&gt; ToJSON StreamingSessionStreamState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StreamingSessionStreamState] -&gt; Encoding
+$ctoEncodingList :: [StreamingSessionStreamState] -&gt; Encoding
+toJSONList :: [StreamingSessionStreamState] -&gt; Value
+$ctoJSONList :: [StreamingSessionStreamState] -&gt; Value
+toEncoding :: StreamingSessionStreamState -&gt; Encoding
+$ctoEncoding :: StreamingSessionStreamState -&gt; Encoding
+toJSON :: StreamingSessionStreamState -&gt; Value
+$ctoJSON :: StreamingSessionStreamState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679285634"><span id="local-6989586621679285636"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamingSessionStreamState]
+ToJSONKeyFunction StreamingSessionStreamState
+ToJSONKeyFunction StreamingSessionStreamState
+-&gt; ToJSONKeyFunction [StreamingSessionStreamState]
+-&gt; ToJSONKey StreamingSessionStreamState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StreamingSessionStreamState]
+$ctoJSONKeyList :: ToJSONKeyFunction [StreamingSessionStreamState]
+toJSONKey :: ToJSONKeyFunction StreamingSessionStreamState
+$ctoJSONKey :: ToJSONKeyFunction StreamingSessionStreamState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679285631"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamingSessionStreamState
+([Node] -&gt; Either String StreamingSessionStreamState)
+-&gt; FromXML StreamingSessionStreamState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StreamingSessionStreamState
+$cparseXML :: [Node] -&gt; Either String StreamingSessionStreamState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679285628"><span class="annot"><span class="annottext">StreamingSessionStreamState -&gt; XML
+(StreamingSessionStreamState -&gt; XML)
+-&gt; ToXML StreamingSessionStreamState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StreamingSessionStreamState -&gt; XML
+$ctoXML :: StreamingSessionStreamState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_CREATE_FAILED"><span class="hs-identifier hs-type">StreamingSessionStreamState_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier hs-type">StreamingSessionStreamState</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingSessionStreamState_CREATE_FAILED"><span id="%24mStreamingSessionStreamState_CREATE_FAILED"><span id="StreamingSessionStreamState_CREATE_FAILED"><span class="annot"><span class="annottext">$bStreamingSessionStreamState_CREATE_FAILED :: StreamingSessionStreamState
+$mStreamingSessionStreamState_CREATE_FAILED :: forall r.
+StreamingSessionStreamState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#%24bStreamingSessionStreamState_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StreamingSessionStreamState_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-identifier hs-type">StreamingSessionStreamState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_CREATE_IN_PROGRESS"><span class="hs-identifier hs-type">StreamingSessionStreamState_CREATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier hs-type">StreamingSessionStreamState</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingSessionStreamState_CREATE_IN_PROGRESS"><span id="%24mStreamingSessionStreamState_CREATE_IN_PROGRESS"><span id="StreamingSessionStreamState_CREATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStreamingSessionStreamState_CREATE_IN_PROGRESS :: StreamingSessionStreamState
+$mStreamingSessionStreamState_CREATE_IN_PROGRESS :: forall r.
+StreamingSessionStreamState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#%24bStreamingSessionStreamState_CREATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StreamingSessionStreamState_CREATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-identifier hs-type">StreamingSessionStreamState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETED"><span class="hs-identifier hs-type">StreamingSessionStreamState_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier hs-type">StreamingSessionStreamState</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingSessionStreamState_DELETED"><span id="%24mStreamingSessionStreamState_DELETED"><span id="StreamingSessionStreamState_DELETED"><span class="annot"><span class="annottext">$bStreamingSessionStreamState_DELETED :: StreamingSessionStreamState
+$mStreamingSessionStreamState_DELETED :: forall r.
+StreamingSessionStreamState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#%24bStreamingSessionStreamState_DELETED"><span class="hs-identifier hs-var hs-var hs-var">StreamingSessionStreamState_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-identifier hs-type">StreamingSessionStreamState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETE_FAILED"><span class="hs-identifier hs-type">StreamingSessionStreamState_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier hs-type">StreamingSessionStreamState</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingSessionStreamState_DELETE_FAILED"><span id="%24mStreamingSessionStreamState_DELETE_FAILED"><span id="StreamingSessionStreamState_DELETE_FAILED"><span class="annot"><span class="annottext">$bStreamingSessionStreamState_DELETE_FAILED :: StreamingSessionStreamState
+$mStreamingSessionStreamState_DELETE_FAILED :: forall r.
+StreamingSessionStreamState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#%24bStreamingSessionStreamState_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StreamingSessionStreamState_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-identifier hs-type">StreamingSessionStreamState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETE_IN_PROGRESS"><span class="hs-identifier hs-type">StreamingSessionStreamState_DELETE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier hs-type">StreamingSessionStreamState</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingSessionStreamState_DELETE_IN_PROGRESS"><span id="%24mStreamingSessionStreamState_DELETE_IN_PROGRESS"><span id="StreamingSessionStreamState_DELETE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStreamingSessionStreamState_DELETE_IN_PROGRESS :: StreamingSessionStreamState
+$mStreamingSessionStreamState_DELETE_IN_PROGRESS :: forall r.
+StreamingSessionStreamState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#%24bStreamingSessionStreamState_DELETE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StreamingSessionStreamState_DELETE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-identifier hs-type">StreamingSessionStreamState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_READY"><span class="hs-identifier hs-type">StreamingSessionStreamState_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState"><span class="hs-identifier hs-type">StreamingSessionStreamState</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingSessionStreamState_READY"><span id="%24mStreamingSessionStreamState_READY"><span id="StreamingSessionStreamState_READY"><span class="annot"><span class="annottext">$bStreamingSessionStreamState_READY :: StreamingSessionStreamState
+$mStreamingSessionStreamState_READY :: forall r.
+StreamingSessionStreamState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#%24bStreamingSessionStreamState_READY"><span class="hs-identifier hs-var hs-var hs-var">StreamingSessionStreamState_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-identifier hs-type">StreamingSessionStreamState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_CREATE_FAILED"><span class="hs-pragma hs-type">StreamingSessionStreamState_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_CREATE_IN_PROGRESS"><span class="hs-pragma hs-type">StreamingSessionStreamState_CREATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETED"><span class="hs-pragma hs-type">StreamingSessionStreamState_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETE_FAILED"><span class="hs-pragma hs-type">StreamingSessionStreamState_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_DELETE_IN_PROGRESS"><span class="hs-pragma hs-type">StreamingSessionStreamState_DELETE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState_READY"><span class="hs-pragma hs-type">StreamingSessionStreamState_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingSessionStreamState.html#StreamingSessionStreamState%27"><span class="hs-pragma hs-type">StreamingSessionStreamState'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

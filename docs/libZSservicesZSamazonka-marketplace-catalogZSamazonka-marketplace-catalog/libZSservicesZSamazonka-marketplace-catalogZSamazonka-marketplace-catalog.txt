@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MarketplaceCatalog.Types.ChangeStatus
+module Amazonka.MarketplaceCatalog.Types.ChangeStatus
 newtype ChangeStatus
 ChangeStatus' :: Text -> ChangeStatus
 [fromChangeStatus] :: ChangeStatus -> Text
@@ -14,28 +14,28 @@ pattern ChangeStatus_CANCELLED :: ChangeStatus
 pattern ChangeStatus_FAILED :: ChangeStatus
 pattern ChangeStatus_PREPARING :: ChangeStatus
 pattern ChangeStatus_SUCCEEDED :: ChangeStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance GHC.Classes.Ord Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.Text.ToText Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Amazonka.Data.Text.FromText Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance GHC.Classes.Ord Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.ChangeStatus.ChangeStatus
 
 
-module Network.AWS.MarketplaceCatalog.Types.Entity
+module Amazonka.MarketplaceCatalog.Types.Entity
 
 -- | An entity contains data that describes your product, its supported
 --   features, and how it can be used or launched by your customer.
@@ -69,17 +69,17 @@ entity_identifier :: Lens' Entity (Maybe Text)
 
 -- | The type of entity.
 entity_type :: Lens' Entity Text
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.Entity.Entity
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.Entity.Entity
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.Entity.Entity
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.Entity.Entity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.Entity.Entity
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.Entity.Entity
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.Entity.Entity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.Types.Entity.Entity
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.Entity.Entity
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.Entity.Entity
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.Entity.Entity
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.Entity.Entity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.Entity.Entity
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.Entity.Entity
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.Entity.Entity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.Types.Entity.Entity
 
 
-module Network.AWS.MarketplaceCatalog.Types.Change
+module Amazonka.MarketplaceCatalog.Types.Change
 
 -- | An object that contains the <tt>ChangeType</tt>, <tt>Details</tt>, and
 --   <tt>Entity</tt>.
@@ -140,16 +140,16 @@ change_entity :: Lens' Change Entity
 -- | This object contains details specific to the change type of the
 --   requested change.
 change_details :: Lens' Change Text
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.Change.Change
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.Change.Change
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.Change.Change
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.Change.Change
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.Change.Change
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.Change.Change
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.Types.Change.Change
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.Change.Change
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.Change.Change
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.Change.Change
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.Change.Change
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.Change.Change
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.Change.Change
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.Types.Change.Change
 
 
-module Network.AWS.MarketplaceCatalog.Types.EntitySummary
+module Amazonka.MarketplaceCatalog.Types.EntitySummary
 
 -- | This object is a container for common summary information about the
 --   entity. The summary doesn't contain the whole entity structure, but it
@@ -239,16 +239,16 @@ entitySummary_entityId :: Lens' EntitySummary (Maybe Text)
 
 -- | The ARN associated with the unique identifier for the entity.
 entitySummary_entityArn :: Lens' EntitySummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.EntitySummary.EntitySummary
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.EntitySummary.EntitySummary
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.EntitySummary.EntitySummary
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.EntitySummary.EntitySummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.EntitySummary.EntitySummary
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.EntitySummary.EntitySummary
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.EntitySummary.EntitySummary
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.EntitySummary.EntitySummary
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.EntitySummary.EntitySummary
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.EntitySummary.EntitySummary
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.EntitySummary.EntitySummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.EntitySummary.EntitySummary
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.EntitySummary.EntitySummary
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.EntitySummary.EntitySummary
 
 
-module Network.AWS.MarketplaceCatalog.Types.ErrorDetail
+module Amazonka.MarketplaceCatalog.Types.ErrorDetail
 
 -- | Details about the error.
 --   
@@ -282,16 +282,16 @@ errorDetail_errorCode :: Lens' ErrorDetail (Maybe Text)
 
 -- | The message for the error.
 errorDetail_errorMessage :: Lens' ErrorDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.ErrorDetail.ErrorDetail
 
 
-module Network.AWS.MarketplaceCatalog.Types.ChangeSummary
+module Amazonka.MarketplaceCatalog.Types.ChangeSummary
 
 -- | This object is a container for common summary information about the
 --   change. The summary doesn't contain the whole change structure.
@@ -358,43 +358,43 @@ changeSummary_entity :: Lens' ChangeSummary (Maybe Entity)
 
 -- | The type of the change.
 changeSummary_changeType :: Lens' ChangeSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.ChangeSummary.ChangeSummary
 
 
-module Network.AWS.MarketplaceCatalog.Types.FailureCode
+module Amazonka.MarketplaceCatalog.Types.FailureCode
 newtype FailureCode
 FailureCode' :: Text -> FailureCode
 [fromFailureCode] :: FailureCode -> Text
 pattern FailureCode_CLIENT_ERROR :: FailureCode
 pattern FailureCode_SERVER_FAULT :: FailureCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Network.AWS.Data.Text.ToText Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Network.AWS.Data.Text.FromText Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance GHC.Classes.Ord Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.XML.ToXML Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.XML.FromXML Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.Log.ToLog Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.Text.ToText Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Amazonka.Data.Text.FromText Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance GHC.Classes.Ord Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.FailureCode.FailureCode
 
 
-module Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem
+module Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem
 
 -- | A summary of a change set returned in a list of change sets when the
 --   <tt>ListChangeSets</tt> action is called.
@@ -517,16 +517,16 @@ changeSetSummaryListItem_endTime :: Lens' ChangeSetSummaryListItem (Maybe Text)
 -- | The ARN associated with the unique identifier for the change set
 --   referenced in this request.
 changeSetSummaryListItem_changeSetArn :: Lens' ChangeSetSummaryListItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem.ChangeSetSummaryListItem
 
 
-module Network.AWS.MarketplaceCatalog.Types.Filter
+module Amazonka.MarketplaceCatalog.Types.Filter
 
 -- | A filter object, used to optionally filter results from calls to the
 --   <tt>ListEntities</tt> and <tt>ListChangeSets</tt> actions.
@@ -633,43 +633,43 @@ filter_valueList :: Lens' Filter (Maybe (NonEmpty Text))
 --   
 --   For <tt>ListChangeSets</tt>, the supported values are as follows:
 filter_name :: Lens' Filter (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.Filter.Filter
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.Filter.Filter
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.Types.Filter.Filter
 
 
-module Network.AWS.MarketplaceCatalog.Types.SortOrder
+module Amazonka.MarketplaceCatalog.Types.SortOrder
 newtype SortOrder
 SortOrder' :: Text -> SortOrder
 [fromSortOrder] :: SortOrder -> Text
 pattern SortOrder_ASCENDING :: SortOrder
 pattern SortOrder_DESCENDING :: SortOrder
-instance Network.AWS.Data.XML.ToXML Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Network.AWS.Data.XML.FromXML Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Log.ToLog Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.ToText Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.FromText Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance GHC.Classes.Ord Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.ToXML Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.FromXML Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.Headers.ToHeader Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.Log.ToLog Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.ToText Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.FromText Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance GHC.Classes.Ord Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.SortOrder.SortOrder
 
 
-module Network.AWS.MarketplaceCatalog.Types.Sort
+module Amazonka.MarketplaceCatalog.Types.Sort
 
 -- | An object that contains two attributes, <tt>SortBy</tt> and
 --   <tt>SortOrder</tt>.
@@ -722,16 +722,16 @@ sort_sortOrder :: Lens' Sort (Maybe SortOrder)
 --   For <tt>ListChangeSets</tt>, supported attributes include
 --   <tt>StartTime</tt> and <tt>EndTime</tt>.
 sort_sortBy :: Lens' Sort (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.Types.Sort.Sort
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.Types.Sort.Sort
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.Types.Sort.Sort
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.Types.Sort.Sort
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.Types.Sort.Sort
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.Types.Sort.Sort
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.Types.Sort.Sort
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.Types.Sort.Sort
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.Types.Sort.Sort
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.Types.Sort.Sort
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.Types.Sort.Sort
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.Types.Sort.Sort
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.Types.Sort.Sort
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.Types.Sort.Sort
 
 
-module Network.AWS.MarketplaceCatalog.Types
+module Amazonka.MarketplaceCatalog.Types
 
 -- | API version <tt>2018-09-17</tt> of the Amazon Marketplace Catalog
 --   Service SDK configuration.
@@ -1357,7 +1357,7 @@ sort_sortBy :: Lens' Sort (Maybe Text)
 --   
 --   For more information about working with change sets, see <a>Working
 --   with change sets</a>.
-module Network.AWS.MarketplaceCatalog.StartChangeSet
+module Amazonka.MarketplaceCatalog.StartChangeSet
 
 -- | <i>See:</i> <a>newStartChangeSet</a> smart constructor.
 data StartChangeSet
@@ -1460,26 +1460,26 @@ startChangeSetResponse_changeSetArn :: Lens' StartChangeSetResponse (Maybe Text)
 
 -- | The response's http status code.
 startChangeSetResponse_httpStatus :: Lens' StartChangeSetResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.StartChangeSet.StartChangeSet
 
 
 -- | Provides the list of entities of a given type.
-module Network.AWS.MarketplaceCatalog.ListEntities
+module Amazonka.MarketplaceCatalog.ListEntities
 
 -- | <i>See:</i> <a>newListEntities</a> smart constructor.
 data ListEntities
@@ -1607,22 +1607,22 @@ listEntitiesResponse_nextToken :: Lens' ListEntitiesResponse (Maybe Text)
 
 -- | The response's http status code.
 listEntitiesResponse_httpStatus :: Lens' ListEntitiesResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.ListEntities.ListEntitiesResponse
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.ListEntities.ListEntitiesResponse
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.ListEntities.ListEntitiesResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.ListEntities.ListEntitiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.ListEntities.ListEntitiesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.ListEntities.ListEntities
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.ListEntities.ListEntitiesResponse
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.ListEntities.ListEntitiesResponse
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.ListEntities.ListEntitiesResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.ListEntities.ListEntitiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.ListEntities.ListEntitiesResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceCatalog.ListEntities.ListEntities
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.ListEntities.ListEntities
 
 
 -- | Returns the list of change sets owned by the account being used to
@@ -1633,7 +1633,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.ListEntit
 --   
 --   You can describe a change during the 60-day request history retention
 --   period for API calls.
-module Network.AWS.MarketplaceCatalog.ListChangeSets
+module Amazonka.MarketplaceCatalog.ListChangeSets
 
 -- | <i>See:</i> <a>newListChangeSets</a> smart constructor.
 data ListChangeSets
@@ -1755,26 +1755,26 @@ listChangeSetsResponse_changeSetSummaryList :: Lens' ListChangeSetsResponse (May
 
 -- | The response's http status code.
 listChangeSetsResponse_httpStatus :: Lens' ListChangeSetsResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.ListChangeSets.ListChangeSets
 
 
 -- | Returns the metadata and content of the entity.
-module Network.AWS.MarketplaceCatalog.DescribeEntity
+module Amazonka.MarketplaceCatalog.DescribeEntity
 
 -- | <i>See:</i> <a>newDescribeEntity</a> smart constructor.
 data DescribeEntity
@@ -1892,25 +1892,25 @@ describeEntityResponse_entityArn :: Lens' DescribeEntityResponse (Maybe Text)
 
 -- | The response's http status code.
 describeEntityResponse_httpStatus :: Lens' DescribeEntityResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntityResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.DescribeEntity.DescribeEntity
 
 
 -- | Provides information about a given change set.
-module Network.AWS.MarketplaceCatalog.DescribeChangeSet
+module Amazonka.MarketplaceCatalog.DescribeChangeSet
 
 -- | <i>See:</i> <a>newDescribeChangeSet</a> smart constructor.
 data DescribeChangeSet
@@ -2094,28 +2094,28 @@ describeChangeSetResponse_changeSetArn :: Lens' DescribeChangeSetResponse (Maybe
 
 -- | The response's http status code.
 describeChangeSetResponse_httpStatus :: Lens' DescribeChangeSetResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.DescribeChangeSet.DescribeChangeSet
 
 
 -- | Used to cancel an open change request. Must be sent before the status
 --   of the request changes to <tt>APPLYING</tt>, the final stage of
 --   completing your change request. You can describe a change during the
 --   60-day request history retention period for API calls.
-module Network.AWS.MarketplaceCatalog.CancelChangeSet
+module Amazonka.MarketplaceCatalog.CancelChangeSet
 
 -- | <i>See:</i> <a>newCancelChangeSet</a> smart constructor.
 data CancelChangeSet
@@ -2198,25 +2198,25 @@ cancelChangeSetResponse_changeSetArn :: Lens' CancelChangeSetResponse (Maybe Tex
 
 -- | The response's http status code.
 cancelChangeSetResponse_httpStatus :: Lens' CancelChangeSetResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance GHC.Generics.Generic Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
-instance GHC.Show.Show Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
-instance GHC.Read.Read Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance GHC.Generics.Generic Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
+instance GHC.Show.Show Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
+instance GHC.Read.Read Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceCatalog.CancelChangeSet.CancelChangeSet
 
 
-module Network.AWS.MarketplaceCatalog.Lens
+module Amazonka.MarketplaceCatalog.Lens
 
 -- | The value of the next token, if it exists. Null if there are no more
 --   results.
@@ -2543,7 +2543,7 @@ sort_sortOrder :: Lens' Sort (Maybe SortOrder)
 sort_sortBy :: Lens' Sort (Maybe Text)
 
 
-module Network.AWS.MarketplaceCatalog.Waiters
+module Amazonka.MarketplaceCatalog.Waiters
 
 
 -- | Derived from API version <tt>2018-09-17</tt> of the AWS service
@@ -2557,7 +2557,7 @@ module Network.AWS.MarketplaceCatalog.Waiters
 --   Marketplace Catalog API with your AWS Marketplace product build or
 --   deployment pipelines. You can also create your own applications on top
 --   of the Catalog API to manage your products on AWS Marketplace.
-module Network.AWS.MarketplaceCatalog
+module Amazonka.MarketplaceCatalog
 
 -- | API version <tt>2018-09-17</tt> of the Amazon Marketplace Catalog
 --   Service SDK configuration.

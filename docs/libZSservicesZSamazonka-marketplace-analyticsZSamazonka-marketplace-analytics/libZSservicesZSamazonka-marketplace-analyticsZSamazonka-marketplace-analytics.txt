@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MarketplaceAnalytics.Types.DataSetType
+module Amazonka.MarketplaceAnalytics.Types.DataSetType
 newtype DataSetType
 DataSetType' :: Text -> DataSetType
 [fromDataSetType] :: DataSetType -> Text
@@ -34,55 +34,55 @@ pattern DataSetType_Monthly_revenue_field_demonstration_usage :: DataSetType
 pattern DataSetType_Monthly_revenue_flexible_payment_schedule :: DataSetType
 pattern DataSetType_Sales_compensation_billed_revenue :: DataSetType
 pattern DataSetType_Us_sales_and_use_tax_records :: DataSetType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Network.AWS.Data.Text.ToText Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Network.AWS.Data.Text.FromText Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance GHC.Generics.Generic Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance GHC.Classes.Ord Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance GHC.Classes.Eq Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance GHC.Read.Read Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
-instance GHC.Show.Show Network.AWS.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.XML.ToXML Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.XML.FromXML Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.Log.ToLog Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.Text.ToText Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Amazonka.Data.Text.FromText Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Control.DeepSeq.NFData Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance GHC.Generics.Generic Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance GHC.Classes.Ord Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance GHC.Classes.Eq Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance GHC.Read.Read Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
+instance GHC.Show.Show Amazonka.MarketplaceAnalytics.Types.DataSetType.DataSetType
 
 
-module Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType
+module Amazonka.MarketplaceAnalytics.Types.SupportDataSetType
 newtype SupportDataSetType
 SupportDataSetType' :: Text -> SupportDataSetType
 [fromSupportDataSetType] :: SupportDataSetType -> Text
 pattern SupportDataSetType_Customer_support_contacts_data :: SupportDataSetType
 pattern SupportDataSetType_Test_customer_support_contacts_data :: SupportDataSetType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Network.AWS.Data.Text.ToText Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Network.AWS.Data.Text.FromText Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance GHC.Generics.Generic Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance GHC.Classes.Ord Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance GHC.Classes.Eq Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance GHC.Read.Read Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
-instance GHC.Show.Show Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.XML.ToXML Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.XML.FromXML Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.Log.ToLog Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.Text.ToText Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Amazonka.Data.Text.FromText Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Control.DeepSeq.NFData Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance GHC.Generics.Generic Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance GHC.Classes.Ord Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance GHC.Classes.Eq Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance GHC.Read.Read Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
+instance GHC.Show.Show Amazonka.MarketplaceAnalytics.Types.SupportDataSetType.SupportDataSetType
 
 
-module Network.AWS.MarketplaceAnalytics.Types
+module Amazonka.MarketplaceAnalytics.Types
 
 -- | API version <tt>2015-07-01</tt> of the Amazon Marketplace Commerce
 --   Analytics SDK configuration.
@@ -137,7 +137,7 @@ pattern SupportDataSetType_Test_customer_support_contacts_data :: SupportDataSet
 --   with an attached permissions policy providing Allow permissions for
 --   the following actions: s3:PutObject, s3:GetBucketLocation,
 --   sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
-module Network.AWS.MarketplaceAnalytics.StartSupportDataExport
+module Amazonka.MarketplaceAnalytics.StartSupportDataExport
 
 -- | Container for the parameters to the StartSupportDataExport operation.
 --   
@@ -347,22 +347,22 @@ startSupportDataExportResponse_dataSetRequestId :: Lens' StartSupportDataExportR
 
 -- | The response's http status code.
 startSupportDataExportResponse_httpStatus :: Lens' StartSupportDataExportResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance GHC.Show.Show Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance GHC.Read.Read Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance GHC.Classes.Eq Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance GHC.Generics.Generic Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
-instance GHC.Show.Show Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
-instance GHC.Read.Read Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance GHC.Generics.Generic Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance GHC.Show.Show Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance GHC.Read.Read Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance GHC.Classes.Eq Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance GHC.Generics.Generic Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
+instance GHC.Show.Show Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
+instance GHC.Read.Read Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance Control.DeepSeq.NFData Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExportResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance Control.DeepSeq.NFData Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceAnalytics.StartSupportDataExport.StartSupportDataExport
 
 
 -- | Given a data set type and data set publication date, asynchronously
@@ -377,7 +377,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceAnalytics.StartSu
 --   attached permissions policy providing Allow permissions for the
 --   following actions: s3:PutObject, s3:GetBucketLocation,
 --   sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
-module Network.AWS.MarketplaceAnalytics.GenerateDataSet
+module Amazonka.MarketplaceAnalytics.GenerateDataSet
 
 -- | Container for the parameters to the GenerateDataSet operation.
 --   
@@ -742,25 +742,25 @@ generateDataSetResponse_dataSetRequestId :: Lens' GenerateDataSetResponse (Maybe
 
 -- | The response's http status code.
 generateDataSetResponse_httpStatus :: Lens' GenerateDataSetResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance GHC.Show.Show Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance GHC.Read.Read Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance GHC.Classes.Eq Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance GHC.Generics.Generic Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
-instance GHC.Show.Show Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
-instance GHC.Read.Read Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance GHC.Generics.Generic Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance GHC.Show.Show Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance GHC.Read.Read Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance GHC.Classes.Eq Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance GHC.Generics.Generic Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
+instance GHC.Show.Show Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
+instance GHC.Read.Read Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance Control.DeepSeq.NFData Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceAnalytics.GenerateDataSet.GenerateDataSet
 
 
-module Network.AWS.MarketplaceAnalytics.Lens
+module Amazonka.MarketplaceAnalytics.Lens
 
 -- | (Optional) Key-value pairs which will be returned, unmodified, in the
 --   Amazon SNS notification message and the data set metadata file.
@@ -927,14 +927,14 @@ generateDataSetResponse_dataSetRequestId :: Lens' GenerateDataSetResponse (Maybe
 generateDataSetResponse_httpStatus :: Lens' GenerateDataSetResponse Int
 
 
-module Network.AWS.MarketplaceAnalytics.Waiters
+module Amazonka.MarketplaceAnalytics.Waiters
 
 
 -- | Derived from API version <tt>2015-07-01</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Provides AWS Marketplace business intelligence data on-demand.
-module Network.AWS.MarketplaceAnalytics
+module Amazonka.MarketplaceAnalytics
 
 -- | API version <tt>2015-07-01</tt> of the Amazon Marketplace Commerce
 --   Analytics SDK configuration.

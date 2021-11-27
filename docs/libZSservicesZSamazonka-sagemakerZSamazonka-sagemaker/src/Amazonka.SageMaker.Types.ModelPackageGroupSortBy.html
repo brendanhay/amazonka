@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.ModelPackageGroupSortBy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.ModelPackageGroupSortBy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy"><span class="hs-identifier">ModelPackageGroupSortBy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy_CreationTime"><span class="hs-identifier">ModelPackageGroupSortBy_CreationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy_Name"><span class="hs-identifier">ModelPackageGroupSortBy_Name</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680318044"><span id="local-6989586621680318045"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelPackageGroupSortBy"><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy"><span class="hs-identifier hs-var">ModelPackageGroupSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageGroupSortBy%27"><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy%27"><span class="hs-identifier hs-var">ModelPackageGroupSortBy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelPackageGroupSortBy"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#fromModelPackageGroupSortBy"><span class="hs-identifier hs-var hs-var">fromModelPackageGroupSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680318036"><span id="local-6989586621680318038"><span id="local-6989586621680318040"><span class="annot"><span class="annottext">Int -&gt; ModelPackageGroupSortBy -&gt; ShowS
+[ModelPackageGroupSortBy] -&gt; ShowS
+ModelPackageGroupSortBy -&gt; String
+(Int -&gt; ModelPackageGroupSortBy -&gt; ShowS)
+-&gt; (ModelPackageGroupSortBy -&gt; String)
+-&gt; ([ModelPackageGroupSortBy] -&gt; ShowS)
+-&gt; Show ModelPackageGroupSortBy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelPackageGroupSortBy] -&gt; ShowS
+$cshowList :: [ModelPackageGroupSortBy] -&gt; ShowS
+show :: ModelPackageGroupSortBy -&gt; String
+$cshow :: ModelPackageGroupSortBy -&gt; String
+showsPrec :: Int -&gt; ModelPackageGroupSortBy -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelPackageGroupSortBy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680318027"><span id="local-6989586621680318029"><span id="local-6989586621680318031"><span id="local-6989586621680318033"><span class="annot"><span class="annottext">ReadPrec [ModelPackageGroupSortBy]
+ReadPrec ModelPackageGroupSortBy
+Int -&gt; ReadS ModelPackageGroupSortBy
+ReadS [ModelPackageGroupSortBy]
+(Int -&gt; ReadS ModelPackageGroupSortBy)
+-&gt; ReadS [ModelPackageGroupSortBy]
+-&gt; ReadPrec ModelPackageGroupSortBy
+-&gt; ReadPrec [ModelPackageGroupSortBy]
+-&gt; Read ModelPackageGroupSortBy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelPackageGroupSortBy]
+$creadListPrec :: ReadPrec [ModelPackageGroupSortBy]
+readPrec :: ReadPrec ModelPackageGroupSortBy
+$creadPrec :: ReadPrec ModelPackageGroupSortBy
+readList :: ReadS [ModelPackageGroupSortBy]
+$creadList :: ReadS [ModelPackageGroupSortBy]
+readsPrec :: Int -&gt; ReadS ModelPackageGroupSortBy
+$creadsPrec :: Int -&gt; ReadS ModelPackageGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680318022"><span id="local-6989586621680318024"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+(ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
+-&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
+-&gt; Eq ModelPackageGroupSortBy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+$c/= :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+== :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+$c== :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680318006"><span id="local-6989586621680318008"><span id="local-6989586621680318010"><span id="local-6989586621680318012"><span id="local-6989586621680318014"><span id="local-6989586621680318016"><span id="local-6989586621680318018"><span class="annot"><span class="annottext">Eq ModelPackageGroupSortBy
+Eq ModelPackageGroupSortBy
+-&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Ordering)
+-&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
+-&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
+-&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
+-&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
+-&gt; (ModelPackageGroupSortBy
+    -&gt; ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy)
+-&gt; (ModelPackageGroupSortBy
+    -&gt; ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy)
+-&gt; Ord ModelPackageGroupSortBy
+ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Ordering
+ModelPackageGroupSortBy
+-&gt; ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ModelPackageGroupSortBy
+-&gt; ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy
+$cmin :: ModelPackageGroupSortBy
+-&gt; ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy
+max :: ModelPackageGroupSortBy
+-&gt; ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy
+$cmax :: ModelPackageGroupSortBy
+-&gt; ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy
+&gt;= :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+$c&gt;= :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+&gt; :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+$c&gt; :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+&lt;= :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+$c&lt;= :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+&lt; :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+$c&lt; :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+compare :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Ordering
+$ccompare :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Ordering
+$cp1Ord :: Eq ModelPackageGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ModelPackageGroupSortBy -&gt; Rep ModelPackageGroupSortBy x)
+-&gt; (forall x.
+    Rep ModelPackageGroupSortBy x -&gt; ModelPackageGroupSortBy)
+-&gt; Generic ModelPackageGroupSortBy
+forall x. Rep ModelPackageGroupSortBy x -&gt; ModelPackageGroupSortBy
+forall x. ModelPackageGroupSortBy -&gt; Rep ModelPackageGroupSortBy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelPackageGroupSortBy x -&gt; ModelPackageGroupSortBy
+$cfrom :: forall x. ModelPackageGroupSortBy -&gt; Rep ModelPackageGroupSortBy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680317998"><span id="local-6989586621680318000"><span class="annot"><span class="annottext">Int -&gt; ModelPackageGroupSortBy -&gt; Int
+ModelPackageGroupSortBy -&gt; Int
+(Int -&gt; ModelPackageGroupSortBy -&gt; Int)
+-&gt; (ModelPackageGroupSortBy -&gt; Int)
+-&gt; Hashable ModelPackageGroupSortBy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ModelPackageGroupSortBy -&gt; Int
+$chash :: ModelPackageGroupSortBy -&gt; Int
+hashWithSalt :: Int -&gt; ModelPackageGroupSortBy -&gt; Int
+$chashWithSalt :: Int -&gt; ModelPackageGroupSortBy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680317995"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ()
+(ModelPackageGroupSortBy -&gt; ()) -&gt; NFData ModelPackageGroupSortBy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ModelPackageGroupSortBy -&gt; ()
+$crnf :: ModelPackageGroupSortBy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680317992"><span class="annot"><span class="annottext">Text -&gt; Either String ModelPackageGroupSortBy
+(Text -&gt; Either String ModelPackageGroupSortBy)
+-&gt; FromText ModelPackageGroupSortBy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ModelPackageGroupSortBy
+$cfromText :: Text -&gt; Either String ModelPackageGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680317989"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; Text
+(ModelPackageGroupSortBy -&gt; Text) -&gt; ToText ModelPackageGroupSortBy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ModelPackageGroupSortBy -&gt; Text
+$ctoText :: ModelPackageGroupSortBy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680317986"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ByteString
+(ModelPackageGroupSortBy -&gt; ByteString)
+-&gt; ToByteString ModelPackageGroupSortBy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ModelPackageGroupSortBy -&gt; ByteString
+$ctoBS :: ModelPackageGroupSortBy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680317983"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ByteStringBuilder
+(ModelPackageGroupSortBy -&gt; ByteStringBuilder)
+-&gt; ToLog ModelPackageGroupSortBy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ModelPackageGroupSortBy -&gt; ByteStringBuilder
+$cbuild :: ModelPackageGroupSortBy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680317980"><span class="annot"><span class="annottext">HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header]
+(HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header])
+-&gt; ToHeader ModelPackageGroupSortBy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680317977"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; QueryString
+(ModelPackageGroupSortBy -&gt; QueryString)
+-&gt; ToQuery ModelPackageGroupSortBy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ModelPackageGroupSortBy -&gt; QueryString
+$ctoQuery :: ModelPackageGroupSortBy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680317972"><span id="local-6989586621680317974"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelPackageGroupSortBy]
+Value -&gt; Parser ModelPackageGroupSortBy
+(Value -&gt; Parser ModelPackageGroupSortBy)
+-&gt; (Value -&gt; Parser [ModelPackageGroupSortBy])
+-&gt; FromJSON ModelPackageGroupSortBy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ModelPackageGroupSortBy]
+$cparseJSONList :: Value -&gt; Parser [ModelPackageGroupSortBy]
+parseJSON :: Value -&gt; Parser ModelPackageGroupSortBy
+$cparseJSON :: Value -&gt; Parser ModelPackageGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680317967"><span id="local-6989586621680317969"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelPackageGroupSortBy]
+FromJSONKeyFunction ModelPackageGroupSortBy
+FromJSONKeyFunction ModelPackageGroupSortBy
+-&gt; FromJSONKeyFunction [ModelPackageGroupSortBy]
+-&gt; FromJSONKey ModelPackageGroupSortBy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ModelPackageGroupSortBy]
+$cfromJSONKeyList :: FromJSONKeyFunction [ModelPackageGroupSortBy]
+fromJSONKey :: FromJSONKeyFunction ModelPackageGroupSortBy
+$cfromJSONKey :: FromJSONKeyFunction ModelPackageGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680317958"><span id="local-6989586621680317960"><span id="local-6989586621680317962"><span id="local-6989586621680317964"><span class="annot"><span class="annottext">[ModelPackageGroupSortBy] -&gt; Encoding
+[ModelPackageGroupSortBy] -&gt; Value
+ModelPackageGroupSortBy -&gt; Encoding
+ModelPackageGroupSortBy -&gt; Value
+(ModelPackageGroupSortBy -&gt; Value)
+-&gt; (ModelPackageGroupSortBy -&gt; Encoding)
+-&gt; ([ModelPackageGroupSortBy] -&gt; Value)
+-&gt; ([ModelPackageGroupSortBy] -&gt; Encoding)
+-&gt; ToJSON ModelPackageGroupSortBy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ModelPackageGroupSortBy] -&gt; Encoding
+$ctoEncodingList :: [ModelPackageGroupSortBy] -&gt; Encoding
+toJSONList :: [ModelPackageGroupSortBy] -&gt; Value
+$ctoJSONList :: [ModelPackageGroupSortBy] -&gt; Value
+toEncoding :: ModelPackageGroupSortBy -&gt; Encoding
+$ctoEncoding :: ModelPackageGroupSortBy -&gt; Encoding
+toJSON :: ModelPackageGroupSortBy -&gt; Value
+$ctoJSON :: ModelPackageGroupSortBy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680317953"><span id="local-6989586621680317955"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelPackageGroupSortBy]
+ToJSONKeyFunction ModelPackageGroupSortBy
+ToJSONKeyFunction ModelPackageGroupSortBy
+-&gt; ToJSONKeyFunction [ModelPackageGroupSortBy]
+-&gt; ToJSONKey ModelPackageGroupSortBy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ModelPackageGroupSortBy]
+$ctoJSONKeyList :: ToJSONKeyFunction [ModelPackageGroupSortBy]
+toJSONKey :: ToJSONKeyFunction ModelPackageGroupSortBy
+$ctoJSONKey :: ToJSONKeyFunction ModelPackageGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680317950"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelPackageGroupSortBy
+([Node] -&gt; Either String ModelPackageGroupSortBy)
+-&gt; FromXML ModelPackageGroupSortBy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ModelPackageGroupSortBy
+$cparseXML :: [Node] -&gt; Either String ModelPackageGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680317947"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; XML
+(ModelPackageGroupSortBy -&gt; XML) -&gt; ToXML ModelPackageGroupSortBy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ModelPackageGroupSortBy -&gt; XML
+$ctoXML :: ModelPackageGroupSortBy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy_CreationTime"><span class="hs-identifier hs-type">ModelPackageGroupSortBy_CreationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy"><span class="hs-identifier hs-type">ModelPackageGroupSortBy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelPackageGroupSortBy_CreationTime"><span id="%24mModelPackageGroupSortBy_CreationTime"><span id="ModelPackageGroupSortBy_CreationTime"><span class="annot"><span class="annottext">$bModelPackageGroupSortBy_CreationTime :: ModelPackageGroupSortBy
+$mModelPackageGroupSortBy_CreationTime :: forall r.
+ModelPackageGroupSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#%24bModelPackageGroupSortBy_CreationTime"><span class="hs-identifier hs-var hs-var hs-var">ModelPackageGroupSortBy_CreationTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy%27"><span class="hs-identifier hs-type">ModelPackageGroupSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreationTime&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy_Name"><span class="hs-identifier hs-type">ModelPackageGroupSortBy_Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy"><span class="hs-identifier hs-type">ModelPackageGroupSortBy</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelPackageGroupSortBy_Name"><span id="%24mModelPackageGroupSortBy_Name"><span id="ModelPackageGroupSortBy_Name"><span class="annot"><span class="annottext">$bModelPackageGroupSortBy_Name :: ModelPackageGroupSortBy
+$mModelPackageGroupSortBy_Name :: forall r.
+ModelPackageGroupSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#%24bModelPackageGroupSortBy_Name"><span class="hs-identifier hs-var hs-var hs-var">ModelPackageGroupSortBy_Name</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy%27"><span class="hs-identifier hs-type">ModelPackageGroupSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Name&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy_CreationTime"><span class="hs-pragma hs-type">ModelPackageGroupSortBy_CreationTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy_Name"><span class="hs-pragma hs-type">ModelPackageGroupSortBy_Name</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy%27"><span class="hs-pragma hs-type">ModelPackageGroupSortBy'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

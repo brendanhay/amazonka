@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.GrokClassifier</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.GrokClassifier</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A classifier that uses @grok@ patterns.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGrokClassifier' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679687564"><span id="local-6989586621679687565"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrokClassifier"><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-var">GrokClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrokClassifier%27"><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-var">GrokClassifier'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that this classifier was registered.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreationTime%3AGrokClassifier%27"><span class="annot"><span class="annottext">GrokClassifier -&gt; Maybe POSIX
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AcreationTime%3AGrokClassifier%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The time that this classifier was last updated.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastUpdated%3AGrokClassifier%27"><span class="annot"><span class="annottext">GrokClassifier -&gt; Maybe POSIX
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AlastUpdated%3AGrokClassifier%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The version of this classifier.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aversion%3AGrokClassifier%27"><span class="annot"><span class="annottext">GrokClassifier -&gt; Maybe Integer
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aversion%3AGrokClassifier%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Optional custom grok patterns defined by this classifier. For more</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- information, see custom patterns in</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers&gt;.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcustomPatterns%3AGrokClassifier%27"><span class="annot"><span class="annottext">GrokClassifier -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AcustomPatterns%3AGrokClassifier%27"><span class="hs-identifier hs-var hs-var">customPatterns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the classifier.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AGrokClassifier%27"><span class="annot"><span class="annottext">GrokClassifier -&gt; Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aname%3AGrokClassifier%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | An identifier of the data format that the classifier matches, such as</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Twitter, JSON, Omniture logs, and so on.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aclassification%3AGrokClassifier%27"><span class="annot"><span class="annottext">GrokClassifier -&gt; Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aclassification%3AGrokClassifier%27"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The grok pattern applied to a data store by this classifier. For more</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- information, see built-in patterns in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers&gt;.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AgrokPattern%3AGrokClassifier%27"><span class="annot"><span class="annottext">GrokClassifier -&gt; Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AgrokPattern%3AGrokClassifier%27"><span class="hs-identifier hs-var hs-var">grokPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679687552"><span id="local-6989586621679687554"><span class="annot"><span class="annottext">GrokClassifier -&gt; GrokClassifier -&gt; Bool
+(GrokClassifier -&gt; GrokClassifier -&gt; Bool)
+-&gt; (GrokClassifier -&gt; GrokClassifier -&gt; Bool) -&gt; Eq GrokClassifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrokClassifier -&gt; GrokClassifier -&gt; Bool
+$c/= :: GrokClassifier -&gt; GrokClassifier -&gt; Bool
+== :: GrokClassifier -&gt; GrokClassifier -&gt; Bool
+$c== :: GrokClassifier -&gt; GrokClassifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687543"><span id="local-6989586621679687545"><span id="local-6989586621679687547"><span id="local-6989586621679687549"><span class="annot"><span class="annottext">ReadPrec [GrokClassifier]
+ReadPrec GrokClassifier
+Int -&gt; ReadS GrokClassifier
+ReadS [GrokClassifier]
+(Int -&gt; ReadS GrokClassifier)
+-&gt; ReadS [GrokClassifier]
+-&gt; ReadPrec GrokClassifier
+-&gt; ReadPrec [GrokClassifier]
+-&gt; Read GrokClassifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrokClassifier]
+$creadListPrec :: ReadPrec [GrokClassifier]
+readPrec :: ReadPrec GrokClassifier
+$creadPrec :: ReadPrec GrokClassifier
+readList :: ReadS [GrokClassifier]
+$creadList :: ReadS [GrokClassifier]
+readsPrec :: Int -&gt; ReadS GrokClassifier
+$creadsPrec :: Int -&gt; ReadS GrokClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687536"><span id="local-6989586621679687538"><span id="local-6989586621679687540"><span class="annot"><span class="annottext">Int -&gt; GrokClassifier -&gt; ShowS
+[GrokClassifier] -&gt; ShowS
+GrokClassifier -&gt; String
+(Int -&gt; GrokClassifier -&gt; ShowS)
+-&gt; (GrokClassifier -&gt; String)
+-&gt; ([GrokClassifier] -&gt; ShowS)
+-&gt; Show GrokClassifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrokClassifier] -&gt; ShowS
+$cshowList :: [GrokClassifier] -&gt; ShowS
+show :: GrokClassifier -&gt; String
+$cshow :: GrokClassifier -&gt; String
+showsPrec :: Int -&gt; GrokClassifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrokClassifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GrokClassifier -&gt; Rep GrokClassifier x)
+-&gt; (forall x. Rep GrokClassifier x -&gt; GrokClassifier)
+-&gt; Generic GrokClassifier
+forall x. Rep GrokClassifier x -&gt; GrokClassifier
+forall x. GrokClassifier -&gt; Rep GrokClassifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrokClassifier x -&gt; GrokClassifier
+$cfrom :: forall x. GrokClassifier -&gt; Rep GrokClassifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'GrokClassifier' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'creationTime', 'grokClassifier_creationTime' - The time that this classifier was registered.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lastUpdated', 'grokClassifier_lastUpdated' - The time that this classifier was last updated.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'version', 'grokClassifier_version' - The version of this classifier.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'customPatterns', 'grokClassifier_customPatterns' - Optional custom grok patterns defined by this classifier. For more</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- information, see custom patterns in</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers&gt;.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'grokClassifier_name' - The name of the classifier.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'classification', 'grokClassifier_classification' - An identifier of the data format that the classifier matches, such as</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Twitter, JSON, Omniture logs, and so on.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'grokPattern', 'grokClassifier_grokPattern' - The grok pattern applied to a data store by this classifier. For more</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- information, see built-in patterns in</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers&gt;.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#newGrokClassifier"><span class="hs-identifier hs-type">newGrokClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'classification'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'grokPattern'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span>
+</span><span id="line-86"></span><span id="newGrokClassifier"><span class="annot"><span class="annottext">newGrokClassifier :: Text -&gt; Text -&gt; Text -&gt; GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#newGrokClassifier"><span class="hs-identifier hs-var hs-var">newGrokClassifier</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679687530"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687530"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679687529"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687529"><span class="hs-identifier hs-var">pClassification_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679687528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687528"><span class="hs-identifier hs-var">pGrokPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">GrokClassifier' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:GrokClassifier' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AcreationTime%3AGrokClassifier%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdated:GrokClassifier' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AlastUpdated%3AGrokClassifier%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:GrokClassifier' :: Maybe Integer
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aversion%3AGrokClassifier%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:customPatterns:GrokClassifier' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AcustomPatterns%3AGrokClassifier%27"><span class="hs-identifier hs-var">customPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:GrokClassifier' :: Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aname%3AGrokClassifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687530"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:classification:GrokClassifier' :: Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aclassification%3AGrokClassifier%27"><span class="hs-identifier hs-var">classification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687529"><span class="hs-identifier hs-var">pClassification_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:grokPattern:GrokClassifier' :: Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AgrokPattern%3AGrokClassifier%27"><span class="hs-identifier hs-var">grokPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687528"><span class="hs-identifier hs-var">pGrokPattern_</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The time that this classifier was registered.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_creationTime"><span class="hs-identifier hs-type">grokClassifier_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="grokClassifier_creationTime"><span class="annot"><span class="annottext">grokClassifier_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GrokClassifier -&gt; f GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_creationTime"><span class="hs-identifier hs-var hs-var">grokClassifier_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrokClassifier -&gt; Maybe POSIX)
+-&gt; (GrokClassifier -&gt; Maybe POSIX -&gt; GrokClassifier)
+-&gt; Lens GrokClassifier GrokClassifier (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687524"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:GrokClassifier' :: GrokClassifier -&gt; Maybe POSIX
+</span><a href="#local-6989586621679687524"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687524"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687523"><span class="annot"><span class="annottext">s :: GrokClassifier
+</span><a href="#local-6989586621679687523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687522"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrokClassifier
+</span><a href="#local-6989586621679687523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:GrokClassifier' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AcreationTime%3AGrokClassifier%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GrokClassifier -&gt; f GrokClassifier)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GrokClassifier
+-&gt; f GrokClassifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The time that this classifier was last updated.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_lastUpdated"><span class="hs-identifier hs-type">grokClassifier_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="grokClassifier_lastUpdated"><span class="annot"><span class="annottext">grokClassifier_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GrokClassifier -&gt; f GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_lastUpdated"><span class="hs-identifier hs-var hs-var">grokClassifier_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrokClassifier -&gt; Maybe POSIX)
+-&gt; (GrokClassifier -&gt; Maybe POSIX -&gt; GrokClassifier)
+-&gt; Lens GrokClassifier GrokClassifier (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687517"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdated :: Maybe POSIX
+$sel:lastUpdated:GrokClassifier' :: GrokClassifier -&gt; Maybe POSIX
+</span><a href="#local-6989586621679687517"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687517"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687516"><span class="annot"><span class="annottext">s :: GrokClassifier
+</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687515"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrokClassifier
+</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:GrokClassifier' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AlastUpdated%3AGrokClassifier%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GrokClassifier -&gt; f GrokClassifier)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GrokClassifier
+-&gt; f GrokClassifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The version of this classifier.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_version"><span class="hs-identifier hs-type">grokClassifier_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="grokClassifier_version"><span class="annot"><span class="annottext">grokClassifier_version :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; GrokClassifier -&gt; f GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_version"><span class="hs-identifier hs-var hs-var">grokClassifier_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrokClassifier -&gt; Maybe Integer)
+-&gt; (GrokClassifier -&gt; Maybe Integer -&gt; GrokClassifier)
+-&gt; Lens
+     GrokClassifier GrokClassifier (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687513"><span class="annot"><span class="annottext">Maybe Integer
+version :: Maybe Integer
+$sel:version:GrokClassifier' :: GrokClassifier -&gt; Maybe Integer
+</span><a href="#local-6989586621679687513"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679687513"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687512"><span class="annot"><span class="annottext">s :: GrokClassifier
+</span><a href="#local-6989586621679687512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687511"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679687511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrokClassifier
+</span><a href="#local-6989586621679687512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GrokClassifier' :: Maybe Integer
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aversion%3AGrokClassifier%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679687511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Optional custom grok patterns defined by this classifier. For more</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- information, see custom patterns in</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers&gt;.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_customPatterns"><span class="hs-identifier hs-type">grokClassifier_customPatterns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="grokClassifier_customPatterns"><span class="annot"><span class="annottext">grokClassifier_customPatterns :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GrokClassifier -&gt; f GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_customPatterns"><span class="hs-identifier hs-var hs-var">grokClassifier_customPatterns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrokClassifier -&gt; Maybe Text)
+-&gt; (GrokClassifier -&gt; Maybe Text -&gt; GrokClassifier)
+-&gt; Lens GrokClassifier GrokClassifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687509"><span class="annot"><span class="annottext">Maybe Text
+customPatterns :: Maybe Text
+$sel:customPatterns:GrokClassifier' :: GrokClassifier -&gt; Maybe Text
+</span><a href="#local-6989586621679687509"><span class="hs-identifier hs-var hs-var">customPatterns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679687509"><span class="hs-identifier hs-var">customPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687508"><span class="annot"><span class="annottext">s :: GrokClassifier
+</span><a href="#local-6989586621679687508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679687507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrokClassifier
+</span><a href="#local-6989586621679687508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customPatterns:GrokClassifier' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AcustomPatterns%3AGrokClassifier%27"><span class="hs-identifier hs-var">customPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679687507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of the classifier.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_name"><span class="hs-identifier hs-type">grokClassifier_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="grokClassifier_name"><span class="annot"><span class="annottext">grokClassifier_name :: (Text -&gt; f Text) -&gt; GrokClassifier -&gt; f GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_name"><span class="hs-identifier hs-var hs-var">grokClassifier_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrokClassifier -&gt; Text)
+-&gt; (GrokClassifier -&gt; Text -&gt; GrokClassifier)
+-&gt; Lens GrokClassifier GrokClassifier Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687505"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GrokClassifier' :: GrokClassifier -&gt; Text
+</span><a href="#local-6989586621679687505"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687505"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687504"><span class="annot"><span class="annottext">s :: GrokClassifier
+</span><a href="#local-6989586621679687504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687503"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrokClassifier
+</span><a href="#local-6989586621679687504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GrokClassifier' :: Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aname%3AGrokClassifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | An identifier of the data format that the classifier matches, such as</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Twitter, JSON, Omniture logs, and so on.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_classification"><span class="hs-identifier hs-type">grokClassifier_classification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="grokClassifier_classification"><span class="annot"><span class="annottext">grokClassifier_classification :: (Text -&gt; f Text) -&gt; GrokClassifier -&gt; f GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_classification"><span class="hs-identifier hs-var hs-var">grokClassifier_classification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrokClassifier -&gt; Text)
+-&gt; (GrokClassifier -&gt; Text -&gt; GrokClassifier)
+-&gt; Lens GrokClassifier GrokClassifier Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687501"><span class="annot"><span class="annottext">Text
+classification :: Text
+$sel:classification:GrokClassifier' :: GrokClassifier -&gt; Text
+</span><a href="#local-6989586621679687501"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687501"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687500"><span class="annot"><span class="annottext">s :: GrokClassifier
+</span><a href="#local-6989586621679687500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687499"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrokClassifier
+</span><a href="#local-6989586621679687500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classification:GrokClassifier' :: Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3Aclassification%3AGrokClassifier%27"><span class="hs-identifier hs-var">classification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The grok pattern applied to a data store by this classifier. For more</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- information, see built-in patterns in</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers&gt;.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_grokPattern"><span class="hs-identifier hs-type">grokClassifier_grokPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="grokClassifier_grokPattern"><span class="annot"><span class="annottext">grokClassifier_grokPattern :: (Text -&gt; f Text) -&gt; GrokClassifier -&gt; f GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#grokClassifier_grokPattern"><span class="hs-identifier hs-var hs-var">grokClassifier_grokPattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrokClassifier -&gt; Text)
+-&gt; (GrokClassifier -&gt; Text -&gt; GrokClassifier)
+-&gt; Lens GrokClassifier GrokClassifier Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687497"><span class="annot"><span class="annottext">Text
+grokPattern :: Text
+$sel:grokPattern:GrokClassifier' :: GrokClassifier -&gt; Text
+</span><a href="#local-6989586621679687497"><span class="hs-identifier hs-var hs-var">grokPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687497"><span class="hs-identifier hs-var">grokPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687496"><span class="annot"><span class="annottext">s :: GrokClassifier
+</span><a href="#local-6989586621679687496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-type">GrokClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687495"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrokClassifier
+</span><a href="#local-6989586621679687496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grokPattern:GrokClassifier' :: Text
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#%24sel%3AgrokPattern%3AGrokClassifier%27"><span class="hs-identifier hs-var">grokPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679687495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687492"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679687490"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GrokClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GrokClassifier)
+-&gt; Value
+-&gt; Parser GrokClassifier
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GrokClassifier&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679687487"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; GrokClassifier
+</span><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier%27"><span class="hs-identifier hs-var">GrokClassifier'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; GrokClassifier)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; GrokClassifier)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; GrokClassifier)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; GrokClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; GrokClassifier)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; GrokClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; GrokClassifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; GrokClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomPatterns&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; GrokClassifier)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; GrokClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; GrokClassifier)
+-&gt; Parser Text -&gt; Parser (Text -&gt; GrokClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Classification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; GrokClassifier)
+-&gt; Parser Text -&gt; Parser GrokClassifier
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrokPattern&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687480"><span id="local-6989586621679687482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

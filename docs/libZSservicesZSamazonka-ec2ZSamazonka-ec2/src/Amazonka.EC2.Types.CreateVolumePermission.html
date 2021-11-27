@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.CreateVolumePermission</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.CreateVolumePermission</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PermissionGroup.html"><span class="hs-identifier">Amazonka.EC2.Types.PermissionGroup</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the user or group to be added or removed from the list of</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- create volume permissions for a volume.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCreateVolumePermission' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681133346"><span id="local-6989586621681133347"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVolumePermission"><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-var">CreateVolumePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVolumePermission%27"><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-var">CreateVolumePermission'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group to be added or removed. The possible value is @all@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Agroup%27%3ACreateVolumePermission%27"><span class="annot"><span class="annottext">CreateVolumePermission -&gt; Maybe PermissionGroup
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#%24sel%3Agroup%27%3ACreateVolumePermission%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PermissionGroup.html#PermissionGroup"><span class="hs-identifier hs-type">PermissionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account to be added or removed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AuserId%3ACreateVolumePermission%27"><span class="annot"><span class="annottext">CreateVolumePermission -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#%24sel%3AuserId%3ACreateVolumePermission%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681133339"><span id="local-6989586621681133341"><span class="annot"><span class="annottext">CreateVolumePermission -&gt; CreateVolumePermission -&gt; Bool
+(CreateVolumePermission -&gt; CreateVolumePermission -&gt; Bool)
+-&gt; (CreateVolumePermission -&gt; CreateVolumePermission -&gt; Bool)
+-&gt; Eq CreateVolumePermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateVolumePermission -&gt; CreateVolumePermission -&gt; Bool
+$c/= :: CreateVolumePermission -&gt; CreateVolumePermission -&gt; Bool
+== :: CreateVolumePermission -&gt; CreateVolumePermission -&gt; Bool
+$c== :: CreateVolumePermission -&gt; CreateVolumePermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681133330"><span id="local-6989586621681133332"><span id="local-6989586621681133334"><span id="local-6989586621681133336"><span class="annot"><span class="annottext">ReadPrec [CreateVolumePermission]
+ReadPrec CreateVolumePermission
+Int -&gt; ReadS CreateVolumePermission
+ReadS [CreateVolumePermission]
+(Int -&gt; ReadS CreateVolumePermission)
+-&gt; ReadS [CreateVolumePermission]
+-&gt; ReadPrec CreateVolumePermission
+-&gt; ReadPrec [CreateVolumePermission]
+-&gt; Read CreateVolumePermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateVolumePermission]
+$creadListPrec :: ReadPrec [CreateVolumePermission]
+readPrec :: ReadPrec CreateVolumePermission
+$creadPrec :: ReadPrec CreateVolumePermission
+readList :: ReadS [CreateVolumePermission]
+$creadList :: ReadS [CreateVolumePermission]
+readsPrec :: Int -&gt; ReadS CreateVolumePermission
+$creadsPrec :: Int -&gt; ReadS CreateVolumePermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681133323"><span id="local-6989586621681133325"><span id="local-6989586621681133327"><span class="annot"><span class="annottext">Int -&gt; CreateVolumePermission -&gt; ShowS
+[CreateVolumePermission] -&gt; ShowS
+CreateVolumePermission -&gt; String
+(Int -&gt; CreateVolumePermission -&gt; ShowS)
+-&gt; (CreateVolumePermission -&gt; String)
+-&gt; ([CreateVolumePermission] -&gt; ShowS)
+-&gt; Show CreateVolumePermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateVolumePermission] -&gt; ShowS
+$cshowList :: [CreateVolumePermission] -&gt; ShowS
+show :: CreateVolumePermission -&gt; String
+$cshow :: CreateVolumePermission -&gt; String
+showsPrec :: Int -&gt; CreateVolumePermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateVolumePermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateVolumePermission -&gt; Rep CreateVolumePermission x)
+-&gt; (forall x.
+    Rep CreateVolumePermission x -&gt; CreateVolumePermission)
+-&gt; Generic CreateVolumePermission
+forall x. Rep CreateVolumePermission x -&gt; CreateVolumePermission
+forall x. CreateVolumePermission -&gt; Rep CreateVolumePermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateVolumePermission x -&gt; CreateVolumePermission
+$cfrom :: forall x. CreateVolumePermission -&gt; Rep CreateVolumePermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'CreateVolumePermission' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'group'', 'createVolumePermission_group' - The group to be added or removed. The possible value is @all@.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'userId', 'createVolumePermission_userId' - The ID of the Amazon Web Services account to be added or removed.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#newCreateVolumePermission"><span class="hs-identifier hs-type">newCreateVolumePermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span><span>
+</span><span id="line-53"></span><span id="newCreateVolumePermission"><span class="annot"><span class="annottext">newCreateVolumePermission :: CreateVolumePermission
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#newCreateVolumePermission"><span class="hs-identifier hs-var hs-var">newCreateVolumePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">CreateVolumePermission' :: Maybe PermissionGroup -&gt; Maybe Text -&gt; CreateVolumePermission
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-type">CreateVolumePermission'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':CreateVolumePermission' :: Maybe PermissionGroup
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#%24sel%3Agroup%27%3ACreateVolumePermission%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:CreateVolumePermission' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#%24sel%3AuserId%3ACreateVolumePermission%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The group to be added or removed. The possible value is @all@.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#createVolumePermission_group"><span class="hs-identifier hs-type">createVolumePermission_group</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PermissionGroup.html#PermissionGroup"><span class="hs-identifier hs-type">PermissionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="createVolumePermission_group"><span class="annot"><span class="annottext">createVolumePermission_group :: (Maybe PermissionGroup -&gt; f (Maybe PermissionGroup))
+-&gt; CreateVolumePermission -&gt; f CreateVolumePermission
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#createVolumePermission_group"><span class="hs-identifier hs-var hs-var">createVolumePermission_group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVolumePermission -&gt; Maybe PermissionGroup)
+-&gt; (CreateVolumePermission
+    -&gt; Maybe PermissionGroup -&gt; CreateVolumePermission)
+-&gt; Lens
+     CreateVolumePermission
+     CreateVolumePermission
+     (Maybe PermissionGroup)
+     (Maybe PermissionGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-type">CreateVolumePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133314"><span class="annot"><span class="annottext">Maybe PermissionGroup
+group' :: Maybe PermissionGroup
+$sel:group':CreateVolumePermission' :: CreateVolumePermission -&gt; Maybe PermissionGroup
+</span><a href="#local-6989586621681133314"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133314"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681133313"><span class="annot"><span class="annottext">s :: CreateVolumePermission
+</span><a href="#local-6989586621681133313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-type">CreateVolumePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681133312"><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVolumePermission
+</span><a href="#local-6989586621681133313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':CreateVolumePermission' :: Maybe PermissionGroup
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#%24sel%3Agroup%27%3ACreateVolumePermission%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account to be added or removed.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#createVolumePermission_userId"><span class="hs-identifier hs-type">createVolumePermission_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="createVolumePermission_userId"><span class="annot"><span class="annottext">createVolumePermission_userId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVolumePermission -&gt; f CreateVolumePermission
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#createVolumePermission_userId"><span class="hs-identifier hs-var hs-var">createVolumePermission_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVolumePermission -&gt; Maybe Text)
+-&gt; (CreateVolumePermission -&gt; Maybe Text -&gt; CreateVolumePermission)
+-&gt; Lens
+     CreateVolumePermission
+     CreateVolumePermission
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-type">CreateVolumePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133310"><span class="annot"><span class="annottext">Maybe Text
+userId :: Maybe Text
+$sel:userId:CreateVolumePermission' :: CreateVolumePermission -&gt; Maybe Text
+</span><a href="#local-6989586621681133310"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133310"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681133309"><span class="annot"><span class="annottext">s :: CreateVolumePermission
+</span><a href="#local-6989586621681133309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-type">CreateVolumePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681133308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVolumePermission
+</span><a href="#local-6989586621681133309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateVolumePermission' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#%24sel%3AuserId%3ACreateVolumePermission%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681133305"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CreateVolumePermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681133303"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681133303"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe PermissionGroup -&gt; Maybe Text -&gt; CreateVolumePermission
+</span><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-var">CreateVolumePermission'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PermissionGroup -&gt; Maybe Text -&gt; CreateVolumePermission)
+-&gt; Either String (Maybe PermissionGroup)
+-&gt; Either String (Maybe Text -&gt; CreateVolumePermission)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681133303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PermissionGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;group&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CreateVolumePermission)
+-&gt; Either String (Maybe Text)
+-&gt; Either String CreateVolumePermission
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681133303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681133297"><span id="local-6989586621681133299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681133294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission"><span class="hs-identifier hs-type">CreateVolumePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681133290"><span class="annot"><span class="annottext">toQuery :: CreateVolumePermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateVolumePermission.html#CreateVolumePermission%27"><span class="hs-identifier hs-type">CreateVolumePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133287"><span id="local-6989586621681133288"><span class="annot"><span class="annottext">Maybe Text
+Maybe PermissionGroup
+userId :: Maybe Text
+group' :: Maybe PermissionGroup
+$sel:userId:CreateVolumePermission' :: CreateVolumePermission -&gt; Maybe Text
+$sel:group':CreateVolumePermission' :: CreateVolumePermission -&gt; Maybe PermissionGroup
+</span><a href="#local-6989586621681133287"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Group&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PermissionGroup -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133288"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133287"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-81"></span></pre></body></html>

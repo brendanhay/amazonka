@@ -1,0 +1,1058 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.ImportSnapshot</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Imports a disk into an EBS snapshot.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html Importing a disk as a snapshot using VM Import\/Export&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /VM Import\/Export User Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.ImportSnapshot</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#newImportSnapshot"><span class="hs-identifier">newImportSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_diskContainer"><span class="hs-identifier">importSnapshot_diskContainer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_clientToken"><span class="hs-identifier">importSnapshot_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_roleName"><span class="hs-identifier">importSnapshot_roleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_encrypted"><span class="hs-identifier">importSnapshot_encrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_tagSpecifications"><span class="hs-identifier">importSnapshot_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_kmsKeyId"><span class="hs-identifier">importSnapshot_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_description"><span class="hs-identifier">importSnapshot_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_dryRun"><span class="hs-identifier">importSnapshot_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_clientData"><span class="hs-identifier">importSnapshot_clientData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier">ImportSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#newImportSnapshotResponse"><span class="hs-identifier">newImportSnapshotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_snapshotTaskDetail"><span class="hs-identifier">importSnapshotResponse_snapshotTaskDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_importTaskId"><span class="hs-identifier">importSnapshotResponse_importTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_description"><span class="hs-identifier">importSnapshotResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_tags"><span class="hs-identifier">importSnapshotResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_httpStatus"><span class="hs-identifier">importSnapshotResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newImportSnapshot' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621681223451"><span id="local-6989586621681223452"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportSnapshot"><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-var">ImportSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportSnapshot%27"><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-var">ImportSnapshot'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the disk container.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdiskContainer%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe SnapshotDiskContainer
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AdiskContainer%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">diskContainer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SnapshotDiskContainer.html#SnapshotDiskContainer"><span class="hs-identifier hs-type">SnapshotDiskContainer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Token to enable idempotency for VM import requests.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AclientToken%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AclientToken%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name of the role to use when not using the default role,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- \'vmimport\'.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AroleName%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AroleName%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Specifies whether the destination snapshot of the imported image should</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- be encrypted. The default KMS key for EBS is used unless you specify a</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- non-default KMS key using @KmsKeyId@. For more information, see</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption&gt;</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aencrypted%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Aencrypted%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the import snapshot task during creation.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AtagSpecifications%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AtagSpecifications%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | An identifier for the symmetric KMS key to use when creating the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- encrypted snapshot. This parameter is only required if you want to use a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- non-default KMS key; if this parameter is not specified, the default KMS</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- key for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- must also be set.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- The KMS key identifier may be provided in any of the following formats:</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   Key ID</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     followed by the Region of the key, the Amazon Web Services account</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     ID of the key owner, the @alias@ namespace, and then the key alias.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     For example,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     followed by the Region of the key, the Amazon Web Services account</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     ID of the key owner, the @key@ namespace, and then the key ID. For</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     example,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     namespace, followed by the Region of the key, the Amazon Web</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     Services account ID of the key owner, the @alias@ namespace, and</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     then the key alias. For example,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- Amazon Web Services parses @KmsKeyId@ asynchronously, meaning that the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- action you call may appear to complete even though you provided an</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- invalid identifier. This action will eventually report failure.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- The specified KMS key must exist in the Region that the snapshot is</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- being copied to.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- Amazon EBS does not support asymmetric KMS keys.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AkmsKeyId%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The description string for the import snapshot task.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3Adescription%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Adescription%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AdryRun%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AdryRun%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The client-specific data.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AclientData%3AImportSnapshot%27"><span class="annot"><span class="annottext">ImportSnapshot -&gt; Maybe ClientData
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AclientData%3AImportSnapshot%27"><span class="hs-identifier hs-var hs-var">clientData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681223437"><span id="local-6989586621681223439"><span class="annot"><span class="annottext">ImportSnapshot -&gt; ImportSnapshot -&gt; Bool
+(ImportSnapshot -&gt; ImportSnapshot -&gt; Bool)
+-&gt; (ImportSnapshot -&gt; ImportSnapshot -&gt; Bool) -&gt; Eq ImportSnapshot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportSnapshot -&gt; ImportSnapshot -&gt; Bool
+$c/= :: ImportSnapshot -&gt; ImportSnapshot -&gt; Bool
+== :: ImportSnapshot -&gt; ImportSnapshot -&gt; Bool
+$c== :: ImportSnapshot -&gt; ImportSnapshot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223428"><span id="local-6989586621681223430"><span id="local-6989586621681223432"><span id="local-6989586621681223434"><span class="annot"><span class="annottext">ReadPrec [ImportSnapshot]
+ReadPrec ImportSnapshot
+Int -&gt; ReadS ImportSnapshot
+ReadS [ImportSnapshot]
+(Int -&gt; ReadS ImportSnapshot)
+-&gt; ReadS [ImportSnapshot]
+-&gt; ReadPrec ImportSnapshot
+-&gt; ReadPrec [ImportSnapshot]
+-&gt; Read ImportSnapshot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportSnapshot]
+$creadListPrec :: ReadPrec [ImportSnapshot]
+readPrec :: ReadPrec ImportSnapshot
+$creadPrec :: ReadPrec ImportSnapshot
+readList :: ReadS [ImportSnapshot]
+$creadList :: ReadS [ImportSnapshot]
+readsPrec :: Int -&gt; ReadS ImportSnapshot
+$creadsPrec :: Int -&gt; ReadS ImportSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223421"><span id="local-6989586621681223423"><span id="local-6989586621681223425"><span class="annot"><span class="annottext">Int -&gt; ImportSnapshot -&gt; ShowS
+[ImportSnapshot] -&gt; ShowS
+ImportSnapshot -&gt; String
+(Int -&gt; ImportSnapshot -&gt; ShowS)
+-&gt; (ImportSnapshot -&gt; String)
+-&gt; ([ImportSnapshot] -&gt; ShowS)
+-&gt; Show ImportSnapshot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportSnapshot] -&gt; ShowS
+$cshowList :: [ImportSnapshot] -&gt; ShowS
+show :: ImportSnapshot -&gt; String
+$cshow :: ImportSnapshot -&gt; String
+showsPrec :: Int -&gt; ImportSnapshot -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportSnapshot -&gt; Rep ImportSnapshot x)
+-&gt; (forall x. Rep ImportSnapshot x -&gt; ImportSnapshot)
+-&gt; Generic ImportSnapshot
+forall x. Rep ImportSnapshot x -&gt; ImportSnapshot
+forall x. ImportSnapshot -&gt; Rep ImportSnapshot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportSnapshot x -&gt; ImportSnapshot
+$cfrom :: forall x. ImportSnapshot -&gt; Rep ImportSnapshot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'ImportSnapshot' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'diskContainer', 'importSnapshot_diskContainer' - Information about the disk container.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'clientToken', 'importSnapshot_clientToken' - Token to enable idempotency for VM import requests.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'roleName', 'importSnapshot_roleName' - The name of the role to use when not using the default role,</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- \'vmimport\'.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'encrypted', 'importSnapshot_encrypted' - Specifies whether the destination snapshot of the imported image should</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- be encrypted. The default KMS key for EBS is used unless you specify a</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- non-default KMS key using @KmsKeyId@. For more information, see</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption&gt;</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'tagSpecifications', 'importSnapshot_tagSpecifications' - The tags to apply to the import snapshot task during creation.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'kmsKeyId', 'importSnapshot_kmsKeyId' - An identifier for the symmetric KMS key to use when creating the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- encrypted snapshot. This parameter is only required if you want to use a</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- non-default KMS key; if this parameter is not specified, the default KMS</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- key for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- must also be set.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The KMS key identifier may be provided in any of the following formats:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   Key ID</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     followed by the Region of the key, the Amazon Web Services account</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     ID of the key owner, the @alias@ namespace, and then the key alias.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     For example,</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     followed by the Region of the key, the Amazon Web Services account</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--     ID of the key owner, the @key@ namespace, and then the key ID. For</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     example,</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     namespace, followed by the Region of the key, the Amazon Web</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     Services account ID of the key owner, the @alias@ namespace, and</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     then the key alias. For example,</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Amazon Web Services parses @KmsKeyId@ asynchronously, meaning that the</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- action you call may appear to complete even though you provided an</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- invalid identifier. This action will eventually report failure.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The specified KMS key must exist in the Region that the snapshot is</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- being copied to.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Amazon EBS does not support asymmetric KMS keys.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'description', 'importSnapshot_description' - The description string for the import snapshot task.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'dryRun', 'importSnapshot_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'clientData', 'importSnapshot_clientData' - The client-specific data.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#newImportSnapshot"><span class="hs-identifier hs-type">newImportSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span>
+</span><span id="line-200"></span><span id="newImportSnapshot"><span class="annot"><span class="annottext">newImportSnapshot :: ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#newImportSnapshot"><span class="hs-identifier hs-var hs-var">newImportSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ImportSnapshot' :: Maybe SnapshotDiskContainer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [TagSpecification]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ClientData
+-&gt; ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:diskContainer:ImportSnapshot' :: Maybe SnapshotDiskContainer
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AdiskContainer%3AImportSnapshot%27"><span class="hs-identifier hs-var">diskContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotDiskContainer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AclientToken%3AImportSnapshot%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleName:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AroleName%3AImportSnapshot%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:encrypted:ImportSnapshot' :: Maybe Bool
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Aencrypted%3AImportSnapshot%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagSpecifications:ImportSnapshot' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AtagSpecifications%3AImportSnapshot%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AkmsKeyId%3AImportSnapshot%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Adescription%3AImportSnapshot%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ImportSnapshot' :: Maybe Bool
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AdryRun%3AImportSnapshot%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientData:ImportSnapshot' :: Maybe ClientData
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AclientData%3AImportSnapshot%27"><span class="hs-identifier hs-var">clientData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Information about the disk container.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_diskContainer"><span class="hs-identifier hs-type">importSnapshot_diskContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SnapshotDiskContainer.html#SnapshotDiskContainer"><span class="hs-identifier hs-type">SnapshotDiskContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="importSnapshot_diskContainer"><span class="annot"><span class="annottext">importSnapshot_diskContainer :: (Maybe SnapshotDiskContainer -&gt; f (Maybe SnapshotDiskContainer))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_diskContainer"><span class="hs-identifier hs-var hs-var">importSnapshot_diskContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe SnapshotDiskContainer)
+-&gt; (ImportSnapshot
+    -&gt; Maybe SnapshotDiskContainer -&gt; ImportSnapshot)
+-&gt; Lens
+     ImportSnapshot
+     ImportSnapshot
+     (Maybe SnapshotDiskContainer)
+     (Maybe SnapshotDiskContainer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223414"><span class="annot"><span class="annottext">Maybe SnapshotDiskContainer
+diskContainer :: Maybe SnapshotDiskContainer
+$sel:diskContainer:ImportSnapshot' :: ImportSnapshot -&gt; Maybe SnapshotDiskContainer
+</span><a href="#local-6989586621681223414"><span class="hs-identifier hs-var hs-var">diskContainer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotDiskContainer
+</span><a href="#local-6989586621681223414"><span class="hs-identifier hs-var">diskContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223413"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223412"><span class="annot"><span class="annottext">Maybe SnapshotDiskContainer
+</span><a href="#local-6989586621681223412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskContainer:ImportSnapshot' :: Maybe SnapshotDiskContainer
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AdiskContainer%3AImportSnapshot%27"><span class="hs-identifier hs-var">diskContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotDiskContainer
+</span><a href="#local-6989586621681223412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Token to enable idempotency for VM import requests.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_clientToken"><span class="hs-identifier hs-type">importSnapshot_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="importSnapshot_clientToken"><span class="annot"><span class="annottext">importSnapshot_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_clientToken"><span class="hs-identifier hs-var hs-var">importSnapshot_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe Text)
+-&gt; (ImportSnapshot -&gt; Maybe Text -&gt; ImportSnapshot)
+-&gt; Lens ImportSnapshot ImportSnapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223411"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621681223411"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223411"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223410"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AclientToken%3AImportSnapshot%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The name of the role to use when not using the default role,</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- \'vmimport\'.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_roleName"><span class="hs-identifier hs-type">importSnapshot_roleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="importSnapshot_roleName"><span class="annot"><span class="annottext">importSnapshot_roleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_roleName"><span class="hs-identifier hs-var hs-var">importSnapshot_roleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe Text)
+-&gt; (ImportSnapshot -&gt; Maybe Text -&gt; ImportSnapshot)
+-&gt; Lens ImportSnapshot ImportSnapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223408"><span class="annot"><span class="annottext">Maybe Text
+roleName :: Maybe Text
+$sel:roleName:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621681223408"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223408"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223407"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223406"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AroleName%3AImportSnapshot%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Specifies whether the destination snapshot of the imported image should</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- be encrypted. The default KMS key for EBS is used unless you specify a</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- non-default KMS key using @KmsKeyId@. For more information, see</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption&gt;</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_encrypted"><span class="hs-identifier hs-type">importSnapshot_encrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="importSnapshot_encrypted"><span class="annot"><span class="annottext">importSnapshot_encrypted :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_encrypted"><span class="hs-identifier hs-var hs-var">importSnapshot_encrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe Bool)
+-&gt; (ImportSnapshot -&gt; Maybe Bool -&gt; ImportSnapshot)
+-&gt; Lens ImportSnapshot ImportSnapshot (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223405"><span class="annot"><span class="annottext">Maybe Bool
+encrypted :: Maybe Bool
+$sel:encrypted:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Bool
+</span><a href="#local-6989586621681223405"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223405"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223404"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223403"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encrypted:ImportSnapshot' :: Maybe Bool
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Aencrypted%3AImportSnapshot%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The tags to apply to the import snapshot task during creation.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_tagSpecifications"><span class="hs-identifier hs-type">importSnapshot_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="importSnapshot_tagSpecifications"><span class="annot"><span class="annottext">importSnapshot_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_tagSpecifications"><span class="hs-identifier hs-var hs-var">importSnapshot_tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe [TagSpecification])
+-&gt; (ImportSnapshot -&gt; Maybe [TagSpecification] -&gt; ImportSnapshot)
+-&gt; Lens
+     ImportSnapshot
+     ImportSnapshot
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223402"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+tagSpecifications :: Maybe [TagSpecification]
+$sel:tagSpecifications:ImportSnapshot' :: ImportSnapshot -&gt; Maybe [TagSpecification]
+</span><a href="#local-6989586621681223402"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681223402"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223401"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223400"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681223400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:ImportSnapshot' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AtagSpecifications%3AImportSnapshot%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681223400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+ -&gt; ImportSnapshot -&gt; f ImportSnapshot)
+-&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+    -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; ImportSnapshot
+-&gt; f ImportSnapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+-&gt; Iso
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | An identifier for the symmetric KMS key to use when creating the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- encrypted snapshot. This parameter is only required if you want to use a</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- non-default KMS key; if this parameter is not specified, the default KMS</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- key for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- must also be set.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- The KMS key identifier may be provided in any of the following formats:</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- -   Key ID</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   Key alias. The alias ARN contains the @arn:aws:kms@ namespace,</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     followed by the Region of the key, the Amazon Web Services account</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     ID of the key owner, the @alias@ namespace, and then the key alias.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     For example,</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace,</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     followed by the Region of the key, the Amazon Web Services account</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     ID of the key owner, the @key@ namespace, and then the key ID. For</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     example,</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- -   ARN using key alias. The alias ARN contains the @arn:aws:kms@</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     namespace, followed by the Region of the key, the Amazon Web</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     Services account ID of the key owner, the @alias@ namespace, and</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     then the key alias. For example,</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     arn:aws:kms:/us-east-1/:/012345678910/:alias\//ExampleAlias/.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Amazon Web Services parses @KmsKeyId@ asynchronously, meaning that the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- action you call may appear to complete even though you provided an</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- invalid identifier. This action will eventually report failure.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- The specified KMS key must exist in the Region that the snapshot is</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- being copied to.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- Amazon EBS does not support asymmetric KMS keys.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_kmsKeyId"><span class="hs-identifier hs-type">importSnapshot_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="importSnapshot_kmsKeyId"><span class="annot"><span class="annottext">importSnapshot_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_kmsKeyId"><span class="hs-identifier hs-var hs-var">importSnapshot_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe Text)
+-&gt; (ImportSnapshot -&gt; Maybe Text -&gt; ImportSnapshot)
+-&gt; Lens ImportSnapshot ImportSnapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223396"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621681223396"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223396"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223395"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AkmsKeyId%3AImportSnapshot%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The description string for the import snapshot task.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_description"><span class="hs-identifier hs-type">importSnapshot_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="importSnapshot_description"><span class="annot"><span class="annottext">importSnapshot_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_description"><span class="hs-identifier hs-var hs-var">importSnapshot_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe Text)
+-&gt; (ImportSnapshot -&gt; Maybe Text -&gt; ImportSnapshot)
+-&gt; Lens ImportSnapshot ImportSnapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223393"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621681223393"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223393"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223392"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223391"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportSnapshot' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Adescription%3AImportSnapshot%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_dryRun"><span class="hs-identifier hs-type">importSnapshot_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="importSnapshot_dryRun"><span class="annot"><span class="annottext">importSnapshot_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_dryRun"><span class="hs-identifier hs-var hs-var">importSnapshot_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe Bool)
+-&gt; (ImportSnapshot -&gt; Maybe Bool -&gt; ImportSnapshot)
+-&gt; Lens ImportSnapshot ImportSnapshot (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223390"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Bool
+</span><a href="#local-6989586621681223390"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223390"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223389"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223388"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ImportSnapshot' :: Maybe Bool
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AdryRun%3AImportSnapshot%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The client-specific data.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_clientData"><span class="hs-identifier hs-type">importSnapshot_clientData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="importSnapshot_clientData"><span class="annot"><span class="annottext">importSnapshot_clientData :: (Maybe ClientData -&gt; f (Maybe ClientData))
+-&gt; ImportSnapshot -&gt; f ImportSnapshot
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshot_clientData"><span class="hs-identifier hs-var hs-var">importSnapshot_clientData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshot -&gt; Maybe ClientData)
+-&gt; (ImportSnapshot -&gt; Maybe ClientData -&gt; ImportSnapshot)
+-&gt; Lens
+     ImportSnapshot ImportSnapshot (Maybe ClientData) (Maybe ClientData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223387"><span class="annot"><span class="annottext">Maybe ClientData
+clientData :: Maybe ClientData
+$sel:clientData:ImportSnapshot' :: ImportSnapshot -&gt; Maybe ClientData
+</span><a href="#local-6989586621681223387"><span class="hs-identifier hs-var hs-var">clientData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientData
+</span><a href="#local-6989586621681223387"><span class="hs-identifier hs-var">clientData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223386"><span class="annot"><span class="annottext">s :: ImportSnapshot
+</span><a href="#local-6989586621681223386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223385"><span class="annot"><span class="annottext">Maybe ClientData
+</span><a href="#local-6989586621681223385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshot
+</span><a href="#local-6989586621681223386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientData:ImportSnapshot' :: Maybe ClientData
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AclientData%3AImportSnapshot%27"><span class="hs-identifier hs-var">clientData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientData
+</span><a href="#local-6989586621681223385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-294"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621681223381"><span class="annot"><span class="annottext">request :: ImportSnapshot -&gt; Request ImportSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportSnapshot -&gt; Request ImportSnapshot
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621681223377"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ImportSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportSnapshot)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse ImportSnapshot))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ImportSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportSnapshot)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-299"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681223374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223374"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681223373"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681223373"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681223372"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-300"></span><span>          </span><span class="annot"><span class="annottext">Maybe SnapshotTaskDetail
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Int
+-&gt; ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-var">ImportSnapshotResponse'</span></a></span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SnapshotTaskDetail
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; Int
+ -&gt; ImportSnapshotResponse)
+-&gt; Either String (Maybe SnapshotTaskDetail)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportSnapshotResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SnapshotTaskDetail)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;snapshotTaskDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportSnapshotResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportSnapshotResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importTaskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportSnapshotResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; Int -&gt; ImportSnapshotResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Int -&gt; ImportSnapshotResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Int -&gt; ImportSnapshotResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-305"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ImportSnapshotResponse)
+-&gt; Either String Int -&gt; Either String ImportSnapshotResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223374"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223361"><span id="local-6989586621681223363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span></span></span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621681223354"><span class="annot"><span class="annottext">toHeaders :: ImportSnapshot -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportSnapshot -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621681223349"><span class="annot"><span class="annottext">toPath :: ImportSnapshot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportSnapshot -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot"><span class="hs-identifier hs-type">ImportSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-321"></span><span>  </span><span id="local-6989586621681223345"><span class="annot"><span class="annottext">toQuery :: ImportSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshot%27"><span class="hs-identifier hs-type">ImportSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223335"><span id="local-6989586621681223336"><span id="local-6989586621681223337"><span id="local-6989586621681223338"><span id="local-6989586621681223339"><span id="local-6989586621681223340"><span id="local-6989586621681223341"><span id="local-6989586621681223342"><span id="local-6989586621681223343"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [TagSpecification]
+Maybe Text
+Maybe ClientData
+Maybe SnapshotDiskContainer
+clientData :: Maybe ClientData
+dryRun :: Maybe Bool
+description :: Maybe Text
+kmsKeyId :: Maybe Text
+tagSpecifications :: Maybe [TagSpecification]
+encrypted :: Maybe Bool
+roleName :: Maybe Text
+clientToken :: Maybe Text
+diskContainer :: Maybe SnapshotDiskContainer
+$sel:clientData:ImportSnapshot' :: ImportSnapshot -&gt; Maybe ClientData
+$sel:dryRun:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Bool
+$sel:description:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+$sel:kmsKeyId:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+$sel:tagSpecifications:ImportSnapshot' :: ImportSnapshot -&gt; Maybe [TagSpecification]
+$sel:encrypted:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Bool
+$sel:roleName:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+$sel:clientToken:ImportSnapshot' :: ImportSnapshot -&gt; Maybe Text
+$sel:diskContainer:ImportSnapshot' :: ImportSnapshot -&gt; Maybe SnapshotDiskContainer
+</span><a href="#local-6989586621681223335"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-323"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-324"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ImportSnapshot&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-326"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DiskContainer&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SnapshotDiskContainer -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotDiskContainer
+</span><a href="#local-6989586621681223343"><span class="hs-identifier hs-var">diskContainer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223342"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223341"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Encrypted&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223340"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-332"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TagSpecification] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagSpecification&quot;</span></span><span>
+</span><span id="line-333"></span><span>              </span><span class="annot"><span class="annottext">([TagSpecification] -&gt; QueryString)
+-&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681223339"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><span id="line-334"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223338"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223337"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223336"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClientData&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ClientData -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ClientData
+</span><a href="#local-6989586621681223335"><span class="hs-identifier hs-var">clientData</span></a></span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | /See:/ 'newImportSnapshotResponse' smart constructor.</span><span>
+</span><span id="line-342"></span><span id="local-6989586621681223331"><span id="local-6989586621681223332"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportSnapshotResponse"><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-var">ImportSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportSnapshotResponse%27"><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-var">ImportSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-343"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the import snapshot task.</span><span>
+</span><span id="line-344"></span><span>    </span><span id="%24sel%3AsnapshotTaskDetail%3AImportSnapshotResponse%27"><span class="annot"><span class="annottext">ImportSnapshotResponse -&gt; Maybe SnapshotTaskDetail
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AsnapshotTaskDetail%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">snapshotTaskDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SnapshotTaskDetail.html#SnapshotTaskDetail"><span class="hs-identifier hs-type">SnapshotTaskDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="hs-comment">-- | The ID of the import snapshot task.</span><span>
+</span><span id="line-346"></span><span>    </span><span id="%24sel%3AimportTaskId%3AImportSnapshotResponse%27"><span class="annot"><span class="annottext">ImportSnapshotResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AimportTaskId%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="hs-comment">-- | A description of the import snapshot task.</span><span>
+</span><span id="line-348"></span><span>    </span><span id="%24sel%3Adescription%3AImportSnapshotResponse%27"><span class="annot"><span class="annottext">ImportSnapshotResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Adescription%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="hs-comment">-- | Any tags assigned to the import snapshot task.</span><span>
+</span><span id="line-350"></span><span>    </span><span id="%24sel%3Atags%3AImportSnapshotResponse%27"><span class="annot"><span class="annottext">ImportSnapshotResponse -&gt; Maybe [Tag]
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Atags%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-352"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportSnapshotResponse%27"><span class="annot"><span class="annottext">ImportSnapshotResponse -&gt; Int
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AhttpStatus%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-353"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-354"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681223322"><span id="local-6989586621681223324"><span class="annot"><span class="annottext">ImportSnapshotResponse -&gt; ImportSnapshotResponse -&gt; Bool
+(ImportSnapshotResponse -&gt; ImportSnapshotResponse -&gt; Bool)
+-&gt; (ImportSnapshotResponse -&gt; ImportSnapshotResponse -&gt; Bool)
+-&gt; Eq ImportSnapshotResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportSnapshotResponse -&gt; ImportSnapshotResponse -&gt; Bool
+$c/= :: ImportSnapshotResponse -&gt; ImportSnapshotResponse -&gt; Bool
+== :: ImportSnapshotResponse -&gt; ImportSnapshotResponse -&gt; Bool
+$c== :: ImportSnapshotResponse -&gt; ImportSnapshotResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223314"><span id="local-6989586621681223316"><span id="local-6989586621681223318"><span id="local-6989586621681223320"><span class="annot"><span class="annottext">ReadPrec [ImportSnapshotResponse]
+ReadPrec ImportSnapshotResponse
+Int -&gt; ReadS ImportSnapshotResponse
+ReadS [ImportSnapshotResponse]
+(Int -&gt; ReadS ImportSnapshotResponse)
+-&gt; ReadS [ImportSnapshotResponse]
+-&gt; ReadPrec ImportSnapshotResponse
+-&gt; ReadPrec [ImportSnapshotResponse]
+-&gt; Read ImportSnapshotResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportSnapshotResponse]
+$creadListPrec :: ReadPrec [ImportSnapshotResponse]
+readPrec :: ReadPrec ImportSnapshotResponse
+$creadPrec :: ReadPrec ImportSnapshotResponse
+readList :: ReadS [ImportSnapshotResponse]
+$creadList :: ReadS [ImportSnapshotResponse]
+readsPrec :: Int -&gt; ReadS ImportSnapshotResponse
+$creadsPrec :: Int -&gt; ReadS ImportSnapshotResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223308"><span id="local-6989586621681223310"><span id="local-6989586621681223312"><span class="annot"><span class="annottext">Int -&gt; ImportSnapshotResponse -&gt; ShowS
+[ImportSnapshotResponse] -&gt; ShowS
+ImportSnapshotResponse -&gt; String
+(Int -&gt; ImportSnapshotResponse -&gt; ShowS)
+-&gt; (ImportSnapshotResponse -&gt; String)
+-&gt; ([ImportSnapshotResponse] -&gt; ShowS)
+-&gt; Show ImportSnapshotResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportSnapshotResponse] -&gt; ShowS
+$cshowList :: [ImportSnapshotResponse] -&gt; ShowS
+show :: ImportSnapshotResponse -&gt; String
+$cshow :: ImportSnapshotResponse -&gt; String
+showsPrec :: Int -&gt; ImportSnapshotResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportSnapshotResponse -&gt; Rep ImportSnapshotResponse x)
+-&gt; (forall x.
+    Rep ImportSnapshotResponse x -&gt; ImportSnapshotResponse)
+-&gt; Generic ImportSnapshotResponse
+forall x. Rep ImportSnapshotResponse x -&gt; ImportSnapshotResponse
+forall x. ImportSnapshotResponse -&gt; Rep ImportSnapshotResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportSnapshotResponse x -&gt; ImportSnapshotResponse
+$cfrom :: forall x. ImportSnapshotResponse -&gt; Rep ImportSnapshotResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- Create a value of 'ImportSnapshotResponse' with all optional fields omitted.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- 'snapshotTaskDetail', 'importSnapshotResponse_snapshotTaskDetail' - Information about the import snapshot task.</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- 'importTaskId', 'importSnapshotResponse_importTaskId' - The ID of the import snapshot task.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- 'description', 'importSnapshotResponse_description' - A description of the import snapshot task.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- 'tags', 'importSnapshotResponse_tags' - Any tags assigned to the import snapshot task.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- 'httpStatus', 'importSnapshotResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-373"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#newImportSnapshotResponse"><span class="hs-identifier hs-type">newImportSnapshotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-374"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-375"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-376"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span>
+</span><span id="line-377"></span><span id="newImportSnapshotResponse"><span class="annot"><span class="annottext">newImportSnapshotResponse :: Int -&gt; ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#newImportSnapshotResponse"><span class="hs-identifier hs-var hs-var">newImportSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621681223305"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>  </span><span class="annot"><span class="annottext">ImportSnapshotResponse' :: Maybe SnapshotTaskDetail
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Int
+-&gt; ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span>
+</span><span id="line-379"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snapshotTaskDetail:ImportSnapshotResponse' :: Maybe SnapshotTaskDetail
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AsnapshotTaskDetail%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">snapshotTaskDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-380"></span><span>        </span><span class="annot"><span class="annottext">Maybe SnapshotTaskDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>      </span><span class="annot"><span class="annottext">$sel:importTaskId:ImportSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AimportTaskId%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ImportSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Adescription%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ImportSnapshotResponse' :: Maybe [Tag]
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Atags%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportSnapshotResponse' :: Int
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AhttpStatus%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-385"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-386"></span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- | Information about the import snapshot task.</span><span>
+</span><span id="line-388"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_snapshotTaskDetail"><span class="hs-identifier hs-type">importSnapshotResponse_snapshotTaskDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SnapshotTaskDetail.html#SnapshotTaskDetail"><span class="hs-identifier hs-type">SnapshotTaskDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span id="importSnapshotResponse_snapshotTaskDetail"><span class="annot"><span class="annottext">importSnapshotResponse_snapshotTaskDetail :: (Maybe SnapshotTaskDetail -&gt; f (Maybe SnapshotTaskDetail))
+-&gt; ImportSnapshotResponse -&gt; f ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_snapshotTaskDetail"><span class="hs-identifier hs-var hs-var">importSnapshotResponse_snapshotTaskDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshotResponse -&gt; Maybe SnapshotTaskDetail)
+-&gt; (ImportSnapshotResponse
+    -&gt; Maybe SnapshotTaskDetail -&gt; ImportSnapshotResponse)
+-&gt; Lens
+     ImportSnapshotResponse
+     ImportSnapshotResponse
+     (Maybe SnapshotTaskDetail)
+     (Maybe SnapshotTaskDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223304"><span class="annot"><span class="annottext">Maybe SnapshotTaskDetail
+snapshotTaskDetail :: Maybe SnapshotTaskDetail
+$sel:snapshotTaskDetail:ImportSnapshotResponse' :: ImportSnapshotResponse -&gt; Maybe SnapshotTaskDetail
+</span><a href="#local-6989586621681223304"><span class="hs-identifier hs-var hs-var">snapshotTaskDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotTaskDetail
+</span><a href="#local-6989586621681223304"><span class="hs-identifier hs-var">snapshotTaskDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223303"><span class="annot"><span class="annottext">s :: ImportSnapshotResponse
+</span><a href="#local-6989586621681223303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223302"><span class="annot"><span class="annottext">Maybe SnapshotTaskDetail
+</span><a href="#local-6989586621681223302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshotResponse
+</span><a href="#local-6989586621681223303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotTaskDetail:ImportSnapshotResponse' :: Maybe SnapshotTaskDetail
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AsnapshotTaskDetail%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">snapshotTaskDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotTaskDetail
+</span><a href="#local-6989586621681223302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- | The ID of the import snapshot task.</span><span>
+</span><span id="line-392"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_importTaskId"><span class="hs-identifier hs-type">importSnapshotResponse_importTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span id="importSnapshotResponse_importTaskId"><span class="annot"><span class="annottext">importSnapshotResponse_importTaskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportSnapshotResponse -&gt; f ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_importTaskId"><span class="hs-identifier hs-var hs-var">importSnapshotResponse_importTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshotResponse -&gt; Maybe Text)
+-&gt; (ImportSnapshotResponse -&gt; Maybe Text -&gt; ImportSnapshotResponse)
+-&gt; Lens
+     ImportSnapshotResponse
+     ImportSnapshotResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223301"><span class="annot"><span class="annottext">Maybe Text
+importTaskId :: Maybe Text
+$sel:importTaskId:ImportSnapshotResponse' :: ImportSnapshotResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681223301"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223301"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223300"><span class="annot"><span class="annottext">s :: ImportSnapshotResponse
+</span><a href="#local-6989586621681223300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223299"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshotResponse
+</span><a href="#local-6989586621681223300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importTaskId:ImportSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AimportTaskId%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- | A description of the import snapshot task.</span><span>
+</span><span id="line-396"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_description"><span class="hs-identifier hs-type">importSnapshotResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span id="importSnapshotResponse_description"><span class="annot"><span class="annottext">importSnapshotResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportSnapshotResponse -&gt; f ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_description"><span class="hs-identifier hs-var hs-var">importSnapshotResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshotResponse -&gt; Maybe Text)
+-&gt; (ImportSnapshotResponse -&gt; Maybe Text -&gt; ImportSnapshotResponse)
+-&gt; Lens
+     ImportSnapshotResponse
+     ImportSnapshotResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223298"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ImportSnapshotResponse' :: ImportSnapshotResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681223298"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223298"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223297"><span class="annot"><span class="annottext">s :: ImportSnapshotResponse
+</span><a href="#local-6989586621681223297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshotResponse
+</span><a href="#local-6989586621681223297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportSnapshotResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Adescription%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- | Any tags assigned to the import snapshot task.</span><span>
+</span><span id="line-400"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_tags"><span class="hs-identifier hs-type">importSnapshotResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span id="importSnapshotResponse_tags"><span class="annot"><span class="annottext">importSnapshotResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; ImportSnapshotResponse -&gt; f ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_tags"><span class="hs-identifier hs-var hs-var">importSnapshotResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshotResponse -&gt; Maybe [Tag])
+-&gt; (ImportSnapshotResponse
+    -&gt; Maybe [Tag] -&gt; ImportSnapshotResponse)
+-&gt; Lens
+     ImportSnapshotResponse
+     ImportSnapshotResponse
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223295"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:ImportSnapshotResponse' :: ImportSnapshotResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621681223295"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681223295"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223294"><span class="annot"><span class="annottext">s :: ImportSnapshotResponse
+</span><a href="#local-6989586621681223294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223293"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681223293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshotResponse
+</span><a href="#local-6989586621681223294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ImportSnapshotResponse' :: Maybe [Tag]
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3Atags%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681223293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; ImportSnapshotResponse -&gt; f ImportSnapshotResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; ImportSnapshotResponse
+-&gt; f ImportSnapshotResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-402"></span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-404"></span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">importSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-405"></span><span id="importSnapshotResponse_httpStatus"><span class="annot"><span class="annottext">importSnapshotResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ImportSnapshotResponse -&gt; f ImportSnapshotResponse
+</span><a href="Amazonka.EC2.ImportSnapshot.html#importSnapshotResponse_httpStatus"><span class="hs-identifier hs-var hs-var">importSnapshotResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportSnapshotResponse -&gt; Int)
+-&gt; (ImportSnapshotResponse -&gt; Int -&gt; ImportSnapshotResponse)
+-&gt; Lens ImportSnapshotResponse ImportSnapshotResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223292"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ImportSnapshotResponse' :: ImportSnapshotResponse -&gt; Int
+</span><a href="#local-6989586621681223292"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223292"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223291"><span class="annot"><span class="annottext">s :: ImportSnapshotResponse
+</span><a href="#local-6989586621681223291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse%27"><span class="hs-identifier hs-type">ImportSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSnapshotResponse
+</span><a href="#local-6989586621681223291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportSnapshotResponse' :: Int
+</span><a href="Amazonka.EC2.ImportSnapshot.html#%24sel%3AhttpStatus%3AImportSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span>
+</span><span id="line-407"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ImportSnapshot.html#ImportSnapshotResponse"><span class="hs-identifier hs-type">ImportSnapshotResponse</span></a></span></span><span>
+</span><span id="line-408"></span></pre></body></html>

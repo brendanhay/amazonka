@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.DeleteRun</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the run, given the run ARN.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Deleting this resource does not stop an in-progress run.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.DeleteRun</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier">DeleteRun</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#newDeleteRun"><span class="hs-identifier">newDeleteRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#deleteRun_arn"><span class="hs-identifier">deleteRun_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse"><span class="hs-identifier">DeleteRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#newDeleteRunResponse"><span class="hs-identifier">newDeleteRunResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#deleteRunResponse_httpStatus"><span class="hs-identifier">deleteRunResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Represents a request to the delete run operation.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDeleteRun' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679385740"><span id="local-6989586621679385741"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRun"><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-var">DeleteRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRun%27"><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun%27"><span class="hs-identifier hs-var">DeleteRun'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the run to delete.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aarn%3ADeleteRun%27"><span class="annot"><span class="annottext">DeleteRun -&gt; Text
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#%24sel%3Aarn%3ADeleteRun%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385734"><span id="local-6989586621679385736"><span class="annot"><span class="annottext">DeleteRun -&gt; DeleteRun -&gt; Bool
+(DeleteRun -&gt; DeleteRun -&gt; Bool)
+-&gt; (DeleteRun -&gt; DeleteRun -&gt; Bool) -&gt; Eq DeleteRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRun -&gt; DeleteRun -&gt; Bool
+$c/= :: DeleteRun -&gt; DeleteRun -&gt; Bool
+== :: DeleteRun -&gt; DeleteRun -&gt; Bool
+$c== :: DeleteRun -&gt; DeleteRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385725"><span id="local-6989586621679385727"><span id="local-6989586621679385729"><span id="local-6989586621679385731"><span class="annot"><span class="annottext">ReadPrec [DeleteRun]
+ReadPrec DeleteRun
+Int -&gt; ReadS DeleteRun
+ReadS [DeleteRun]
+(Int -&gt; ReadS DeleteRun)
+-&gt; ReadS [DeleteRun]
+-&gt; ReadPrec DeleteRun
+-&gt; ReadPrec [DeleteRun]
+-&gt; Read DeleteRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRun]
+$creadListPrec :: ReadPrec [DeleteRun]
+readPrec :: ReadPrec DeleteRun
+$creadPrec :: ReadPrec DeleteRun
+readList :: ReadS [DeleteRun]
+$creadList :: ReadS [DeleteRun]
+readsPrec :: Int -&gt; ReadS DeleteRun
+$creadsPrec :: Int -&gt; ReadS DeleteRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385718"><span id="local-6989586621679385720"><span id="local-6989586621679385722"><span class="annot"><span class="annottext">Int -&gt; DeleteRun -&gt; ShowS
+[DeleteRun] -&gt; ShowS
+DeleteRun -&gt; String
+(Int -&gt; DeleteRun -&gt; ShowS)
+-&gt; (DeleteRun -&gt; String)
+-&gt; ([DeleteRun] -&gt; ShowS)
+-&gt; Show DeleteRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRun] -&gt; ShowS
+$cshowList :: [DeleteRun] -&gt; ShowS
+show :: DeleteRun -&gt; String
+$cshow :: DeleteRun -&gt; String
+showsPrec :: Int -&gt; DeleteRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteRun -&gt; Rep DeleteRun x)
+-&gt; (forall x. Rep DeleteRun x -&gt; DeleteRun) -&gt; Generic DeleteRun
+forall x. Rep DeleteRun x -&gt; DeleteRun
+forall x. DeleteRun -&gt; Rep DeleteRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteRun x -&gt; DeleteRun
+$cfrom :: forall x. DeleteRun -&gt; Rep DeleteRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteRun' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'arn', 'deleteRun_arn' - The Amazon Resource Name (ARN) for the run to delete.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#newDeleteRun"><span class="hs-identifier hs-type">newDeleteRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteRun"><span class="annot"><span class="annottext">newDeleteRun :: Text -&gt; DeleteRun
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#newDeleteRun"><span class="hs-identifier hs-var hs-var">newDeleteRun</span></a></span></span><span> </span><span id="local-6989586621679385713"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385713"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteRun' :: Text -&gt; DeleteRun
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun%27"><span class="hs-identifier hs-type">DeleteRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteRun' :: Text
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#%24sel%3Aarn%3ADeleteRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385713"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the run to delete.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#deleteRun_arn"><span class="hs-identifier hs-type">deleteRun_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="deleteRun_arn"><span class="annot"><span class="annottext">deleteRun_arn :: (Text -&gt; f Text) -&gt; DeleteRun -&gt; f DeleteRun
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#deleteRun_arn"><span class="hs-identifier hs-var hs-var">deleteRun_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRun -&gt; Text)
+-&gt; (DeleteRun -&gt; Text -&gt; DeleteRun)
+-&gt; Lens DeleteRun DeleteRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun%27"><span class="hs-identifier hs-type">DeleteRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385710"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DeleteRun' :: DeleteRun -&gt; Text
+</span><a href="#local-6989586621679385710"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385710"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385709"><span class="annot"><span class="annottext">s :: DeleteRun
+</span><a href="#local-6989586621679385709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun%27"><span class="hs-identifier hs-type">DeleteRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRun
+</span><a href="#local-6989586621679385709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteRun' :: Text
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#%24sel%3Aarn%3ADeleteRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse"><span class="hs-identifier hs-type">DeleteRunResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679385704"><span class="annot"><span class="annottext">request :: DeleteRun -&gt; Request DeleteRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRun -&gt; Request DeleteRun
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679385700"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteRun)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse DeleteRun))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteRun)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385697"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385697"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385696"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385696"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385695"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679385695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteRunResponse
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse%27"><span class="hs-identifier hs-var">DeleteRunResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteRunResponse)
+-&gt; Either String Int -&gt; Either String DeleteRunResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385697"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385688"><span id="local-6989586621679385690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679385681"><span class="annot"><span class="annottext">toHeaders :: DeleteRun -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteRun -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.DeleteRun&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385671"><span id="local-6989586621679385673"><span id="local-6989586621679385675"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679385669"><span class="annot"><span class="annottext">toJSON :: DeleteRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun%27"><span class="hs-identifier hs-type">DeleteRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385667"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DeleteRun' :: DeleteRun -&gt; Text
+</span><a href="#local-6989586621679385667"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385667"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679385661"><span class="annot"><span class="annottext">toPath :: DeleteRun -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRun -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRun"><span class="hs-identifier hs-type">DeleteRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679385657"><span class="annot"><span class="annottext">toQuery :: DeleteRun -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRun -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Represents the result of a delete run request.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- /See:/ 'newDeleteRunResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679385654"><span id="local-6989586621679385655"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRunResponse"><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse"><span class="hs-identifier hs-var">DeleteRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRunResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse%27"><span class="hs-identifier hs-var">DeleteRunResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRunResponse%27"><span class="annot"><span class="annottext">DeleteRunResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#%24sel%3AhttpStatus%3ADeleteRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385649"><span id="local-6989586621679385651"><span class="annot"><span class="annottext">DeleteRunResponse -&gt; DeleteRunResponse -&gt; Bool
+(DeleteRunResponse -&gt; DeleteRunResponse -&gt; Bool)
+-&gt; (DeleteRunResponse -&gt; DeleteRunResponse -&gt; Bool)
+-&gt; Eq DeleteRunResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRunResponse -&gt; DeleteRunResponse -&gt; Bool
+$c/= :: DeleteRunResponse -&gt; DeleteRunResponse -&gt; Bool
+== :: DeleteRunResponse -&gt; DeleteRunResponse -&gt; Bool
+$c== :: DeleteRunResponse -&gt; DeleteRunResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385641"><span id="local-6989586621679385643"><span id="local-6989586621679385645"><span id="local-6989586621679385647"><span class="annot"><span class="annottext">ReadPrec [DeleteRunResponse]
+ReadPrec DeleteRunResponse
+Int -&gt; ReadS DeleteRunResponse
+ReadS [DeleteRunResponse]
+(Int -&gt; ReadS DeleteRunResponse)
+-&gt; ReadS [DeleteRunResponse]
+-&gt; ReadPrec DeleteRunResponse
+-&gt; ReadPrec [DeleteRunResponse]
+-&gt; Read DeleteRunResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRunResponse]
+$creadListPrec :: ReadPrec [DeleteRunResponse]
+readPrec :: ReadPrec DeleteRunResponse
+$creadPrec :: ReadPrec DeleteRunResponse
+readList :: ReadS [DeleteRunResponse]
+$creadList :: ReadS [DeleteRunResponse]
+readsPrec :: Int -&gt; ReadS DeleteRunResponse
+$creadsPrec :: Int -&gt; ReadS DeleteRunResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385635"><span id="local-6989586621679385637"><span id="local-6989586621679385639"><span class="annot"><span class="annottext">Int -&gt; DeleteRunResponse -&gt; ShowS
+[DeleteRunResponse] -&gt; ShowS
+DeleteRunResponse -&gt; String
+(Int -&gt; DeleteRunResponse -&gt; ShowS)
+-&gt; (DeleteRunResponse -&gt; String)
+-&gt; ([DeleteRunResponse] -&gt; ShowS)
+-&gt; Show DeleteRunResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRunResponse] -&gt; ShowS
+$cshowList :: [DeleteRunResponse] -&gt; ShowS
+show :: DeleteRunResponse -&gt; String
+$cshow :: DeleteRunResponse -&gt; String
+showsPrec :: Int -&gt; DeleteRunResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteRunResponse -&gt; Rep DeleteRunResponse x)
+-&gt; (forall x. Rep DeleteRunResponse x -&gt; DeleteRunResponse)
+-&gt; Generic DeleteRunResponse
+forall x. Rep DeleteRunResponse x -&gt; DeleteRunResponse
+forall x. DeleteRunResponse -&gt; Rep DeleteRunResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteRunResponse x -&gt; DeleteRunResponse
+$cfrom :: forall x. DeleteRunResponse -&gt; Rep DeleteRunResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'DeleteRunResponse' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'deleteRunResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#newDeleteRunResponse"><span class="hs-identifier hs-type">newDeleteRunResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse"><span class="hs-identifier hs-type">DeleteRunResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newDeleteRunResponse"><span class="annot"><span class="annottext">newDeleteRunResponse :: Int -&gt; DeleteRunResponse
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#newDeleteRunResponse"><span class="hs-identifier hs-var hs-var">newDeleteRunResponse</span></a></span></span><span> </span><span id="local-6989586621679385632"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DeleteRunResponse' :: Int -&gt; DeleteRunResponse
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse%27"><span class="hs-identifier hs-type">DeleteRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRunResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#%24sel%3AhttpStatus%3ADeleteRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#deleteRunResponse_httpStatus"><span class="hs-identifier hs-type">deleteRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse"><span class="hs-identifier hs-type">DeleteRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="deleteRunResponse_httpStatus"><span class="annot"><span class="annottext">deleteRunResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteRunResponse -&gt; f DeleteRunResponse
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#deleteRunResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteRunResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRunResponse -&gt; Int)
+-&gt; (DeleteRunResponse -&gt; Int -&gt; DeleteRunResponse)
+-&gt; Lens DeleteRunResponse DeleteRunResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse%27"><span class="hs-identifier hs-type">DeleteRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385631"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteRunResponse' :: DeleteRunResponse -&gt; Int
+</span><a href="#local-6989586621679385631"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385631"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385630"><span class="annot"><span class="annottext">s :: DeleteRunResponse
+</span><a href="#local-6989586621679385630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse%27"><span class="hs-identifier hs-type">DeleteRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385629"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRunResponse
+</span><a href="#local-6989586621679385630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRunResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.DeleteRun.html#%24sel%3AhttpStatus%3ADeleteRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse"><span class="hs-identifier hs-type">DeleteRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.DeleteRun.html#DeleteRunResponse"><span class="hs-identifier hs-type">DeleteRunResponse</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

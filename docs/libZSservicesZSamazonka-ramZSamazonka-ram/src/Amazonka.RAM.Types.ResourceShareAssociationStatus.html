@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RAM.Types.ResourceShareAssociationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RAM.Types.ResourceShareAssociationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier">ResourceShareAssociationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_ASSOCIATED"><span class="hs-identifier">ResourceShareAssociationStatus_ASSOCIATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_ASSOCIATING"><span class="hs-identifier">ResourceShareAssociationStatus_ASSOCIATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_DISASSOCIATED"><span class="hs-identifier">ResourceShareAssociationStatus_DISASSOCIATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_DISASSOCIATING"><span class="hs-identifier">ResourceShareAssociationStatus_DISASSOCIATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_FAILED"><span class="hs-identifier">ResourceShareAssociationStatus_FAILED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679201335"><span id="local-6989586621679201336"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceShareAssociationStatus"><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-var">ResourceShareAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceShareAssociationStatus%27"><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus%27"><span class="hs-identifier hs-var">ResourceShareAssociationStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceShareAssociationStatus"><span class="annot"><span class="annottext">ResourceShareAssociationStatus -&gt; Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#fromResourceShareAssociationStatus"><span class="hs-identifier hs-var hs-var">fromResourceShareAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201327"><span id="local-6989586621679201329"><span id="local-6989586621679201331"><span class="annot"><span class="annottext">Int -&gt; ResourceShareAssociationStatus -&gt; ShowS
+[ResourceShareAssociationStatus] -&gt; ShowS
+ResourceShareAssociationStatus -&gt; String
+(Int -&gt; ResourceShareAssociationStatus -&gt; ShowS)
+-&gt; (ResourceShareAssociationStatus -&gt; String)
+-&gt; ([ResourceShareAssociationStatus] -&gt; ShowS)
+-&gt; Show ResourceShareAssociationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceShareAssociationStatus] -&gt; ShowS
+$cshowList :: [ResourceShareAssociationStatus] -&gt; ShowS
+show :: ResourceShareAssociationStatus -&gt; String
+$cshow :: ResourceShareAssociationStatus -&gt; String
+showsPrec :: Int -&gt; ResourceShareAssociationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceShareAssociationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679201318"><span id="local-6989586621679201320"><span id="local-6989586621679201322"><span id="local-6989586621679201324"><span class="annot"><span class="annottext">ReadPrec [ResourceShareAssociationStatus]
+ReadPrec ResourceShareAssociationStatus
+Int -&gt; ReadS ResourceShareAssociationStatus
+ReadS [ResourceShareAssociationStatus]
+(Int -&gt; ReadS ResourceShareAssociationStatus)
+-&gt; ReadS [ResourceShareAssociationStatus]
+-&gt; ReadPrec ResourceShareAssociationStatus
+-&gt; ReadPrec [ResourceShareAssociationStatus]
+-&gt; Read ResourceShareAssociationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceShareAssociationStatus]
+$creadListPrec :: ReadPrec [ResourceShareAssociationStatus]
+readPrec :: ReadPrec ResourceShareAssociationStatus
+$creadPrec :: ReadPrec ResourceShareAssociationStatus
+readList :: ReadS [ResourceShareAssociationStatus]
+$creadList :: ReadS [ResourceShareAssociationStatus]
+readsPrec :: Int -&gt; ReadS ResourceShareAssociationStatus
+$creadsPrec :: Int -&gt; ReadS ResourceShareAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679201313"><span id="local-6989586621679201315"><span class="annot"><span class="annottext">ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+(ResourceShareAssociationStatus
+ -&gt; ResourceShareAssociationStatus -&gt; Bool)
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus -&gt; Bool)
+-&gt; Eq ResourceShareAssociationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+$c/= :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+== :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+$c== :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679201297"><span id="local-6989586621679201299"><span id="local-6989586621679201301"><span id="local-6989586621679201303"><span id="local-6989586621679201305"><span id="local-6989586621679201307"><span id="local-6989586621679201309"><span class="annot"><span class="annottext">Eq ResourceShareAssociationStatus
+Eq ResourceShareAssociationStatus
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus -&gt; Ordering)
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus -&gt; Bool)
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus -&gt; Bool)
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus -&gt; Bool)
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus -&gt; Bool)
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus)
+-&gt; (ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociationStatus)
+-&gt; Ord ResourceShareAssociationStatus
+ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Ordering
+ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; ResourceShareAssociationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; ResourceShareAssociationStatus
+$cmin :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; ResourceShareAssociationStatus
+max :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; ResourceShareAssociationStatus
+$cmax :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; ResourceShareAssociationStatus
+&gt;= :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+$c&gt;= :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+&gt; :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+$c&gt; :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+&lt;= :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+$c&lt;= :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+&lt; :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+$c&lt; :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Bool
+compare :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Ordering
+$ccompare :: ResourceShareAssociationStatus
+-&gt; ResourceShareAssociationStatus -&gt; Ordering
+$cp1Ord :: Eq ResourceShareAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ResourceShareAssociationStatus
+ -&gt; Rep ResourceShareAssociationStatus x)
+-&gt; (forall x.
+    Rep ResourceShareAssociationStatus x
+    -&gt; ResourceShareAssociationStatus)
+-&gt; Generic ResourceShareAssociationStatus
+forall x.
+Rep ResourceShareAssociationStatus x
+-&gt; ResourceShareAssociationStatus
+forall x.
+ResourceShareAssociationStatus
+-&gt; Rep ResourceShareAssociationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResourceShareAssociationStatus x
+-&gt; ResourceShareAssociationStatus
+$cfrom :: forall x.
+ResourceShareAssociationStatus
+-&gt; Rep ResourceShareAssociationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201289"><span id="local-6989586621679201291"><span class="annot"><span class="annottext">Int -&gt; ResourceShareAssociationStatus -&gt; Int
+ResourceShareAssociationStatus -&gt; Int
+(Int -&gt; ResourceShareAssociationStatus -&gt; Int)
+-&gt; (ResourceShareAssociationStatus -&gt; Int)
+-&gt; Hashable ResourceShareAssociationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceShareAssociationStatus -&gt; Int
+$chash :: ResourceShareAssociationStatus -&gt; Int
+hashWithSalt :: Int -&gt; ResourceShareAssociationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceShareAssociationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679201286"><span class="annot"><span class="annottext">ResourceShareAssociationStatus -&gt; ()
+(ResourceShareAssociationStatus -&gt; ())
+-&gt; NFData ResourceShareAssociationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceShareAssociationStatus -&gt; ()
+$crnf :: ResourceShareAssociationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201283"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceShareAssociationStatus
+(Text -&gt; Either String ResourceShareAssociationStatus)
+-&gt; FromText ResourceShareAssociationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceShareAssociationStatus
+$cfromText :: Text -&gt; Either String ResourceShareAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201280"><span class="annot"><span class="annottext">ResourceShareAssociationStatus -&gt; Text
+(ResourceShareAssociationStatus -&gt; Text)
+-&gt; ToText ResourceShareAssociationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceShareAssociationStatus -&gt; Text
+$ctoText :: ResourceShareAssociationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201277"><span class="annot"><span class="annottext">ResourceShareAssociationStatus -&gt; ByteString
+(ResourceShareAssociationStatus -&gt; ByteString)
+-&gt; ToByteString ResourceShareAssociationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceShareAssociationStatus -&gt; ByteString
+$ctoBS :: ResourceShareAssociationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201274"><span class="annot"><span class="annottext">ResourceShareAssociationStatus -&gt; ByteStringBuilder
+(ResourceShareAssociationStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ResourceShareAssociationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceShareAssociationStatus -&gt; ByteStringBuilder
+$cbuild :: ResourceShareAssociationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201271"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceShareAssociationStatus -&gt; [Header]
+(HeaderName -&gt; ResourceShareAssociationStatus -&gt; [Header])
+-&gt; ToHeader ResourceShareAssociationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceShareAssociationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceShareAssociationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201268"><span class="annot"><span class="annottext">ResourceShareAssociationStatus -&gt; QueryString
+(ResourceShareAssociationStatus -&gt; QueryString)
+-&gt; ToQuery ResourceShareAssociationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceShareAssociationStatus -&gt; QueryString
+$ctoQuery :: ResourceShareAssociationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201263"><span id="local-6989586621679201265"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceShareAssociationStatus]
+Value -&gt; Parser ResourceShareAssociationStatus
+(Value -&gt; Parser ResourceShareAssociationStatus)
+-&gt; (Value -&gt; Parser [ResourceShareAssociationStatus])
+-&gt; FromJSON ResourceShareAssociationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceShareAssociationStatus]
+$cparseJSONList :: Value -&gt; Parser [ResourceShareAssociationStatus]
+parseJSON :: Value -&gt; Parser ResourceShareAssociationStatus
+$cparseJSON :: Value -&gt; Parser ResourceShareAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201258"><span id="local-6989586621679201260"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceShareAssociationStatus]
+FromJSONKeyFunction ResourceShareAssociationStatus
+FromJSONKeyFunction ResourceShareAssociationStatus
+-&gt; FromJSONKeyFunction [ResourceShareAssociationStatus]
+-&gt; FromJSONKey ResourceShareAssociationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceShareAssociationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceShareAssociationStatus]
+fromJSONKey :: FromJSONKeyFunction ResourceShareAssociationStatus
+$cfromJSONKey :: FromJSONKeyFunction ResourceShareAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201249"><span id="local-6989586621679201251"><span id="local-6989586621679201253"><span id="local-6989586621679201255"><span class="annot"><span class="annottext">[ResourceShareAssociationStatus] -&gt; Encoding
+[ResourceShareAssociationStatus] -&gt; Value
+ResourceShareAssociationStatus -&gt; Encoding
+ResourceShareAssociationStatus -&gt; Value
+(ResourceShareAssociationStatus -&gt; Value)
+-&gt; (ResourceShareAssociationStatus -&gt; Encoding)
+-&gt; ([ResourceShareAssociationStatus] -&gt; Value)
+-&gt; ([ResourceShareAssociationStatus] -&gt; Encoding)
+-&gt; ToJSON ResourceShareAssociationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceShareAssociationStatus] -&gt; Encoding
+$ctoEncodingList :: [ResourceShareAssociationStatus] -&gt; Encoding
+toJSONList :: [ResourceShareAssociationStatus] -&gt; Value
+$ctoJSONList :: [ResourceShareAssociationStatus] -&gt; Value
+toEncoding :: ResourceShareAssociationStatus -&gt; Encoding
+$ctoEncoding :: ResourceShareAssociationStatus -&gt; Encoding
+toJSON :: ResourceShareAssociationStatus -&gt; Value
+$ctoJSON :: ResourceShareAssociationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201244"><span id="local-6989586621679201246"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceShareAssociationStatus]
+ToJSONKeyFunction ResourceShareAssociationStatus
+ToJSONKeyFunction ResourceShareAssociationStatus
+-&gt; ToJSONKeyFunction [ResourceShareAssociationStatus]
+-&gt; ToJSONKey ResourceShareAssociationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceShareAssociationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceShareAssociationStatus]
+toJSONKey :: ToJSONKeyFunction ResourceShareAssociationStatus
+$ctoJSONKey :: ToJSONKeyFunction ResourceShareAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679201241"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceShareAssociationStatus
+([Node] -&gt; Either String ResourceShareAssociationStatus)
+-&gt; FromXML ResourceShareAssociationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceShareAssociationStatus
+$cparseXML :: [Node] -&gt; Either String ResourceShareAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679201238"><span class="annot"><span class="annottext">ResourceShareAssociationStatus -&gt; XML
+(ResourceShareAssociationStatus -&gt; XML)
+-&gt; ToXML ResourceShareAssociationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceShareAssociationStatus -&gt; XML
+$ctoXML :: ResourceShareAssociationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_ASSOCIATED"><span class="hs-identifier hs-type">ResourceShareAssociationStatus_ASSOCIATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-type">ResourceShareAssociationStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareAssociationStatus_ASSOCIATED"><span id="%24mResourceShareAssociationStatus_ASSOCIATED"><span id="ResourceShareAssociationStatus_ASSOCIATED"><span class="annot"><span class="annottext">$bResourceShareAssociationStatus_ASSOCIATED :: ResourceShareAssociationStatus
+$mResourceShareAssociationStatus_ASSOCIATED :: forall r.
+ResourceShareAssociationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#%24bResourceShareAssociationStatus_ASSOCIATED"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareAssociationStatus_ASSOCIATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus%27"><span class="hs-identifier hs-type">ResourceShareAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASSOCIATED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_ASSOCIATING"><span class="hs-identifier hs-type">ResourceShareAssociationStatus_ASSOCIATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-type">ResourceShareAssociationStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareAssociationStatus_ASSOCIATING"><span id="%24mResourceShareAssociationStatus_ASSOCIATING"><span id="ResourceShareAssociationStatus_ASSOCIATING"><span class="annot"><span class="annottext">$bResourceShareAssociationStatus_ASSOCIATING :: ResourceShareAssociationStatus
+$mResourceShareAssociationStatus_ASSOCIATING :: forall r.
+ResourceShareAssociationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#%24bResourceShareAssociationStatus_ASSOCIATING"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareAssociationStatus_ASSOCIATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus%27"><span class="hs-identifier hs-type">ResourceShareAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASSOCIATING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_DISASSOCIATED"><span class="hs-identifier hs-type">ResourceShareAssociationStatus_DISASSOCIATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-type">ResourceShareAssociationStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareAssociationStatus_DISASSOCIATED"><span id="%24mResourceShareAssociationStatus_DISASSOCIATED"><span id="ResourceShareAssociationStatus_DISASSOCIATED"><span class="annot"><span class="annottext">$bResourceShareAssociationStatus_DISASSOCIATED :: ResourceShareAssociationStatus
+$mResourceShareAssociationStatus_DISASSOCIATED :: forall r.
+ResourceShareAssociationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#%24bResourceShareAssociationStatus_DISASSOCIATED"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareAssociationStatus_DISASSOCIATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus%27"><span class="hs-identifier hs-type">ResourceShareAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISASSOCIATED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_DISASSOCIATING"><span class="hs-identifier hs-type">ResourceShareAssociationStatus_DISASSOCIATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-type">ResourceShareAssociationStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareAssociationStatus_DISASSOCIATING"><span id="%24mResourceShareAssociationStatus_DISASSOCIATING"><span id="ResourceShareAssociationStatus_DISASSOCIATING"><span class="annot"><span class="annottext">$bResourceShareAssociationStatus_DISASSOCIATING :: ResourceShareAssociationStatus
+$mResourceShareAssociationStatus_DISASSOCIATING :: forall r.
+ResourceShareAssociationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#%24bResourceShareAssociationStatus_DISASSOCIATING"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareAssociationStatus_DISASSOCIATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus%27"><span class="hs-identifier hs-type">ResourceShareAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISASSOCIATING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_FAILED"><span class="hs-identifier hs-type">ResourceShareAssociationStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-type">ResourceShareAssociationStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareAssociationStatus_FAILED"><span id="%24mResourceShareAssociationStatus_FAILED"><span id="ResourceShareAssociationStatus_FAILED"><span class="annot"><span class="annottext">$bResourceShareAssociationStatus_FAILED :: ResourceShareAssociationStatus
+$mResourceShareAssociationStatus_FAILED :: forall r.
+ResourceShareAssociationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#%24bResourceShareAssociationStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareAssociationStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus%27"><span class="hs-identifier hs-type">ResourceShareAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_ASSOCIATED"><span class="hs-pragma hs-type">ResourceShareAssociationStatus_ASSOCIATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_ASSOCIATING"><span class="hs-pragma hs-type">ResourceShareAssociationStatus_ASSOCIATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_DISASSOCIATED"><span class="hs-pragma hs-type">ResourceShareAssociationStatus_DISASSOCIATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_DISASSOCIATING"><span class="hs-pragma hs-type">ResourceShareAssociationStatus_DISASSOCIATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus_FAILED"><span class="hs-pragma hs-type">ResourceShareAssociationStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus%27"><span class="hs-pragma hs-type">ResourceShareAssociationStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

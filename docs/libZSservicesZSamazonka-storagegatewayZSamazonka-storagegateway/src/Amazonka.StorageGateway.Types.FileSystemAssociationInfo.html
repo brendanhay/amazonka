@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.Types.FileSystemAssociationInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.Types.FileSystemAssociationInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.CacheAttributes.html"><span class="hs-identifier">Amazonka.StorageGateway.Types.CacheAttributes</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.EndpointNetworkConfiguration.html"><span class="hs-identifier">Amazonka.StorageGateway.Types.EndpointNetworkConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationStatusDetail.html"><span class="hs-identifier">Amazonka.StorageGateway.Types.FileSystemAssociationStatusDetail</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.Tag.html"><span class="hs-identifier">Amazonka.StorageGateway.Types.Tag</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes the object returned by @DescribeFileSystemAssociations@ that</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- describes a created file system association.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newFileSystemAssociationInfo' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679374172"><span id="local-6989586621679374173"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSystemAssociationInfo"><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-var">FileSystemAssociationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemAssociationInfo%27"><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-var">FileSystemAssociationInfo'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the storage used for the audit logs.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AauditDestinationARN%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AauditDestinationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">auditDestinationARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the file system association.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AfileSystemAssociationARN%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">fileSystemAssociationARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AgatewayARN%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AgatewayARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcacheAttributes%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe CacheAttributes
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AcacheAttributes%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">cacheAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.CacheAttributes.html#CacheAttributes"><span class="hs-identifier hs-type">CacheAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | An array containing the FileSystemAssociationStatusDetail data type,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- which provides detailed information on file system association status.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfileSystemAssociationStatusDetails%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo
+-&gt; Maybe [FileSystemAssociationStatusDetail]
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationStatusDetails%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">fileSystemAssociationStatusDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationStatusDetail.html#FileSystemAssociationStatusDetail"><span class="hs-identifier hs-type">FileSystemAssociationStatusDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies network configuration information for the gateway associated</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- with the Amazon FSx file system.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- If multiple file systems are associated with this gateway, this</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- parameter\'s @IpAddresses@ field is required.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AendpointNetworkConfiguration%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe EndpointNetworkConfiguration
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AendpointNetworkConfiguration%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">endpointNetworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ARN of the backend Amazon FSx file system used for storing file</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- data. For information, see</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem&gt;</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- in the /Amazon FSx API Reference/.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AlocationARN%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AlocationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">locationARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The status of the file system association. Valid Values: @AVAILABLE@ |</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @CREATING@ | @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AfileSystemAssociationStatus%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationStatus%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">fileSystemAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A list of up to 50 tags assigned to the SMB file share, sorted</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- alphabetically by key name. Each tag is a key-value pair.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Atags%3AFileSystemAssociationInfo%27"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3Atags%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374158"><span id="local-6989586621679374160"><span class="annot"><span class="annottext">FileSystemAssociationInfo -&gt; FileSystemAssociationInfo -&gt; Bool
+(FileSystemAssociationInfo -&gt; FileSystemAssociationInfo -&gt; Bool)
+-&gt; (FileSystemAssociationInfo -&gt; FileSystemAssociationInfo -&gt; Bool)
+-&gt; Eq FileSystemAssociationInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileSystemAssociationInfo -&gt; FileSystemAssociationInfo -&gt; Bool
+$c/= :: FileSystemAssociationInfo -&gt; FileSystemAssociationInfo -&gt; Bool
+== :: FileSystemAssociationInfo -&gt; FileSystemAssociationInfo -&gt; Bool
+$c== :: FileSystemAssociationInfo -&gt; FileSystemAssociationInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374149"><span id="local-6989586621679374151"><span id="local-6989586621679374153"><span id="local-6989586621679374155"><span class="annot"><span class="annottext">ReadPrec [FileSystemAssociationInfo]
+ReadPrec FileSystemAssociationInfo
+Int -&gt; ReadS FileSystemAssociationInfo
+ReadS [FileSystemAssociationInfo]
+(Int -&gt; ReadS FileSystemAssociationInfo)
+-&gt; ReadS [FileSystemAssociationInfo]
+-&gt; ReadPrec FileSystemAssociationInfo
+-&gt; ReadPrec [FileSystemAssociationInfo]
+-&gt; Read FileSystemAssociationInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileSystemAssociationInfo]
+$creadListPrec :: ReadPrec [FileSystemAssociationInfo]
+readPrec :: ReadPrec FileSystemAssociationInfo
+$creadPrec :: ReadPrec FileSystemAssociationInfo
+readList :: ReadS [FileSystemAssociationInfo]
+$creadList :: ReadS [FileSystemAssociationInfo]
+readsPrec :: Int -&gt; ReadS FileSystemAssociationInfo
+$creadsPrec :: Int -&gt; ReadS FileSystemAssociationInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374142"><span id="local-6989586621679374144"><span id="local-6989586621679374146"><span class="annot"><span class="annottext">Int -&gt; FileSystemAssociationInfo -&gt; ShowS
+[FileSystemAssociationInfo] -&gt; ShowS
+FileSystemAssociationInfo -&gt; String
+(Int -&gt; FileSystemAssociationInfo -&gt; ShowS)
+-&gt; (FileSystemAssociationInfo -&gt; String)
+-&gt; ([FileSystemAssociationInfo] -&gt; ShowS)
+-&gt; Show FileSystemAssociationInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileSystemAssociationInfo] -&gt; ShowS
+$cshowList :: [FileSystemAssociationInfo] -&gt; ShowS
+show :: FileSystemAssociationInfo -&gt; String
+$cshow :: FileSystemAssociationInfo -&gt; String
+showsPrec :: Int -&gt; FileSystemAssociationInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileSystemAssociationInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FileSystemAssociationInfo -&gt; Rep FileSystemAssociationInfo x)
+-&gt; (forall x.
+    Rep FileSystemAssociationInfo x -&gt; FileSystemAssociationInfo)
+-&gt; Generic FileSystemAssociationInfo
+forall x.
+Rep FileSystemAssociationInfo x -&gt; FileSystemAssociationInfo
+forall x.
+FileSystemAssociationInfo -&gt; Rep FileSystemAssociationInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FileSystemAssociationInfo x -&gt; FileSystemAssociationInfo
+$cfrom :: forall x.
+FileSystemAssociationInfo -&gt; Rep FileSystemAssociationInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'FileSystemAssociationInfo' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'auditDestinationARN', 'fileSystemAssociationInfo_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'fileSystemAssociationARN', 'fileSystemAssociationInfo_fileSystemAssociationARN' - The Amazon Resource Name (ARN) of the file system association.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'gatewayARN', 'fileSystemAssociationInfo_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'cacheAttributes', 'fileSystemAssociationInfo_cacheAttributes' - Undocumented member.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'fileSystemAssociationStatusDetails', 'fileSystemAssociationInfo_fileSystemAssociationStatusDetails' - An array containing the FileSystemAssociationStatusDetail data type,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- which provides detailed information on file system association status.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'endpointNetworkConfiguration', 'fileSystemAssociationInfo_endpointNetworkConfiguration' - Specifies network configuration information for the gateway associated</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- with the Amazon FSx file system.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- If multiple file systems are associated with this gateway, this</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- parameter\'s @IpAddresses@ field is required.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'locationARN', 'fileSystemAssociationInfo_locationARN' - The ARN of the backend Amazon FSx file system used for storing file</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- data. For information, see</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem&gt;</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- in the /Amazon FSx API Reference/.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'fileSystemAssociationStatus', 'fileSystemAssociationInfo_fileSystemAssociationStatus' - The status of the file system association. Valid Values: @AVAILABLE@ |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @CREATING@ | @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'tags', 'fileSystemAssociationInfo_tags' - A list of up to 50 tags assigned to the SMB file share, sorted</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- alphabetically by key name. Each tag is a key-value pair.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#newFileSystemAssociationInfo"><span class="hs-identifier hs-type">newFileSystemAssociationInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span>
+</span><span id="line-101"></span><span id="newFileSystemAssociationInfo"><span class="annot"><span class="annottext">newFileSystemAssociationInfo :: FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#newFileSystemAssociationInfo"><span class="hs-identifier hs-var hs-var">newFileSystemAssociationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">FileSystemAssociationInfo' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CacheAttributes
+-&gt; Maybe [FileSystemAssociationStatusDetail]
+-&gt; Maybe EndpointNetworkConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:auditDestinationARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AauditDestinationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">auditDestinationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSystemAssociationARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">fileSystemAssociationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AgatewayARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheAttributes:FileSystemAssociationInfo' :: Maybe CacheAttributes
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AcacheAttributes%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">cacheAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheAttributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo' :: Maybe [FileSystemAssociationStatusDetail]
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationStatusDetails%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">fileSystemAssociationStatusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationStatusDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointNetworkConfiguration:FileSystemAssociationInfo' :: Maybe EndpointNetworkConfiguration
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AendpointNetworkConfiguration%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">endpointNetworkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointNetworkConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:locationARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AlocationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">locationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSystemAssociationStatus:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationStatus%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">fileSystemAssociationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:FileSystemAssociationInfo' :: Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3Atags%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the storage used for the audit logs.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_auditDestinationARN"><span class="hs-identifier hs-type">fileSystemAssociationInfo_auditDestinationARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="fileSystemAssociationInfo_auditDestinationARN"><span class="annot"><span class="annottext">fileSystemAssociationInfo_auditDestinationARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_auditDestinationARN"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_auditDestinationARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe Text)
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe Text -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374133"><span class="annot"><span class="annottext">Maybe Text
+auditDestinationARN :: Maybe Text
+$sel:auditDestinationARN:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679374133"><span class="hs-identifier hs-var hs-var">auditDestinationARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374133"><span class="hs-identifier hs-var">auditDestinationARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374132"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditDestinationARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AauditDestinationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">auditDestinationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the file system association.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_fileSystemAssociationARN"><span class="hs-identifier hs-type">fileSystemAssociationInfo_fileSystemAssociationARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="fileSystemAssociationInfo_fileSystemAssociationARN"><span class="annot"><span class="annottext">fileSystemAssociationInfo_fileSystemAssociationARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_fileSystemAssociationARN"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_fileSystemAssociationARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe Text)
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe Text -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374129"><span class="annot"><span class="annottext">Maybe Text
+fileSystemAssociationARN :: Maybe Text
+$sel:fileSystemAssociationARN:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679374129"><span class="hs-identifier hs-var hs-var">fileSystemAssociationARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374129"><span class="hs-identifier hs-var">fileSystemAssociationARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374128"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAssociationARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">fileSystemAssociationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_gatewayARN"><span class="hs-identifier hs-type">fileSystemAssociationInfo_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="fileSystemAssociationInfo_gatewayARN"><span class="annot"><span class="annottext">fileSystemAssociationInfo_gatewayARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_gatewayARN"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe Text)
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe Text -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374125"><span class="annot"><span class="annottext">Maybe Text
+gatewayARN :: Maybe Text
+$sel:gatewayARN:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679374125"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374125"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374124"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AgatewayARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_cacheAttributes"><span class="hs-identifier hs-type">fileSystemAssociationInfo_cacheAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.CacheAttributes.html#CacheAttributes"><span class="hs-identifier hs-type">CacheAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="fileSystemAssociationInfo_cacheAttributes"><span class="annot"><span class="annottext">fileSystemAssociationInfo_cacheAttributes :: (Maybe CacheAttributes -&gt; f (Maybe CacheAttributes))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_cacheAttributes"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_cacheAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe CacheAttributes)
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe CacheAttributes -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe CacheAttributes)
+     (Maybe CacheAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374121"><span class="annot"><span class="annottext">Maybe CacheAttributes
+cacheAttributes :: Maybe CacheAttributes
+$sel:cacheAttributes:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe CacheAttributes
+</span><a href="#local-6989586621679374121"><span class="hs-identifier hs-var hs-var">cacheAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CacheAttributes
+</span><a href="#local-6989586621679374121"><span class="hs-identifier hs-var">cacheAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374120"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374119"><span class="annot"><span class="annottext">Maybe CacheAttributes
+</span><a href="#local-6989586621679374119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheAttributes:FileSystemAssociationInfo' :: Maybe CacheAttributes
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AcacheAttributes%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">cacheAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheAttributes
+</span><a href="#local-6989586621679374119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | An array containing the FileSystemAssociationStatusDetail data type,</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- which provides detailed information on file system association status.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_fileSystemAssociationStatusDetails"><span class="hs-identifier hs-type">fileSystemAssociationInfo_fileSystemAssociationStatusDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationStatusDetail.html#FileSystemAssociationStatusDetail"><span class="hs-identifier hs-type">FileSystemAssociationStatusDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="fileSystemAssociationInfo_fileSystemAssociationStatusDetails"><span class="annot"><span class="annottext">fileSystemAssociationInfo_fileSystemAssociationStatusDetails :: (Maybe [FileSystemAssociationStatusDetail]
+ -&gt; f (Maybe [FileSystemAssociationStatusDetail]))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_fileSystemAssociationStatusDetails"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_fileSystemAssociationStatusDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo
+ -&gt; Maybe [FileSystemAssociationStatusDetail])
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe [FileSystemAssociationStatusDetail]
+    -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe [FileSystemAssociationStatusDetail])
+     (Maybe [FileSystemAssociationStatusDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374117"><span class="annot"><span class="annottext">Maybe [FileSystemAssociationStatusDetail]
+fileSystemAssociationStatusDetails :: Maybe [FileSystemAssociationStatusDetail]
+$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo' :: FileSystemAssociationInfo
+-&gt; Maybe [FileSystemAssociationStatusDetail]
+</span><a href="#local-6989586621679374117"><span class="hs-identifier hs-var hs-var">fileSystemAssociationStatusDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationStatusDetail]
+</span><a href="#local-6989586621679374117"><span class="hs-identifier hs-var">fileSystemAssociationStatusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374116"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374115"><span class="annot"><span class="annottext">Maybe [FileSystemAssociationStatusDetail]
+</span><a href="#local-6989586621679374115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo' :: Maybe [FileSystemAssociationStatusDetail]
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationStatusDetails%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">fileSystemAssociationStatusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationStatusDetail]
+</span><a href="#local-6989586621679374115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FileSystemAssociationStatusDetail]
+  -&gt; f (Maybe [FileSystemAssociationStatusDetail]))
+ -&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo)
+-&gt; ((Maybe [FileSystemAssociationStatusDetail]
+     -&gt; f (Maybe [FileSystemAssociationStatusDetail]))
+    -&gt; Maybe [FileSystemAssociationStatusDetail]
+    -&gt; f (Maybe [FileSystemAssociationStatusDetail]))
+-&gt; (Maybe [FileSystemAssociationStatusDetail]
+    -&gt; f (Maybe [FileSystemAssociationStatusDetail]))
+-&gt; FileSystemAssociationInfo
+-&gt; f FileSystemAssociationInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FileSystemAssociationStatusDetail]
+  [FileSystemAssociationStatusDetail]
+  [FileSystemAssociationStatusDetail]
+  [FileSystemAssociationStatusDetail]
+-&gt; Iso
+     (Maybe [FileSystemAssociationStatusDetail])
+     (Maybe [FileSystemAssociationStatusDetail])
+     (Maybe [FileSystemAssociationStatusDetail])
+     (Maybe [FileSystemAssociationStatusDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FileSystemAssociationStatusDetail]
+  [FileSystemAssociationStatusDetail]
+  [FileSystemAssociationStatusDetail]
+  [FileSystemAssociationStatusDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Specifies network configuration information for the gateway associated</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- with the Amazon FSx file system.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- If multiple file systems are associated with this gateway, this</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- parameter\'s @IpAddresses@ field is required.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_endpointNetworkConfiguration"><span class="hs-identifier hs-type">fileSystemAssociationInfo_endpointNetworkConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="fileSystemAssociationInfo_endpointNetworkConfiguration"><span class="annot"><span class="annottext">fileSystemAssociationInfo_endpointNetworkConfiguration :: (Maybe EndpointNetworkConfiguration
+ -&gt; f (Maybe EndpointNetworkConfiguration))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_endpointNetworkConfiguration"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_endpointNetworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe EndpointNetworkConfiguration)
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe EndpointNetworkConfiguration -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe EndpointNetworkConfiguration)
+     (Maybe EndpointNetworkConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374110"><span class="annot"><span class="annottext">Maybe EndpointNetworkConfiguration
+endpointNetworkConfiguration :: Maybe EndpointNetworkConfiguration
+$sel:endpointNetworkConfiguration:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe EndpointNetworkConfiguration
+</span><a href="#local-6989586621679374110"><span class="hs-identifier hs-var hs-var">endpointNetworkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointNetworkConfiguration
+</span><a href="#local-6989586621679374110"><span class="hs-identifier hs-var">endpointNetworkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374109"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374108"><span class="annot"><span class="annottext">Maybe EndpointNetworkConfiguration
+</span><a href="#local-6989586621679374108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointNetworkConfiguration:FileSystemAssociationInfo' :: Maybe EndpointNetworkConfiguration
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AendpointNetworkConfiguration%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">endpointNetworkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointNetworkConfiguration
+</span><a href="#local-6989586621679374108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The ARN of the backend Amazon FSx file system used for storing file</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- data. For information, see</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- in the /Amazon FSx API Reference/.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_locationARN"><span class="hs-identifier hs-type">fileSystemAssociationInfo_locationARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="fileSystemAssociationInfo_locationARN"><span class="annot"><span class="annottext">fileSystemAssociationInfo_locationARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_locationARN"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_locationARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe Text)
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe Text -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374106"><span class="annot"><span class="annottext">Maybe Text
+locationARN :: Maybe Text
+$sel:locationARN:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679374106"><span class="hs-identifier hs-var hs-var">locationARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374106"><span class="hs-identifier hs-var">locationARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374105"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationARN:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AlocationARN%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">locationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The status of the file system association. Valid Values: @AVAILABLE@ |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @CREATING@ | @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_fileSystemAssociationStatus"><span class="hs-identifier hs-type">fileSystemAssociationInfo_fileSystemAssociationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="fileSystemAssociationInfo_fileSystemAssociationStatus"><span class="annot"><span class="annottext">fileSystemAssociationInfo_fileSystemAssociationStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_fileSystemAssociationStatus"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_fileSystemAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe Text)
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe Text -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374102"><span class="annot"><span class="annottext">Maybe Text
+fileSystemAssociationStatus :: Maybe Text
+$sel:fileSystemAssociationStatus:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679374102"><span class="hs-identifier hs-var hs-var">fileSystemAssociationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374102"><span class="hs-identifier hs-var">fileSystemAssociationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374101"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374100"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAssociationStatus:FileSystemAssociationInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3AfileSystemAssociationStatus%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">fileSystemAssociationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | A list of up to 50 tags assigned to the SMB file share, sorted</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- alphabetically by key name. Each tag is a key-value pair.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_tags"><span class="hs-identifier hs-type">fileSystemAssociationInfo_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="fileSystemAssociationInfo_tags"><span class="annot"><span class="annottext">fileSystemAssociationInfo_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#fileSystemAssociationInfo_tags"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfo_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemAssociationInfo -&gt; Maybe [Tag])
+-&gt; (FileSystemAssociationInfo
+    -&gt; Maybe [Tag] -&gt; FileSystemAssociationInfo)
+-&gt; Lens
+     FileSystemAssociationInfo
+     FileSystemAssociationInfo
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374098"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:FileSystemAssociationInfo' :: FileSystemAssociationInfo -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679374098"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679374098"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374097"><span class="annot"><span class="annottext">s :: FileSystemAssociationInfo
+</span><a href="#local-6989586621679374097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-type">FileSystemAssociationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374096"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679374096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAssociationInfo
+</span><a href="#local-6989586621679374097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FileSystemAssociationInfo' :: Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#%24sel%3Atags%3AFileSystemAssociationInfo%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679374096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; FileSystemAssociationInfo -&gt; f FileSystemAssociationInfo)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; FileSystemAssociationInfo
+-&gt; f FileSystemAssociationInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374093"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679374091"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSystemAssociationInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FileSystemAssociationInfo)
+-&gt; Value
+-&gt; Parser FileSystemAssociationInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FileSystemAssociationInfo&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374088"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CacheAttributes
+-&gt; Maybe [FileSystemAssociationStatusDetail]
+-&gt; Maybe EndpointNetworkConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; FileSystemAssociationInfo
+</span><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo%27"><span class="hs-identifier hs-var">FileSystemAssociationInfo'</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe CacheAttributes
+ -&gt; Maybe [FileSystemAssociationStatusDetail]
+ -&gt; Maybe EndpointNetworkConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CacheAttributes
+      -&gt; Maybe [FileSystemAssociationStatusDetail]
+      -&gt; Maybe EndpointNetworkConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuditDestinationARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CacheAttributes
+   -&gt; Maybe [FileSystemAssociationStatusDetail]
+   -&gt; Maybe EndpointNetworkConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CacheAttributes
+      -&gt; Maybe [FileSystemAssociationStatusDetail]
+      -&gt; Maybe EndpointNetworkConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileSystemAssociationARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CacheAttributes
+   -&gt; Maybe [FileSystemAssociationStatusDetail]
+   -&gt; Maybe EndpointNetworkConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CacheAttributes
+      -&gt; Maybe [FileSystemAssociationStatusDetail]
+      -&gt; Maybe EndpointNetworkConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CacheAttributes
+   -&gt; Maybe [FileSystemAssociationStatusDetail]
+   -&gt; Maybe EndpointNetworkConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe CacheAttributes)
+-&gt; Parser
+     (Maybe [FileSystemAssociationStatusDetail]
+      -&gt; Maybe EndpointNetworkConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CacheAttributes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheAttributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [FileSystemAssociationStatusDetail]
+   -&gt; Maybe EndpointNetworkConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe [FileSystemAssociationStatusDetail])
+-&gt; Parser
+     (Maybe EndpointNetworkConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [FileSystemAssociationStatusDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileSystemAssociationStatusDetails&quot;</span></span><span>
+</span><span id="line-173"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [FileSystemAssociationStatusDetail]))
+-&gt; Maybe [FileSystemAssociationStatusDetail]
+-&gt; Parser (Maybe [FileSystemAssociationStatusDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationStatusDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EndpointNetworkConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe EndpointNetworkConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EndpointNetworkConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointNetworkConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocationARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Tag] -&gt; FileSystemAssociationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileSystemAssociationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; FileSystemAssociationInfo)
+-&gt; Parser (Maybe [Tag]) -&gt; Parser FileSystemAssociationInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374081"><span id="local-6989586621679374083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileSystemAssociationInfo.html#FileSystemAssociationInfo"><span class="hs-identifier hs-type">FileSystemAssociationInfo</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

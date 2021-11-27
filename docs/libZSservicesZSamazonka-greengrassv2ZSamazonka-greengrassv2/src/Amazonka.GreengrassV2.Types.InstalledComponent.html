@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.InstalledComponent</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.InstalledComponent</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a component on a Greengrass core device.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstalledComponent' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679229646"><span id="local-6989586621679229647"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstalledComponent"><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-var">InstalledComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstalledComponent%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-var">InstalledComponent'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether or not the component is a root component.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AisRoot%3AInstalledComponent%27"><span class="annot"><span class="annottext">InstalledComponent -&gt; Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AisRoot%3AInstalledComponent%27"><span class="hs-identifier hs-var hs-var">isRoot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The version of the component.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcomponentVersion%3AInstalledComponent%27"><span class="annot"><span class="annottext">InstalledComponent -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AcomponentVersion%3AInstalledComponent%27"><span class="hs-identifier hs-var hs-var">componentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcomponentName%3AInstalledComponent%27"><span class="annot"><span class="annottext">InstalledComponent -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AcomponentName%3AInstalledComponent%27"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The details about the lifecycle state of the component.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlifecycleStateDetails%3AInstalledComponent%27"><span class="annot"><span class="annottext">InstalledComponent -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AlifecycleStateDetails%3AInstalledComponent%27"><span class="hs-identifier hs-var hs-var">lifecycleStateDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The lifecycle state of the component.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlifecycleState%3AInstalledComponent%27"><span class="annot"><span class="annottext">InstalledComponent -&gt; Maybe InstalledComponentLifecycleState
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AlifecycleState%3AInstalledComponent%27"><span class="hs-identifier hs-var hs-var">lifecycleState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState.html#InstalledComponentLifecycleState"><span class="hs-identifier hs-type">InstalledComponentLifecycleState</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229636"><span id="local-6989586621679229638"><span class="annot"><span class="annottext">InstalledComponent -&gt; InstalledComponent -&gt; Bool
+(InstalledComponent -&gt; InstalledComponent -&gt; Bool)
+-&gt; (InstalledComponent -&gt; InstalledComponent -&gt; Bool)
+-&gt; Eq InstalledComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstalledComponent -&gt; InstalledComponent -&gt; Bool
+$c/= :: InstalledComponent -&gt; InstalledComponent -&gt; Bool
+== :: InstalledComponent -&gt; InstalledComponent -&gt; Bool
+$c== :: InstalledComponent -&gt; InstalledComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229627"><span id="local-6989586621679229629"><span id="local-6989586621679229631"><span id="local-6989586621679229633"><span class="annot"><span class="annottext">ReadPrec [InstalledComponent]
+ReadPrec InstalledComponent
+Int -&gt; ReadS InstalledComponent
+ReadS [InstalledComponent]
+(Int -&gt; ReadS InstalledComponent)
+-&gt; ReadS [InstalledComponent]
+-&gt; ReadPrec InstalledComponent
+-&gt; ReadPrec [InstalledComponent]
+-&gt; Read InstalledComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstalledComponent]
+$creadListPrec :: ReadPrec [InstalledComponent]
+readPrec :: ReadPrec InstalledComponent
+$creadPrec :: ReadPrec InstalledComponent
+readList :: ReadS [InstalledComponent]
+$creadList :: ReadS [InstalledComponent]
+readsPrec :: Int -&gt; ReadS InstalledComponent
+$creadsPrec :: Int -&gt; ReadS InstalledComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229620"><span id="local-6989586621679229622"><span id="local-6989586621679229624"><span class="annot"><span class="annottext">Int -&gt; InstalledComponent -&gt; ShowS
+[InstalledComponent] -&gt; ShowS
+InstalledComponent -&gt; String
+(Int -&gt; InstalledComponent -&gt; ShowS)
+-&gt; (InstalledComponent -&gt; String)
+-&gt; ([InstalledComponent] -&gt; ShowS)
+-&gt; Show InstalledComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstalledComponent] -&gt; ShowS
+$cshowList :: [InstalledComponent] -&gt; ShowS
+show :: InstalledComponent -&gt; String
+$cshow :: InstalledComponent -&gt; String
+showsPrec :: Int -&gt; InstalledComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstalledComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstalledComponent -&gt; Rep InstalledComponent x)
+-&gt; (forall x. Rep InstalledComponent x -&gt; InstalledComponent)
+-&gt; Generic InstalledComponent
+forall x. Rep InstalledComponent x -&gt; InstalledComponent
+forall x. InstalledComponent -&gt; Rep InstalledComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstalledComponent x -&gt; InstalledComponent
+$cfrom :: forall x. InstalledComponent -&gt; Rep InstalledComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'InstalledComponent' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'isRoot', 'installedComponent_isRoot' - Whether or not the component is a root component.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'componentVersion', 'installedComponent_componentVersion' - The version of the component.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'componentName', 'installedComponent_componentName' - The name of the component.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lifecycleStateDetails', 'installedComponent_lifecycleStateDetails' - The details about the lifecycle state of the component.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'lifecycleState', 'installedComponent_lifecycleState' - The lifecycle state of the component.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#newInstalledComponent"><span class="hs-identifier hs-type">newInstalledComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span>
+</span><span id="line-63"></span><span id="newInstalledComponent"><span class="annot"><span class="annottext">newInstalledComponent :: InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#newInstalledComponent"><span class="hs-identifier hs-var hs-var">newInstalledComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">InstalledComponent' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe InstalledComponentLifecycleState
+-&gt; InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isRoot:InstalledComponent' :: Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AisRoot%3AInstalledComponent%27"><span class="hs-identifier hs-var">isRoot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentVersion:InstalledComponent' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AcomponentVersion%3AInstalledComponent%27"><span class="hs-identifier hs-var">componentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentName:InstalledComponent' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AcomponentName%3AInstalledComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycleStateDetails:InstalledComponent' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AlifecycleStateDetails%3AInstalledComponent%27"><span class="hs-identifier hs-var">lifecycleStateDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycleState:InstalledComponent' :: Maybe InstalledComponentLifecycleState
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AlifecycleState%3AInstalledComponent%27"><span class="hs-identifier hs-var">lifecycleState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstalledComponentLifecycleState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Whether or not the component is a root component.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_isRoot"><span class="hs-identifier hs-type">installedComponent_isRoot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="installedComponent_isRoot"><span class="annot"><span class="annottext">installedComponent_isRoot :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; InstalledComponent -&gt; f InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_isRoot"><span class="hs-identifier hs-var hs-var">installedComponent_isRoot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstalledComponent -&gt; Maybe Bool)
+-&gt; (InstalledComponent -&gt; Maybe Bool -&gt; InstalledComponent)
+-&gt; Lens
+     InstalledComponent InstalledComponent (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229611"><span class="annot"><span class="annottext">Maybe Bool
+isRoot :: Maybe Bool
+$sel:isRoot:InstalledComponent' :: InstalledComponent -&gt; Maybe Bool
+</span><a href="#local-6989586621679229611"><span class="hs-identifier hs-var hs-var">isRoot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229611"><span class="hs-identifier hs-var">isRoot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229610"><span class="annot"><span class="annottext">s :: InstalledComponent
+</span><a href="#local-6989586621679229610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229609"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstalledComponent
+</span><a href="#local-6989586621679229610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isRoot:InstalledComponent' :: Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AisRoot%3AInstalledComponent%27"><span class="hs-identifier hs-var">isRoot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The version of the component.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_componentVersion"><span class="hs-identifier hs-type">installedComponent_componentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="installedComponent_componentVersion"><span class="annot"><span class="annottext">installedComponent_componentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstalledComponent -&gt; f InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_componentVersion"><span class="hs-identifier hs-var hs-var">installedComponent_componentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstalledComponent -&gt; Maybe Text)
+-&gt; (InstalledComponent -&gt; Maybe Text -&gt; InstalledComponent)
+-&gt; Lens
+     InstalledComponent InstalledComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229607"><span class="annot"><span class="annottext">Maybe Text
+componentVersion :: Maybe Text
+$sel:componentVersion:InstalledComponent' :: InstalledComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679229607"><span class="hs-identifier hs-var hs-var">componentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229607"><span class="hs-identifier hs-var">componentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229606"><span class="annot"><span class="annottext">s :: InstalledComponent
+</span><a href="#local-6989586621679229606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229605"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstalledComponent
+</span><a href="#local-6989586621679229606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentVersion:InstalledComponent' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AcomponentVersion%3AInstalledComponent%27"><span class="hs-identifier hs-var">componentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_componentName"><span class="hs-identifier hs-type">installedComponent_componentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="installedComponent_componentName"><span class="annot"><span class="annottext">installedComponent_componentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstalledComponent -&gt; f InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_componentName"><span class="hs-identifier hs-var hs-var">installedComponent_componentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstalledComponent -&gt; Maybe Text)
+-&gt; (InstalledComponent -&gt; Maybe Text -&gt; InstalledComponent)
+-&gt; Lens
+     InstalledComponent InstalledComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229603"><span class="annot"><span class="annottext">Maybe Text
+componentName :: Maybe Text
+$sel:componentName:InstalledComponent' :: InstalledComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679229603"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229603"><span class="hs-identifier hs-var">componentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229602"><span class="annot"><span class="annottext">s :: InstalledComponent
+</span><a href="#local-6989586621679229602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229601"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstalledComponent
+</span><a href="#local-6989586621679229602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentName:InstalledComponent' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AcomponentName%3AInstalledComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The details about the lifecycle state of the component.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_lifecycleStateDetails"><span class="hs-identifier hs-type">installedComponent_lifecycleStateDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="installedComponent_lifecycleStateDetails"><span class="annot"><span class="annottext">installedComponent_lifecycleStateDetails :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstalledComponent -&gt; f InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_lifecycleStateDetails"><span class="hs-identifier hs-var hs-var">installedComponent_lifecycleStateDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstalledComponent -&gt; Maybe Text)
+-&gt; (InstalledComponent -&gt; Maybe Text -&gt; InstalledComponent)
+-&gt; Lens
+     InstalledComponent InstalledComponent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229599"><span class="annot"><span class="annottext">Maybe Text
+lifecycleStateDetails :: Maybe Text
+$sel:lifecycleStateDetails:InstalledComponent' :: InstalledComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679229599"><span class="hs-identifier hs-var hs-var">lifecycleStateDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229599"><span class="hs-identifier hs-var">lifecycleStateDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229598"><span class="annot"><span class="annottext">s :: InstalledComponent
+</span><a href="#local-6989586621679229598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229597"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstalledComponent
+</span><a href="#local-6989586621679229598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleStateDetails:InstalledComponent' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AlifecycleStateDetails%3AInstalledComponent%27"><span class="hs-identifier hs-var">lifecycleStateDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The lifecycle state of the component.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_lifecycleState"><span class="hs-identifier hs-type">installedComponent_lifecycleState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState.html#InstalledComponentLifecycleState"><span class="hs-identifier hs-type">InstalledComponentLifecycleState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="installedComponent_lifecycleState"><span class="annot"><span class="annottext">installedComponent_lifecycleState :: (Maybe InstalledComponentLifecycleState
+ -&gt; f (Maybe InstalledComponentLifecycleState))
+-&gt; InstalledComponent -&gt; f InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#installedComponent_lifecycleState"><span class="hs-identifier hs-var hs-var">installedComponent_lifecycleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstalledComponent -&gt; Maybe InstalledComponentLifecycleState)
+-&gt; (InstalledComponent
+    -&gt; Maybe InstalledComponentLifecycleState -&gt; InstalledComponent)
+-&gt; Lens
+     InstalledComponent
+     InstalledComponent
+     (Maybe InstalledComponentLifecycleState)
+     (Maybe InstalledComponentLifecycleState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229595"><span class="annot"><span class="annottext">Maybe InstalledComponentLifecycleState
+lifecycleState :: Maybe InstalledComponentLifecycleState
+$sel:lifecycleState:InstalledComponent' :: InstalledComponent -&gt; Maybe InstalledComponentLifecycleState
+</span><a href="#local-6989586621679229595"><span class="hs-identifier hs-var hs-var">lifecycleState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstalledComponentLifecycleState
+</span><a href="#local-6989586621679229595"><span class="hs-identifier hs-var">lifecycleState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229594"><span class="annot"><span class="annottext">s :: InstalledComponent
+</span><a href="#local-6989586621679229594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-type">InstalledComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229593"><span class="annot"><span class="annottext">Maybe InstalledComponentLifecycleState
+</span><a href="#local-6989586621679229593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstalledComponent
+</span><a href="#local-6989586621679229594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleState:InstalledComponent' :: Maybe InstalledComponentLifecycleState
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#%24sel%3AlifecycleState%3AInstalledComponent%27"><span class="hs-identifier hs-var">lifecycleState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstalledComponentLifecycleState
+</span><a href="#local-6989586621679229593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229590"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679229588"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstalledComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InstalledComponent)
+-&gt; Value
+-&gt; Parser InstalledComponent
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InstalledComponent&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229585"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe InstalledComponentLifecycleState
+-&gt; InstalledComponent
+</span><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent%27"><span class="hs-identifier hs-var">InstalledComponent'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe InstalledComponentLifecycleState
+ -&gt; InstalledComponent)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstalledComponentLifecycleState
+      -&gt; InstalledComponent)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isRoot&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstalledComponentLifecycleState
+   -&gt; InstalledComponent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstalledComponentLifecycleState
+      -&gt; InstalledComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstalledComponentLifecycleState
+   -&gt; InstalledComponent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe InstalledComponentLifecycleState -&gt; InstalledComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe InstalledComponentLifecycleState -&gt; InstalledComponent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe InstalledComponentLifecycleState -&gt; InstalledComponent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lifecycleStateDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstalledComponentLifecycleState -&gt; InstalledComponent)
+-&gt; Parser (Maybe InstalledComponentLifecycleState)
+-&gt; Parser InstalledComponent
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstalledComponentLifecycleState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lifecycleState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229579"><span id="local-6989586621679229581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.InstalledComponent.html#InstalledComponent"><span class="hs-identifier hs-type">InstalledComponent</span></a></span></span><span>
+</span><span id="line-108"></span></pre></body></html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.Types.CacheSecurityGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.Types.CacheSecurityGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.EC2SecurityGroup.html"><span class="hs-identifier">Amazonka.ElastiCache.Types.EC2SecurityGroup</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents the output of one of the following operations:</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   @AuthorizeCacheSecurityGroupIngress@</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   @CreateCacheSecurityGroup@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   @RevokeCacheSecurityGroupIngress@</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCacheSecurityGroup' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679399333"><span id="local-6989586621679399334"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheSecurityGroup"><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-var">CacheSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheSecurityGroup%27"><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-var">CacheSecurityGroup'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cache security group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">cacheSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN of the cache security group,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon account ID of the cache security group owner.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A list of Amazon EC2 security groups that are associated with this cache</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- security group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AeC2SecurityGroups%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe [EC2SecurityGroup]
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElastiCache.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The description of the cache security group.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399323"><span id="local-6989586621679399325"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
+(CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool)
+-&gt; (CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool)
+-&gt; Eq CacheSecurityGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
+$c/= :: CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
+== :: CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
+$c== :: CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399314"><span id="local-6989586621679399316"><span id="local-6989586621679399318"><span id="local-6989586621679399320"><span class="annot"><span class="annottext">ReadPrec [CacheSecurityGroup]
+ReadPrec CacheSecurityGroup
+Int -&gt; ReadS CacheSecurityGroup
+ReadS [CacheSecurityGroup]
+(Int -&gt; ReadS CacheSecurityGroup)
+-&gt; ReadS [CacheSecurityGroup]
+-&gt; ReadPrec CacheSecurityGroup
+-&gt; ReadPrec [CacheSecurityGroup]
+-&gt; Read CacheSecurityGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CacheSecurityGroup]
+$creadListPrec :: ReadPrec [CacheSecurityGroup]
+readPrec :: ReadPrec CacheSecurityGroup
+$creadPrec :: ReadPrec CacheSecurityGroup
+readList :: ReadS [CacheSecurityGroup]
+$creadList :: ReadS [CacheSecurityGroup]
+readsPrec :: Int -&gt; ReadS CacheSecurityGroup
+$creadsPrec :: Int -&gt; ReadS CacheSecurityGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399307"><span id="local-6989586621679399309"><span id="local-6989586621679399311"><span class="annot"><span class="annottext">Int -&gt; CacheSecurityGroup -&gt; ShowS
+[CacheSecurityGroup] -&gt; ShowS
+CacheSecurityGroup -&gt; String
+(Int -&gt; CacheSecurityGroup -&gt; ShowS)
+-&gt; (CacheSecurityGroup -&gt; String)
+-&gt; ([CacheSecurityGroup] -&gt; ShowS)
+-&gt; Show CacheSecurityGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CacheSecurityGroup] -&gt; ShowS
+$cshowList :: [CacheSecurityGroup] -&gt; ShowS
+show :: CacheSecurityGroup -&gt; String
+$cshow :: CacheSecurityGroup -&gt; String
+showsPrec :: Int -&gt; CacheSecurityGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CacheSecurityGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CacheSecurityGroup -&gt; Rep CacheSecurityGroup x)
+-&gt; (forall x. Rep CacheSecurityGroup x -&gt; CacheSecurityGroup)
+-&gt; Generic CacheSecurityGroup
+forall x. Rep CacheSecurityGroup x -&gt; CacheSecurityGroup
+forall x. CacheSecurityGroup -&gt; Rep CacheSecurityGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CacheSecurityGroup x -&gt; CacheSecurityGroup
+$cfrom :: forall x. CacheSecurityGroup -&gt; Rep CacheSecurityGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'CacheSecurityGroup' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'cacheSecurityGroupName', 'cacheSecurityGroup_cacheSecurityGroupName' - The name of the cache security group.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'arn', 'cacheSecurityGroup_arn' - The ARN of the cache security group,</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ownerId', 'cacheSecurityGroup_ownerId' - The Amazon account ID of the cache security group owner.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'eC2SecurityGroups', 'cacheSecurityGroup_eC2SecurityGroups' - A list of Amazon EC2 security groups that are associated with this cache</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- security group.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'description', 'cacheSecurityGroup_description' - The description of the cache security group.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#newCacheSecurityGroup"><span class="hs-identifier hs-type">newCacheSecurityGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span>
+</span><span id="line-71"></span><span id="newCacheSecurityGroup"><span class="annot"><span class="annottext">newCacheSecurityGroup :: CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#newCacheSecurityGroup"><span class="hs-identifier hs-var hs-var">newCacheSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">CacheSecurityGroup' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [EC2SecurityGroup]
+-&gt; Maybe Text
+-&gt; CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheSecurityGroupName:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:CacheSecurityGroup' :: Maybe [EC2SecurityGroup]
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the cache security group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_cacheSecurityGroupName"><span class="hs-identifier hs-type">cacheSecurityGroup_cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="cacheSecurityGroup_cacheSecurityGroupName"><span class="annot"><span class="annottext">cacheSecurityGroup_cacheSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_cacheSecurityGroupName"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_cacheSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
+-&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Lens
+     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399298"><span class="annot"><span class="annottext">Maybe Text
+cacheSecurityGroupName :: Maybe Text
+$sel:cacheSecurityGroupName:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399298"><span class="hs-identifier hs-var hs-var">cacheSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399298"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399297"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSecurityGroupName:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ARN of the cache security group,</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_arn"><span class="hs-identifier hs-type">cacheSecurityGroup_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="cacheSecurityGroup_arn"><span class="annot"><span class="annottext">cacheSecurityGroup_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_arn"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
+-&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Lens
+     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399294"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399294"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399294"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399293"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399292"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The Amazon account ID of the cache security group owner.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_ownerId"><span class="hs-identifier hs-type">cacheSecurityGroup_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="cacheSecurityGroup_ownerId"><span class="annot"><span class="annottext">cacheSecurityGroup_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_ownerId"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
+-&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Lens
+     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399290"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399290"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399290"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399289"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A list of Amazon EC2 security groups that are associated with this cache</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- security group.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-type">cacheSecurityGroup_eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElastiCache.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="cacheSecurityGroup_eC2SecurityGroups"><span class="annot"><span class="annottext">cacheSecurityGroup_eC2SecurityGroups :: (Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+-&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_eC2SecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe [EC2SecurityGroup])
+-&gt; (CacheSecurityGroup
+    -&gt; Maybe [EC2SecurityGroup] -&gt; CacheSecurityGroup)
+-&gt; Lens
+     CacheSecurityGroup
+     CacheSecurityGroup
+     (Maybe [EC2SecurityGroup])
+     (Maybe [EC2SecurityGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399286"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+eC2SecurityGroups :: Maybe [EC2SecurityGroup]
+$sel:eC2SecurityGroups:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679399286"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679399286"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399285"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399284"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679399284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:CacheSecurityGroup' :: Maybe [EC2SecurityGroup]
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679399284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+ -&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup)
+-&gt; ((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+    -&gt; Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+-&gt; (Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+-&gt; CacheSecurityGroup
+-&gt; f CacheSecurityGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EC2SecurityGroup]
+  [EC2SecurityGroup]
+  [EC2SecurityGroup]
+  [EC2SecurityGroup]
+-&gt; Iso
+     (Maybe [EC2SecurityGroup])
+     (Maybe [EC2SecurityGroup])
+     (Maybe [EC2SecurityGroup])
+     (Maybe [EC2SecurityGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EC2SecurityGroup]
+  [EC2SecurityGroup]
+  [EC2SecurityGroup]
+  [EC2SecurityGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The description of the cache security group.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_description"><span class="hs-identifier hs-type">cacheSecurityGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="cacheSecurityGroup_description"><span class="annot"><span class="annottext">cacheSecurityGroup_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_description"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
+-&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Lens
+     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399279"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399278"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CacheSecurityGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679399274"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheSecurityGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399272"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [EC2SecurityGroup]
+-&gt; Maybe Text
+-&gt; CacheSecurityGroup
+</span><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-var">CacheSecurityGroup'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [EC2SecurityGroup]
+ -&gt; Maybe Text
+ -&gt; CacheSecurityGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [EC2SecurityGroup]
+      -&gt; Maybe Text
+      -&gt; CacheSecurityGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheSecurityGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [EC2SecurityGroup]
+   -&gt; Maybe Text
+   -&gt; CacheSecurityGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Either String (Maybe [EC2SecurityGroup])
+-&gt; Either String (Maybe Text -&gt; CacheSecurityGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EC2SecurityGroups&quot;</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [EC2SecurityGroup]))
+-&gt; Either String (Maybe [EC2SecurityGroup])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [EC2SecurityGroup])
+-&gt; [Node] -&gt; Either String (Maybe [EC2SecurityGroup])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [EC2SecurityGroup]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EC2SecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Either String (Maybe Text) -&gt; Either String CacheSecurityGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399263"><span id="local-6989586621679399265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

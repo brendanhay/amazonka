@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.CACertificateDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.CACertificateDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AutoRegistrationStatus.html"><span class="hs-identifier">Amazonka.IoT.Types.AutoRegistrationStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateStatus.html"><span class="hs-identifier">Amazonka.IoT.Types.CACertificateStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CertificateValidity.html"><span class="hs-identifier">Amazonka.IoT.Types.CertificateValidity</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a CA certificate.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCACertificateDescription' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679780491"><span id="local-6989586621679780492"></span></span><span class="hs-keyword">data</span><span> </span><span id="CACertificateDescription"><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-var">CACertificateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CACertificateDescription%27"><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-var">CACertificateDescription'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of a CA certificate.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe CACertificateStatus
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3Astatus%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateStatus.html#CACertificateStatus"><span class="hs-identifier hs-type">CACertificateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The owner of the CA certificate.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AownedBy%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AownedBy%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">ownedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date the CA certificate was last modified.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AlastModifiedDate%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The CA certificate data, in PEM format.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcertificatePem%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificatePem%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The CA certificate ARN.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcertificateArn%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificateArn%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The CA certificate ID.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcertificateId%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificateId%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | When the CA certificate is valid.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Avalidity%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe CertificateValidity
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3Avalidity%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Whether the CA certificate configured for auto registration of device</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- certificates. Valid values are \&quot;ENABLE\&quot; and \&quot;DISABLE\&quot;</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AautoRegistrationStatus%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe AutoRegistrationStatus
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AautoRegistrationStatus%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">autoRegistrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AutoRegistrationStatus.html#AutoRegistrationStatus"><span class="hs-identifier hs-type">AutoRegistrationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The date the CA certificate was created.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcreationDate%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcreationDate%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The generation ID of the CA certificate.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AgenerationId%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AgenerationId%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">generationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The customer version of the CA certificate.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcustomerVersion%3ACACertificateDescription%27"><span class="annot"><span class="annottext">CACertificateDescription -&gt; Maybe Natural
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcustomerVersion%3ACACertificateDescription%27"><span class="hs-identifier hs-var hs-var">customerVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780475"><span id="local-6989586621679780477"><span class="annot"><span class="annottext">CACertificateDescription -&gt; CACertificateDescription -&gt; Bool
+(CACertificateDescription -&gt; CACertificateDescription -&gt; Bool)
+-&gt; (CACertificateDescription -&gt; CACertificateDescription -&gt; Bool)
+-&gt; Eq CACertificateDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CACertificateDescription -&gt; CACertificateDescription -&gt; Bool
+$c/= :: CACertificateDescription -&gt; CACertificateDescription -&gt; Bool
+== :: CACertificateDescription -&gt; CACertificateDescription -&gt; Bool
+$c== :: CACertificateDescription -&gt; CACertificateDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780466"><span id="local-6989586621679780468"><span id="local-6989586621679780470"><span id="local-6989586621679780472"><span class="annot"><span class="annottext">ReadPrec [CACertificateDescription]
+ReadPrec CACertificateDescription
+Int -&gt; ReadS CACertificateDescription
+ReadS [CACertificateDescription]
+(Int -&gt; ReadS CACertificateDescription)
+-&gt; ReadS [CACertificateDescription]
+-&gt; ReadPrec CACertificateDescription
+-&gt; ReadPrec [CACertificateDescription]
+-&gt; Read CACertificateDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CACertificateDescription]
+$creadListPrec :: ReadPrec [CACertificateDescription]
+readPrec :: ReadPrec CACertificateDescription
+$creadPrec :: ReadPrec CACertificateDescription
+readList :: ReadS [CACertificateDescription]
+$creadList :: ReadS [CACertificateDescription]
+readsPrec :: Int -&gt; ReadS CACertificateDescription
+$creadsPrec :: Int -&gt; ReadS CACertificateDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780459"><span id="local-6989586621679780461"><span id="local-6989586621679780463"><span class="annot"><span class="annottext">Int -&gt; CACertificateDescription -&gt; ShowS
+[CACertificateDescription] -&gt; ShowS
+CACertificateDescription -&gt; String
+(Int -&gt; CACertificateDescription -&gt; ShowS)
+-&gt; (CACertificateDescription -&gt; String)
+-&gt; ([CACertificateDescription] -&gt; ShowS)
+-&gt; Show CACertificateDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CACertificateDescription] -&gt; ShowS
+$cshowList :: [CACertificateDescription] -&gt; ShowS
+show :: CACertificateDescription -&gt; String
+$cshow :: CACertificateDescription -&gt; String
+showsPrec :: Int -&gt; CACertificateDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; CACertificateDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CACertificateDescription -&gt; Rep CACertificateDescription x)
+-&gt; (forall x.
+    Rep CACertificateDescription x -&gt; CACertificateDescription)
+-&gt; Generic CACertificateDescription
+forall x.
+Rep CACertificateDescription x -&gt; CACertificateDescription
+forall x.
+CACertificateDescription -&gt; Rep CACertificateDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CACertificateDescription x -&gt; CACertificateDescription
+$cfrom :: forall x.
+CACertificateDescription -&gt; Rep CACertificateDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'CACertificateDescription' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'status', 'cACertificateDescription_status' - The status of a CA certificate.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'ownedBy', 'cACertificateDescription_ownedBy' - The owner of the CA certificate.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'lastModifiedDate', 'cACertificateDescription_lastModifiedDate' - The date the CA certificate was last modified.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'certificatePem', 'cACertificateDescription_certificatePem' - The CA certificate data, in PEM format.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'certificateArn', 'cACertificateDescription_certificateArn' - The CA certificate ARN.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'certificateId', 'cACertificateDescription_certificateId' - The CA certificate ID.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'validity', 'cACertificateDescription_validity' - When the CA certificate is valid.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'autoRegistrationStatus', 'cACertificateDescription_autoRegistrationStatus' - Whether the CA certificate configured for auto registration of device</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- certificates. Valid values are \&quot;ENABLE\&quot; and \&quot;DISABLE\&quot;</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'creationDate', 'cACertificateDescription_creationDate' - The date the CA certificate was created.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'generationId', 'cACertificateDescription_generationId' - The generation ID of the CA certificate.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'customerVersion', 'cACertificateDescription_customerVersion' - The customer version of the CA certificate.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#newCACertificateDescription"><span class="hs-identifier hs-type">newCACertificateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span>
+</span><span id="line-91"></span><span id="newCACertificateDescription"><span class="annot"><span class="annottext">newCACertificateDescription :: CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#newCACertificateDescription"><span class="hs-identifier hs-var hs-var">newCACertificateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">CACertificateDescription' :: Maybe CACertificateStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CertificateValidity
+-&gt; Maybe AutoRegistrationStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CACertificateDescription' :: Maybe CACertificateStatus
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3Astatus%3ACACertificateDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownedBy:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AownedBy%3ACACertificateDescription%27"><span class="hs-identifier hs-var">ownedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:CACertificateDescription' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AlastModifiedDate%3ACACertificateDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificatePem:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificatePem%3ACACertificateDescription%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateArn:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificateArn%3ACACertificateDescription%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateId:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificateId%3ACACertificateDescription%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:validity:CACertificateDescription' :: Maybe CertificateValidity
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3Avalidity%3ACACertificateDescription%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateValidity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoRegistrationStatus:CACertificateDescription' :: Maybe AutoRegistrationStatus
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AautoRegistrationStatus%3ACACertificateDescription%27"><span class="hs-identifier hs-var">autoRegistrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:CACertificateDescription' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcreationDate%3ACACertificateDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:generationId:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AgenerationId%3ACACertificateDescription%27"><span class="hs-identifier hs-var">generationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerVersion:CACertificateDescription' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcustomerVersion%3ACACertificateDescription%27"><span class="hs-identifier hs-var">customerVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The status of a CA certificate.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_status"><span class="hs-identifier hs-type">cACertificateDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateStatus.html#CACertificateStatus"><span class="hs-identifier hs-type">CACertificateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="cACertificateDescription_status"><span class="annot"><span class="annottext">cACertificateDescription_status :: (Maybe CACertificateStatus -&gt; f (Maybe CACertificateStatus))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_status"><span class="hs-identifier hs-var hs-var">cACertificateDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe CACertificateStatus)
+-&gt; (CACertificateDescription
+    -&gt; Maybe CACertificateStatus -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe CACertificateStatus)
+     (Maybe CACertificateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780450"><span class="annot"><span class="annottext">Maybe CACertificateStatus
+status :: Maybe CACertificateStatus
+$sel:status:CACertificateDescription' :: CACertificateDescription -&gt; Maybe CACertificateStatus
+</span><a href="#local-6989586621679780450"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
+</span><a href="#local-6989586621679780450"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780449"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780448"><span class="annot"><span class="annottext">Maybe CACertificateStatus
+</span><a href="#local-6989586621679780448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CACertificateDescription' :: Maybe CACertificateStatus
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3Astatus%3ACACertificateDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
+</span><a href="#local-6989586621679780448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The owner of the CA certificate.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_ownedBy"><span class="hs-identifier hs-type">cACertificateDescription_ownedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="cACertificateDescription_ownedBy"><span class="annot"><span class="annottext">cACertificateDescription_ownedBy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_ownedBy"><span class="hs-identifier hs-var hs-var">cACertificateDescription_ownedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe Text)
+-&gt; (CACertificateDescription
+    -&gt; Maybe Text -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780446"><span class="annot"><span class="annottext">Maybe Text
+ownedBy :: Maybe Text
+$sel:ownedBy:CACertificateDescription' :: CACertificateDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679780446"><span class="hs-identifier hs-var hs-var">ownedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780446"><span class="hs-identifier hs-var">ownedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780445"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780444"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownedBy:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AownedBy%3ACACertificateDescription%27"><span class="hs-identifier hs-var">ownedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The date the CA certificate was last modified.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_lastModifiedDate"><span class="hs-identifier hs-type">cACertificateDescription_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="cACertificateDescription_lastModifiedDate"><span class="annot"><span class="annottext">cACertificateDescription_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_lastModifiedDate"><span class="hs-identifier hs-var hs-var">cACertificateDescription_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe POSIX)
+-&gt; (CACertificateDescription
+    -&gt; Maybe POSIX -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780442"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:CACertificateDescription' :: CACertificateDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679780442"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780442"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780441"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780440"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:CACertificateDescription' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AlastModifiedDate%3ACACertificateDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CACertificateDescription -&gt; f CACertificateDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CACertificateDescription
+-&gt; f CACertificateDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The CA certificate data, in PEM format.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_certificatePem"><span class="hs-identifier hs-type">cACertificateDescription_certificatePem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="cACertificateDescription_certificatePem"><span class="annot"><span class="annottext">cACertificateDescription_certificatePem :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_certificatePem"><span class="hs-identifier hs-var hs-var">cACertificateDescription_certificatePem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe Text)
+-&gt; (CACertificateDescription
+    -&gt; Maybe Text -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780435"><span class="annot"><span class="annottext">Maybe Text
+certificatePem :: Maybe Text
+$sel:certificatePem:CACertificateDescription' :: CACertificateDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679780435"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780435"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780434"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificatePem%3ACACertificateDescription%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The CA certificate ARN.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_certificateArn"><span class="hs-identifier hs-type">cACertificateDescription_certificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="cACertificateDescription_certificateArn"><span class="annot"><span class="annottext">cACertificateDescription_certificateArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_certificateArn"><span class="hs-identifier hs-var hs-var">cACertificateDescription_certificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe Text)
+-&gt; (CACertificateDescription
+    -&gt; Maybe Text -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780431"><span class="annot"><span class="annottext">Maybe Text
+certificateArn :: Maybe Text
+$sel:certificateArn:CACertificateDescription' :: CACertificateDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679780431"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780431"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780430"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780429"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificateArn%3ACACertificateDescription%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The CA certificate ID.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_certificateId"><span class="hs-identifier hs-type">cACertificateDescription_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="cACertificateDescription_certificateId"><span class="annot"><span class="annottext">cACertificateDescription_certificateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_certificateId"><span class="hs-identifier hs-var hs-var">cACertificateDescription_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe Text)
+-&gt; (CACertificateDescription
+    -&gt; Maybe Text -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780427"><span class="annot"><span class="annottext">Maybe Text
+certificateId :: Maybe Text
+$sel:certificateId:CACertificateDescription' :: CACertificateDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679780427"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780427"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780426"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780425"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcertificateId%3ACACertificateDescription%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | When the CA certificate is valid.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_validity"><span class="hs-identifier hs-type">cACertificateDescription_validity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="cACertificateDescription_validity"><span class="annot"><span class="annottext">cACertificateDescription_validity :: (Maybe CertificateValidity -&gt; f (Maybe CertificateValidity))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_validity"><span class="hs-identifier hs-var hs-var">cACertificateDescription_validity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe CertificateValidity)
+-&gt; (CACertificateDescription
+    -&gt; Maybe CertificateValidity -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe CertificateValidity)
+     (Maybe CertificateValidity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780423"><span class="annot"><span class="annottext">Maybe CertificateValidity
+validity :: Maybe CertificateValidity
+$sel:validity:CACertificateDescription' :: CACertificateDescription -&gt; Maybe CertificateValidity
+</span><a href="#local-6989586621679780423"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateValidity
+</span><a href="#local-6989586621679780423"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780422"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780421"><span class="annot"><span class="annottext">Maybe CertificateValidity
+</span><a href="#local-6989586621679780421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validity:CACertificateDescription' :: Maybe CertificateValidity
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3Avalidity%3ACACertificateDescription%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateValidity
+</span><a href="#local-6989586621679780421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Whether the CA certificate configured for auto registration of device</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- certificates. Valid values are \&quot;ENABLE\&quot; and \&quot;DISABLE\&quot;</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_autoRegistrationStatus"><span class="hs-identifier hs-type">cACertificateDescription_autoRegistrationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.AutoRegistrationStatus.html#AutoRegistrationStatus"><span class="hs-identifier hs-type">AutoRegistrationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="cACertificateDescription_autoRegistrationStatus"><span class="annot"><span class="annottext">cACertificateDescription_autoRegistrationStatus :: (Maybe AutoRegistrationStatus -&gt; f (Maybe AutoRegistrationStatus))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_autoRegistrationStatus"><span class="hs-identifier hs-var hs-var">cACertificateDescription_autoRegistrationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe AutoRegistrationStatus)
+-&gt; (CACertificateDescription
+    -&gt; Maybe AutoRegistrationStatus -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe AutoRegistrationStatus)
+     (Maybe AutoRegistrationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780419"><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+autoRegistrationStatus :: Maybe AutoRegistrationStatus
+$sel:autoRegistrationStatus:CACertificateDescription' :: CACertificateDescription -&gt; Maybe AutoRegistrationStatus
+</span><a href="#local-6989586621679780419"><span class="hs-identifier hs-var hs-var">autoRegistrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+</span><a href="#local-6989586621679780419"><span class="hs-identifier hs-var">autoRegistrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780418"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780417"><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+</span><a href="#local-6989586621679780417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoRegistrationStatus:CACertificateDescription' :: Maybe AutoRegistrationStatus
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AautoRegistrationStatus%3ACACertificateDescription%27"><span class="hs-identifier hs-var">autoRegistrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+</span><a href="#local-6989586621679780417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The date the CA certificate was created.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_creationDate"><span class="hs-identifier hs-type">cACertificateDescription_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="cACertificateDescription_creationDate"><span class="annot"><span class="annottext">cACertificateDescription_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_creationDate"><span class="hs-identifier hs-var hs-var">cACertificateDescription_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe POSIX)
+-&gt; (CACertificateDescription
+    -&gt; Maybe POSIX -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780415"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:CACertificateDescription' :: CACertificateDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679780415"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780415"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780414"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780413"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:CACertificateDescription' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcreationDate%3ACACertificateDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CACertificateDescription -&gt; f CACertificateDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CACertificateDescription
+-&gt; f CACertificateDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The generation ID of the CA certificate.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_generationId"><span class="hs-identifier hs-type">cACertificateDescription_generationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="cACertificateDescription_generationId"><span class="annot"><span class="annottext">cACertificateDescription_generationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_generationId"><span class="hs-identifier hs-var hs-var">cACertificateDescription_generationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe Text)
+-&gt; (CACertificateDescription
+    -&gt; Maybe Text -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780411"><span class="annot"><span class="annottext">Maybe Text
+generationId :: Maybe Text
+$sel:generationId:CACertificateDescription' :: CACertificateDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679780411"><span class="hs-identifier hs-var hs-var">generationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780411"><span class="hs-identifier hs-var">generationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780410"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generationId:CACertificateDescription' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AgenerationId%3ACACertificateDescription%27"><span class="hs-identifier hs-var">generationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The customer version of the CA certificate.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_customerVersion"><span class="hs-identifier hs-type">cACertificateDescription_customerVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="cACertificateDescription_customerVersion"><span class="annot"><span class="annottext">cACertificateDescription_customerVersion :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CACertificateDescription -&gt; f CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#cACertificateDescription_customerVersion"><span class="hs-identifier hs-var hs-var">cACertificateDescription_customerVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CACertificateDescription -&gt; Maybe Natural)
+-&gt; (CACertificateDescription
+    -&gt; Maybe Natural -&gt; CACertificateDescription)
+-&gt; Lens
+     CACertificateDescription
+     CACertificateDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780407"><span class="annot"><span class="annottext">Maybe Natural
+customerVersion :: Maybe Natural
+$sel:customerVersion:CACertificateDescription' :: CACertificateDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679780407"><span class="hs-identifier hs-var hs-var">customerVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679780407"><span class="hs-identifier hs-var">customerVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780406"><span class="annot"><span class="annottext">s :: CACertificateDescription
+</span><a href="#local-6989586621679780406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-type">CACertificateDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780405"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679780405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CACertificateDescription
+</span><a href="#local-6989586621679780406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerVersion:CACertificateDescription' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#%24sel%3AcustomerVersion%3ACACertificateDescription%27"><span class="hs-identifier hs-var">customerVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679780405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780402"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679780400"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CACertificateDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CACertificateDescription)
+-&gt; Value
+-&gt; Parser CACertificateDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CACertificateDescription&quot;</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780397"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CertificateValidity
+-&gt; Maybe AutoRegistrationStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; CACertificateDescription
+</span><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription%27"><span class="hs-identifier hs-var">CACertificateDescription'</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CACertificateStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe CertificateValidity
+ -&gt; Maybe AutoRegistrationStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; CACertificateDescription)
+-&gt; Parser (Maybe CACertificateStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateValidity
+      -&gt; Maybe AutoRegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CACertificateStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateValidity
+   -&gt; Maybe AutoRegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; CACertificateDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateValidity
+      -&gt; Maybe AutoRegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateValidity
+   -&gt; Maybe AutoRegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; CACertificateDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateValidity
+      -&gt; Maybe AutoRegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateValidity
+   -&gt; Maybe AutoRegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; CACertificateDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateValidity
+      -&gt; Maybe AutoRegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificatePem&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateValidity
+   -&gt; Maybe AutoRegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; CACertificateDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CertificateValidity
+      -&gt; Maybe AutoRegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CertificateValidity
+   -&gt; Maybe AutoRegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; CACertificateDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CertificateValidity
+      -&gt; Maybe AutoRegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CertificateValidity
+   -&gt; Maybe AutoRegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; CACertificateDescription)
+-&gt; Parser (Maybe CertificateValidity)
+-&gt; Parser
+     (Maybe AutoRegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CertificateValidity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;validity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AutoRegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; CACertificateDescription)
+-&gt; Parser (Maybe AutoRegistrationStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe Natural -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoRegistrationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;autoRegistrationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Natural -&gt; CACertificateDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; CACertificateDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; CACertificateDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;generationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; CACertificateDescription)
+-&gt; Parser (Maybe Natural) -&gt; Parser CACertificateDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780391"><span id="local-6989586621679780393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CACertificateDescription.html#CACertificateDescription"><span class="hs-identifier hs-type">CACertificateDescription</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

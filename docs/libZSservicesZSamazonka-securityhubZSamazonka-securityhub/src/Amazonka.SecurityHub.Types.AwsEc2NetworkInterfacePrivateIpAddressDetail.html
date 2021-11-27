@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about a private IPv4 address that is with the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- network interface.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAwsEc2NetworkInterfacePrivateIpAddressDetail' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679943379"><span id="local-6989586621679943380"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-var">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AprivateIpAddress%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="annot"><span class="annottext">AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#%24sel%3AprivateIpAddress%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The private DNS name for the IP address.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AprivateDnsName%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="annot"><span class="annottext">AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#%24sel%3AprivateDnsName%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679943372"><span id="local-6989586621679943374"><span class="annot"><span class="annottext">AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Bool
+(AwsEc2NetworkInterfacePrivateIpAddressDetail
+ -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Bool)
+-&gt; (AwsEc2NetworkInterfacePrivateIpAddressDetail
+    -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Bool)
+-&gt; Eq AwsEc2NetworkInterfacePrivateIpAddressDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Bool
+$c/= :: AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Bool
+== :: AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Bool
+$c== :: AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679943363"><span id="local-6989586621679943365"><span id="local-6989586621679943367"><span id="local-6989586621679943369"><span class="annot"><span class="annottext">ReadPrec [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+ReadPrec AwsEc2NetworkInterfacePrivateIpAddressDetail
+Int -&gt; ReadS AwsEc2NetworkInterfacePrivateIpAddressDetail
+ReadS [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+(Int -&gt; ReadS AwsEc2NetworkInterfacePrivateIpAddressDetail)
+-&gt; ReadS [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+-&gt; ReadPrec AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; ReadPrec [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+-&gt; Read AwsEc2NetworkInterfacePrivateIpAddressDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+$creadListPrec :: ReadPrec [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+readPrec :: ReadPrec AwsEc2NetworkInterfacePrivateIpAddressDetail
+$creadPrec :: ReadPrec AwsEc2NetworkInterfacePrivateIpAddressDetail
+readList :: ReadS [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+$creadList :: ReadS [AwsEc2NetworkInterfacePrivateIpAddressDetail]
+readsPrec :: Int -&gt; ReadS AwsEc2NetworkInterfacePrivateIpAddressDetail
+$creadsPrec :: Int -&gt; ReadS AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679943356"><span id="local-6989586621679943358"><span id="local-6989586621679943360"><span class="annot"><span class="annottext">Int -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; ShowS
+[AwsEc2NetworkInterfacePrivateIpAddressDetail] -&gt; ShowS
+AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; String
+(Int -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; ShowS)
+-&gt; (AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; String)
+-&gt; ([AwsEc2NetworkInterfacePrivateIpAddressDetail] -&gt; ShowS)
+-&gt; Show AwsEc2NetworkInterfacePrivateIpAddressDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEc2NetworkInterfacePrivateIpAddressDetail] -&gt; ShowS
+$cshowList :: [AwsEc2NetworkInterfacePrivateIpAddressDetail] -&gt; ShowS
+show :: AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; String
+$cshow :: AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; String
+showsPrec :: Int -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEc2NetworkInterfacePrivateIpAddressDetail
+ -&gt; Rep AwsEc2NetworkInterfacePrivateIpAddressDetail x)
+-&gt; (forall x.
+    Rep AwsEc2NetworkInterfacePrivateIpAddressDetail x
+    -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail)
+-&gt; Generic AwsEc2NetworkInterfacePrivateIpAddressDetail
+forall x.
+Rep AwsEc2NetworkInterfacePrivateIpAddressDetail x
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail
+forall x.
+AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; Rep AwsEc2NetworkInterfacePrivateIpAddressDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsEc2NetworkInterfacePrivateIpAddressDetail x
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail
+$cfrom :: forall x.
+AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; Rep AwsEc2NetworkInterfacePrivateIpAddressDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'AwsEc2NetworkInterfacePrivateIpAddressDetail' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'privateIpAddress', 'awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress' - The IP address.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'privateDnsName', 'awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName' - The private DNS name for the IP address.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#newAwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">newAwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span><span>
+</span><span id="line-51"></span><span id="newAwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="annot"><span class="annottext">newAwsEc2NetworkInterfacePrivateIpAddressDetail :: AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#newAwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-var hs-var">newAwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">AwsEc2NetworkInterfacePrivateIpAddressDetail' :: Maybe Text
+-&gt; Maybe Text -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:privateIpAddress:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#%24sel%3AprivateIpAddress%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateDnsName:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#%24sel%3AprivateDnsName%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The IP address.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress"><span class="hs-identifier hs-type">awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress"><span class="annot"><span class="annottext">awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; f AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress"><span class="hs-identifier hs-var hs-var">awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkInterfacePrivateIpAddressDetail
+    -&gt; Maybe Text -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail)
+-&gt; Lens
+     AwsEc2NetworkInterfacePrivateIpAddressDetail
+     AwsEc2NetworkInterfacePrivateIpAddressDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943347"><span class="annot"><span class="annottext">Maybe Text
+privateIpAddress :: Maybe Text
+$sel:privateIpAddress:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679943347"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943347"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943346"><span class="annot"><span class="annottext">s :: AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="#local-6989586621679943346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943345"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="#local-6989586621679943346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIpAddress:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#%24sel%3AprivateIpAddress%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The private DNS name for the IP address.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName"><span class="hs-identifier hs-type">awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName"><span class="annot"><span class="annottext">awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail
+-&gt; f AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName"><span class="hs-identifier hs-var hs-var">awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkInterfacePrivateIpAddressDetail
+    -&gt; Maybe Text -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail)
+-&gt; Lens
+     AwsEc2NetworkInterfacePrivateIpAddressDetail
+     AwsEc2NetworkInterfacePrivateIpAddressDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943343"><span class="annot"><span class="annottext">Maybe Text
+privateDnsName :: Maybe Text
+$sel:privateDnsName:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679943343"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943343"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943342"><span class="annot"><span class="annottext">s :: AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="#local-6989586621679943342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943341"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="#local-6989586621679943342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateDnsName:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#%24sel%3AprivateDnsName%3AAwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679943338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679943336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsEc2NetworkInterfacePrivateIpAddressDetail)
+-&gt; Value
+-&gt; Parser AwsEc2NetworkInterfacePrivateIpAddressDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEc2NetworkInterfacePrivateIpAddressDetail&quot;</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679943333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679943333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail
+</span><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-var">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679943333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrivateIpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AwsEc2NetworkInterfacePrivateIpAddressDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser AwsEc2NetworkInterfacePrivateIpAddressDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679943333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrivateDnsName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679943327"><span id="local-6989586621679943329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679943324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679943316"><span id="local-6989586621679943318"><span id="local-6989586621679943320"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail</span></a></span></span></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679943314"><span class="annot"><span class="annottext">toJSON :: AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail.html#AwsEc2NetworkInterfacePrivateIpAddressDetail%27"><span class="hs-identifier hs-type">AwsEc2NetworkInterfacePrivateIpAddressDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943311"><span id="local-6989586621679943312"><span class="annot"><span class="annottext">Maybe Text
+privateDnsName :: Maybe Text
+privateIpAddress :: Maybe Text
+$sel:privateDnsName:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text
+$sel:privateIpAddress:AwsEc2NetworkInterfacePrivateIpAddressDetail' :: AwsEc2NetworkInterfacePrivateIpAddressDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679943311"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-95"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrivateIpAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>                </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943312"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrivateDnsName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>                </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679943311"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span></pre></body></html>

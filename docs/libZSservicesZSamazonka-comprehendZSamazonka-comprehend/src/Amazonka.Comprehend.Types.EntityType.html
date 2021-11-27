@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Comprehend.Types.EntityType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Comprehend.Types.EntityType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier">EntityType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_COMMERCIAL_ITEM"><span class="hs-identifier">EntityType_COMMERCIAL_ITEM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_DATE"><span class="hs-identifier">EntityType_DATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_EVENT"><span class="hs-identifier">EntityType_EVENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_LOCATION"><span class="hs-identifier">EntityType_LOCATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_ORGANIZATION"><span class="hs-identifier">EntityType_ORGANIZATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_OTHER"><span class="hs-identifier">EntityType_OTHER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_PERSON"><span class="hs-identifier">EntityType_PERSON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_QUANTITY"><span class="hs-identifier">EntityType_QUANTITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_TITLE"><span class="hs-identifier">EntityType_TITLE</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679342564"><span id="local-6989586621679342565"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EntityType"><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-var">EntityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityType%27"><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-var">EntityType'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEntityType"><span class="annot"><span class="annottext">EntityType -&gt; Text
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#fromEntityType"><span class="hs-identifier hs-var hs-var">fromEntityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342556"><span id="local-6989586621679342558"><span id="local-6989586621679342560"><span class="annot"><span class="annottext">Int -&gt; EntityType -&gt; ShowS
+[EntityType] -&gt; ShowS
+EntityType -&gt; String
+(Int -&gt; EntityType -&gt; ShowS)
+-&gt; (EntityType -&gt; String)
+-&gt; ([EntityType] -&gt; ShowS)
+-&gt; Show EntityType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EntityType] -&gt; ShowS
+$cshowList :: [EntityType] -&gt; ShowS
+show :: EntityType -&gt; String
+$cshow :: EntityType -&gt; String
+showsPrec :: Int -&gt; EntityType -&gt; ShowS
+$cshowsPrec :: Int -&gt; EntityType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679342547"><span id="local-6989586621679342549"><span id="local-6989586621679342551"><span id="local-6989586621679342553"><span class="annot"><span class="annottext">ReadPrec [EntityType]
+ReadPrec EntityType
+Int -&gt; ReadS EntityType
+ReadS [EntityType]
+(Int -&gt; ReadS EntityType)
+-&gt; ReadS [EntityType]
+-&gt; ReadPrec EntityType
+-&gt; ReadPrec [EntityType]
+-&gt; Read EntityType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EntityType]
+$creadListPrec :: ReadPrec [EntityType]
+readPrec :: ReadPrec EntityType
+$creadPrec :: ReadPrec EntityType
+readList :: ReadS [EntityType]
+$creadList :: ReadS [EntityType]
+readsPrec :: Int -&gt; ReadS EntityType
+$creadsPrec :: Int -&gt; ReadS EntityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679342542"><span id="local-6989586621679342544"><span class="annot"><span class="annottext">EntityType -&gt; EntityType -&gt; Bool
+(EntityType -&gt; EntityType -&gt; Bool)
+-&gt; (EntityType -&gt; EntityType -&gt; Bool) -&gt; Eq EntityType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EntityType -&gt; EntityType -&gt; Bool
+$c/= :: EntityType -&gt; EntityType -&gt; Bool
+== :: EntityType -&gt; EntityType -&gt; Bool
+$c== :: EntityType -&gt; EntityType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679342526"><span id="local-6989586621679342528"><span id="local-6989586621679342530"><span id="local-6989586621679342532"><span id="local-6989586621679342534"><span id="local-6989586621679342536"><span id="local-6989586621679342538"><span class="annot"><span class="annottext">Eq EntityType
+Eq EntityType
+-&gt; (EntityType -&gt; EntityType -&gt; Ordering)
+-&gt; (EntityType -&gt; EntityType -&gt; Bool)
+-&gt; (EntityType -&gt; EntityType -&gt; Bool)
+-&gt; (EntityType -&gt; EntityType -&gt; Bool)
+-&gt; (EntityType -&gt; EntityType -&gt; Bool)
+-&gt; (EntityType -&gt; EntityType -&gt; EntityType)
+-&gt; (EntityType -&gt; EntityType -&gt; EntityType)
+-&gt; Ord EntityType
+EntityType -&gt; EntityType -&gt; Bool
+EntityType -&gt; EntityType -&gt; Ordering
+EntityType -&gt; EntityType -&gt; EntityType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EntityType -&gt; EntityType -&gt; EntityType
+$cmin :: EntityType -&gt; EntityType -&gt; EntityType
+max :: EntityType -&gt; EntityType -&gt; EntityType
+$cmax :: EntityType -&gt; EntityType -&gt; EntityType
+&gt;= :: EntityType -&gt; EntityType -&gt; Bool
+$c&gt;= :: EntityType -&gt; EntityType -&gt; Bool
+&gt; :: EntityType -&gt; EntityType -&gt; Bool
+$c&gt; :: EntityType -&gt; EntityType -&gt; Bool
+&lt;= :: EntityType -&gt; EntityType -&gt; Bool
+$c&lt;= :: EntityType -&gt; EntityType -&gt; Bool
+&lt; :: EntityType -&gt; EntityType -&gt; Bool
+$c&lt; :: EntityType -&gt; EntityType -&gt; Bool
+compare :: EntityType -&gt; EntityType -&gt; Ordering
+$ccompare :: EntityType -&gt; EntityType -&gt; Ordering
+$cp1Ord :: Eq EntityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EntityType -&gt; Rep EntityType x)
+-&gt; (forall x. Rep EntityType x -&gt; EntityType) -&gt; Generic EntityType
+forall x. Rep EntityType x -&gt; EntityType
+forall x. EntityType -&gt; Rep EntityType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EntityType x -&gt; EntityType
+$cfrom :: forall x. EntityType -&gt; Rep EntityType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342518"><span id="local-6989586621679342520"><span class="annot"><span class="annottext">Int -&gt; EntityType -&gt; Int
+EntityType -&gt; Int
+(Int -&gt; EntityType -&gt; Int)
+-&gt; (EntityType -&gt; Int) -&gt; Hashable EntityType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EntityType -&gt; Int
+$chash :: EntityType -&gt; Int
+hashWithSalt :: Int -&gt; EntityType -&gt; Int
+$chashWithSalt :: Int -&gt; EntityType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679342515"><span class="annot"><span class="annottext">EntityType -&gt; ()
+(EntityType -&gt; ()) -&gt; NFData EntityType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EntityType -&gt; ()
+$crnf :: EntityType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679342512"><span class="annot"><span class="annottext">Text -&gt; Either String EntityType
+(Text -&gt; Either String EntityType) -&gt; FromText EntityType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EntityType
+$cfromText :: Text -&gt; Either String EntityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679342509"><span class="annot"><span class="annottext">EntityType -&gt; Text
+(EntityType -&gt; Text) -&gt; ToText EntityType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EntityType -&gt; Text
+$ctoText :: EntityType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679342506"><span class="annot"><span class="annottext">EntityType -&gt; ByteString
+(EntityType -&gt; ByteString) -&gt; ToByteString EntityType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EntityType -&gt; ByteString
+$ctoBS :: EntityType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679342503"><span class="annot"><span class="annottext">EntityType -&gt; ByteStringBuilder
+(EntityType -&gt; ByteStringBuilder) -&gt; ToLog EntityType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EntityType -&gt; ByteStringBuilder
+$cbuild :: EntityType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679342500"><span class="annot"><span class="annottext">HeaderName -&gt; EntityType -&gt; [Header]
+(HeaderName -&gt; EntityType -&gt; [Header]) -&gt; ToHeader EntityType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EntityType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EntityType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679342497"><span class="annot"><span class="annottext">EntityType -&gt; QueryString
+(EntityType -&gt; QueryString) -&gt; ToQuery EntityType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EntityType -&gt; QueryString
+$ctoQuery :: EntityType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679342492"><span id="local-6989586621679342494"><span class="annot"><span class="annottext">Value -&gt; Parser [EntityType]
+Value -&gt; Parser EntityType
+(Value -&gt; Parser EntityType)
+-&gt; (Value -&gt; Parser [EntityType]) -&gt; FromJSON EntityType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EntityType]
+$cparseJSONList :: Value -&gt; Parser [EntityType]
+parseJSON :: Value -&gt; Parser EntityType
+$cparseJSON :: Value -&gt; Parser EntityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679342487"><span id="local-6989586621679342489"><span class="annot"><span class="annottext">FromJSONKeyFunction [EntityType]
+FromJSONKeyFunction EntityType
+FromJSONKeyFunction EntityType
+-&gt; FromJSONKeyFunction [EntityType] -&gt; FromJSONKey EntityType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EntityType]
+$cfromJSONKeyList :: FromJSONKeyFunction [EntityType]
+fromJSONKey :: FromJSONKeyFunction EntityType
+$cfromJSONKey :: FromJSONKeyFunction EntityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679342478"><span id="local-6989586621679342480"><span id="local-6989586621679342482"><span id="local-6989586621679342484"><span class="annot"><span class="annottext">[EntityType] -&gt; Encoding
+[EntityType] -&gt; Value
+EntityType -&gt; Encoding
+EntityType -&gt; Value
+(EntityType -&gt; Value)
+-&gt; (EntityType -&gt; Encoding)
+-&gt; ([EntityType] -&gt; Value)
+-&gt; ([EntityType] -&gt; Encoding)
+-&gt; ToJSON EntityType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EntityType] -&gt; Encoding
+$ctoEncodingList :: [EntityType] -&gt; Encoding
+toJSONList :: [EntityType] -&gt; Value
+$ctoJSONList :: [EntityType] -&gt; Value
+toEncoding :: EntityType -&gt; Encoding
+$ctoEncoding :: EntityType -&gt; Encoding
+toJSON :: EntityType -&gt; Value
+$ctoJSON :: EntityType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679342473"><span id="local-6989586621679342475"><span class="annot"><span class="annottext">ToJSONKeyFunction [EntityType]
+ToJSONKeyFunction EntityType
+ToJSONKeyFunction EntityType
+-&gt; ToJSONKeyFunction [EntityType] -&gt; ToJSONKey EntityType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EntityType]
+$ctoJSONKeyList :: ToJSONKeyFunction [EntityType]
+toJSONKey :: ToJSONKeyFunction EntityType
+$ctoJSONKey :: ToJSONKeyFunction EntityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679342470"><span class="annot"><span class="annottext">[Node] -&gt; Either String EntityType
+([Node] -&gt; Either String EntityType) -&gt; FromXML EntityType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EntityType
+$cparseXML :: [Node] -&gt; Either String EntityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679342467"><span class="annot"><span class="annottext">EntityType -&gt; XML
+(EntityType -&gt; XML) -&gt; ToXML EntityType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EntityType -&gt; XML
+$ctoXML :: EntityType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_COMMERCIAL_ITEM"><span class="hs-identifier hs-type">EntityType_COMMERCIAL_ITEM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_COMMERCIAL_ITEM"><span id="%24mEntityType_COMMERCIAL_ITEM"><span id="EntityType_COMMERCIAL_ITEM"><span class="annot"><span class="annottext">$bEntityType_COMMERCIAL_ITEM :: EntityType
+$mEntityType_COMMERCIAL_ITEM :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_COMMERCIAL_ITEM"><span class="hs-identifier hs-var hs-var hs-var">EntityType_COMMERCIAL_ITEM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMMERCIAL_ITEM&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_DATE"><span class="hs-identifier hs-type">EntityType_DATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_DATE"><span id="%24mEntityType_DATE"><span id="EntityType_DATE"><span class="annot"><span class="annottext">$bEntityType_DATE :: EntityType
+$mEntityType_DATE :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_DATE"><span class="hs-identifier hs-var hs-var hs-var">EntityType_DATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_EVENT"><span class="hs-identifier hs-type">EntityType_EVENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_EVENT"><span id="%24mEntityType_EVENT"><span id="EntityType_EVENT"><span class="annot"><span class="annottext">$bEntityType_EVENT :: EntityType
+$mEntityType_EVENT :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_EVENT"><span class="hs-identifier hs-var hs-var hs-var">EntityType_EVENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EVENT&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_LOCATION"><span class="hs-identifier hs-type">EntityType_LOCATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_LOCATION"><span id="%24mEntityType_LOCATION"><span id="EntityType_LOCATION"><span class="annot"><span class="annottext">$bEntityType_LOCATION :: EntityType
+$mEntityType_LOCATION :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_LOCATION"><span class="hs-identifier hs-var hs-var hs-var">EntityType_LOCATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOCATION&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_ORGANIZATION"><span class="hs-identifier hs-type">EntityType_ORGANIZATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_ORGANIZATION"><span id="%24mEntityType_ORGANIZATION"><span id="EntityType_ORGANIZATION"><span class="annot"><span class="annottext">$bEntityType_ORGANIZATION :: EntityType
+$mEntityType_ORGANIZATION :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_ORGANIZATION"><span class="hs-identifier hs-var hs-var hs-var">EntityType_ORGANIZATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ORGANIZATION&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_OTHER"><span class="hs-identifier hs-type">EntityType_OTHER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_OTHER"><span id="%24mEntityType_OTHER"><span id="EntityType_OTHER"><span class="annot"><span class="annottext">$bEntityType_OTHER :: EntityType
+$mEntityType_OTHER :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_OTHER"><span class="hs-identifier hs-var hs-var hs-var">EntityType_OTHER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OTHER&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_PERSON"><span class="hs-identifier hs-type">EntityType_PERSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_PERSON"><span id="%24mEntityType_PERSON"><span id="EntityType_PERSON"><span class="annot"><span class="annottext">$bEntityType_PERSON :: EntityType
+$mEntityType_PERSON :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_PERSON"><span class="hs-identifier hs-var hs-var hs-var">EntityType_PERSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERSON&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_QUANTITY"><span class="hs-identifier hs-type">EntityType_QUANTITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_QUANTITY"><span id="%24mEntityType_QUANTITY"><span id="EntityType_QUANTITY"><span class="annot"><span class="annottext">$bEntityType_QUANTITY :: EntityType
+$mEntityType_QUANTITY :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_QUANTITY"><span class="hs-identifier hs-var hs-var hs-var">EntityType_QUANTITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUANTITY&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_TITLE"><span class="hs-identifier hs-type">EntityType_TITLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityType_TITLE"><span id="%24mEntityType_TITLE"><span id="EntityType_TITLE"><span class="annot"><span class="annottext">$bEntityType_TITLE :: EntityType
+$mEntityType_TITLE :: forall r. EntityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.EntityType.html#%24bEntityType_TITLE"><span class="hs-identifier hs-var hs-var hs-var">EntityType_TITLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-identifier hs-type">EntityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TITLE&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_COMMERCIAL_ITEM"><span class="hs-pragma hs-type">EntityType_COMMERCIAL_ITEM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_DATE"><span class="hs-pragma hs-type">EntityType_DATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_EVENT"><span class="hs-pragma hs-type">EntityType_EVENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_LOCATION"><span class="hs-pragma hs-type">EntityType_LOCATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_ORGANIZATION"><span class="hs-pragma hs-type">EntityType_ORGANIZATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_OTHER"><span class="hs-pragma hs-type">EntityType_OTHER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_PERSON"><span class="hs-pragma hs-type">EntityType_PERSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_QUANTITY"><span class="hs-pragma hs-type">EntityType_QUANTITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType_TITLE"><span class="hs-pragma hs-type">EntityType_TITLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.EntityType.html#EntityType%27"><span class="hs-pragma hs-type">EntityType'</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-106"></span></pre></body></html>

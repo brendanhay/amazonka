@@ -1,0 +1,1759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WellArchitected.Types.Workload</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WellArchitected.Types.Workload</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Risk.html"><span class="hs-identifier">Amazonka.WellArchitected.Types.Risk</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.WorkloadEnvironment.html"><span class="hs-identifier">Amazonka.WellArchitected.Types.WorkloadEnvironment</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.WorkloadImprovementStatus.html"><span class="hs-identifier">Amazonka.WellArchitected.Types.WorkloadImprovementStatus</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A workload return object.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newWorkload' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679244708"><span id="local-6989586621679244709"></span></span><span class="hs-keyword">data</span><span> </span><span id="Workload"><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-var">Workload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Workload%27"><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-var">Workload'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Flag indicating whether the workload owner has acknowledged that the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- /Review owner/ field is required.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If a __Review owner__ is not added to the workload within 60 days of</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- acknowledgement, access to the workload is restricted until an owner is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- added.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AisReviewOwnerUpdateAcknowledged%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Bool
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AisReviewOwnerUpdateAcknowledged%3AWorkload%27"><span class="hs-identifier hs-var hs-var">isReviewOwnerUpdateAcknowledged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AarchitecturalDesign%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AarchitecturalDesign%3AWorkload%27"><span class="hs-identifier hs-var hs-var">architecturalDesign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AaccountIds%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AaccountIds%3AWorkload%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Alenses%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Alenses%3AWorkload%27"><span class="hs-identifier hs-var hs-var">lenses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AreviewRestrictionDate%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe POSIX
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AreviewRestrictionDate%3AWorkload%27"><span class="hs-identifier hs-var hs-var">reviewRestrictionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aindustry%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aindustry%3AWorkload%27"><span class="hs-identifier hs-var hs-var">industry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aenvironment%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe WorkloadEnvironment
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aenvironment%3AWorkload%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment"><span class="hs-identifier hs-type">WorkloadEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AriskCounts%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe (HashMap Risk Natural)
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AriskCounts%3AWorkload%27"><span class="hs-identifier hs-var hs-var">riskCounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Risk.html#Risk"><span class="hs-identifier hs-type">Risk</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AawsRegions%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AawsRegions%3AWorkload%27"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aowner%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aowner%3AWorkload%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AimprovementStatus%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe WorkloadImprovementStatus
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AimprovementStatus%3AWorkload%27"><span class="hs-identifier hs-var hs-var">improvementStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-type">WorkloadImprovementStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AworkloadArn%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadArn%3AWorkload%27"><span class="hs-identifier hs-var hs-var">workloadArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AindustryType%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AindustryType%3AWorkload%27"><span class="hs-identifier hs-var hs-var">industryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AworkloadId%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadId%3AWorkload%27"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AworkloadName%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadName%3AWorkload%27"><span class="hs-identifier hs-var hs-var">workloadName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AupdatedAt%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe POSIX
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AupdatedAt%3AWorkload%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Anotes%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Anotes%3AWorkload%27"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AreviewOwner%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AreviewOwner%3AWorkload%27"><span class="hs-identifier hs-var hs-var">reviewOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Adescription%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Adescription%3AWorkload%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApillarPriorities%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3ApillarPriorities%3AWorkload%27"><span class="hs-identifier hs-var hs-var">pillarPriorities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID assigned to the share invitation.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AshareInvitationId%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AshareInvitationId%3AWorkload%27"><span class="hs-identifier hs-var hs-var">shareInvitationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnonAwsRegions%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AnonAwsRegions%3AWorkload%27"><span class="hs-identifier hs-var hs-var">nonAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The tags associated with the workload.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atags%3AWorkload%27"><span class="annot"><span class="annottext">Workload -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Atags%3AWorkload%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244680"><span id="local-6989586621679244682"><span class="annot"><span class="annottext">Workload -&gt; Workload -&gt; Bool
+(Workload -&gt; Workload -&gt; Bool)
+-&gt; (Workload -&gt; Workload -&gt; Bool) -&gt; Eq Workload
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Workload -&gt; Workload -&gt; Bool
+$c/= :: Workload -&gt; Workload -&gt; Bool
+== :: Workload -&gt; Workload -&gt; Bool
+$c== :: Workload -&gt; Workload -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244671"><span id="local-6989586621679244673"><span id="local-6989586621679244675"><span id="local-6989586621679244677"><span class="annot"><span class="annottext">ReadPrec [Workload]
+ReadPrec Workload
+Int -&gt; ReadS Workload
+ReadS [Workload]
+(Int -&gt; ReadS Workload)
+-&gt; ReadS [Workload]
+-&gt; ReadPrec Workload
+-&gt; ReadPrec [Workload]
+-&gt; Read Workload
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Workload]
+$creadListPrec :: ReadPrec [Workload]
+readPrec :: ReadPrec Workload
+$creadPrec :: ReadPrec Workload
+readList :: ReadS [Workload]
+$creadList :: ReadS [Workload]
+readsPrec :: Int -&gt; ReadS Workload
+$creadsPrec :: Int -&gt; ReadS Workload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244664"><span id="local-6989586621679244666"><span id="local-6989586621679244668"><span class="annot"><span class="annottext">Int -&gt; Workload -&gt; ShowS
+[Workload] -&gt; ShowS
+Workload -&gt; String
+(Int -&gt; Workload -&gt; ShowS)
+-&gt; (Workload -&gt; String) -&gt; ([Workload] -&gt; ShowS) -&gt; Show Workload
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Workload] -&gt; ShowS
+$cshowList :: [Workload] -&gt; ShowS
+show :: Workload -&gt; String
+$cshow :: Workload -&gt; String
+showsPrec :: Int -&gt; Workload -&gt; ShowS
+$cshowsPrec :: Int -&gt; Workload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Workload -&gt; Rep Workload x)
+-&gt; (forall x. Rep Workload x -&gt; Workload) -&gt; Generic Workload
+forall x. Rep Workload x -&gt; Workload
+forall x. Workload -&gt; Rep Workload x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Workload x -&gt; Workload
+$cfrom :: forall x. Workload -&gt; Rep Workload x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'Workload' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'isReviewOwnerUpdateAcknowledged', 'workload_isReviewOwnerUpdateAcknowledged' - Flag indicating whether the workload owner has acknowledged that the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- /Review owner/ field is required.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- If a __Review owner__ is not added to the workload within 60 days of</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- acknowledgement, access to the workload is restricted until an owner is</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- added.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'architecturalDesign', 'workload_architecturalDesign' - Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'accountIds', 'workload_accountIds' - Undocumented member.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'lenses', 'workload_lenses' - Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'reviewRestrictionDate', 'workload_reviewRestrictionDate' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'industry', 'workload_industry' - Undocumented member.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'environment', 'workload_environment' - Undocumented member.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'riskCounts', 'workload_riskCounts' - Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'awsRegions', 'workload_awsRegions' - Undocumented member.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'owner', 'workload_owner' - Undocumented member.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'improvementStatus', 'workload_improvementStatus' - Undocumented member.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'workloadArn', 'workload_workloadArn' - Undocumented member.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'industryType', 'workload_industryType' - Undocumented member.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'workloadId', 'workload_workloadId' - Undocumented member.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'workloadName', 'workload_workloadName' - Undocumented member.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'updatedAt', 'workload_updatedAt' - Undocumented member.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'notes', 'workload_notes' - Undocumented member.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'reviewOwner', 'workload_reviewOwner' - Undocumented member.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'description', 'workload_description' - Undocumented member.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'pillarPriorities', 'workload_pillarPriorities' - Undocumented member.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'shareInvitationId', 'workload_shareInvitationId' - The ID assigned to the share invitation.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'nonAwsRegions', 'workload_nonAwsRegions' - Undocumented member.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'tags', 'workload_tags' - The tags associated with the workload.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#newWorkload"><span class="hs-identifier hs-type">newWorkload</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span>
+</span><span id="line-127"></span><span id="newWorkload"><span class="annot"><span class="annottext">newWorkload :: Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#newWorkload"><span class="hs-identifier hs-var hs-var">newWorkload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">Workload' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe WorkloadEnvironment
+-&gt; Maybe (HashMap Risk Natural)
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe WorkloadImprovementStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isReviewOwnerUpdateAcknowledged:Workload' :: Maybe Bool
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AisReviewOwnerUpdateAcknowledged%3AWorkload%27"><span class="hs-identifier hs-var">isReviewOwnerUpdateAcknowledged</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:architecturalDesign:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AarchitecturalDesign%3AWorkload%27"><span class="hs-identifier hs-var">architecturalDesign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIds:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AaccountIds%3AWorkload%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:lenses:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Alenses%3AWorkload%27"><span class="hs-identifier hs-var">lenses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:reviewRestrictionDate:Workload' :: Maybe POSIX
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AreviewRestrictionDate%3AWorkload%27"><span class="hs-identifier hs-var">reviewRestrictionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:industry:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aindustry%3AWorkload%27"><span class="hs-identifier hs-var">industry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:environment:Workload' :: Maybe WorkloadEnvironment
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aenvironment%3AWorkload%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkloadEnvironment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:riskCounts:Workload' :: Maybe (HashMap Risk Natural)
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AriskCounts%3AWorkload%27"><span class="hs-identifier hs-var">riskCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Risk Natural)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegions:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AawsRegions%3AWorkload%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aowner%3AWorkload%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:improvementStatus:Workload' :: Maybe WorkloadImprovementStatus
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AimprovementStatus%3AWorkload%27"><span class="hs-identifier hs-var">improvementStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkloadImprovementStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:workloadArn:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadArn%3AWorkload%27"><span class="hs-identifier hs-var">workloadArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:industryType:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AindustryType%3AWorkload%27"><span class="hs-identifier hs-var">industryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:workloadId:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadId%3AWorkload%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:workloadName:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadName%3AWorkload%27"><span class="hs-identifier hs-var">workloadName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedAt:Workload' :: Maybe POSIX
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AupdatedAt%3AWorkload%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:notes:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Anotes%3AWorkload%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:reviewOwner:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AreviewOwner%3AWorkload%27"><span class="hs-identifier hs-var">reviewOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Adescription%3AWorkload%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:pillarPriorities:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3ApillarPriorities%3AWorkload%27"><span class="hs-identifier hs-var">pillarPriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareInvitationId:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AshareInvitationId%3AWorkload%27"><span class="hs-identifier hs-var">shareInvitationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonAwsRegions:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AnonAwsRegions%3AWorkload%27"><span class="hs-identifier hs-var">nonAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Workload' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Atags%3AWorkload%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Flag indicating whether the workload owner has acknowledged that the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- /Review owner/ field is required.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If a __Review owner__ is not added to the workload within 60 days of</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- acknowledgement, access to the workload is restricted until an owner is</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- added.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_isReviewOwnerUpdateAcknowledged"><span class="hs-identifier hs-type">workload_isReviewOwnerUpdateAcknowledged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="workload_isReviewOwnerUpdateAcknowledged"><span class="annot"><span class="annottext">workload_isReviewOwnerUpdateAcknowledged :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_isReviewOwnerUpdateAcknowledged"><span class="hs-identifier hs-var hs-var">workload_isReviewOwnerUpdateAcknowledged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Bool)
+-&gt; (Workload -&gt; Maybe Bool -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244655"><span class="annot"><span class="annottext">Maybe Bool
+isReviewOwnerUpdateAcknowledged :: Maybe Bool
+$sel:isReviewOwnerUpdateAcknowledged:Workload' :: Workload -&gt; Maybe Bool
+</span><a href="#local-6989586621679244655"><span class="hs-identifier hs-var hs-var">isReviewOwnerUpdateAcknowledged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244655"><span class="hs-identifier hs-var">isReviewOwnerUpdateAcknowledged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244654"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244653"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isReviewOwnerUpdateAcknowledged:Workload' :: Maybe Bool
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AisReviewOwnerUpdateAcknowledged%3AWorkload%27"><span class="hs-identifier hs-var">isReviewOwnerUpdateAcknowledged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_architecturalDesign"><span class="hs-identifier hs-type">workload_architecturalDesign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="workload_architecturalDesign"><span class="annot"><span class="annottext">workload_architecturalDesign :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_architecturalDesign"><span class="hs-identifier hs-var hs-var">workload_architecturalDesign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244651"><span class="annot"><span class="annottext">Maybe Text
+architecturalDesign :: Maybe Text
+$sel:architecturalDesign:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244651"><span class="hs-identifier hs-var hs-var">architecturalDesign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244651"><span class="hs-identifier hs-var">architecturalDesign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244650"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244649"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:architecturalDesign:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AarchitecturalDesign%3AWorkload%27"><span class="hs-identifier hs-var">architecturalDesign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_accountIds"><span class="hs-identifier hs-type">workload_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="workload_accountIds"><span class="annot"><span class="annottext">workload_accountIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_accountIds"><span class="hs-identifier hs-var hs-var">workload_accountIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe [Text])
+-&gt; (Workload -&gt; Maybe [Text] -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244647"><span class="annot"><span class="annottext">Maybe [Text]
+accountIds :: Maybe [Text]
+$sel:accountIds:Workload' :: Workload -&gt; Maybe [Text]
+</span><a href="#local-6989586621679244647"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244647"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244646"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244645"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AaccountIds%3AWorkload%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_lenses"><span class="hs-identifier hs-type">workload_lenses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="workload_lenses"><span class="annot"><span class="annottext">workload_lenses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_lenses"><span class="hs-identifier hs-var hs-var">workload_lenses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe [Text])
+-&gt; (Workload -&gt; Maybe [Text] -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244640"><span class="annot"><span class="annottext">Maybe [Text]
+lenses :: Maybe [Text]
+$sel:lenses:Workload' :: Workload -&gt; Maybe [Text]
+</span><a href="#local-6989586621679244640"><span class="hs-identifier hs-var hs-var">lenses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244640"><span class="hs-identifier hs-var">lenses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244639"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244638"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lenses:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Alenses%3AWorkload%27"><span class="hs-identifier hs-var">lenses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_reviewRestrictionDate"><span class="hs-identifier hs-type">workload_reviewRestrictionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="workload_reviewRestrictionDate"><span class="annot"><span class="annottext">workload_reviewRestrictionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_reviewRestrictionDate"><span class="hs-identifier hs-var hs-var">workload_reviewRestrictionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe POSIX)
+-&gt; (Workload -&gt; Maybe POSIX -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244636"><span class="annot"><span class="annottext">Maybe POSIX
+reviewRestrictionDate :: Maybe POSIX
+$sel:reviewRestrictionDate:Workload' :: Workload -&gt; Maybe POSIX
+</span><a href="#local-6989586621679244636"><span class="hs-identifier hs-var hs-var">reviewRestrictionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244636"><span class="hs-identifier hs-var">reviewRestrictionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244635"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244634"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewRestrictionDate:Workload' :: Maybe POSIX
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AreviewRestrictionDate%3AWorkload%27"><span class="hs-identifier hs-var">reviewRestrictionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_industry"><span class="hs-identifier hs-type">workload_industry</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="workload_industry"><span class="annot"><span class="annottext">workload_industry :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_industry"><span class="hs-identifier hs-var hs-var">workload_industry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244631"><span class="annot"><span class="annottext">Maybe Text
+industry :: Maybe Text
+$sel:industry:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244631"><span class="hs-identifier hs-var hs-var">industry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244631"><span class="hs-identifier hs-var">industry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244630"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244629"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:industry:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aindustry%3AWorkload%27"><span class="hs-identifier hs-var">industry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_environment"><span class="hs-identifier hs-type">workload_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment"><span class="hs-identifier hs-type">WorkloadEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="workload_environment"><span class="annot"><span class="annottext">workload_environment :: (Maybe WorkloadEnvironment -&gt; f (Maybe WorkloadEnvironment))
+-&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_environment"><span class="hs-identifier hs-var hs-var">workload_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe WorkloadEnvironment)
+-&gt; (Workload -&gt; Maybe WorkloadEnvironment -&gt; Workload)
+-&gt; Lens
+     Workload
+     Workload
+     (Maybe WorkloadEnvironment)
+     (Maybe WorkloadEnvironment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244627"><span class="annot"><span class="annottext">Maybe WorkloadEnvironment
+environment :: Maybe WorkloadEnvironment
+$sel:environment:Workload' :: Workload -&gt; Maybe WorkloadEnvironment
+</span><a href="#local-6989586621679244627"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkloadEnvironment
+</span><a href="#local-6989586621679244627"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244626"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244625"><span class="annot"><span class="annottext">Maybe WorkloadEnvironment
+</span><a href="#local-6989586621679244625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:Workload' :: Maybe WorkloadEnvironment
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aenvironment%3AWorkload%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkloadEnvironment
+</span><a href="#local-6989586621679244625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_riskCounts"><span class="hs-identifier hs-type">workload_riskCounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Risk.html#Risk"><span class="hs-identifier hs-type">Risk</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="workload_riskCounts"><span class="annot"><span class="annottext">workload_riskCounts :: (Maybe (HashMap Risk Natural) -&gt; f (Maybe (HashMap Risk Natural)))
+-&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_riskCounts"><span class="hs-identifier hs-var hs-var">workload_riskCounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe (HashMap Risk Natural))
+-&gt; (Workload -&gt; Maybe (HashMap Risk Natural) -&gt; Workload)
+-&gt; Lens
+     Workload
+     Workload
+     (Maybe (HashMap Risk Natural))
+     (Maybe (HashMap Risk Natural))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244623"><span class="annot"><span class="annottext">Maybe (HashMap Risk Natural)
+riskCounts :: Maybe (HashMap Risk Natural)
+$sel:riskCounts:Workload' :: Workload -&gt; Maybe (HashMap Risk Natural)
+</span><a href="#local-6989586621679244623"><span class="hs-identifier hs-var hs-var">riskCounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Risk Natural)
+</span><a href="#local-6989586621679244623"><span class="hs-identifier hs-var">riskCounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244622"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244621"><span class="annot"><span class="annottext">Maybe (HashMap Risk Natural)
+</span><a href="#local-6989586621679244621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:riskCounts:Workload' :: Maybe (HashMap Risk Natural)
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AriskCounts%3AWorkload%27"><span class="hs-identifier hs-var">riskCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Risk Natural)
+</span><a href="#local-6989586621679244621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Risk Natural) -&gt; f (Maybe (HashMap Risk Natural)))
+ -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe (HashMap Risk Natural)
+     -&gt; f (Maybe (HashMap Risk Natural)))
+    -&gt; Maybe (HashMap Risk Natural)
+    -&gt; f (Maybe (HashMap Risk Natural)))
+-&gt; (Maybe (HashMap Risk Natural)
+    -&gt; f (Maybe (HashMap Risk Natural)))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Risk Natural)
+  (HashMap Risk Natural)
+  (HashMap Risk Natural)
+  (HashMap Risk Natural)
+-&gt; Iso
+     (Maybe (HashMap Risk Natural))
+     (Maybe (HashMap Risk Natural))
+     (Maybe (HashMap Risk Natural))
+     (Maybe (HashMap Risk Natural))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Risk Natural)
+  (HashMap Risk Natural)
+  (HashMap Risk Natural)
+  (HashMap Risk Natural)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_awsRegions"><span class="hs-identifier hs-type">workload_awsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="workload_awsRegions"><span class="annot"><span class="annottext">workload_awsRegions :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_awsRegions"><span class="hs-identifier hs-var hs-var">workload_awsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe [Text])
+-&gt; (Workload -&gt; Maybe [Text] -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244619"><span class="annot"><span class="annottext">Maybe [Text]
+awsRegions :: Maybe [Text]
+$sel:awsRegions:Workload' :: Workload -&gt; Maybe [Text]
+</span><a href="#local-6989586621679244619"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244619"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244618"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244617"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegions:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AawsRegions%3AWorkload%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_owner"><span class="hs-identifier hs-type">workload_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="workload_owner"><span class="annot"><span class="annottext">workload_owner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_owner"><span class="hs-identifier hs-var hs-var">workload_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244615"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244615"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244615"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244614"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244613"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Aowner%3AWorkload%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_improvementStatus"><span class="hs-identifier hs-type">workload_improvementStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-type">WorkloadImprovementStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="workload_improvementStatus"><span class="annot"><span class="annottext">workload_improvementStatus :: (Maybe WorkloadImprovementStatus
+ -&gt; f (Maybe WorkloadImprovementStatus))
+-&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_improvementStatus"><span class="hs-identifier hs-var hs-var">workload_improvementStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe WorkloadImprovementStatus)
+-&gt; (Workload -&gt; Maybe WorkloadImprovementStatus -&gt; Workload)
+-&gt; Lens
+     Workload
+     Workload
+     (Maybe WorkloadImprovementStatus)
+     (Maybe WorkloadImprovementStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244611"><span class="annot"><span class="annottext">Maybe WorkloadImprovementStatus
+improvementStatus :: Maybe WorkloadImprovementStatus
+$sel:improvementStatus:Workload' :: Workload -&gt; Maybe WorkloadImprovementStatus
+</span><a href="#local-6989586621679244611"><span class="hs-identifier hs-var hs-var">improvementStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkloadImprovementStatus
+</span><a href="#local-6989586621679244611"><span class="hs-identifier hs-var">improvementStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244610"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244609"><span class="annot"><span class="annottext">Maybe WorkloadImprovementStatus
+</span><a href="#local-6989586621679244609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:improvementStatus:Workload' :: Maybe WorkloadImprovementStatus
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AimprovementStatus%3AWorkload%27"><span class="hs-identifier hs-var">improvementStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkloadImprovementStatus
+</span><a href="#local-6989586621679244609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_workloadArn"><span class="hs-identifier hs-type">workload_workloadArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="workload_workloadArn"><span class="annot"><span class="annottext">workload_workloadArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_workloadArn"><span class="hs-identifier hs-var hs-var">workload_workloadArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244607"><span class="annot"><span class="annottext">Maybe Text
+workloadArn :: Maybe Text
+$sel:workloadArn:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244607"><span class="hs-identifier hs-var hs-var">workloadArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244607"><span class="hs-identifier hs-var">workloadArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244606"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244605"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workloadArn:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadArn%3AWorkload%27"><span class="hs-identifier hs-var">workloadArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_industryType"><span class="hs-identifier hs-type">workload_industryType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="workload_industryType"><span class="annot"><span class="annottext">workload_industryType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_industryType"><span class="hs-identifier hs-var hs-var">workload_industryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244603"><span class="annot"><span class="annottext">Maybe Text
+industryType :: Maybe Text
+$sel:industryType:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244603"><span class="hs-identifier hs-var hs-var">industryType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244603"><span class="hs-identifier hs-var">industryType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244602"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244601"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:industryType:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AindustryType%3AWorkload%27"><span class="hs-identifier hs-var">industryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_workloadId"><span class="hs-identifier hs-type">workload_workloadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="workload_workloadId"><span class="annot"><span class="annottext">workload_workloadId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_workloadId"><span class="hs-identifier hs-var hs-var">workload_workloadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244599"><span class="annot"><span class="annottext">Maybe Text
+workloadId :: Maybe Text
+$sel:workloadId:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244599"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244599"><span class="hs-identifier hs-var">workloadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244598"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244597"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workloadId:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadId%3AWorkload%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_workloadName"><span class="hs-identifier hs-type">workload_workloadName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="workload_workloadName"><span class="annot"><span class="annottext">workload_workloadName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_workloadName"><span class="hs-identifier hs-var hs-var">workload_workloadName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244595"><span class="annot"><span class="annottext">Maybe Text
+workloadName :: Maybe Text
+$sel:workloadName:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244595"><span class="hs-identifier hs-var hs-var">workloadName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244595"><span class="hs-identifier hs-var">workloadName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244594"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244593"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workloadName:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AworkloadName%3AWorkload%27"><span class="hs-identifier hs-var">workloadName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_updatedAt"><span class="hs-identifier hs-type">workload_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="workload_updatedAt"><span class="annot"><span class="annottext">workload_updatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_updatedAt"><span class="hs-identifier hs-var hs-var">workload_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe POSIX)
+-&gt; (Workload -&gt; Maybe POSIX -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244591"><span class="annot"><span class="annottext">Maybe POSIX
+updatedAt :: Maybe POSIX
+$sel:updatedAt:Workload' :: Workload -&gt; Maybe POSIX
+</span><a href="#local-6989586621679244591"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244591"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244590"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244589"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:Workload' :: Maybe POSIX
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AupdatedAt%3AWorkload%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_notes"><span class="hs-identifier hs-type">workload_notes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="workload_notes"><span class="annot"><span class="annottext">workload_notes :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_notes"><span class="hs-identifier hs-var hs-var">workload_notes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244587"><span class="annot"><span class="annottext">Maybe Text
+notes :: Maybe Text
+$sel:notes:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244587"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244587"><span class="hs-identifier hs-var">notes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244586"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notes:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Anotes%3AWorkload%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_reviewOwner"><span class="hs-identifier hs-type">workload_reviewOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="workload_reviewOwner"><span class="annot"><span class="annottext">workload_reviewOwner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_reviewOwner"><span class="hs-identifier hs-var hs-var">workload_reviewOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244583"><span class="annot"><span class="annottext">Maybe Text
+reviewOwner :: Maybe Text
+$sel:reviewOwner:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244583"><span class="hs-identifier hs-var hs-var">reviewOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244583"><span class="hs-identifier hs-var">reviewOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244582"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewOwner:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AreviewOwner%3AWorkload%27"><span class="hs-identifier hs-var">reviewOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_description"><span class="hs-identifier hs-type">workload_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="workload_description"><span class="annot"><span class="annottext">workload_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_description"><span class="hs-identifier hs-var hs-var">workload_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244579"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244579"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244579"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244578"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Adescription%3AWorkload%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_pillarPriorities"><span class="hs-identifier hs-type">workload_pillarPriorities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="workload_pillarPriorities"><span class="annot"><span class="annottext">workload_pillarPriorities :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_pillarPriorities"><span class="hs-identifier hs-var hs-var">workload_pillarPriorities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe [Text])
+-&gt; (Workload -&gt; Maybe [Text] -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244575"><span class="annot"><span class="annottext">Maybe [Text]
+pillarPriorities :: Maybe [Text]
+$sel:pillarPriorities:Workload' :: Workload -&gt; Maybe [Text]
+</span><a href="#local-6989586621679244575"><span class="hs-identifier hs-var hs-var">pillarPriorities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244575"><span class="hs-identifier hs-var">pillarPriorities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244574"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244573"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pillarPriorities:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3ApillarPriorities%3AWorkload%27"><span class="hs-identifier hs-var">pillarPriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The ID assigned to the share invitation.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_shareInvitationId"><span class="hs-identifier hs-type">workload_shareInvitationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="workload_shareInvitationId"><span class="annot"><span class="annottext">workload_shareInvitationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_shareInvitationId"><span class="hs-identifier hs-var hs-var">workload_shareInvitationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe Text)
+-&gt; (Workload -&gt; Maybe Text -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244571"><span class="annot"><span class="annottext">Maybe Text
+shareInvitationId :: Maybe Text
+$sel:shareInvitationId:Workload' :: Workload -&gt; Maybe Text
+</span><a href="#local-6989586621679244571"><span class="hs-identifier hs-var hs-var">shareInvitationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244571"><span class="hs-identifier hs-var">shareInvitationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244570"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareInvitationId:Workload' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AshareInvitationId%3AWorkload%27"><span class="hs-identifier hs-var">shareInvitationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_nonAwsRegions"><span class="hs-identifier hs-type">workload_nonAwsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="workload_nonAwsRegions"><span class="annot"><span class="annottext">workload_nonAwsRegions :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_nonAwsRegions"><span class="hs-identifier hs-var hs-var">workload_nonAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe [Text])
+-&gt; (Workload -&gt; Maybe [Text] -&gt; Workload)
+-&gt; Lens Workload Workload (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244567"><span class="annot"><span class="annottext">Maybe [Text]
+nonAwsRegions :: Maybe [Text]
+$sel:nonAwsRegions:Workload' :: Workload -&gt; Maybe [Text]
+</span><a href="#local-6989586621679244567"><span class="hs-identifier hs-var hs-var">nonAwsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244567"><span class="hs-identifier hs-var">nonAwsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244566"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244565"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonAwsRegions:Workload' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3AnonAwsRegions%3AWorkload%27"><span class="hs-identifier hs-var">nonAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The tags associated with the workload.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#workload_tags"><span class="hs-identifier hs-type">workload_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="workload_tags"><span class="annot"><span class="annottext">workload_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Workload -&gt; f Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#workload_tags"><span class="hs-identifier hs-var hs-var">workload_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workload -&gt; Maybe (HashMap Text Text))
+-&gt; (Workload -&gt; Maybe (HashMap Text Text) -&gt; Workload)
+-&gt; Lens
+     Workload
+     Workload
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244563"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:Workload' :: Workload -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244563"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244563"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244562"><span class="annot"><span class="annottext">s :: Workload
+</span><a href="#local-6989586621679244562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-type">Workload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244561"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workload
+</span><a href="#local-6989586621679244562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Workload' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#%24sel%3Atags%3AWorkload%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Workload -&gt; f Workload)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Workload
+-&gt; f Workload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244558"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679244556"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Workload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Workload) -&gt; Value -&gt; Parser Workload
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Workload&quot;</span></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244553"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe WorkloadEnvironment
+-&gt; Maybe (HashMap Risk Natural)
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe WorkloadImprovementStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Workload
+</span><a href="Amazonka.WellArchitected.Types.Workload.html#Workload%27"><span class="hs-identifier hs-var">Workload'</span></a></span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe WorkloadEnvironment
+ -&gt; Maybe (HashMap Risk Natural)
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe WorkloadImprovementStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Workload)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadEnvironment
+      -&gt; Maybe (HashMap Risk Natural)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsReviewOwnerUpdateAcknowledged&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadEnvironment
+   -&gt; Maybe (HashMap Risk Natural)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadEnvironment
+      -&gt; Maybe (HashMap Risk Natural)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArchitecturalDesign&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadEnvironment
+   -&gt; Maybe (HashMap Risk Natural)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadEnvironment
+      -&gt; Maybe (HashMap Risk Natural)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadEnvironment
+   -&gt; Maybe (HashMap Risk Natural)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadEnvironment
+      -&gt; Maybe (HashMap Risk Natural)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Lenses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadEnvironment
+   -&gt; Maybe (HashMap Risk Natural)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe WorkloadEnvironment
+      -&gt; Maybe (HashMap Risk Natural)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReviewRestrictionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe WorkloadEnvironment
+   -&gt; Maybe (HashMap Risk Natural)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe WorkloadEnvironment
+      -&gt; Maybe (HashMap Risk Natural)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Industry&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkloadEnvironment
+   -&gt; Maybe (HashMap Risk Natural)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe WorkloadEnvironment)
+-&gt; Parser
+     (Maybe (HashMap Risk Natural)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkloadEnvironment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Environment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Risk Natural)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe (HashMap Risk Natural))
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Risk Natural)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RiskCounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Risk Natural)))
+-&gt; Maybe (HashMap Risk Natural)
+-&gt; Parser (Maybe (HashMap Risk Natural))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Risk Natural)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe WorkloadImprovementStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkloadImprovementStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe WorkloadImprovementStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkloadImprovementStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImprovementStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkloadArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndustryType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkloadId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkloadName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Notes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReviewOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Workload)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text] -&gt; Maybe (HashMap Text Text) -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PillarPriorities&quot;</span></span><span>
+</span><span id="line-278"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-279"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text] -&gt; Maybe (HashMap Text Text) -&gt; Workload)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Text] -&gt; Maybe (HashMap Text Text) -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShareInvitationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe (HashMap Text Text) -&gt; Workload)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; Workload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonAwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; Workload)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser Workload
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244546"><span id="local-6989586621679244548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span></span></span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Workload.html#Workload"><span class="hs-identifier hs-type">Workload</span></a></span></span><span>
+</span><span id="line-288"></span></pre></body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.ArchiveOutputSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.ArchiveOutputSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveContainerSettings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ArchiveContainerSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Archive Output Settings</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newArchiveOutputSettings' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679911584"><span id="local-6989586621679911585"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveOutputSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-var">ArchiveOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveOutputSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-var">ArchiveOutputSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Output file extension. If excluded, this will be auto-selected from the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- container type.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aextension%3AArchiveOutputSettings%27"><span class="annot"><span class="annottext">ArchiveOutputSettings -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3Aextension%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var hs-var">extension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | String concatenated to the end of the destination filename. Required for</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- multiple outputs of the same type.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnameModifier%3AArchiveOutputSettings%27"><span class="annot"><span class="annottext">ArchiveOutputSettings -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3AnameModifier%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var hs-var">nameModifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Settings specific to the container type of the file.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcontainerSettings%3AArchiveOutputSettings%27"><span class="annot"><span class="annottext">ArchiveOutputSettings -&gt; ArchiveContainerSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3AcontainerSettings%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911576"><span id="local-6989586621679911578"><span class="annot"><span class="annottext">ArchiveOutputSettings -&gt; ArchiveOutputSettings -&gt; Bool
+(ArchiveOutputSettings -&gt; ArchiveOutputSettings -&gt; Bool)
+-&gt; (ArchiveOutputSettings -&gt; ArchiveOutputSettings -&gt; Bool)
+-&gt; Eq ArchiveOutputSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ArchiveOutputSettings -&gt; ArchiveOutputSettings -&gt; Bool
+$c/= :: ArchiveOutputSettings -&gt; ArchiveOutputSettings -&gt; Bool
+== :: ArchiveOutputSettings -&gt; ArchiveOutputSettings -&gt; Bool
+$c== :: ArchiveOutputSettings -&gt; ArchiveOutputSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911567"><span id="local-6989586621679911569"><span id="local-6989586621679911571"><span id="local-6989586621679911573"><span class="annot"><span class="annottext">ReadPrec [ArchiveOutputSettings]
+ReadPrec ArchiveOutputSettings
+Int -&gt; ReadS ArchiveOutputSettings
+ReadS [ArchiveOutputSettings]
+(Int -&gt; ReadS ArchiveOutputSettings)
+-&gt; ReadS [ArchiveOutputSettings]
+-&gt; ReadPrec ArchiveOutputSettings
+-&gt; ReadPrec [ArchiveOutputSettings]
+-&gt; Read ArchiveOutputSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ArchiveOutputSettings]
+$creadListPrec :: ReadPrec [ArchiveOutputSettings]
+readPrec :: ReadPrec ArchiveOutputSettings
+$creadPrec :: ReadPrec ArchiveOutputSettings
+readList :: ReadS [ArchiveOutputSettings]
+$creadList :: ReadS [ArchiveOutputSettings]
+readsPrec :: Int -&gt; ReadS ArchiveOutputSettings
+$creadsPrec :: Int -&gt; ReadS ArchiveOutputSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911560"><span id="local-6989586621679911562"><span id="local-6989586621679911564"><span class="annot"><span class="annottext">Int -&gt; ArchiveOutputSettings -&gt; ShowS
+[ArchiveOutputSettings] -&gt; ShowS
+ArchiveOutputSettings -&gt; String
+(Int -&gt; ArchiveOutputSettings -&gt; ShowS)
+-&gt; (ArchiveOutputSettings -&gt; String)
+-&gt; ([ArchiveOutputSettings] -&gt; ShowS)
+-&gt; Show ArchiveOutputSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ArchiveOutputSettings] -&gt; ShowS
+$cshowList :: [ArchiveOutputSettings] -&gt; ShowS
+show :: ArchiveOutputSettings -&gt; String
+$cshow :: ArchiveOutputSettings -&gt; String
+showsPrec :: Int -&gt; ArchiveOutputSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; ArchiveOutputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ArchiveOutputSettings -&gt; Rep ArchiveOutputSettings x)
+-&gt; (forall x. Rep ArchiveOutputSettings x -&gt; ArchiveOutputSettings)
+-&gt; Generic ArchiveOutputSettings
+forall x. Rep ArchiveOutputSettings x -&gt; ArchiveOutputSettings
+forall x. ArchiveOutputSettings -&gt; Rep ArchiveOutputSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ArchiveOutputSettings x -&gt; ArchiveOutputSettings
+$cfrom :: forall x. ArchiveOutputSettings -&gt; Rep ArchiveOutputSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ArchiveOutputSettings' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'extension', 'archiveOutputSettings_extension' - Output file extension. If excluded, this will be auto-selected from the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- container type.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'nameModifier', 'archiveOutputSettings_nameModifier' - String concatenated to the end of the destination filename. Required for</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- multiple outputs of the same type.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'containerSettings', 'archiveOutputSettings_containerSettings' - Settings specific to the container type of the file.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#newArchiveOutputSettings"><span class="hs-identifier hs-type">newArchiveOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'containerSettings'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span>
+</span><span id="line-61"></span><span id="newArchiveOutputSettings"><span class="annot"><span class="annottext">newArchiveOutputSettings :: ArchiveContainerSettings -&gt; ArchiveOutputSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#newArchiveOutputSettings"><span class="hs-identifier hs-var hs-var">newArchiveOutputSettings</span></a></span></span><span> </span><span id="local-6989586621679911554"><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911554"><span class="hs-identifier hs-var">pContainerSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ArchiveOutputSettings' :: Maybe Text
+-&gt; Maybe Text -&gt; ArchiveContainerSettings -&gt; ArchiveOutputSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:extension:ArchiveOutputSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3Aextension%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var">extension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameModifier:ArchiveOutputSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3AnameModifier%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var">nameModifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerSettings:ArchiveOutputSettings' :: ArchiveContainerSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3AcontainerSettings%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911554"><span class="hs-identifier hs-var">pContainerSettings_</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Output file extension. If excluded, this will be auto-selected from the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- container type.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#archiveOutputSettings_extension"><span class="hs-identifier hs-type">archiveOutputSettings_extension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="archiveOutputSettings_extension"><span class="annot"><span class="annottext">archiveOutputSettings_extension :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ArchiveOutputSettings -&gt; f ArchiveOutputSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#archiveOutputSettings_extension"><span class="hs-identifier hs-var hs-var">archiveOutputSettings_extension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveOutputSettings -&gt; Maybe Text)
+-&gt; (ArchiveOutputSettings -&gt; Maybe Text -&gt; ArchiveOutputSettings)
+-&gt; Lens
+     ArchiveOutputSettings
+     ArchiveOutputSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911550"><span class="annot"><span class="annottext">Maybe Text
+extension :: Maybe Text
+$sel:extension:ArchiveOutputSettings' :: ArchiveOutputSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679911550"><span class="hs-identifier hs-var hs-var">extension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911550"><span class="hs-identifier hs-var">extension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911549"><span class="annot"><span class="annottext">s :: ArchiveOutputSettings
+</span><a href="#local-6989586621679911549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911548"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveOutputSettings
+</span><a href="#local-6989586621679911549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extension:ArchiveOutputSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3Aextension%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var">extension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | String concatenated to the end of the destination filename. Required for</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- multiple outputs of the same type.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#archiveOutputSettings_nameModifier"><span class="hs-identifier hs-type">archiveOutputSettings_nameModifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="archiveOutputSettings_nameModifier"><span class="annot"><span class="annottext">archiveOutputSettings_nameModifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ArchiveOutputSettings -&gt; f ArchiveOutputSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#archiveOutputSettings_nameModifier"><span class="hs-identifier hs-var hs-var">archiveOutputSettings_nameModifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveOutputSettings -&gt; Maybe Text)
+-&gt; (ArchiveOutputSettings -&gt; Maybe Text -&gt; ArchiveOutputSettings)
+-&gt; Lens
+     ArchiveOutputSettings
+     ArchiveOutputSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911546"><span class="annot"><span class="annottext">Maybe Text
+nameModifier :: Maybe Text
+$sel:nameModifier:ArchiveOutputSettings' :: ArchiveOutputSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679911546"><span class="hs-identifier hs-var hs-var">nameModifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911546"><span class="hs-identifier hs-var">nameModifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911545"><span class="annot"><span class="annottext">s :: ArchiveOutputSettings
+</span><a href="#local-6989586621679911545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911544"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveOutputSettings
+</span><a href="#local-6989586621679911545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameModifier:ArchiveOutputSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3AnameModifier%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var">nameModifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Settings specific to the container type of the file.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#archiveOutputSettings_containerSettings"><span class="hs-identifier hs-type">archiveOutputSettings_containerSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span>
+</span><span id="line-80"></span><span id="archiveOutputSettings_containerSettings"><span class="annot"><span class="annottext">archiveOutputSettings_containerSettings :: (ArchiveContainerSettings -&gt; f ArchiveContainerSettings)
+-&gt; ArchiveOutputSettings -&gt; f ArchiveOutputSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#archiveOutputSettings_containerSettings"><span class="hs-identifier hs-var hs-var">archiveOutputSettings_containerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveOutputSettings -&gt; ArchiveContainerSettings)
+-&gt; (ArchiveOutputSettings
+    -&gt; ArchiveContainerSettings -&gt; ArchiveOutputSettings)
+-&gt; Lens
+     ArchiveOutputSettings
+     ArchiveOutputSettings
+     ArchiveContainerSettings
+     ArchiveContainerSettings
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911542"><span class="annot"><span class="annottext">ArchiveContainerSettings
+containerSettings :: ArchiveContainerSettings
+$sel:containerSettings:ArchiveOutputSettings' :: ArchiveOutputSettings -&gt; ArchiveContainerSettings
+</span><a href="#local-6989586621679911542"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911542"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911541"><span class="annot"><span class="annottext">s :: ArchiveOutputSettings
+</span><a href="#local-6989586621679911541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911540"><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveOutputSettings
+</span><a href="#local-6989586621679911541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerSettings:ArchiveOutputSettings' :: ArchiveContainerSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#%24sel%3AcontainerSettings%3AArchiveOutputSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911537"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679911535"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveOutputSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ArchiveOutputSettings)
+-&gt; Value
+-&gt; Parser ArchiveOutputSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ArchiveOutputSettings&quot;</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679911532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; ArchiveContainerSettings -&gt; ArchiveOutputSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-var">ArchiveOutputSettings'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; ArchiveContainerSettings -&gt; ArchiveOutputSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; ArchiveContainerSettings -&gt; ArchiveOutputSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;extension&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; ArchiveContainerSettings -&gt; ArchiveOutputSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (ArchiveContainerSettings -&gt; ArchiveOutputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nameModifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (ArchiveContainerSettings -&gt; ArchiveOutputSettings)
+-&gt; Parser ArchiveContainerSettings -&gt; Parser ArchiveOutputSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArchiveContainerSettings
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911525"><span id="local-6989586621679911527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911514"><span id="local-6989586621679911516"><span id="local-6989586621679911518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679911512"><span class="annot"><span class="annottext">toJSON :: ArchiveOutputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings%27"><span class="hs-identifier hs-type">ArchiveOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911508"><span id="local-6989586621679911509"><span id="local-6989586621679911510"><span class="annot"><span class="annottext">Maybe Text
+ArchiveContainerSettings
+containerSettings :: ArchiveContainerSettings
+nameModifier :: Maybe Text
+extension :: Maybe Text
+$sel:containerSettings:ArchiveOutputSettings' :: ArchiveOutputSettings -&gt; ArchiveContainerSettings
+$sel:nameModifier:ArchiveOutputSettings' :: ArchiveOutputSettings -&gt; Maybe Text
+$sel:extension:ArchiveOutputSettings' :: ArchiveOutputSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679911508"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;extension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911510"><span class="hs-identifier hs-var">extension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nameModifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679911509"><span class="hs-identifier hs-var">nameModifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArchiveContainerSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911508"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span></pre></body></html>

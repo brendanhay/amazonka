@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMR.Types.CloudWatchAlarmDefinition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.Types.CloudWatchAlarmDefinition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ComparisonOperator.html"><span class="hs-identifier">Amazonka.EMR.Types.ComparisonOperator</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.MetricDimension.html"><span class="hs-identifier">Amazonka.EMR.Types.MetricDimension</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Statistic.html"><span class="hs-identifier">Amazonka.EMR.Types.Statistic</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html"><span class="hs-identifier">Amazonka.EMR.Types.Unit</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The definition of a CloudWatch metric alarm, which determines when an</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- automatic scaling activity is triggered. When the defined alarm</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- conditions are satisfied, scaling activity begins.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newCloudWatchAlarmDefinition' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679379262"><span id="local-6989586621679379263"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchAlarmDefinition"><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-var">CloudWatchAlarmDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchAlarmDefinition%27"><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">CloudWatchAlarmDefinition'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of periods, in five-minute increments, during which the alarm</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- condition must exist before the alarm triggers automatic scaling</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- activity. The default value is @1@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AevaluationPeriods%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Maybe Int
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AevaluationPeriods%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">evaluationPeriods</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The namespace for the CloudWatch metric. The default is</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @AWS\/ElasticMapReduce@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Anamespace%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Anamespace%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A CloudWatch metric dimension.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Adimensions%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Maybe [MetricDimension]
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Adimensions%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EMR.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The unit of measure associated with the CloudWatch metric being watched.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- The value specified for @Unit@ must correspond to the units specified in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the CloudWatch metric.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aunit%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Maybe Unit
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Aunit%3ACloudWatchAlarmDefinition%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The statistic to apply to the metric associated with the alarm. The</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- default is @AVERAGE@.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Astatistic%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Maybe Statistic
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Astatistic%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Statistic.html#Statistic"><span class="hs-identifier hs-type">Statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Determines how the metric specified by @MetricName@ is compared to the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- value specified by @Threshold@.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcomparisonOperator%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; ComparisonOperator
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AcomparisonOperator%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the CloudWatch metric that is watched to determine an alarm</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- condition.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmetricName%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Text
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AmetricName%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The period, in seconds, over which the statistic is applied. EMR</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- CloudWatch metrics are emitted every five minutes (300 seconds), so if</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- an EMR CloudWatch metric is specified, specify @300@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aperiod%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Int
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Aperiod%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The value against which the specified statistic is compared.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Athreshold%3ACloudWatchAlarmDefinition%27"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; Double
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Athreshold%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379248"><span id="local-6989586621679379250"><span class="annot"><span class="annottext">CloudWatchAlarmDefinition -&gt; CloudWatchAlarmDefinition -&gt; Bool
+(CloudWatchAlarmDefinition -&gt; CloudWatchAlarmDefinition -&gt; Bool)
+-&gt; (CloudWatchAlarmDefinition -&gt; CloudWatchAlarmDefinition -&gt; Bool)
+-&gt; Eq CloudWatchAlarmDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CloudWatchAlarmDefinition -&gt; CloudWatchAlarmDefinition -&gt; Bool
+$c/= :: CloudWatchAlarmDefinition -&gt; CloudWatchAlarmDefinition -&gt; Bool
+== :: CloudWatchAlarmDefinition -&gt; CloudWatchAlarmDefinition -&gt; Bool
+$c== :: CloudWatchAlarmDefinition -&gt; CloudWatchAlarmDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379239"><span id="local-6989586621679379241"><span id="local-6989586621679379243"><span id="local-6989586621679379245"><span class="annot"><span class="annottext">ReadPrec [CloudWatchAlarmDefinition]
+ReadPrec CloudWatchAlarmDefinition
+Int -&gt; ReadS CloudWatchAlarmDefinition
+ReadS [CloudWatchAlarmDefinition]
+(Int -&gt; ReadS CloudWatchAlarmDefinition)
+-&gt; ReadS [CloudWatchAlarmDefinition]
+-&gt; ReadPrec CloudWatchAlarmDefinition
+-&gt; ReadPrec [CloudWatchAlarmDefinition]
+-&gt; Read CloudWatchAlarmDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CloudWatchAlarmDefinition]
+$creadListPrec :: ReadPrec [CloudWatchAlarmDefinition]
+readPrec :: ReadPrec CloudWatchAlarmDefinition
+$creadPrec :: ReadPrec CloudWatchAlarmDefinition
+readList :: ReadS [CloudWatchAlarmDefinition]
+$creadList :: ReadS [CloudWatchAlarmDefinition]
+readsPrec :: Int -&gt; ReadS CloudWatchAlarmDefinition
+$creadsPrec :: Int -&gt; ReadS CloudWatchAlarmDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379232"><span id="local-6989586621679379234"><span id="local-6989586621679379236"><span class="annot"><span class="annottext">Int -&gt; CloudWatchAlarmDefinition -&gt; ShowS
+[CloudWatchAlarmDefinition] -&gt; ShowS
+CloudWatchAlarmDefinition -&gt; String
+(Int -&gt; CloudWatchAlarmDefinition -&gt; ShowS)
+-&gt; (CloudWatchAlarmDefinition -&gt; String)
+-&gt; ([CloudWatchAlarmDefinition] -&gt; ShowS)
+-&gt; Show CloudWatchAlarmDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CloudWatchAlarmDefinition] -&gt; ShowS
+$cshowList :: [CloudWatchAlarmDefinition] -&gt; ShowS
+show :: CloudWatchAlarmDefinition -&gt; String
+$cshow :: CloudWatchAlarmDefinition -&gt; String
+showsPrec :: Int -&gt; CloudWatchAlarmDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; CloudWatchAlarmDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CloudWatchAlarmDefinition -&gt; Rep CloudWatchAlarmDefinition x)
+-&gt; (forall x.
+    Rep CloudWatchAlarmDefinition x -&gt; CloudWatchAlarmDefinition)
+-&gt; Generic CloudWatchAlarmDefinition
+forall x.
+Rep CloudWatchAlarmDefinition x -&gt; CloudWatchAlarmDefinition
+forall x.
+CloudWatchAlarmDefinition -&gt; Rep CloudWatchAlarmDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CloudWatchAlarmDefinition x -&gt; CloudWatchAlarmDefinition
+$cfrom :: forall x.
+CloudWatchAlarmDefinition -&gt; Rep CloudWatchAlarmDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'CloudWatchAlarmDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'evaluationPeriods', 'cloudWatchAlarmDefinition_evaluationPeriods' - The number of periods, in five-minute increments, during which the alarm</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- condition must exist before the alarm triggers automatic scaling</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- activity. The default value is @1@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'namespace', 'cloudWatchAlarmDefinition_namespace' - The namespace for the CloudWatch metric. The default is</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @AWS\/ElasticMapReduce@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'dimensions', 'cloudWatchAlarmDefinition_dimensions' - A CloudWatch metric dimension.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'unit', 'cloudWatchAlarmDefinition_unit' - The unit of measure associated with the CloudWatch metric being watched.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The value specified for @Unit@ must correspond to the units specified in</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the CloudWatch metric.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'statistic', 'cloudWatchAlarmDefinition_statistic' - The statistic to apply to the metric associated with the alarm. The</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- default is @AVERAGE@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'comparisonOperator', 'cloudWatchAlarmDefinition_comparisonOperator' - Determines how the metric specified by @MetricName@ is compared to the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- value specified by @Threshold@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'metricName', 'cloudWatchAlarmDefinition_metricName' - The name of the CloudWatch metric that is watched to determine an alarm</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- condition.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'period', 'cloudWatchAlarmDefinition_period' - The period, in seconds, over which the statistic is applied. EMR</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- CloudWatch metrics are emitted every five minutes (300 seconds), so if</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- an EMR CloudWatch metric is specified, specify @300@.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'threshold', 'cloudWatchAlarmDefinition_threshold' - The value against which the specified statistic is compared.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#newCloudWatchAlarmDefinition"><span class="hs-identifier hs-type">newCloudWatchAlarmDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'comparisonOperator'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'metricName'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'period'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'threshold'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span>
+</span><span id="line-112"></span><span id="newCloudWatchAlarmDefinition"><span class="annot"><span class="annottext">newCloudWatchAlarmDefinition :: ComparisonOperator
+-&gt; Text -&gt; Int -&gt; Double -&gt; CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#newCloudWatchAlarmDefinition"><span class="hs-identifier hs-var hs-var">newCloudWatchAlarmDefinition</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679379226"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679379226"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679379225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379225"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679379224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379224"><span class="hs-identifier hs-var">pPeriod_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679379223"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679379223"><span class="hs-identifier hs-var">pThreshold_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [MetricDimension]
+-&gt; Maybe Unit
+-&gt; Maybe Statistic
+-&gt; ComparisonOperator
+-&gt; Text
+-&gt; Int
+-&gt; Double
+-&gt; CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationPeriods:CloudWatchAlarmDefinition' :: Maybe Int
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AevaluationPeriods%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">evaluationPeriods</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:CloudWatchAlarmDefinition' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Anamespace%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimensions:CloudWatchAlarmDefinition' :: Maybe [MetricDimension]
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Adimensions%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:unit:CloudWatchAlarmDefinition' :: Maybe Unit
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Aunit%3ACloudWatchAlarmDefinition%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:statistic:CloudWatchAlarmDefinition' :: Maybe Statistic
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Astatistic%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:comparisonOperator:CloudWatchAlarmDefinition' :: ComparisonOperator
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AcomparisonOperator%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679379226"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricName:CloudWatchAlarmDefinition' :: Text
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AmetricName%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379225"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:period:CloudWatchAlarmDefinition' :: Int
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Aperiod%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379224"><span class="hs-identifier hs-var">pPeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:threshold:CloudWatchAlarmDefinition' :: Double
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Athreshold%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679379223"><span class="hs-identifier hs-var">pThreshold_</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The number of periods, in five-minute increments, during which the alarm</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- condition must exist before the alarm triggers automatic scaling</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- activity. The default value is @1@.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_evaluationPeriods"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_evaluationPeriods</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="cloudWatchAlarmDefinition_evaluationPeriods"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_evaluationPeriods :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_evaluationPeriods"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_evaluationPeriods</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Maybe Int)
+-&gt; (CloudWatchAlarmDefinition
+    -&gt; Maybe Int -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition
+     CloudWatchAlarmDefinition
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379219"><span class="annot"><span class="annottext">Maybe Int
+evaluationPeriods :: Maybe Int
+$sel:evaluationPeriods:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Int
+</span><a href="#local-6989586621679379219"><span class="hs-identifier hs-var hs-var">evaluationPeriods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679379219"><span class="hs-identifier hs-var">evaluationPeriods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379218"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379217"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679379217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationPeriods:CloudWatchAlarmDefinition' :: Maybe Int
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AevaluationPeriods%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">evaluationPeriods</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679379217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The namespace for the CloudWatch metric. The default is</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @AWS\/ElasticMapReduce@.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_namespace"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="cloudWatchAlarmDefinition_namespace"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_namespace"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Maybe Text)
+-&gt; (CloudWatchAlarmDefinition
+    -&gt; Maybe Text -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition
+     CloudWatchAlarmDefinition
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379215"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679379215"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379215"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379214"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379213"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:CloudWatchAlarmDefinition' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Anamespace%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A CloudWatch metric dimension.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_dimensions"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EMR.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="cloudWatchAlarmDefinition_dimensions"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_dimensions :: (Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_dimensions"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Maybe [MetricDimension])
+-&gt; (CloudWatchAlarmDefinition
+    -&gt; Maybe [MetricDimension] -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition
+     CloudWatchAlarmDefinition
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379211"><span class="annot"><span class="annottext">Maybe [MetricDimension]
+dimensions :: Maybe [MetricDimension]
+$sel:dimensions:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe [MetricDimension]
+</span><a href="#local-6989586621679379211"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679379211"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379210"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379209"><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679379209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:CloudWatchAlarmDefinition' :: Maybe [MetricDimension]
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Adimensions%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679379209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+ -&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition)
+-&gt; ((Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+    -&gt; Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+-&gt; (Maybe [MetricDimension] -&gt; f (Maybe [MetricDimension]))
+-&gt; CloudWatchAlarmDefinition
+-&gt; f CloudWatchAlarmDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+-&gt; Iso
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+     (Maybe [MetricDimension])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+  [MetricDimension]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The unit of measure associated with the CloudWatch metric being watched.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The value specified for @Unit@ must correspond to the units specified in</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the CloudWatch metric.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_unit"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="cloudWatchAlarmDefinition_unit"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_unit :: (Maybe Unit -&gt; f (Maybe Unit))
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_unit"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Maybe Unit)
+-&gt; (CloudWatchAlarmDefinition
+    -&gt; Maybe Unit -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition
+     CloudWatchAlarmDefinition
+     (Maybe Unit)
+     (Maybe Unit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379204"><span class="annot"><span class="annottext">Maybe Unit
+unit :: Maybe Unit
+$sel:unit:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Unit
+</span><a href="#local-6989586621679379204"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679379204"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379203"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379202"><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679379202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:CloudWatchAlarmDefinition' :: Maybe Unit
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Aunit%3ACloudWatchAlarmDefinition%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679379202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The statistic to apply to the metric associated with the alarm. The</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- default is @AVERAGE@.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_statistic"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_statistic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Statistic.html#Statistic"><span class="hs-identifier hs-type">Statistic</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="cloudWatchAlarmDefinition_statistic"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_statistic :: (Maybe Statistic -&gt; f (Maybe Statistic))
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_statistic"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_statistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Maybe Statistic)
+-&gt; (CloudWatchAlarmDefinition
+    -&gt; Maybe Statistic -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition
+     CloudWatchAlarmDefinition
+     (Maybe Statistic)
+     (Maybe Statistic)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379200"><span class="annot"><span class="annottext">Maybe Statistic
+statistic :: Maybe Statistic
+$sel:statistic:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Statistic
+</span><a href="#local-6989586621679379200"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679379200"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379199"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379198"><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679379198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistic:CloudWatchAlarmDefinition' :: Maybe Statistic
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Astatistic%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679379198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Determines how the metric specified by @MetricName@ is compared to the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- value specified by @Threshold@.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_comparisonOperator"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_comparisonOperator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span>
+</span><span id="line-159"></span><span id="cloudWatchAlarmDefinition_comparisonOperator"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_comparisonOperator :: (ComparisonOperator -&gt; f ComparisonOperator)
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_comparisonOperator"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_comparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; ComparisonOperator)
+-&gt; (CloudWatchAlarmDefinition
+    -&gt; ComparisonOperator -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition
+     CloudWatchAlarmDefinition
+     ComparisonOperator
+     ComparisonOperator
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379196"><span class="annot"><span class="annottext">ComparisonOperator
+comparisonOperator :: ComparisonOperator
+$sel:comparisonOperator:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; ComparisonOperator
+</span><a href="#local-6989586621679379196"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679379196"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379195"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379194"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679379194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:CloudWatchAlarmDefinition' :: ComparisonOperator
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AcomparisonOperator%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679379194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The name of the CloudWatch metric that is watched to determine an alarm</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- condition.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_metricName"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-164"></span><span id="cloudWatchAlarmDefinition_metricName"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_metricName :: (Text -&gt; f Text)
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_metricName"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Text)
+-&gt; (CloudWatchAlarmDefinition -&gt; Text -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition CloudWatchAlarmDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379192"><span class="annot"><span class="annottext">Text
+metricName :: Text
+$sel:metricName:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Text
+</span><a href="#local-6989586621679379192"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379192"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379191"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CloudWatchAlarmDefinition' :: Text
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3AmetricName%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The period, in seconds, over which the statistic is applied. EMR</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- CloudWatch metrics are emitted every five minutes (300 seconds), so if</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- an EMR CloudWatch metric is specified, specify @300@.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_period"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_period</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="cloudWatchAlarmDefinition_period"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_period :: (Int -&gt; f Int)
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_period"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_period</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Int)
+-&gt; (CloudWatchAlarmDefinition -&gt; Int -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens CloudWatchAlarmDefinition CloudWatchAlarmDefinition Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379188"><span class="annot"><span class="annottext">Int
+period :: Int
+$sel:period:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Int
+</span><a href="#local-6989586621679379188"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379188"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379187"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379186"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:CloudWatchAlarmDefinition' :: Int
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Aperiod%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The value against which the specified statistic is compared.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_threshold"><span class="hs-identifier hs-type">cloudWatchAlarmDefinition_threshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-174"></span><span id="cloudWatchAlarmDefinition_threshold"><span class="annot"><span class="annottext">cloudWatchAlarmDefinition_threshold :: (Double -&gt; f Double)
+-&gt; CloudWatchAlarmDefinition -&gt; f CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#cloudWatchAlarmDefinition_threshold"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmDefinition_threshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchAlarmDefinition -&gt; Double)
+-&gt; (CloudWatchAlarmDefinition
+    -&gt; Double -&gt; CloudWatchAlarmDefinition)
+-&gt; Lens
+     CloudWatchAlarmDefinition CloudWatchAlarmDefinition Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379184"><span class="annot"><span class="annottext">Double
+threshold :: Double
+$sel:threshold:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Double
+</span><a href="#local-6989586621679379184"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679379184"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379183"><span class="annot"><span class="annottext">s :: CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379182"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679379182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchAlarmDefinition
+</span><a href="#local-6989586621679379183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:CloudWatchAlarmDefinition' :: Double
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#%24sel%3Athreshold%3ACloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679379182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379179"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679379177"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchAlarmDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CloudWatchAlarmDefinition)
+-&gt; Value
+-&gt; Parser CloudWatchAlarmDefinition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CloudWatchAlarmDefinition&quot;</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379174"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [MetricDimension]
+-&gt; Maybe Unit
+-&gt; Maybe Statistic
+-&gt; ComparisonOperator
+-&gt; Text
+-&gt; Int
+-&gt; Double
+-&gt; CloudWatchAlarmDefinition
+</span><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-var">CloudWatchAlarmDefinition'</span></a></span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe [MetricDimension]
+ -&gt; Maybe Unit
+ -&gt; Maybe Statistic
+ -&gt; ComparisonOperator
+ -&gt; Text
+ -&gt; Int
+ -&gt; Double
+ -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [MetricDimension]
+      -&gt; Maybe Unit
+      -&gt; Maybe Statistic
+      -&gt; ComparisonOperator
+      -&gt; Text
+      -&gt; Int
+      -&gt; Double
+      -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationPeriods&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [MetricDimension]
+   -&gt; Maybe Unit
+   -&gt; Maybe Statistic
+   -&gt; ComparisonOperator
+   -&gt; Text
+   -&gt; Int
+   -&gt; Double
+   -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [MetricDimension]
+      -&gt; Maybe Unit
+      -&gt; Maybe Statistic
+      -&gt; ComparisonOperator
+      -&gt; Text
+      -&gt; Int
+      -&gt; Double
+      -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [MetricDimension]
+   -&gt; Maybe Unit
+   -&gt; Maybe Statistic
+   -&gt; ComparisonOperator
+   -&gt; Text
+   -&gt; Int
+   -&gt; Double
+   -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser (Maybe [MetricDimension])
+-&gt; Parser
+     (Maybe Unit
+      -&gt; Maybe Statistic
+      -&gt; ComparisonOperator
+      -&gt; Text
+      -&gt; Int
+      -&gt; Double
+      -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MetricDimension]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MetricDimension]))
+-&gt; Maybe [MetricDimension] -&gt; Parser (Maybe [MetricDimension])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Unit
+   -&gt; Maybe Statistic
+   -&gt; ComparisonOperator
+   -&gt; Text
+   -&gt; Int
+   -&gt; Double
+   -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser (Maybe Unit)
+-&gt; Parser
+     (Maybe Statistic
+      -&gt; ComparisonOperator
+      -&gt; Text
+      -&gt; Int
+      -&gt; Double
+      -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Unit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Statistic
+   -&gt; ComparisonOperator
+   -&gt; Text
+   -&gt; Int
+   -&gt; Double
+   -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser (Maybe Statistic)
+-&gt; Parser
+     (ComparisonOperator
+      -&gt; Text -&gt; Int -&gt; Double -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Statistic)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Statistic&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ComparisonOperator
+   -&gt; Text -&gt; Int -&gt; Double -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser ComparisonOperator
+-&gt; Parser (Text -&gt; Int -&gt; Double -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComparisonOperator
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComparisonOperator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Int -&gt; Double -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser Text
+-&gt; Parser (Int -&gt; Double -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; Double -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser Int -&gt; Parser (Double -&gt; CloudWatchAlarmDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Period&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Double -&gt; CloudWatchAlarmDefinition)
+-&gt; Parser Double -&gt; Parser CloudWatchAlarmDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Threshold&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379166"><span id="local-6989586621679379168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379155"><span id="local-6989586621679379157"><span id="local-6989586621679379159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679379153"><span class="annot"><span class="annottext">toJSON :: CloudWatchAlarmDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.CloudWatchAlarmDefinition.html#CloudWatchAlarmDefinition%27"><span class="hs-identifier hs-type">CloudWatchAlarmDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379143"><span id="local-6989586621679379144"><span id="local-6989586621679379145"><span id="local-6989586621679379146"><span id="local-6989586621679379147"><span id="local-6989586621679379148"><span id="local-6989586621679379149"><span id="local-6989586621679379150"><span id="local-6989586621679379151"><span class="annot"><span class="annottext">Double
+Int
+Maybe Int
+Maybe [MetricDimension]
+Maybe Text
+Maybe Statistic
+Maybe Unit
+Text
+ComparisonOperator
+threshold :: Double
+period :: Int
+metricName :: Text
+comparisonOperator :: ComparisonOperator
+statistic :: Maybe Statistic
+unit :: Maybe Unit
+dimensions :: Maybe [MetricDimension]
+namespace :: Maybe Text
+evaluationPeriods :: Maybe Int
+$sel:threshold:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Double
+$sel:period:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Int
+$sel:metricName:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Text
+$sel:comparisonOperator:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; ComparisonOperator
+$sel:statistic:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Statistic
+$sel:unit:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Unit
+$sel:dimensions:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe [MetricDimension]
+$sel:namespace:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Text
+$sel:evaluationPeriods:CloudWatchAlarmDefinition' :: CloudWatchAlarmDefinition -&gt; Maybe Int
+</span><a href="#local-6989586621679379143"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationPeriods&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679379151"><span class="hs-identifier hs-var">evaluationPeriods</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379150"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MetricDimension] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([MetricDimension] -&gt; Pair)
+-&gt; Maybe [MetricDimension] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDimension]
+</span><a href="#local-6989586621679379149"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Unit -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Unit -&gt; Pair) -&gt; Maybe Unit -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679379148"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Statistic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Statistic -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Statistic -&gt; Pair) -&gt; Maybe Statistic -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679379147"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-208"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComparisonOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComparisonOperator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679379146"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379145"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Period&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379144"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679379143"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span></pre></body></html>

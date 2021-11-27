@@ -1,0 +1,775 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MigrationHub.ListApplicationStates</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all the migration statuses for your applications. If you use the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- optional @ApplicationIds@ parameter, only the migration statuses for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- those applications will be returned.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MigrationHub.ListApplicationStates</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier">ListApplicationStates</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#newListApplicationStates"><span class="hs-identifier">newListApplicationStates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_nextToken"><span class="hs-identifier">listApplicationStates_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_applicationIds"><span class="hs-identifier">listApplicationStates_applicationIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_maxResults"><span class="hs-identifier">listApplicationStates_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier">ListApplicationStatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#newListApplicationStatesResponse"><span class="hs-identifier">newListApplicationStatesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_applicationStateList"><span class="hs-identifier">listApplicationStatesResponse_applicationStateList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_nextToken"><span class="hs-identifier">listApplicationStatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_httpStatus"><span class="hs-identifier">listApplicationStatesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.Types.html"><span class="hs-identifier">Amazonka.MigrationHub.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListApplicationStates' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679172523"><span id="local-6989586621679172524"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationStates"><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-var">ListApplicationStates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationStates%27"><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-var">ListApplicationStates'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationStates%27"><span class="annot"><span class="annottext">ListApplicationStates -&gt; Maybe Text
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AnextToken%3AListApplicationStates%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The configurationIds from the Application Discovery Service that</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- uniquely identifies your applications.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AapplicationIds%3AListApplicationStates%27"><span class="annot"><span class="annottext">ListApplicationStates -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AapplicationIds%3AListApplicationStates%27"><span class="hs-identifier hs-var hs-var">applicationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Maximum number of results to be returned per page.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3AListApplicationStates%27"><span class="annot"><span class="annottext">ListApplicationStates -&gt; Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AmaxResults%3AListApplicationStates%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172515"><span id="local-6989586621679172517"><span class="annot"><span class="annottext">ListApplicationStates -&gt; ListApplicationStates -&gt; Bool
+(ListApplicationStates -&gt; ListApplicationStates -&gt; Bool)
+-&gt; (ListApplicationStates -&gt; ListApplicationStates -&gt; Bool)
+-&gt; Eq ListApplicationStates
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListApplicationStates -&gt; ListApplicationStates -&gt; Bool
+$c/= :: ListApplicationStates -&gt; ListApplicationStates -&gt; Bool
+== :: ListApplicationStates -&gt; ListApplicationStates -&gt; Bool
+$c== :: ListApplicationStates -&gt; ListApplicationStates -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172506"><span id="local-6989586621679172508"><span id="local-6989586621679172510"><span id="local-6989586621679172512"><span class="annot"><span class="annottext">ReadPrec [ListApplicationStates]
+ReadPrec ListApplicationStates
+Int -&gt; ReadS ListApplicationStates
+ReadS [ListApplicationStates]
+(Int -&gt; ReadS ListApplicationStates)
+-&gt; ReadS [ListApplicationStates]
+-&gt; ReadPrec ListApplicationStates
+-&gt; ReadPrec [ListApplicationStates]
+-&gt; Read ListApplicationStates
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListApplicationStates]
+$creadListPrec :: ReadPrec [ListApplicationStates]
+readPrec :: ReadPrec ListApplicationStates
+$creadPrec :: ReadPrec ListApplicationStates
+readList :: ReadS [ListApplicationStates]
+$creadList :: ReadS [ListApplicationStates]
+readsPrec :: Int -&gt; ReadS ListApplicationStates
+$creadsPrec :: Int -&gt; ReadS ListApplicationStates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172499"><span id="local-6989586621679172501"><span id="local-6989586621679172503"><span class="annot"><span class="annottext">Int -&gt; ListApplicationStates -&gt; ShowS
+[ListApplicationStates] -&gt; ShowS
+ListApplicationStates -&gt; String
+(Int -&gt; ListApplicationStates -&gt; ShowS)
+-&gt; (ListApplicationStates -&gt; String)
+-&gt; ([ListApplicationStates] -&gt; ShowS)
+-&gt; Show ListApplicationStates
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListApplicationStates] -&gt; ShowS
+$cshowList :: [ListApplicationStates] -&gt; ShowS
+show :: ListApplicationStates -&gt; String
+$cshow :: ListApplicationStates -&gt; String
+showsPrec :: Int -&gt; ListApplicationStates -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListApplicationStates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListApplicationStates -&gt; Rep ListApplicationStates x)
+-&gt; (forall x. Rep ListApplicationStates x -&gt; ListApplicationStates)
+-&gt; Generic ListApplicationStates
+forall x. Rep ListApplicationStates x -&gt; ListApplicationStates
+forall x. ListApplicationStates -&gt; Rep ListApplicationStates x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListApplicationStates x -&gt; ListApplicationStates
+$cfrom :: forall x. ListApplicationStates -&gt; Rep ListApplicationStates x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'ListApplicationStates' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'listApplicationStates_nextToken' - If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'applicationIds', 'listApplicationStates_applicationIds' - The configurationIds from the Application Discovery Service that</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- uniquely identifies your applications.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'listApplicationStates_maxResults' - Maximum number of results to be returned per page.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#newListApplicationStates"><span class="hs-identifier hs-type">newListApplicationStates</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span>
+</span><span id="line-88"></span><span id="newListApplicationStates"><span class="annot"><span class="annottext">newListApplicationStates :: ListApplicationStates
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#newListApplicationStates"><span class="hs-identifier hs-var hs-var">newListApplicationStates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationStates' :: Maybe Text
+-&gt; Maybe (NonEmpty Text) -&gt; Maybe Natural -&gt; ListApplicationStates
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationStates' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AnextToken%3AListApplicationStates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationIds:ListApplicationStates' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AapplicationIds%3AListApplicationStates%27"><span class="hs-identifier hs-var">applicationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListApplicationStates' :: Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AmaxResults%3AListApplicationStates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_nextToken"><span class="hs-identifier hs-type">listApplicationStates_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="listApplicationStates_nextToken"><span class="annot"><span class="annottext">listApplicationStates_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApplicationStates -&gt; f ListApplicationStates
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_nextToken"><span class="hs-identifier hs-var hs-var">listApplicationStates_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationStates -&gt; Maybe Text)
+-&gt; (ListApplicationStates -&gt; Maybe Text -&gt; ListApplicationStates)
+-&gt; Lens
+     ListApplicationStates
+     ListApplicationStates
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172493"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApplicationStates' :: ListApplicationStates -&gt; Maybe Text
+</span><a href="#local-6989586621679172493"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172493"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172492"><span class="annot"><span class="annottext">s :: ListApplicationStates
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationStates
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationStates' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AnextToken%3AListApplicationStates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The configurationIds from the Application Discovery Service that</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- uniquely identifies your applications.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_applicationIds"><span class="hs-identifier hs-type">listApplicationStates_applicationIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listApplicationStates_applicationIds"><span class="annot"><span class="annottext">listApplicationStates_applicationIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ListApplicationStates -&gt; f ListApplicationStates
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_applicationIds"><span class="hs-identifier hs-var hs-var">listApplicationStates_applicationIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationStates -&gt; Maybe (NonEmpty Text))
+-&gt; (ListApplicationStates
+    -&gt; Maybe (NonEmpty Text) -&gt; ListApplicationStates)
+-&gt; Lens
+     ListApplicationStates
+     ListApplicationStates
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172490"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+applicationIds :: Maybe (NonEmpty Text)
+$sel:applicationIds:ListApplicationStates' :: ListApplicationStates -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679172490"><span class="hs-identifier hs-var hs-var">applicationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679172490"><span class="hs-identifier hs-var">applicationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172489"><span class="annot"><span class="annottext">s :: ListApplicationStates
+</span><a href="#local-6989586621679172489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172488"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679172488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationStates
+</span><a href="#local-6989586621679172489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationIds:ListApplicationStates' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AapplicationIds%3AListApplicationStates%27"><span class="hs-identifier hs-var">applicationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679172488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; ListApplicationStates -&gt; f ListApplicationStates)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ListApplicationStates
+-&gt; f ListApplicationStates
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Maximum number of results to be returned per page.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_maxResults"><span class="hs-identifier hs-type">listApplicationStates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="listApplicationStates_maxResults"><span class="annot"><span class="annottext">listApplicationStates_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListApplicationStates -&gt; f ListApplicationStates
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_maxResults"><span class="hs-identifier hs-var hs-var">listApplicationStates_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationStates -&gt; Maybe Natural)
+-&gt; (ListApplicationStates
+    -&gt; Maybe Natural -&gt; ListApplicationStates)
+-&gt; Lens
+     ListApplicationStates
+     ListApplicationStates
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172484"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListApplicationStates' :: ListApplicationStates -&gt; Maybe Natural
+</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172483"><span class="annot"><span class="annottext">s :: ListApplicationStates
+</span><a href="#local-6989586621679172483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172482"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationStates
+</span><a href="#local-6989586621679172483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApplicationStates' :: Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AmaxResults%3AListApplicationStates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679172478"><span class="annot"><span class="annottext">page :: ListApplicationStates
+-&gt; AWSResponse ListApplicationStates -&gt; Maybe ListApplicationStates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679172476"><span class="annot"><span class="annottext">ListApplicationStates
+</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679172475"><span class="annot"><span class="annottext">AWSResponse ListApplicationStates
+</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationStates
+ListApplicationStatesResponse
+</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationStatesResponse
+-&gt; Getting (First Text) ListApplicationStatesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListApplicationStatesResponse
+-&gt; Const (First Text) ListApplicationStatesResponse
+Lens' ListApplicationStatesResponse (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_nextToken"><span class="hs-identifier hs-var">listApplicationStatesResponse_nextToken</span></a></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListApplicationStatesResponse
+ -&gt; Const (First Text) ListApplicationStatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListApplicationStatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListApplicationStates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationState] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationStates
+ListApplicationStatesResponse
+</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationStatesResponse
+-&gt; Getting
+     (First [ApplicationState])
+     ListApplicationStatesResponse
+     [ApplicationState]
+-&gt; Maybe [ApplicationState]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ApplicationState]
+ -&gt; Const (First [ApplicationState]) (Maybe [ApplicationState]))
+-&gt; ListApplicationStatesResponse
+-&gt; Const (First [ApplicationState]) ListApplicationStatesResponse
+Lens' ListApplicationStatesResponse (Maybe [ApplicationState])
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_applicationStateList"><span class="hs-identifier hs-var">listApplicationStatesResponse_applicationStateList</span></a></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ApplicationState]
+  -&gt; Const (First [ApplicationState]) (Maybe [ApplicationState]))
+ -&gt; ListApplicationStatesResponse
+ -&gt; Const (First [ApplicationState]) ListApplicationStatesResponse)
+-&gt; (([ApplicationState]
+     -&gt; Const (First [ApplicationState]) [ApplicationState])
+    -&gt; Maybe [ApplicationState]
+    -&gt; Const (First [ApplicationState]) (Maybe [ApplicationState]))
+-&gt; Getting
+     (First [ApplicationState])
+     ListApplicationStatesResponse
+     [ApplicationState]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ApplicationState]
+ -&gt; Const (First [ApplicationState]) [ApplicationState])
+-&gt; Maybe [ApplicationState]
+-&gt; Const (First [ApplicationState]) (Maybe [ApplicationState])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListApplicationStates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">ListApplicationStates -&gt; Maybe ListApplicationStates
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListApplicationStates -&gt; Maybe ListApplicationStates)
+-&gt; ListApplicationStates -&gt; Maybe ListApplicationStates
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListApplicationStates
+</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationStates
+-&gt; (ListApplicationStates -&gt; ListApplicationStates)
+-&gt; ListApplicationStates
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListApplicationStates -&gt; Identity ListApplicationStates
+Lens
+  ListApplicationStates
+  ListApplicationStates
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStates_nextToken"><span class="hs-identifier hs-var">listApplicationStates_nextToken</span></a></span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListApplicationStates -&gt; Identity ListApplicationStates)
+-&gt; Maybe Text -&gt; ListApplicationStates -&gt; ListApplicationStates
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationStates
+ListApplicationStatesResponse
+</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationStatesResponse
+-&gt; Getting (First Text) ListApplicationStatesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListApplicationStatesResponse
+-&gt; Const (First Text) ListApplicationStatesResponse
+Lens' ListApplicationStatesResponse (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_nextToken"><span class="hs-identifier hs-var">listApplicationStatesResponse_nextToken</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListApplicationStatesResponse
+ -&gt; Const (First Text) ListApplicationStatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListApplicationStatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679172466"><span class="annot"><span class="annottext">request :: ListApplicationStates -&gt; Request ListApplicationStates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListApplicationStates -&gt; Request ListApplicationStates
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MigrationHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679172462"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListApplicationStates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListApplicationStates)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListApplicationStates))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListApplicationStates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListApplicationStates)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172459"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172459"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679172458"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679172457"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172457"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ApplicationState]
+-&gt; Maybe Text -&gt; Int -&gt; ListApplicationStatesResponse
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-var">ListApplicationStatesResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ApplicationState]
+ -&gt; Maybe Text -&gt; Int -&gt; ListApplicationStatesResponse)
+-&gt; Either String (Maybe [ApplicationState])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListApplicationStatesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ApplicationState]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationStateList&quot;</span></span><span>
+</span><span id="line-142"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ApplicationState]))
+-&gt; Maybe [ApplicationState]
+-&gt; Either String (Maybe [ApplicationState])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationState]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListApplicationStatesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListApplicationStatesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListApplicationStatesResponse)
+-&gt; Either String Int -&gt; Either String ListApplicationStatesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172459"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172448"><span id="local-6989586621679172450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679172441"><span class="annot"><span class="annottext">toHeaders :: ListApplicationStates -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApplicationStates -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSMigrationHub.ListApplicationStates&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172431"><span id="local-6989586621679172433"><span id="local-6989586621679172435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679172429"><span class="annot"><span class="annottext">toJSON :: ListApplicationStates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates%27"><span class="hs-identifier hs-type">ListApplicationStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172425"><span id="local-6989586621679172426"><span id="local-6989586621679172427"><span class="annot"><span class="annottext">Maybe Natural
+Maybe (NonEmpty Text)
+Maybe Text
+maxResults :: Maybe Natural
+applicationIds :: Maybe (NonEmpty Text)
+nextToken :: Maybe Text
+$sel:maxResults:ListApplicationStates' :: ListApplicationStates -&gt; Maybe Natural
+$sel:applicationIds:ListApplicationStates' :: ListApplicationStates -&gt; Maybe (NonEmpty Text)
+$sel:nextToken:ListApplicationStates' :: ListApplicationStates -&gt; Maybe Text
+</span><a href="#local-6989586621679172425"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172427"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679172426"><span class="hs-identifier hs-var">applicationIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172425"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679172419"><span class="annot"><span class="annottext">toPath :: ListApplicationStates -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListApplicationStates -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStates"><span class="hs-identifier hs-type">ListApplicationStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679172415"><span class="annot"><span class="annottext">toQuery :: ListApplicationStates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListApplicationStates -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newListApplicationStatesResponse' smart constructor.</span><span>
+</span><span id="line-185"></span><span id="local-6989586621679172412"><span id="local-6989586621679172413"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationStatesResponse"><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-var">ListApplicationStatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationStatesResponse%27"><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-var">ListApplicationStatesResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Applications that exist in Application Discovery Service.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AapplicationStateList%3AListApplicationStatesResponse%27"><span class="annot"><span class="annottext">ListApplicationStatesResponse -&gt; Maybe [ApplicationState]
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AapplicationStateList%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var hs-var">applicationStateList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MigrationHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationStatesResponse%27"><span class="annot"><span class="annottext">ListApplicationStatesResponse -&gt; Maybe Text
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AnextToken%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApplicationStatesResponse%27"><span class="annot"><span class="annottext">ListApplicationStatesResponse -&gt; Int
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AhttpStatus%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172405"><span id="local-6989586621679172407"><span class="annot"><span class="annottext">ListApplicationStatesResponse
+-&gt; ListApplicationStatesResponse -&gt; Bool
+(ListApplicationStatesResponse
+ -&gt; ListApplicationStatesResponse -&gt; Bool)
+-&gt; (ListApplicationStatesResponse
+    -&gt; ListApplicationStatesResponse -&gt; Bool)
+-&gt; Eq ListApplicationStatesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListApplicationStatesResponse
+-&gt; ListApplicationStatesResponse -&gt; Bool
+$c/= :: ListApplicationStatesResponse
+-&gt; ListApplicationStatesResponse -&gt; Bool
+== :: ListApplicationStatesResponse
+-&gt; ListApplicationStatesResponse -&gt; Bool
+$c== :: ListApplicationStatesResponse
+-&gt; ListApplicationStatesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172397"><span id="local-6989586621679172399"><span id="local-6989586621679172401"><span id="local-6989586621679172403"><span class="annot"><span class="annottext">ReadPrec [ListApplicationStatesResponse]
+ReadPrec ListApplicationStatesResponse
+Int -&gt; ReadS ListApplicationStatesResponse
+ReadS [ListApplicationStatesResponse]
+(Int -&gt; ReadS ListApplicationStatesResponse)
+-&gt; ReadS [ListApplicationStatesResponse]
+-&gt; ReadPrec ListApplicationStatesResponse
+-&gt; ReadPrec [ListApplicationStatesResponse]
+-&gt; Read ListApplicationStatesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListApplicationStatesResponse]
+$creadListPrec :: ReadPrec [ListApplicationStatesResponse]
+readPrec :: ReadPrec ListApplicationStatesResponse
+$creadPrec :: ReadPrec ListApplicationStatesResponse
+readList :: ReadS [ListApplicationStatesResponse]
+$creadList :: ReadS [ListApplicationStatesResponse]
+readsPrec :: Int -&gt; ReadS ListApplicationStatesResponse
+$creadsPrec :: Int -&gt; ReadS ListApplicationStatesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172391"><span id="local-6989586621679172393"><span id="local-6989586621679172395"><span class="annot"><span class="annottext">Int -&gt; ListApplicationStatesResponse -&gt; ShowS
+[ListApplicationStatesResponse] -&gt; ShowS
+ListApplicationStatesResponse -&gt; String
+(Int -&gt; ListApplicationStatesResponse -&gt; ShowS)
+-&gt; (ListApplicationStatesResponse -&gt; String)
+-&gt; ([ListApplicationStatesResponse] -&gt; ShowS)
+-&gt; Show ListApplicationStatesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListApplicationStatesResponse] -&gt; ShowS
+$cshowList :: [ListApplicationStatesResponse] -&gt; ShowS
+show :: ListApplicationStatesResponse -&gt; String
+$cshow :: ListApplicationStatesResponse -&gt; String
+showsPrec :: Int -&gt; ListApplicationStatesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListApplicationStatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListApplicationStatesResponse
+ -&gt; Rep ListApplicationStatesResponse x)
+-&gt; (forall x.
+    Rep ListApplicationStatesResponse x
+    -&gt; ListApplicationStatesResponse)
+-&gt; Generic ListApplicationStatesResponse
+forall x.
+Rep ListApplicationStatesResponse x
+-&gt; ListApplicationStatesResponse
+forall x.
+ListApplicationStatesResponse
+-&gt; Rep ListApplicationStatesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListApplicationStatesResponse x
+-&gt; ListApplicationStatesResponse
+$cfrom :: forall x.
+ListApplicationStatesResponse
+-&gt; Rep ListApplicationStatesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Create a value of 'ListApplicationStatesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'applicationStateList', 'listApplicationStatesResponse_applicationStateList' - A list of Applications that exist in Application Discovery Service.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'nextToken', 'listApplicationStatesResponse_nextToken' - If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'httpStatus', 'listApplicationStatesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#newListApplicationStatesResponse"><span class="hs-identifier hs-type">newListApplicationStatesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span>
+</span><span id="line-216"></span><span id="newListApplicationStatesResponse"><span class="annot"><span class="annottext">newListApplicationStatesResponse :: Int -&gt; ListApplicationStatesResponse
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#newListApplicationStatesResponse"><span class="hs-identifier hs-var hs-var">newListApplicationStatesResponse</span></a></span></span><span> </span><span id="local-6989586621679172388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationStatesResponse' :: Maybe [ApplicationState]
+-&gt; Maybe Text -&gt; Int -&gt; ListApplicationStatesResponse
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-type">ListApplicationStatesResponse'</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationStateList:ListApplicationStatesResponse' :: Maybe [ApplicationState]
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AapplicationStateList%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var">applicationStateList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ApplicationState]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationStatesResponse' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AnextToken%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationStatesResponse' :: Int
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AhttpStatus%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | A list of Applications that exist in Application Discovery Service.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_applicationStateList"><span class="hs-identifier hs-type">listApplicationStatesResponse_applicationStateList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MigrationHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="listApplicationStatesResponse_applicationStateList"><span class="annot"><span class="annottext">listApplicationStatesResponse_applicationStateList :: (Maybe [ApplicationState] -&gt; f (Maybe [ApplicationState]))
+-&gt; ListApplicationStatesResponse -&gt; f ListApplicationStatesResponse
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_applicationStateList"><span class="hs-identifier hs-var hs-var">listApplicationStatesResponse_applicationStateList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationStatesResponse -&gt; Maybe [ApplicationState])
+-&gt; (ListApplicationStatesResponse
+    -&gt; Maybe [ApplicationState] -&gt; ListApplicationStatesResponse)
+-&gt; Lens' ListApplicationStatesResponse (Maybe [ApplicationState])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-type">ListApplicationStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172387"><span class="annot"><span class="annottext">Maybe [ApplicationState]
+applicationStateList :: Maybe [ApplicationState]
+$sel:applicationStateList:ListApplicationStatesResponse' :: ListApplicationStatesResponse -&gt; Maybe [ApplicationState]
+</span><a href="#local-6989586621679172387"><span class="hs-identifier hs-var hs-var">applicationStateList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationState]
+</span><a href="#local-6989586621679172387"><span class="hs-identifier hs-var">applicationStateList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172386"><span class="annot"><span class="annottext">s :: ListApplicationStatesResponse
+</span><a href="#local-6989586621679172386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-type">ListApplicationStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172385"><span class="annot"><span class="annottext">Maybe [ApplicationState]
+</span><a href="#local-6989586621679172385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationStatesResponse
+</span><a href="#local-6989586621679172386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationStateList:ListApplicationStatesResponse' :: Maybe [ApplicationState]
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AapplicationStateList%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var">applicationStateList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationState]
+</span><a href="#local-6989586621679172385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApplicationState] -&gt; f (Maybe [ApplicationState]))
+ -&gt; ListApplicationStatesResponse
+ -&gt; f ListApplicationStatesResponse)
+-&gt; ((Maybe [ApplicationState] -&gt; f (Maybe [ApplicationState]))
+    -&gt; Maybe [ApplicationState] -&gt; f (Maybe [ApplicationState]))
+-&gt; (Maybe [ApplicationState] -&gt; f (Maybe [ApplicationState]))
+-&gt; ListApplicationStatesResponse
+-&gt; f ListApplicationStatesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ApplicationState]
+  [ApplicationState]
+  [ApplicationState]
+  [ApplicationState]
+-&gt; Iso
+     (Maybe [ApplicationState])
+     (Maybe [ApplicationState])
+     (Maybe [ApplicationState])
+     (Maybe [ApplicationState])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ApplicationState]
+  [ApplicationState]
+  [ApplicationState]
+  [ApplicationState]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_nextToken"><span class="hs-identifier hs-type">listApplicationStatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="listApplicationStatesResponse_nextToken"><span class="annot"><span class="annottext">listApplicationStatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApplicationStatesResponse -&gt; f ListApplicationStatesResponse
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApplicationStatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationStatesResponse -&gt; Maybe Text)
+-&gt; (ListApplicationStatesResponse
+    -&gt; Maybe Text -&gt; ListApplicationStatesResponse)
+-&gt; Lens' ListApplicationStatesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-type">ListApplicationStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172384"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApplicationStatesResponse' :: ListApplicationStatesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679172384"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172384"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172383"><span class="annot"><span class="annottext">s :: ListApplicationStatesResponse
+</span><a href="#local-6989586621679172383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-type">ListApplicationStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationStatesResponse
+</span><a href="#local-6989586621679172383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationStatesResponse' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AnextToken%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_httpStatus"><span class="hs-identifier hs-type">listApplicationStatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-236"></span><span id="listApplicationStatesResponse_httpStatus"><span class="annot"><span class="annottext">listApplicationStatesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListApplicationStatesResponse -&gt; f ListApplicationStatesResponse
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#listApplicationStatesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listApplicationStatesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationStatesResponse -&gt; Int)
+-&gt; (ListApplicationStatesResponse
+    -&gt; Int -&gt; ListApplicationStatesResponse)
+-&gt; Lens
+     ListApplicationStatesResponse ListApplicationStatesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-type">ListApplicationStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172381"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListApplicationStatesResponse' :: ListApplicationStatesResponse -&gt; Int
+</span><a href="#local-6989586621679172381"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172381"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172380"><span class="annot"><span class="annottext">s :: ListApplicationStatesResponse
+</span><a href="#local-6989586621679172380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse%27"><span class="hs-identifier hs-type">ListApplicationStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationStatesResponse
+</span><a href="#local-6989586621679172380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationStatesResponse' :: Int
+</span><a href="Amazonka.MigrationHub.ListApplicationStates.html#%24sel%3AhttpStatus%3AListApplicationStatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListApplicationStates.html#ListApplicationStatesResponse"><span class="hs-identifier hs-type">ListApplicationStatesResponse</span></a></span></span><span>
+</span><span id="line-239"></span></pre></body></html>

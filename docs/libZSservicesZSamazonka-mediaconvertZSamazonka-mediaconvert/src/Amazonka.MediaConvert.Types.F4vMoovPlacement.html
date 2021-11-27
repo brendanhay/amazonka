@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.F4vMoovPlacement</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.F4vMoovPlacement</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement"><span class="hs-identifier">F4vMoovPlacement</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement_NORMAL"><span class="hs-identifier">F4vMoovPlacement_NORMAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement_PROGRESSIVE_DOWNLOAD"><span class="hs-identifier">F4vMoovPlacement_PROGRESSIVE_DOWNLOAD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- beginning of the archive as required for progressive downloading.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Otherwise it is placed normally at the end.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679964966"><span id="local-6989586621679964967"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="F4vMoovPlacement"><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement"><span class="hs-identifier hs-var">F4vMoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="F4vMoovPlacement%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement%27"><span class="hs-identifier hs-var">F4vMoovPlacement'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromF4vMoovPlacement"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#fromF4vMoovPlacement"><span class="hs-identifier hs-var hs-var">fromF4vMoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964958"><span id="local-6989586621679964960"><span id="local-6989586621679964962"><span class="annot"><span class="annottext">Int -&gt; F4vMoovPlacement -&gt; ShowS
+[F4vMoovPlacement] -&gt; ShowS
+F4vMoovPlacement -&gt; String
+(Int -&gt; F4vMoovPlacement -&gt; ShowS)
+-&gt; (F4vMoovPlacement -&gt; String)
+-&gt; ([F4vMoovPlacement] -&gt; ShowS)
+-&gt; Show F4vMoovPlacement
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [F4vMoovPlacement] -&gt; ShowS
+$cshowList :: [F4vMoovPlacement] -&gt; ShowS
+show :: F4vMoovPlacement -&gt; String
+$cshow :: F4vMoovPlacement -&gt; String
+showsPrec :: Int -&gt; F4vMoovPlacement -&gt; ShowS
+$cshowsPrec :: Int -&gt; F4vMoovPlacement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679964949"><span id="local-6989586621679964951"><span id="local-6989586621679964953"><span id="local-6989586621679964955"><span class="annot"><span class="annottext">ReadPrec [F4vMoovPlacement]
+ReadPrec F4vMoovPlacement
+Int -&gt; ReadS F4vMoovPlacement
+ReadS [F4vMoovPlacement]
+(Int -&gt; ReadS F4vMoovPlacement)
+-&gt; ReadS [F4vMoovPlacement]
+-&gt; ReadPrec F4vMoovPlacement
+-&gt; ReadPrec [F4vMoovPlacement]
+-&gt; Read F4vMoovPlacement
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [F4vMoovPlacement]
+$creadListPrec :: ReadPrec [F4vMoovPlacement]
+readPrec :: ReadPrec F4vMoovPlacement
+$creadPrec :: ReadPrec F4vMoovPlacement
+readList :: ReadS [F4vMoovPlacement]
+$creadList :: ReadS [F4vMoovPlacement]
+readsPrec :: Int -&gt; ReadS F4vMoovPlacement
+$creadsPrec :: Int -&gt; ReadS F4vMoovPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679964944"><span id="local-6989586621679964946"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+(F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
+-&gt; Eq F4vMoovPlacement
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+$c/= :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+== :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+$c== :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679964928"><span id="local-6989586621679964930"><span id="local-6989586621679964932"><span id="local-6989586621679964934"><span id="local-6989586621679964936"><span id="local-6989586621679964938"><span id="local-6989586621679964940"><span class="annot"><span class="annottext">Eq F4vMoovPlacement
+Eq F4vMoovPlacement
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Ordering)
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; F4vMoovPlacement)
+-&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; F4vMoovPlacement)
+-&gt; Ord F4vMoovPlacement
+F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Ordering
+F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; F4vMoovPlacement
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; F4vMoovPlacement
+$cmin :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; F4vMoovPlacement
+max :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; F4vMoovPlacement
+$cmax :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; F4vMoovPlacement
+&gt;= :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+$c&gt;= :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+&gt; :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+$c&gt; :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+&lt;= :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+$c&lt;= :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+&lt; :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+$c&lt; :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+compare :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Ordering
+$ccompare :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Ordering
+$cp1Ord :: Eq F4vMoovPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. F4vMoovPlacement -&gt; Rep F4vMoovPlacement x)
+-&gt; (forall x. Rep F4vMoovPlacement x -&gt; F4vMoovPlacement)
+-&gt; Generic F4vMoovPlacement
+forall x. Rep F4vMoovPlacement x -&gt; F4vMoovPlacement
+forall x. F4vMoovPlacement -&gt; Rep F4vMoovPlacement x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep F4vMoovPlacement x -&gt; F4vMoovPlacement
+$cfrom :: forall x. F4vMoovPlacement -&gt; Rep F4vMoovPlacement x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964920"><span id="local-6989586621679964922"><span class="annot"><span class="annottext">Int -&gt; F4vMoovPlacement -&gt; Int
+F4vMoovPlacement -&gt; Int
+(Int -&gt; F4vMoovPlacement -&gt; Int)
+-&gt; (F4vMoovPlacement -&gt; Int) -&gt; Hashable F4vMoovPlacement
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: F4vMoovPlacement -&gt; Int
+$chash :: F4vMoovPlacement -&gt; Int
+hashWithSalt :: Int -&gt; F4vMoovPlacement -&gt; Int
+$chashWithSalt :: Int -&gt; F4vMoovPlacement -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679964917"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ()
+(F4vMoovPlacement -&gt; ()) -&gt; NFData F4vMoovPlacement
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: F4vMoovPlacement -&gt; ()
+$crnf :: F4vMoovPlacement -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679964914"><span class="annot"><span class="annottext">Text -&gt; Either String F4vMoovPlacement
+(Text -&gt; Either String F4vMoovPlacement)
+-&gt; FromText F4vMoovPlacement
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String F4vMoovPlacement
+$cfromText :: Text -&gt; Either String F4vMoovPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679964911"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; Text
+(F4vMoovPlacement -&gt; Text) -&gt; ToText F4vMoovPlacement
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: F4vMoovPlacement -&gt; Text
+$ctoText :: F4vMoovPlacement -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679964908"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ByteString
+(F4vMoovPlacement -&gt; ByteString) -&gt; ToByteString F4vMoovPlacement
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: F4vMoovPlacement -&gt; ByteString
+$ctoBS :: F4vMoovPlacement -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679964905"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ByteStringBuilder
+(F4vMoovPlacement -&gt; ByteStringBuilder) -&gt; ToLog F4vMoovPlacement
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: F4vMoovPlacement -&gt; ByteStringBuilder
+$cbuild :: F4vMoovPlacement -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679964902"><span class="annot"><span class="annottext">HeaderName -&gt; F4vMoovPlacement -&gt; [Header]
+(HeaderName -&gt; F4vMoovPlacement -&gt; [Header])
+-&gt; ToHeader F4vMoovPlacement
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; F4vMoovPlacement -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; F4vMoovPlacement -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679964899"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; QueryString
+(F4vMoovPlacement -&gt; QueryString) -&gt; ToQuery F4vMoovPlacement
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: F4vMoovPlacement -&gt; QueryString
+$ctoQuery :: F4vMoovPlacement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679964894"><span id="local-6989586621679964896"><span class="annot"><span class="annottext">Value -&gt; Parser [F4vMoovPlacement]
+Value -&gt; Parser F4vMoovPlacement
+(Value -&gt; Parser F4vMoovPlacement)
+-&gt; (Value -&gt; Parser [F4vMoovPlacement])
+-&gt; FromJSON F4vMoovPlacement
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [F4vMoovPlacement]
+$cparseJSONList :: Value -&gt; Parser [F4vMoovPlacement]
+parseJSON :: Value -&gt; Parser F4vMoovPlacement
+$cparseJSON :: Value -&gt; Parser F4vMoovPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679964889"><span id="local-6989586621679964891"><span class="annot"><span class="annottext">FromJSONKeyFunction [F4vMoovPlacement]
+FromJSONKeyFunction F4vMoovPlacement
+FromJSONKeyFunction F4vMoovPlacement
+-&gt; FromJSONKeyFunction [F4vMoovPlacement]
+-&gt; FromJSONKey F4vMoovPlacement
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [F4vMoovPlacement]
+$cfromJSONKeyList :: FromJSONKeyFunction [F4vMoovPlacement]
+fromJSONKey :: FromJSONKeyFunction F4vMoovPlacement
+$cfromJSONKey :: FromJSONKeyFunction F4vMoovPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679964880"><span id="local-6989586621679964882"><span id="local-6989586621679964884"><span id="local-6989586621679964886"><span class="annot"><span class="annottext">[F4vMoovPlacement] -&gt; Encoding
+[F4vMoovPlacement] -&gt; Value
+F4vMoovPlacement -&gt; Encoding
+F4vMoovPlacement -&gt; Value
+(F4vMoovPlacement -&gt; Value)
+-&gt; (F4vMoovPlacement -&gt; Encoding)
+-&gt; ([F4vMoovPlacement] -&gt; Value)
+-&gt; ([F4vMoovPlacement] -&gt; Encoding)
+-&gt; ToJSON F4vMoovPlacement
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [F4vMoovPlacement] -&gt; Encoding
+$ctoEncodingList :: [F4vMoovPlacement] -&gt; Encoding
+toJSONList :: [F4vMoovPlacement] -&gt; Value
+$ctoJSONList :: [F4vMoovPlacement] -&gt; Value
+toEncoding :: F4vMoovPlacement -&gt; Encoding
+$ctoEncoding :: F4vMoovPlacement -&gt; Encoding
+toJSON :: F4vMoovPlacement -&gt; Value
+$ctoJSON :: F4vMoovPlacement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679964875"><span id="local-6989586621679964877"><span class="annot"><span class="annottext">ToJSONKeyFunction [F4vMoovPlacement]
+ToJSONKeyFunction F4vMoovPlacement
+ToJSONKeyFunction F4vMoovPlacement
+-&gt; ToJSONKeyFunction [F4vMoovPlacement]
+-&gt; ToJSONKey F4vMoovPlacement
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [F4vMoovPlacement]
+$ctoJSONKeyList :: ToJSONKeyFunction [F4vMoovPlacement]
+toJSONKey :: ToJSONKeyFunction F4vMoovPlacement
+$ctoJSONKey :: ToJSONKeyFunction F4vMoovPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679964872"><span class="annot"><span class="annottext">[Node] -&gt; Either String F4vMoovPlacement
+([Node] -&gt; Either String F4vMoovPlacement)
+-&gt; FromXML F4vMoovPlacement
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String F4vMoovPlacement
+$cparseXML :: [Node] -&gt; Either String F4vMoovPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679964869"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; XML
+(F4vMoovPlacement -&gt; XML) -&gt; ToXML F4vMoovPlacement
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: F4vMoovPlacement -&gt; XML
+$ctoXML :: F4vMoovPlacement -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement_NORMAL"><span class="hs-identifier hs-type">F4vMoovPlacement_NORMAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement"><span class="hs-identifier hs-type">F4vMoovPlacement</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bF4vMoovPlacement_NORMAL"><span id="%24mF4vMoovPlacement_NORMAL"><span id="F4vMoovPlacement_NORMAL"><span class="annot"><span class="annottext">$bF4vMoovPlacement_NORMAL :: F4vMoovPlacement
+$mF4vMoovPlacement_NORMAL :: forall r. F4vMoovPlacement -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#%24bF4vMoovPlacement_NORMAL"><span class="hs-identifier hs-var hs-var hs-var">F4vMoovPlacement_NORMAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement%27"><span class="hs-identifier hs-type">F4vMoovPlacement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NORMAL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement_PROGRESSIVE_DOWNLOAD"><span class="hs-identifier hs-type">F4vMoovPlacement_PROGRESSIVE_DOWNLOAD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement"><span class="hs-identifier hs-type">F4vMoovPlacement</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bF4vMoovPlacement_PROGRESSIVE_DOWNLOAD"><span id="%24mF4vMoovPlacement_PROGRESSIVE_DOWNLOAD"><span id="F4vMoovPlacement_PROGRESSIVE_DOWNLOAD"><span class="annot"><span class="annottext">$bF4vMoovPlacement_PROGRESSIVE_DOWNLOAD :: F4vMoovPlacement
+$mF4vMoovPlacement_PROGRESSIVE_DOWNLOAD :: forall r. F4vMoovPlacement -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#%24bF4vMoovPlacement_PROGRESSIVE_DOWNLOAD"><span class="hs-identifier hs-var hs-var hs-var">F4vMoovPlacement_PROGRESSIVE_DOWNLOAD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement%27"><span class="hs-identifier hs-type">F4vMoovPlacement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROGRESSIVE_DOWNLOAD&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement_NORMAL"><span class="hs-pragma hs-type">F4vMoovPlacement_NORMAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement_PROGRESSIVE_DOWNLOAD"><span class="hs-pragma hs-type">F4vMoovPlacement_PROGRESSIVE_DOWNLOAD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement%27"><span class="hs-pragma hs-type">F4vMoovPlacement'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

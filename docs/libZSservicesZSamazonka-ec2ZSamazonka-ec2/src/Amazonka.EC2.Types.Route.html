@@ -1,0 +1,952 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.Route</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.Route</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html"><span class="hs-identifier">Amazonka.EC2.Types.RouteOrigin</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteState.html"><span class="hs-identifier">Amazonka.EC2.Types.RouteState</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a route in a route table.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRoute' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681145410"><span id="local-6989586621681145411"></span></span><span class="hs-keyword">data</span><span> </span><span id="Route"><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-var">Route</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Route%27"><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-var">Route'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of a VPC peering connection.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AvpcPeeringConnectionId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AvpcPeeringConnectionId%3ARoute%27"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of a NAT instance in your VPC.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstanceId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AinstanceId%3ARoute%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Describes how the route was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @CreateRouteTable@ - The route was automatically created when the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     route table was created.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @CreateRoute@ - The route was manually added to the route table.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @EnableVgwRoutePropagation@ - The route was propagated by route</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     propagation.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aorigin%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe RouteOrigin
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3Aorigin%3ARoute%27"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin"><span class="hs-identifier hs-type">RouteOrigin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The state of the route. The @blackhole@ state indicates that the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- route\'s target isn\'t available (for example, the specified gateway</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- isn\'t attached to the VPC, or the specified NAT instance has been</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- terminated).</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Astate%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe RouteState
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3Astate%3ARoute%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteState.html#RouteState"><span class="hs-identifier hs-type">RouteState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ID of the egress-only internet gateway.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AegressOnlyInternetGatewayId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AegressOnlyInternetGatewayId%3ARoute%27"><span class="hs-identifier hs-var hs-var">egressOnlyInternetGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The IPv6 CIDR block used for the destination match.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdestinationIpv6CidrBlock%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationIpv6CidrBlock%3ARoute%27"><span class="hs-identifier hs-var hs-var">destinationIpv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID of the local gateway.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AlocalGatewayId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AlocalGatewayId%3ARoute%27"><span class="hs-identifier hs-var hs-var">localGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of a NAT gateway.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnatGatewayId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AnatGatewayId%3ARoute%27"><span class="hs-identifier hs-var hs-var">natGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the network interface.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AnetworkInterfaceId%3ARoute%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of a transit gateway.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AtransitGatewayId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AtransitGatewayId%3ARoute%27"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of a gateway attached to your VPC.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AgatewayId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AgatewayId%3ARoute%27"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of Amazon Web Services account that owns the instance.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AinstanceOwnerId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AinstanceOwnerId%3ARoute%27"><span class="hs-identifier hs-var hs-var">instanceOwnerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The prefix of the Amazon Web Service.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdestinationPrefixListId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationPrefixListId%3ARoute%27"><span class="hs-identifier hs-var hs-var">destinationPrefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The ID of the carrier gateway.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AcarrierGatewayId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AcarrierGatewayId%3ARoute%27"><span class="hs-identifier hs-var hs-var">carrierGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The IPv4 CIDR block used for the destination match.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationCidrBlock%3ARoute%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681145390"><span id="local-6989586621681145392"><span class="annot"><span class="annottext">Route -&gt; Route -&gt; Bool
+(Route -&gt; Route -&gt; Bool) -&gt; (Route -&gt; Route -&gt; Bool) -&gt; Eq Route
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Route -&gt; Route -&gt; Bool
+$c/= :: Route -&gt; Route -&gt; Bool
+== :: Route -&gt; Route -&gt; Bool
+$c== :: Route -&gt; Route -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681145381"><span id="local-6989586621681145383"><span id="local-6989586621681145385"><span id="local-6989586621681145387"><span class="annot"><span class="annottext">ReadPrec [Route]
+ReadPrec Route
+Int -&gt; ReadS Route
+ReadS [Route]
+(Int -&gt; ReadS Route)
+-&gt; ReadS [Route]
+-&gt; ReadPrec Route
+-&gt; ReadPrec [Route]
+-&gt; Read Route
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Route]
+$creadListPrec :: ReadPrec [Route]
+readPrec :: ReadPrec Route
+$creadPrec :: ReadPrec Route
+readList :: ReadS [Route]
+$creadList :: ReadS [Route]
+readsPrec :: Int -&gt; ReadS Route
+$creadsPrec :: Int -&gt; ReadS Route
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681145374"><span id="local-6989586621681145376"><span id="local-6989586621681145378"><span class="annot"><span class="annottext">Int -&gt; Route -&gt; ShowS
+[Route] -&gt; ShowS
+Route -&gt; String
+(Int -&gt; Route -&gt; ShowS)
+-&gt; (Route -&gt; String) -&gt; ([Route] -&gt; ShowS) -&gt; Show Route
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Route] -&gt; ShowS
+$cshowList :: [Route] -&gt; ShowS
+show :: Route -&gt; String
+$cshow :: Route -&gt; String
+showsPrec :: Int -&gt; Route -&gt; ShowS
+$cshowsPrec :: Int -&gt; Route -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Route -&gt; Rep Route x)
+-&gt; (forall x. Rep Route x -&gt; Route) -&gt; Generic Route
+forall x. Rep Route x -&gt; Route
+forall x. Route -&gt; Rep Route x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Route x -&gt; Route
+$cfrom :: forall x. Route -&gt; Rep Route x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'Route' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'vpcPeeringConnectionId', 'route_vpcPeeringConnectionId' - The ID of a VPC peering connection.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'instanceId', 'route_instanceId' - The ID of a NAT instance in your VPC.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'origin', 'route_origin' - Describes how the route was created.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @CreateRouteTable@ - The route was automatically created when the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     route table was created.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @CreateRoute@ - The route was manually added to the route table.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @EnableVgwRoutePropagation@ - The route was propagated by route</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     propagation.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'state', 'route_state' - The state of the route. The @blackhole@ state indicates that the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- route\'s target isn\'t available (for example, the specified gateway</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- isn\'t attached to the VPC, or the specified NAT instance has been</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- terminated).</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'egressOnlyInternetGatewayId', 'route_egressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'destinationIpv6CidrBlock', 'route_destinationIpv6CidrBlock' - The IPv6 CIDR block used for the destination match.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'localGatewayId', 'route_localGatewayId' - The ID of the local gateway.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'natGatewayId', 'route_natGatewayId' - The ID of a NAT gateway.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'networkInterfaceId', 'route_networkInterfaceId' - The ID of the network interface.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'transitGatewayId', 'route_transitGatewayId' - The ID of a transit gateway.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'gatewayId', 'route_gatewayId' - The ID of a gateway attached to your VPC.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'instanceOwnerId', 'route_instanceOwnerId' - The ID of Amazon Web Services account that owns the instance.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'destinationPrefixListId', 'route_destinationPrefixListId' - The prefix of the Amazon Web Service.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'carrierGatewayId', 'route_carrierGatewayId' - The ID of the carrier gateway.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'destinationCidrBlock', 'route_destinationCidrBlock' - The IPv4 CIDR block used for the destination match.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#newRoute"><span class="hs-identifier hs-type">newRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span>
+</span><span id="line-127"></span><span id="newRoute"><span class="annot"><span class="annottext">newRoute :: Route
+</span><a href="Amazonka.EC2.Types.Route.html#newRoute"><span class="hs-identifier hs-var hs-var">newRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">Route' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RouteOrigin
+-&gt; Maybe RouteState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Route
+</span><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcPeeringConnectionId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AvpcPeeringConnectionId%3ARoute%27"><span class="hs-identifier hs-var">vpcPeeringConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AinstanceId%3ARoute%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:origin:Route' :: Maybe RouteOrigin
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3Aorigin%3ARoute%27"><span class="hs-identifier hs-var">origin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RouteOrigin
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:Route' :: Maybe RouteState
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3Astate%3ARoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RouteState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:egressOnlyInternetGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AegressOnlyInternetGatewayId%3ARoute%27"><span class="hs-identifier hs-var">egressOnlyInternetGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationIpv6CidrBlock:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationIpv6CidrBlock%3ARoute%27"><span class="hs-identifier hs-var">destinationIpv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AlocalGatewayId%3ARoute%27"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:natGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AnatGatewayId%3ARoute%27"><span class="hs-identifier hs-var">natGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AnetworkInterfaceId%3ARoute%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AtransitGatewayId%3ARoute%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AgatewayId%3ARoute%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceOwnerId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AinstanceOwnerId%3ARoute%27"><span class="hs-identifier hs-var">instanceOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationPrefixListId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationPrefixListId%3ARoute%27"><span class="hs-identifier hs-var">destinationPrefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:carrierGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AcarrierGatewayId%3ARoute%27"><span class="hs-identifier hs-var">carrierGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationCidrBlock%3ARoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The ID of a VPC peering connection.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_vpcPeeringConnectionId"><span class="hs-identifier hs-type">route_vpcPeeringConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="route_vpcPeeringConnectionId"><span class="annot"><span class="annottext">route_vpcPeeringConnectionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_vpcPeeringConnectionId"><span class="hs-identifier hs-var hs-var">route_vpcPeeringConnectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145365"><span class="annot"><span class="annottext">Maybe Text
+vpcPeeringConnectionId :: Maybe Text
+$sel:vpcPeeringConnectionId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145365"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145365"><span class="hs-identifier hs-var">vpcPeeringConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145364"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145363"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcPeeringConnectionId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AvpcPeeringConnectionId%3ARoute%27"><span class="hs-identifier hs-var">vpcPeeringConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The ID of a NAT instance in your VPC.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_instanceId"><span class="hs-identifier hs-type">route_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="route_instanceId"><span class="annot"><span class="annottext">route_instanceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_instanceId"><span class="hs-identifier hs-var hs-var">route_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145361"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145361"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145361"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145360"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145359"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AinstanceId%3ARoute%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Describes how the route was created.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @CreateRouteTable@ - The route was automatically created when the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     route table was created.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   @CreateRoute@ - The route was manually added to the route table.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   @EnableVgwRoutePropagation@ - The route was propagated by route</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     propagation.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_origin"><span class="hs-identifier hs-type">route_origin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin"><span class="hs-identifier hs-type">RouteOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="route_origin"><span class="annot"><span class="annottext">route_origin :: (Maybe RouteOrigin -&gt; f (Maybe RouteOrigin)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_origin"><span class="hs-identifier hs-var hs-var">route_origin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe RouteOrigin)
+-&gt; (Route -&gt; Maybe RouteOrigin -&gt; Route)
+-&gt; Lens Route Route (Maybe RouteOrigin) (Maybe RouteOrigin)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145357"><span class="annot"><span class="annottext">Maybe RouteOrigin
+origin :: Maybe RouteOrigin
+$sel:origin:Route' :: Route -&gt; Maybe RouteOrigin
+</span><a href="#local-6989586621681145357"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RouteOrigin
+</span><a href="#local-6989586621681145357"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145356"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145355"><span class="annot"><span class="annottext">Maybe RouteOrigin
+</span><a href="#local-6989586621681145355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origin:Route' :: Maybe RouteOrigin
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3Aorigin%3ARoute%27"><span class="hs-identifier hs-var">origin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RouteOrigin
+</span><a href="#local-6989586621681145355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The state of the route. The @blackhole@ state indicates that the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- route\'s target isn\'t available (for example, the specified gateway</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- isn\'t attached to the VPC, or the specified NAT instance has been</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- terminated).</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_state"><span class="hs-identifier hs-type">route_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteState.html#RouteState"><span class="hs-identifier hs-type">RouteState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="route_state"><span class="annot"><span class="annottext">route_state :: (Maybe RouteState -&gt; f (Maybe RouteState)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_state"><span class="hs-identifier hs-var hs-var">route_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe RouteState)
+-&gt; (Route -&gt; Maybe RouteState -&gt; Route)
+-&gt; Lens Route Route (Maybe RouteState) (Maybe RouteState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145353"><span class="annot"><span class="annottext">Maybe RouteState
+state :: Maybe RouteState
+$sel:state:Route' :: Route -&gt; Maybe RouteState
+</span><a href="#local-6989586621681145353"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RouteState
+</span><a href="#local-6989586621681145353"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145352"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145351"><span class="annot"><span class="annottext">Maybe RouteState
+</span><a href="#local-6989586621681145351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Route' :: Maybe RouteState
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3Astate%3ARoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RouteState
+</span><a href="#local-6989586621681145351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The ID of the egress-only internet gateway.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_egressOnlyInternetGatewayId"><span class="hs-identifier hs-type">route_egressOnlyInternetGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="route_egressOnlyInternetGatewayId"><span class="annot"><span class="annottext">route_egressOnlyInternetGatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_egressOnlyInternetGatewayId"><span class="hs-identifier hs-var hs-var">route_egressOnlyInternetGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145349"><span class="annot"><span class="annottext">Maybe Text
+egressOnlyInternetGatewayId :: Maybe Text
+$sel:egressOnlyInternetGatewayId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145349"><span class="hs-identifier hs-var hs-var">egressOnlyInternetGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145349"><span class="hs-identifier hs-var">egressOnlyInternetGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145348"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145347"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:egressOnlyInternetGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AegressOnlyInternetGatewayId%3ARoute%27"><span class="hs-identifier hs-var">egressOnlyInternetGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The IPv6 CIDR block used for the destination match.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_destinationIpv6CidrBlock"><span class="hs-identifier hs-type">route_destinationIpv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="route_destinationIpv6CidrBlock"><span class="annot"><span class="annottext">route_destinationIpv6CidrBlock :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_destinationIpv6CidrBlock"><span class="hs-identifier hs-var hs-var">route_destinationIpv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145345"><span class="annot"><span class="annottext">Maybe Text
+destinationIpv6CidrBlock :: Maybe Text
+$sel:destinationIpv6CidrBlock:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145345"><span class="hs-identifier hs-var hs-var">destinationIpv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145345"><span class="hs-identifier hs-var">destinationIpv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145344"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationIpv6CidrBlock:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationIpv6CidrBlock%3ARoute%27"><span class="hs-identifier hs-var">destinationIpv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The ID of the local gateway.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_localGatewayId"><span class="hs-identifier hs-type">route_localGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="route_localGatewayId"><span class="annot"><span class="annottext">route_localGatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_localGatewayId"><span class="hs-identifier hs-var hs-var">route_localGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145341"><span class="annot"><span class="annottext">Maybe Text
+localGatewayId :: Maybe Text
+$sel:localGatewayId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145341"><span class="hs-identifier hs-var hs-var">localGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145341"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145340"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AlocalGatewayId%3ARoute%27"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The ID of a NAT gateway.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_natGatewayId"><span class="hs-identifier hs-type">route_natGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="route_natGatewayId"><span class="annot"><span class="annottext">route_natGatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_natGatewayId"><span class="hs-identifier hs-var hs-var">route_natGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145337"><span class="annot"><span class="annottext">Maybe Text
+natGatewayId :: Maybe Text
+$sel:natGatewayId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145337"><span class="hs-identifier hs-var hs-var">natGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145337"><span class="hs-identifier hs-var">natGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145336"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:natGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AnatGatewayId%3ARoute%27"><span class="hs-identifier hs-var">natGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The ID of the network interface.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_networkInterfaceId"><span class="hs-identifier hs-type">route_networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="route_networkInterfaceId"><span class="annot"><span class="annottext">route_networkInterfaceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_networkInterfaceId"><span class="hs-identifier hs-var hs-var">route_networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145333"><span class="annot"><span class="annottext">Maybe Text
+networkInterfaceId :: Maybe Text
+$sel:networkInterfaceId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145333"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145333"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145332"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AnetworkInterfaceId%3ARoute%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The ID of a transit gateway.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_transitGatewayId"><span class="hs-identifier hs-type">route_transitGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="route_transitGatewayId"><span class="annot"><span class="annottext">route_transitGatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_transitGatewayId"><span class="hs-identifier hs-var hs-var">route_transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145329"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayId :: Maybe Text
+$sel:transitGatewayId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145329"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145329"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145328"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AtransitGatewayId%3ARoute%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The ID of a gateway attached to your VPC.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_gatewayId"><span class="hs-identifier hs-type">route_gatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="route_gatewayId"><span class="annot"><span class="annottext">route_gatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_gatewayId"><span class="hs-identifier hs-var hs-var">route_gatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145325"><span class="annot"><span class="annottext">Maybe Text
+gatewayId :: Maybe Text
+$sel:gatewayId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145325"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145325"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145324"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AgatewayId%3ARoute%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The ID of Amazon Web Services account that owns the instance.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_instanceOwnerId"><span class="hs-identifier hs-type">route_instanceOwnerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="route_instanceOwnerId"><span class="annot"><span class="annottext">route_instanceOwnerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_instanceOwnerId"><span class="hs-identifier hs-var hs-var">route_instanceOwnerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145321"><span class="annot"><span class="annottext">Maybe Text
+instanceOwnerId :: Maybe Text
+$sel:instanceOwnerId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145321"><span class="hs-identifier hs-var hs-var">instanceOwnerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145321"><span class="hs-identifier hs-var">instanceOwnerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145320"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceOwnerId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AinstanceOwnerId%3ARoute%27"><span class="hs-identifier hs-var">instanceOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The prefix of the Amazon Web Service.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_destinationPrefixListId"><span class="hs-identifier hs-type">route_destinationPrefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="route_destinationPrefixListId"><span class="annot"><span class="annottext">route_destinationPrefixListId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_destinationPrefixListId"><span class="hs-identifier hs-var hs-var">route_destinationPrefixListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145317"><span class="annot"><span class="annottext">Maybe Text
+destinationPrefixListId :: Maybe Text
+$sel:destinationPrefixListId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145317"><span class="hs-identifier hs-var hs-var">destinationPrefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145317"><span class="hs-identifier hs-var">destinationPrefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145316"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145315"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPrefixListId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationPrefixListId%3ARoute%27"><span class="hs-identifier hs-var">destinationPrefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The ID of the carrier gateway.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_carrierGatewayId"><span class="hs-identifier hs-type">route_carrierGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="route_carrierGatewayId"><span class="annot"><span class="annottext">route_carrierGatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_carrierGatewayId"><span class="hs-identifier hs-var hs-var">route_carrierGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145313"><span class="annot"><span class="annottext">Maybe Text
+carrierGatewayId :: Maybe Text
+$sel:carrierGatewayId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145313"><span class="hs-identifier hs-var hs-var">carrierGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145313"><span class="hs-identifier hs-var">carrierGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145312"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:carrierGatewayId:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AcarrierGatewayId%3ARoute%27"><span class="hs-identifier hs-var">carrierGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The IPv4 CIDR block used for the destination match.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#route_destinationCidrBlock"><span class="hs-identifier hs-type">route_destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="route_destinationCidrBlock"><span class="annot"><span class="annottext">route_destinationCidrBlock :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.EC2.Types.Route.html#route_destinationCidrBlock"><span class="hs-identifier hs-var hs-var">route_destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681145309"><span class="annot"><span class="annottext">Maybe Text
+destinationCidrBlock :: Maybe Text
+$sel:destinationCidrBlock:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621681145309"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145309"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681145308"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621681145308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681145307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621681145308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:Route' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.Route.html#%24sel%3AdestinationCidrBlock%3ARoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681145307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621681145304"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Route
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681145302"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RouteOrigin
+-&gt; Maybe RouteState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Route
+</span><a href="Amazonka.EC2.Types.Route.html#Route%27"><span class="hs-identifier hs-var">Route'</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe RouteOrigin
+ -&gt; Maybe RouteState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe RouteOrigin
+      -&gt; Maybe RouteState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcPeeringConnectionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe RouteOrigin
+   -&gt; Maybe RouteState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe RouteOrigin
+      -&gt; Maybe RouteState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe RouteOrigin
+   -&gt; Maybe RouteState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe RouteOrigin)
+-&gt; Either
+     String
+     (Maybe RouteState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RouteOrigin)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;origin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe RouteState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe RouteState)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RouteState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;egressOnlyInternetGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationIpv6CidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;localGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;natGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceOwnerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationPrefixListId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Route)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;carrierGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Route)
+-&gt; Either String (Maybe Text) -&gt; Either String Route
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681145302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationCidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681145296"><span id="local-6989586621681145298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681145293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span><span>
+</span><span id="line-239"></span></pre></body></html>

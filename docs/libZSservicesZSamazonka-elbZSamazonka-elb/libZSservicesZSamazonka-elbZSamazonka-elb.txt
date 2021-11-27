@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ELB.Internal
+module Amazonka.ELB.Internal
 
 -- | This account identifier is used when attaching a policy to your S3
 --   bucket allowing ELB to upload and write access logs.
@@ -14,7 +14,7 @@ module Network.AWS.ELB.Internal
 getAccountId :: Region -> Maybe Text
 
 
-module Network.AWS.ELB.Types.AccessLog
+module Amazonka.ELB.Types.AccessLog
 
 -- | Information about the <tt>AccessLog</tt> attribute.
 --   
@@ -81,17 +81,17 @@ accessLog_s3BucketName :: Lens' AccessLog (Maybe Text)
 
 -- | Specifies whether access logs are enabled for the load balancer.
 accessLog_enabled :: Lens' AccessLog Bool
-instance GHC.Generics.Generic Network.AWS.ELB.Types.AccessLog.AccessLog
-instance GHC.Show.Show Network.AWS.ELB.Types.AccessLog.AccessLog
-instance GHC.Read.Read Network.AWS.ELB.Types.AccessLog.AccessLog
-instance GHC.Classes.Eq Network.AWS.ELB.Types.AccessLog.AccessLog
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.AccessLog.AccessLog
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.AccessLog.AccessLog
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.AccessLog.AccessLog
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.AccessLog.AccessLog
+instance GHC.Generics.Generic Amazonka.ELB.Types.AccessLog.AccessLog
+instance GHC.Show.Show Amazonka.ELB.Types.AccessLog.AccessLog
+instance GHC.Read.Read Amazonka.ELB.Types.AccessLog.AccessLog
+instance GHC.Classes.Eq Amazonka.ELB.Types.AccessLog.AccessLog
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.AccessLog.AccessLog
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.AccessLog.AccessLog
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.AccessLog.AccessLog
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.AccessLog.AccessLog
 
 
-module Network.AWS.ELB.Types.AdditionalAttribute
+module Amazonka.ELB.Types.AdditionalAttribute
 
 -- | Information about additional load balancer attributes.
 --   
@@ -156,17 +156,17 @@ additionalAttribute_value :: Lens' AdditionalAttribute (Maybe Text)
 --   <tt>defensive</tt>.</li>
 --   </ul>
 additionalAttribute_key :: Lens' AdditionalAttribute (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
-instance GHC.Show.Show Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
-instance GHC.Read.Read Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
-instance GHC.Classes.Eq Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance GHC.Generics.Generic Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance GHC.Show.Show Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance GHC.Read.Read Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance GHC.Classes.Eq Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.AdditionalAttribute.AdditionalAttribute
 
 
-module Network.AWS.ELB.Types.AppCookieStickinessPolicy
+module Amazonka.ELB.Types.AppCookieStickinessPolicy
 
 -- | Information about a policy for application-controlled session
 --   stickiness.
@@ -207,16 +207,16 @@ appCookieStickinessPolicy_policyName :: Lens' AppCookieStickinessPolicy (Maybe T
 
 -- | The name of the application cookie used for stickiness.
 appCookieStickinessPolicy_cookieName :: Lens' AppCookieStickinessPolicy (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
-instance GHC.Show.Show Network.AWS.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
-instance GHC.Read.Read Network.AWS.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
-instance GHC.Classes.Eq Network.AWS.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
+instance GHC.Generics.Generic Amazonka.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
+instance GHC.Show.Show Amazonka.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
+instance GHC.Read.Read Amazonka.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
+instance GHC.Classes.Eq Amazonka.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.AppCookieStickinessPolicy.AppCookieStickinessPolicy
 
 
-module Network.AWS.ELB.Types.BackendServerDescription
+module Amazonka.ELB.Types.BackendServerDescription
 
 -- | Information about the configuration of an EC2 instance.
 --   
@@ -253,16 +253,16 @@ backendServerDescription_policyNames :: Lens' BackendServerDescription (Maybe [T
 
 -- | The port on which the EC2 instance is listening.
 backendServerDescription_instancePort :: Lens' BackendServerDescription (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.BackendServerDescription.BackendServerDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.BackendServerDescription.BackendServerDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.BackendServerDescription.BackendServerDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.BackendServerDescription.BackendServerDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.BackendServerDescription.BackendServerDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.BackendServerDescription.BackendServerDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.BackendServerDescription.BackendServerDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.BackendServerDescription.BackendServerDescription
+instance GHC.Show.Show Amazonka.ELB.Types.BackendServerDescription.BackendServerDescription
+instance GHC.Read.Read Amazonka.ELB.Types.BackendServerDescription.BackendServerDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.BackendServerDescription.BackendServerDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.BackendServerDescription.BackendServerDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.BackendServerDescription.BackendServerDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.BackendServerDescription.BackendServerDescription
 
 
-module Network.AWS.ELB.Types.ConnectionDraining
+module Amazonka.ELB.Types.ConnectionDraining
 
 -- | Information about the <tt>ConnectionDraining</tt> attribute.
 --   
@@ -303,17 +303,17 @@ connectionDraining_timeout :: Lens' ConnectionDraining (Maybe Int)
 -- | Specifies whether connection draining is enabled for the load
 --   balancer.
 connectionDraining_enabled :: Lens' ConnectionDraining Bool
-instance GHC.Generics.Generic Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
-instance GHC.Show.Show Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
-instance GHC.Read.Read Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
-instance GHC.Classes.Eq Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.ConnectionDraining.ConnectionDraining
+instance GHC.Generics.Generic Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
+instance GHC.Show.Show Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
+instance GHC.Read.Read Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
+instance GHC.Classes.Eq Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.ConnectionDraining.ConnectionDraining
 
 
-module Network.AWS.ELB.Types.ConnectionSettings
+module Amazonka.ELB.Types.ConnectionSettings
 
 -- | Information about the <tt>ConnectionSettings</tt> attribute.
 --   
@@ -345,17 +345,17 @@ newConnectionSettings :: Natural -> ConnectionSettings
 --   data has been sent over the connection) before it is closed by the
 --   load balancer.
 connectionSettings_idleTimeout :: Lens' ConnectionSettings Natural
-instance GHC.Generics.Generic Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
-instance GHC.Show.Show Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
-instance GHC.Read.Read Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
-instance GHC.Classes.Eq Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.ConnectionSettings.ConnectionSettings
+instance GHC.Generics.Generic Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
+instance GHC.Show.Show Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
+instance GHC.Read.Read Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
+instance GHC.Classes.Eq Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.ConnectionSettings.ConnectionSettings
 
 
-module Network.AWS.ELB.Types.CrossZoneLoadBalancing
+module Amazonka.ELB.Types.CrossZoneLoadBalancing
 
 -- | Information about the <tt>CrossZoneLoadBalancing</tt> attribute.
 --   
@@ -384,17 +384,17 @@ newCrossZoneLoadBalancing :: Bool -> CrossZoneLoadBalancing
 -- | Specifies whether cross-zone load balancing is enabled for the load
 --   balancer.
 crossZoneLoadBalancing_enabled :: Lens' CrossZoneLoadBalancing Bool
-instance GHC.Generics.Generic Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
-instance GHC.Show.Show Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
-instance GHC.Read.Read Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
-instance GHC.Classes.Eq Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance GHC.Generics.Generic Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance GHC.Show.Show Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance GHC.Read.Read Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance GHC.Classes.Eq Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.CrossZoneLoadBalancing.CrossZoneLoadBalancing
 
 
-module Network.AWS.ELB.Types.HealthCheck
+module Amazonka.ELB.Types.HealthCheck
 
 -- | Information about a health check.
 --   
@@ -526,17 +526,17 @@ healthCheck_unhealthyThreshold :: Lens' HealthCheck Natural
 -- | The number of consecutive health checks successes required before
 --   moving the instance to the <tt>Healthy</tt> state.
 healthCheck_healthyThreshold :: Lens' HealthCheck Natural
-instance GHC.Generics.Generic Network.AWS.ELB.Types.HealthCheck.HealthCheck
-instance GHC.Show.Show Network.AWS.ELB.Types.HealthCheck.HealthCheck
-instance GHC.Read.Read Network.AWS.ELB.Types.HealthCheck.HealthCheck
-instance GHC.Classes.Eq Network.AWS.ELB.Types.HealthCheck.HealthCheck
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.HealthCheck.HealthCheck
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.HealthCheck.HealthCheck
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.HealthCheck.HealthCheck
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.HealthCheck.HealthCheck
+instance GHC.Generics.Generic Amazonka.ELB.Types.HealthCheck.HealthCheck
+instance GHC.Show.Show Amazonka.ELB.Types.HealthCheck.HealthCheck
+instance GHC.Read.Read Amazonka.ELB.Types.HealthCheck.HealthCheck
+instance GHC.Classes.Eq Amazonka.ELB.Types.HealthCheck.HealthCheck
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.HealthCheck.HealthCheck
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.HealthCheck.HealthCheck
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.HealthCheck.HealthCheck
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.HealthCheck.HealthCheck
 
 
-module Network.AWS.ELB.Types.Instance
+module Amazonka.ELB.Types.Instance
 
 -- | The ID of an EC2 instance.
 --   
@@ -561,17 +561,17 @@ newInstance :: Instance
 
 -- | The instance ID.
 instance_instanceId :: Lens' Instance (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.Instance.Instance
-instance GHC.Show.Show Network.AWS.ELB.Types.Instance.Instance
-instance GHC.Read.Read Network.AWS.ELB.Types.Instance.Instance
-instance GHC.Classes.Eq Network.AWS.ELB.Types.Instance.Instance
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.Instance.Instance
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.Instance.Instance
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.Instance.Instance
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.Instance.Instance
+instance GHC.Generics.Generic Amazonka.ELB.Types.Instance.Instance
+instance GHC.Show.Show Amazonka.ELB.Types.Instance.Instance
+instance GHC.Read.Read Amazonka.ELB.Types.Instance.Instance
+instance GHC.Classes.Eq Amazonka.ELB.Types.Instance.Instance
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.Instance.Instance
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.Instance.Instance
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.Instance.Instance
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.Instance.Instance
 
 
-module Network.AWS.ELB.Types.InstanceState
+module Amazonka.ELB.Types.InstanceState
 
 -- | Information about the state of an EC2 instance.
 --   
@@ -711,16 +711,16 @@ instanceState_reasonCode :: Lens' InstanceState (Maybe Text)
 --   <li><pre>Instance is in terminated state.</pre></li>
 --   </ul>
 instanceState_description :: Lens' InstanceState (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.InstanceState.InstanceState
-instance GHC.Show.Show Network.AWS.ELB.Types.InstanceState.InstanceState
-instance GHC.Read.Read Network.AWS.ELB.Types.InstanceState.InstanceState
-instance GHC.Classes.Eq Network.AWS.ELB.Types.InstanceState.InstanceState
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.InstanceState.InstanceState
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.InstanceState.InstanceState
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.InstanceState.InstanceState
+instance GHC.Generics.Generic Amazonka.ELB.Types.InstanceState.InstanceState
+instance GHC.Show.Show Amazonka.ELB.Types.InstanceState.InstanceState
+instance GHC.Read.Read Amazonka.ELB.Types.InstanceState.InstanceState
+instance GHC.Classes.Eq Amazonka.ELB.Types.InstanceState.InstanceState
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.InstanceState.InstanceState
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.InstanceState.InstanceState
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.InstanceState.InstanceState
 
 
-module Network.AWS.ELB.Types.LBCookieStickinessPolicy
+module Amazonka.ELB.Types.LBCookieStickinessPolicy
 
 -- | Information about a policy for duration-based session stickiness.
 --   
@@ -766,16 +766,16 @@ lBCookieStickinessPolicy_policyName :: Lens' LBCookieStickinessPolicy (Maybe Tex
 --   considered stale. If this parameter is not specified, the stickiness
 --   session lasts for the duration of the browser session.
 lBCookieStickinessPolicy_cookieExpirationPeriod :: Lens' LBCookieStickinessPolicy (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
-instance GHC.Show.Show Network.AWS.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
-instance GHC.Read.Read Network.AWS.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
-instance GHC.Classes.Eq Network.AWS.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
+instance GHC.Generics.Generic Amazonka.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
+instance GHC.Show.Show Amazonka.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
+instance GHC.Read.Read Amazonka.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
+instance GHC.Classes.Eq Amazonka.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.LBCookieStickinessPolicy.LBCookieStickinessPolicy
 
 
-module Network.AWS.ELB.Types.Limit
+module Amazonka.ELB.Types.Limit
 
 -- | Information about an Elastic Load Balancing resource limit for your
 --   AWS account.
@@ -828,16 +828,16 @@ limit_max :: Lens' Limit (Maybe Text)
 --   <li>classic-registered-instances</li>
 --   </ul>
 limit_name :: Lens' Limit (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.Limit.Limit
-instance GHC.Show.Show Network.AWS.ELB.Types.Limit.Limit
-instance GHC.Read.Read Network.AWS.ELB.Types.Limit.Limit
-instance GHC.Classes.Eq Network.AWS.ELB.Types.Limit.Limit
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.Limit.Limit
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.Limit.Limit
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.Limit.Limit
+instance GHC.Generics.Generic Amazonka.ELB.Types.Limit.Limit
+instance GHC.Show.Show Amazonka.ELB.Types.Limit.Limit
+instance GHC.Read.Read Amazonka.ELB.Types.Limit.Limit
+instance GHC.Classes.Eq Amazonka.ELB.Types.Limit.Limit
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.Limit.Limit
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.Limit.Limit
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.Limit.Limit
 
 
-module Network.AWS.ELB.Types.Listener
+module Amazonka.ELB.Types.Listener
 
 -- | Information about a listener.
 --   
@@ -954,17 +954,17 @@ listener_loadBalancerPort :: Lens' Listener Int
 
 -- | The port on which the instance is listening.
 listener_instancePort :: Lens' Listener Natural
-instance GHC.Generics.Generic Network.AWS.ELB.Types.Listener.Listener
-instance GHC.Show.Show Network.AWS.ELB.Types.Listener.Listener
-instance GHC.Read.Read Network.AWS.ELB.Types.Listener.Listener
-instance GHC.Classes.Eq Network.AWS.ELB.Types.Listener.Listener
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.Listener.Listener
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.Listener.Listener
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.Listener.Listener
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.Listener.Listener
+instance GHC.Generics.Generic Amazonka.ELB.Types.Listener.Listener
+instance GHC.Show.Show Amazonka.ELB.Types.Listener.Listener
+instance GHC.Read.Read Amazonka.ELB.Types.Listener.Listener
+instance GHC.Classes.Eq Amazonka.ELB.Types.Listener.Listener
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.Listener.Listener
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.Listener.Listener
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.Listener.Listener
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.Listener.Listener
 
 
-module Network.AWS.ELB.Types.ListenerDescription
+module Amazonka.ELB.Types.ListenerDescription
 
 -- | The policies enabled for a listener.
 --   
@@ -1000,16 +1000,16 @@ listenerDescription_policyNames :: Lens' ListenerDescription (Maybe [Text])
 
 -- | The listener.
 listenerDescription_listener :: Lens' ListenerDescription (Maybe Listener)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.ListenerDescription.ListenerDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.ListenerDescription.ListenerDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.ListenerDescription.ListenerDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.ListenerDescription.ListenerDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.ListenerDescription.ListenerDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.ListenerDescription.ListenerDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.ListenerDescription.ListenerDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.ListenerDescription.ListenerDescription
+instance GHC.Show.Show Amazonka.ELB.Types.ListenerDescription.ListenerDescription
+instance GHC.Read.Read Amazonka.ELB.Types.ListenerDescription.ListenerDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.ListenerDescription.ListenerDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.ListenerDescription.ListenerDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.ListenerDescription.ListenerDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.ListenerDescription.ListenerDescription
 
 
-module Network.AWS.ELB.Types.LoadBalancerAttributes
+module Amazonka.ELB.Types.LoadBalancerAttributes
 
 -- | The attributes for a load balancer.
 --   
@@ -1135,17 +1135,17 @@ loadBalancerAttributes_connectionSettings :: Lens' LoadBalancerAttributes (Maybe
 --   For more information, see <a>Configure Connection Draining</a> in the
 --   <i>Classic Load Balancers Guide</i>.
 loadBalancerAttributes_connectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
-instance GHC.Show.Show Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
-instance GHC.Read.Read Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
-instance GHC.Classes.Eq Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance GHC.Generics.Generic Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance GHC.Show.Show Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance GHC.Read.Read Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance GHC.Classes.Eq Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.LoadBalancerAttributes.LoadBalancerAttributes
 
 
-module Network.AWS.ELB.Types.Policies
+module Amazonka.ELB.Types.Policies
 
 -- | The policies for a load balancer.
 --   
@@ -1190,16 +1190,16 @@ policies_lBCookieStickinessPolicies :: Lens' Policies (Maybe [LBCookieStickiness
 
 -- | The stickiness policies created using CreateAppCookieStickinessPolicy.
 policies_appCookieStickinessPolicies :: Lens' Policies (Maybe [AppCookieStickinessPolicy])
-instance GHC.Generics.Generic Network.AWS.ELB.Types.Policies.Policies
-instance GHC.Show.Show Network.AWS.ELB.Types.Policies.Policies
-instance GHC.Read.Read Network.AWS.ELB.Types.Policies.Policies
-instance GHC.Classes.Eq Network.AWS.ELB.Types.Policies.Policies
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.Policies.Policies
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.Policies.Policies
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.Policies.Policies
+instance GHC.Generics.Generic Amazonka.ELB.Types.Policies.Policies
+instance GHC.Show.Show Amazonka.ELB.Types.Policies.Policies
+instance GHC.Read.Read Amazonka.ELB.Types.Policies.Policies
+instance GHC.Classes.Eq Amazonka.ELB.Types.Policies.Policies
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.Policies.Policies
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.Policies.Policies
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.Policies.Policies
 
 
-module Network.AWS.ELB.Types.PolicyAttribute
+module Amazonka.ELB.Types.PolicyAttribute
 
 -- | Information about a policy attribute.
 --   
@@ -1234,16 +1234,16 @@ policyAttribute_attributeValue :: Lens' PolicyAttribute (Maybe Text)
 
 -- | The name of the attribute.
 policyAttribute_attributeName :: Lens' PolicyAttribute (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.PolicyAttribute.PolicyAttribute
-instance GHC.Show.Show Network.AWS.ELB.Types.PolicyAttribute.PolicyAttribute
-instance GHC.Read.Read Network.AWS.ELB.Types.PolicyAttribute.PolicyAttribute
-instance GHC.Classes.Eq Network.AWS.ELB.Types.PolicyAttribute.PolicyAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.PolicyAttribute.PolicyAttribute
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.PolicyAttribute.PolicyAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.PolicyAttribute.PolicyAttribute
+instance GHC.Generics.Generic Amazonka.ELB.Types.PolicyAttribute.PolicyAttribute
+instance GHC.Show.Show Amazonka.ELB.Types.PolicyAttribute.PolicyAttribute
+instance GHC.Read.Read Amazonka.ELB.Types.PolicyAttribute.PolicyAttribute
+instance GHC.Classes.Eq Amazonka.ELB.Types.PolicyAttribute.PolicyAttribute
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.PolicyAttribute.PolicyAttribute
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.PolicyAttribute.PolicyAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.PolicyAttribute.PolicyAttribute
 
 
-module Network.AWS.ELB.Types.PolicyAttributeDescription
+module Amazonka.ELB.Types.PolicyAttributeDescription
 
 -- | Information about a policy attribute.
 --   
@@ -1280,16 +1280,16 @@ policyAttributeDescription_attributeValue :: Lens' PolicyAttributeDescription (M
 
 -- | The name of the attribute.
 policyAttributeDescription_attributeName :: Lens' PolicyAttributeDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
+instance GHC.Show.Show Amazonka.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
+instance GHC.Read.Read Amazonka.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.PolicyAttributeDescription.PolicyAttributeDescription
 
 
-module Network.AWS.ELB.Types.PolicyAttributeTypeDescription
+module Amazonka.ELB.Types.PolicyAttributeTypeDescription
 
 -- | Information about a policy attribute type.
 --   
@@ -1386,16 +1386,16 @@ policyAttributeTypeDescription_attributeName :: Lens' PolicyAttributeTypeDescrip
 
 -- | A description of the attribute.
 policyAttributeTypeDescription_description :: Lens' PolicyAttributeTypeDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
+instance GHC.Show.Show Amazonka.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
+instance GHC.Read.Read Amazonka.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.PolicyAttributeTypeDescription.PolicyAttributeTypeDescription
 
 
-module Network.AWS.ELB.Types.PolicyDescription
+module Amazonka.ELB.Types.PolicyDescription
 
 -- | Information about a policy.
 --   
@@ -1440,16 +1440,16 @@ policyDescription_policyAttributeDescriptions :: Lens' PolicyDescription (Maybe 
 
 -- | The name of the policy type.
 policyDescription_policyTypeName :: Lens' PolicyDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.PolicyDescription.PolicyDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.PolicyDescription.PolicyDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.PolicyDescription.PolicyDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.PolicyDescription.PolicyDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.PolicyDescription.PolicyDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.PolicyDescription.PolicyDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.PolicyDescription.PolicyDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.PolicyDescription.PolicyDescription
+instance GHC.Show.Show Amazonka.ELB.Types.PolicyDescription.PolicyDescription
+instance GHC.Read.Read Amazonka.ELB.Types.PolicyDescription.PolicyDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.PolicyDescription.PolicyDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.PolicyDescription.PolicyDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.PolicyDescription.PolicyDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.PolicyDescription.PolicyDescription
 
 
-module Network.AWS.ELB.Types.PolicyTypeDescription
+module Amazonka.ELB.Types.PolicyTypeDescription
 
 -- | Information about a policy type.
 --   
@@ -1499,16 +1499,16 @@ policyTypeDescription_description :: Lens' PolicyTypeDescription (Maybe Text)
 -- | The description of the policy attributes associated with the policies
 --   defined by Elastic Load Balancing.
 policyTypeDescription_policyAttributeTypeDescriptions :: Lens' PolicyTypeDescription (Maybe [PolicyAttributeTypeDescription])
-instance GHC.Generics.Generic Network.AWS.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
+instance GHC.Show.Show Amazonka.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
+instance GHC.Read.Read Amazonka.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.PolicyTypeDescription.PolicyTypeDescription
 
 
-module Network.AWS.ELB.Types.SourceSecurityGroup
+module Amazonka.ELB.Types.SourceSecurityGroup
 
 -- | Information about a source security group.
 --   
@@ -1544,16 +1544,16 @@ sourceSecurityGroup_ownerAlias :: Lens' SourceSecurityGroup (Maybe Text)
 
 -- | The name of the security group.
 sourceSecurityGroup_groupName :: Lens' SourceSecurityGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
-instance GHC.Show.Show Network.AWS.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
-instance GHC.Read.Read Network.AWS.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
-instance GHC.Classes.Eq Network.AWS.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
+instance GHC.Generics.Generic Amazonka.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
+instance GHC.Show.Show Amazonka.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
+instance GHC.Read.Read Amazonka.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
+instance GHC.Classes.Eq Amazonka.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.SourceSecurityGroup.SourceSecurityGroup
 
 
-module Network.AWS.ELB.Types.LoadBalancerDescription
+module Amazonka.ELB.Types.LoadBalancerDescription
 
 -- | Information about a load balancer.
 --   
@@ -1768,16 +1768,16 @@ loadBalancerDescription_dNSName :: Lens' LoadBalancerDescription (Maybe Text)
 
 -- | The policies defined for the load balancer.
 loadBalancerDescription_policies :: Lens' LoadBalancerDescription (Maybe Policies)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
+instance GHC.Show.Show Amazonka.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
+instance GHC.Read.Read Amazonka.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.LoadBalancerDescription.LoadBalancerDescription
 
 
-module Network.AWS.ELB.Types.Tag
+module Amazonka.ELB.Types.Tag
 
 -- | Information about a tag.
 --   
@@ -1809,17 +1809,17 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key of the tag.
 tag_key :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.ELB.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.ELB.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.ELB.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ELB.Types.Tag.Tag
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.Tag.Tag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ELB.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.ELB.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.ELB.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ELB.Types.Tag.Tag
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.Tag.Tag
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.Tag.Tag
 
 
-module Network.AWS.ELB.Types.TagDescription
+module Amazonka.ELB.Types.TagDescription
 
 -- | The tags associated with a load balancer.
 --   
@@ -1855,16 +1855,16 @@ tagDescription_loadBalancerName :: Lens' TagDescription (Maybe Text)
 
 -- | The tags.
 tagDescription_tags :: Lens' TagDescription (Maybe (NonEmpty Tag))
-instance GHC.Generics.Generic Network.AWS.ELB.Types.TagDescription.TagDescription
-instance GHC.Show.Show Network.AWS.ELB.Types.TagDescription.TagDescription
-instance GHC.Read.Read Network.AWS.ELB.Types.TagDescription.TagDescription
-instance GHC.Classes.Eq Network.AWS.ELB.Types.TagDescription.TagDescription
-instance Network.AWS.Data.XML.FromXML Network.AWS.ELB.Types.TagDescription.TagDescription
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.TagDescription.TagDescription
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.TagDescription.TagDescription
+instance GHC.Generics.Generic Amazonka.ELB.Types.TagDescription.TagDescription
+instance GHC.Show.Show Amazonka.ELB.Types.TagDescription.TagDescription
+instance GHC.Read.Read Amazonka.ELB.Types.TagDescription.TagDescription
+instance GHC.Classes.Eq Amazonka.ELB.Types.TagDescription.TagDescription
+instance Amazonka.Data.XML.FromXML Amazonka.ELB.Types.TagDescription.TagDescription
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.TagDescription.TagDescription
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.TagDescription.TagDescription
 
 
-module Network.AWS.ELB.Types.TagKeyOnly
+module Amazonka.ELB.Types.TagKeyOnly
 
 -- | The key of a tag.
 --   
@@ -1889,16 +1889,16 @@ newTagKeyOnly :: TagKeyOnly
 
 -- | The name of the key.
 tagKeyOnly_key :: Lens' TagKeyOnly (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ELB.Types.TagKeyOnly.TagKeyOnly
-instance GHC.Show.Show Network.AWS.ELB.Types.TagKeyOnly.TagKeyOnly
-instance GHC.Read.Read Network.AWS.ELB.Types.TagKeyOnly.TagKeyOnly
-instance GHC.Classes.Eq Network.AWS.ELB.Types.TagKeyOnly.TagKeyOnly
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.Types.TagKeyOnly.TagKeyOnly
-instance Control.DeepSeq.NFData Network.AWS.ELB.Types.TagKeyOnly.TagKeyOnly
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.Types.TagKeyOnly.TagKeyOnly
+instance GHC.Generics.Generic Amazonka.ELB.Types.TagKeyOnly.TagKeyOnly
+instance GHC.Show.Show Amazonka.ELB.Types.TagKeyOnly.TagKeyOnly
+instance GHC.Read.Read Amazonka.ELB.Types.TagKeyOnly.TagKeyOnly
+instance GHC.Classes.Eq Amazonka.ELB.Types.TagKeyOnly.TagKeyOnly
+instance Data.Hashable.Class.Hashable Amazonka.ELB.Types.TagKeyOnly.TagKeyOnly
+instance Control.DeepSeq.NFData Amazonka.ELB.Types.TagKeyOnly.TagKeyOnly
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.Types.TagKeyOnly.TagKeyOnly
 
 
-module Network.AWS.ELB.Types
+module Amazonka.ELB.Types
 
 -- | API version <tt>2012-06-01</tt> of the Amazon Elastic Load Balancing
 --   SDK configuration.
@@ -3606,7 +3606,7 @@ tagKeyOnly_key :: Lens' TagKeyOnly (Maybe Text)
 --   Negotiation Configuration</a>, <a>Duration-Based Session
 --   Stickiness</a>, and <a>Application-Controlled Session Stickiness</a>
 --   in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+module Amazonka.ELB.SetLoadBalancerPoliciesOfListener
 
 -- | Contains the parameters for SetLoadBalancePoliciesOfListener.
 --   
@@ -3687,21 +3687,21 @@ newSetLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOf
 
 -- | The response's http status code.
 setLoadBalancerPoliciesOfListenerResponse_httpStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance GHC.Show.Show Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance GHC.Read.Read Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance GHC.Classes.Eq Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance GHC.Generics.Generic Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
-instance GHC.Show.Show Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
-instance GHC.Read.Read Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance Control.DeepSeq.NFData Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance Control.DeepSeq.NFData Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance GHC.Generics.Generic Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance GHC.Show.Show Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance GHC.Read.Read Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance GHC.Classes.Eq Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance GHC.Generics.Generic Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
+instance GHC.Show.Show Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
+instance GHC.Read.Read Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
+instance GHC.Classes.Eq Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance Control.DeepSeq.NFData Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListenerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance Control.DeepSeq.NFData Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.SetLoadBalancerPoliciesOfListener.SetLoadBalancerPoliciesOfListener
 
 
 -- | Replaces the set of policies associated with the specified port on
@@ -3722,7 +3722,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.SetLoadBalancerPoliciesO
 --   <i>Classic Load Balancers Guide</i>. For more information about Proxy
 --   Protocol, see <a>Configure Proxy Protocol Support</a> in the
 --   <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+module Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer
 
 -- | Contains the parameters for SetLoadBalancerPoliciesForBackendServer.
 --   
@@ -3802,21 +3802,21 @@ newSetLoadBalancerPoliciesForBackendServerResponse :: Int -> SetLoadBalancerPoli
 
 -- | The response's http status code.
 setLoadBalancerPoliciesForBackendServerResponse_httpStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance GHC.Show.Show Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance GHC.Read.Read Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance GHC.Classes.Eq Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance GHC.Generics.Generic Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
-instance GHC.Show.Show Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
-instance GHC.Read.Read Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance Control.DeepSeq.NFData Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance Control.DeepSeq.NFData Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance GHC.Generics.Generic Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance GHC.Show.Show Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance GHC.Read.Read Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance GHC.Classes.Eq Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance GHC.Generics.Generic Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
+instance GHC.Show.Show Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
+instance GHC.Read.Read Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
+instance GHC.Classes.Eq Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance Control.DeepSeq.NFData Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance Control.DeepSeq.NFData Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer.SetLoadBalancerPoliciesForBackendServer
 
 
 -- | Sets the certificate that terminates the specified listener's SSL
@@ -3826,7 +3826,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.SetLoadBalancerPoliciesF
 --   For more information about updating your SSL certificate, see
 --   <a>Replace the SSL Certificate for Your Load Balancer</a> in the
 --   <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+module Amazonka.ELB.SetLoadBalancerListenerSSLCertificate
 
 -- | Contains the parameters for SetLoadBalancerListenerSSLCertificate.
 --   
@@ -3901,25 +3901,25 @@ newSetLoadBalancerListenerSSLCertificateResponse :: Int -> SetLoadBalancerListen
 
 -- | The response's http status code.
 setLoadBalancerListenerSSLCertificateResponse_httpStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance GHC.Show.Show Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance GHC.Read.Read Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance GHC.Classes.Eq Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance GHC.Generics.Generic Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
-instance GHC.Show.Show Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
-instance GHC.Read.Read Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
-instance GHC.Classes.Eq Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance Control.DeepSeq.NFData Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance Control.DeepSeq.NFData Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance GHC.Generics.Generic Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance GHC.Show.Show Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance GHC.Read.Read Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance GHC.Classes.Eq Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance GHC.Generics.Generic Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
+instance GHC.Show.Show Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
+instance GHC.Read.Read Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
+instance GHC.Classes.Eq Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance Control.DeepSeq.NFData Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance Control.DeepSeq.NFData Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.SetLoadBalancerListenerSSLCertificate.SetLoadBalancerListenerSSLCertificate
 
 
 -- | Removes one or more tags from the specified load balancer.
-module Network.AWS.ELB.RemoveTags
+module Amazonka.ELB.RemoveTags
 
 -- | Contains the parameters for RemoveTags.
 --   
@@ -3982,21 +3982,21 @@ newRemoveTagsResponse :: Int -> RemoveTagsResponse
 
 -- | The response's http status code.
 removeTagsResponse_httpStatus :: Lens' RemoveTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.RemoveTags.RemoveTags
-instance GHC.Show.Show Network.AWS.ELB.RemoveTags.RemoveTags
-instance GHC.Read.Read Network.AWS.ELB.RemoveTags.RemoveTags
-instance GHC.Classes.Eq Network.AWS.ELB.RemoveTags.RemoveTags
-instance GHC.Generics.Generic Network.AWS.ELB.RemoveTags.RemoveTagsResponse
-instance GHC.Show.Show Network.AWS.ELB.RemoveTags.RemoveTagsResponse
-instance GHC.Read.Read Network.AWS.ELB.RemoveTags.RemoveTagsResponse
-instance GHC.Classes.Eq Network.AWS.ELB.RemoveTags.RemoveTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.RemoveTags.RemoveTags
-instance Control.DeepSeq.NFData Network.AWS.ELB.RemoveTags.RemoveTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.RemoveTags.RemoveTags
-instance Control.DeepSeq.NFData Network.AWS.ELB.RemoveTags.RemoveTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.RemoveTags.RemoveTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.RemoveTags.RemoveTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.RemoveTags.RemoveTags
+instance GHC.Generics.Generic Amazonka.ELB.RemoveTags.RemoveTags
+instance GHC.Show.Show Amazonka.ELB.RemoveTags.RemoveTags
+instance GHC.Read.Read Amazonka.ELB.RemoveTags.RemoveTags
+instance GHC.Classes.Eq Amazonka.ELB.RemoveTags.RemoveTags
+instance GHC.Generics.Generic Amazonka.ELB.RemoveTags.RemoveTagsResponse
+instance GHC.Show.Show Amazonka.ELB.RemoveTags.RemoveTagsResponse
+instance GHC.Read.Read Amazonka.ELB.RemoveTags.RemoveTagsResponse
+instance GHC.Classes.Eq Amazonka.ELB.RemoveTags.RemoveTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.RemoveTags.RemoveTags
+instance Control.DeepSeq.NFData Amazonka.ELB.RemoveTags.RemoveTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.RemoveTags.RemoveTags
+instance Control.DeepSeq.NFData Amazonka.ELB.RemoveTags.RemoveTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.RemoveTags.RemoveTags
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.RemoveTags.RemoveTags
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.RemoveTags.RemoveTags
 
 
 -- | Adds the specified instances to the specified load balancer.
@@ -4024,7 +4024,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.RemoveTags.RemoveTags
 --   
 --   For more information, see <a>Register or De-Register EC2 Instances</a>
 --   in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+module Amazonka.ELB.RegisterInstancesWithLoadBalancer
 
 -- | Contains the parameters for RegisterInstancesWithLoadBalancer.
 --   
@@ -4099,21 +4099,21 @@ registerInstancesWithLoadBalancerResponse_instances :: Lens' RegisterInstancesWi
 
 -- | The response's http status code.
 registerInstancesWithLoadBalancerResponse_httpStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance GHC.Show.Show Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance GHC.Read.Read Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance GHC.Classes.Eq Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance GHC.Generics.Generic Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
-instance GHC.Show.Show Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
-instance GHC.Read.Read Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance GHC.Show.Show Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance GHC.Read.Read Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance GHC.Classes.Eq Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
+instance GHC.Show.Show Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
+instance GHC.Read.Read Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
+instance GHC.Classes.Eq Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.RegisterInstancesWithLoadBalancer.RegisterInstancesWithLoadBalancer
 
 
 -- | Modifies the attributes of the specified load balancer.
@@ -4134,7 +4134,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.RegisterInstancesWithLoa
 --   <li><a>Access Logs</a></li>
 --   <li><a>Idle Connection Timeout</a></li>
 --   </ul>
-module Network.AWS.ELB.ModifyLoadBalancerAttributes
+module Amazonka.ELB.ModifyLoadBalancerAttributes
 
 -- | Contains the parameters for ModifyLoadBalancerAttributes.
 --   
@@ -4218,21 +4218,21 @@ modifyLoadBalancerAttributesResponse_loadBalancerAttributes :: Lens' ModifyLoadB
 
 -- | The response's http status code.
 modifyLoadBalancerAttributesResponse_httpStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance GHC.Show.Show Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance GHC.Read.Read Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance GHC.Classes.Eq Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance GHC.Generics.Generic Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
-instance GHC.Show.Show Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
-instance GHC.Read.Read Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
-instance GHC.Classes.Eq Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance Control.DeepSeq.NFData Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance Control.DeepSeq.NFData Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance GHC.Generics.Generic Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance GHC.Show.Show Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance GHC.Read.Read Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance GHC.Classes.Eq Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance GHC.Generics.Generic Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
+instance GHC.Show.Show Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
+instance GHC.Read.Read Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
+instance GHC.Classes.Eq Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance Control.DeepSeq.NFData Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance Control.DeepSeq.NFData Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.ModifyLoadBalancerAttributes.ModifyLoadBalancerAttributes
 
 
 -- | Adds the specified Availability Zones to the set of Availability Zones
@@ -4245,7 +4245,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.ModifyLoadBalancerAttrib
 --   registered Availability Zones that contain instances. For more
 --   information, see <a>Add or Remove Availability Zones</a> in the
 --   <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+module Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer
 
 -- | Contains the parameters for EnableAvailabilityZonesForLoadBalancer.
 --   
@@ -4325,21 +4325,21 @@ enableAvailabilityZonesForLoadBalancerResponse_availabilityZones :: Lens' Enable
 
 -- | The response's http status code.
 enableAvailabilityZonesForLoadBalancerResponse_httpStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance GHC.Show.Show Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance GHC.Read.Read Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance GHC.Classes.Eq Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance GHC.Generics.Generic Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
-instance GHC.Show.Show Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
-instance GHC.Read.Read Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance GHC.Show.Show Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance GHC.Read.Read Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance GHC.Classes.Eq Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
+instance GHC.Show.Show Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
+instance GHC.Read.Read Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
+instance GHC.Classes.Eq Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer.EnableAvailabilityZonesForLoadBalancer
 
 
 -- | Removes the specified Availability Zones from the set of Availability
@@ -4357,7 +4357,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.EnableAvailabilityZonesF
 --   
 --   For more information, see <a>Add or Remove Availability Zones</a> in
 --   the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+module Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer
 
 -- | Contains the parameters for DisableAvailabilityZonesForLoadBalancer.
 --   
@@ -4436,21 +4436,21 @@ disableAvailabilityZonesForLoadBalancerResponse_availabilityZones :: Lens' Disab
 
 -- | The response's http status code.
 disableAvailabilityZonesForLoadBalancerResponse_httpStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance GHC.Show.Show Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance GHC.Read.Read Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance GHC.Classes.Eq Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance GHC.Generics.Generic Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
-instance GHC.Show.Show Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
-instance GHC.Read.Read Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance GHC.Show.Show Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance GHC.Read.Read Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance GHC.Classes.Eq Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
+instance GHC.Show.Show Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
+instance GHC.Read.Read Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
+instance GHC.Classes.Eq Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer.DisableAvailabilityZonesForLoadBalancer
 
 
 -- | Removes the specified subnets from the set of configured subnets for
@@ -4460,7 +4460,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DisableAvailabilityZones
 --   balancer in the removed subnet go into the <tt>OutOfService</tt>
 --   state. Then, the load balancer balances the traffic among the
 --   remaining routable subnets.
-module Network.AWS.ELB.DetachLoadBalancerFromSubnets
+module Amazonka.ELB.DetachLoadBalancerFromSubnets
 
 -- | Contains the parameters for DetachLoadBalancerFromSubnets.
 --   
@@ -4533,25 +4533,25 @@ detachLoadBalancerFromSubnetsResponse_subnets :: Lens' DetachLoadBalancerFromSub
 
 -- | The response's http status code.
 detachLoadBalancerFromSubnetsResponse_httpStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance GHC.Show.Show Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance GHC.Read.Read Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance GHC.Classes.Eq Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance GHC.Generics.Generic Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
-instance GHC.Show.Show Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
-instance GHC.Read.Read Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance Control.DeepSeq.NFData Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance Control.DeepSeq.NFData Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance GHC.Generics.Generic Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance GHC.Show.Show Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance GHC.Read.Read Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance GHC.Classes.Eq Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance GHC.Generics.Generic Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
+instance GHC.Show.Show Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
+instance GHC.Read.Read Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
+instance GHC.Classes.Eq Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance Control.DeepSeq.NFData Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance Control.DeepSeq.NFData Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DetachLoadBalancerFromSubnets.DetachLoadBalancerFromSubnets
 
 
 -- | Describes the tags associated with the specified load balancers.
-module Network.AWS.ELB.DescribeTags
+module Amazonka.ELB.DescribeTags
 
 -- | Contains the parameters for DescribeTags.
 --   
@@ -4614,28 +4614,28 @@ describeTagsResponse_tagDescriptions :: Lens' DescribeTagsResponse (Maybe [TagDe
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens' DescribeTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeTags.DescribeTags
-instance GHC.Show.Show Network.AWS.ELB.DescribeTags.DescribeTags
-instance GHC.Read.Read Network.AWS.ELB.DescribeTags.DescribeTags
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeTags.DescribeTags
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeTags.DescribeTagsResponse
-instance GHC.Show.Show Network.AWS.ELB.DescribeTags.DescribeTagsResponse
-instance GHC.Read.Read Network.AWS.ELB.DescribeTags.DescribeTagsResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeTags.DescribeTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DescribeTags.DescribeTags
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeTags.DescribeTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DescribeTags.DescribeTags
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeTags.DescribeTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DescribeTags.DescribeTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DescribeTags.DescribeTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeTags.DescribeTags
+instance GHC.Generics.Generic Amazonka.ELB.DescribeTags.DescribeTags
+instance GHC.Show.Show Amazonka.ELB.DescribeTags.DescribeTags
+instance GHC.Read.Read Amazonka.ELB.DescribeTags.DescribeTags
+instance GHC.Classes.Eq Amazonka.ELB.DescribeTags.DescribeTags
+instance GHC.Generics.Generic Amazonka.ELB.DescribeTags.DescribeTagsResponse
+instance GHC.Show.Show Amazonka.ELB.DescribeTags.DescribeTagsResponse
+instance GHC.Read.Read Amazonka.ELB.DescribeTags.DescribeTagsResponse
+instance GHC.Classes.Eq Amazonka.ELB.DescribeTags.DescribeTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DescribeTags.DescribeTags
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeTags.DescribeTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DescribeTags.DescribeTags
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeTags.DescribeTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DescribeTags.DescribeTags
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DescribeTags.DescribeTags
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DescribeTags.DescribeTags
 
 
 -- | Describes the specified the load balancers. If no load balancers are
 --   specified, the call describes all of your load balancers.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ELB.DescribeLoadBalancers
+module Amazonka.ELB.DescribeLoadBalancers
 
 -- | Contains the parameters for DescribeLoadBalancers.
 --   
@@ -4735,22 +4735,22 @@ describeLoadBalancersResponse_nextMarker :: Lens' DescribeLoadBalancersResponse 
 
 -- | The response's http status code.
 describeLoadBalancersResponse_httpStatus :: Lens' DescribeLoadBalancersResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancersResponse
+instance Amazonka.Pager.AWSPager Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DescribeLoadBalancers.DescribeLoadBalancers
 
 
 -- | Describes the specified load balancer policy types or all load
@@ -4765,7 +4765,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeLoadBalancers.De
 --   for any of these policy types. Then, depending on the policy type, use
 --   either SetLoadBalancerPoliciesOfListener or
 --   SetLoadBalancerPoliciesForBackendServer to set the policy.
-module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+module Amazonka.ELB.DescribeLoadBalancerPolicyTypes
 
 -- | Contains the parameters for DescribeLoadBalancerPolicyTypes.
 --   
@@ -4834,21 +4834,21 @@ describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions :: Lens' Describe
 
 -- | The response's http status code.
 describeLoadBalancerPolicyTypesResponse_httpStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DescribeLoadBalancerPolicyTypes.DescribeLoadBalancerPolicyTypes
 
 
 -- | Describes the specified policies.
@@ -4860,7 +4860,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeLoadBalancerPoli
 --   balancer name, the action returns descriptions of the specified sample
 --   policies, or descriptions of all sample policies. The names of the
 --   sample policies have the <tt>ELBSample-</tt> prefix.
-module Network.AWS.ELB.DescribeLoadBalancerPolicies
+module Amazonka.ELB.DescribeLoadBalancerPolicies
 
 -- | Contains the parameters for DescribeLoadBalancerPolicies.
 --   
@@ -4934,25 +4934,25 @@ describeLoadBalancerPoliciesResponse_policyDescriptions :: Lens' DescribeLoadBal
 
 -- | The response's http status code.
 describeLoadBalancerPoliciesResponse_httpStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPoliciesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DescribeLoadBalancerPolicies.DescribeLoadBalancerPolicies
 
 
 -- | Describes the attributes for the specified load balancer.
-module Network.AWS.ELB.DescribeLoadBalancerAttributes
+module Amazonka.ELB.DescribeLoadBalancerAttributes
 
 -- | Contains the parameters for DescribeLoadBalancerAttributes.
 --   
@@ -5018,21 +5018,21 @@ describeLoadBalancerAttributesResponse_loadBalancerAttributes :: Lens' DescribeL
 
 -- | The response's http status code.
 describeLoadBalancerAttributesResponse_httpStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
-instance GHC.Show.Show Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
-instance GHC.Read.Read Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance GHC.Generics.Generic Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
+instance GHC.Show.Show Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
+instance GHC.Read.Read Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
+instance GHC.Classes.Eq Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DescribeLoadBalancerAttributes.DescribeLoadBalancerAttributes
 
 
 -- | Describes the state of the specified instances with respect to the
@@ -5041,7 +5041,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeLoadBalancerAttr
 --   with the load balancer. If instances are specified, their state is
 --   returned even if they are no longer registered with the load balancer.
 --   The state of terminated instances is not returned.
-module Network.AWS.ELB.DescribeInstanceHealth
+module Amazonka.ELB.DescribeInstanceHealth
 
 -- | Contains the parameters for DescribeInstanceHealth.
 --   
@@ -5114,21 +5114,21 @@ describeInstanceHealthResponse_instanceStates :: Lens' DescribeInstanceHealthRes
 
 -- | The response's http status code.
 describeInstanceHealthResponse_httpStatus :: Lens' DescribeInstanceHealthResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance GHC.Show.Show Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance GHC.Read.Read Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
-instance GHC.Show.Show Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
-instance GHC.Read.Read Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance GHC.Generics.Generic Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance GHC.Show.Show Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance GHC.Read.Read Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance GHC.Classes.Eq Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance GHC.Generics.Generic Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
+instance GHC.Show.Show Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
+instance GHC.Read.Read Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
+instance GHC.Classes.Eq Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealthResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DescribeInstanceHealth.DescribeInstanceHealth
 
 
 -- | Describes the current Elastic Load Balancing resource limits for your
@@ -5138,7 +5138,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeInstanceHealth.D
 --   in the <i>Classic Load Balancers Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ELB.DescribeAccountLimits
+module Amazonka.ELB.DescribeAccountLimits
 
 -- | <i>See:</i> <a>newDescribeAccountLimits</a> smart constructor.
 data DescribeAccountLimits
@@ -5222,22 +5222,22 @@ describeAccountLimitsResponse_nextMarker :: Lens' DescribeAccountLimitsResponse 
 
 -- | The response's http status code.
 describeAccountLimitsResponse_httpStatus :: Lens' DescribeAccountLimitsResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance GHC.Show.Show Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance GHC.Read.Read Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance GHC.Generics.Generic Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
-instance GHC.Show.Show Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
-instance GHC.Read.Read Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance Control.DeepSeq.NFData Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance GHC.Generics.Generic Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance GHC.Show.Show Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance GHC.Read.Read Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance GHC.Classes.Eq Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance GHC.Generics.Generic Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
+instance GHC.Show.Show Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
+instance GHC.Read.Read Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
+instance GHC.Classes.Eq Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimitsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance Control.DeepSeq.NFData Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DescribeAccountLimits.DescribeAccountLimits
 
 
 -- | Deregisters the specified instances from the specified load balancer.
@@ -5249,7 +5249,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DescribeAccountLimits.De
 --   
 --   For more information, see <a>Register or De-Register EC2 Instances</a>
 --   in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+module Amazonka.ELB.DeregisterInstancesFromLoadBalancer
 
 -- | Contains the parameters for DeregisterInstancesFromLoadBalancer.
 --   
@@ -5324,26 +5324,26 @@ deregisterInstancesFromLoadBalancerResponse_instances :: Lens' DeregisterInstanc
 
 -- | The response's http status code.
 deregisterInstancesFromLoadBalancerResponse_httpStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance GHC.Show.Show Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance GHC.Read.Read Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance GHC.Classes.Eq Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance GHC.Generics.Generic Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
-instance GHC.Show.Show Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
-instance GHC.Read.Read Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance GHC.Show.Show Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance GHC.Read.Read Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance GHC.Classes.Eq Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
+instance GHC.Show.Show Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
+instance GHC.Read.Read Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
+instance GHC.Classes.Eq Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DeregisterInstancesFromLoadBalancer.DeregisterInstancesFromLoadBalancer
 
 
 -- | Deletes the specified policy from the specified load balancer. This
 --   policy must not be enabled for any listeners.
-module Network.AWS.ELB.DeleteLoadBalancerPolicy
+module Amazonka.ELB.DeleteLoadBalancerPolicy
 
 -- | Contains the parameters for DeleteLoadBalancerPolicy.
 --   
@@ -5406,25 +5406,25 @@ newDeleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
 
 -- | The response's http status code.
 deleteLoadBalancerPolicyResponse_httpStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance GHC.Show.Show Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance GHC.Read.Read Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance GHC.Classes.Eq Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance GHC.Generics.Generic Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
-instance GHC.Show.Show Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
-instance GHC.Read.Read Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance GHC.Generics.Generic Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance GHC.Show.Show Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance GHC.Read.Read Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance GHC.Classes.Eq Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance GHC.Generics.Generic Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
+instance GHC.Show.Show Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
+instance GHC.Read.Read Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
+instance GHC.Classes.Eq Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DeleteLoadBalancerPolicy.DeleteLoadBalancerPolicy
 
 
 -- | Deletes the specified listeners from the specified load balancer.
-module Network.AWS.ELB.DeleteLoadBalancerListeners
+module Amazonka.ELB.DeleteLoadBalancerListeners
 
 -- | Contains the parameters for DeleteLoadBalancerListeners.
 --   
@@ -5488,21 +5488,21 @@ newDeleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResp
 
 -- | The response's http status code.
 deleteLoadBalancerListenersResponse_httpStatus :: Lens' DeleteLoadBalancerListenersResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance GHC.Show.Show Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance GHC.Read.Read Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance GHC.Classes.Eq Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance GHC.Generics.Generic Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
-instance GHC.Show.Show Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
-instance GHC.Read.Read Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance GHC.Generics.Generic Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance GHC.Show.Show Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance GHC.Read.Read Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance GHC.Classes.Eq Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance GHC.Generics.Generic Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
+instance GHC.Show.Show Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
+instance GHC.Read.Read Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
+instance GHC.Classes.Eq Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance Control.DeepSeq.NFData Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListenersResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance Control.DeepSeq.NFData Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DeleteLoadBalancerListeners.DeleteLoadBalancerListeners
 
 
 -- | Deletes the specified load balancer.
@@ -5515,7 +5515,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DeleteLoadBalancerListen
 --   
 --   If the load balancer does not exist or has already been deleted, the
 --   call to <tt>DeleteLoadBalancer</tt> still succeeds.
-module Network.AWS.ELB.DeleteLoadBalancer
+module Amazonka.ELB.DeleteLoadBalancer
 
 -- | Contains the parameters for DeleteLoadBalancer.
 --   
@@ -5568,21 +5568,21 @@ newDeleteLoadBalancerResponse :: Int -> DeleteLoadBalancerResponse
 
 -- | The response's http status code.
 deleteLoadBalancerResponse_httpStatus :: Lens' DeleteLoadBalancerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance GHC.Show.Show Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance GHC.Read.Read Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance GHC.Classes.Eq Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance GHC.Generics.Generic Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
-instance GHC.Show.Show Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
-instance GHC.Read.Read Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance GHC.Show.Show Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance GHC.Read.Read Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance GHC.Classes.Eq Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
+instance GHC.Show.Show Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
+instance GHC.Read.Read Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
+instance GHC.Classes.Eq Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.DeleteLoadBalancer.DeleteLoadBalancer
 
 
 -- | Creates a policy with the specified attributes for the specified load
@@ -5591,7 +5591,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.DeleteLoadBalancer.Delet
 --   Policies are settings that are saved for your load balancer and that
 --   can be applied to the listener or the application server, depending on
 --   the policy type.
-module Network.AWS.ELB.CreateLoadBalancerPolicy
+module Amazonka.ELB.CreateLoadBalancerPolicy
 
 -- | Contains the parameters for CreateLoadBalancerPolicy.
 --   
@@ -5681,21 +5681,21 @@ newCreateLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse
 
 -- | The response's http status code.
 createLoadBalancerPolicyResponse_httpStatus :: Lens' CreateLoadBalancerPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance GHC.Show.Show Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance GHC.Read.Read Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
-instance GHC.Show.Show Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
-instance GHC.Read.Read Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance GHC.Generics.Generic Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance GHC.Show.Show Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance GHC.Read.Read Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance GHC.Classes.Eq Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance GHC.Generics.Generic Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
+instance GHC.Show.Show Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
+instance GHC.Read.Read Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
+instance GHC.Classes.Eq Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.CreateLoadBalancerPolicy.CreateLoadBalancerPolicy
 
 
 -- | Creates one or more listeners for the specified load balancer. If a
@@ -5705,7 +5705,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLoadBalancerPolicy
 --   
 --   For more information, see <a>Listeners for Your Classic Load
 --   Balancer</a> in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.CreateLoadBalancerListeners
+module Amazonka.ELB.CreateLoadBalancerListeners
 
 -- | Contains the parameters for CreateLoadBalancerListeners.
 --   
@@ -5768,21 +5768,21 @@ newCreateLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResp
 
 -- | The response's http status code.
 createLoadBalancerListenersResponse_httpStatus :: Lens' CreateLoadBalancerListenersResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance GHC.Show.Show Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance GHC.Read.Read Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
-instance GHC.Show.Show Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
-instance GHC.Read.Read Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance GHC.Generics.Generic Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance GHC.Show.Show Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance GHC.Read.Read Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance GHC.Classes.Eq Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance GHC.Generics.Generic Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
+instance GHC.Show.Show Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
+instance GHC.Read.Read Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
+instance GHC.Classes.Eq Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListenersResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.CreateLoadBalancerListeners.CreateLoadBalancerListeners
 
 
 -- | Creates a Classic Load Balancer.
@@ -5800,7 +5800,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLoadBalancerListen
 --   request an increase for the number of load balancers for your account.
 --   For more information, see <a>Limits for Your Classic Load Balancer</a>
 --   in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.CreateLoadBalancer
+module Amazonka.ELB.CreateLoadBalancer
 
 -- | Contains the parameters for CreateLoadBalancer.
 --   
@@ -6003,21 +6003,21 @@ createLoadBalancerResponse_dNSName :: Lens' CreateLoadBalancerResponse (Maybe Te
 
 -- | The response's http status code.
 createLoadBalancerResponse_httpStatus :: Lens' CreateLoadBalancerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance GHC.Show.Show Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance GHC.Read.Read Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
-instance GHC.Show.Show Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
-instance GHC.Read.Read Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance GHC.Show.Show Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance GHC.Read.Read Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance GHC.Classes.Eq Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
+instance GHC.Show.Show Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
+instance GHC.Read.Read Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
+instance GHC.Classes.Eq Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.CreateLoadBalancer.CreateLoadBalancer
 
 
 -- | Generates a stickiness policy with sticky session lifetimes controlled
@@ -6039,7 +6039,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLoadBalancer.Creat
 --   
 --   For more information, see <a>Duration-Based Session Stickiness</a> in
 --   the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.CreateLBCookieStickinessPolicy
+module Amazonka.ELB.CreateLBCookieStickinessPolicy
 
 -- | Contains the parameters for CreateLBCookieStickinessPolicy.
 --   
@@ -6129,21 +6129,21 @@ newCreateLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPoli
 
 -- | The response's http status code.
 createLBCookieStickinessPolicyResponse_httpStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance GHC.Show.Show Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance GHC.Read.Read Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance GHC.Generics.Generic Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
-instance GHC.Show.Show Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
-instance GHC.Read.Read Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance GHC.Generics.Generic Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance GHC.Show.Show Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance GHC.Read.Read Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance GHC.Classes.Eq Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance GHC.Generics.Generic Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
+instance GHC.Show.Show Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
+instance GHC.Read.Read Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
+instance GHC.Classes.Eq Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.CreateLBCookieStickinessPolicy.CreateLBCookieStickinessPolicy
 
 
 -- | Generates a stickiness policy with sticky session lifetimes that
@@ -6162,7 +6162,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateLBCookieStickiness
 --   
 --   For more information, see <a>Application-Controlled Session
 --   Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.CreateAppCookieStickinessPolicy
+module Amazonka.ELB.CreateAppCookieStickinessPolicy
 
 -- | Contains the parameters for CreateAppCookieStickinessPolicy.
 --   
@@ -6243,21 +6243,21 @@ newCreateAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPo
 
 -- | The response's http status code.
 createAppCookieStickinessPolicyResponse_httpStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance GHC.Show.Show Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance GHC.Read.Read Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance GHC.Classes.Eq Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance GHC.Generics.Generic Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
-instance GHC.Show.Show Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
-instance GHC.Read.Read Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance Control.DeepSeq.NFData Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance GHC.Generics.Generic Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance GHC.Show.Show Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance GHC.Read.Read Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance GHC.Classes.Eq Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance GHC.Generics.Generic Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
+instance GHC.Show.Show Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
+instance GHC.Read.Read Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
+instance GHC.Classes.Eq Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance Control.DeepSeq.NFData Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.CreateAppCookieStickinessPolicy.CreateAppCookieStickinessPolicy
 
 
 -- | Specifies the health check settings to use when evaluating the health
@@ -6265,7 +6265,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.CreateAppCookieStickines
 --   
 --   For more information, see <a>Configure Health Checks for Your Load
 --   Balancer</a> in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.ConfigureHealthCheck
+module Amazonka.ELB.ConfigureHealthCheck
 
 -- | Contains the parameters for ConfigureHealthCheck.
 --   
@@ -6338,21 +6338,21 @@ configureHealthCheckResponse_healthCheck :: Lens' ConfigureHealthCheckResponse (
 
 -- | The response's http status code.
 configureHealthCheckResponse_httpStatus :: Lens' ConfigureHealthCheckResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance GHC.Show.Show Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance GHC.Read.Read Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance GHC.Classes.Eq Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance GHC.Generics.Generic Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
-instance GHC.Show.Show Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
-instance GHC.Read.Read Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
-instance GHC.Classes.Eq Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance Control.DeepSeq.NFData Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance Control.DeepSeq.NFData Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance GHC.Generics.Generic Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance GHC.Show.Show Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance GHC.Read.Read Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance GHC.Classes.Eq Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance GHC.Generics.Generic Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
+instance GHC.Show.Show Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
+instance GHC.Read.Read Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
+instance GHC.Classes.Eq Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance Control.DeepSeq.NFData Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheckResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance Control.DeepSeq.NFData Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.ConfigureHealthCheck.ConfigureHealthCheck
 
 
 -- | Adds one or more subnets to the set of configured subnets for the
@@ -6361,7 +6361,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.ConfigureHealthCheck.Con
 --   The load balancer evenly distributes requests across all registered
 --   subnets. For more information, see <a>Add or Remove Subnets for Your
 --   Load Balancer in a VPC</a> in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.AttachLoadBalancerToSubnets
+module Amazonka.ELB.AttachLoadBalancerToSubnets
 
 -- | Contains the parameters for AttachLoaBalancerToSubnets.
 --   
@@ -6437,21 +6437,21 @@ attachLoadBalancerToSubnetsResponse_subnets :: Lens' AttachLoadBalancerToSubnets
 
 -- | The response's http status code.
 attachLoadBalancerToSubnetsResponse_httpStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance GHC.Show.Show Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance GHC.Read.Read Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance GHC.Classes.Eq Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance GHC.Generics.Generic Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
-instance GHC.Show.Show Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
-instance GHC.Read.Read Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
-instance GHC.Classes.Eq Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance Control.DeepSeq.NFData Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance Control.DeepSeq.NFData Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance GHC.Generics.Generic Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance GHC.Show.Show Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance GHC.Read.Read Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance GHC.Classes.Eq Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance GHC.Generics.Generic Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
+instance GHC.Show.Show Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
+instance GHC.Read.Read Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
+instance GHC.Classes.Eq Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance Control.DeepSeq.NFData Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance Control.DeepSeq.NFData Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.AttachLoadBalancerToSubnets.AttachLoadBalancerToSubnets
 
 
 -- | Associates one or more security groups with your load balancer in a
@@ -6460,7 +6460,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.AttachLoadBalancerToSubn
 --   
 --   For more information, see <a>Security Groups for Load Balancers in a
 --   VPC</a> in the <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+module Amazonka.ELB.ApplySecurityGroupsToLoadBalancer
 
 -- | Contains the parameters for ApplySecurityGroupsToLoadBalancer.
 --   
@@ -6538,21 +6538,21 @@ applySecurityGroupsToLoadBalancerResponse_securityGroups :: Lens' ApplySecurityG
 
 -- | The response's http status code.
 applySecurityGroupsToLoadBalancerResponse_httpStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance GHC.Show.Show Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance GHC.Read.Read Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance GHC.Classes.Eq Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance GHC.Generics.Generic Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
-instance GHC.Show.Show Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
-instance GHC.Read.Read Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
-instance GHC.Classes.Eq Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance Control.DeepSeq.NFData Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance GHC.Show.Show Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance GHC.Read.Read Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance GHC.Classes.Eq Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance GHC.Generics.Generic Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
+instance GHC.Show.Show Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
+instance GHC.Read.Read Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
+instance GHC.Classes.Eq Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancerResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance Control.DeepSeq.NFData Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.ApplySecurityGroupsToLoadBalancer.ApplySecurityGroupsToLoadBalancer
 
 
 -- | Adds the specified tags to the specified load balancer. Each load
@@ -6564,7 +6564,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.ApplySecurityGroupsToLoa
 --   
 --   For more information, see <a>Tag Your Classic Load Balancer</a> in the
 --   <i>Classic Load Balancers Guide</i>.
-module Network.AWS.ELB.AddTags
+module Amazonka.ELB.AddTags
 
 -- | Contains the parameters for AddTags.
 --   
@@ -6623,24 +6623,24 @@ newAddTagsResponse :: Int -> AddTagsResponse
 
 -- | The response's http status code.
 addTagsResponse_httpStatus :: Lens' AddTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.ELB.AddTags.AddTags
-instance GHC.Show.Show Network.AWS.ELB.AddTags.AddTags
-instance GHC.Read.Read Network.AWS.ELB.AddTags.AddTags
-instance GHC.Classes.Eq Network.AWS.ELB.AddTags.AddTags
-instance GHC.Generics.Generic Network.AWS.ELB.AddTags.AddTagsResponse
-instance GHC.Show.Show Network.AWS.ELB.AddTags.AddTagsResponse
-instance GHC.Read.Read Network.AWS.ELB.AddTags.AddTagsResponse
-instance GHC.Classes.Eq Network.AWS.ELB.AddTags.AddTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ELB.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.ELB.AddTags.AddTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ELB.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.ELB.AddTags.AddTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ELB.AddTags.AddTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.ELB.AddTags.AddTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ELB.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.ELB.AddTags.AddTags
+instance GHC.Show.Show Amazonka.ELB.AddTags.AddTags
+instance GHC.Read.Read Amazonka.ELB.AddTags.AddTags
+instance GHC.Classes.Eq Amazonka.ELB.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.ELB.AddTags.AddTagsResponse
+instance GHC.Show.Show Amazonka.ELB.AddTags.AddTagsResponse
+instance GHC.Read.Read Amazonka.ELB.AddTags.AddTagsResponse
+instance GHC.Classes.Eq Amazonka.ELB.AddTags.AddTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ELB.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.ELB.AddTags.AddTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ELB.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.ELB.AddTags.AddTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ELB.AddTags.AddTags
+instance Amazonka.Data.Path.ToPath Amazonka.ELB.AddTags.AddTags
+instance Amazonka.Data.Query.ToQuery Amazonka.ELB.AddTags.AddTags
 
 
-module Network.AWS.ELB.Lens
+module Amazonka.ELB.Lens
 
 -- | The marker for the next set of results. (You received this marker from
 --   a previous call.)
@@ -7427,7 +7427,7 @@ tagDescription_tags :: Lens' TagDescription (Maybe (NonEmpty Tag))
 tagKeyOnly_key :: Lens' TagKeyOnly (Maybe Text)
 
 
-module Network.AWS.ELB.Waiters
+module Amazonka.ELB.Waiters
 
 -- | Polls <a>DescribeInstanceHealth</a> every 15 seconds until a
 --   successful state is reached. An error is returned after 40 failed
@@ -7477,7 +7477,7 @@ newInstanceInService :: Wait DescribeInstanceHealth
 --   All Elastic Load Balancing operations are <i>idempotent</i>, which
 --   means that they complete at most one time. If you repeat an operation,
 --   it succeeds with a 200 OK response code.
-module Network.AWS.ELB
+module Amazonka.ELB
 
 -- | API version <tt>2012-06-01</tt> of the Amazon Elastic Load Balancing
 --   SDK configuration.

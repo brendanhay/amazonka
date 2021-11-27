@@ -1,0 +1,1545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MachineLearning.Types.MLModel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MachineLearning.Types.MLModel</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.Algorithm.html"><span class="hs-identifier">Amazonka.MachineLearning.Types.Algorithm</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.EntityStatus.html"><span class="hs-identifier">Amazonka.MachineLearning.Types.EntityStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModelType.html"><span class="hs-identifier">Amazonka.MachineLearning.Types.MLModelType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RealtimeEndpointInfo.html"><span class="hs-identifier">Amazonka.MachineLearning.Types.RealtimeEndpointInfo</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Represents the output of a @GetMLModel@ operation.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- The content consists of the detailed metadata and the current status of</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the @MLModel@.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newMLModel' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679252199"><span id="local-6989586621679252200"></span></span><span class="hs-keyword">data</span><span> </span><span id="MLModel"><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-var">MLModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MLModel%27"><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-var">MLModel'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of an @MLModel@. This element can have one of the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     to create an @MLModel@.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @INPROGRESS@ - The creation process is underway.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @FAILED@ - The request to create an @MLModel@ didn\'t run to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     completion. The model isn\'t usable.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @COMPLETED@ - The creation process completed successfully.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @DELETED@ - The @MLModel@ is marked as deleted. It isn\'t usable.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Astatus%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe EntityStatus
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Astatus%3AMLModel%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.EntityStatus.html#EntityStatus"><span class="hs-identifier hs-type">EntityStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The time of the most recent edit to the @MLModel@. The time is expressed</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- in epoch time.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AlastUpdatedAt%3AMLModel%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A list of the training parameters in the @MLModel@. The list is</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- implemented as a map of key-value pairs.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- The following is the current set of training parameters:</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     Depending on the input data, the size of the model might affect its</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     performance.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     The value is an integer that ranges from @100000@ to @2147483648@.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     The default value is @33554432@.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @sgd.maxPasses@ - The number of times that the training process</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     traverses the observations to build the @MLModel@. The value is an</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     integer that ranges from @1@ to @10000@. The default value is @10@.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @sgd.shuffleType@ - Whether Amazon ML shuffles the training data.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     Shuffling the data improves a model\'s ability to find the optimal</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     solution for a variety of data types. The valid values are @auto@</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     and @none@. The default value is @none@.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @sgd.l1RegularizationAmount@ - The coefficient regularization L1</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     norm, which controls overfitting the data by penalizing large</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     coefficients. This parameter tends to drive coefficients to zero,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     resulting in sparse feature set. If you use this parameter, start by</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     specifying a small value, such as @1.0E-08@.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     default is to not use L1 normalization. This parameter can\'t be</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     used when @L2@ is specified. Use this parameter sparingly.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @sgd.l2RegularizationAmount@ - The coefficient regularization L2</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     norm, which controls overfitting the data by penalizing large</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     coefficients. This tends to drive coefficients to small, nonzero</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     values. If you use this parameter, start by specifying a small</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     value, such as @1.0E-08@.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     default is to not use L2 normalization. This parameter can\'t be</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     used when @L1@ is specified. Use this parameter sparingly.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AtrainingParameters%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AtrainingParameters%3AMLModel%27"><span class="hs-identifier hs-var hs-var">trainingParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The time of the most recent edit to the @ScoreThreshold@. The time is</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- expressed in epoch time.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AscoreThresholdLastUpdatedAt%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AscoreThresholdLastUpdatedAt%3AMLModel%27"><span class="hs-identifier hs-var hs-var">scoreThresholdLastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The time that the @MLModel@ was created. The time is expressed in epoch</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AcreatedAt%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcreatedAt%3AMLModel%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AcomputeTime%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Integer
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcomputeTime%3AMLModel%27"><span class="hs-identifier hs-var hs-var">computeTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The location of the data file or directory in Amazon Simple Storage</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- Service (Amazon S3).</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AinputDataLocationS3%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AinputDataLocationS3%3AMLModel%27"><span class="hs-identifier hs-var hs-var">inputDataLocationS3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The ID assigned to the @MLModel@ at creation.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AmLModelId%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AmLModelId%3AMLModel%27"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AsizeInBytes%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Integer
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AsizeInBytes%3AMLModel%27"><span class="hs-identifier hs-var hs-var">sizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AstartedAt%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AstartedAt%3AMLModel%27"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AscoreThreshold%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Double
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AscoreThreshold%3AMLModel%27"><span class="hs-identifier hs-var hs-var">scoreThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AfinishedAt%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AfinishedAt%3AMLModel%27"><span class="hs-identifier hs-var hs-var">finishedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The algorithm used to train the @MLModel@. The following algorithm is</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- supported:</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     minimize the gradient of the loss function.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3Aalgorithm%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Algorithm
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Aalgorithm%3AMLModel%27"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The AWS user account from which the @MLModel@ was created. The account</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- type can be either an AWS root account or an AWS Identity and Access</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- Management (IAM) user account.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AcreatedByIamUser%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcreatedByIamUser%3AMLModel%27"><span class="hs-identifier hs-var hs-var">createdByIamUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | A user-supplied name or description of the @MLModel@.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3Aname%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Aname%3AMLModel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The current endpoint of the @MLModel@.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AendpointInfo%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe RealtimeEndpointInfo
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AendpointInfo%3AMLModel%27"><span class="hs-identifier hs-var hs-var">endpointInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RealtimeEndpointInfo.html#RealtimeEndpointInfo"><span class="hs-identifier hs-type">RealtimeEndpointInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The ID of the training @DataSource@. The @CreateMLModel@ operation uses</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- the @TrainingDataSourceId@.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AtrainingDataSourceId%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AtrainingDataSourceId%3AMLModel%27"><span class="hs-identifier hs-var hs-var">trainingDataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | A description of the most recent details about accessing the @MLModel@.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3Amessage%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Amessage%3AMLModel%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | Identifies the @MLModel@ category. The following are the available</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- types:</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- -   @REGRESSION@ - Produces a numeric result. For example, \&quot;What price</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--     should a house be listed at?\&quot;</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- -   @BINARY@ - Produces one of two possible results. For example, \&quot;Is</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--     this a child-friendly web site?\&quot;.</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- -   @MULTICLASS@ - Produces one of several possible results. For</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--     example, \&quot;Is this a HIGH-, LOW-, or MEDIUM-risk trade?\&quot;.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AmLModelType%3AMLModel%27"><span class="annot"><span class="annottext">MLModel -&gt; Maybe MLModelType
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AmLModelType%3AMLModel%27"><span class="hs-identifier hs-var hs-var">mLModelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModelType.html#MLModelType"><span class="hs-identifier hs-type">MLModelType</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252175"><span id="local-6989586621679252177"><span class="annot"><span class="annottext">MLModel -&gt; MLModel -&gt; Bool
+(MLModel -&gt; MLModel -&gt; Bool)
+-&gt; (MLModel -&gt; MLModel -&gt; Bool) -&gt; Eq MLModel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MLModel -&gt; MLModel -&gt; Bool
+$c/= :: MLModel -&gt; MLModel -&gt; Bool
+== :: MLModel -&gt; MLModel -&gt; Bool
+$c== :: MLModel -&gt; MLModel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252166"><span id="local-6989586621679252168"><span id="local-6989586621679252170"><span id="local-6989586621679252172"><span class="annot"><span class="annottext">ReadPrec [MLModel]
+ReadPrec MLModel
+Int -&gt; ReadS MLModel
+ReadS [MLModel]
+(Int -&gt; ReadS MLModel)
+-&gt; ReadS [MLModel]
+-&gt; ReadPrec MLModel
+-&gt; ReadPrec [MLModel]
+-&gt; Read MLModel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MLModel]
+$creadListPrec :: ReadPrec [MLModel]
+readPrec :: ReadPrec MLModel
+$creadPrec :: ReadPrec MLModel
+readList :: ReadS [MLModel]
+$creadList :: ReadS [MLModel]
+readsPrec :: Int -&gt; ReadS MLModel
+$creadsPrec :: Int -&gt; ReadS MLModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252159"><span id="local-6989586621679252161"><span id="local-6989586621679252163"><span class="annot"><span class="annottext">Int -&gt; MLModel -&gt; ShowS
+[MLModel] -&gt; ShowS
+MLModel -&gt; String
+(Int -&gt; MLModel -&gt; ShowS)
+-&gt; (MLModel -&gt; String) -&gt; ([MLModel] -&gt; ShowS) -&gt; Show MLModel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MLModel] -&gt; ShowS
+$cshowList :: [MLModel] -&gt; ShowS
+show :: MLModel -&gt; String
+$cshow :: MLModel -&gt; String
+showsPrec :: Int -&gt; MLModel -&gt; ShowS
+$cshowsPrec :: Int -&gt; MLModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MLModel -&gt; Rep MLModel x)
+-&gt; (forall x. Rep MLModel x -&gt; MLModel) -&gt; Generic MLModel
+forall x. Rep MLModel x -&gt; MLModel
+forall x. MLModel -&gt; Rep MLModel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MLModel x -&gt; MLModel
+$cfrom :: forall x. MLModel -&gt; Rep MLModel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'MLModel' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'status', 'mLModel_status' - The current status of an @MLModel@. This element can have one of the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     to create an @MLModel@.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   @INPROGRESS@ - The creation process is underway.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @FAILED@ - The request to create an @MLModel@ didn\'t run to</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     completion. The model isn\'t usable.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   @COMPLETED@ - The creation process completed successfully.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   @DELETED@ - The @MLModel@ is marked as deleted. It isn\'t usable.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'lastUpdatedAt', 'mLModel_lastUpdatedAt' - The time of the most recent edit to the @MLModel@. The time is expressed</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- in epoch time.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'trainingParameters', 'mLModel_trainingParameters' - A list of the training parameters in the @MLModel@. The list is</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- implemented as a map of key-value pairs.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following is the current set of training parameters:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     Depending on the input data, the size of the model might affect its</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     performance.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     The value is an integer that ranges from @100000@ to @2147483648@.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     The default value is @33554432@.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   @sgd.maxPasses@ - The number of times that the training process</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     traverses the observations to build the @MLModel@. The value is an</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     integer that ranges from @1@ to @10000@. The default value is @10@.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   @sgd.shuffleType@ - Whether Amazon ML shuffles the training data.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     Shuffling the data improves a model\'s ability to find the optimal</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     solution for a variety of data types. The valid values are @auto@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     and @none@. The default value is @none@.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   @sgd.l1RegularizationAmount@ - The coefficient regularization L1</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     norm, which controls overfitting the data by penalizing large</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     coefficients. This parameter tends to drive coefficients to zero,</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     resulting in sparse feature set. If you use this parameter, start by</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     specifying a small value, such as @1.0E-08@.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     default is to not use L1 normalization. This parameter can\'t be</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     used when @L2@ is specified. Use this parameter sparingly.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   @sgd.l2RegularizationAmount@ - The coefficient regularization L2</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     norm, which controls overfitting the data by penalizing large</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     coefficients. This tends to drive coefficients to small, nonzero</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     values. If you use this parameter, start by specifying a small</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     value, such as @1.0E-08@.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     default is to not use L2 normalization. This parameter can\'t be</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     used when @L1@ is specified. Use this parameter sparingly.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'scoreThresholdLastUpdatedAt', 'mLModel_scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@. The time is</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- expressed in epoch time.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'createdAt', 'mLModel_createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'computeTime', 'mLModel_computeTime' - Undocumented member.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'inputDataLocationS3', 'mLModel_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Service (Amazon S3).</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'mLModelId', 'mLModel_mLModelId' - The ID assigned to the @MLModel@ at creation.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'sizeInBytes', 'mLModel_sizeInBytes' - Undocumented member.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'startedAt', 'mLModel_startedAt' - Undocumented member.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'scoreThreshold', 'mLModel_scoreThreshold' - Undocumented member.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'finishedAt', 'mLModel_finishedAt' - Undocumented member.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'algorithm', 'mLModel_algorithm' - The algorithm used to train the @MLModel@. The following algorithm is</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- supported:</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     minimize the gradient of the loss function.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'createdByIamUser', 'mLModel_createdByIamUser' - The AWS user account from which the @MLModel@ was created. The account</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- type can be either an AWS root account or an AWS Identity and Access</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Management (IAM) user account.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'name', 'mLModel_name' - A user-supplied name or description of the @MLModel@.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'endpointInfo', 'mLModel_endpointInfo' - The current endpoint of the @MLModel@.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'trainingDataSourceId', 'mLModel_trainingDataSourceId' - The ID of the training @DataSource@. The @CreateMLModel@ operation uses</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- the @TrainingDataSourceId@.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'message', 'mLModel_message' - A description of the most recent details about accessing the @MLModel@.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'mLModelType', 'mLModel_mLModelType' - Identifies the @MLModel@ category. The following are the available</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- types:</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- -   @REGRESSION@ - Produces a numeric result. For example, \&quot;What price</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     should a house be listed at?\&quot;</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- -   @BINARY@ - Produces one of two possible results. For example, \&quot;Is</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     this a child-friendly web site?\&quot;.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- -   @MULTICLASS@ - Produces one of several possible results. For</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     example, \&quot;Is this a HIGH-, LOW-, or MEDIUM-risk trade?\&quot;.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#newMLModel"><span class="hs-identifier hs-type">newMLModel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span>
+</span><span id="line-266"></span><span id="newMLModel"><span class="annot"><span class="annottext">newMLModel :: MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#newMLModel"><span class="hs-identifier hs-var hs-var">newMLModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="annottext">MLModel' :: Maybe EntityStatus
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe POSIX
+-&gt; Maybe Double
+-&gt; Maybe POSIX
+-&gt; Maybe Algorithm
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RealtimeEndpointInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe MLModelType
+-&gt; MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:MLModel' :: Maybe EntityStatus
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Astatus%3AMLModel%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AlastUpdatedAt%3AMLModel%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingParameters:MLModel' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AtrainingParameters%3AMLModel%27"><span class="hs-identifier hs-var">trainingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:scoreThresholdLastUpdatedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AscoreThresholdLastUpdatedAt%3AMLModel%27"><span class="hs-identifier hs-var">scoreThresholdLastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcreatedAt%3AMLModel%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:computeTime:MLModel' :: Maybe Integer
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcomputeTime%3AMLModel%27"><span class="hs-identifier hs-var">computeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputDataLocationS3:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AinputDataLocationS3%3AMLModel%27"><span class="hs-identifier hs-var">inputDataLocationS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:mLModelId:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AmLModelId%3AMLModel%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeInBytes:MLModel' :: Maybe Integer
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AsizeInBytes%3AMLModel%27"><span class="hs-identifier hs-var">sizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">$sel:startedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AstartedAt%3AMLModel%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:scoreThreshold:MLModel' :: Maybe Double
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AscoreThreshold%3AMLModel%27"><span class="hs-identifier hs-var">scoreThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:finishedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AfinishedAt%3AMLModel%27"><span class="hs-identifier hs-var">finishedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:algorithm:MLModel' :: Maybe Algorithm
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Aalgorithm%3AMLModel%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Algorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdByIamUser:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcreatedByIamUser%3AMLModel%27"><span class="hs-identifier hs-var">createdByIamUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Aname%3AMLModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointInfo:MLModel' :: Maybe RealtimeEndpointInfo
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AendpointInfo%3AMLModel%27"><span class="hs-identifier hs-var">endpointInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingDataSourceId:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AtrainingDataSourceId%3AMLModel%27"><span class="hs-identifier hs-var">trainingDataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Amessage%3AMLModel%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:mLModelType:MLModel' :: Maybe MLModelType
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AmLModelType%3AMLModel%27"><span class="hs-identifier hs-var">mLModelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MLModelType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The current status of an @MLModel@. This element can have one of the</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--     to create an @MLModel@.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- -   @INPROGRESS@ - The creation process is underway.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- -   @FAILED@ - The request to create an @MLModel@ didn\'t run to</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--     completion. The model isn\'t usable.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- -   @COMPLETED@ - The creation process completed successfully.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- -   @DELETED@ - The @MLModel@ is marked as deleted. It isn\'t usable.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_status"><span class="hs-identifier hs-type">mLModel_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.EntityStatus.html#EntityStatus"><span class="hs-identifier hs-type">EntityStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="mLModel_status"><span class="annot"><span class="annottext">mLModel_status :: (Maybe EntityStatus -&gt; f (Maybe EntityStatus))
+-&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_status"><span class="hs-identifier hs-var hs-var">mLModel_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe EntityStatus)
+-&gt; (MLModel -&gt; Maybe EntityStatus -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe EntityStatus) (Maybe EntityStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252150"><span class="annot"><span class="annottext">Maybe EntityStatus
+status :: Maybe EntityStatus
+$sel:status:MLModel' :: MLModel -&gt; Maybe EntityStatus
+</span><a href="#local-6989586621679252150"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityStatus
+</span><a href="#local-6989586621679252150"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252149"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252148"><span class="annot"><span class="annottext">Maybe EntityStatus
+</span><a href="#local-6989586621679252148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:MLModel' :: Maybe EntityStatus
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Astatus%3AMLModel%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityStatus
+</span><a href="#local-6989586621679252148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The time of the most recent edit to the @MLModel@. The time is expressed</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- in epoch time.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_lastUpdatedAt"><span class="hs-identifier hs-type">mLModel_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="mLModel_lastUpdatedAt"><span class="annot"><span class="annottext">mLModel_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">mLModel_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe POSIX)
+-&gt; (MLModel -&gt; Maybe POSIX -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252146"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:MLModel' :: MLModel -&gt; Maybe POSIX
+</span><a href="#local-6989586621679252146"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252146"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252145"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252144"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AlastUpdatedAt%3AMLModel%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; MLModel -&gt; f MLModel)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MLModel
+-&gt; f MLModel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | A list of the training parameters in the @MLModel@. The list is</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- implemented as a map of key-value pairs.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- The following is the current set of training parameters:</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- -   @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     Depending on the input data, the size of the model might affect its</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     performance.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     The value is an integer that ranges from @100000@ to @2147483648@.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     The default value is @33554432@.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- -   @sgd.maxPasses@ - The number of times that the training process</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--     traverses the observations to build the @MLModel@. The value is an</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     integer that ranges from @1@ to @10000@. The default value is @10@.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- -   @sgd.shuffleType@ - Whether Amazon ML shuffles the training data.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--     Shuffling the data improves a model\'s ability to find the optimal</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     solution for a variety of data types. The valid values are @auto@</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     and @none@. The default value is @none@.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- -   @sgd.l1RegularizationAmount@ - The coefficient regularization L1</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     norm, which controls overfitting the data by penalizing large</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--     coefficients. This parameter tends to drive coefficients to zero,</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--     resulting in sparse feature set. If you use this parameter, start by</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--     specifying a small value, such as @1.0E-08@.</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     default is to not use L1 normalization. This parameter can\'t be</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--     used when @L2@ is specified. Use this parameter sparingly.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- -   @sgd.l2RegularizationAmount@ - The coefficient regularization L2</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--     norm, which controls overfitting the data by penalizing large</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--     coefficients. This tends to drive coefficients to small, nonzero</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--     values. If you use this parameter, start by specifying a small</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     value, such as @1.0E-08@.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     default is to not use L2 normalization. This parameter can\'t be</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--     used when @L1@ is specified. Use this parameter sparingly.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_trainingParameters"><span class="hs-identifier hs-type">mLModel_trainingParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="mLModel_trainingParameters"><span class="annot"><span class="annottext">mLModel_trainingParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_trainingParameters"><span class="hs-identifier hs-var hs-var">mLModel_trainingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe (HashMap Text Text))
+-&gt; (MLModel -&gt; Maybe (HashMap Text Text) -&gt; MLModel)
+-&gt; Lens
+     MLModel
+     MLModel
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252139"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+trainingParameters :: Maybe (HashMap Text Text)
+$sel:trainingParameters:MLModel' :: MLModel -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252139"><span class="hs-identifier hs-var hs-var">trainingParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252139"><span class="hs-identifier hs-var">trainingParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252138"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252137"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingParameters:MLModel' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AtrainingParameters%3AMLModel%27"><span class="hs-identifier hs-var">trainingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; MLModel -&gt; f MLModel)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; MLModel
+-&gt; f MLModel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The time of the most recent edit to the @ScoreThreshold@. The time is</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- expressed in epoch time.</span><span>
+</span><span id="line-356"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_scoreThresholdLastUpdatedAt"><span class="hs-identifier hs-type">mLModel_scoreThresholdLastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span id="mLModel_scoreThresholdLastUpdatedAt"><span class="annot"><span class="annottext">mLModel_scoreThresholdLastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_scoreThresholdLastUpdatedAt"><span class="hs-identifier hs-var hs-var">mLModel_scoreThresholdLastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe POSIX)
+-&gt; (MLModel -&gt; Maybe POSIX -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252134"><span class="annot"><span class="annottext">Maybe POSIX
+scoreThresholdLastUpdatedAt :: Maybe POSIX
+$sel:scoreThresholdLastUpdatedAt:MLModel' :: MLModel -&gt; Maybe POSIX
+</span><a href="#local-6989586621679252134"><span class="hs-identifier hs-var hs-var">scoreThresholdLastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252134"><span class="hs-identifier hs-var">scoreThresholdLastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252133"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252132"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scoreThresholdLastUpdatedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AscoreThresholdLastUpdatedAt%3AMLModel%27"><span class="hs-identifier hs-var">scoreThresholdLastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; MLModel -&gt; f MLModel)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MLModel
+-&gt; f MLModel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- | The time that the @MLModel@ was created. The time is expressed in epoch</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_createdAt"><span class="hs-identifier hs-type">mLModel_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span id="mLModel_createdAt"><span class="annot"><span class="annottext">mLModel_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_createdAt"><span class="hs-identifier hs-var hs-var">mLModel_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe POSIX)
+-&gt; (MLModel -&gt; Maybe POSIX -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252130"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:MLModel' :: MLModel -&gt; Maybe POSIX
+</span><a href="#local-6989586621679252130"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252130"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252129"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252128"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcreatedAt%3AMLModel%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; MLModel -&gt; f MLModel)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MLModel
+-&gt; f MLModel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-365"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_computeTime"><span class="hs-identifier hs-type">mLModel_computeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-366"></span><span id="mLModel_computeTime"><span class="annot"><span class="annottext">mLModel_computeTime :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_computeTime"><span class="hs-identifier hs-var hs-var">mLModel_computeTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Integer)
+-&gt; (MLModel -&gt; Maybe Integer -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252126"><span class="annot"><span class="annottext">Maybe Integer
+computeTime :: Maybe Integer
+$sel:computeTime:MLModel' :: MLModel -&gt; Maybe Integer
+</span><a href="#local-6989586621679252126"><span class="hs-identifier hs-var hs-var">computeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679252126"><span class="hs-identifier hs-var">computeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252125"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252124"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679252124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeTime:MLModel' :: Maybe Integer
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcomputeTime%3AMLModel%27"><span class="hs-identifier hs-var">computeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679252124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- | The location of the data file or directory in Amazon Simple Storage</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- Service (Amazon S3).</span><span>
+</span><span id="line-370"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_inputDataLocationS3"><span class="hs-identifier hs-type">mLModel_inputDataLocationS3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span id="mLModel_inputDataLocationS3"><span class="annot"><span class="annottext">mLModel_inputDataLocationS3 :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_inputDataLocationS3"><span class="hs-identifier hs-var hs-var">mLModel_inputDataLocationS3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Text)
+-&gt; (MLModel -&gt; Maybe Text -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252122"><span class="annot"><span class="annottext">Maybe Text
+inputDataLocationS3 :: Maybe Text
+$sel:inputDataLocationS3:MLModel' :: MLModel -&gt; Maybe Text
+</span><a href="#local-6989586621679252122"><span class="hs-identifier hs-var hs-var">inputDataLocationS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252122"><span class="hs-identifier hs-var">inputDataLocationS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252121"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252120"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataLocationS3:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AinputDataLocationS3%3AMLModel%27"><span class="hs-identifier hs-var">inputDataLocationS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- | The ID assigned to the @MLModel@ at creation.</span><span>
+</span><span id="line-374"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_mLModelId"><span class="hs-identifier hs-type">mLModel_mLModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span id="mLModel_mLModelId"><span class="annot"><span class="annottext">mLModel_mLModelId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_mLModelId"><span class="hs-identifier hs-var hs-var">mLModel_mLModelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Text)
+-&gt; (MLModel -&gt; Maybe Text -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252118"><span class="annot"><span class="annottext">Maybe Text
+mLModelId :: Maybe Text
+$sel:mLModelId:MLModel' :: MLModel -&gt; Maybe Text
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252117"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252116"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AmLModelId%3AMLModel%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-378"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_sizeInBytes"><span class="hs-identifier hs-type">mLModel_sizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span id="mLModel_sizeInBytes"><span class="annot"><span class="annottext">mLModel_sizeInBytes :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_sizeInBytes"><span class="hs-identifier hs-var hs-var">mLModel_sizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Integer)
+-&gt; (MLModel -&gt; Maybe Integer -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252114"><span class="annot"><span class="annottext">Maybe Integer
+sizeInBytes :: Maybe Integer
+$sel:sizeInBytes:MLModel' :: MLModel -&gt; Maybe Integer
+</span><a href="#local-6989586621679252114"><span class="hs-identifier hs-var hs-var">sizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679252114"><span class="hs-identifier hs-var">sizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252113"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252112"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679252112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInBytes:MLModel' :: Maybe Integer
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AsizeInBytes%3AMLModel%27"><span class="hs-identifier hs-var">sizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679252112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-382"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_startedAt"><span class="hs-identifier hs-type">mLModel_startedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span id="mLModel_startedAt"><span class="annot"><span class="annottext">mLModel_startedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_startedAt"><span class="hs-identifier hs-var hs-var">mLModel_startedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe POSIX)
+-&gt; (MLModel -&gt; Maybe POSIX -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252110"><span class="annot"><span class="annottext">Maybe POSIX
+startedAt :: Maybe POSIX
+$sel:startedAt:MLModel' :: MLModel -&gt; Maybe POSIX
+</span><a href="#local-6989586621679252110"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252110"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252109"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252108"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AstartedAt%3AMLModel%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; MLModel -&gt; f MLModel)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MLModel
+-&gt; f MLModel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-386"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_scoreThreshold"><span class="hs-identifier hs-type">mLModel_scoreThreshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span id="mLModel_scoreThreshold"><span class="annot"><span class="annottext">mLModel_scoreThreshold :: (Maybe Double -&gt; f (Maybe Double)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_scoreThreshold"><span class="hs-identifier hs-var hs-var">mLModel_scoreThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Double)
+-&gt; (MLModel -&gt; Maybe Double -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252106"><span class="annot"><span class="annottext">Maybe Double
+scoreThreshold :: Maybe Double
+$sel:scoreThreshold:MLModel' :: MLModel -&gt; Maybe Double
+</span><a href="#local-6989586621679252106"><span class="hs-identifier hs-var hs-var">scoreThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679252106"><span class="hs-identifier hs-var">scoreThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252105"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252104"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679252104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scoreThreshold:MLModel' :: Maybe Double
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AscoreThreshold%3AMLModel%27"><span class="hs-identifier hs-var">scoreThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679252104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-390"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_finishedAt"><span class="hs-identifier hs-type">mLModel_finishedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span id="mLModel_finishedAt"><span class="annot"><span class="annottext">mLModel_finishedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_finishedAt"><span class="hs-identifier hs-var hs-var">mLModel_finishedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe POSIX)
+-&gt; (MLModel -&gt; Maybe POSIX -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252102"><span class="annot"><span class="annottext">Maybe POSIX
+finishedAt :: Maybe POSIX
+$sel:finishedAt:MLModel' :: MLModel -&gt; Maybe POSIX
+</span><a href="#local-6989586621679252102"><span class="hs-identifier hs-var hs-var">finishedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252102"><span class="hs-identifier hs-var">finishedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252101"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252100"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finishedAt:MLModel' :: Maybe POSIX
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AfinishedAt%3AMLModel%27"><span class="hs-identifier hs-var">finishedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679252100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; MLModel -&gt; f MLModel)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MLModel
+-&gt; f MLModel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-392"></span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- | The algorithm used to train the @MLModel@. The following algorithm is</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- supported:</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--     minimize the gradient of the loss function.</span><span>
+</span><span id="line-398"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_algorithm"><span class="hs-identifier hs-type">mLModel_algorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span id="mLModel_algorithm"><span class="annot"><span class="annottext">mLModel_algorithm :: (Maybe Algorithm -&gt; f (Maybe Algorithm)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_algorithm"><span class="hs-identifier hs-var hs-var">mLModel_algorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Algorithm)
+-&gt; (MLModel -&gt; Maybe Algorithm -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Algorithm) (Maybe Algorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252098"><span class="annot"><span class="annottext">Maybe Algorithm
+algorithm :: Maybe Algorithm
+$sel:algorithm:MLModel' :: MLModel -&gt; Maybe Algorithm
+</span><a href="#local-6989586621679252098"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Algorithm
+</span><a href="#local-6989586621679252098"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252097"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252096"><span class="annot"><span class="annottext">Maybe Algorithm
+</span><a href="#local-6989586621679252096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithm:MLModel' :: Maybe Algorithm
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Aalgorithm%3AMLModel%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Algorithm
+</span><a href="#local-6989586621679252096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- | The AWS user account from which the @MLModel@ was created. The account</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- type can be either an AWS root account or an AWS Identity and Access</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- Management (IAM) user account.</span><span>
+</span><span id="line-404"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_createdByIamUser"><span class="hs-identifier hs-type">mLModel_createdByIamUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span id="mLModel_createdByIamUser"><span class="annot"><span class="annottext">mLModel_createdByIamUser :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_createdByIamUser"><span class="hs-identifier hs-var hs-var">mLModel_createdByIamUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Text)
+-&gt; (MLModel -&gt; Maybe Text -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252094"><span class="annot"><span class="annottext">Maybe Text
+createdByIamUser :: Maybe Text
+$sel:createdByIamUser:MLModel' :: MLModel -&gt; Maybe Text
+</span><a href="#local-6989586621679252094"><span class="hs-identifier hs-var hs-var">createdByIamUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252094"><span class="hs-identifier hs-var">createdByIamUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252093"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdByIamUser:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AcreatedByIamUser%3AMLModel%27"><span class="hs-identifier hs-var">createdByIamUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- | A user-supplied name or description of the @MLModel@.</span><span>
+</span><span id="line-408"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_name"><span class="hs-identifier hs-type">mLModel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span id="mLModel_name"><span class="annot"><span class="annottext">mLModel_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_name"><span class="hs-identifier hs-var hs-var">mLModel_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Text)
+-&gt; (MLModel -&gt; Maybe Text -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252090"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:MLModel' :: MLModel -&gt; Maybe Text
+</span><a href="#local-6989586621679252090"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252090"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252089"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Aname%3AMLModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | The current endpoint of the @MLModel@.</span><span>
+</span><span id="line-412"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_endpointInfo"><span class="hs-identifier hs-type">mLModel_endpointInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RealtimeEndpointInfo.html#RealtimeEndpointInfo"><span class="hs-identifier hs-type">RealtimeEndpointInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span id="mLModel_endpointInfo"><span class="annot"><span class="annottext">mLModel_endpointInfo :: (Maybe RealtimeEndpointInfo -&gt; f (Maybe RealtimeEndpointInfo))
+-&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_endpointInfo"><span class="hs-identifier hs-var hs-var">mLModel_endpointInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe RealtimeEndpointInfo)
+-&gt; (MLModel -&gt; Maybe RealtimeEndpointInfo -&gt; MLModel)
+-&gt; Lens
+     MLModel
+     MLModel
+     (Maybe RealtimeEndpointInfo)
+     (Maybe RealtimeEndpointInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252086"><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+endpointInfo :: Maybe RealtimeEndpointInfo
+$sel:endpointInfo:MLModel' :: MLModel -&gt; Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679252086"><span class="hs-identifier hs-var hs-var">endpointInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679252086"><span class="hs-identifier hs-var">endpointInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252085"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252084"><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679252084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointInfo:MLModel' :: Maybe RealtimeEndpointInfo
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AendpointInfo%3AMLModel%27"><span class="hs-identifier hs-var">endpointInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679252084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- | The ID of the training @DataSource@. The @CreateMLModel@ operation uses</span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- the @TrainingDataSourceId@.</span><span>
+</span><span id="line-417"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_trainingDataSourceId"><span class="hs-identifier hs-type">mLModel_trainingDataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-418"></span><span id="mLModel_trainingDataSourceId"><span class="annot"><span class="annottext">mLModel_trainingDataSourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_trainingDataSourceId"><span class="hs-identifier hs-var hs-var">mLModel_trainingDataSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Text)
+-&gt; (MLModel -&gt; Maybe Text -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252082"><span class="annot"><span class="annottext">Maybe Text
+trainingDataSourceId :: Maybe Text
+$sel:trainingDataSourceId:MLModel' :: MLModel -&gt; Maybe Text
+</span><a href="#local-6989586621679252082"><span class="hs-identifier hs-var hs-var">trainingDataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252082"><span class="hs-identifier hs-var">trainingDataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252081"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingDataSourceId:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AtrainingDataSourceId%3AMLModel%27"><span class="hs-identifier hs-var">trainingDataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- | A description of the most recent details about accessing the @MLModel@.</span><span>
+</span><span id="line-421"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_message"><span class="hs-identifier hs-type">mLModel_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span id="mLModel_message"><span class="annot"><span class="annottext">mLModel_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_message"><span class="hs-identifier hs-var hs-var">mLModel_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe Text)
+-&gt; (MLModel -&gt; Maybe Text -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252078"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:MLModel' :: MLModel -&gt; Maybe Text
+</span><a href="#local-6989586621679252078"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252078"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252077"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252076"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:MLModel' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3Amessage%3AMLModel%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- | Identifies the @MLModel@ category. The following are the available</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- types:</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- -   @REGRESSION@ - Produces a numeric result. For example, \&quot;What price</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--     should a house be listed at?\&quot;</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- -   @BINARY@ - Produces one of two possible results. For example, \&quot;Is</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--     this a child-friendly web site?\&quot;.</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- -   @MULTICLASS@ - Produces one of several possible results. For</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--     example, \&quot;Is this a HIGH-, LOW-, or MEDIUM-risk trade?\&quot;.</span><span>
+</span><span id="line-435"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_mLModelType"><span class="hs-identifier hs-type">mLModel_mLModelType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModelType.html#MLModelType"><span class="hs-identifier hs-type">MLModelType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span id="mLModel_mLModelType"><span class="annot"><span class="annottext">mLModel_mLModelType :: (Maybe MLModelType -&gt; f (Maybe MLModelType))
+-&gt; MLModel -&gt; f MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#mLModel_mLModelType"><span class="hs-identifier hs-var hs-var">mLModel_mLModelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MLModel -&gt; Maybe MLModelType)
+-&gt; (MLModel -&gt; Maybe MLModelType -&gt; MLModel)
+-&gt; Lens MLModel MLModel (Maybe MLModelType) (Maybe MLModelType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252074"><span class="annot"><span class="annottext">Maybe MLModelType
+mLModelType :: Maybe MLModelType
+$sel:mLModelType:MLModel' :: MLModel -&gt; Maybe MLModelType
+</span><a href="#local-6989586621679252074"><span class="hs-identifier hs-var hs-var">mLModelType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MLModelType
+</span><a href="#local-6989586621679252074"><span class="hs-identifier hs-var">mLModelType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252073"><span class="annot"><span class="annottext">s :: MLModel
+</span><a href="#local-6989586621679252073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-type">MLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252072"><span class="annot"><span class="annottext">Maybe MLModelType
+</span><a href="#local-6989586621679252072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MLModel
+</span><a href="#local-6989586621679252073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelType:MLModel' :: Maybe MLModelType
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#%24sel%3AmLModelType%3AMLModel%27"><span class="hs-identifier hs-var">mLModelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MLModelType
+</span><a href="#local-6989586621679252072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span>
+</span><span id="line-438"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252069"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-439"></span><span>  </span><span id="local-6989586621679252067"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MLModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser MLModel) -&gt; Value -&gt; Parser MLModel
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-441"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MLModel&quot;</span></span><span>
+</span><span id="line-442"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252064"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-443"></span><span>          </span><span class="annot"><span class="annottext">Maybe EntityStatus
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe POSIX
+-&gt; Maybe Double
+-&gt; Maybe POSIX
+-&gt; Maybe Algorithm
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RealtimeEndpointInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe MLModelType
+-&gt; MLModel
+</span><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel%27"><span class="hs-identifier hs-var">MLModel'</span></a></span><span>
+</span><span id="line-444"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EntityStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe POSIX
+ -&gt; Maybe Double
+ -&gt; Maybe POSIX
+ -&gt; Maybe Algorithm
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe RealtimeEndpointInfo
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe MLModelType
+ -&gt; MLModel)
+-&gt; Parser (Maybe EntityStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-445"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-446"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrainingParameters&quot;</span></span><span>
+</span><span id="line-447"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-448"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-449"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScoreThresholdLastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-450"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-451"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputeTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataLocationS3&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-454"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-455"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-456"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScoreThreshold&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-457"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FinishedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-458"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Algorithm)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Algorithm)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Algorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-459"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MLModelType
+      -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedByIamUser&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MLModelType
+   -&gt; MLModel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RealtimeEndpointInfo
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe MLModelType -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-461"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RealtimeEndpointInfo
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe MLModelType -&gt; MLModel)
+-&gt; Parser (Maybe RealtimeEndpointInfo)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe MLModelType -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RealtimeEndpointInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-462"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe MLModelType -&gt; MLModel)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe MLModelType -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrainingDataSourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-463"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe MLModelType -&gt; MLModel)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe MLModelType -&gt; MLModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-464"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MLModelType -&gt; MLModel)
+-&gt; Parser (Maybe MLModelType) -&gt; Parser MLModel
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MLModelType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-465"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-466"></span><span>
+</span><span id="line-467"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252057"><span id="local-6989586621679252059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span></span></span><span>
+</span><span id="line-468"></span><span>
+</span><span id="line-469"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.MLModel.html#MLModel"><span class="hs-identifier hs-type">MLModel</span></a></span></span><span>
+</span><span id="line-470"></span></pre></body></html>

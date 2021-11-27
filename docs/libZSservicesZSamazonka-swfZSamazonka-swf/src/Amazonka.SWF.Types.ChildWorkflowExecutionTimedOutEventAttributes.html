@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html"><span class="hs-identifier">Amazonka.SWF.Types.WorkflowExecution</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecutionTimeoutType.html"><span class="hs-identifier">Amazonka.SWF.Types.WorkflowExecutionTimeoutType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html"><span class="hs-identifier">Amazonka.SWF.Types.WorkflowType</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Provides the details of the @ChildWorkflowExecutionTimedOut@ event.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newChildWorkflowExecutionTimedOutEventAttributes' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679355595"><span id="local-6989586621679355596"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChildWorkflowExecutionTimedOutEventAttributes"><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-var">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The child workflow execution that timed out.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AworkflowExecution%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes -&gt; WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of the child workflow execution.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AworkflowType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes -&gt; WorkflowType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The type of the timeout that caused the child workflow execution to time</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- out.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtimeoutType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; WorkflowExecutionTimeoutType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AtimeoutType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecutionTimeoutType.html#WorkflowExecutionTimeoutType"><span class="hs-identifier hs-type">WorkflowExecutionTimeoutType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to the @StartChildWorkflowExecution@ Decision to start this child</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- workflow execution. This information can be useful for diagnosing</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AinitiatedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- child workflow execution was started. This information can be useful for</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- diagnosing problems by tracing back the chain of events leading up to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- this event.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AstartedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AstartedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355585"><span id="local-6989586621679355587"><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; Bool
+(ChildWorkflowExecutionTimedOutEventAttributes
+ -&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; Bool)
+-&gt; (ChildWorkflowExecutionTimedOutEventAttributes
+    -&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; Bool)
+-&gt; Eq ChildWorkflowExecutionTimedOutEventAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; Bool
+$c/= :: ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; Bool
+== :: ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; Bool
+$c== :: ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355576"><span id="local-6989586621679355578"><span id="local-6989586621679355580"><span id="local-6989586621679355582"><span class="annot"><span class="annottext">ReadPrec [ChildWorkflowExecutionTimedOutEventAttributes]
+ReadPrec ChildWorkflowExecutionTimedOutEventAttributes
+Int -&gt; ReadS ChildWorkflowExecutionTimedOutEventAttributes
+ReadS [ChildWorkflowExecutionTimedOutEventAttributes]
+(Int -&gt; ReadS ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; ReadS [ChildWorkflowExecutionTimedOutEventAttributes]
+-&gt; ReadPrec ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; ReadPrec [ChildWorkflowExecutionTimedOutEventAttributes]
+-&gt; Read ChildWorkflowExecutionTimedOutEventAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChildWorkflowExecutionTimedOutEventAttributes]
+$creadListPrec :: ReadPrec [ChildWorkflowExecutionTimedOutEventAttributes]
+readPrec :: ReadPrec ChildWorkflowExecutionTimedOutEventAttributes
+$creadPrec :: ReadPrec ChildWorkflowExecutionTimedOutEventAttributes
+readList :: ReadS [ChildWorkflowExecutionTimedOutEventAttributes]
+$creadList :: ReadS [ChildWorkflowExecutionTimedOutEventAttributes]
+readsPrec :: Int -&gt; ReadS ChildWorkflowExecutionTimedOutEventAttributes
+$creadsPrec :: Int -&gt; ReadS ChildWorkflowExecutionTimedOutEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355569"><span id="local-6989586621679355571"><span id="local-6989586621679355573"><span class="annot"><span class="annottext">Int -&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; ShowS
+[ChildWorkflowExecutionTimedOutEventAttributes] -&gt; ShowS
+ChildWorkflowExecutionTimedOutEventAttributes -&gt; String
+(Int -&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; ShowS)
+-&gt; (ChildWorkflowExecutionTimedOutEventAttributes -&gt; String)
+-&gt; ([ChildWorkflowExecutionTimedOutEventAttributes] -&gt; ShowS)
+-&gt; Show ChildWorkflowExecutionTimedOutEventAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChildWorkflowExecutionTimedOutEventAttributes] -&gt; ShowS
+$cshowList :: [ChildWorkflowExecutionTimedOutEventAttributes] -&gt; ShowS
+show :: ChildWorkflowExecutionTimedOutEventAttributes -&gt; String
+$cshow :: ChildWorkflowExecutionTimedOutEventAttributes -&gt; String
+showsPrec :: Int -&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChildWorkflowExecutionTimedOutEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ChildWorkflowExecutionTimedOutEventAttributes
+ -&gt; Rep ChildWorkflowExecutionTimedOutEventAttributes x)
+-&gt; (forall x.
+    Rep ChildWorkflowExecutionTimedOutEventAttributes x
+    -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Generic ChildWorkflowExecutionTimedOutEventAttributes
+forall x.
+Rep ChildWorkflowExecutionTimedOutEventAttributes x
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+forall x.
+ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; Rep ChildWorkflowExecutionTimedOutEventAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ChildWorkflowExecutionTimedOutEventAttributes x
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+$cfrom :: forall x.
+ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; Rep ChildWorkflowExecutionTimedOutEventAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'ChildWorkflowExecutionTimedOutEventAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'workflowExecution', 'childWorkflowExecutionTimedOutEventAttributes_workflowExecution' - The child workflow execution that timed out.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'workflowType', 'childWorkflowExecutionTimedOutEventAttributes_workflowType' - The type of the child workflow execution.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'timeoutType', 'childWorkflowExecutionTimedOutEventAttributes_timeoutType' - The type of the timeout that caused the child workflow execution to time</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- out.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'initiatedEventId', 'childWorkflowExecutionTimedOutEventAttributes_initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- to the @StartChildWorkflowExecution@ Decision to start this child</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- workflow execution. This information can be useful for diagnosing</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'startedEventId', 'childWorkflowExecutionTimedOutEventAttributes_startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- child workflow execution was started. This information can be useful for</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- diagnosing problems by tracing back the chain of events leading up to</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- this event.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#newChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">newChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'workflowExecution'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'workflowType'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'timeoutType'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecutionTimeoutType.html#WorkflowExecutionTimeoutType"><span class="hs-identifier hs-type">WorkflowExecutionTimeoutType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'initiatedEventId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'startedEventId'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span>
+</span><span id="line-89"></span><span id="newChildWorkflowExecutionTimedOutEventAttributes"><span class="annot"><span class="annottext">newChildWorkflowExecutionTimedOutEventAttributes :: WorkflowExecution
+-&gt; WorkflowType
+-&gt; WorkflowExecutionTimeoutType
+-&gt; Integer
+-&gt; Integer
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#newChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-var hs-var">newChildWorkflowExecutionTimedOutEventAttributes</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679355563"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679355563"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679355562"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679355562"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679355561"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679355561"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679355560"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355560"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679355559"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355559"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes' :: WorkflowExecution
+-&gt; WorkflowType
+-&gt; WorkflowExecutionTimeoutType
+-&gt; Integer
+-&gt; Integer
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workflowExecution:ChildWorkflowExecutionTimedOutEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679355563"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowType:ChildWorkflowExecutionTimedOutEventAttributes' :: WorkflowType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679355562"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeoutType:ChildWorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimeoutType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AtimeoutType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679355561"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:initiatedEventId:ChildWorkflowExecutionTimedOutEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355560"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:ChildWorkflowExecutionTimedOutEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AstartedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355559"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The child workflow execution that timed out.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_workflowExecution"><span class="hs-identifier hs-type">childWorkflowExecutionTimedOutEventAttributes_workflowExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span>
+</span><span id="line-109"></span><span id="childWorkflowExecutionTimedOutEventAttributes_workflowExecution"><span class="annot"><span class="annottext">childWorkflowExecutionTimedOutEventAttributes_workflowExecution :: (WorkflowExecution -&gt; f WorkflowExecution)
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; f ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_workflowExecution"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionTimedOutEventAttributes_workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionTimedOutEventAttributes
+ -&gt; WorkflowExecution)
+-&gt; (ChildWorkflowExecutionTimedOutEventAttributes
+    -&gt; WorkflowExecution
+    -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionTimedOutEventAttributes
+     ChildWorkflowExecutionTimedOutEventAttributes
+     WorkflowExecution
+     WorkflowExecution
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355555"><span class="annot"><span class="annottext">WorkflowExecution
+workflowExecution :: WorkflowExecution
+$sel:workflowExecution:ChildWorkflowExecutionTimedOutEventAttributes' :: ChildWorkflowExecutionTimedOutEventAttributes -&gt; WorkflowExecution
+</span><a href="#local-6989586621679355555"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679355555"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355554"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355553"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679355553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecution:ChildWorkflowExecutionTimedOutEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679355553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The type of the child workflow execution.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_workflowType"><span class="hs-identifier hs-type">childWorkflowExecutionTimedOutEventAttributes_workflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
+</span><span id="line-113"></span><span id="childWorkflowExecutionTimedOutEventAttributes_workflowType"><span class="annot"><span class="annottext">childWorkflowExecutionTimedOutEventAttributes_workflowType :: (WorkflowType -&gt; f WorkflowType)
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; f ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_workflowType"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionTimedOutEventAttributes_workflowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionTimedOutEventAttributes -&gt; WorkflowType)
+-&gt; (ChildWorkflowExecutionTimedOutEventAttributes
+    -&gt; WorkflowType -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionTimedOutEventAttributes
+     ChildWorkflowExecutionTimedOutEventAttributes
+     WorkflowType
+     WorkflowType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355551"><span class="annot"><span class="annottext">WorkflowType
+workflowType :: WorkflowType
+$sel:workflowType:ChildWorkflowExecutionTimedOutEventAttributes' :: ChildWorkflowExecutionTimedOutEventAttributes -&gt; WorkflowType
+</span><a href="#local-6989586621679355551"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679355551"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355550"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355549"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679355549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:ChildWorkflowExecutionTimedOutEventAttributes' :: WorkflowType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679355549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The type of the timeout that caused the child workflow execution to time</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- out.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_timeoutType"><span class="hs-identifier hs-type">childWorkflowExecutionTimedOutEventAttributes_timeoutType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecutionTimeoutType.html#WorkflowExecutionTimeoutType"><span class="hs-identifier hs-type">WorkflowExecutionTimeoutType</span></a></span><span>
+</span><span id="line-118"></span><span id="childWorkflowExecutionTimedOutEventAttributes_timeoutType"><span class="annot"><span class="annottext">childWorkflowExecutionTimedOutEventAttributes_timeoutType :: (WorkflowExecutionTimeoutType -&gt; f WorkflowExecutionTimeoutType)
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; f ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_timeoutType"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionTimedOutEventAttributes_timeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionTimedOutEventAttributes
+ -&gt; WorkflowExecutionTimeoutType)
+-&gt; (ChildWorkflowExecutionTimedOutEventAttributes
+    -&gt; WorkflowExecutionTimeoutType
+    -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionTimedOutEventAttributes
+     ChildWorkflowExecutionTimedOutEventAttributes
+     WorkflowExecutionTimeoutType
+     WorkflowExecutionTimeoutType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355547"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+timeoutType :: WorkflowExecutionTimeoutType
+$sel:timeoutType:ChildWorkflowExecutionTimedOutEventAttributes' :: ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679355547"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679355547"><span class="hs-identifier hs-var">timeoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355546"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355545"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679355545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutType:ChildWorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimeoutType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AtimeoutType%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679355545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- to the @StartChildWorkflowExecution@ Decision to start this child</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- workflow execution. This information can be useful for diagnosing</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_initiatedEventId"><span class="hs-identifier hs-type">childWorkflowExecutionTimedOutEventAttributes_initiatedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-125"></span><span id="childWorkflowExecutionTimedOutEventAttributes_initiatedEventId"><span class="annot"><span class="annottext">childWorkflowExecutionTimedOutEventAttributes_initiatedEventId :: (Integer -&gt; f Integer)
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; f ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_initiatedEventId"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionTimedOutEventAttributes_initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionTimedOutEventAttributes -&gt; Integer)
+-&gt; (ChildWorkflowExecutionTimedOutEventAttributes
+    -&gt; Integer -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionTimedOutEventAttributes
+     ChildWorkflowExecutionTimedOutEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355543"><span class="annot"><span class="annottext">Integer
+initiatedEventId :: Integer
+$sel:initiatedEventId:ChildWorkflowExecutionTimedOutEventAttributes' :: ChildWorkflowExecutionTimedOutEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679355543"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355543"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355542"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355541"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedEventId:ChildWorkflowExecutionTimedOutEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- child workflow execution was started. This information can be useful for</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- diagnosing problems by tracing back the chain of events leading up to</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- this event.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_startedEventId"><span class="hs-identifier hs-type">childWorkflowExecutionTimedOutEventAttributes_startedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-132"></span><span id="childWorkflowExecutionTimedOutEventAttributes_startedEventId"><span class="annot"><span class="annottext">childWorkflowExecutionTimedOutEventAttributes_startedEventId :: (Integer -&gt; f Integer)
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+-&gt; f ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#childWorkflowExecutionTimedOutEventAttributes_startedEventId"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionTimedOutEventAttributes_startedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionTimedOutEventAttributes -&gt; Integer)
+-&gt; (ChildWorkflowExecutionTimedOutEventAttributes
+    -&gt; Integer -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionTimedOutEventAttributes
+     ChildWorkflowExecutionTimedOutEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355539"><span class="annot"><span class="annottext">Integer
+startedEventId :: Integer
+$sel:startedEventId:ChildWorkflowExecutionTimedOutEventAttributes' :: ChildWorkflowExecutionTimedOutEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679355539"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355539"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355538"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355537"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679355538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:ChildWorkflowExecutionTimedOutEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#%24sel%3AstartedEventId%3AChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679355537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679355534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679355532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChildWorkflowExecutionTimedOutEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Value
+-&gt; Parser ChildWorkflowExecutionTimedOutEventAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChildWorkflowExecutionTimedOutEventAttributes&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355529"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
+-&gt; WorkflowType
+-&gt; WorkflowExecutionTimeoutType
+-&gt; Integer
+-&gt; Integer
+-&gt; ChildWorkflowExecutionTimedOutEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">ChildWorkflowExecutionTimedOutEventAttributes'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(WorkflowExecution
+ -&gt; WorkflowType
+ -&gt; WorkflowExecutionTimeoutType
+ -&gt; Integer
+ -&gt; Integer
+ -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Parser WorkflowExecution
+-&gt; Parser
+     (WorkflowType
+      -&gt; WorkflowExecutionTimeoutType
+      -&gt; Integer
+      -&gt; Integer
+      -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecution
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowExecution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (WorkflowType
+   -&gt; WorkflowExecutionTimeoutType
+   -&gt; Integer
+   -&gt; Integer
+   -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Parser WorkflowType
+-&gt; Parser
+     (WorkflowExecutionTimeoutType
+      -&gt; Integer
+      -&gt; Integer
+      -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (WorkflowExecutionTimeoutType
+   -&gt; Integer
+   -&gt; Integer
+   -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Parser WorkflowExecutionTimeoutType
+-&gt; Parser
+     (Integer
+      -&gt; Integer -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecutionTimeoutType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeoutType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Integer
+   -&gt; Integer -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser
+     (Integer -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initiatedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">Parser (Integer -&gt; ChildWorkflowExecutionTimedOutEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser ChildWorkflowExecutionTimedOutEventAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679355523"><span id="local-6989586621679355525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679355520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes.html#ChildWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionTimedOutEventAttributes</span></a></span></span><span>
+</span><span id="line-157"></span></pre></body></html>

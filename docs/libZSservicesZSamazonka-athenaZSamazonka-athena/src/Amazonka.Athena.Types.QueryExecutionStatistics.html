@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Athena.Types.QueryExecutionStatistics</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Athena.Types.QueryExecutionStatistics</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The amount of data scanned during the query execution and the amount of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- time that it took to execute, and the type of statement that was run.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQueryExecutionStatistics' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679217547"><span id="local-6989586621679217548"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryExecutionStatistics"><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-var">QueryExecutionStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryExecutionStatistics%27"><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-var">QueryExecutionStatistics'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of milliseconds that Athena took to run the query.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtotalExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AtotalExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var hs-var">totalExecutionTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of milliseconds that the query took to execute.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AengineExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AengineExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var hs-var">engineExecutionTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The number of milliseconds that Athena took to plan the query processing</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- flow. This includes the time spent retrieving table partitions from the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- data source. Note that because the query engine performs the query</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- planning, query planning time is a subset of engine processing time.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AqueryPlanningTimeInMillis%3AQueryExecutionStatistics%27"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AqueryPlanningTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var hs-var">queryPlanningTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of bytes in the data that was queried.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdataScannedInBytes%3AQueryExecutionStatistics%27"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AdataScannedInBytes%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var hs-var">dataScannedInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The number of milliseconds that the query was in your query queue</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- waiting for resources. Note that if transient errors occur, Athena might</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- automatically add the query back to the queue.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AqueryQueueTimeInMillis%3AQueryExecutionStatistics%27"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AqueryQueueTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var hs-var">queryQueueTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The location and file name of a data manifest file. The manifest file is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- saved to the Athena query results location in Amazon S3. The manifest</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- file tracks files that the query wrote to Amazon S3. If the query fails,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- the manifest file also tracks files that the query intended to write.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- The manifest is useful for identifying orphaned files resulting from a</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- failed query. For more information, see</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History&gt;</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- in the /Amazon Athena User Guide/.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdataManifestLocation%3AQueryExecutionStatistics%27"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; Maybe Text
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AdataManifestLocation%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var hs-var">dataManifestLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The number of milliseconds that Athena took to finalize and publish the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- query results after the query engine finished running the query.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AserviceProcessingTimeInMillis%3AQueryExecutionStatistics%27"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AserviceProcessingTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var hs-var">serviceProcessingTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217535"><span id="local-6989586621679217537"><span class="annot"><span class="annottext">QueryExecutionStatistics -&gt; QueryExecutionStatistics -&gt; Bool
+(QueryExecutionStatistics -&gt; QueryExecutionStatistics -&gt; Bool)
+-&gt; (QueryExecutionStatistics -&gt; QueryExecutionStatistics -&gt; Bool)
+-&gt; Eq QueryExecutionStatistics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QueryExecutionStatistics -&gt; QueryExecutionStatistics -&gt; Bool
+$c/= :: QueryExecutionStatistics -&gt; QueryExecutionStatistics -&gt; Bool
+== :: QueryExecutionStatistics -&gt; QueryExecutionStatistics -&gt; Bool
+$c== :: QueryExecutionStatistics -&gt; QueryExecutionStatistics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217526"><span id="local-6989586621679217528"><span id="local-6989586621679217530"><span id="local-6989586621679217532"><span class="annot"><span class="annottext">ReadPrec [QueryExecutionStatistics]
+ReadPrec QueryExecutionStatistics
+Int -&gt; ReadS QueryExecutionStatistics
+ReadS [QueryExecutionStatistics]
+(Int -&gt; ReadS QueryExecutionStatistics)
+-&gt; ReadS [QueryExecutionStatistics]
+-&gt; ReadPrec QueryExecutionStatistics
+-&gt; ReadPrec [QueryExecutionStatistics]
+-&gt; Read QueryExecutionStatistics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QueryExecutionStatistics]
+$creadListPrec :: ReadPrec [QueryExecutionStatistics]
+readPrec :: ReadPrec QueryExecutionStatistics
+$creadPrec :: ReadPrec QueryExecutionStatistics
+readList :: ReadS [QueryExecutionStatistics]
+$creadList :: ReadS [QueryExecutionStatistics]
+readsPrec :: Int -&gt; ReadS QueryExecutionStatistics
+$creadsPrec :: Int -&gt; ReadS QueryExecutionStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217519"><span id="local-6989586621679217521"><span id="local-6989586621679217523"><span class="annot"><span class="annottext">Int -&gt; QueryExecutionStatistics -&gt; ShowS
+[QueryExecutionStatistics] -&gt; ShowS
+QueryExecutionStatistics -&gt; String
+(Int -&gt; QueryExecutionStatistics -&gt; ShowS)
+-&gt; (QueryExecutionStatistics -&gt; String)
+-&gt; ([QueryExecutionStatistics] -&gt; ShowS)
+-&gt; Show QueryExecutionStatistics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QueryExecutionStatistics] -&gt; ShowS
+$cshowList :: [QueryExecutionStatistics] -&gt; ShowS
+show :: QueryExecutionStatistics -&gt; String
+$cshow :: QueryExecutionStatistics -&gt; String
+showsPrec :: Int -&gt; QueryExecutionStatistics -&gt; ShowS
+$cshowsPrec :: Int -&gt; QueryExecutionStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ QueryExecutionStatistics -&gt; Rep QueryExecutionStatistics x)
+-&gt; (forall x.
+    Rep QueryExecutionStatistics x -&gt; QueryExecutionStatistics)
+-&gt; Generic QueryExecutionStatistics
+forall x.
+Rep QueryExecutionStatistics x -&gt; QueryExecutionStatistics
+forall x.
+QueryExecutionStatistics -&gt; Rep QueryExecutionStatistics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep QueryExecutionStatistics x -&gt; QueryExecutionStatistics
+$cfrom :: forall x.
+QueryExecutionStatistics -&gt; Rep QueryExecutionStatistics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'QueryExecutionStatistics' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'totalExecutionTimeInMillis', 'queryExecutionStatistics_totalExecutionTimeInMillis' - The number of milliseconds that Athena took to run the query.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'engineExecutionTimeInMillis', 'queryExecutionStatistics_engineExecutionTimeInMillis' - The number of milliseconds that the query took to execute.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'queryPlanningTimeInMillis', 'queryExecutionStatistics_queryPlanningTimeInMillis' - The number of milliseconds that Athena took to plan the query processing</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- flow. This includes the time spent retrieving table partitions from the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- data source. Note that because the query engine performs the query</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- planning, query planning time is a subset of engine processing time.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'dataScannedInBytes', 'queryExecutionStatistics_dataScannedInBytes' - The number of bytes in the data that was queried.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'queryQueueTimeInMillis', 'queryExecutionStatistics_queryQueueTimeInMillis' - The number of milliseconds that the query was in your query queue</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- waiting for resources. Note that if transient errors occur, Athena might</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- automatically add the query back to the queue.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'dataManifestLocation', 'queryExecutionStatistics_dataManifestLocation' - The location and file name of a data manifest file. The manifest file is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- saved to the Athena query results location in Amazon S3. The manifest</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- file tracks files that the query wrote to Amazon S3. If the query fails,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the manifest file also tracks files that the query intended to write.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The manifest is useful for identifying orphaned files resulting from a</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- failed query. For more information, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /Amazon Athena User Guide/.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'serviceProcessingTimeInMillis', 'queryExecutionStatistics_serviceProcessingTimeInMillis' - The number of milliseconds that Athena took to finalize and publish the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- query results after the query engine finished running the query.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#newQueryExecutionStatistics"><span class="hs-identifier hs-type">newQueryExecutionStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span>
+</span><span id="line-97"></span><span id="newQueryExecutionStatistics"><span class="annot"><span class="annottext">newQueryExecutionStatistics :: QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#newQueryExecutionStatistics"><span class="hs-identifier hs-var hs-var">newQueryExecutionStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">QueryExecutionStatistics' :: Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalExecutionTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AtotalExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">totalExecutionTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineExecutionTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AengineExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">engineExecutionTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryPlanningTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AqueryPlanningTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">queryPlanningTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataScannedInBytes:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AdataScannedInBytes%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">dataScannedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryQueueTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AqueryQueueTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">queryQueueTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataManifestLocation:QueryExecutionStatistics' :: Maybe Text
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AdataManifestLocation%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">dataManifestLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceProcessingTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AserviceProcessingTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">serviceProcessingTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The number of milliseconds that Athena took to run the query.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_totalExecutionTimeInMillis"><span class="hs-identifier hs-type">queryExecutionStatistics_totalExecutionTimeInMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="queryExecutionStatistics_totalExecutionTimeInMillis"><span class="annot"><span class="annottext">queryExecutionStatistics_totalExecutionTimeInMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; QueryExecutionStatistics -&gt; f QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_totalExecutionTimeInMillis"><span class="hs-identifier hs-var hs-var">queryExecutionStatistics_totalExecutionTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecutionStatistics -&gt; Maybe Integer)
+-&gt; (QueryExecutionStatistics
+    -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Lens
+     QueryExecutionStatistics
+     QueryExecutionStatistics
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217510"><span class="annot"><span class="annottext">Maybe Integer
+totalExecutionTimeInMillis :: Maybe Integer
+$sel:totalExecutionTimeInMillis:QueryExecutionStatistics' :: QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="#local-6989586621679217510"><span class="hs-identifier hs-var hs-var">totalExecutionTimeInMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217510"><span class="hs-identifier hs-var">totalExecutionTimeInMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217509"><span class="annot"><span class="annottext">s :: QueryExecutionStatistics
+</span><a href="#local-6989586621679217509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217508"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecutionStatistics
+</span><a href="#local-6989586621679217509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalExecutionTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AtotalExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">totalExecutionTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The number of milliseconds that the query took to execute.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_engineExecutionTimeInMillis"><span class="hs-identifier hs-type">queryExecutionStatistics_engineExecutionTimeInMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="queryExecutionStatistics_engineExecutionTimeInMillis"><span class="annot"><span class="annottext">queryExecutionStatistics_engineExecutionTimeInMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; QueryExecutionStatistics -&gt; f QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_engineExecutionTimeInMillis"><span class="hs-identifier hs-var hs-var">queryExecutionStatistics_engineExecutionTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecutionStatistics -&gt; Maybe Integer)
+-&gt; (QueryExecutionStatistics
+    -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Lens
+     QueryExecutionStatistics
+     QueryExecutionStatistics
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217506"><span class="annot"><span class="annottext">Maybe Integer
+engineExecutionTimeInMillis :: Maybe Integer
+$sel:engineExecutionTimeInMillis:QueryExecutionStatistics' :: QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="#local-6989586621679217506"><span class="hs-identifier hs-var hs-var">engineExecutionTimeInMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217506"><span class="hs-identifier hs-var">engineExecutionTimeInMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217505"><span class="annot"><span class="annottext">s :: QueryExecutionStatistics
+</span><a href="#local-6989586621679217505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217504"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecutionStatistics
+</span><a href="#local-6989586621679217505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineExecutionTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AengineExecutionTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">engineExecutionTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The number of milliseconds that Athena took to plan the query processing</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- flow. This includes the time spent retrieving table partitions from the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- data source. Note that because the query engine performs the query</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- planning, query planning time is a subset of engine processing time.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_queryPlanningTimeInMillis"><span class="hs-identifier hs-type">queryExecutionStatistics_queryPlanningTimeInMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="queryExecutionStatistics_queryPlanningTimeInMillis"><span class="annot"><span class="annottext">queryExecutionStatistics_queryPlanningTimeInMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; QueryExecutionStatistics -&gt; f QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_queryPlanningTimeInMillis"><span class="hs-identifier hs-var hs-var">queryExecutionStatistics_queryPlanningTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecutionStatistics -&gt; Maybe Integer)
+-&gt; (QueryExecutionStatistics
+    -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Lens
+     QueryExecutionStatistics
+     QueryExecutionStatistics
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217502"><span class="annot"><span class="annottext">Maybe Integer
+queryPlanningTimeInMillis :: Maybe Integer
+$sel:queryPlanningTimeInMillis:QueryExecutionStatistics' :: QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="#local-6989586621679217502"><span class="hs-identifier hs-var hs-var">queryPlanningTimeInMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217502"><span class="hs-identifier hs-var">queryPlanningTimeInMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217501"><span class="annot"><span class="annottext">s :: QueryExecutionStatistics
+</span><a href="#local-6989586621679217501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217500"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecutionStatistics
+</span><a href="#local-6989586621679217501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryPlanningTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AqueryPlanningTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">queryPlanningTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The number of bytes in the data that was queried.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_dataScannedInBytes"><span class="hs-identifier hs-type">queryExecutionStatistics_dataScannedInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="queryExecutionStatistics_dataScannedInBytes"><span class="annot"><span class="annottext">queryExecutionStatistics_dataScannedInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; QueryExecutionStatistics -&gt; f QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_dataScannedInBytes"><span class="hs-identifier hs-var hs-var">queryExecutionStatistics_dataScannedInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecutionStatistics -&gt; Maybe Integer)
+-&gt; (QueryExecutionStatistics
+    -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Lens
+     QueryExecutionStatistics
+     QueryExecutionStatistics
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217498"><span class="annot"><span class="annottext">Maybe Integer
+dataScannedInBytes :: Maybe Integer
+$sel:dataScannedInBytes:QueryExecutionStatistics' :: QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="#local-6989586621679217498"><span class="hs-identifier hs-var hs-var">dataScannedInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217498"><span class="hs-identifier hs-var">dataScannedInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217497"><span class="annot"><span class="annottext">s :: QueryExecutionStatistics
+</span><a href="#local-6989586621679217497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217496"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecutionStatistics
+</span><a href="#local-6989586621679217497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataScannedInBytes:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AdataScannedInBytes%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">dataScannedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The number of milliseconds that the query was in your query queue</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- waiting for resources. Note that if transient errors occur, Athena might</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- automatically add the query back to the queue.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_queryQueueTimeInMillis"><span class="hs-identifier hs-type">queryExecutionStatistics_queryQueueTimeInMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="queryExecutionStatistics_queryQueueTimeInMillis"><span class="annot"><span class="annottext">queryExecutionStatistics_queryQueueTimeInMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; QueryExecutionStatistics -&gt; f QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_queryQueueTimeInMillis"><span class="hs-identifier hs-var hs-var">queryExecutionStatistics_queryQueueTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecutionStatistics -&gt; Maybe Integer)
+-&gt; (QueryExecutionStatistics
+    -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Lens
+     QueryExecutionStatistics
+     QueryExecutionStatistics
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217494"><span class="annot"><span class="annottext">Maybe Integer
+queryQueueTimeInMillis :: Maybe Integer
+$sel:queryQueueTimeInMillis:QueryExecutionStatistics' :: QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="#local-6989586621679217494"><span class="hs-identifier hs-var hs-var">queryQueueTimeInMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217494"><span class="hs-identifier hs-var">queryQueueTimeInMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217493"><span class="annot"><span class="annottext">s :: QueryExecutionStatistics
+</span><a href="#local-6989586621679217493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217492"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecutionStatistics
+</span><a href="#local-6989586621679217493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryQueueTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AqueryQueueTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">queryQueueTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The location and file name of a data manifest file. The manifest file is</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- saved to the Athena query results location in Amazon S3. The manifest</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- file tracks files that the query wrote to Amazon S3. If the query fails,</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- the manifest file also tracks files that the query intended to write.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- The manifest is useful for identifying orphaned files resulting from a</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- failed query. For more information, see</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History&gt;</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- in the /Amazon Athena User Guide/.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_dataManifestLocation"><span class="hs-identifier hs-type">queryExecutionStatistics_dataManifestLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="queryExecutionStatistics_dataManifestLocation"><span class="annot"><span class="annottext">queryExecutionStatistics_dataManifestLocation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; QueryExecutionStatistics -&gt; f QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_dataManifestLocation"><span class="hs-identifier hs-var hs-var">queryExecutionStatistics_dataManifestLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecutionStatistics -&gt; Maybe Text)
+-&gt; (QueryExecutionStatistics
+    -&gt; Maybe Text -&gt; QueryExecutionStatistics)
+-&gt; Lens
+     QueryExecutionStatistics
+     QueryExecutionStatistics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217490"><span class="annot"><span class="annottext">Maybe Text
+dataManifestLocation :: Maybe Text
+$sel:dataManifestLocation:QueryExecutionStatistics' :: QueryExecutionStatistics -&gt; Maybe Text
+</span><a href="#local-6989586621679217490"><span class="hs-identifier hs-var hs-var">dataManifestLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217490"><span class="hs-identifier hs-var">dataManifestLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217489"><span class="annot"><span class="annottext">s :: QueryExecutionStatistics
+</span><a href="#local-6989586621679217489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecutionStatistics
+</span><a href="#local-6989586621679217489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataManifestLocation:QueryExecutionStatistics' :: Maybe Text
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AdataManifestLocation%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">dataManifestLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The number of milliseconds that Athena took to finalize and publish the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- query results after the query engine finished running the query.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_serviceProcessingTimeInMillis"><span class="hs-identifier hs-type">queryExecutionStatistics_serviceProcessingTimeInMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="queryExecutionStatistics_serviceProcessingTimeInMillis"><span class="annot"><span class="annottext">queryExecutionStatistics_serviceProcessingTimeInMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; QueryExecutionStatistics -&gt; f QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#queryExecutionStatistics_serviceProcessingTimeInMillis"><span class="hs-identifier hs-var hs-var">queryExecutionStatistics_serviceProcessingTimeInMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecutionStatistics -&gt; Maybe Integer)
+-&gt; (QueryExecutionStatistics
+    -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Lens
+     QueryExecutionStatistics
+     QueryExecutionStatistics
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217486"><span class="annot"><span class="annottext">Maybe Integer
+serviceProcessingTimeInMillis :: Maybe Integer
+$sel:serviceProcessingTimeInMillis:QueryExecutionStatistics' :: QueryExecutionStatistics -&gt; Maybe Integer
+</span><a href="#local-6989586621679217486"><span class="hs-identifier hs-var hs-var">serviceProcessingTimeInMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217486"><span class="hs-identifier hs-var">serviceProcessingTimeInMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217485"><span class="annot"><span class="annottext">s :: QueryExecutionStatistics
+</span><a href="#local-6989586621679217485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-type">QueryExecutionStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217484"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecutionStatistics
+</span><a href="#local-6989586621679217485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceProcessingTimeInMillis:QueryExecutionStatistics' :: Maybe Integer
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#%24sel%3AserviceProcessingTimeInMillis%3AQueryExecutionStatistics%27"><span class="hs-identifier hs-var">serviceProcessingTimeInMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679217484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217481"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679217479"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueryExecutionStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser QueryExecutionStatistics)
+-&gt; Value
+-&gt; Parser QueryExecutionStatistics
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;QueryExecutionStatistics&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217476"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; QueryExecutionStatistics
+</span><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics%27"><span class="hs-identifier hs-var">QueryExecutionStatistics'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; QueryExecutionStatistics)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; QueryExecutionStatistics)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalExecutionTimeInMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; QueryExecutionStatistics)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; QueryExecutionStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineExecutionTimeInMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; QueryExecutionStatistics)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; QueryExecutionStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryPlanningTimeInMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; QueryExecutionStatistics)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataScannedInBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Text -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryQueueTimeInMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Integer -&gt; QueryExecutionStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataManifestLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; QueryExecutionStatistics)
+-&gt; Parser (Maybe Integer) -&gt; Parser QueryExecutionStatistics
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceProcessingTimeInMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217470"><span id="local-6989586621679217472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.GetSegment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about the configuration, dimension, and other</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- settings for a specific segment that\'s associated with an application.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.GetSegment</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier">GetSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#newGetSegment"><span class="hs-identifier">newGetSegment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegment_segmentId"><span class="hs-identifier">getSegment_segmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegment_applicationId"><span class="hs-identifier">getSegment_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier">GetSegmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#newGetSegmentResponse"><span class="hs-identifier">newGetSegmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegmentResponse_httpStatus"><span class="hs-identifier">getSegmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegmentResponse_segmentResponse"><span class="hs-identifier">getSegmentResponse_segmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetSegment' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679627642"><span id="local-6989586621679627643"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSegment"><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-var">GetSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSegment%27"><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment%27"><span class="hs-identifier hs-var">GetSegment'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the segment.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsegmentId%3AGetSegment%27"><span class="annot"><span class="annottext">GetSegment -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AsegmentId%3AGetSegment%27"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetSegment%27"><span class="annot"><span class="annottext">GetSegment -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AapplicationId%3AGetSegment%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679627635"><span id="local-6989586621679627637"><span class="annot"><span class="annottext">GetSegment -&gt; GetSegment -&gt; Bool
+(GetSegment -&gt; GetSegment -&gt; Bool)
+-&gt; (GetSegment -&gt; GetSegment -&gt; Bool) -&gt; Eq GetSegment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSegment -&gt; GetSegment -&gt; Bool
+$c/= :: GetSegment -&gt; GetSegment -&gt; Bool
+== :: GetSegment -&gt; GetSegment -&gt; Bool
+$c== :: GetSegment -&gt; GetSegment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679627626"><span id="local-6989586621679627628"><span id="local-6989586621679627630"><span id="local-6989586621679627632"><span class="annot"><span class="annottext">ReadPrec [GetSegment]
+ReadPrec GetSegment
+Int -&gt; ReadS GetSegment
+ReadS [GetSegment]
+(Int -&gt; ReadS GetSegment)
+-&gt; ReadS [GetSegment]
+-&gt; ReadPrec GetSegment
+-&gt; ReadPrec [GetSegment]
+-&gt; Read GetSegment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSegment]
+$creadListPrec :: ReadPrec [GetSegment]
+readPrec :: ReadPrec GetSegment
+$creadPrec :: ReadPrec GetSegment
+readList :: ReadS [GetSegment]
+$creadList :: ReadS [GetSegment]
+readsPrec :: Int -&gt; ReadS GetSegment
+$creadsPrec :: Int -&gt; ReadS GetSegment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679627619"><span id="local-6989586621679627621"><span id="local-6989586621679627623"><span class="annot"><span class="annottext">Int -&gt; GetSegment -&gt; ShowS
+[GetSegment] -&gt; ShowS
+GetSegment -&gt; String
+(Int -&gt; GetSegment -&gt; ShowS)
+-&gt; (GetSegment -&gt; String)
+-&gt; ([GetSegment] -&gt; ShowS)
+-&gt; Show GetSegment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSegment] -&gt; ShowS
+$cshowList :: [GetSegment] -&gt; ShowS
+show :: GetSegment -&gt; String
+$cshow :: GetSegment -&gt; String
+showsPrec :: Int -&gt; GetSegment -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSegment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetSegment -&gt; Rep GetSegment x)
+-&gt; (forall x. Rep GetSegment x -&gt; GetSegment) -&gt; Generic GetSegment
+forall x. Rep GetSegment x -&gt; GetSegment
+forall x. GetSegment -&gt; Rep GetSegment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSegment x -&gt; GetSegment
+$cfrom :: forall x. GetSegment -&gt; Rep GetSegment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'GetSegment' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'segmentId', 'getSegment_segmentId' - The unique identifier for the segment.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'applicationId', 'getSegment_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#newGetSegment"><span class="hs-identifier hs-type">newGetSegment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'segmentId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span>
+</span><span id="line-79"></span><span id="newGetSegment"><span class="annot"><span class="annottext">newGetSegment :: Text -&gt; Text -&gt; GetSegment
+</span><a href="Amazonka.Pinpoint.GetSegment.html#newGetSegment"><span class="hs-identifier hs-var hs-var">newGetSegment</span></a></span></span><span> </span><span id="local-6989586621679627614"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627614"><span class="hs-identifier hs-var">pSegmentId_</span></a></span></span><span> </span><span id="local-6989586621679627613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627613"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetSegment' :: Text -&gt; Text -&gt; GetSegment
+</span><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment%27"><span class="hs-identifier hs-type">GetSegment'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:segmentId:GetSegment' :: Text
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AsegmentId%3AGetSegment%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627614"><span class="hs-identifier hs-var">pSegmentId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:GetSegment' :: Text
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AapplicationId%3AGetSegment%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627613"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier for the segment.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegment_segmentId"><span class="hs-identifier hs-type">getSegment_segmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="getSegment_segmentId"><span class="annot"><span class="annottext">getSegment_segmentId :: (Text -&gt; f Text) -&gt; GetSegment -&gt; f GetSegment
+</span><a href="Amazonka.Pinpoint.GetSegment.html#getSegment_segmentId"><span class="hs-identifier hs-var hs-var">getSegment_segmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegment -&gt; Text)
+-&gt; (GetSegment -&gt; Text -&gt; GetSegment)
+-&gt; Lens GetSegment GetSegment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment%27"><span class="hs-identifier hs-type">GetSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679627610"><span class="annot"><span class="annottext">Text
+segmentId :: Text
+$sel:segmentId:GetSegment' :: GetSegment -&gt; Text
+</span><a href="#local-6989586621679627610"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627610"><span class="hs-identifier hs-var">segmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679627609"><span class="annot"><span class="annottext">s :: GetSegment
+</span><a href="#local-6989586621679627609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment%27"><span class="hs-identifier hs-type">GetSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679627608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegment
+</span><a href="#local-6989586621679627609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentId:GetSegment' :: Text
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AsegmentId%3AGetSegment%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegment_applicationId"><span class="hs-identifier hs-type">getSegment_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="getSegment_applicationId"><span class="annot"><span class="annottext">getSegment_applicationId :: (Text -&gt; f Text) -&gt; GetSegment -&gt; f GetSegment
+</span><a href="Amazonka.Pinpoint.GetSegment.html#getSegment_applicationId"><span class="hs-identifier hs-var hs-var">getSegment_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegment -&gt; Text)
+-&gt; (GetSegment -&gt; Text -&gt; GetSegment)
+-&gt; Lens GetSegment GetSegment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment%27"><span class="hs-identifier hs-type">GetSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679627607"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetSegment' :: GetSegment -&gt; Text
+</span><a href="#local-6989586621679627607"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627607"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679627606"><span class="annot"><span class="annottext">s :: GetSegment
+</span><a href="#local-6989586621679627606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment%27"><span class="hs-identifier hs-type">GetSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679627605"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegment
+</span><a href="#local-6989586621679627606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetSegment' :: Text
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AapplicationId%3AGetSegment%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-type">GetSegmentResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679627601"><span class="annot"><span class="annottext">request :: GetSegment -&gt; Request GetSegment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSegment -&gt; Request GetSegment
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679627597"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSegment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetSegment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetSegment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSegment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetSegment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679627594"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679627594"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679627593"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679627593"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679627592"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679627592"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SegmentResponse -&gt; GetSegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse%27"><span class="hs-identifier hs-var">GetSegmentResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SegmentResponse -&gt; GetSegmentResponse)
+-&gt; Either String Int
+-&gt; Either String (SegmentResponse -&gt; GetSegmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679627594"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (SegmentResponse -&gt; GetSegmentResponse)
+-&gt; Either String SegmentResponse
+-&gt; Either String GetSegmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String SegmentResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679627592"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679627584"><span id="local-6989586621679627586"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679627581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679627577"><span class="annot"><span class="annottext">toHeaders :: GetSegment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSegment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679627571"><span class="annot"><span class="annottext">toPath :: GetSegment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment%27"><span class="hs-identifier hs-type">GetSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679627568"><span id="local-6989586621679627569"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+segmentId :: Text
+$sel:applicationId:GetSegment' :: GetSegment -&gt; Text
+$sel:segmentId:GetSegment' :: GetSegment -&gt; Text
+</span><a href="#local-6989586621679627568"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627568"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/segments/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679627569"><span class="hs-identifier hs-var">segmentId</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegment"><span class="hs-identifier hs-type">GetSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679627564"><span class="annot"><span class="annottext">toQuery :: GetSegment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetSegment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetSegmentResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679627561"><span id="local-6989586621679627562"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSegmentResponse"><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-var">GetSegmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSegmentResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse%27"><span class="hs-identifier hs-var">GetSegmentResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSegmentResponse%27"><span class="annot"><span class="annottext">GetSegmentResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AhttpStatus%3AGetSegmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AsegmentResponse%3AGetSegmentResponse%27"><span class="annot"><span class="annottext">GetSegmentResponse -&gt; SegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AsegmentResponse%3AGetSegmentResponse%27"><span class="hs-identifier hs-var hs-var">segmentResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SegmentResponse.html#SegmentResponse"><span class="hs-identifier hs-type">SegmentResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679627555"><span id="local-6989586621679627557"><span class="annot"><span class="annottext">GetSegmentResponse -&gt; GetSegmentResponse -&gt; Bool
+(GetSegmentResponse -&gt; GetSegmentResponse -&gt; Bool)
+-&gt; (GetSegmentResponse -&gt; GetSegmentResponse -&gt; Bool)
+-&gt; Eq GetSegmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSegmentResponse -&gt; GetSegmentResponse -&gt; Bool
+$c/= :: GetSegmentResponse -&gt; GetSegmentResponse -&gt; Bool
+== :: GetSegmentResponse -&gt; GetSegmentResponse -&gt; Bool
+$c== :: GetSegmentResponse -&gt; GetSegmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679627547"><span id="local-6989586621679627549"><span id="local-6989586621679627551"><span id="local-6989586621679627553"><span class="annot"><span class="annottext">ReadPrec [GetSegmentResponse]
+ReadPrec GetSegmentResponse
+Int -&gt; ReadS GetSegmentResponse
+ReadS [GetSegmentResponse]
+(Int -&gt; ReadS GetSegmentResponse)
+-&gt; ReadS [GetSegmentResponse]
+-&gt; ReadPrec GetSegmentResponse
+-&gt; ReadPrec [GetSegmentResponse]
+-&gt; Read GetSegmentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSegmentResponse]
+$creadListPrec :: ReadPrec [GetSegmentResponse]
+readPrec :: ReadPrec GetSegmentResponse
+$creadPrec :: ReadPrec GetSegmentResponse
+readList :: ReadS [GetSegmentResponse]
+$creadList :: ReadS [GetSegmentResponse]
+readsPrec :: Int -&gt; ReadS GetSegmentResponse
+$creadsPrec :: Int -&gt; ReadS GetSegmentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679627541"><span id="local-6989586621679627543"><span id="local-6989586621679627545"><span class="annot"><span class="annottext">Int -&gt; GetSegmentResponse -&gt; ShowS
+[GetSegmentResponse] -&gt; ShowS
+GetSegmentResponse -&gt; String
+(Int -&gt; GetSegmentResponse -&gt; ShowS)
+-&gt; (GetSegmentResponse -&gt; String)
+-&gt; ([GetSegmentResponse] -&gt; ShowS)
+-&gt; Show GetSegmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSegmentResponse] -&gt; ShowS
+$cshowList :: [GetSegmentResponse] -&gt; ShowS
+show :: GetSegmentResponse -&gt; String
+$cshow :: GetSegmentResponse -&gt; String
+showsPrec :: Int -&gt; GetSegmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSegmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetSegmentResponse -&gt; Rep GetSegmentResponse x)
+-&gt; (forall x. Rep GetSegmentResponse x -&gt; GetSegmentResponse)
+-&gt; Generic GetSegmentResponse
+forall x. Rep GetSegmentResponse x -&gt; GetSegmentResponse
+forall x. GetSegmentResponse -&gt; Rep GetSegmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSegmentResponse x -&gt; GetSegmentResponse
+$cfrom :: forall x. GetSegmentResponse -&gt; Rep GetSegmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'GetSegmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'getSegmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'segmentResponse', 'getSegmentResponse_segmentResponse' - Undocumented member.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#newGetSegmentResponse"><span class="hs-identifier hs-type">newGetSegmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'segmentResponse'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SegmentResponse.html#SegmentResponse"><span class="hs-identifier hs-type">SegmentResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-type">GetSegmentResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetSegmentResponse"><span class="annot"><span class="annottext">newGetSegmentResponse :: Int -&gt; SegmentResponse -&gt; GetSegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#newGetSegmentResponse"><span class="hs-identifier hs-var hs-var">newGetSegmentResponse</span></a></span></span><span> </span><span id="local-6989586621679627538"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679627538"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679627537"><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679627537"><span class="hs-identifier hs-var">pSegmentResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetSegmentResponse' :: Int -&gt; SegmentResponse -&gt; GetSegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse%27"><span class="hs-identifier hs-type">GetSegmentResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSegmentResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AhttpStatus%3AGetSegmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679627538"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentResponse:GetSegmentResponse' :: SegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AsegmentResponse%3AGetSegmentResponse%27"><span class="hs-identifier hs-var">segmentResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679627537"><span class="hs-identifier hs-var">pSegmentResponse_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegmentResponse_httpStatus"><span class="hs-identifier hs-type">getSegmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-type">GetSegmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="getSegmentResponse_httpStatus"><span class="annot"><span class="annottext">getSegmentResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetSegmentResponse -&gt; f GetSegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#getSegmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSegmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentResponse -&gt; Int)
+-&gt; (GetSegmentResponse -&gt; Int -&gt; GetSegmentResponse)
+-&gt; Lens GetSegmentResponse GetSegmentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse%27"><span class="hs-identifier hs-type">GetSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679627536"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSegmentResponse' :: GetSegmentResponse -&gt; Int
+</span><a href="#local-6989586621679627536"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679627536"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679627535"><span class="annot"><span class="annottext">s :: GetSegmentResponse
+</span><a href="#local-6989586621679627535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse%27"><span class="hs-identifier hs-type">GetSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679627534"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679627534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentResponse
+</span><a href="#local-6989586621679627535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSegmentResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AhttpStatus%3AGetSegmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679627534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-type">GetSegmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#getSegmentResponse_segmentResponse"><span class="hs-identifier hs-type">getSegmentResponse_segmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-type">GetSegmentResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SegmentResponse.html#SegmentResponse"><span class="hs-identifier hs-type">SegmentResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="getSegmentResponse_segmentResponse"><span class="annot"><span class="annottext">getSegmentResponse_segmentResponse :: (SegmentResponse -&gt; f SegmentResponse)
+-&gt; GetSegmentResponse -&gt; f GetSegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#getSegmentResponse_segmentResponse"><span class="hs-identifier hs-var hs-var">getSegmentResponse_segmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentResponse -&gt; SegmentResponse)
+-&gt; (GetSegmentResponse -&gt; SegmentResponse -&gt; GetSegmentResponse)
+-&gt; Lens
+     GetSegmentResponse
+     GetSegmentResponse
+     SegmentResponse
+     SegmentResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse%27"><span class="hs-identifier hs-type">GetSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679627533"><span class="annot"><span class="annottext">SegmentResponse
+segmentResponse :: SegmentResponse
+$sel:segmentResponse:GetSegmentResponse' :: GetSegmentResponse -&gt; SegmentResponse
+</span><a href="#local-6989586621679627533"><span class="hs-identifier hs-var hs-var">segmentResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679627533"><span class="hs-identifier hs-var">segmentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679627532"><span class="annot"><span class="annottext">s :: GetSegmentResponse
+</span><a href="#local-6989586621679627532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse%27"><span class="hs-identifier hs-type">GetSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679627531"><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679627531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentResponse
+</span><a href="#local-6989586621679627532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentResponse:GetSegmentResponse' :: SegmentResponse
+</span><a href="Amazonka.Pinpoint.GetSegment.html#%24sel%3AsegmentResponse%3AGetSegmentResponse%27"><span class="hs-identifier hs-var">segmentResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679627531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-type">GetSegmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679627529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetSegment.html#GetSegmentResponse"><span class="hs-identifier hs-type">GetSegmentResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

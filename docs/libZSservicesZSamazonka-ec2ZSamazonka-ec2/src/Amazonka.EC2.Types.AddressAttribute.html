@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.AddressAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.AddressAttribute</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PtrUpdateStatus.html"><span class="hs-identifier">Amazonka.EC2.Types.PtrUpdateStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The attributes associated with an Elastic IP address.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAddressAttribute' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681141222"><span id="local-6989586621681141223"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddressAttribute"><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-var">AddressAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressAttribute%27"><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-var">AddressAttribute'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated PTR record for the IP address.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AptrRecordUpdate%3AAddressAttribute%27"><span class="annot"><span class="annottext">AddressAttribute -&gt; Maybe PtrUpdateStatus
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AptrRecordUpdate%3AAddressAttribute%27"><span class="hs-identifier hs-var hs-var">ptrRecordUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PtrUpdateStatus.html#PtrUpdateStatus"><span class="hs-identifier hs-type">PtrUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | [EC2-VPC] The allocation ID.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AallocationId%3AAddressAttribute%27"><span class="annot"><span class="annottext">AddressAttribute -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AallocationId%3AAddressAttribute%27"><span class="hs-identifier hs-var hs-var">allocationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The public IP address.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApublicIp%3AAddressAttribute%27"><span class="annot"><span class="annottext">AddressAttribute -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3ApublicIp%3AAddressAttribute%27"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The pointer (PTR) record for the IP address.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AptrRecord%3AAddressAttribute%27"><span class="annot"><span class="annottext">AddressAttribute -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AptrRecord%3AAddressAttribute%27"><span class="hs-identifier hs-var hs-var">ptrRecord</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681141213"><span id="local-6989586621681141215"><span class="annot"><span class="annottext">AddressAttribute -&gt; AddressAttribute -&gt; Bool
+(AddressAttribute -&gt; AddressAttribute -&gt; Bool)
+-&gt; (AddressAttribute -&gt; AddressAttribute -&gt; Bool)
+-&gt; Eq AddressAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddressAttribute -&gt; AddressAttribute -&gt; Bool
+$c/= :: AddressAttribute -&gt; AddressAttribute -&gt; Bool
+== :: AddressAttribute -&gt; AddressAttribute -&gt; Bool
+$c== :: AddressAttribute -&gt; AddressAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141204"><span id="local-6989586621681141206"><span id="local-6989586621681141208"><span id="local-6989586621681141210"><span class="annot"><span class="annottext">ReadPrec [AddressAttribute]
+ReadPrec AddressAttribute
+Int -&gt; ReadS AddressAttribute
+ReadS [AddressAttribute]
+(Int -&gt; ReadS AddressAttribute)
+-&gt; ReadS [AddressAttribute]
+-&gt; ReadPrec AddressAttribute
+-&gt; ReadPrec [AddressAttribute]
+-&gt; Read AddressAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddressAttribute]
+$creadListPrec :: ReadPrec [AddressAttribute]
+readPrec :: ReadPrec AddressAttribute
+$creadPrec :: ReadPrec AddressAttribute
+readList :: ReadS [AddressAttribute]
+$creadList :: ReadS [AddressAttribute]
+readsPrec :: Int -&gt; ReadS AddressAttribute
+$creadsPrec :: Int -&gt; ReadS AddressAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141197"><span id="local-6989586621681141199"><span id="local-6989586621681141201"><span class="annot"><span class="annottext">Int -&gt; AddressAttribute -&gt; ShowS
+[AddressAttribute] -&gt; ShowS
+AddressAttribute -&gt; String
+(Int -&gt; AddressAttribute -&gt; ShowS)
+-&gt; (AddressAttribute -&gt; String)
+-&gt; ([AddressAttribute] -&gt; ShowS)
+-&gt; Show AddressAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddressAttribute] -&gt; ShowS
+$cshowList :: [AddressAttribute] -&gt; ShowS
+show :: AddressAttribute -&gt; String
+$cshow :: AddressAttribute -&gt; String
+showsPrec :: Int -&gt; AddressAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddressAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddressAttribute -&gt; Rep AddressAttribute x)
+-&gt; (forall x. Rep AddressAttribute x -&gt; AddressAttribute)
+-&gt; Generic AddressAttribute
+forall x. Rep AddressAttribute x -&gt; AddressAttribute
+forall x. AddressAttribute -&gt; Rep AddressAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddressAttribute x -&gt; AddressAttribute
+$cfrom :: forall x. AddressAttribute -&gt; Rep AddressAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'AddressAttribute' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'ptrRecordUpdate', 'addressAttribute_ptrRecordUpdate' - The updated PTR record for the IP address.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'allocationId', 'addressAttribute_allocationId' - [EC2-VPC] The allocation ID.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'publicIp', 'addressAttribute_publicIp' - The public IP address.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'ptrRecord', 'addressAttribute_ptrRecord' - The pointer (PTR) record for the IP address.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#newAddressAttribute"><span class="hs-identifier hs-type">newAddressAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span>
+</span><span id="line-60"></span><span id="newAddressAttribute"><span class="annot"><span class="annottext">newAddressAttribute :: AddressAttribute
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#newAddressAttribute"><span class="hs-identifier hs-var hs-var">newAddressAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">AddressAttribute' :: Maybe PtrUpdateStatus
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddressAttribute
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ptrRecordUpdate:AddressAttribute' :: Maybe PtrUpdateStatus
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AptrRecordUpdate%3AAddressAttribute%27"><span class="hs-identifier hs-var">ptrRecordUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe PtrUpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:allocationId:AddressAttribute' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AallocationId%3AAddressAttribute%27"><span class="hs-identifier hs-var">allocationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicIp:AddressAttribute' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3ApublicIp%3AAddressAttribute%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:ptrRecord:AddressAttribute' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AptrRecord%3AAddressAttribute%27"><span class="hs-identifier hs-var">ptrRecord</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The updated PTR record for the IP address.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_ptrRecordUpdate"><span class="hs-identifier hs-type">addressAttribute_ptrRecordUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PtrUpdateStatus.html#PtrUpdateStatus"><span class="hs-identifier hs-type">PtrUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="addressAttribute_ptrRecordUpdate"><span class="annot"><span class="annottext">addressAttribute_ptrRecordUpdate :: (Maybe PtrUpdateStatus -&gt; f (Maybe PtrUpdateStatus))
+-&gt; AddressAttribute -&gt; f AddressAttribute
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_ptrRecordUpdate"><span class="hs-identifier hs-var hs-var">addressAttribute_ptrRecordUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddressAttribute -&gt; Maybe PtrUpdateStatus)
+-&gt; (AddressAttribute -&gt; Maybe PtrUpdateStatus -&gt; AddressAttribute)
+-&gt; Lens
+     AddressAttribute
+     AddressAttribute
+     (Maybe PtrUpdateStatus)
+     (Maybe PtrUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141188"><span class="annot"><span class="annottext">Maybe PtrUpdateStatus
+ptrRecordUpdate :: Maybe PtrUpdateStatus
+$sel:ptrRecordUpdate:AddressAttribute' :: AddressAttribute -&gt; Maybe PtrUpdateStatus
+</span><a href="#local-6989586621681141188"><span class="hs-identifier hs-var hs-var">ptrRecordUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PtrUpdateStatus
+</span><a href="#local-6989586621681141188"><span class="hs-identifier hs-var">ptrRecordUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141187"><span class="annot"><span class="annottext">s :: AddressAttribute
+</span><a href="#local-6989586621681141187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141186"><span class="annot"><span class="annottext">Maybe PtrUpdateStatus
+</span><a href="#local-6989586621681141186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddressAttribute
+</span><a href="#local-6989586621681141187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ptrRecordUpdate:AddressAttribute' :: Maybe PtrUpdateStatus
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AptrRecordUpdate%3AAddressAttribute%27"><span class="hs-identifier hs-var">ptrRecordUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PtrUpdateStatus
+</span><a href="#local-6989586621681141186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | [EC2-VPC] The allocation ID.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_allocationId"><span class="hs-identifier hs-type">addressAttribute_allocationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="addressAttribute_allocationId"><span class="annot"><span class="annottext">addressAttribute_allocationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddressAttribute -&gt; f AddressAttribute
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_allocationId"><span class="hs-identifier hs-var hs-var">addressAttribute_allocationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddressAttribute -&gt; Maybe Text)
+-&gt; (AddressAttribute -&gt; Maybe Text -&gt; AddressAttribute)
+-&gt; Lens AddressAttribute AddressAttribute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141184"><span class="annot"><span class="annottext">Maybe Text
+allocationId :: Maybe Text
+$sel:allocationId:AddressAttribute' :: AddressAttribute -&gt; Maybe Text
+</span><a href="#local-6989586621681141184"><span class="hs-identifier hs-var hs-var">allocationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141184"><span class="hs-identifier hs-var">allocationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141183"><span class="annot"><span class="annottext">s :: AddressAttribute
+</span><a href="#local-6989586621681141183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddressAttribute
+</span><a href="#local-6989586621681141183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationId:AddressAttribute' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AallocationId%3AAddressAttribute%27"><span class="hs-identifier hs-var">allocationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The public IP address.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_publicIp"><span class="hs-identifier hs-type">addressAttribute_publicIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="addressAttribute_publicIp"><span class="annot"><span class="annottext">addressAttribute_publicIp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddressAttribute -&gt; f AddressAttribute
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_publicIp"><span class="hs-identifier hs-var hs-var">addressAttribute_publicIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddressAttribute -&gt; Maybe Text)
+-&gt; (AddressAttribute -&gt; Maybe Text -&gt; AddressAttribute)
+-&gt; Lens AddressAttribute AddressAttribute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141180"><span class="annot"><span class="annottext">Maybe Text
+publicIp :: Maybe Text
+$sel:publicIp:AddressAttribute' :: AddressAttribute -&gt; Maybe Text
+</span><a href="#local-6989586621681141180"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141180"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141179"><span class="annot"><span class="annottext">s :: AddressAttribute
+</span><a href="#local-6989586621681141179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddressAttribute
+</span><a href="#local-6989586621681141179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIp:AddressAttribute' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3ApublicIp%3AAddressAttribute%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The pointer (PTR) record for the IP address.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_ptrRecord"><span class="hs-identifier hs-type">addressAttribute_ptrRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="addressAttribute_ptrRecord"><span class="annot"><span class="annottext">addressAttribute_ptrRecord :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddressAttribute -&gt; f AddressAttribute
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#addressAttribute_ptrRecord"><span class="hs-identifier hs-var hs-var">addressAttribute_ptrRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddressAttribute -&gt; Maybe Text)
+-&gt; (AddressAttribute -&gt; Maybe Text -&gt; AddressAttribute)
+-&gt; Lens AddressAttribute AddressAttribute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141176"><span class="annot"><span class="annottext">Maybe Text
+ptrRecord :: Maybe Text
+$sel:ptrRecord:AddressAttribute' :: AddressAttribute -&gt; Maybe Text
+</span><a href="#local-6989586621681141176"><span class="hs-identifier hs-var hs-var">ptrRecord</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141176"><span class="hs-identifier hs-var">ptrRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141175"><span class="annot"><span class="annottext">s :: AddressAttribute
+</span><a href="#local-6989586621681141175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-type">AddressAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddressAttribute
+</span><a href="#local-6989586621681141175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ptrRecord:AddressAttribute' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#%24sel%3AptrRecord%3AAddressAttribute%27"><span class="hs-identifier hs-var">ptrRecord</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621681141171"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AddressAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681141169"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe PtrUpdateStatus
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddressAttribute
+</span><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute%27"><span class="hs-identifier hs-var">AddressAttribute'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PtrUpdateStatus
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddressAttribute)
+-&gt; Either String (Maybe PtrUpdateStatus)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddressAttribute)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PtrUpdateStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ptrRecordUpdate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddressAttribute)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; AddressAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allocationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; AddressAttribute)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; AddressAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicIp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AddressAttribute)
+-&gt; Either String (Maybe Text) -&gt; Either String AddressAttribute
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ptrRecord&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141163"><span id="local-6989586621681141165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AddressAttribute.html#AddressAttribute"><span class="hs-identifier hs-type">AddressAttribute</span></a></span></span><span>
+</span><span id="line-96"></span></pre></body></html>

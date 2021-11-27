@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Comprehend.Types.DocumentReadFeatureTypes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Comprehend.Types.DocumentReadFeatureTypes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes"><span class="hs-identifier">DocumentReadFeatureTypes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes_FORMS"><span class="hs-identifier">DocumentReadFeatureTypes_FORMS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes_TABLES"><span class="hs-identifier">DocumentReadFeatureTypes_TABLES</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | A list of the types of analyses to perform. This field specifies what</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- feature types need to be extracted from the document where entity</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- recognition is expected.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   @TABLES@ - Add TABLES to the list to return information about the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     tables that are detected in the input document.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   @FORMS@ - Add FORMS to return detected form data.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679340875"><span id="local-6989586621679340876"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReadFeatureTypes"><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes"><span class="hs-identifier hs-var">DocumentReadFeatureTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReadFeatureTypes%27"><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes%27"><span class="hs-identifier hs-var">DocumentReadFeatureTypes'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentReadFeatureTypes"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; Text
+</span><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#fromDocumentReadFeatureTypes"><span class="hs-identifier hs-var hs-var">fromDocumentReadFeatureTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340867"><span id="local-6989586621679340869"><span id="local-6989586621679340871"><span class="annot"><span class="annottext">Int -&gt; DocumentReadFeatureTypes -&gt; ShowS
+[DocumentReadFeatureTypes] -&gt; ShowS
+DocumentReadFeatureTypes -&gt; String
+(Int -&gt; DocumentReadFeatureTypes -&gt; ShowS)
+-&gt; (DocumentReadFeatureTypes -&gt; String)
+-&gt; ([DocumentReadFeatureTypes] -&gt; ShowS)
+-&gt; Show DocumentReadFeatureTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentReadFeatureTypes] -&gt; ShowS
+$cshowList :: [DocumentReadFeatureTypes] -&gt; ShowS
+show :: DocumentReadFeatureTypes -&gt; String
+$cshow :: DocumentReadFeatureTypes -&gt; String
+showsPrec :: Int -&gt; DocumentReadFeatureTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentReadFeatureTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679340858"><span id="local-6989586621679340860"><span id="local-6989586621679340862"><span id="local-6989586621679340864"><span class="annot"><span class="annottext">ReadPrec [DocumentReadFeatureTypes]
+ReadPrec DocumentReadFeatureTypes
+Int -&gt; ReadS DocumentReadFeatureTypes
+ReadS [DocumentReadFeatureTypes]
+(Int -&gt; ReadS DocumentReadFeatureTypes)
+-&gt; ReadS [DocumentReadFeatureTypes]
+-&gt; ReadPrec DocumentReadFeatureTypes
+-&gt; ReadPrec [DocumentReadFeatureTypes]
+-&gt; Read DocumentReadFeatureTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DocumentReadFeatureTypes]
+$creadListPrec :: ReadPrec [DocumentReadFeatureTypes]
+readPrec :: ReadPrec DocumentReadFeatureTypes
+$creadPrec :: ReadPrec DocumentReadFeatureTypes
+readList :: ReadS [DocumentReadFeatureTypes]
+$creadList :: ReadS [DocumentReadFeatureTypes]
+readsPrec :: Int -&gt; ReadS DocumentReadFeatureTypes
+$creadsPrec :: Int -&gt; ReadS DocumentReadFeatureTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679340853"><span id="local-6989586621679340855"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+(DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool)
+-&gt; (DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool)
+-&gt; Eq DocumentReadFeatureTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+$c/= :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+== :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+$c== :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679340837"><span id="local-6989586621679340839"><span id="local-6989586621679340841"><span id="local-6989586621679340843"><span id="local-6989586621679340845"><span id="local-6989586621679340847"><span id="local-6989586621679340849"><span class="annot"><span class="annottext">Eq DocumentReadFeatureTypes
+Eq DocumentReadFeatureTypes
+-&gt; (DocumentReadFeatureTypes
+    -&gt; DocumentReadFeatureTypes -&gt; Ordering)
+-&gt; (DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool)
+-&gt; (DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool)
+-&gt; (DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool)
+-&gt; (DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool)
+-&gt; (DocumentReadFeatureTypes
+    -&gt; DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes)
+-&gt; (DocumentReadFeatureTypes
+    -&gt; DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes)
+-&gt; Ord DocumentReadFeatureTypes
+DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Ordering
+DocumentReadFeatureTypes
+-&gt; DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DocumentReadFeatureTypes
+-&gt; DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes
+$cmin :: DocumentReadFeatureTypes
+-&gt; DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes
+max :: DocumentReadFeatureTypes
+-&gt; DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes
+$cmax :: DocumentReadFeatureTypes
+-&gt; DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes
+&gt;= :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+$c&gt;= :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+&gt; :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+$c&gt; :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+&lt;= :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+$c&lt;= :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+&lt; :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+$c&lt; :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Bool
+compare :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Ordering
+$ccompare :: DocumentReadFeatureTypes -&gt; DocumentReadFeatureTypes -&gt; Ordering
+$cp1Ord :: Eq DocumentReadFeatureTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DocumentReadFeatureTypes -&gt; Rep DocumentReadFeatureTypes x)
+-&gt; (forall x.
+    Rep DocumentReadFeatureTypes x -&gt; DocumentReadFeatureTypes)
+-&gt; Generic DocumentReadFeatureTypes
+forall x.
+Rep DocumentReadFeatureTypes x -&gt; DocumentReadFeatureTypes
+forall x.
+DocumentReadFeatureTypes -&gt; Rep DocumentReadFeatureTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DocumentReadFeatureTypes x -&gt; DocumentReadFeatureTypes
+$cfrom :: forall x.
+DocumentReadFeatureTypes -&gt; Rep DocumentReadFeatureTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340829"><span id="local-6989586621679340831"><span class="annot"><span class="annottext">Int -&gt; DocumentReadFeatureTypes -&gt; Int
+DocumentReadFeatureTypes -&gt; Int
+(Int -&gt; DocumentReadFeatureTypes -&gt; Int)
+-&gt; (DocumentReadFeatureTypes -&gt; Int)
+-&gt; Hashable DocumentReadFeatureTypes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DocumentReadFeatureTypes -&gt; Int
+$chash :: DocumentReadFeatureTypes -&gt; Int
+hashWithSalt :: Int -&gt; DocumentReadFeatureTypes -&gt; Int
+$chashWithSalt :: Int -&gt; DocumentReadFeatureTypes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340826"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; ()
+(DocumentReadFeatureTypes -&gt; ()) -&gt; NFData DocumentReadFeatureTypes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DocumentReadFeatureTypes -&gt; ()
+$crnf :: DocumentReadFeatureTypes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340823"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReadFeatureTypes
+(Text -&gt; Either String DocumentReadFeatureTypes)
+-&gt; FromText DocumentReadFeatureTypes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DocumentReadFeatureTypes
+$cfromText :: Text -&gt; Either String DocumentReadFeatureTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340820"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; Text
+(DocumentReadFeatureTypes -&gt; Text)
+-&gt; ToText DocumentReadFeatureTypes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DocumentReadFeatureTypes -&gt; Text
+$ctoText :: DocumentReadFeatureTypes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340817"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; ByteString
+(DocumentReadFeatureTypes -&gt; ByteString)
+-&gt; ToByteString DocumentReadFeatureTypes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DocumentReadFeatureTypes -&gt; ByteString
+$ctoBS :: DocumentReadFeatureTypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340814"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; ByteStringBuilder
+(DocumentReadFeatureTypes -&gt; ByteStringBuilder)
+-&gt; ToLog DocumentReadFeatureTypes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DocumentReadFeatureTypes -&gt; ByteStringBuilder
+$cbuild :: DocumentReadFeatureTypes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679340811"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReadFeatureTypes -&gt; [Header]
+(HeaderName -&gt; DocumentReadFeatureTypes -&gt; [Header])
+-&gt; ToHeader DocumentReadFeatureTypes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DocumentReadFeatureTypes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DocumentReadFeatureTypes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679340808"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; QueryString
+(DocumentReadFeatureTypes -&gt; QueryString)
+-&gt; ToQuery DocumentReadFeatureTypes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DocumentReadFeatureTypes -&gt; QueryString
+$ctoQuery :: DocumentReadFeatureTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679340803"><span id="local-6989586621679340805"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReadFeatureTypes]
+Value -&gt; Parser DocumentReadFeatureTypes
+(Value -&gt; Parser DocumentReadFeatureTypes)
+-&gt; (Value -&gt; Parser [DocumentReadFeatureTypes])
+-&gt; FromJSON DocumentReadFeatureTypes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DocumentReadFeatureTypes]
+$cparseJSONList :: Value -&gt; Parser [DocumentReadFeatureTypes]
+parseJSON :: Value -&gt; Parser DocumentReadFeatureTypes
+$cparseJSON :: Value -&gt; Parser DocumentReadFeatureTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679340798"><span id="local-6989586621679340800"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReadFeatureTypes]
+FromJSONKeyFunction DocumentReadFeatureTypes
+FromJSONKeyFunction DocumentReadFeatureTypes
+-&gt; FromJSONKeyFunction [DocumentReadFeatureTypes]
+-&gt; FromJSONKey DocumentReadFeatureTypes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DocumentReadFeatureTypes]
+$cfromJSONKeyList :: FromJSONKeyFunction [DocumentReadFeatureTypes]
+fromJSONKey :: FromJSONKeyFunction DocumentReadFeatureTypes
+$cfromJSONKey :: FromJSONKeyFunction DocumentReadFeatureTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679340789"><span id="local-6989586621679340791"><span id="local-6989586621679340793"><span id="local-6989586621679340795"><span class="annot"><span class="annottext">[DocumentReadFeatureTypes] -&gt; Encoding
+[DocumentReadFeatureTypes] -&gt; Value
+DocumentReadFeatureTypes -&gt; Encoding
+DocumentReadFeatureTypes -&gt; Value
+(DocumentReadFeatureTypes -&gt; Value)
+-&gt; (DocumentReadFeatureTypes -&gt; Encoding)
+-&gt; ([DocumentReadFeatureTypes] -&gt; Value)
+-&gt; ([DocumentReadFeatureTypes] -&gt; Encoding)
+-&gt; ToJSON DocumentReadFeatureTypes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DocumentReadFeatureTypes] -&gt; Encoding
+$ctoEncodingList :: [DocumentReadFeatureTypes] -&gt; Encoding
+toJSONList :: [DocumentReadFeatureTypes] -&gt; Value
+$ctoJSONList :: [DocumentReadFeatureTypes] -&gt; Value
+toEncoding :: DocumentReadFeatureTypes -&gt; Encoding
+$ctoEncoding :: DocumentReadFeatureTypes -&gt; Encoding
+toJSON :: DocumentReadFeatureTypes -&gt; Value
+$ctoJSON :: DocumentReadFeatureTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679340784"><span id="local-6989586621679340786"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReadFeatureTypes]
+ToJSONKeyFunction DocumentReadFeatureTypes
+ToJSONKeyFunction DocumentReadFeatureTypes
+-&gt; ToJSONKeyFunction [DocumentReadFeatureTypes]
+-&gt; ToJSONKey DocumentReadFeatureTypes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DocumentReadFeatureTypes]
+$ctoJSONKeyList :: ToJSONKeyFunction [DocumentReadFeatureTypes]
+toJSONKey :: ToJSONKeyFunction DocumentReadFeatureTypes
+$ctoJSONKey :: ToJSONKeyFunction DocumentReadFeatureTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679340781"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReadFeatureTypes
+([Node] -&gt; Either String DocumentReadFeatureTypes)
+-&gt; FromXML DocumentReadFeatureTypes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DocumentReadFeatureTypes
+$cparseXML :: [Node] -&gt; Either String DocumentReadFeatureTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679340778"><span class="annot"><span class="annottext">DocumentReadFeatureTypes -&gt; XML
+(DocumentReadFeatureTypes -&gt; XML) -&gt; ToXML DocumentReadFeatureTypes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DocumentReadFeatureTypes -&gt; XML
+$ctoXML :: DocumentReadFeatureTypes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes_FORMS"><span class="hs-identifier hs-type">DocumentReadFeatureTypes_FORMS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes"><span class="hs-identifier hs-type">DocumentReadFeatureTypes</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentReadFeatureTypes_FORMS"><span id="%24mDocumentReadFeatureTypes_FORMS"><span id="DocumentReadFeatureTypes_FORMS"><span class="annot"><span class="annottext">$bDocumentReadFeatureTypes_FORMS :: DocumentReadFeatureTypes
+$mDocumentReadFeatureTypes_FORMS :: forall r.
+DocumentReadFeatureTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#%24bDocumentReadFeatureTypes_FORMS"><span class="hs-identifier hs-var hs-var hs-var">DocumentReadFeatureTypes_FORMS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes%27"><span class="hs-identifier hs-type">DocumentReadFeatureTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FORMS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes_TABLES"><span class="hs-identifier hs-type">DocumentReadFeatureTypes_TABLES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes"><span class="hs-identifier hs-type">DocumentReadFeatureTypes</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentReadFeatureTypes_TABLES"><span id="%24mDocumentReadFeatureTypes_TABLES"><span id="DocumentReadFeatureTypes_TABLES"><span class="annot"><span class="annottext">$bDocumentReadFeatureTypes_TABLES :: DocumentReadFeatureTypes
+$mDocumentReadFeatureTypes_TABLES :: forall r.
+DocumentReadFeatureTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#%24bDocumentReadFeatureTypes_TABLES"><span class="hs-identifier hs-var hs-var hs-var">DocumentReadFeatureTypes_TABLES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes%27"><span class="hs-identifier hs-type">DocumentReadFeatureTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TABLES&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes_FORMS"><span class="hs-pragma hs-type">DocumentReadFeatureTypes_FORMS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes_TABLES"><span class="hs-pragma hs-type">DocumentReadFeatureTypes_TABLES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes%27"><span class="hs-pragma hs-type">DocumentReadFeatureTypes'</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-79"></span></pre></body></html>

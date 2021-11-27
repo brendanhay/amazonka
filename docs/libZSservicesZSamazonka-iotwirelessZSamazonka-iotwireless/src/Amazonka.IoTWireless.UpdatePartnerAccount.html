@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.UpdatePartnerAccount</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates properties of a partner account.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.UpdatePartnerAccount</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier">UpdatePartnerAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#newUpdatePartnerAccount"><span class="hs-identifier">newUpdatePartnerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_sidewalk"><span class="hs-identifier">updatePartnerAccount_sidewalk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_partnerAccountId"><span class="hs-identifier">updatePartnerAccount_partnerAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_partnerType"><span class="hs-identifier">updatePartnerAccount_partnerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse"><span class="hs-identifier">UpdatePartnerAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#newUpdatePartnerAccountResponse"><span class="hs-identifier">newUpdatePartnerAccountResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccountResponse_httpStatus"><span class="hs-identifier">updatePartnerAccountResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.html"><span class="hs-identifier">Amazonka.IoTWireless.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdatePartnerAccount' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679292950"><span id="local-6989586621679292951"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePartnerAccount"><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-var">UpdatePartnerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePartnerAccount%27"><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-var">UpdatePartnerAccount'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Sidewalk account credentials.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Asidewalk%3AUpdatePartnerAccount%27"><span class="annot"><span class="annottext">UpdatePartnerAccount -&gt; SidewalkUpdateAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3Asidewalk%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var hs-var">sidewalk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkUpdateAccount.html#SidewalkUpdateAccount"><span class="hs-identifier hs-type">SidewalkUpdateAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the partner account to update.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApartnerAccountId%3AUpdatePartnerAccount%27"><span class="annot"><span class="annottext">UpdatePartnerAccount -&gt; Text
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3ApartnerAccountId%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var hs-var">partnerAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The partner type.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3ApartnerType%3AUpdatePartnerAccount%27"><span class="annot"><span class="annottext">UpdatePartnerAccount -&gt; PartnerType
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3ApartnerType%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var hs-var">partnerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.PartnerType.html#PartnerType"><span class="hs-identifier hs-type">PartnerType</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292942"><span id="local-6989586621679292944"><span class="annot"><span class="annottext">UpdatePartnerAccount -&gt; UpdatePartnerAccount -&gt; Bool
+(UpdatePartnerAccount -&gt; UpdatePartnerAccount -&gt; Bool)
+-&gt; (UpdatePartnerAccount -&gt; UpdatePartnerAccount -&gt; Bool)
+-&gt; Eq UpdatePartnerAccount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePartnerAccount -&gt; UpdatePartnerAccount -&gt; Bool
+$c/= :: UpdatePartnerAccount -&gt; UpdatePartnerAccount -&gt; Bool
+== :: UpdatePartnerAccount -&gt; UpdatePartnerAccount -&gt; Bool
+$c== :: UpdatePartnerAccount -&gt; UpdatePartnerAccount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292935"><span id="local-6989586621679292937"><span id="local-6989586621679292939"><span class="annot"><span class="annottext">Int -&gt; UpdatePartnerAccount -&gt; ShowS
+[UpdatePartnerAccount] -&gt; ShowS
+UpdatePartnerAccount -&gt; String
+(Int -&gt; UpdatePartnerAccount -&gt; ShowS)
+-&gt; (UpdatePartnerAccount -&gt; String)
+-&gt; ([UpdatePartnerAccount] -&gt; ShowS)
+-&gt; Show UpdatePartnerAccount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePartnerAccount] -&gt; ShowS
+$cshowList :: [UpdatePartnerAccount] -&gt; ShowS
+show :: UpdatePartnerAccount -&gt; String
+$cshow :: UpdatePartnerAccount -&gt; String
+showsPrec :: Int -&gt; UpdatePartnerAccount -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePartnerAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdatePartnerAccount -&gt; Rep UpdatePartnerAccount x)
+-&gt; (forall x. Rep UpdatePartnerAccount x -&gt; UpdatePartnerAccount)
+-&gt; Generic UpdatePartnerAccount
+forall x. Rep UpdatePartnerAccount x -&gt; UpdatePartnerAccount
+forall x. UpdatePartnerAccount -&gt; Rep UpdatePartnerAccount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdatePartnerAccount x -&gt; UpdatePartnerAccount
+$cfrom :: forall x. UpdatePartnerAccount -&gt; Rep UpdatePartnerAccount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'UpdatePartnerAccount' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'sidewalk', 'updatePartnerAccount_sidewalk' - The Sidewalk account credentials.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'partnerAccountId', 'updatePartnerAccount_partnerAccountId' - The ID of the partner account to update.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'partnerType', 'updatePartnerAccount_partnerType' - The partner type.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#newUpdatePartnerAccount"><span class="hs-identifier hs-type">newUpdatePartnerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'sidewalk'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkUpdateAccount.html#SidewalkUpdateAccount"><span class="hs-identifier hs-type">SidewalkUpdateAccount</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'partnerAccountId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'partnerType'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.PartnerType.html#PartnerType"><span class="hs-identifier hs-type">PartnerType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span>
+</span><span id="line-82"></span><span id="newUpdatePartnerAccount"><span class="annot"><span class="annottext">newUpdatePartnerAccount :: SidewalkUpdateAccount
+-&gt; Text -&gt; PartnerType -&gt; UpdatePartnerAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#newUpdatePartnerAccount"><span class="hs-identifier hs-var hs-var">newUpdatePartnerAccount</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679292930"><span class="annot"><span class="annottext">SidewalkUpdateAccount
+</span><a href="#local-6989586621679292930"><span class="hs-identifier hs-var">pSidewalk_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679292929"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292929"><span class="hs-identifier hs-var">pPartnerAccountId_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679292928"><span class="annot"><span class="annottext">PartnerType
+</span><a href="#local-6989586621679292928"><span class="hs-identifier hs-var">pPartnerType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">UpdatePartnerAccount' :: SidewalkUpdateAccount
+-&gt; Text -&gt; PartnerType -&gt; UpdatePartnerAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sidewalk:UpdatePartnerAccount' :: SidewalkUpdateAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3Asidewalk%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var">sidewalk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SidewalkUpdateAccount
+</span><a href="#local-6989586621679292930"><span class="hs-identifier hs-var">pSidewalk_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:partnerAccountId:UpdatePartnerAccount' :: Text
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3ApartnerAccountId%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var">partnerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292929"><span class="hs-identifier hs-var">pPartnerAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:partnerType:UpdatePartnerAccount' :: PartnerType
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3ApartnerType%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var">partnerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartnerType
+</span><a href="#local-6989586621679292928"><span class="hs-identifier hs-var">pPartnerType_</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The Sidewalk account credentials.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_sidewalk"><span class="hs-identifier hs-type">updatePartnerAccount_sidewalk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkUpdateAccount.html#SidewalkUpdateAccount"><span class="hs-identifier hs-type">SidewalkUpdateAccount</span></a></span><span>
+</span><span id="line-94"></span><span id="updatePartnerAccount_sidewalk"><span class="annot"><span class="annottext">updatePartnerAccount_sidewalk :: (SidewalkUpdateAccount -&gt; f SidewalkUpdateAccount)
+-&gt; UpdatePartnerAccount -&gt; f UpdatePartnerAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_sidewalk"><span class="hs-identifier hs-var hs-var">updatePartnerAccount_sidewalk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePartnerAccount -&gt; SidewalkUpdateAccount)
+-&gt; (UpdatePartnerAccount
+    -&gt; SidewalkUpdateAccount -&gt; UpdatePartnerAccount)
+-&gt; Lens
+     UpdatePartnerAccount
+     UpdatePartnerAccount
+     SidewalkUpdateAccount
+     SidewalkUpdateAccount
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292925"><span class="annot"><span class="annottext">SidewalkUpdateAccount
+sidewalk :: SidewalkUpdateAccount
+$sel:sidewalk:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; SidewalkUpdateAccount
+</span><a href="#local-6989586621679292925"><span class="hs-identifier hs-var hs-var">sidewalk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkUpdateAccount
+</span><a href="#local-6989586621679292925"><span class="hs-identifier hs-var">sidewalk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292924"><span class="annot"><span class="annottext">s :: UpdatePartnerAccount
+</span><a href="#local-6989586621679292924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292923"><span class="annot"><span class="annottext">SidewalkUpdateAccount
+</span><a href="#local-6989586621679292923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerAccount
+</span><a href="#local-6989586621679292924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sidewalk:UpdatePartnerAccount' :: SidewalkUpdateAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3Asidewalk%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var">sidewalk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SidewalkUpdateAccount
+</span><a href="#local-6989586621679292923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the partner account to update.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_partnerAccountId"><span class="hs-identifier hs-type">updatePartnerAccount_partnerAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="updatePartnerAccount_partnerAccountId"><span class="annot"><span class="annottext">updatePartnerAccount_partnerAccountId :: (Text -&gt; f Text) -&gt; UpdatePartnerAccount -&gt; f UpdatePartnerAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_partnerAccountId"><span class="hs-identifier hs-var hs-var">updatePartnerAccount_partnerAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePartnerAccount -&gt; Text)
+-&gt; (UpdatePartnerAccount -&gt; Text -&gt; UpdatePartnerAccount)
+-&gt; Lens UpdatePartnerAccount UpdatePartnerAccount Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292922"><span class="annot"><span class="annottext">Text
+partnerAccountId :: Text
+$sel:partnerAccountId:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; Text
+</span><a href="#local-6989586621679292922"><span class="hs-identifier hs-var hs-var">partnerAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292922"><span class="hs-identifier hs-var">partnerAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292921"><span class="annot"><span class="annottext">s :: UpdatePartnerAccount
+</span><a href="#local-6989586621679292921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerAccount
+</span><a href="#local-6989586621679292921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerAccountId:UpdatePartnerAccount' :: Text
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3ApartnerAccountId%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var">partnerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The partner type.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_partnerType"><span class="hs-identifier hs-type">updatePartnerAccount_partnerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.PartnerType.html#PartnerType"><span class="hs-identifier hs-type">PartnerType</span></a></span><span>
+</span><span id="line-102"></span><span id="updatePartnerAccount_partnerType"><span class="annot"><span class="annottext">updatePartnerAccount_partnerType :: (PartnerType -&gt; f PartnerType)
+-&gt; UpdatePartnerAccount -&gt; f UpdatePartnerAccount
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccount_partnerType"><span class="hs-identifier hs-var hs-var">updatePartnerAccount_partnerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePartnerAccount -&gt; PartnerType)
+-&gt; (UpdatePartnerAccount -&gt; PartnerType -&gt; UpdatePartnerAccount)
+-&gt; Lens
+     UpdatePartnerAccount UpdatePartnerAccount PartnerType PartnerType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292919"><span class="annot"><span class="annottext">PartnerType
+partnerType :: PartnerType
+$sel:partnerType:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; PartnerType
+</span><a href="#local-6989586621679292919"><span class="hs-identifier hs-var hs-var">partnerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartnerType
+</span><a href="#local-6989586621679292919"><span class="hs-identifier hs-var">partnerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292918"><span class="annot"><span class="annottext">s :: UpdatePartnerAccount
+</span><a href="#local-6989586621679292918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292917"><span class="annot"><span class="annottext">PartnerType
+</span><a href="#local-6989586621679292917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerAccount
+</span><a href="#local-6989586621679292918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerType:UpdatePartnerAccount' :: PartnerType
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3ApartnerType%3AUpdatePartnerAccount%27"><span class="hs-identifier hs-var">partnerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartnerType
+</span><a href="#local-6989586621679292917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679292913"><span class="annot"><span class="annottext">request :: UpdatePartnerAccount -&gt; Request UpdatePartnerAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdatePartnerAccount -&gt; Request UpdatePartnerAccount
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679292909"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePartnerAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePartnerAccount)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdatePartnerAccount))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePartnerAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePartnerAccount)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292906"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679292905"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679292905"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679292904"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679292904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdatePartnerAccountResponse
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse%27"><span class="hs-identifier hs-var">UpdatePartnerAccountResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdatePartnerAccountResponse)
+-&gt; Either String Int -&gt; Either String UpdatePartnerAccountResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292906"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292897"><span id="local-6989586621679292899"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679292890"><span class="annot"><span class="annottext">toHeaders :: UpdatePartnerAccount -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePartnerAccount -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292881"><span id="local-6989586621679292883"><span id="local-6989586621679292885"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679292879"><span class="annot"><span class="annottext">toJSON :: UpdatePartnerAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292875"><span id="local-6989586621679292876"><span id="local-6989586621679292877"><span class="annot"><span class="annottext">Text
+PartnerType
+SidewalkUpdateAccount
+partnerType :: PartnerType
+partnerAccountId :: Text
+sidewalk :: SidewalkUpdateAccount
+$sel:partnerType:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; PartnerType
+$sel:partnerAccountId:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; Text
+$sel:sidewalk:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; SidewalkUpdateAccount
+</span><a href="#local-6989586621679292875"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sidewalk&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SidewalkUpdateAccount -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SidewalkUpdateAccount
+</span><a href="#local-6989586621679292877"><span class="hs-identifier hs-var">sidewalk</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679292869"><span class="annot"><span class="annottext">toPath :: UpdatePartnerAccount -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292865"><span id="local-6989586621679292866"><span id="local-6989586621679292867"><span class="annot"><span class="annottext">Text
+PartnerType
+SidewalkUpdateAccount
+partnerType :: PartnerType
+partnerAccountId :: Text
+sidewalk :: SidewalkUpdateAccount
+$sel:partnerType:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; PartnerType
+$sel:partnerAccountId:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; Text
+$sel:sidewalk:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; SidewalkUpdateAccount
+</span><a href="#local-6989586621679292865"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/partner-accounts/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292866"><span class="hs-identifier hs-var">partnerAccountId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount"><span class="hs-identifier hs-type">UpdatePartnerAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679292861"><span class="annot"><span class="annottext">toQuery :: UpdatePartnerAccount -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccount%27"><span class="hs-identifier hs-type">UpdatePartnerAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292857"><span id="local-6989586621679292858"><span id="local-6989586621679292859"><span class="annot"><span class="annottext">Text
+PartnerType
+SidewalkUpdateAccount
+partnerType :: PartnerType
+partnerAccountId :: Text
+sidewalk :: SidewalkUpdateAccount
+$sel:partnerType:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; PartnerType
+$sel:partnerAccountId:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; Text
+$sel:sidewalk:UpdatePartnerAccount' :: UpdatePartnerAccount -&gt; SidewalkUpdateAccount
+</span><a href="#local-6989586621679292857"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;partnerType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PartnerType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">PartnerType
+</span><a href="#local-6989586621679292857"><span class="hs-identifier hs-var">partnerType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newUpdatePartnerAccountResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679292854"><span id="local-6989586621679292855"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePartnerAccountResponse"><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse"><span class="hs-identifier hs-var">UpdatePartnerAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePartnerAccountResponse%27"><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse%27"><span class="hs-identifier hs-var">UpdatePartnerAccountResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePartnerAccountResponse%27"><span class="annot"><span class="annottext">UpdatePartnerAccountResponse -&gt; Int
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3AhttpStatus%3AUpdatePartnerAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292849"><span id="local-6989586621679292851"><span class="annot"><span class="annottext">UpdatePartnerAccountResponse
+-&gt; UpdatePartnerAccountResponse -&gt; Bool
+(UpdatePartnerAccountResponse
+ -&gt; UpdatePartnerAccountResponse -&gt; Bool)
+-&gt; (UpdatePartnerAccountResponse
+    -&gt; UpdatePartnerAccountResponse -&gt; Bool)
+-&gt; Eq UpdatePartnerAccountResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePartnerAccountResponse
+-&gt; UpdatePartnerAccountResponse -&gt; Bool
+$c/= :: UpdatePartnerAccountResponse
+-&gt; UpdatePartnerAccountResponse -&gt; Bool
+== :: UpdatePartnerAccountResponse
+-&gt; UpdatePartnerAccountResponse -&gt; Bool
+$c== :: UpdatePartnerAccountResponse
+-&gt; UpdatePartnerAccountResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292841"><span id="local-6989586621679292843"><span id="local-6989586621679292845"><span id="local-6989586621679292847"><span class="annot"><span class="annottext">ReadPrec [UpdatePartnerAccountResponse]
+ReadPrec UpdatePartnerAccountResponse
+Int -&gt; ReadS UpdatePartnerAccountResponse
+ReadS [UpdatePartnerAccountResponse]
+(Int -&gt; ReadS UpdatePartnerAccountResponse)
+-&gt; ReadS [UpdatePartnerAccountResponse]
+-&gt; ReadPrec UpdatePartnerAccountResponse
+-&gt; ReadPrec [UpdatePartnerAccountResponse]
+-&gt; Read UpdatePartnerAccountResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePartnerAccountResponse]
+$creadListPrec :: ReadPrec [UpdatePartnerAccountResponse]
+readPrec :: ReadPrec UpdatePartnerAccountResponse
+$creadPrec :: ReadPrec UpdatePartnerAccountResponse
+readList :: ReadS [UpdatePartnerAccountResponse]
+$creadList :: ReadS [UpdatePartnerAccountResponse]
+readsPrec :: Int -&gt; ReadS UpdatePartnerAccountResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePartnerAccountResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292834"><span id="local-6989586621679292836"><span id="local-6989586621679292838"><span class="annot"><span class="annottext">Int -&gt; UpdatePartnerAccountResponse -&gt; ShowS
+[UpdatePartnerAccountResponse] -&gt; ShowS
+UpdatePartnerAccountResponse -&gt; String
+(Int -&gt; UpdatePartnerAccountResponse -&gt; ShowS)
+-&gt; (UpdatePartnerAccountResponse -&gt; String)
+-&gt; ([UpdatePartnerAccountResponse] -&gt; ShowS)
+-&gt; Show UpdatePartnerAccountResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePartnerAccountResponse] -&gt; ShowS
+$cshowList :: [UpdatePartnerAccountResponse] -&gt; ShowS
+show :: UpdatePartnerAccountResponse -&gt; String
+$cshow :: UpdatePartnerAccountResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePartnerAccountResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePartnerAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePartnerAccountResponse -&gt; Rep UpdatePartnerAccountResponse x)
+-&gt; (forall x.
+    Rep UpdatePartnerAccountResponse x -&gt; UpdatePartnerAccountResponse)
+-&gt; Generic UpdatePartnerAccountResponse
+forall x.
+Rep UpdatePartnerAccountResponse x -&gt; UpdatePartnerAccountResponse
+forall x.
+UpdatePartnerAccountResponse -&gt; Rep UpdatePartnerAccountResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePartnerAccountResponse x -&gt; UpdatePartnerAccountResponse
+$cfrom :: forall x.
+UpdatePartnerAccountResponse -&gt; Rep UpdatePartnerAccountResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'UpdatePartnerAccountResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'updatePartnerAccountResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#newUpdatePartnerAccountResponse"><span class="hs-identifier hs-type">newUpdatePartnerAccountResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newUpdatePartnerAccountResponse"><span class="annot"><span class="annottext">newUpdatePartnerAccountResponse :: Int -&gt; UpdatePartnerAccountResponse
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#newUpdatePartnerAccountResponse"><span class="hs-identifier hs-var hs-var">newUpdatePartnerAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679292831"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292831"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">UpdatePartnerAccountResponse' :: Int -&gt; UpdatePartnerAccountResponse
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse%27"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePartnerAccountResponse' :: Int
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3AhttpStatus%3AUpdatePartnerAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292831"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccountResponse_httpStatus"><span class="hs-identifier hs-type">updatePartnerAccountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="updatePartnerAccountResponse_httpStatus"><span class="annot"><span class="annottext">updatePartnerAccountResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdatePartnerAccountResponse -&gt; f UpdatePartnerAccountResponse
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#updatePartnerAccountResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updatePartnerAccountResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePartnerAccountResponse -&gt; Int)
+-&gt; (UpdatePartnerAccountResponse
+    -&gt; Int -&gt; UpdatePartnerAccountResponse)
+-&gt; Lens
+     UpdatePartnerAccountResponse UpdatePartnerAccountResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse%27"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292830"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdatePartnerAccountResponse' :: UpdatePartnerAccountResponse -&gt; Int
+</span><a href="#local-6989586621679292830"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292830"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292829"><span class="annot"><span class="annottext">s :: UpdatePartnerAccountResponse
+</span><a href="#local-6989586621679292829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse%27"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292828"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerAccountResponse
+</span><a href="#local-6989586621679292829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePartnerAccountResponse' :: Int
+</span><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#%24sel%3AhttpStatus%3AUpdatePartnerAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.UpdatePartnerAccount.html#UpdatePartnerAccountResponse"><span class="hs-identifier hs-type">UpdatePartnerAccountResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

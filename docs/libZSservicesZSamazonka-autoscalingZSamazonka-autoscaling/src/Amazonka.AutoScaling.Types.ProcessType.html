@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.Types.ProcessType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.Types.ProcessType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes a process type.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types Scaling processes&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProcessType' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679331373"><span id="local-6989586621679331374"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessType"><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-var">ProcessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessType%27"><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-var">ProcessType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One of the following processes:</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @Launch@</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @Terminate@</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @AddToLoadBalancer@</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @AlarmNotification@</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @AZRebalance@</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @HealthCheck@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @InstanceRefresh@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @ReplaceUnhealthy@</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @ScheduledActions@</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AprocessName%3AProcessType%27"><span class="annot"><span class="annottext">ProcessType -&gt; Text
+</span><a href="Amazonka.AutoScaling.Types.ProcessType.html#%24sel%3AprocessName%3AProcessType%27"><span class="hs-identifier hs-var hs-var">processName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331367"><span id="local-6989586621679331369"><span class="annot"><span class="annottext">ProcessType -&gt; ProcessType -&gt; Bool
+(ProcessType -&gt; ProcessType -&gt; Bool)
+-&gt; (ProcessType -&gt; ProcessType -&gt; Bool) -&gt; Eq ProcessType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProcessType -&gt; ProcessType -&gt; Bool
+$c/= :: ProcessType -&gt; ProcessType -&gt; Bool
+== :: ProcessType -&gt; ProcessType -&gt; Bool
+$c== :: ProcessType -&gt; ProcessType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331358"><span id="local-6989586621679331360"><span id="local-6989586621679331362"><span id="local-6989586621679331364"><span class="annot"><span class="annottext">ReadPrec [ProcessType]
+ReadPrec ProcessType
+Int -&gt; ReadS ProcessType
+ReadS [ProcessType]
+(Int -&gt; ReadS ProcessType)
+-&gt; ReadS [ProcessType]
+-&gt; ReadPrec ProcessType
+-&gt; ReadPrec [ProcessType]
+-&gt; Read ProcessType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProcessType]
+$creadListPrec :: ReadPrec [ProcessType]
+readPrec :: ReadPrec ProcessType
+$creadPrec :: ReadPrec ProcessType
+readList :: ReadS [ProcessType]
+$creadList :: ReadS [ProcessType]
+readsPrec :: Int -&gt; ReadS ProcessType
+$creadsPrec :: Int -&gt; ReadS ProcessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331351"><span id="local-6989586621679331353"><span id="local-6989586621679331355"><span class="annot"><span class="annottext">Int -&gt; ProcessType -&gt; ShowS
+[ProcessType] -&gt; ShowS
+ProcessType -&gt; String
+(Int -&gt; ProcessType -&gt; ShowS)
+-&gt; (ProcessType -&gt; String)
+-&gt; ([ProcessType] -&gt; ShowS)
+-&gt; Show ProcessType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProcessType] -&gt; ShowS
+$cshowList :: [ProcessType] -&gt; ShowS
+show :: ProcessType -&gt; String
+$cshow :: ProcessType -&gt; String
+showsPrec :: Int -&gt; ProcessType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProcessType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProcessType -&gt; Rep ProcessType x)
+-&gt; (forall x. Rep ProcessType x -&gt; ProcessType)
+-&gt; Generic ProcessType
+forall x. Rep ProcessType x -&gt; ProcessType
+forall x. ProcessType -&gt; Rep ProcessType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProcessType x -&gt; ProcessType
+$cfrom :: forall x. ProcessType -&gt; Rep ProcessType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'ProcessType' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'processName', 'processType_processName' - One of the following processes:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- -   @Launch@</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -   @Terminate@</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   @AddToLoadBalancer@</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   @AlarmNotification@</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- -   @AZRebalance@</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- -   @HealthCheck@</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -   @InstanceRefresh@</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   @ReplaceUnhealthy@</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @ScheduledActions@</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#newProcessType"><span class="hs-identifier hs-type">newProcessType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'processName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span>
+</span><span id="line-88"></span><span id="newProcessType"><span class="annot"><span class="annottext">newProcessType :: Text -&gt; ProcessType
+</span><a href="Amazonka.AutoScaling.Types.ProcessType.html#newProcessType"><span class="hs-identifier hs-var hs-var">newProcessType</span></a></span></span><span> </span><span id="local-6989586621679331345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331345"><span class="hs-identifier hs-var">pProcessName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ProcessType' :: Text -&gt; ProcessType
+</span><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processName:ProcessType' :: Text
+</span><a href="Amazonka.AutoScaling.Types.ProcessType.html#%24sel%3AprocessName%3AProcessType%27"><span class="hs-identifier hs-var">processName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331345"><span class="hs-identifier hs-var">pProcessName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | One of the following processes:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @Launch@</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @Terminate@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @AddToLoadBalancer@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @AlarmNotification@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   @AZRebalance@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   @HealthCheck@</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   @InstanceRefresh@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   @ReplaceUnhealthy@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @ScheduledActions@</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#processType_processName"><span class="hs-identifier hs-type">processType_processName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="processType_processName"><span class="annot"><span class="annottext">processType_processName :: (Text -&gt; f Text) -&gt; ProcessType -&gt; f ProcessType
+</span><a href="Amazonka.AutoScaling.Types.ProcessType.html#processType_processName"><span class="hs-identifier hs-var hs-var">processType_processName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProcessType -&gt; Text)
+-&gt; (ProcessType -&gt; Text -&gt; ProcessType)
+-&gt; Lens ProcessType ProcessType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331341"><span class="annot"><span class="annottext">Text
+processName :: Text
+$sel:processName:ProcessType' :: ProcessType -&gt; Text
+</span><a href="#local-6989586621679331341"><span class="hs-identifier hs-var hs-var">processName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331341"><span class="hs-identifier hs-var">processName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331340"><span class="annot"><span class="annottext">s :: ProcessType
+</span><a href="#local-6989586621679331340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331339"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessType
+</span><a href="#local-6989586621679331340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processName:ProcessType' :: Text
+</span><a href="Amazonka.AutoScaling.Types.ProcessType.html#%24sel%3AprocessName%3AProcessType%27"><span class="hs-identifier hs-var">processName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679331336"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProcessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331334"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331334"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ProcessType
+</span><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-var">ProcessType'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ProcessType)
+-&gt; Either String Text -&gt; Either String ProcessType
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331328"><span id="local-6989586621679331330"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span></span><span>
+</span><span id="line-120"></span></pre></body></html>

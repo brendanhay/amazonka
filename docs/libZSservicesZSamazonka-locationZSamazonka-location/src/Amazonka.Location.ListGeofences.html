@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Location.ListGeofences</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists geofences stored in a given geofence collection.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Location.ListGeofences</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier">ListGeofences</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#newListGeofences"><span class="hs-identifier">newListGeofences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofences_nextToken"><span class="hs-identifier">listGeofences_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofences_collectionName"><span class="hs-identifier">listGeofences_collectionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier">ListGeofencesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#newListGeofencesResponse"><span class="hs-identifier">newListGeofencesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_nextToken"><span class="hs-identifier">listGeofencesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_httpStatus"><span class="hs-identifier">listGeofencesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_entries"><span class="hs-identifier">listGeofencesResponse_entries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.html"><span class="hs-identifier">Amazonka.Location.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListGeofences' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679266541"><span id="local-6989586621679266542"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGeofences"><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-var">ListGeofences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGeofences%27"><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-var">ListGeofences'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token specifying which page of results to return in the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- response. If no token is provided, the default page is the first page.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Default value: @null@</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListGeofences%27"><span class="annot"><span class="annottext">ListGeofences -&gt; Maybe Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AnextToken%3AListGeofences%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the geofence collection storing the list of geofences.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcollectionName%3AListGeofences%27"><span class="annot"><span class="annottext">ListGeofences -&gt; Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AcollectionName%3AListGeofences%27"><span class="hs-identifier hs-var hs-var">collectionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266534"><span id="local-6989586621679266536"><span class="annot"><span class="annottext">ListGeofences -&gt; ListGeofences -&gt; Bool
+(ListGeofences -&gt; ListGeofences -&gt; Bool)
+-&gt; (ListGeofences -&gt; ListGeofences -&gt; Bool) -&gt; Eq ListGeofences
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGeofences -&gt; ListGeofences -&gt; Bool
+$c/= :: ListGeofences -&gt; ListGeofences -&gt; Bool
+== :: ListGeofences -&gt; ListGeofences -&gt; Bool
+$c== :: ListGeofences -&gt; ListGeofences -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266525"><span id="local-6989586621679266527"><span id="local-6989586621679266529"><span id="local-6989586621679266531"><span class="annot"><span class="annottext">ReadPrec [ListGeofences]
+ReadPrec ListGeofences
+Int -&gt; ReadS ListGeofences
+ReadS [ListGeofences]
+(Int -&gt; ReadS ListGeofences)
+-&gt; ReadS [ListGeofences]
+-&gt; ReadPrec ListGeofences
+-&gt; ReadPrec [ListGeofences]
+-&gt; Read ListGeofences
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListGeofences]
+$creadListPrec :: ReadPrec [ListGeofences]
+readPrec :: ReadPrec ListGeofences
+$creadPrec :: ReadPrec ListGeofences
+readList :: ReadS [ListGeofences]
+$creadList :: ReadS [ListGeofences]
+readsPrec :: Int -&gt; ReadS ListGeofences
+$creadsPrec :: Int -&gt; ReadS ListGeofences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266518"><span id="local-6989586621679266520"><span id="local-6989586621679266522"><span class="annot"><span class="annottext">Int -&gt; ListGeofences -&gt; ShowS
+[ListGeofences] -&gt; ShowS
+ListGeofences -&gt; String
+(Int -&gt; ListGeofences -&gt; ShowS)
+-&gt; (ListGeofences -&gt; String)
+-&gt; ([ListGeofences] -&gt; ShowS)
+-&gt; Show ListGeofences
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGeofences] -&gt; ShowS
+$cshowList :: [ListGeofences] -&gt; ShowS
+show :: ListGeofences -&gt; String
+$cshow :: ListGeofences -&gt; String
+showsPrec :: Int -&gt; ListGeofences -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGeofences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListGeofences -&gt; Rep ListGeofences x)
+-&gt; (forall x. Rep ListGeofences x -&gt; ListGeofences)
+-&gt; Generic ListGeofences
+forall x. Rep ListGeofences x -&gt; ListGeofences
+forall x. ListGeofences -&gt; Rep ListGeofences x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListGeofences x -&gt; ListGeofences
+$cfrom :: forall x. ListGeofences -&gt; Rep ListGeofences x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListGeofences' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listGeofences_nextToken' - The pagination token specifying which page of results to return in the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- response. If no token is provided, the default page is the first page.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Default value: @null@</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'collectionName', 'listGeofences_collectionName' - The name of the geofence collection storing the list of geofences.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#newListGeofences"><span class="hs-identifier hs-type">newListGeofences</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'collectionName'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span>
+</span><span id="line-83"></span><span id="newListGeofences"><span class="annot"><span class="annottext">newListGeofences :: Text -&gt; ListGeofences
+</span><a href="Amazonka.Location.ListGeofences.html#newListGeofences"><span class="hs-identifier hs-var hs-var">newListGeofences</span></a></span></span><span> </span><span id="local-6989586621679266513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266513"><span class="hs-identifier hs-var">pCollectionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ListGeofences' :: Maybe Text -&gt; Text -&gt; ListGeofences
+</span><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-type">ListGeofences'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGeofences' :: Maybe Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AnextToken%3AListGeofences%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:collectionName:ListGeofences' :: Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AcollectionName%3AListGeofences%27"><span class="hs-identifier hs-var">collectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266513"><span class="hs-identifier hs-var">pCollectionName_</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The pagination token specifying which page of results to return in the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- response. If no token is provided, the default page is the first page.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Default value: @null@</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofences_nextToken"><span class="hs-identifier hs-type">listGeofences_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listGeofences_nextToken"><span class="annot"><span class="annottext">listGeofences_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListGeofences -&gt; f ListGeofences
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofences_nextToken"><span class="hs-identifier hs-var hs-var">listGeofences_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGeofences -&gt; Maybe Text)
+-&gt; (ListGeofences -&gt; Maybe Text -&gt; ListGeofences)
+-&gt; Lens ListGeofences ListGeofences (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-type">ListGeofences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266511"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGeofences' :: ListGeofences -&gt; Maybe Text
+</span><a href="#local-6989586621679266511"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266511"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266510"><span class="annot"><span class="annottext">s :: ListGeofences
+</span><a href="#local-6989586621679266510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-type">ListGeofences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGeofences
+</span><a href="#local-6989586621679266510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGeofences' :: Maybe Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AnextToken%3AListGeofences%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the geofence collection storing the list of geofences.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofences_collectionName"><span class="hs-identifier hs-type">listGeofences_collectionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="listGeofences_collectionName"><span class="annot"><span class="annottext">listGeofences_collectionName :: (Text -&gt; f Text) -&gt; ListGeofences -&gt; f ListGeofences
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofences_collectionName"><span class="hs-identifier hs-var hs-var">listGeofences_collectionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGeofences -&gt; Text)
+-&gt; (ListGeofences -&gt; Text -&gt; ListGeofences)
+-&gt; Lens ListGeofences ListGeofences Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-type">ListGeofences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266508"><span class="annot"><span class="annottext">Text
+collectionName :: Text
+$sel:collectionName:ListGeofences' :: ListGeofences -&gt; Text
+</span><a href="#local-6989586621679266508"><span class="hs-identifier hs-var hs-var">collectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266508"><span class="hs-identifier hs-var">collectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266507"><span class="annot"><span class="annottext">s :: ListGeofences
+</span><a href="#local-6989586621679266507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-type">ListGeofences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGeofences
+</span><a href="#local-6989586621679266507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionName:ListGeofences' :: Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AcollectionName%3AListGeofences%27"><span class="hs-identifier hs-var">collectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679266502"><span class="annot"><span class="annottext">page :: ListGeofences -&gt; AWSResponse ListGeofences -&gt; Maybe ListGeofences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679266500"><span class="annot"><span class="annottext">ListGeofences
+</span><a href="#local-6989586621679266500"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679266499"><span class="annot"><span class="annottext">AWSResponse ListGeofences
+</span><a href="#local-6989586621679266499"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGeofences
+ListGeofencesResponse
+</span><a href="#local-6989586621679266499"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">ListGeofencesResponse
+-&gt; Getting (First Text) ListGeofencesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGeofencesResponse
+-&gt; Const (First Text) ListGeofencesResponse
+Lens' ListGeofencesResponse (Maybe Text)
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_nextToken"><span class="hs-identifier hs-var">listGeofencesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGeofencesResponse
+ -&gt; Const (First Text) ListGeofencesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGeofencesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-105"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGeofences
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[ListGeofenceResponseEntry] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListGeofences
+ListGeofencesResponse
+</span><a href="#local-6989586621679266499"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListGeofencesResponse
+-&gt; Getting
+     [ListGeofenceResponseEntry]
+     ListGeofencesResponse
+     [ListGeofenceResponseEntry]
+-&gt; [ListGeofenceResponseEntry]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [ListGeofenceResponseEntry]
+  ListGeofencesResponse
+  [ListGeofenceResponseEntry]
+Lens' ListGeofencesResponse [ListGeofenceResponseEntry]
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_entries"><span class="hs-identifier hs-var">listGeofencesResponse_entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGeofences
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">ListGeofences -&gt; Maybe ListGeofences
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListGeofences -&gt; Maybe ListGeofences)
+-&gt; ListGeofences -&gt; Maybe ListGeofences
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">ListGeofences
+</span><a href="#local-6989586621679266500"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ListGeofences -&gt; (ListGeofences -&gt; ListGeofences) -&gt; ListGeofences
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListGeofences -&gt; Identity ListGeofences
+Lens ListGeofences ListGeofences (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofences_nextToken"><span class="hs-identifier hs-var">listGeofences_nextToken</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListGeofences -&gt; Identity ListGeofences)
+-&gt; Maybe Text -&gt; ListGeofences -&gt; ListGeofences
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGeofences
+ListGeofencesResponse
+</span><a href="#local-6989586621679266499"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">ListGeofencesResponse
+-&gt; Getting (First Text) ListGeofencesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGeofencesResponse
+-&gt; Const (First Text) ListGeofencesResponse
+Lens' ListGeofencesResponse (Maybe Text)
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_nextToken"><span class="hs-identifier hs-var">listGeofencesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGeofencesResponse
+ -&gt; Const (First Text) ListGeofencesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGeofencesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679266488"><span class="annot"><span class="annottext">request :: ListGeofences -&gt; Request ListGeofences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGeofences -&gt; Request ListGeofences
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679266484"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListGeofences
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListGeofences)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListGeofences))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListGeofences
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListGeofences)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266481"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266481"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266480"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679266480"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266479"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; [ListGeofenceResponseEntry] -&gt; ListGeofencesResponse
+</span><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-var">ListGeofencesResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; [ListGeofenceResponseEntry] -&gt; ListGeofencesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int -&gt; [ListGeofenceResponseEntry] -&gt; ListGeofencesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; [ListGeofenceResponseEntry] -&gt; ListGeofencesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String ([ListGeofenceResponseEntry] -&gt; ListGeofencesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266481"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String ([ListGeofenceResponseEntry] -&gt; ListGeofencesResponse)
+-&gt; Either String [ListGeofenceResponseEntry]
+-&gt; Either String ListGeofencesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ListGeofenceResponseEntry])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [ListGeofenceResponseEntry])
+-&gt; [ListGeofenceResponseEntry]
+-&gt; Either String [ListGeofenceResponseEntry]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[ListGeofenceResponseEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266470"><span id="local-6989586621679266472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679266463"><span class="annot"><span class="annottext">toHeaders :: ListGeofences -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGeofences -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266453"><span id="local-6989586621679266455"><span id="local-6989586621679266457"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679266451"><span class="annot"><span class="annottext">toJSON :: ListGeofences -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-type">ListGeofences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266448"><span id="local-6989586621679266449"><span class="annot"><span class="annottext">Maybe Text
+Text
+collectionName :: Text
+nextToken :: Maybe Text
+$sel:collectionName:ListGeofences' :: ListGeofences -&gt; Text
+$sel:nextToken:ListGeofences' :: ListGeofences -&gt; Maybe Text
+</span><a href="#local-6989586621679266448"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266449"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679266442"><span class="annot"><span class="annottext">toPath :: ListGeofences -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences%27"><span class="hs-identifier hs-type">ListGeofences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266439"><span id="local-6989586621679266440"><span class="annot"><span class="annottext">Maybe Text
+Text
+collectionName :: Text
+nextToken :: Maybe Text
+$sel:collectionName:ListGeofences' :: ListGeofences -&gt; Text
+$sel:nextToken:ListGeofences' :: ListGeofences -&gt; Maybe Text
+</span><a href="#local-6989586621679266439"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/geofencing/v0/collections/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266439"><span class="hs-identifier hs-var">collectionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/list-geofences&quot;</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofences"><span class="hs-identifier hs-type">ListGeofences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679266435"><span class="annot"><span class="annottext">toQuery :: ListGeofences -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListGeofences -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newListGeofencesResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679266432"><span id="local-6989586621679266433"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGeofencesResponse"><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-var">ListGeofencesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGeofencesResponse%27"><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-var">ListGeofencesResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token indicating there are additional pages available. You</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- can use the token in a following request to fetch the next set of</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AnextToken%3AListGeofencesResponse%27"><span class="annot"><span class="annottext">ListGeofencesResponse -&gt; Maybe Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AnextToken%3AListGeofencesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGeofencesResponse%27"><span class="annot"><span class="annottext">ListGeofencesResponse -&gt; Int
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AhttpStatus%3AListGeofencesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | Contains a list of geofences stored in the geofence collection.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3Aentries%3AListGeofencesResponse%27"><span class="annot"><span class="annottext">ListGeofencesResponse -&gt; [ListGeofenceResponseEntry]
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3Aentries%3AListGeofencesResponse%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Location.Types.ListGeofenceResponseEntry.html#ListGeofenceResponseEntry"><span class="hs-identifier hs-type">ListGeofenceResponseEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266425"><span id="local-6989586621679266427"><span class="annot"><span class="annottext">ListGeofencesResponse -&gt; ListGeofencesResponse -&gt; Bool
+(ListGeofencesResponse -&gt; ListGeofencesResponse -&gt; Bool)
+-&gt; (ListGeofencesResponse -&gt; ListGeofencesResponse -&gt; Bool)
+-&gt; Eq ListGeofencesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGeofencesResponse -&gt; ListGeofencesResponse -&gt; Bool
+$c/= :: ListGeofencesResponse -&gt; ListGeofencesResponse -&gt; Bool
+== :: ListGeofencesResponse -&gt; ListGeofencesResponse -&gt; Bool
+$c== :: ListGeofencesResponse -&gt; ListGeofencesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266419"><span id="local-6989586621679266421"><span id="local-6989586621679266423"><span class="annot"><span class="annottext">Int -&gt; ListGeofencesResponse -&gt; ShowS
+[ListGeofencesResponse] -&gt; ShowS
+ListGeofencesResponse -&gt; String
+(Int -&gt; ListGeofencesResponse -&gt; ShowS)
+-&gt; (ListGeofencesResponse -&gt; String)
+-&gt; ([ListGeofencesResponse] -&gt; ShowS)
+-&gt; Show ListGeofencesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGeofencesResponse] -&gt; ShowS
+$cshowList :: [ListGeofencesResponse] -&gt; ShowS
+show :: ListGeofencesResponse -&gt; String
+$cshow :: ListGeofencesResponse -&gt; String
+showsPrec :: Int -&gt; ListGeofencesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGeofencesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListGeofencesResponse -&gt; Rep ListGeofencesResponse x)
+-&gt; (forall x. Rep ListGeofencesResponse x -&gt; ListGeofencesResponse)
+-&gt; Generic ListGeofencesResponse
+forall x. Rep ListGeofencesResponse x -&gt; ListGeofencesResponse
+forall x. ListGeofencesResponse -&gt; Rep ListGeofencesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListGeofencesResponse x -&gt; ListGeofencesResponse
+$cfrom :: forall x. ListGeofencesResponse -&gt; Rep ListGeofencesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Create a value of 'ListGeofencesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'nextToken', 'listGeofencesResponse_nextToken' - A pagination token indicating there are additional pages available. You</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- can use the token in a following request to fetch the next set of</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'httpStatus', 'listGeofencesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'entries', 'listGeofencesResponse_entries' - Contains a list of geofences stored in the geofence collection.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#newListGeofencesResponse"><span class="hs-identifier hs-type">newListGeofencesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span>
+</span><span id="line-196"></span><span id="newListGeofencesResponse"><span class="annot"><span class="annottext">newListGeofencesResponse :: Int -&gt; ListGeofencesResponse
+</span><a href="Amazonka.Location.ListGeofences.html#newListGeofencesResponse"><span class="hs-identifier hs-var hs-var">newListGeofencesResponse</span></a></span></span><span> </span><span id="local-6989586621679266416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListGeofencesResponse' :: Maybe Text
+-&gt; Int -&gt; [ListGeofenceResponseEntry] -&gt; ListGeofencesResponse
+</span><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-type">ListGeofencesResponse'</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGeofencesResponse' :: Maybe Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AnextToken%3AListGeofencesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGeofencesResponse' :: Int
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AhttpStatus%3AListGeofencesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:entries:ListGeofencesResponse' :: [ListGeofenceResponseEntry]
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3Aentries%3AListGeofencesResponse%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ListGeofenceResponseEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | A pagination token indicating there are additional pages available. You</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- can use the token in a following request to fetch the next set of</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_nextToken"><span class="hs-identifier hs-type">listGeofencesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listGeofencesResponse_nextToken"><span class="annot"><span class="annottext">listGeofencesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGeofencesResponse -&gt; f ListGeofencesResponse
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGeofencesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGeofencesResponse -&gt; Maybe Text)
+-&gt; (ListGeofencesResponse -&gt; Maybe Text -&gt; ListGeofencesResponse)
+-&gt; Lens' ListGeofencesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-type">ListGeofencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266415"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGeofencesResponse' :: ListGeofencesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266415"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266415"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266414"><span class="annot"><span class="annottext">s :: ListGeofencesResponse
+</span><a href="#local-6989586621679266414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-type">ListGeofencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGeofencesResponse
+</span><a href="#local-6989586621679266414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGeofencesResponse' :: Maybe Text
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AnextToken%3AListGeofencesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_httpStatus"><span class="hs-identifier hs-type">listGeofencesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="listGeofencesResponse_httpStatus"><span class="annot"><span class="annottext">listGeofencesResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListGeofencesResponse -&gt; f ListGeofencesResponse
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listGeofencesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGeofencesResponse -&gt; Int)
+-&gt; (ListGeofencesResponse -&gt; Int -&gt; ListGeofencesResponse)
+-&gt; Lens ListGeofencesResponse ListGeofencesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-type">ListGeofencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266412"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListGeofencesResponse' :: ListGeofencesResponse -&gt; Int
+</span><a href="#local-6989586621679266412"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266412"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266411"><span class="annot"><span class="annottext">s :: ListGeofencesResponse
+</span><a href="#local-6989586621679266411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-type">ListGeofencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGeofencesResponse
+</span><a href="#local-6989586621679266411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGeofencesResponse' :: Int
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3AhttpStatus%3AListGeofencesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Contains a list of geofences stored in the geofence collection.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_entries"><span class="hs-identifier hs-type">listGeofencesResponse_entries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Location.Types.ListGeofenceResponseEntry.html#ListGeofenceResponseEntry"><span class="hs-identifier hs-type">ListGeofenceResponseEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span id="listGeofencesResponse_entries"><span class="annot"><span class="annottext">listGeofencesResponse_entries :: ([ListGeofenceResponseEntry] -&gt; f [ListGeofenceResponseEntry])
+-&gt; ListGeofencesResponse -&gt; f ListGeofencesResponse
+</span><a href="Amazonka.Location.ListGeofences.html#listGeofencesResponse_entries"><span class="hs-identifier hs-var hs-var">listGeofencesResponse_entries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGeofencesResponse -&gt; [ListGeofenceResponseEntry])
+-&gt; (ListGeofencesResponse
+    -&gt; [ListGeofenceResponseEntry] -&gt; ListGeofencesResponse)
+-&gt; Lens' ListGeofencesResponse [ListGeofenceResponseEntry]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-type">ListGeofencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266409"><span class="annot"><span class="annottext">[ListGeofenceResponseEntry]
+entries :: [ListGeofenceResponseEntry]
+$sel:entries:ListGeofencesResponse' :: ListGeofencesResponse -&gt; [ListGeofenceResponseEntry]
+</span><a href="#local-6989586621679266409"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ListGeofenceResponseEntry]
+</span><a href="#local-6989586621679266409"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266408"><span class="annot"><span class="annottext">s :: ListGeofencesResponse
+</span><a href="#local-6989586621679266408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse%27"><span class="hs-identifier hs-type">ListGeofencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266407"><span class="annot"><span class="annottext">[ListGeofenceResponseEntry]
+</span><a href="#local-6989586621679266407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGeofencesResponse
+</span><a href="#local-6989586621679266408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:ListGeofencesResponse' :: [ListGeofenceResponseEntry]
+</span><a href="Amazonka.Location.ListGeofences.html#%24sel%3Aentries%3AListGeofencesResponse%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ListGeofenceResponseEntry]
+</span><a href="#local-6989586621679266407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ListGeofenceResponseEntry] -&gt; f [ListGeofenceResponseEntry])
+ -&gt; ListGeofencesResponse -&gt; f ListGeofencesResponse)
+-&gt; (([ListGeofenceResponseEntry] -&gt; f [ListGeofenceResponseEntry])
+    -&gt; [ListGeofenceResponseEntry] -&gt; f [ListGeofenceResponseEntry])
+-&gt; ([ListGeofenceResponseEntry] -&gt; f [ListGeofenceResponseEntry])
+-&gt; ListGeofencesResponse
+-&gt; f ListGeofencesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ListGeofenceResponseEntry] -&gt; f [ListGeofenceResponseEntry])
+-&gt; [ListGeofenceResponseEntry] -&gt; f [ListGeofenceResponseEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Location.ListGeofences.html#ListGeofencesResponse"><span class="hs-identifier hs-type">ListGeofencesResponse</span></a></span></span><span>
+</span><span id="line-218"></span></pre></body></html>

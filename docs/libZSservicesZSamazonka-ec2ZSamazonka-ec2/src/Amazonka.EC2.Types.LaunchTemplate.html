@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.LaunchTemplate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.LaunchTemplate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Tag.html"><span class="hs-identifier">Amazonka.EC2.Types.Tag</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a launch template.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplate' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681160340"><span id="local-6989586621681160341"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplate"><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-var">LaunchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplate%27"><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-var">LaunchTemplate'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the launch template.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlaunchTemplateName%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlaunchTemplateName%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The version number of the latest version of the launch template.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlatestVersionNumber%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe Integer
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlatestVersionNumber%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">latestVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the launch template.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlaunchTemplateId%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlaunchTemplateId%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">launchTemplateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The principal that created the launch template.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedBy%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AcreatedBy%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The version number of the default version of the launch template.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultVersionNumber%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe Integer
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AdefaultVersionNumber%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">defaultVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time launch template was created.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcreateTime%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AcreateTime%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The tags for the launch template.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atags%3ALaunchTemplate%27"><span class="annot"><span class="annottext">LaunchTemplate -&gt; Maybe [Tag]
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3Atags%3ALaunchTemplate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681160328"><span id="local-6989586621681160330"><span class="annot"><span class="annottext">LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
+(LaunchTemplate -&gt; LaunchTemplate -&gt; Bool)
+-&gt; (LaunchTemplate -&gt; LaunchTemplate -&gt; Bool) -&gt; Eq LaunchTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
+$c/= :: LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
+== :: LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
+$c== :: LaunchTemplate -&gt; LaunchTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160319"><span id="local-6989586621681160321"><span id="local-6989586621681160323"><span id="local-6989586621681160325"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplate]
+ReadPrec LaunchTemplate
+Int -&gt; ReadS LaunchTemplate
+ReadS [LaunchTemplate]
+(Int -&gt; ReadS LaunchTemplate)
+-&gt; ReadS [LaunchTemplate]
+-&gt; ReadPrec LaunchTemplate
+-&gt; ReadPrec [LaunchTemplate]
+-&gt; Read LaunchTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LaunchTemplate]
+$creadListPrec :: ReadPrec [LaunchTemplate]
+readPrec :: ReadPrec LaunchTemplate
+$creadPrec :: ReadPrec LaunchTemplate
+readList :: ReadS [LaunchTemplate]
+$creadList :: ReadS [LaunchTemplate]
+readsPrec :: Int -&gt; ReadS LaunchTemplate
+$creadsPrec :: Int -&gt; ReadS LaunchTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160312"><span id="local-6989586621681160314"><span id="local-6989586621681160316"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplate -&gt; ShowS
+[LaunchTemplate] -&gt; ShowS
+LaunchTemplate -&gt; String
+(Int -&gt; LaunchTemplate -&gt; ShowS)
+-&gt; (LaunchTemplate -&gt; String)
+-&gt; ([LaunchTemplate] -&gt; ShowS)
+-&gt; Show LaunchTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LaunchTemplate] -&gt; ShowS
+$cshowList :: [LaunchTemplate] -&gt; ShowS
+show :: LaunchTemplate -&gt; String
+$cshow :: LaunchTemplate -&gt; String
+showsPrec :: Int -&gt; LaunchTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; LaunchTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LaunchTemplate -&gt; Rep LaunchTemplate x)
+-&gt; (forall x. Rep LaunchTemplate x -&gt; LaunchTemplate)
+-&gt; Generic LaunchTemplate
+forall x. Rep LaunchTemplate x -&gt; LaunchTemplate
+forall x. LaunchTemplate -&gt; Rep LaunchTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LaunchTemplate x -&gt; LaunchTemplate
+$cfrom :: forall x. LaunchTemplate -&gt; Rep LaunchTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'LaunchTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'launchTemplateName', 'launchTemplate_launchTemplateName' - The name of the launch template.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'latestVersionNumber', 'launchTemplate_latestVersionNumber' - The version number of the latest version of the launch template.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'launchTemplateId', 'launchTemplate_launchTemplateId' - The ID of the launch template.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'createdBy', 'launchTemplate_createdBy' - The principal that created the launch template.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'defaultVersionNumber', 'launchTemplate_defaultVersionNumber' - The version number of the default version of the launch template.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'createTime', 'launchTemplate_createTime' - The time launch template was created.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'tags', 'launchTemplate_tags' - The tags for the launch template.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#newLaunchTemplate"><span class="hs-identifier hs-type">newLaunchTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span>
+</span><span id="line-72"></span><span id="newLaunchTemplate"><span class="annot"><span class="annottext">newLaunchTemplate :: LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#newLaunchTemplate"><span class="hs-identifier hs-var hs-var">newLaunchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">LaunchTemplate' :: Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe ISO8601
+-&gt; Maybe [Tag]
+-&gt; LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplateName:LaunchTemplate' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlaunchTemplateName%3ALaunchTemplate%27"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionNumber:LaunchTemplate' :: Maybe Integer
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlatestVersionNumber%3ALaunchTemplate%27"><span class="hs-identifier hs-var">latestVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplateId:LaunchTemplate' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlaunchTemplateId%3ALaunchTemplate%27"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:LaunchTemplate' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AcreatedBy%3ALaunchTemplate%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultVersionNumber:LaunchTemplate' :: Maybe Integer
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AdefaultVersionNumber%3ALaunchTemplate%27"><span class="hs-identifier hs-var">defaultVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:LaunchTemplate' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AcreateTime%3ALaunchTemplate%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:LaunchTemplate' :: Maybe [Tag]
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3Atags%3ALaunchTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the launch template.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_launchTemplateName"><span class="hs-identifier hs-type">launchTemplate_launchTemplateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="launchTemplate_launchTemplateName"><span class="annot"><span class="annottext">launchTemplate_launchTemplateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplate -&gt; f LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_launchTemplateName"><span class="hs-identifier hs-var hs-var">launchTemplate_launchTemplateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplate -&gt; Maybe Text)
+-&gt; (LaunchTemplate -&gt; Maybe Text -&gt; LaunchTemplate)
+-&gt; Lens LaunchTemplate LaunchTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160303"><span class="annot"><span class="annottext">Maybe Text
+launchTemplateName :: Maybe Text
+$sel:launchTemplateName:LaunchTemplate' :: LaunchTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621681160303"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160303"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160302"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621681160302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160301"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621681160302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateName:LaunchTemplate' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlaunchTemplateName%3ALaunchTemplate%27"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The version number of the latest version of the launch template.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_latestVersionNumber"><span class="hs-identifier hs-type">launchTemplate_latestVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="launchTemplate_latestVersionNumber"><span class="annot"><span class="annottext">launchTemplate_latestVersionNumber :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; LaunchTemplate -&gt; f LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_latestVersionNumber"><span class="hs-identifier hs-var hs-var">launchTemplate_latestVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplate -&gt; Maybe Integer)
+-&gt; (LaunchTemplate -&gt; Maybe Integer -&gt; LaunchTemplate)
+-&gt; Lens
+     LaunchTemplate LaunchTemplate (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160299"><span class="annot"><span class="annottext">Maybe Integer
+latestVersionNumber :: Maybe Integer
+$sel:latestVersionNumber:LaunchTemplate' :: LaunchTemplate -&gt; Maybe Integer
+</span><a href="#local-6989586621681160299"><span class="hs-identifier hs-var hs-var">latestVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681160299"><span class="hs-identifier hs-var">latestVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160298"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621681160298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160297"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681160297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621681160298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionNumber:LaunchTemplate' :: Maybe Integer
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlatestVersionNumber%3ALaunchTemplate%27"><span class="hs-identifier hs-var">latestVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681160297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The ID of the launch template.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_launchTemplateId"><span class="hs-identifier hs-type">launchTemplate_launchTemplateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="launchTemplate_launchTemplateId"><span class="annot"><span class="annottext">launchTemplate_launchTemplateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplate -&gt; f LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_launchTemplateId"><span class="hs-identifier hs-var hs-var">launchTemplate_launchTemplateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplate -&gt; Maybe Text)
+-&gt; (LaunchTemplate -&gt; Maybe Text -&gt; LaunchTemplate)
+-&gt; Lens LaunchTemplate LaunchTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160295"><span class="annot"><span class="annottext">Maybe Text
+launchTemplateId :: Maybe Text
+$sel:launchTemplateId:LaunchTemplate' :: LaunchTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621681160295"><span class="hs-identifier hs-var hs-var">launchTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160295"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160294"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621681160294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621681160294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateId:LaunchTemplate' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AlaunchTemplateId%3ALaunchTemplate%27"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The principal that created the launch template.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_createdBy"><span class="hs-identifier hs-type">launchTemplate_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="launchTemplate_createdBy"><span class="annot"><span class="annottext">launchTemplate_createdBy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplate -&gt; f LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_createdBy"><span class="hs-identifier hs-var hs-var">launchTemplate_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplate -&gt; Maybe Text)
+-&gt; (LaunchTemplate -&gt; Maybe Text -&gt; LaunchTemplate)
+-&gt; Lens LaunchTemplate LaunchTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160291"><span class="annot"><span class="annottext">Maybe Text
+createdBy :: Maybe Text
+$sel:createdBy:LaunchTemplate' :: LaunchTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621681160291"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160291"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160290"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621681160290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160289"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621681160290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:LaunchTemplate' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AcreatedBy%3ALaunchTemplate%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The version number of the default version of the launch template.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_defaultVersionNumber"><span class="hs-identifier hs-type">launchTemplate_defaultVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="launchTemplate_defaultVersionNumber"><span class="annot"><span class="annottext">launchTemplate_defaultVersionNumber :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; LaunchTemplate -&gt; f LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_defaultVersionNumber"><span class="hs-identifier hs-var hs-var">launchTemplate_defaultVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplate -&gt; Maybe Integer)
+-&gt; (LaunchTemplate -&gt; Maybe Integer -&gt; LaunchTemplate)
+-&gt; Lens
+     LaunchTemplate LaunchTemplate (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160287"><span class="annot"><span class="annottext">Maybe Integer
+defaultVersionNumber :: Maybe Integer
+$sel:defaultVersionNumber:LaunchTemplate' :: LaunchTemplate -&gt; Maybe Integer
+</span><a href="#local-6989586621681160287"><span class="hs-identifier hs-var hs-var">defaultVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681160287"><span class="hs-identifier hs-var">defaultVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160286"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621681160286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160285"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681160285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621681160286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultVersionNumber:LaunchTemplate' :: Maybe Integer
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AdefaultVersionNumber%3ALaunchTemplate%27"><span class="hs-identifier hs-var">defaultVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681160285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The time launch template was created.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_createTime"><span class="hs-identifier hs-type">launchTemplate_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="launchTemplate_createTime"><span class="annot"><span class="annottext">launchTemplate_createTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LaunchTemplate -&gt; f LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_createTime"><span class="hs-identifier hs-var hs-var">launchTemplate_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplate -&gt; Maybe ISO8601)
+-&gt; (LaunchTemplate -&gt; Maybe ISO8601 -&gt; LaunchTemplate)
+-&gt; Lens
+     LaunchTemplate LaunchTemplate (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160283"><span class="annot"><span class="annottext">Maybe ISO8601
+createTime :: Maybe ISO8601
+$sel:createTime:LaunchTemplate' :: LaunchTemplate -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681160283"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681160283"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160282"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621681160282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160281"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681160281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621681160282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:LaunchTemplate' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3AcreateTime%3ALaunchTemplate%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681160281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; LaunchTemplate -&gt; f LaunchTemplate)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LaunchTemplate
+-&gt; f LaunchTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The tags for the launch template.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_tags"><span class="hs-identifier hs-type">launchTemplate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="launchTemplate_tags"><span class="annot"><span class="annottext">launchTemplate_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; LaunchTemplate -&gt; f LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#launchTemplate_tags"><span class="hs-identifier hs-var hs-var">launchTemplate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplate -&gt; Maybe [Tag])
+-&gt; (LaunchTemplate -&gt; Maybe [Tag] -&gt; LaunchTemplate)
+-&gt; Lens LaunchTemplate LaunchTemplate (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160276"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:LaunchTemplate' :: LaunchTemplate -&gt; Maybe [Tag]
+</span><a href="#local-6989586621681160276"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160276"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160275"><span class="annot"><span class="annottext">s :: LaunchTemplate
+</span><a href="#local-6989586621681160275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-type">LaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160274"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplate
+</span><a href="#local-6989586621681160275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LaunchTemplate' :: Maybe [Tag]
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#%24sel%3Atags%3ALaunchTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; LaunchTemplate -&gt; f LaunchTemplate)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; LaunchTemplate
+-&gt; f LaunchTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621681160270"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681160268"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe ISO8601
+-&gt; Maybe [Tag]
+-&gt; LaunchTemplate
+</span><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate%27"><span class="hs-identifier hs-var">LaunchTemplate'</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe ISO8601
+ -&gt; Maybe [Tag]
+ -&gt; LaunchTemplate)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Tag]
+      -&gt; LaunchTemplate)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchTemplateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Tag]
+   -&gt; LaunchTemplate)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Tag]
+      -&gt; LaunchTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;latestVersionNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Tag]
+   -&gt; LaunchTemplate)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Integer -&gt; Maybe ISO8601 -&gt; Maybe [Tag] -&gt; LaunchTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchTemplateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Integer -&gt; Maybe ISO8601 -&gt; Maybe [Tag] -&gt; LaunchTemplate)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Integer -&gt; Maybe ISO8601 -&gt; Maybe [Tag] -&gt; LaunchTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer -&gt; Maybe ISO8601 -&gt; Maybe [Tag] -&gt; LaunchTemplate)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Maybe ISO8601 -&gt; Maybe [Tag] -&gt; LaunchTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultVersionNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe [Tag] -&gt; LaunchTemplate)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe [Tag] -&gt; LaunchTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; LaunchTemplate)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String LaunchTemplate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160259"><span id="local-6989586621681160261"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span></span><span>
+</span><span id="line-128"></span></pre></body></html>

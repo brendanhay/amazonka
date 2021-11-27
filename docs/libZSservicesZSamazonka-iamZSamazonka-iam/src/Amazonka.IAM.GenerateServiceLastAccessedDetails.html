@@ -1,0 +1,626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.GenerateServiceLastAccessedDetails</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates a report that includes details about when an IAM resource</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (user, group, role, or policy) was last used in an attempt to access</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Amazon Web Services services. Recent activity usually appears within</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- four hours. IAM reports activity for the last 365 days, or less if your</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Region began supporting this feature within the last year. For more</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The service last accessed data includes&#160;all&#160;attempts to access an Amazon</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Web Services API, not just the successful ones. This includes all</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- attempts that were made using the Amazon Web Services Management</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Console, the Amazon Web Services API through any of the SDKs, or any of</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the command line tools. An unexpected entry in the service last accessed</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- data does not mean that your account has been compromised, because the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- request might have been denied. Refer to your CloudTrail logs as the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- authoritative source for information about all API calls and whether</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- they were successful or denied access. For more information,</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- see&#160;&lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html Logging IAM events with CloudTrail&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The @GenerateServiceLastAccessedDetails@ operation returns a @JobId@.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use this parameter in the following operations to retrieve the following</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- details from your report:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- -   GetServiceLastAccessedDetails &#8211; Use this operation for users,</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     groups, roles, or policies to list every Amazon Web Services service</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     that the resource could access using permissions policies. For each</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     service, the response includes information about the most recent</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     access attempt.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     The @JobId@ returned by @GenerateServiceLastAccessedDetail@ must be</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     used by the same role within a session, or by the same user when</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     used to call @GetServiceLastAccessedDetail@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- -   GetServiceLastAccessedDetailsWithEntities &#8211; Use this operation for</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--     groups and policies to list information about the associated</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--     entities (users or roles) that attempted to access a specific Amazon</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--     Web Services service.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- To check the status of the @GenerateServiceLastAccessedDetails@ request,</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- use the @JobId@ parameter in the same operations and test the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- @JobStatus@ response parameter.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- For additional information about the permissions policies that allow an</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- identity (user, group, or role) to access specific services, use the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- ListPoliciesGrantingServiceAccess operation.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Service last accessed data does not use other policy types when</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- determining whether a resource could access a service. These other</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- policy types include resource-based policies, access control lists,</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Organizations policies, IAM permissions boundaries, and STS assume role</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- policies. It only applies permissions policy logic. For more about the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- evaluation of policy types, see</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating policies&gt;</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- For more information about service and action last accessed data, see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html Reducing permissions using service last accessed data&gt;</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-82"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.GenerateServiceLastAccessedDetails</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier">GenerateServiceLastAccessedDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#newGenerateServiceLastAccessedDetails"><span class="hs-identifier">newGenerateServiceLastAccessedDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetails_granularity"><span class="hs-identifier">generateServiceLastAccessedDetails_granularity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetails_arn"><span class="hs-identifier">generateServiceLastAccessedDetails_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier">GenerateServiceLastAccessedDetailsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#newGenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier">newGenerateServiceLastAccessedDetailsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetailsResponse_jobId"><span class="hs-identifier">generateServiceLastAccessedDetailsResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetailsResponse_httpStatus"><span class="hs-identifier">generateServiceLastAccessedDetailsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newGenerateServiceLastAccessedDetails' smart constructor.</span><span>
+</span><span id="line-109"></span><span id="local-6989586621679452579"><span id="local-6989586621679452580"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateServiceLastAccessedDetails"><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-var">GenerateServiceLastAccessedDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateServiceLastAccessedDetails%27"><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-var">GenerateServiceLastAccessedDetails'</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of detail that you want to generate. You can specify whether</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- you want to generate information about the last attempt to access</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- services or actions. If you specify service-level granularity, this</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- operation generates only service data. If you specify action-level</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- granularity, it generates service and action data. If you don\'t include</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- this optional parameter, the operation generates service data.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Agranularity%3AGenerateServiceLastAccessedDetails%27"><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetails
+-&gt; Maybe AccessAdvisorUsageGranularityType
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3Agranularity%3AGenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessAdvisorUsageGranularityType.html#AccessAdvisorUsageGranularityType"><span class="hs-identifier hs-type">AccessAdvisorUsageGranularityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM resource (user, group, role, or managed policy) used</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- to generate information about when the resource was last used in an</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- attempt to access an Amazon Web Services service.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Aarn%3AGenerateServiceLastAccessedDetails%27"><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetails -&gt; Text
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3Aarn%3AGenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452572"><span id="local-6989586621679452574"><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetails
+-&gt; GenerateServiceLastAccessedDetails -&gt; Bool
+(GenerateServiceLastAccessedDetails
+ -&gt; GenerateServiceLastAccessedDetails -&gt; Bool)
+-&gt; (GenerateServiceLastAccessedDetails
+    -&gt; GenerateServiceLastAccessedDetails -&gt; Bool)
+-&gt; Eq GenerateServiceLastAccessedDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GenerateServiceLastAccessedDetails
+-&gt; GenerateServiceLastAccessedDetails -&gt; Bool
+$c/= :: GenerateServiceLastAccessedDetails
+-&gt; GenerateServiceLastAccessedDetails -&gt; Bool
+== :: GenerateServiceLastAccessedDetails
+-&gt; GenerateServiceLastAccessedDetails -&gt; Bool
+$c== :: GenerateServiceLastAccessedDetails
+-&gt; GenerateServiceLastAccessedDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452563"><span id="local-6989586621679452565"><span id="local-6989586621679452567"><span id="local-6989586621679452569"><span class="annot"><span class="annottext">ReadPrec [GenerateServiceLastAccessedDetails]
+ReadPrec GenerateServiceLastAccessedDetails
+Int -&gt; ReadS GenerateServiceLastAccessedDetails
+ReadS [GenerateServiceLastAccessedDetails]
+(Int -&gt; ReadS GenerateServiceLastAccessedDetails)
+-&gt; ReadS [GenerateServiceLastAccessedDetails]
+-&gt; ReadPrec GenerateServiceLastAccessedDetails
+-&gt; ReadPrec [GenerateServiceLastAccessedDetails]
+-&gt; Read GenerateServiceLastAccessedDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GenerateServiceLastAccessedDetails]
+$creadListPrec :: ReadPrec [GenerateServiceLastAccessedDetails]
+readPrec :: ReadPrec GenerateServiceLastAccessedDetails
+$creadPrec :: ReadPrec GenerateServiceLastAccessedDetails
+readList :: ReadS [GenerateServiceLastAccessedDetails]
+$creadList :: ReadS [GenerateServiceLastAccessedDetails]
+readsPrec :: Int -&gt; ReadS GenerateServiceLastAccessedDetails
+$creadsPrec :: Int -&gt; ReadS GenerateServiceLastAccessedDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452556"><span id="local-6989586621679452558"><span id="local-6989586621679452560"><span class="annot"><span class="annottext">Int -&gt; GenerateServiceLastAccessedDetails -&gt; ShowS
+[GenerateServiceLastAccessedDetails] -&gt; ShowS
+GenerateServiceLastAccessedDetails -&gt; String
+(Int -&gt; GenerateServiceLastAccessedDetails -&gt; ShowS)
+-&gt; (GenerateServiceLastAccessedDetails -&gt; String)
+-&gt; ([GenerateServiceLastAccessedDetails] -&gt; ShowS)
+-&gt; Show GenerateServiceLastAccessedDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GenerateServiceLastAccessedDetails] -&gt; ShowS
+$cshowList :: [GenerateServiceLastAccessedDetails] -&gt; ShowS
+show :: GenerateServiceLastAccessedDetails -&gt; String
+$cshow :: GenerateServiceLastAccessedDetails -&gt; String
+showsPrec :: Int -&gt; GenerateServiceLastAccessedDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; GenerateServiceLastAccessedDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GenerateServiceLastAccessedDetails
+ -&gt; Rep GenerateServiceLastAccessedDetails x)
+-&gt; (forall x.
+    Rep GenerateServiceLastAccessedDetails x
+    -&gt; GenerateServiceLastAccessedDetails)
+-&gt; Generic GenerateServiceLastAccessedDetails
+forall x.
+Rep GenerateServiceLastAccessedDetails x
+-&gt; GenerateServiceLastAccessedDetails
+forall x.
+GenerateServiceLastAccessedDetails
+-&gt; Rep GenerateServiceLastAccessedDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GenerateServiceLastAccessedDetails x
+-&gt; GenerateServiceLastAccessedDetails
+$cfrom :: forall x.
+GenerateServiceLastAccessedDetails
+-&gt; Rep GenerateServiceLastAccessedDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'GenerateServiceLastAccessedDetails' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'granularity', 'generateServiceLastAccessedDetails_granularity' - The level of detail that you want to generate. You can specify whether</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- you want to generate information about the last attempt to access</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- services or actions. If you specify service-level granularity, this</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- operation generates only service data. If you specify action-level</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- granularity, it generates service and action data. If you don\'t include</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- this optional parameter, the operation generates service data.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'arn', 'generateServiceLastAccessedDetails_arn' - The ARN of the IAM resource (user, group, role, or managed policy) used</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- to generate information about when the resource was last used in an</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- attempt to access an Amazon Web Services service.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#newGenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">newGenerateServiceLastAccessedDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span>
+</span><span id="line-146"></span><span id="newGenerateServiceLastAccessedDetails"><span class="annot"><span class="annottext">newGenerateServiceLastAccessedDetails :: Text -&gt; GenerateServiceLastAccessedDetails
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#newGenerateServiceLastAccessedDetails"><span class="hs-identifier hs-var hs-var">newGenerateServiceLastAccessedDetails</span></a></span></span><span> </span><span id="local-6989586621679452551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452551"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetails' :: Maybe AccessAdvisorUsageGranularityType
+-&gt; Text -&gt; GenerateServiceLastAccessedDetails
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:granularity:GenerateServiceLastAccessedDetails' :: Maybe AccessAdvisorUsageGranularityType
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3Agranularity%3AGenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccessAdvisorUsageGranularityType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GenerateServiceLastAccessedDetails' :: Text
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3Aarn%3AGenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452551"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The level of detail that you want to generate. You can specify whether</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- you want to generate information about the last attempt to access</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- services or actions. If you specify service-level granularity, this</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- operation generates only service data. If you specify action-level</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- granularity, it generates service and action data. If you don\'t include</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- this optional parameter, the operation generates service data.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetails_granularity"><span class="hs-identifier hs-type">generateServiceLastAccessedDetails_granularity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessAdvisorUsageGranularityType.html#AccessAdvisorUsageGranularityType"><span class="hs-identifier hs-type">AccessAdvisorUsageGranularityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="generateServiceLastAccessedDetails_granularity"><span class="annot"><span class="annottext">generateServiceLastAccessedDetails_granularity :: (Maybe AccessAdvisorUsageGranularityType
+ -&gt; f (Maybe AccessAdvisorUsageGranularityType))
+-&gt; GenerateServiceLastAccessedDetails
+-&gt; f GenerateServiceLastAccessedDetails
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetails_granularity"><span class="hs-identifier hs-var hs-var">generateServiceLastAccessedDetails_granularity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateServiceLastAccessedDetails
+ -&gt; Maybe AccessAdvisorUsageGranularityType)
+-&gt; (GenerateServiceLastAccessedDetails
+    -&gt; Maybe AccessAdvisorUsageGranularityType
+    -&gt; GenerateServiceLastAccessedDetails)
+-&gt; Lens
+     GenerateServiceLastAccessedDetails
+     GenerateServiceLastAccessedDetails
+     (Maybe AccessAdvisorUsageGranularityType)
+     (Maybe AccessAdvisorUsageGranularityType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452548"><span class="annot"><span class="annottext">Maybe AccessAdvisorUsageGranularityType
+granularity :: Maybe AccessAdvisorUsageGranularityType
+$sel:granularity:GenerateServiceLastAccessedDetails' :: GenerateServiceLastAccessedDetails
+-&gt; Maybe AccessAdvisorUsageGranularityType
+</span><a href="#local-6989586621679452548"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessAdvisorUsageGranularityType
+</span><a href="#local-6989586621679452548"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452547"><span class="annot"><span class="annottext">s :: GenerateServiceLastAccessedDetails
+</span><a href="#local-6989586621679452547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452546"><span class="annot"><span class="annottext">Maybe AccessAdvisorUsageGranularityType
+</span><a href="#local-6989586621679452546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetails
+</span><a href="#local-6989586621679452547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:GenerateServiceLastAccessedDetails' :: Maybe AccessAdvisorUsageGranularityType
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3Agranularity%3AGenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessAdvisorUsageGranularityType
+</span><a href="#local-6989586621679452546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The ARN of the IAM resource (user, group, role, or managed policy) used</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- to generate information about when the resource was last used in an</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- attempt to access an Amazon Web Services service.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetails_arn"><span class="hs-identifier hs-type">generateServiceLastAccessedDetails_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-166"></span><span id="generateServiceLastAccessedDetails_arn"><span class="annot"><span class="annottext">generateServiceLastAccessedDetails_arn :: (Text -&gt; f Text)
+-&gt; GenerateServiceLastAccessedDetails
+-&gt; f GenerateServiceLastAccessedDetails
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetails_arn"><span class="hs-identifier hs-var hs-var">generateServiceLastAccessedDetails_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateServiceLastAccessedDetails -&gt; Text)
+-&gt; (GenerateServiceLastAccessedDetails
+    -&gt; Text -&gt; GenerateServiceLastAccessedDetails)
+-&gt; Lens
+     GenerateServiceLastAccessedDetails
+     GenerateServiceLastAccessedDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452545"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GenerateServiceLastAccessedDetails' :: GenerateServiceLastAccessedDetails -&gt; Text
+</span><a href="#local-6989586621679452545"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452545"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452544"><span class="annot"><span class="annottext">s :: GenerateServiceLastAccessedDetails
+</span><a href="#local-6989586621679452544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetails
+</span><a href="#local-6989586621679452544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GenerateServiceLastAccessedDetails' :: Text
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3Aarn%3AGenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-173"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679452539"><span class="annot"><span class="annottext">request :: GenerateServiceLastAccessedDetails
+-&gt; Request GenerateServiceLastAccessedDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GenerateServiceLastAccessedDetails
+-&gt; Request GenerateServiceLastAccessedDetails
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679452535"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GenerateServiceLastAccessedDetails
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GenerateServiceLastAccessedDetails)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GenerateServiceLastAccessedDetails))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GenerateServiceLastAccessedDetails
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GenerateServiceLastAccessedDetails)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GenerateServiceLastAccessedDetailsResult&quot;</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679452531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452530"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679452530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GenerateServiceLastAccessedDetailsResponse
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var">GenerateServiceLastAccessedDetailsResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GenerateServiceLastAccessedDetailsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; GenerateServiceLastAccessedDetailsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679452530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; GenerateServiceLastAccessedDetailsResponse)
+-&gt; Either String Int
+-&gt; Either String GenerateServiceLastAccessedDetailsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679452522"><span id="local-6989586621679452524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679452519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679452515"><span class="annot"><span class="annottext">toHeaders :: GenerateServiceLastAccessedDetails -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GenerateServiceLastAccessedDetails -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679452510"><span class="annot"><span class="annottext">toPath :: GenerateServiceLastAccessedDetails -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GenerateServiceLastAccessedDetails -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails</span></a></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679452506"><span class="annot"><span class="annottext">toQuery :: GenerateServiceLastAccessedDetails -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetails%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452503"><span id="local-6989586621679452504"><span class="annot"><span class="annottext">Maybe AccessAdvisorUsageGranularityType
+Text
+arn :: Text
+granularity :: Maybe AccessAdvisorUsageGranularityType
+$sel:arn:GenerateServiceLastAccessedDetails' :: GenerateServiceLastAccessedDetails -&gt; Text
+$sel:granularity:GenerateServiceLastAccessedDetails' :: GenerateServiceLastAccessedDetails
+-&gt; Maybe AccessAdvisorUsageGranularityType
+</span><a href="#local-6989586621679452503"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GenerateServiceLastAccessedDetails&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-214"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Granularity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe AccessAdvisorUsageGranularityType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessAdvisorUsageGranularityType
+</span><a href="#local-6989586621679452504"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452503"><span class="hs-identifier hs-var">arn</span></a></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | /See:/ 'newGenerateServiceLastAccessedDetailsResponse' smart constructor.</span><span>
+</span><span id="line-222"></span><span id="local-6989586621679452500"><span id="local-6989586621679452501"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateServiceLastAccessedDetailsResponse"><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-var">GenerateServiceLastAccessedDetailsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateServiceLastAccessedDetailsResponse%27"><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var">GenerateServiceLastAccessedDetailsResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @JobId@ that you can use in the GetServiceLastAccessedDetails or</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- GetServiceLastAccessedDetailsWithEntities operations. The @JobId@</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- returned by @GenerateServiceLastAccessedDetail@ must be used by the same</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- role within a session, or by the same user when used to call</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- @GetServiceLastAccessedDetail@.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AjobId%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetailsResponse -&gt; Maybe Text
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3AjobId%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetailsResponse -&gt; Int
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3AhttpStatus%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452494"><span id="local-6989586621679452496"><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetailsResponse
+-&gt; GenerateServiceLastAccessedDetailsResponse -&gt; Bool
+(GenerateServiceLastAccessedDetailsResponse
+ -&gt; GenerateServiceLastAccessedDetailsResponse -&gt; Bool)
+-&gt; (GenerateServiceLastAccessedDetailsResponse
+    -&gt; GenerateServiceLastAccessedDetailsResponse -&gt; Bool)
+-&gt; Eq GenerateServiceLastAccessedDetailsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GenerateServiceLastAccessedDetailsResponse
+-&gt; GenerateServiceLastAccessedDetailsResponse -&gt; Bool
+$c/= :: GenerateServiceLastAccessedDetailsResponse
+-&gt; GenerateServiceLastAccessedDetailsResponse -&gt; Bool
+== :: GenerateServiceLastAccessedDetailsResponse
+-&gt; GenerateServiceLastAccessedDetailsResponse -&gt; Bool
+$c== :: GenerateServiceLastAccessedDetailsResponse
+-&gt; GenerateServiceLastAccessedDetailsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452486"><span id="local-6989586621679452488"><span id="local-6989586621679452490"><span id="local-6989586621679452492"><span class="annot"><span class="annottext">ReadPrec [GenerateServiceLastAccessedDetailsResponse]
+ReadPrec GenerateServiceLastAccessedDetailsResponse
+Int -&gt; ReadS GenerateServiceLastAccessedDetailsResponse
+ReadS [GenerateServiceLastAccessedDetailsResponse]
+(Int -&gt; ReadS GenerateServiceLastAccessedDetailsResponse)
+-&gt; ReadS [GenerateServiceLastAccessedDetailsResponse]
+-&gt; ReadPrec GenerateServiceLastAccessedDetailsResponse
+-&gt; ReadPrec [GenerateServiceLastAccessedDetailsResponse]
+-&gt; Read GenerateServiceLastAccessedDetailsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GenerateServiceLastAccessedDetailsResponse]
+$creadListPrec :: ReadPrec [GenerateServiceLastAccessedDetailsResponse]
+readPrec :: ReadPrec GenerateServiceLastAccessedDetailsResponse
+$creadPrec :: ReadPrec GenerateServiceLastAccessedDetailsResponse
+readList :: ReadS [GenerateServiceLastAccessedDetailsResponse]
+$creadList :: ReadS [GenerateServiceLastAccessedDetailsResponse]
+readsPrec :: Int -&gt; ReadS GenerateServiceLastAccessedDetailsResponse
+$creadsPrec :: Int -&gt; ReadS GenerateServiceLastAccessedDetailsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452480"><span id="local-6989586621679452482"><span id="local-6989586621679452484"><span class="annot"><span class="annottext">Int -&gt; GenerateServiceLastAccessedDetailsResponse -&gt; ShowS
+[GenerateServiceLastAccessedDetailsResponse] -&gt; ShowS
+GenerateServiceLastAccessedDetailsResponse -&gt; String
+(Int -&gt; GenerateServiceLastAccessedDetailsResponse -&gt; ShowS)
+-&gt; (GenerateServiceLastAccessedDetailsResponse -&gt; String)
+-&gt; ([GenerateServiceLastAccessedDetailsResponse] -&gt; ShowS)
+-&gt; Show GenerateServiceLastAccessedDetailsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GenerateServiceLastAccessedDetailsResponse] -&gt; ShowS
+$cshowList :: [GenerateServiceLastAccessedDetailsResponse] -&gt; ShowS
+show :: GenerateServiceLastAccessedDetailsResponse -&gt; String
+$cshow :: GenerateServiceLastAccessedDetailsResponse -&gt; String
+showsPrec :: Int -&gt; GenerateServiceLastAccessedDetailsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GenerateServiceLastAccessedDetailsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GenerateServiceLastAccessedDetailsResponse
+ -&gt; Rep GenerateServiceLastAccessedDetailsResponse x)
+-&gt; (forall x.
+    Rep GenerateServiceLastAccessedDetailsResponse x
+    -&gt; GenerateServiceLastAccessedDetailsResponse)
+-&gt; Generic GenerateServiceLastAccessedDetailsResponse
+forall x.
+Rep GenerateServiceLastAccessedDetailsResponse x
+-&gt; GenerateServiceLastAccessedDetailsResponse
+forall x.
+GenerateServiceLastAccessedDetailsResponse
+-&gt; Rep GenerateServiceLastAccessedDetailsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GenerateServiceLastAccessedDetailsResponse x
+-&gt; GenerateServiceLastAccessedDetailsResponse
+$cfrom :: forall x.
+GenerateServiceLastAccessedDetailsResponse
+-&gt; Rep GenerateServiceLastAccessedDetailsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Create a value of 'GenerateServiceLastAccessedDetailsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'jobId', 'generateServiceLastAccessedDetailsResponse_jobId' - The @JobId@ that you can use in the GetServiceLastAccessedDetails or</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- GetServiceLastAccessedDetailsWithEntities operations. The @JobId@</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- returned by @GenerateServiceLastAccessedDetail@ must be used by the same</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- role within a session, or by the same user when used to call</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- @GetServiceLastAccessedDetail@.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'httpStatus', 'generateServiceLastAccessedDetailsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#newGenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">newGenerateServiceLastAccessedDetailsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse</span></a></span><span>
+</span><span id="line-253"></span><span id="newGenerateServiceLastAccessedDetailsResponse"><span class="annot"><span class="annottext">newGenerateServiceLastAccessedDetailsResponse :: Int -&gt; GenerateServiceLastAccessedDetailsResponse
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#newGenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-var hs-var">newGenerateServiceLastAccessedDetailsResponse</span></a></span></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679452477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetailsResponse' :: Maybe Text -&gt; Int -&gt; GenerateServiceLastAccessedDetailsResponse
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse'</span></a></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:GenerateServiceLastAccessedDetailsResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3AjobId%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateServiceLastAccessedDetailsResponse' :: Int
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3AhttpStatus%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The @JobId@ that you can use in the GetServiceLastAccessedDetails or</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- GetServiceLastAccessedDetailsWithEntities operations. The @JobId@</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- returned by @GenerateServiceLastAccessedDetail@ must be used by the same</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- role within a session, or by the same user when used to call</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- @GetServiceLastAccessedDetail@.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetailsResponse_jobId"><span class="hs-identifier hs-type">generateServiceLastAccessedDetailsResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="generateServiceLastAccessedDetailsResponse_jobId"><span class="annot"><span class="annottext">generateServiceLastAccessedDetailsResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GenerateServiceLastAccessedDetailsResponse
+-&gt; f GenerateServiceLastAccessedDetailsResponse
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetailsResponse_jobId"><span class="hs-identifier hs-var hs-var">generateServiceLastAccessedDetailsResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateServiceLastAccessedDetailsResponse -&gt; Maybe Text)
+-&gt; (GenerateServiceLastAccessedDetailsResponse
+    -&gt; Maybe Text -&gt; GenerateServiceLastAccessedDetailsResponse)
+-&gt; Lens
+     GenerateServiceLastAccessedDetailsResponse
+     GenerateServiceLastAccessedDetailsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452476"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:GenerateServiceLastAccessedDetailsResponse' :: GenerateServiceLastAccessedDetailsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679452476"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452476"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452475"><span class="annot"><span class="annottext">s :: GenerateServiceLastAccessedDetailsResponse
+</span><a href="#local-6989586621679452475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452474"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetailsResponse
+</span><a href="#local-6989586621679452475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GenerateServiceLastAccessedDetailsResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3AjobId%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetailsResponse_httpStatus"><span class="hs-identifier hs-type">generateServiceLastAccessedDetailsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-271"></span><span id="generateServiceLastAccessedDetailsResponse_httpStatus"><span class="annot"><span class="annottext">generateServiceLastAccessedDetailsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GenerateServiceLastAccessedDetailsResponse
+-&gt; f GenerateServiceLastAccessedDetailsResponse
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#generateServiceLastAccessedDetailsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">generateServiceLastAccessedDetailsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateServiceLastAccessedDetailsResponse -&gt; Int)
+-&gt; (GenerateServiceLastAccessedDetailsResponse
+    -&gt; Int -&gt; GenerateServiceLastAccessedDetailsResponse)
+-&gt; Lens
+     GenerateServiceLastAccessedDetailsResponse
+     GenerateServiceLastAccessedDetailsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452473"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GenerateServiceLastAccessedDetailsResponse' :: GenerateServiceLastAccessedDetailsResponse -&gt; Int
+</span><a href="#local-6989586621679452473"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452473"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452472"><span class="annot"><span class="annottext">s :: GenerateServiceLastAccessedDetailsResponse
+</span><a href="#local-6989586621679452472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452471"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateServiceLastAccessedDetailsResponse
+</span><a href="#local-6989586621679452472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateServiceLastAccessedDetailsResponse' :: Int
+</span><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#%24sel%3AhttpStatus%3AGenerateServiceLastAccessedDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679452469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GenerateServiceLastAccessedDetails.html#GenerateServiceLastAccessedDetailsResponse"><span class="hs-identifier hs-type">GenerateServiceLastAccessedDetailsResponse</span></a></span></span><span>
+</span><span id="line-276"></span></pre></body></html>

@@ -1,0 +1,1699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.TunnelOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.TunnelOption</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IKEVersionsListValue.html"><span class="hs-identifier">Amazonka.EC2.Types.IKEVersionsListValue</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Phase1DHGroupNumbersListValue.html"><span class="hs-identifier">Amazonka.EC2.Types.Phase1DHGroupNumbersListValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Phase1EncryptionAlgorithmsListValue.html"><span class="hs-identifier">Amazonka.EC2.Types.Phase1EncryptionAlgorithmsListValue</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Phase1IntegrityAlgorithmsListValue.html"><span class="hs-identifier">Amazonka.EC2.Types.Phase1IntegrityAlgorithmsListValue</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Phase2DHGroupNumbersListValue.html"><span class="hs-identifier">Amazonka.EC2.Types.Phase2DHGroupNumbersListValue</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Phase2EncryptionAlgorithmsListValue.html"><span class="hs-identifier">Amazonka.EC2.Types.Phase2EncryptionAlgorithmsListValue</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Phase2IntegrityAlgorithmsListValue.html"><span class="hs-identifier">Amazonka.EC2.Types.Phase2IntegrityAlgorithmsListValue</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | The VPN tunnel options.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newTunnelOption' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621681175757"><span id="local-6989586621681175758"></span></span><span class="hs-keyword">data</span><span> </span><span id="TunnelOption"><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-var">TunnelOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TunnelOption%27"><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-var">TunnelOption'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The external IP address of the VPN tunnel.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AoutsideIpAddress%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AoutsideIpAddress%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">outsideIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of packets in an IKE replay window.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AreplayWindowSize%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AreplayWindowSize%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">replayWindowSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The action to take after a DPD timeout occurs.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdpdTimeoutAction%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AdpdTimeoutAction%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">dpdTimeoutAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The percentage of the rekey window determined by</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @RekeyMarginTimeSeconds@ during which the rekey time is randomly</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- selected.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3ArekeyFuzzPercentage%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ArekeyFuzzPercentage%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">rekeyFuzzPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The lifetime for phase 1 of the IKE negotiation, in seconds.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aphase1LifetimeSeconds%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1LifetimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase1LifetimeSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The IKE versions that are permitted for the VPN tunnel.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AikeVersions%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe [IKEVersionsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AikeVersions%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">ikeVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The permitted integrity algorithms for the VPN tunnel for phase 2 IKE</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aphase2IntegrityAlgorithms%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2IntegrityAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase2IntegrityAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase2IntegrityAlgorithmsListValue.html#Phase2IntegrityAlgorithmsListValue"><span class="hs-identifier hs-type">Phase2IntegrityAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The lifetime for phase 2 of the IKE negotiation, in seconds.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aphase2LifetimeSeconds%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2LifetimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase2LifetimeSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The permitted encryption algorithms for the VPN tunnel for phase 1 IKE</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aphase1EncryptionAlgorithms%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1EncryptionAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase1EncryptionAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase1EncryptionAlgorithmsListValue.html#Phase1EncryptionAlgorithmsListValue"><span class="hs-identifier hs-type">Phase1EncryptionAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- 1 IKE negotiations.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aphase1DHGroupNumbers%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe [Phase1DHGroupNumbersListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1DHGroupNumbers%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase1DHGroupNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase1DHGroupNumbersListValue.html#Phase1DHGroupNumbersListValue"><span class="hs-identifier hs-type">Phase1DHGroupNumbersListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The permitted integrity algorithms for the VPN tunnel for phase 1 IKE</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aphase1IntegrityAlgorithms%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1IntegrityAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase1IntegrityAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase1IntegrityAlgorithmsListValue.html#Phase1IntegrityAlgorithmsListValue"><span class="hs-identifier hs-type">Phase1IntegrityAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The margin time, in seconds, before the phase 2 lifetime expires, during</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- which the Amazon Web Services side of the VPN connection performs an IKE</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- rekey.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3ArekeyMarginTimeSeconds%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ArekeyMarginTimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">rekeyMarginTimeSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The number of seconds after which a DPD timeout occurs.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdpdTimeoutSeconds%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AdpdTimeoutSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">dpdTimeoutSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The range of inside IPv4 addresses for the tunnel.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AtunnelInsideCidr%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AtunnelInsideCidr%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">tunnelInsideCidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The action to take when the establishing the VPN tunnels for a VPN</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- connection.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AstartupAction%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AstartupAction%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">startupAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The permitted encryption algorithms for the VPN tunnel for phase 2 IKE</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aphase2EncryptionAlgorithms%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2EncryptionAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase2EncryptionAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase2EncryptionAlgorithmsListValue.html#Phase2EncryptionAlgorithmsListValue"><span class="hs-identifier hs-type">Phase2EncryptionAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- 2 IKE negotiations.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aphase2DHGroupNumbers%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe [Phase2DHGroupNumbersListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2DHGroupNumbers%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">phase2DHGroupNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase2DHGroupNumbersListValue.html#Phase2DHGroupNumbersListValue"><span class="hs-identifier hs-type">Phase2DHGroupNumbersListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The pre-shared key (PSK) to establish initial authentication between the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- virtual private gateway and the customer gateway.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3ApreSharedKey%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ApreSharedKey%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">preSharedKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The range of inside IPv6 addresses for the tunnel.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AtunnelInsideIpv6Cidr%3ATunnelOption%27"><span class="annot"><span class="annottext">TunnelOption -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AtunnelInsideIpv6Cidr%3ATunnelOption%27"><span class="hs-identifier hs-var hs-var">tunnelInsideIpv6Cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681175733"><span id="local-6989586621681175735"><span class="annot"><span class="annottext">TunnelOption -&gt; TunnelOption -&gt; Bool
+(TunnelOption -&gt; TunnelOption -&gt; Bool)
+-&gt; (TunnelOption -&gt; TunnelOption -&gt; Bool) -&gt; Eq TunnelOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TunnelOption -&gt; TunnelOption -&gt; Bool
+$c/= :: TunnelOption -&gt; TunnelOption -&gt; Bool
+== :: TunnelOption -&gt; TunnelOption -&gt; Bool
+$c== :: TunnelOption -&gt; TunnelOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681175724"><span id="local-6989586621681175726"><span id="local-6989586621681175728"><span id="local-6989586621681175730"><span class="annot"><span class="annottext">ReadPrec [TunnelOption]
+ReadPrec TunnelOption
+Int -&gt; ReadS TunnelOption
+ReadS [TunnelOption]
+(Int -&gt; ReadS TunnelOption)
+-&gt; ReadS [TunnelOption]
+-&gt; ReadPrec TunnelOption
+-&gt; ReadPrec [TunnelOption]
+-&gt; Read TunnelOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TunnelOption]
+$creadListPrec :: ReadPrec [TunnelOption]
+readPrec :: ReadPrec TunnelOption
+$creadPrec :: ReadPrec TunnelOption
+readList :: ReadS [TunnelOption]
+$creadList :: ReadS [TunnelOption]
+readsPrec :: Int -&gt; ReadS TunnelOption
+$creadsPrec :: Int -&gt; ReadS TunnelOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681175717"><span id="local-6989586621681175719"><span id="local-6989586621681175721"><span class="annot"><span class="annottext">Int -&gt; TunnelOption -&gt; ShowS
+[TunnelOption] -&gt; ShowS
+TunnelOption -&gt; String
+(Int -&gt; TunnelOption -&gt; ShowS)
+-&gt; (TunnelOption -&gt; String)
+-&gt; ([TunnelOption] -&gt; ShowS)
+-&gt; Show TunnelOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TunnelOption] -&gt; ShowS
+$cshowList :: [TunnelOption] -&gt; ShowS
+show :: TunnelOption -&gt; String
+$cshow :: TunnelOption -&gt; String
+showsPrec :: Int -&gt; TunnelOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; TunnelOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TunnelOption -&gt; Rep TunnelOption x)
+-&gt; (forall x. Rep TunnelOption x -&gt; TunnelOption)
+-&gt; Generic TunnelOption
+forall x. Rep TunnelOption x -&gt; TunnelOption
+forall x. TunnelOption -&gt; Rep TunnelOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TunnelOption x -&gt; TunnelOption
+$cfrom :: forall x. TunnelOption -&gt; Rep TunnelOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'TunnelOption' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'outsideIpAddress', 'tunnelOption_outsideIpAddress' - The external IP address of the VPN tunnel.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'replayWindowSize', 'tunnelOption_replayWindowSize' - The number of packets in an IKE replay window.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'dpdTimeoutAction', 'tunnelOption_dpdTimeoutAction' - The action to take after a DPD timeout occurs.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'rekeyFuzzPercentage', 'tunnelOption_rekeyFuzzPercentage' - The percentage of the rekey window determined by</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @RekeyMarginTimeSeconds@ during which the rekey time is randomly</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- selected.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'phase1LifetimeSeconds', 'tunnelOption_phase1LifetimeSeconds' - The lifetime for phase 1 of the IKE negotiation, in seconds.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'ikeVersions', 'tunnelOption_ikeVersions' - The IKE versions that are permitted for the VPN tunnel.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'phase2IntegrityAlgorithms', 'tunnelOption_phase2IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 2 IKE</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'phase2LifetimeSeconds', 'tunnelOption_phase2LifetimeSeconds' - The lifetime for phase 2 of the IKE negotiation, in seconds.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'phase1EncryptionAlgorithms', 'tunnelOption_phase1EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 1 IKE</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'phase1DHGroupNumbers', 'tunnelOption_phase1DHGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 1 IKE negotiations.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'phase1IntegrityAlgorithms', 'tunnelOption_phase1IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 1 IKE</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'rekeyMarginTimeSeconds', 'tunnelOption_rekeyMarginTimeSeconds' - The margin time, in seconds, before the phase 2 lifetime expires, during</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- which the Amazon Web Services side of the VPN connection performs an IKE</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- rekey.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'dpdTimeoutSeconds', 'tunnelOption_dpdTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'tunnelInsideCidr', 'tunnelOption_tunnelInsideCidr' - The range of inside IPv4 addresses for the tunnel.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'startupAction', 'tunnelOption_startupAction' - The action to take when the establishing the VPN tunnels for a VPN</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- connection.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'phase2EncryptionAlgorithms', 'tunnelOption_phase2EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 2 IKE</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'phase2DHGroupNumbers', 'tunnelOption_phase2DHGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 2 IKE negotiations.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'preSharedKey', 'tunnelOption_preSharedKey' - The pre-shared key (PSK) to establish initial authentication between the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- virtual private gateway and the customer gateway.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'tunnelInsideIpv6Cidr', 'tunnelOption_tunnelInsideIpv6Cidr' - The range of inside IPv6 addresses for the tunnel.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#newTunnelOption"><span class="hs-identifier hs-type">newTunnelOption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span>
+</span><span id="line-150"></span><span id="newTunnelOption"><span class="annot"><span class="annottext">newTunnelOption :: TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#newTunnelOption"><span class="hs-identifier hs-var hs-var">newTunnelOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">TunnelOption' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe [IKEVersionsListValue]
+-&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+-&gt; Maybe Int
+-&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+-&gt; Maybe [Phase1DHGroupNumbersListValue]
+-&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+-&gt; Maybe [Phase2DHGroupNumbersListValue]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:outsideIpAddress:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AoutsideIpAddress%3ATunnelOption%27"><span class="hs-identifier hs-var">outsideIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:replayWindowSize:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AreplayWindowSize%3ATunnelOption%27"><span class="hs-identifier hs-var">replayWindowSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:dpdTimeoutAction:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AdpdTimeoutAction%3ATunnelOption%27"><span class="hs-identifier hs-var">dpdTimeoutAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:rekeyFuzzPercentage:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ArekeyFuzzPercentage%3ATunnelOption%27"><span class="hs-identifier hs-var">rekeyFuzzPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase1LifetimeSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1LifetimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1LifetimeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:ikeVersions:TunnelOption' :: Maybe [IKEVersionsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AikeVersions%3ATunnelOption%27"><span class="hs-identifier hs-var">ikeVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IKEVersionsListValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase2IntegrityAlgorithms:TunnelOption' :: Maybe [Phase2IntegrityAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2IntegrityAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2IntegrityAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2IntegrityAlgorithmsListValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase2LifetimeSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2LifetimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2LifetimeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase1EncryptionAlgorithms:TunnelOption' :: Maybe [Phase1EncryptionAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1EncryptionAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1EncryptionAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1EncryptionAlgorithmsListValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase1DHGroupNumbers:TunnelOption' :: Maybe [Phase1DHGroupNumbersListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1DHGroupNumbers%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1DHGroupNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1DHGroupNumbersListValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase1IntegrityAlgorithms:TunnelOption' :: Maybe [Phase1IntegrityAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1IntegrityAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1IntegrityAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1IntegrityAlgorithmsListValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:rekeyMarginTimeSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ArekeyMarginTimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">rekeyMarginTimeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:dpdTimeoutSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AdpdTimeoutSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">dpdTimeoutSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:tunnelInsideCidr:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AtunnelInsideCidr%3ATunnelOption%27"><span class="hs-identifier hs-var">tunnelInsideCidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:startupAction:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AstartupAction%3ATunnelOption%27"><span class="hs-identifier hs-var">startupAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase2EncryptionAlgorithms:TunnelOption' :: Maybe [Phase2EncryptionAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2EncryptionAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2EncryptionAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2EncryptionAlgorithmsListValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:phase2DHGroupNumbers:TunnelOption' :: Maybe [Phase2DHGroupNumbersListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2DHGroupNumbers%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2DHGroupNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2DHGroupNumbersListValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:preSharedKey:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ApreSharedKey%3ATunnelOption%27"><span class="hs-identifier hs-var">preSharedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:tunnelInsideIpv6Cidr:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AtunnelInsideIpv6Cidr%3ATunnelOption%27"><span class="hs-identifier hs-var">tunnelInsideIpv6Cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The external IP address of the VPN tunnel.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_outsideIpAddress"><span class="hs-identifier hs-type">tunnelOption_outsideIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="tunnelOption_outsideIpAddress"><span class="annot"><span class="annottext">tunnelOption_outsideIpAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_outsideIpAddress"><span class="hs-identifier hs-var hs-var">tunnelOption_outsideIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Text)
+-&gt; (TunnelOption -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175708"><span class="annot"><span class="annottext">Maybe Text
+outsideIpAddress :: Maybe Text
+$sel:outsideIpAddress:TunnelOption' :: TunnelOption -&gt; Maybe Text
+</span><a href="#local-6989586621681175708"><span class="hs-identifier hs-var hs-var">outsideIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175708"><span class="hs-identifier hs-var">outsideIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175707"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175706"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outsideIpAddress:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AoutsideIpAddress%3ATunnelOption%27"><span class="hs-identifier hs-var">outsideIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The number of packets in an IKE replay window.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_replayWindowSize"><span class="hs-identifier hs-type">tunnelOption_replayWindowSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="tunnelOption_replayWindowSize"><span class="annot"><span class="annottext">tunnelOption_replayWindowSize :: (Maybe Int -&gt; f (Maybe Int)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_replayWindowSize"><span class="hs-identifier hs-var hs-var">tunnelOption_replayWindowSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Int)
+-&gt; (TunnelOption -&gt; Maybe Int -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175704"><span class="annot"><span class="annottext">Maybe Int
+replayWindowSize :: Maybe Int
+$sel:replayWindowSize:TunnelOption' :: TunnelOption -&gt; Maybe Int
+</span><a href="#local-6989586621681175704"><span class="hs-identifier hs-var hs-var">replayWindowSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175704"><span class="hs-identifier hs-var">replayWindowSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175703"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175702"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replayWindowSize:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AreplayWindowSize%3ATunnelOption%27"><span class="hs-identifier hs-var">replayWindowSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The action to take after a DPD timeout occurs.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_dpdTimeoutAction"><span class="hs-identifier hs-type">tunnelOption_dpdTimeoutAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="tunnelOption_dpdTimeoutAction"><span class="annot"><span class="annottext">tunnelOption_dpdTimeoutAction :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_dpdTimeoutAction"><span class="hs-identifier hs-var hs-var">tunnelOption_dpdTimeoutAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Text)
+-&gt; (TunnelOption -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175700"><span class="annot"><span class="annottext">Maybe Text
+dpdTimeoutAction :: Maybe Text
+$sel:dpdTimeoutAction:TunnelOption' :: TunnelOption -&gt; Maybe Text
+</span><a href="#local-6989586621681175700"><span class="hs-identifier hs-var hs-var">dpdTimeoutAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175700"><span class="hs-identifier hs-var">dpdTimeoutAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175699"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dpdTimeoutAction:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AdpdTimeoutAction%3ATunnelOption%27"><span class="hs-identifier hs-var">dpdTimeoutAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The percentage of the rekey window determined by</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- @RekeyMarginTimeSeconds@ during which the rekey time is randomly</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- selected.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_rekeyFuzzPercentage"><span class="hs-identifier hs-type">tunnelOption_rekeyFuzzPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="tunnelOption_rekeyFuzzPercentage"><span class="annot"><span class="annottext">tunnelOption_rekeyFuzzPercentage :: (Maybe Int -&gt; f (Maybe Int)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_rekeyFuzzPercentage"><span class="hs-identifier hs-var hs-var">tunnelOption_rekeyFuzzPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Int)
+-&gt; (TunnelOption -&gt; Maybe Int -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175696"><span class="annot"><span class="annottext">Maybe Int
+rekeyFuzzPercentage :: Maybe Int
+$sel:rekeyFuzzPercentage:TunnelOption' :: TunnelOption -&gt; Maybe Int
+</span><a href="#local-6989586621681175696"><span class="hs-identifier hs-var hs-var">rekeyFuzzPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175696"><span class="hs-identifier hs-var">rekeyFuzzPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175695"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175694"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rekeyFuzzPercentage:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ArekeyFuzzPercentage%3ATunnelOption%27"><span class="hs-identifier hs-var">rekeyFuzzPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The lifetime for phase 1 of the IKE negotiation, in seconds.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1LifetimeSeconds"><span class="hs-identifier hs-type">tunnelOption_phase1LifetimeSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="tunnelOption_phase1LifetimeSeconds"><span class="annot"><span class="annottext">tunnelOption_phase1LifetimeSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1LifetimeSeconds"><span class="hs-identifier hs-var hs-var">tunnelOption_phase1LifetimeSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Int)
+-&gt; (TunnelOption -&gt; Maybe Int -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175692"><span class="annot"><span class="annottext">Maybe Int
+phase1LifetimeSeconds :: Maybe Int
+$sel:phase1LifetimeSeconds:TunnelOption' :: TunnelOption -&gt; Maybe Int
+</span><a href="#local-6989586621681175692"><span class="hs-identifier hs-var hs-var">phase1LifetimeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175692"><span class="hs-identifier hs-var">phase1LifetimeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175691"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175690"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase1LifetimeSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1LifetimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1LifetimeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The IKE versions that are permitted for the VPN tunnel.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_ikeVersions"><span class="hs-identifier hs-type">tunnelOption_ikeVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="tunnelOption_ikeVersions"><span class="annot"><span class="annottext">tunnelOption_ikeVersions :: (Maybe [IKEVersionsListValue] -&gt; f (Maybe [IKEVersionsListValue]))
+-&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_ikeVersions"><span class="hs-identifier hs-var hs-var">tunnelOption_ikeVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe [IKEVersionsListValue])
+-&gt; (TunnelOption -&gt; Maybe [IKEVersionsListValue] -&gt; TunnelOption)
+-&gt; Lens
+     TunnelOption
+     TunnelOption
+     (Maybe [IKEVersionsListValue])
+     (Maybe [IKEVersionsListValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175688"><span class="annot"><span class="annottext">Maybe [IKEVersionsListValue]
+ikeVersions :: Maybe [IKEVersionsListValue]
+$sel:ikeVersions:TunnelOption' :: TunnelOption -&gt; Maybe [IKEVersionsListValue]
+</span><a href="#local-6989586621681175688"><span class="hs-identifier hs-var hs-var">ikeVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IKEVersionsListValue]
+</span><a href="#local-6989586621681175688"><span class="hs-identifier hs-var">ikeVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175687"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175686"><span class="annot"><span class="annottext">Maybe [IKEVersionsListValue]
+</span><a href="#local-6989586621681175686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ikeVersions:TunnelOption' :: Maybe [IKEVersionsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AikeVersions%3ATunnelOption%27"><span class="hs-identifier hs-var">ikeVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IKEVersionsListValue]
+</span><a href="#local-6989586621681175686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IKEVersionsListValue] -&gt; f (Maybe [IKEVersionsListValue]))
+ -&gt; TunnelOption -&gt; f TunnelOption)
+-&gt; ((Maybe [IKEVersionsListValue]
+     -&gt; f (Maybe [IKEVersionsListValue]))
+    -&gt; Maybe [IKEVersionsListValue]
+    -&gt; f (Maybe [IKEVersionsListValue]))
+-&gt; (Maybe [IKEVersionsListValue]
+    -&gt; f (Maybe [IKEVersionsListValue]))
+-&gt; TunnelOption
+-&gt; f TunnelOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IKEVersionsListValue]
+  [IKEVersionsListValue]
+  [IKEVersionsListValue]
+  [IKEVersionsListValue]
+-&gt; Iso
+     (Maybe [IKEVersionsListValue])
+     (Maybe [IKEVersionsListValue])
+     (Maybe [IKEVersionsListValue])
+     (Maybe [IKEVersionsListValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IKEVersionsListValue]
+  [IKEVersionsListValue]
+  [IKEVersionsListValue]
+  [IKEVersionsListValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The permitted integrity algorithms for the VPN tunnel for phase 2 IKE</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2IntegrityAlgorithms"><span class="hs-identifier hs-type">tunnelOption_phase2IntegrityAlgorithms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase2IntegrityAlgorithmsListValue.html#Phase2IntegrityAlgorithmsListValue"><span class="hs-identifier hs-type">Phase2IntegrityAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="tunnelOption_phase2IntegrityAlgorithms"><span class="annot"><span class="annottext">tunnelOption_phase2IntegrityAlgorithms :: (Maybe [Phase2IntegrityAlgorithmsListValue]
+ -&gt; f (Maybe [Phase2IntegrityAlgorithmsListValue]))
+-&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2IntegrityAlgorithms"><span class="hs-identifier hs-var hs-var">tunnelOption_phase2IntegrityAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe [Phase2IntegrityAlgorithmsListValue])
+-&gt; (TunnelOption
+    -&gt; Maybe [Phase2IntegrityAlgorithmsListValue] -&gt; TunnelOption)
+-&gt; Lens
+     TunnelOption
+     TunnelOption
+     (Maybe [Phase2IntegrityAlgorithmsListValue])
+     (Maybe [Phase2IntegrityAlgorithmsListValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175681"><span class="annot"><span class="annottext">Maybe [Phase2IntegrityAlgorithmsListValue]
+phase2IntegrityAlgorithms :: Maybe [Phase2IntegrityAlgorithmsListValue]
+$sel:phase2IntegrityAlgorithms:TunnelOption' :: TunnelOption -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175681"><span class="hs-identifier hs-var hs-var">phase2IntegrityAlgorithms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175681"><span class="hs-identifier hs-var">phase2IntegrityAlgorithms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175680"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175679"><span class="annot"><span class="annottext">Maybe [Phase2IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase2IntegrityAlgorithms:TunnelOption' :: Maybe [Phase2IntegrityAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2IntegrityAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2IntegrityAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Phase2IntegrityAlgorithmsListValue]
+  -&gt; f (Maybe [Phase2IntegrityAlgorithmsListValue]))
+ -&gt; TunnelOption -&gt; f TunnelOption)
+-&gt; ((Maybe [Phase2IntegrityAlgorithmsListValue]
+     -&gt; f (Maybe [Phase2IntegrityAlgorithmsListValue]))
+    -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+    -&gt; f (Maybe [Phase2IntegrityAlgorithmsListValue]))
+-&gt; (Maybe [Phase2IntegrityAlgorithmsListValue]
+    -&gt; f (Maybe [Phase2IntegrityAlgorithmsListValue]))
+-&gt; TunnelOption
+-&gt; f TunnelOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase2IntegrityAlgorithmsListValue]
+  [Phase2IntegrityAlgorithmsListValue]
+  [Phase2IntegrityAlgorithmsListValue]
+  [Phase2IntegrityAlgorithmsListValue]
+-&gt; Iso
+     (Maybe [Phase2IntegrityAlgorithmsListValue])
+     (Maybe [Phase2IntegrityAlgorithmsListValue])
+     (Maybe [Phase2IntegrityAlgorithmsListValue])
+     (Maybe [Phase2IntegrityAlgorithmsListValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase2IntegrityAlgorithmsListValue]
+  [Phase2IntegrityAlgorithmsListValue]
+  [Phase2IntegrityAlgorithmsListValue]
+  [Phase2IntegrityAlgorithmsListValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The lifetime for phase 2 of the IKE negotiation, in seconds.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2LifetimeSeconds"><span class="hs-identifier hs-type">tunnelOption_phase2LifetimeSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="tunnelOption_phase2LifetimeSeconds"><span class="annot"><span class="annottext">tunnelOption_phase2LifetimeSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2LifetimeSeconds"><span class="hs-identifier hs-var hs-var">tunnelOption_phase2LifetimeSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Int)
+-&gt; (TunnelOption -&gt; Maybe Int -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175677"><span class="annot"><span class="annottext">Maybe Int
+phase2LifetimeSeconds :: Maybe Int
+$sel:phase2LifetimeSeconds:TunnelOption' :: TunnelOption -&gt; Maybe Int
+</span><a href="#local-6989586621681175677"><span class="hs-identifier hs-var hs-var">phase2LifetimeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175677"><span class="hs-identifier hs-var">phase2LifetimeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175676"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175675"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase2LifetimeSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2LifetimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2LifetimeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The permitted encryption algorithms for the VPN tunnel for phase 1 IKE</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1EncryptionAlgorithms"><span class="hs-identifier hs-type">tunnelOption_phase1EncryptionAlgorithms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase1EncryptionAlgorithmsListValue.html#Phase1EncryptionAlgorithmsListValue"><span class="hs-identifier hs-type">Phase1EncryptionAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="tunnelOption_phase1EncryptionAlgorithms"><span class="annot"><span class="annottext">tunnelOption_phase1EncryptionAlgorithms :: (Maybe [Phase1EncryptionAlgorithmsListValue]
+ -&gt; f (Maybe [Phase1EncryptionAlgorithmsListValue]))
+-&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1EncryptionAlgorithms"><span class="hs-identifier hs-var hs-var">tunnelOption_phase1EncryptionAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe [Phase1EncryptionAlgorithmsListValue])
+-&gt; (TunnelOption
+    -&gt; Maybe [Phase1EncryptionAlgorithmsListValue] -&gt; TunnelOption)
+-&gt; Lens
+     TunnelOption
+     TunnelOption
+     (Maybe [Phase1EncryptionAlgorithmsListValue])
+     (Maybe [Phase1EncryptionAlgorithmsListValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175673"><span class="annot"><span class="annottext">Maybe [Phase1EncryptionAlgorithmsListValue]
+phase1EncryptionAlgorithms :: Maybe [Phase1EncryptionAlgorithmsListValue]
+$sel:phase1EncryptionAlgorithms:TunnelOption' :: TunnelOption -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175673"><span class="hs-identifier hs-var hs-var">phase1EncryptionAlgorithms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175673"><span class="hs-identifier hs-var">phase1EncryptionAlgorithms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175672"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175671"><span class="annot"><span class="annottext">Maybe [Phase1EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase1EncryptionAlgorithms:TunnelOption' :: Maybe [Phase1EncryptionAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1EncryptionAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1EncryptionAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Phase1EncryptionAlgorithmsListValue]
+  -&gt; f (Maybe [Phase1EncryptionAlgorithmsListValue]))
+ -&gt; TunnelOption -&gt; f TunnelOption)
+-&gt; ((Maybe [Phase1EncryptionAlgorithmsListValue]
+     -&gt; f (Maybe [Phase1EncryptionAlgorithmsListValue]))
+    -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+    -&gt; f (Maybe [Phase1EncryptionAlgorithmsListValue]))
+-&gt; (Maybe [Phase1EncryptionAlgorithmsListValue]
+    -&gt; f (Maybe [Phase1EncryptionAlgorithmsListValue]))
+-&gt; TunnelOption
+-&gt; f TunnelOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase1EncryptionAlgorithmsListValue]
+  [Phase1EncryptionAlgorithmsListValue]
+  [Phase1EncryptionAlgorithmsListValue]
+  [Phase1EncryptionAlgorithmsListValue]
+-&gt; Iso
+     (Maybe [Phase1EncryptionAlgorithmsListValue])
+     (Maybe [Phase1EncryptionAlgorithmsListValue])
+     (Maybe [Phase1EncryptionAlgorithmsListValue])
+     (Maybe [Phase1EncryptionAlgorithmsListValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase1EncryptionAlgorithmsListValue]
+  [Phase1EncryptionAlgorithmsListValue]
+  [Phase1EncryptionAlgorithmsListValue]
+  [Phase1EncryptionAlgorithmsListValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 1 IKE negotiations.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1DHGroupNumbers"><span class="hs-identifier hs-type">tunnelOption_phase1DHGroupNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase1DHGroupNumbersListValue.html#Phase1DHGroupNumbersListValue"><span class="hs-identifier hs-type">Phase1DHGroupNumbersListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="tunnelOption_phase1DHGroupNumbers"><span class="annot"><span class="annottext">tunnelOption_phase1DHGroupNumbers :: (Maybe [Phase1DHGroupNumbersListValue]
+ -&gt; f (Maybe [Phase1DHGroupNumbersListValue]))
+-&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1DHGroupNumbers"><span class="hs-identifier hs-var hs-var">tunnelOption_phase1DHGroupNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe [Phase1DHGroupNumbersListValue])
+-&gt; (TunnelOption
+    -&gt; Maybe [Phase1DHGroupNumbersListValue] -&gt; TunnelOption)
+-&gt; Lens
+     TunnelOption
+     TunnelOption
+     (Maybe [Phase1DHGroupNumbersListValue])
+     (Maybe [Phase1DHGroupNumbersListValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175669"><span class="annot"><span class="annottext">Maybe [Phase1DHGroupNumbersListValue]
+phase1DHGroupNumbers :: Maybe [Phase1DHGroupNumbersListValue]
+$sel:phase1DHGroupNumbers:TunnelOption' :: TunnelOption -&gt; Maybe [Phase1DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175669"><span class="hs-identifier hs-var hs-var">phase1DHGroupNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175669"><span class="hs-identifier hs-var">phase1DHGroupNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175668"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175667"><span class="annot"><span class="annottext">Maybe [Phase1DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase1DHGroupNumbers:TunnelOption' :: Maybe [Phase1DHGroupNumbersListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1DHGroupNumbers%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1DHGroupNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Phase1DHGroupNumbersListValue]
+  -&gt; f (Maybe [Phase1DHGroupNumbersListValue]))
+ -&gt; TunnelOption -&gt; f TunnelOption)
+-&gt; ((Maybe [Phase1DHGroupNumbersListValue]
+     -&gt; f (Maybe [Phase1DHGroupNumbersListValue]))
+    -&gt; Maybe [Phase1DHGroupNumbersListValue]
+    -&gt; f (Maybe [Phase1DHGroupNumbersListValue]))
+-&gt; (Maybe [Phase1DHGroupNumbersListValue]
+    -&gt; f (Maybe [Phase1DHGroupNumbersListValue]))
+-&gt; TunnelOption
+-&gt; f TunnelOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase1DHGroupNumbersListValue]
+  [Phase1DHGroupNumbersListValue]
+  [Phase1DHGroupNumbersListValue]
+  [Phase1DHGroupNumbersListValue]
+-&gt; Iso
+     (Maybe [Phase1DHGroupNumbersListValue])
+     (Maybe [Phase1DHGroupNumbersListValue])
+     (Maybe [Phase1DHGroupNumbersListValue])
+     (Maybe [Phase1DHGroupNumbersListValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase1DHGroupNumbersListValue]
+  [Phase1DHGroupNumbersListValue]
+  [Phase1DHGroupNumbersListValue]
+  [Phase1DHGroupNumbersListValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The permitted integrity algorithms for the VPN tunnel for phase 1 IKE</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1IntegrityAlgorithms"><span class="hs-identifier hs-type">tunnelOption_phase1IntegrityAlgorithms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase1IntegrityAlgorithmsListValue.html#Phase1IntegrityAlgorithmsListValue"><span class="hs-identifier hs-type">Phase1IntegrityAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="tunnelOption_phase1IntegrityAlgorithms"><span class="annot"><span class="annottext">tunnelOption_phase1IntegrityAlgorithms :: (Maybe [Phase1IntegrityAlgorithmsListValue]
+ -&gt; f (Maybe [Phase1IntegrityAlgorithmsListValue]))
+-&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase1IntegrityAlgorithms"><span class="hs-identifier hs-var hs-var">tunnelOption_phase1IntegrityAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe [Phase1IntegrityAlgorithmsListValue])
+-&gt; (TunnelOption
+    -&gt; Maybe [Phase1IntegrityAlgorithmsListValue] -&gt; TunnelOption)
+-&gt; Lens
+     TunnelOption
+     TunnelOption
+     (Maybe [Phase1IntegrityAlgorithmsListValue])
+     (Maybe [Phase1IntegrityAlgorithmsListValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175665"><span class="annot"><span class="annottext">Maybe [Phase1IntegrityAlgorithmsListValue]
+phase1IntegrityAlgorithms :: Maybe [Phase1IntegrityAlgorithmsListValue]
+$sel:phase1IntegrityAlgorithms:TunnelOption' :: TunnelOption -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175665"><span class="hs-identifier hs-var hs-var">phase1IntegrityAlgorithms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175665"><span class="hs-identifier hs-var">phase1IntegrityAlgorithms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175664"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175663"><span class="annot"><span class="annottext">Maybe [Phase1IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase1IntegrityAlgorithms:TunnelOption' :: Maybe [Phase1IntegrityAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase1IntegrityAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase1IntegrityAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase1IntegrityAlgorithmsListValue]
+</span><a href="#local-6989586621681175663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Phase1IntegrityAlgorithmsListValue]
+  -&gt; f (Maybe [Phase1IntegrityAlgorithmsListValue]))
+ -&gt; TunnelOption -&gt; f TunnelOption)
+-&gt; ((Maybe [Phase1IntegrityAlgorithmsListValue]
+     -&gt; f (Maybe [Phase1IntegrityAlgorithmsListValue]))
+    -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+    -&gt; f (Maybe [Phase1IntegrityAlgorithmsListValue]))
+-&gt; (Maybe [Phase1IntegrityAlgorithmsListValue]
+    -&gt; f (Maybe [Phase1IntegrityAlgorithmsListValue]))
+-&gt; TunnelOption
+-&gt; f TunnelOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase1IntegrityAlgorithmsListValue]
+  [Phase1IntegrityAlgorithmsListValue]
+  [Phase1IntegrityAlgorithmsListValue]
+  [Phase1IntegrityAlgorithmsListValue]
+-&gt; Iso
+     (Maybe [Phase1IntegrityAlgorithmsListValue])
+     (Maybe [Phase1IntegrityAlgorithmsListValue])
+     (Maybe [Phase1IntegrityAlgorithmsListValue])
+     (Maybe [Phase1IntegrityAlgorithmsListValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase1IntegrityAlgorithmsListValue]
+  [Phase1IntegrityAlgorithmsListValue]
+  [Phase1IntegrityAlgorithmsListValue]
+  [Phase1IntegrityAlgorithmsListValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The margin time, in seconds, before the phase 2 lifetime expires, during</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- which the Amazon Web Services side of the VPN connection performs an IKE</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- rekey.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_rekeyMarginTimeSeconds"><span class="hs-identifier hs-type">tunnelOption_rekeyMarginTimeSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="tunnelOption_rekeyMarginTimeSeconds"><span class="annot"><span class="annottext">tunnelOption_rekeyMarginTimeSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_rekeyMarginTimeSeconds"><span class="hs-identifier hs-var hs-var">tunnelOption_rekeyMarginTimeSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Int)
+-&gt; (TunnelOption -&gt; Maybe Int -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175661"><span class="annot"><span class="annottext">Maybe Int
+rekeyMarginTimeSeconds :: Maybe Int
+$sel:rekeyMarginTimeSeconds:TunnelOption' :: TunnelOption -&gt; Maybe Int
+</span><a href="#local-6989586621681175661"><span class="hs-identifier hs-var hs-var">rekeyMarginTimeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175661"><span class="hs-identifier hs-var">rekeyMarginTimeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175660"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175659"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rekeyMarginTimeSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ArekeyMarginTimeSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">rekeyMarginTimeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The number of seconds after which a DPD timeout occurs.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_dpdTimeoutSeconds"><span class="hs-identifier hs-type">tunnelOption_dpdTimeoutSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="tunnelOption_dpdTimeoutSeconds"><span class="annot"><span class="annottext">tunnelOption_dpdTimeoutSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_dpdTimeoutSeconds"><span class="hs-identifier hs-var hs-var">tunnelOption_dpdTimeoutSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Int)
+-&gt; (TunnelOption -&gt; Maybe Int -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175657"><span class="annot"><span class="annottext">Maybe Int
+dpdTimeoutSeconds :: Maybe Int
+$sel:dpdTimeoutSeconds:TunnelOption' :: TunnelOption -&gt; Maybe Int
+</span><a href="#local-6989586621681175657"><span class="hs-identifier hs-var hs-var">dpdTimeoutSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175657"><span class="hs-identifier hs-var">dpdTimeoutSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175656"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175655"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dpdTimeoutSeconds:TunnelOption' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AdpdTimeoutSeconds%3ATunnelOption%27"><span class="hs-identifier hs-var">dpdTimeoutSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681175655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The range of inside IPv4 addresses for the tunnel.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_tunnelInsideCidr"><span class="hs-identifier hs-type">tunnelOption_tunnelInsideCidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="tunnelOption_tunnelInsideCidr"><span class="annot"><span class="annottext">tunnelOption_tunnelInsideCidr :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_tunnelInsideCidr"><span class="hs-identifier hs-var hs-var">tunnelOption_tunnelInsideCidr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Text)
+-&gt; (TunnelOption -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175653"><span class="annot"><span class="annottext">Maybe Text
+tunnelInsideCidr :: Maybe Text
+$sel:tunnelInsideCidr:TunnelOption' :: TunnelOption -&gt; Maybe Text
+</span><a href="#local-6989586621681175653"><span class="hs-identifier hs-var hs-var">tunnelInsideCidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175653"><span class="hs-identifier hs-var">tunnelInsideCidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175652"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175651"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tunnelInsideCidr:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AtunnelInsideCidr%3ATunnelOption%27"><span class="hs-identifier hs-var">tunnelInsideCidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The action to take when the establishing the VPN tunnels for a VPN</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- connection.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_startupAction"><span class="hs-identifier hs-type">tunnelOption_startupAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="tunnelOption_startupAction"><span class="annot"><span class="annottext">tunnelOption_startupAction :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_startupAction"><span class="hs-identifier hs-var hs-var">tunnelOption_startupAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Text)
+-&gt; (TunnelOption -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175649"><span class="annot"><span class="annottext">Maybe Text
+startupAction :: Maybe Text
+$sel:startupAction:TunnelOption' :: TunnelOption -&gt; Maybe Text
+</span><a href="#local-6989586621681175649"><span class="hs-identifier hs-var hs-var">startupAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175649"><span class="hs-identifier hs-var">startupAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175648"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175647"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startupAction:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AstartupAction%3ATunnelOption%27"><span class="hs-identifier hs-var">startupAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The permitted encryption algorithms for the VPN tunnel for phase 2 IKE</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- negotiations.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2EncryptionAlgorithms"><span class="hs-identifier hs-type">tunnelOption_phase2EncryptionAlgorithms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase2EncryptionAlgorithmsListValue.html#Phase2EncryptionAlgorithmsListValue"><span class="hs-identifier hs-type">Phase2EncryptionAlgorithmsListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="tunnelOption_phase2EncryptionAlgorithms"><span class="annot"><span class="annottext">tunnelOption_phase2EncryptionAlgorithms :: (Maybe [Phase2EncryptionAlgorithmsListValue]
+ -&gt; f (Maybe [Phase2EncryptionAlgorithmsListValue]))
+-&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2EncryptionAlgorithms"><span class="hs-identifier hs-var hs-var">tunnelOption_phase2EncryptionAlgorithms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe [Phase2EncryptionAlgorithmsListValue])
+-&gt; (TunnelOption
+    -&gt; Maybe [Phase2EncryptionAlgorithmsListValue] -&gt; TunnelOption)
+-&gt; Lens
+     TunnelOption
+     TunnelOption
+     (Maybe [Phase2EncryptionAlgorithmsListValue])
+     (Maybe [Phase2EncryptionAlgorithmsListValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175645"><span class="annot"><span class="annottext">Maybe [Phase2EncryptionAlgorithmsListValue]
+phase2EncryptionAlgorithms :: Maybe [Phase2EncryptionAlgorithmsListValue]
+$sel:phase2EncryptionAlgorithms:TunnelOption' :: TunnelOption -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175645"><span class="hs-identifier hs-var hs-var">phase2EncryptionAlgorithms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175645"><span class="hs-identifier hs-var">phase2EncryptionAlgorithms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175644"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175643"><span class="annot"><span class="annottext">Maybe [Phase2EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase2EncryptionAlgorithms:TunnelOption' :: Maybe [Phase2EncryptionAlgorithmsListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2EncryptionAlgorithms%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2EncryptionAlgorithms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2EncryptionAlgorithmsListValue]
+</span><a href="#local-6989586621681175643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Phase2EncryptionAlgorithmsListValue]
+  -&gt; f (Maybe [Phase2EncryptionAlgorithmsListValue]))
+ -&gt; TunnelOption -&gt; f TunnelOption)
+-&gt; ((Maybe [Phase2EncryptionAlgorithmsListValue]
+     -&gt; f (Maybe [Phase2EncryptionAlgorithmsListValue]))
+    -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+    -&gt; f (Maybe [Phase2EncryptionAlgorithmsListValue]))
+-&gt; (Maybe [Phase2EncryptionAlgorithmsListValue]
+    -&gt; f (Maybe [Phase2EncryptionAlgorithmsListValue]))
+-&gt; TunnelOption
+-&gt; f TunnelOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase2EncryptionAlgorithmsListValue]
+  [Phase2EncryptionAlgorithmsListValue]
+  [Phase2EncryptionAlgorithmsListValue]
+  [Phase2EncryptionAlgorithmsListValue]
+-&gt; Iso
+     (Maybe [Phase2EncryptionAlgorithmsListValue])
+     (Maybe [Phase2EncryptionAlgorithmsListValue])
+     (Maybe [Phase2EncryptionAlgorithmsListValue])
+     (Maybe [Phase2EncryptionAlgorithmsListValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase2EncryptionAlgorithmsListValue]
+  [Phase2EncryptionAlgorithmsListValue]
+  [Phase2EncryptionAlgorithmsListValue]
+  [Phase2EncryptionAlgorithmsListValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 2 IKE negotiations.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2DHGroupNumbers"><span class="hs-identifier hs-type">tunnelOption_phase2DHGroupNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Phase2DHGroupNumbersListValue.html#Phase2DHGroupNumbersListValue"><span class="hs-identifier hs-type">Phase2DHGroupNumbersListValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="tunnelOption_phase2DHGroupNumbers"><span class="annot"><span class="annottext">tunnelOption_phase2DHGroupNumbers :: (Maybe [Phase2DHGroupNumbersListValue]
+ -&gt; f (Maybe [Phase2DHGroupNumbersListValue]))
+-&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_phase2DHGroupNumbers"><span class="hs-identifier hs-var hs-var">tunnelOption_phase2DHGroupNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe [Phase2DHGroupNumbersListValue])
+-&gt; (TunnelOption
+    -&gt; Maybe [Phase2DHGroupNumbersListValue] -&gt; TunnelOption)
+-&gt; Lens
+     TunnelOption
+     TunnelOption
+     (Maybe [Phase2DHGroupNumbersListValue])
+     (Maybe [Phase2DHGroupNumbersListValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175641"><span class="annot"><span class="annottext">Maybe [Phase2DHGroupNumbersListValue]
+phase2DHGroupNumbers :: Maybe [Phase2DHGroupNumbersListValue]
+$sel:phase2DHGroupNumbers:TunnelOption' :: TunnelOption -&gt; Maybe [Phase2DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175641"><span class="hs-identifier hs-var hs-var">phase2DHGroupNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175641"><span class="hs-identifier hs-var">phase2DHGroupNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175640"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175639"><span class="annot"><span class="annottext">Maybe [Phase2DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phase2DHGroupNumbers:TunnelOption' :: Maybe [Phase2DHGroupNumbersListValue]
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3Aphase2DHGroupNumbers%3ATunnelOption%27"><span class="hs-identifier hs-var">phase2DHGroupNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Phase2DHGroupNumbersListValue]
+</span><a href="#local-6989586621681175639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Phase2DHGroupNumbersListValue]
+  -&gt; f (Maybe [Phase2DHGroupNumbersListValue]))
+ -&gt; TunnelOption -&gt; f TunnelOption)
+-&gt; ((Maybe [Phase2DHGroupNumbersListValue]
+     -&gt; f (Maybe [Phase2DHGroupNumbersListValue]))
+    -&gt; Maybe [Phase2DHGroupNumbersListValue]
+    -&gt; f (Maybe [Phase2DHGroupNumbersListValue]))
+-&gt; (Maybe [Phase2DHGroupNumbersListValue]
+    -&gt; f (Maybe [Phase2DHGroupNumbersListValue]))
+-&gt; TunnelOption
+-&gt; f TunnelOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase2DHGroupNumbersListValue]
+  [Phase2DHGroupNumbersListValue]
+  [Phase2DHGroupNumbersListValue]
+  [Phase2DHGroupNumbersListValue]
+-&gt; Iso
+     (Maybe [Phase2DHGroupNumbersListValue])
+     (Maybe [Phase2DHGroupNumbersListValue])
+     (Maybe [Phase2DHGroupNumbersListValue])
+     (Maybe [Phase2DHGroupNumbersListValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [Phase2DHGroupNumbersListValue]
+  [Phase2DHGroupNumbersListValue]
+  [Phase2DHGroupNumbersListValue]
+  [Phase2DHGroupNumbersListValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The pre-shared key (PSK) to establish initial authentication between the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- virtual private gateway and the customer gateway.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_preSharedKey"><span class="hs-identifier hs-type">tunnelOption_preSharedKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="tunnelOption_preSharedKey"><span class="annot"><span class="annottext">tunnelOption_preSharedKey :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_preSharedKey"><span class="hs-identifier hs-var hs-var">tunnelOption_preSharedKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Text)
+-&gt; (TunnelOption -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175637"><span class="annot"><span class="annottext">Maybe Text
+preSharedKey :: Maybe Text
+$sel:preSharedKey:TunnelOption' :: TunnelOption -&gt; Maybe Text
+</span><a href="#local-6989586621681175637"><span class="hs-identifier hs-var hs-var">preSharedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175637"><span class="hs-identifier hs-var">preSharedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175636"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175635"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preSharedKey:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3ApreSharedKey%3ATunnelOption%27"><span class="hs-identifier hs-var">preSharedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The range of inside IPv6 addresses for the tunnel.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_tunnelInsideIpv6Cidr"><span class="hs-identifier hs-type">tunnelOption_tunnelInsideIpv6Cidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="tunnelOption_tunnelInsideIpv6Cidr"><span class="annot"><span class="annottext">tunnelOption_tunnelInsideIpv6Cidr :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TunnelOption -&gt; f TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#tunnelOption_tunnelInsideIpv6Cidr"><span class="hs-identifier hs-var hs-var">tunnelOption_tunnelInsideIpv6Cidr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TunnelOption -&gt; Maybe Text)
+-&gt; (TunnelOption -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Lens TunnelOption TunnelOption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175633"><span class="annot"><span class="annottext">Maybe Text
+tunnelInsideIpv6Cidr :: Maybe Text
+$sel:tunnelInsideIpv6Cidr:TunnelOption' :: TunnelOption -&gt; Maybe Text
+</span><a href="#local-6989586621681175633"><span class="hs-identifier hs-var hs-var">tunnelInsideIpv6Cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175633"><span class="hs-identifier hs-var">tunnelInsideIpv6Cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175632"><span class="annot"><span class="annottext">s :: TunnelOption
+</span><a href="#local-6989586621681175632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-type">TunnelOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TunnelOption
+</span><a href="#local-6989586621681175632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tunnelInsideIpv6Cidr:TunnelOption' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#%24sel%3AtunnelInsideIpv6Cidr%3ATunnelOption%27"><span class="hs-identifier hs-var">tunnelInsideIpv6Cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681175631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621681175628"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TunnelOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681175626"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe [IKEVersionsListValue]
+-&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+-&gt; Maybe Int
+-&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+-&gt; Maybe [Phase1DHGroupNumbersListValue]
+-&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+-&gt; Maybe [Phase2DHGroupNumbersListValue]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; TunnelOption
+</span><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption%27"><span class="hs-identifier hs-var">TunnelOption'</span></a></span><span>
+</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe [IKEVersionsListValue]
+ -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+ -&gt; Maybe Int
+ -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+ -&gt; Maybe [Phase1DHGroupNumbersListValue]
+ -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+ -&gt; Maybe [Phase2DHGroupNumbersListValue]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; TunnelOption)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe [IKEVersionsListValue]
+      -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outsideIpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [IKEVersionsListValue]
+   -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe [IKEVersionsListValue]
+      -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replayWindowSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [IKEVersionsListValue]
+   -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe [IKEVersionsListValue]
+      -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dpdTimeoutAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [IKEVersionsListValue]
+   -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe [IKEVersionsListValue]
+      -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rekeyFuzzPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe [IKEVersionsListValue]
+   -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe [IKEVersionsListValue]
+      -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase1LifetimeSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [IKEVersionsListValue]
+   -&gt; Maybe [Phase2IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe [IKEVersionsListValue])
+-&gt; Either
+     String
+     (Maybe [Phase2IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ikeVersionSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-270"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [IKEVersionsListValue]))
+-&gt; Either String (Maybe [IKEVersionsListValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [IKEVersionsListValue])
+-&gt; [Node] -&gt; Either String (Maybe [IKEVersionsListValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [IKEVersionsListValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Phase2IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe [Phase2IntegrityAlgorithmsListValue])
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase2IntegrityAlgorithmSet&quot;</span></span><span>
+</span><span id="line-273"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-274"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [Phase2IntegrityAlgorithmsListValue]))
+-&gt; Either String (Maybe [Phase2IntegrityAlgorithmsListValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Phase2IntegrityAlgorithmsListValue])
+-&gt; [Node]
+-&gt; Either String (Maybe [Phase2IntegrityAlgorithmsListValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [Phase2IntegrityAlgorithmsListValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe [Phase1EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase2LifetimeSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Phase1EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe [Phase1EncryptionAlgorithmsListValue])
+-&gt; Either
+     String
+     (Maybe [Phase1DHGroupNumbersListValue]
+      -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase1EncryptionAlgorithmSet&quot;</span></span><span>
+</span><span id="line-278"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-279"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [Phase1EncryptionAlgorithmsListValue]))
+-&gt; Either String (Maybe [Phase1EncryptionAlgorithmsListValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Phase1EncryptionAlgorithmsListValue])
+-&gt; [Node]
+-&gt; Either String (Maybe [Phase1EncryptionAlgorithmsListValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [Phase1EncryptionAlgorithmsListValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Phase1DHGroupNumbersListValue]
+   -&gt; Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe [Phase1DHGroupNumbersListValue])
+-&gt; Either
+     String
+     (Maybe [Phase1IntegrityAlgorithmsListValue]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase1DHGroupNumberSet&quot;</span></span><span>
+</span><span id="line-282"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-283"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [Phase1DHGroupNumbersListValue]))
+-&gt; Either String (Maybe [Phase1DHGroupNumbersListValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Phase1DHGroupNumbersListValue])
+-&gt; [Node] -&gt; Either String (Maybe [Phase1DHGroupNumbersListValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Phase1DHGroupNumbersListValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Phase1IntegrityAlgorithmsListValue]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe [Phase1IntegrityAlgorithmsListValue])
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase1IntegrityAlgorithmSet&quot;</span></span><span>
+</span><span id="line-286"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-287"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [Phase1IntegrityAlgorithmsListValue]))
+-&gt; Either String (Maybe [Phase1IntegrityAlgorithmsListValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Phase1IntegrityAlgorithmsListValue])
+-&gt; [Node]
+-&gt; Either String (Maybe [Phase1IntegrityAlgorithmsListValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [Phase1IntegrityAlgorithmsListValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rekeyMarginTimeSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dpdTimeoutSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tunnelInsideCidr&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Phase2EncryptionAlgorithmsListValue]
+      -&gt; Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startupAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Phase2EncryptionAlgorithmsListValue]
+   -&gt; Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TunnelOption)
+-&gt; Either String (Maybe [Phase2EncryptionAlgorithmsListValue])
+-&gt; Either
+     String
+     (Maybe [Phase2DHGroupNumbersListValue]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase2EncryptionAlgorithmSet&quot;</span></span><span>
+</span><span id="line-294"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-295"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [Phase2EncryptionAlgorithmsListValue]))
+-&gt; Either String (Maybe [Phase2EncryptionAlgorithmsListValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Phase2EncryptionAlgorithmsListValue])
+-&gt; [Node]
+-&gt; Either String (Maybe [Phase2EncryptionAlgorithmsListValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [Phase2EncryptionAlgorithmsListValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Phase2DHGroupNumbersListValue]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Either String (Maybe [Phase2DHGroupNumbersListValue])
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;phase2DHGroupNumberSet&quot;</span></span><span>
+</span><span id="line-298"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-299"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [Phase2DHGroupNumbersListValue]))
+-&gt; Either String (Maybe [Phase2DHGroupNumbersListValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Phase2DHGroupNumbersListValue])
+-&gt; [Node] -&gt; Either String (Maybe [Phase2DHGroupNumbersListValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Phase2DHGroupNumbersListValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; TunnelOption)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; TunnelOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;preSharedKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; TunnelOption)
+-&gt; Either String (Maybe Text) -&gt; Either String TunnelOption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681175626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tunnelInsideIpv6Cidr&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681175617"><span id="local-6989586621681175619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span></span></span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681175614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TunnelOption.html#TunnelOption"><span class="hs-identifier hs-type">TunnelOption</span></a></span></span><span>
+</span><span id="line-307"></span></pre></body></html>

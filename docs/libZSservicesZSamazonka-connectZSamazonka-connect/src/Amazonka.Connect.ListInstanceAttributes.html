@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Connect.ListInstanceAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This API is in preview release for Amazon Connect and is subject to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- change.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Returns a paginated list of all attribute types for the given instance.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.ListInstanceAttributes</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier">ListInstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#newListInstanceAttributes"><span class="hs-identifier">newListInstanceAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_nextToken"><span class="hs-identifier">listInstanceAttributes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_maxResults"><span class="hs-identifier">listInstanceAttributes_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_instanceId"><span class="hs-identifier">listInstanceAttributes_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier">ListInstanceAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#newListInstanceAttributesResponse"><span class="hs-identifier">newListInstanceAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_nextToken"><span class="hs-identifier">listInstanceAttributesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_attributes"><span class="hs-identifier">listInstanceAttributesResponse_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_httpStatus"><span class="hs-identifier">listInstanceAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.html"><span class="hs-identifier">Amazonka.Connect.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListInstanceAttributes' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679415934"><span id="local-6989586621679415935"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInstanceAttributes"><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-var">ListInstanceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInstanceAttributes%27"><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-var">ListInstanceAttributes'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListInstanceAttributes%27"><span class="annot"><span class="annottext">ListInstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AnextToken%3AListInstanceAttributes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListInstanceAttributes%27"><span class="annot"><span class="annottext">ListInstanceAttributes -&gt; Maybe Natural
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AmaxResults%3AListInstanceAttributes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AinstanceId%3AListInstanceAttributes%27"><span class="annot"><span class="annottext">ListInstanceAttributes -&gt; Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AinstanceId%3AListInstanceAttributes%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415926"><span id="local-6989586621679415928"><span class="annot"><span class="annottext">ListInstanceAttributes -&gt; ListInstanceAttributes -&gt; Bool
+(ListInstanceAttributes -&gt; ListInstanceAttributes -&gt; Bool)
+-&gt; (ListInstanceAttributes -&gt; ListInstanceAttributes -&gt; Bool)
+-&gt; Eq ListInstanceAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInstanceAttributes -&gt; ListInstanceAttributes -&gt; Bool
+$c/= :: ListInstanceAttributes -&gt; ListInstanceAttributes -&gt; Bool
+== :: ListInstanceAttributes -&gt; ListInstanceAttributes -&gt; Bool
+$c== :: ListInstanceAttributes -&gt; ListInstanceAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415917"><span id="local-6989586621679415919"><span id="local-6989586621679415921"><span id="local-6989586621679415923"><span class="annot"><span class="annottext">ReadPrec [ListInstanceAttributes]
+ReadPrec ListInstanceAttributes
+Int -&gt; ReadS ListInstanceAttributes
+ReadS [ListInstanceAttributes]
+(Int -&gt; ReadS ListInstanceAttributes)
+-&gt; ReadS [ListInstanceAttributes]
+-&gt; ReadPrec ListInstanceAttributes
+-&gt; ReadPrec [ListInstanceAttributes]
+-&gt; Read ListInstanceAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInstanceAttributes]
+$creadListPrec :: ReadPrec [ListInstanceAttributes]
+readPrec :: ReadPrec ListInstanceAttributes
+$creadPrec :: ReadPrec ListInstanceAttributes
+readList :: ReadS [ListInstanceAttributes]
+$creadList :: ReadS [ListInstanceAttributes]
+readsPrec :: Int -&gt; ReadS ListInstanceAttributes
+$creadsPrec :: Int -&gt; ReadS ListInstanceAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415910"><span id="local-6989586621679415912"><span id="local-6989586621679415914"><span class="annot"><span class="annottext">Int -&gt; ListInstanceAttributes -&gt; ShowS
+[ListInstanceAttributes] -&gt; ShowS
+ListInstanceAttributes -&gt; String
+(Int -&gt; ListInstanceAttributes -&gt; ShowS)
+-&gt; (ListInstanceAttributes -&gt; String)
+-&gt; ([ListInstanceAttributes] -&gt; ShowS)
+-&gt; Show ListInstanceAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInstanceAttributes] -&gt; ShowS
+$cshowList :: [ListInstanceAttributes] -&gt; ShowS
+show :: ListInstanceAttributes -&gt; String
+$cshow :: ListInstanceAttributes -&gt; String
+showsPrec :: Int -&gt; ListInstanceAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInstanceAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListInstanceAttributes -&gt; Rep ListInstanceAttributes x)
+-&gt; (forall x.
+    Rep ListInstanceAttributes x -&gt; ListInstanceAttributes)
+-&gt; Generic ListInstanceAttributes
+forall x. Rep ListInstanceAttributes x -&gt; ListInstanceAttributes
+forall x. ListInstanceAttributes -&gt; Rep ListInstanceAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListInstanceAttributes x -&gt; ListInstanceAttributes
+$cfrom :: forall x. ListInstanceAttributes -&gt; Rep ListInstanceAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'ListInstanceAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'listInstanceAttributes_nextToken' - The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'maxResults', 'listInstanceAttributes_maxResults' - The maximum number of results to return per page.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'instanceId', 'listInstanceAttributes_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#newListInstanceAttributes"><span class="hs-identifier hs-type">newListInstanceAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span>
+</span><span id="line-91"></span><span id="newListInstanceAttributes"><span class="annot"><span class="annottext">newListInstanceAttributes :: Text -&gt; ListInstanceAttributes
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#newListInstanceAttributes"><span class="hs-identifier hs-var hs-var">newListInstanceAttributes</span></a></span></span><span> </span><span id="local-6989586621679415905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415905"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ListInstanceAttributes' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListInstanceAttributes
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AnextToken%3AListInstanceAttributes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListInstanceAttributes' :: Maybe Natural
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AmaxResults%3AListInstanceAttributes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListInstanceAttributes' :: Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AinstanceId%3AListInstanceAttributes%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415905"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_nextToken"><span class="hs-identifier hs-type">listInstanceAttributes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listInstanceAttributes_nextToken"><span class="annot"><span class="annottext">listInstanceAttributes_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInstanceAttributes -&gt; f ListInstanceAttributes
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_nextToken"><span class="hs-identifier hs-var hs-var">listInstanceAttributes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceAttributes -&gt; Maybe Text)
+-&gt; (ListInstanceAttributes -&gt; Maybe Text -&gt; ListInstanceAttributes)
+-&gt; Lens
+     ListInstanceAttributes
+     ListInstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415903"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679415903"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415903"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415902"><span class="annot"><span class="annottext">s :: ListInstanceAttributes
+</span><a href="#local-6989586621679415902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceAttributes
+</span><a href="#local-6989586621679415902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AnextToken%3AListInstanceAttributes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_maxResults"><span class="hs-identifier hs-type">listInstanceAttributes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listInstanceAttributes_maxResults"><span class="annot"><span class="annottext">listInstanceAttributes_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListInstanceAttributes -&gt; f ListInstanceAttributes
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_maxResults"><span class="hs-identifier hs-var hs-var">listInstanceAttributes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceAttributes -&gt; Maybe Natural)
+-&gt; (ListInstanceAttributes
+    -&gt; Maybe Natural -&gt; ListInstanceAttributes)
+-&gt; Lens
+     ListInstanceAttributes
+     ListInstanceAttributes
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415900"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Maybe Natural
+</span><a href="#local-6989586621679415900"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415900"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415899"><span class="annot"><span class="annottext">s :: ListInstanceAttributes
+</span><a href="#local-6989586621679415899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415898"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceAttributes
+</span><a href="#local-6989586621679415899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInstanceAttributes' :: Maybe Natural
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AmaxResults%3AListInstanceAttributes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_instanceId"><span class="hs-identifier hs-type">listInstanceAttributes_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="listInstanceAttributes_instanceId"><span class="annot"><span class="annottext">listInstanceAttributes_instanceId :: (Text -&gt; f Text)
+-&gt; ListInstanceAttributes -&gt; f ListInstanceAttributes
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_instanceId"><span class="hs-identifier hs-var hs-var">listInstanceAttributes_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceAttributes -&gt; Text)
+-&gt; (ListInstanceAttributes -&gt; Text -&gt; ListInstanceAttributes)
+-&gt; Lens ListInstanceAttributes ListInstanceAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415897"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Text
+</span><a href="#local-6989586621679415897"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415897"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415896"><span class="annot"><span class="annottext">s :: ListInstanceAttributes
+</span><a href="#local-6989586621679415896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceAttributes
+</span><a href="#local-6989586621679415896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListInstanceAttributes' :: Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AinstanceId%3AListInstanceAttributes%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679415891"><span class="annot"><span class="annottext">page :: ListInstanceAttributes
+-&gt; AWSResponse ListInstanceAttributes
+-&gt; Maybe ListInstanceAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679415889"><span class="annot"><span class="annottext">ListInstanceAttributes
+</span><a href="#local-6989586621679415889"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679415888"><span class="annot"><span class="annottext">AWSResponse ListInstanceAttributes
+</span><a href="#local-6989586621679415888"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstanceAttributes
+ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415888"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ListInstanceAttributesResponse
+-&gt; Getting (First Text) ListInstanceAttributesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInstanceAttributesResponse
+-&gt; Const (First Text) ListInstanceAttributesResponse
+Lens' ListInstanceAttributesResponse (Maybe Text)
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_nextToken"><span class="hs-identifier hs-var">listInstanceAttributesResponse_nextToken</span></a></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInstanceAttributesResponse
+ -&gt; Const (First Text) ListInstanceAttributesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInstanceAttributesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInstanceAttributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstanceAttributes
+ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415888"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListInstanceAttributesResponse
+-&gt; Getting
+     (First [Attribute]) ListInstanceAttributesResponse [Attribute]
+-&gt; Maybe [Attribute]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Attribute]
+ -&gt; Const (First [Attribute]) (Maybe [Attribute]))
+-&gt; ListInstanceAttributesResponse
+-&gt; Const (First [Attribute]) ListInstanceAttributesResponse
+Lens' ListInstanceAttributesResponse (Maybe [Attribute])
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_attributes"><span class="hs-identifier hs-var">listInstanceAttributesResponse_attributes</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Attribute]
+  -&gt; Const (First [Attribute]) (Maybe [Attribute]))
+ -&gt; ListInstanceAttributesResponse
+ -&gt; Const (First [Attribute]) ListInstanceAttributesResponse)
+-&gt; (([Attribute] -&gt; Const (First [Attribute]) [Attribute])
+    -&gt; Maybe [Attribute]
+    -&gt; Const (First [Attribute]) (Maybe [Attribute]))
+-&gt; Getting
+     (First [Attribute]) ListInstanceAttributesResponse [Attribute]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Attribute] -&gt; Const (First [Attribute]) [Attribute])
+-&gt; Maybe [Attribute]
+-&gt; Const (First [Attribute]) (Maybe [Attribute])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInstanceAttributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">ListInstanceAttributes -&gt; Maybe ListInstanceAttributes
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListInstanceAttributes -&gt; Maybe ListInstanceAttributes)
+-&gt; ListInstanceAttributes -&gt; Maybe ListInstanceAttributes
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ListInstanceAttributes
+</span><a href="#local-6989586621679415889"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListInstanceAttributes
+-&gt; (ListInstanceAttributes -&gt; ListInstanceAttributes)
+-&gt; ListInstanceAttributes
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListInstanceAttributes -&gt; Identity ListInstanceAttributes
+Lens
+  ListInstanceAttributes
+  ListInstanceAttributes
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributes_nextToken"><span class="hs-identifier hs-var">listInstanceAttributes_nextToken</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListInstanceAttributes -&gt; Identity ListInstanceAttributes)
+-&gt; Maybe Text -&gt; ListInstanceAttributes -&gt; ListInstanceAttributes
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstanceAttributes
+ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415888"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListInstanceAttributesResponse
+-&gt; Getting (First Text) ListInstanceAttributesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInstanceAttributesResponse
+-&gt; Const (First Text) ListInstanceAttributesResponse
+Lens' ListInstanceAttributesResponse (Maybe Text)
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_nextToken"><span class="hs-identifier hs-var">listInstanceAttributesResponse_nextToken</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInstanceAttributesResponse
+ -&gt; Const (First Text) ListInstanceAttributesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInstanceAttributesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679415878"><span class="annot"><span class="annottext">request :: ListInstanceAttributes -&gt; Request ListInstanceAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListInstanceAttributes -&gt; Request ListInstanceAttributes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679415874"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListInstanceAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListInstanceAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListInstanceAttributes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListInstanceAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListInstanceAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415871"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415871"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415870"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415870"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415869"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Attribute] -&gt; Int -&gt; ListInstanceAttributesResponse
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">ListInstanceAttributesResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Attribute] -&gt; Int -&gt; ListInstanceAttributesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Attribute] -&gt; Int -&gt; ListInstanceAttributesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Attribute] -&gt; Int -&gt; ListInstanceAttributesResponse)
+-&gt; Either String (Maybe [Attribute])
+-&gt; Either String (Int -&gt; ListInstanceAttributesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Attribute]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Attribute]))
+-&gt; Maybe [Attribute] -&gt; Either String (Maybe [Attribute])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListInstanceAttributesResponse)
+-&gt; Either String Int
+-&gt; Either String ListInstanceAttributesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415871"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415860"><span id="local-6989586621679415862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679415853"><span class="annot"><span class="annottext">toHeaders :: ListInstanceAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListInstanceAttributes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679415847"><span class="annot"><span class="annottext">toPath :: ListInstanceAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415843"><span id="local-6989586621679415844"><span id="local-6989586621679415845"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceId:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Text
+$sel:maxResults:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Maybe Natural
+$sel:nextToken:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679415843"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/instance/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415843"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/attributes&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes"><span class="hs-identifier hs-type">ListInstanceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679415839"><span class="annot"><span class="annottext">toQuery :: ListInstanceAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributes%27"><span class="hs-identifier hs-type">ListInstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415835"><span id="local-6989586621679415836"><span id="local-6989586621679415837"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceId:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Text
+$sel:maxResults:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Maybe Natural
+$sel:nextToken:ListInstanceAttributes' :: ListInstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679415835"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415837"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415836"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newListInstanceAttributesResponse' smart constructor.</span><span>
+</span><span id="line-178"></span><span id="local-6989586621679415832"><span id="local-6989586621679415833"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInstanceAttributesResponse"><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-var">ListInstanceAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInstanceAttributesResponse%27"><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">ListInstanceAttributesResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AnextToken%3AListInstanceAttributesResponse%27"><span class="annot"><span class="annottext">ListInstanceAttributesResponse -&gt; Maybe Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AnextToken%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The attribute types.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3Aattributes%3AListInstanceAttributesResponse%27"><span class="annot"><span class="annottext">ListInstanceAttributesResponse -&gt; Maybe [Attribute]
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3Aattributes%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Connect.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListInstanceAttributesResponse%27"><span class="annot"><span class="annottext">ListInstanceAttributesResponse -&gt; Int
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AhttpStatus%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415825"><span id="local-6989586621679415827"><span class="annot"><span class="annottext">ListInstanceAttributesResponse
+-&gt; ListInstanceAttributesResponse -&gt; Bool
+(ListInstanceAttributesResponse
+ -&gt; ListInstanceAttributesResponse -&gt; Bool)
+-&gt; (ListInstanceAttributesResponse
+    -&gt; ListInstanceAttributesResponse -&gt; Bool)
+-&gt; Eq ListInstanceAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInstanceAttributesResponse
+-&gt; ListInstanceAttributesResponse -&gt; Bool
+$c/= :: ListInstanceAttributesResponse
+-&gt; ListInstanceAttributesResponse -&gt; Bool
+== :: ListInstanceAttributesResponse
+-&gt; ListInstanceAttributesResponse -&gt; Bool
+$c== :: ListInstanceAttributesResponse
+-&gt; ListInstanceAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415817"><span id="local-6989586621679415819"><span id="local-6989586621679415821"><span id="local-6989586621679415823"><span class="annot"><span class="annottext">ReadPrec [ListInstanceAttributesResponse]
+ReadPrec ListInstanceAttributesResponse
+Int -&gt; ReadS ListInstanceAttributesResponse
+ReadS [ListInstanceAttributesResponse]
+(Int -&gt; ReadS ListInstanceAttributesResponse)
+-&gt; ReadS [ListInstanceAttributesResponse]
+-&gt; ReadPrec ListInstanceAttributesResponse
+-&gt; ReadPrec [ListInstanceAttributesResponse]
+-&gt; Read ListInstanceAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInstanceAttributesResponse]
+$creadListPrec :: ReadPrec [ListInstanceAttributesResponse]
+readPrec :: ReadPrec ListInstanceAttributesResponse
+$creadPrec :: ReadPrec ListInstanceAttributesResponse
+readList :: ReadS [ListInstanceAttributesResponse]
+$creadList :: ReadS [ListInstanceAttributesResponse]
+readsPrec :: Int -&gt; ReadS ListInstanceAttributesResponse
+$creadsPrec :: Int -&gt; ReadS ListInstanceAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415811"><span id="local-6989586621679415813"><span id="local-6989586621679415815"><span class="annot"><span class="annottext">Int -&gt; ListInstanceAttributesResponse -&gt; ShowS
+[ListInstanceAttributesResponse] -&gt; ShowS
+ListInstanceAttributesResponse -&gt; String
+(Int -&gt; ListInstanceAttributesResponse -&gt; ShowS)
+-&gt; (ListInstanceAttributesResponse -&gt; String)
+-&gt; ([ListInstanceAttributesResponse] -&gt; ShowS)
+-&gt; Show ListInstanceAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInstanceAttributesResponse] -&gt; ShowS
+$cshowList :: [ListInstanceAttributesResponse] -&gt; ShowS
+show :: ListInstanceAttributesResponse -&gt; String
+$cshow :: ListInstanceAttributesResponse -&gt; String
+showsPrec :: Int -&gt; ListInstanceAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInstanceAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListInstanceAttributesResponse
+ -&gt; Rep ListInstanceAttributesResponse x)
+-&gt; (forall x.
+    Rep ListInstanceAttributesResponse x
+    -&gt; ListInstanceAttributesResponse)
+-&gt; Generic ListInstanceAttributesResponse
+forall x.
+Rep ListInstanceAttributesResponse x
+-&gt; ListInstanceAttributesResponse
+forall x.
+ListInstanceAttributesResponse
+-&gt; Rep ListInstanceAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListInstanceAttributesResponse x
+-&gt; ListInstanceAttributesResponse
+$cfrom :: forall x.
+ListInstanceAttributesResponse
+-&gt; Rep ListInstanceAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'ListInstanceAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextToken', 'listInstanceAttributesResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'attributes', 'listInstanceAttributesResponse_attributes' - The attribute types.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'listInstanceAttributesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#newListInstanceAttributesResponse"><span class="hs-identifier hs-type">newListInstanceAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="newListInstanceAttributesResponse"><span class="annot"><span class="annottext">newListInstanceAttributesResponse :: Int -&gt; ListInstanceAttributesResponse
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#newListInstanceAttributesResponse"><span class="hs-identifier hs-var hs-var">newListInstanceAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679415808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">ListInstanceAttributesResponse' :: Maybe Text
+-&gt; Maybe [Attribute] -&gt; Int -&gt; ListInstanceAttributesResponse
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-type">ListInstanceAttributesResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInstanceAttributesResponse' :: Maybe Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AnextToken%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:ListInstanceAttributesResponse' :: Maybe [Attribute]
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3Aattributes%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListInstanceAttributesResponse' :: Int
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AhttpStatus%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_nextToken"><span class="hs-identifier hs-type">listInstanceAttributesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="listInstanceAttributesResponse_nextToken"><span class="annot"><span class="annottext">listInstanceAttributesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInstanceAttributesResponse
+-&gt; f ListInstanceAttributesResponse
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInstanceAttributesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceAttributesResponse -&gt; Maybe Text)
+-&gt; (ListInstanceAttributesResponse
+    -&gt; Maybe Text -&gt; ListInstanceAttributesResponse)
+-&gt; Lens' ListInstanceAttributesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-type">ListInstanceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415807"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInstanceAttributesResponse' :: ListInstanceAttributesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679415807"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415807"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415806"><span class="annot"><span class="annottext">s :: ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-type">ListInstanceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415805"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInstanceAttributesResponse' :: Maybe Text
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AnextToken%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The attribute types.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_attributes"><span class="hs-identifier hs-type">listInstanceAttributesResponse_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Connect.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listInstanceAttributesResponse_attributes"><span class="annot"><span class="annottext">listInstanceAttributesResponse_attributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; ListInstanceAttributesResponse
+-&gt; f ListInstanceAttributesResponse
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_attributes"><span class="hs-identifier hs-var hs-var">listInstanceAttributesResponse_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceAttributesResponse -&gt; Maybe [Attribute])
+-&gt; (ListInstanceAttributesResponse
+    -&gt; Maybe [Attribute] -&gt; ListInstanceAttributesResponse)
+-&gt; Lens' ListInstanceAttributesResponse (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-type">ListInstanceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415804"><span class="annot"><span class="annottext">Maybe [Attribute]
+attributes :: Maybe [Attribute]
+$sel:attributes:ListInstanceAttributesResponse' :: ListInstanceAttributesResponse -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679415804"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679415804"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415803"><span class="annot"><span class="annottext">s :: ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-type">ListInstanceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415802"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679415802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ListInstanceAttributesResponse' :: Maybe [Attribute]
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3Aattributes%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679415802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; ListInstanceAttributesResponse
+ -&gt; f ListInstanceAttributesResponse)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; ListInstanceAttributesResponse
+-&gt; f ListInstanceAttributesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_httpStatus"><span class="hs-identifier hs-type">listInstanceAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="listInstanceAttributesResponse_httpStatus"><span class="annot"><span class="annottext">listInstanceAttributesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListInstanceAttributesResponse
+-&gt; f ListInstanceAttributesResponse
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#listInstanceAttributesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listInstanceAttributesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceAttributesResponse -&gt; Int)
+-&gt; (ListInstanceAttributesResponse
+    -&gt; Int -&gt; ListInstanceAttributesResponse)
+-&gt; Lens
+     ListInstanceAttributesResponse
+     ListInstanceAttributesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-type">ListInstanceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415799"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListInstanceAttributesResponse' :: ListInstanceAttributesResponse -&gt; Int
+</span><a href="#local-6989586621679415799"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415799"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415798"><span class="annot"><span class="annottext">s :: ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse%27"><span class="hs-identifier hs-type">ListInstanceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceAttributesResponse
+</span><a href="#local-6989586621679415798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInstanceAttributesResponse' :: Int
+</span><a href="Amazonka.Connect.ListInstanceAttributes.html#%24sel%3AhttpStatus%3AListInstanceAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679415795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListInstanceAttributes.html#ListInstanceAttributesResponse"><span class="hs-identifier hs-type">ListInstanceAttributesResponse</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

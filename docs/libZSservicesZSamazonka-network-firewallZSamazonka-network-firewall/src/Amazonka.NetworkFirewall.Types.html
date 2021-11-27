@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_LogDestinationPermissionException"><span class="hs-identifier">_LogDestinationPermissionException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_UnsupportedOperationException"><span class="hs-identifier">_UnsupportedOperationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_ResourceOwnerCheckException"><span class="hs-identifier">_ResourceOwnerCheckException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidResourcePolicyException"><span class="hs-identifier">_InvalidResourcePolicyException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InternalServerError"><span class="hs-identifier">_InternalServerError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidTokenException"><span class="hs-identifier">_InvalidTokenException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidOperationException"><span class="hs-identifier">_InvalidOperationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InsufficientCapacityException"><span class="hs-identifier">_InsufficientCapacityException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AttachmentStatus</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.AttachmentStatus.html#AttachmentStatus"><span class="hs-identifier">AttachmentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ConfigurationSyncState</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ConfigurationSyncState.html#ConfigurationSyncState"><span class="hs-identifier">ConfigurationSyncState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FirewallStatusValue</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatusValue.html#FirewallStatusValue"><span class="hs-identifier">FirewallStatusValue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * GeneratedRulesType</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.GeneratedRulesType.html#GeneratedRulesType"><span class="hs-identifier">GeneratedRulesType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogDestinationType</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationType.html#LogDestinationType"><span class="hs-identifier">LogDestinationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogType</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogType.html#LogType"><span class="hs-identifier">LogType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PerObjectSyncStatus</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PerObjectSyncStatus.html#PerObjectSyncStatus"><span class="hs-identifier">PerObjectSyncStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResourceStatus</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier">ResourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleGroupType</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType"><span class="hs-identifier">RuleGroupType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleOrder</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleOrder.html#RuleOrder"><span class="hs-identifier">RuleOrder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatefulAction</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulAction.html#StatefulAction"><span class="hs-identifier">StatefulAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatefulRuleDirection</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleDirection.html#StatefulRuleDirection"><span class="hs-identifier">StatefulRuleDirection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatefulRuleProtocol</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleProtocol.html#StatefulRuleProtocol"><span class="hs-identifier">StatefulRuleProtocol</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TCPFlag</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier">TCPFlag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TargetType</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType"><span class="hs-identifier">TargetType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ActionDefinition</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ActionDefinition.html#ActionDefinition"><span class="hs-identifier">ActionDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ActionDefinition.html#newActionDefinition"><span class="hs-identifier">newActionDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ActionDefinition.html#actionDefinition_publishMetricAction"><span class="hs-identifier">actionDefinition_publishMetricAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Address</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Address.html#Address"><span class="hs-identifier">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Address.html#newAddress"><span class="hs-identifier">newAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Address.html#address_addressDefinition"><span class="hs-identifier">address_addressDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Attachment</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Attachment.html#Attachment"><span class="hs-identifier">Attachment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Attachment.html#newAttachment"><span class="hs-identifier">newAttachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Attachment.html#attachment_status"><span class="hs-identifier">attachment_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Attachment.html#attachment_subnetId"><span class="hs-identifier">attachment_subnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Attachment.html#attachment_endpointId"><span class="hs-identifier">attachment_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomAction</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.CustomAction.html#CustomAction"><span class="hs-identifier">CustomAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.CustomAction.html#newCustomAction"><span class="hs-identifier">newCustomAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.CustomAction.html#customAction_actionName"><span class="hs-identifier">customAction_actionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.CustomAction.html#customAction_actionDefinition"><span class="hs-identifier">customAction_actionDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Dimension</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Dimension.html#Dimension"><span class="hs-identifier">Dimension</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Dimension.html#newDimension"><span class="hs-identifier">newDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Dimension.html#dimension_value"><span class="hs-identifier">dimension_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Firewall</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#newFirewall"><span class="hs-identifier">newFirewall</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallArn"><span class="hs-identifier">firewall_firewallArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallPolicyChangeProtection"><span class="hs-identifier">firewall_firewallPolicyChangeProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_subnetChangeProtection"><span class="hs-identifier">firewall_subnetChangeProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_deleteProtection"><span class="hs-identifier">firewall_deleteProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_description"><span class="hs-identifier">firewall_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_tags"><span class="hs-identifier">firewall_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallName"><span class="hs-identifier">firewall_firewallName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallPolicyArn"><span class="hs-identifier">firewall_firewallPolicyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_vpcId"><span class="hs-identifier">firewall_vpcId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_subnetMappings"><span class="hs-identifier">firewall_subnetMappings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallId"><span class="hs-identifier">firewall_firewallId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FirewallMetadata</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallMetadata.html#FirewallMetadata"><span class="hs-identifier">FirewallMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallMetadata.html#newFirewallMetadata"><span class="hs-identifier">newFirewallMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallMetadata.html#firewallMetadata_firewallArn"><span class="hs-identifier">firewallMetadata_firewallArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallMetadata.html#firewallMetadata_firewallName"><span class="hs-identifier">firewallMetadata_firewallName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FirewallPolicy</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#FirewallPolicy"><span class="hs-identifier">FirewallPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#newFirewallPolicy"><span class="hs-identifier">newFirewallPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#firewallPolicy_statefulEngineOptions"><span class="hs-identifier">firewallPolicy_statefulEngineOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#firewallPolicy_statefulRuleGroupReferences"><span class="hs-identifier">firewallPolicy_statefulRuleGroupReferences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#firewallPolicy_statelessRuleGroupReferences"><span class="hs-identifier">firewallPolicy_statelessRuleGroupReferences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#firewallPolicy_statelessCustomActions"><span class="hs-identifier">firewallPolicy_statelessCustomActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#firewallPolicy_statefulDefaultActions"><span class="hs-identifier">firewallPolicy_statefulDefaultActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#firewallPolicy_statelessDefaultActions"><span class="hs-identifier">firewallPolicy_statelessDefaultActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html#firewallPolicy_statelessFragmentDefaultActions"><span class="hs-identifier">firewallPolicy_statelessFragmentDefaultActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FirewallPolicyMetadata</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata.html#FirewallPolicyMetadata"><span class="hs-identifier">FirewallPolicyMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata.html#newFirewallPolicyMetadata"><span class="hs-identifier">newFirewallPolicyMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata.html#firewallPolicyMetadata_arn"><span class="hs-identifier">firewallPolicyMetadata_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata.html#firewallPolicyMetadata_name"><span class="hs-identifier">firewallPolicyMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FirewallPolicyResponse</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier">FirewallPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#newFirewallPolicyResponse"><span class="hs-identifier">newFirewallPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_consumedStatelessRuleCapacity"><span class="hs-identifier">firewallPolicyResponse_consumedStatelessRuleCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_numberOfAssociations"><span class="hs-identifier">firewallPolicyResponse_numberOfAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyStatus"><span class="hs-identifier">firewallPolicyResponse_firewallPolicyStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_consumedStatefulRuleCapacity"><span class="hs-identifier">firewallPolicyResponse_consumedStatefulRuleCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_description"><span class="hs-identifier">firewallPolicyResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_tags"><span class="hs-identifier">firewallPolicyResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyName"><span class="hs-identifier">firewallPolicyResponse_firewallPolicyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyArn"><span class="hs-identifier">firewallPolicyResponse_firewallPolicyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyId"><span class="hs-identifier">firewallPolicyResponse_firewallPolicyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FirewallStatus</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatus.html#FirewallStatus"><span class="hs-identifier">FirewallStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatus.html#newFirewallStatus"><span class="hs-identifier">newFirewallStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatus.html#firewallStatus_syncStates"><span class="hs-identifier">firewallStatus_syncStates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatus.html#firewallStatus_status"><span class="hs-identifier">firewallStatus_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatus.html#firewallStatus_configurationSyncStateSummary"><span class="hs-identifier">firewallStatus_configurationSyncStateSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Header</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#Header"><span class="hs-identifier">Header</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#newHeader"><span class="hs-identifier">newHeader</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#header_protocol"><span class="hs-identifier">header_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#header_source"><span class="hs-identifier">header_source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#header_sourcePort"><span class="hs-identifier">header_sourcePort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#header_direction"><span class="hs-identifier">header_direction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#header_destination"><span class="hs-identifier">header_destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html#header_destinationPort"><span class="hs-identifier">header_destinationPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IPSet</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.IPSet.html#IPSet"><span class="hs-identifier">IPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.IPSet.html#newIPSet"><span class="hs-identifier">newIPSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.IPSet.html#iPSet_definition"><span class="hs-identifier">iPSet_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogDestinationConfig</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationConfig.html#LogDestinationConfig"><span class="hs-identifier">LogDestinationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationConfig.html#newLogDestinationConfig"><span class="hs-identifier">newLogDestinationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationConfig.html#logDestinationConfig_logType"><span class="hs-identifier">logDestinationConfig_logType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationConfig.html#logDestinationConfig_logDestinationType"><span class="hs-identifier">logDestinationConfig_logDestinationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationConfig.html#logDestinationConfig_logDestination"><span class="hs-identifier">logDestinationConfig_logDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoggingConfiguration</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LoggingConfiguration.html#newLoggingConfiguration"><span class="hs-identifier">newLoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LoggingConfiguration.html#loggingConfiguration_logDestinationConfigs"><span class="hs-identifier">loggingConfiguration_logDestinationConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MatchAttributes</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#MatchAttributes"><span class="hs-identifier">MatchAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#newMatchAttributes"><span class="hs-identifier">newMatchAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#matchAttributes_protocols"><span class="hs-identifier">matchAttributes_protocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#matchAttributes_tCPFlags"><span class="hs-identifier">matchAttributes_tCPFlags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#matchAttributes_destinationPorts"><span class="hs-identifier">matchAttributes_destinationPorts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#matchAttributes_sources"><span class="hs-identifier">matchAttributes_sources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#matchAttributes_sourcePorts"><span class="hs-identifier">matchAttributes_sourcePorts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html#matchAttributes_destinations"><span class="hs-identifier">matchAttributes_destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PerObjectStatus</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PerObjectStatus.html#PerObjectStatus"><span class="hs-identifier">PerObjectStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PerObjectStatus.html#newPerObjectStatus"><span class="hs-identifier">newPerObjectStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PerObjectStatus.html#perObjectStatus_updateToken"><span class="hs-identifier">perObjectStatus_updateToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PerObjectStatus.html#perObjectStatus_syncStatus"><span class="hs-identifier">perObjectStatus_syncStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PortRange</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortRange.html#PortRange"><span class="hs-identifier">PortRange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortRange.html#newPortRange"><span class="hs-identifier">newPortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortRange.html#portRange_fromPort"><span class="hs-identifier">portRange_fromPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortRange.html#portRange_toPort"><span class="hs-identifier">portRange_toPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PortSet</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortSet.html#PortSet"><span class="hs-identifier">PortSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortSet.html#newPortSet"><span class="hs-identifier">newPortSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortSet.html#portSet_definition"><span class="hs-identifier">portSet_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PublishMetricAction</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PublishMetricAction.html#PublishMetricAction"><span class="hs-identifier">PublishMetricAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PublishMetricAction.html#newPublishMetricAction"><span class="hs-identifier">newPublishMetricAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PublishMetricAction.html#publishMetricAction_dimensions"><span class="hs-identifier">publishMetricAction_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleDefinition</span></span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier">RuleDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html#newRuleDefinition"><span class="hs-identifier">newRuleDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html#ruleDefinition_matchAttributes"><span class="hs-identifier">ruleDefinition_matchAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html#ruleDefinition_actions"><span class="hs-identifier">ruleDefinition_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleGroup</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroup.html#RuleGroup"><span class="hs-identifier">RuleGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroup.html#newRuleGroup"><span class="hs-identifier">newRuleGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroup.html#ruleGroup_statefulRuleOptions"><span class="hs-identifier">ruleGroup_statefulRuleOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroup.html#ruleGroup_ruleVariables"><span class="hs-identifier">ruleGroup_ruleVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroup.html#ruleGroup_rulesSource"><span class="hs-identifier">ruleGroup_rulesSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleGroupMetadata</span></span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupMetadata.html#RuleGroupMetadata"><span class="hs-identifier">RuleGroupMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupMetadata.html#newRuleGroupMetadata"><span class="hs-identifier">newRuleGroupMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupMetadata.html#ruleGroupMetadata_arn"><span class="hs-identifier">ruleGroupMetadata_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupMetadata.html#ruleGroupMetadata_name"><span class="hs-identifier">ruleGroupMetadata_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleGroupResponse</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#RuleGroupResponse"><span class="hs-identifier">RuleGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#newRuleGroupResponse"><span class="hs-identifier">newRuleGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_numberOfAssociations"><span class="hs-identifier">ruleGroupResponse_numberOfAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_capacity"><span class="hs-identifier">ruleGroupResponse_capacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_consumedCapacity"><span class="hs-identifier">ruleGroupResponse_consumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_ruleGroupStatus"><span class="hs-identifier">ruleGroupResponse_ruleGroupStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_type"><span class="hs-identifier">ruleGroupResponse_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_description"><span class="hs-identifier">ruleGroupResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_tags"><span class="hs-identifier">ruleGroupResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_ruleGroupArn"><span class="hs-identifier">ruleGroupResponse_ruleGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_ruleGroupName"><span class="hs-identifier">ruleGroupResponse_ruleGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html#ruleGroupResponse_ruleGroupId"><span class="hs-identifier">ruleGroupResponse_ruleGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleOption</span></span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleOption.html#RuleOption"><span class="hs-identifier">RuleOption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleOption.html#newRuleOption"><span class="hs-identifier">newRuleOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleOption.html#ruleOption_settings"><span class="hs-identifier">ruleOption_settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleOption.html#ruleOption_keyword"><span class="hs-identifier">ruleOption_keyword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleVariables</span></span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleVariables.html#RuleVariables"><span class="hs-identifier">RuleVariables</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleVariables.html#newRuleVariables"><span class="hs-identifier">newRuleVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleVariables.html#ruleVariables_portSets"><span class="hs-identifier">ruleVariables_portSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleVariables.html#ruleVariables_iPSets"><span class="hs-identifier">ruleVariables_iPSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RulesSource</span></span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier">RulesSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSource.html#newRulesSource"><span class="hs-identifier">newRulesSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSource.html#rulesSource_rulesString"><span class="hs-identifier">rulesSource_rulesString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSource.html#rulesSource_rulesSourceList"><span class="hs-identifier">rulesSource_rulesSourceList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSource.html#rulesSource_statefulRules"><span class="hs-identifier">rulesSource_statefulRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSource.html#rulesSource_statelessRulesAndCustomActions"><span class="hs-identifier">rulesSource_statelessRulesAndCustomActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RulesSourceList</span></span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSourceList.html#RulesSourceList"><span class="hs-identifier">RulesSourceList</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSourceList.html#newRulesSourceList"><span class="hs-identifier">newRulesSourceList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSourceList.html#rulesSourceList_targets"><span class="hs-identifier">rulesSourceList_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSourceList.html#rulesSourceList_targetTypes"><span class="hs-identifier">rulesSourceList_targetTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSourceList.html#rulesSourceList_generatedRulesType"><span class="hs-identifier">rulesSourceList_generatedRulesType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatefulEngineOptions</span></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulEngineOptions.html#StatefulEngineOptions"><span class="hs-identifier">StatefulEngineOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulEngineOptions.html#newStatefulEngineOptions"><span class="hs-identifier">newStatefulEngineOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulEngineOptions.html#statefulEngineOptions_ruleOrder"><span class="hs-identifier">statefulEngineOptions_ruleOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatefulRule</span></span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRule.html#StatefulRule"><span class="hs-identifier">StatefulRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRule.html#newStatefulRule"><span class="hs-identifier">newStatefulRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRule.html#statefulRule_action"><span class="hs-identifier">statefulRule_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRule.html#statefulRule_header"><span class="hs-identifier">statefulRule_header</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRule.html#statefulRule_ruleOptions"><span class="hs-identifier">statefulRule_ruleOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatefulRuleGroupReference</span></span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference.html#StatefulRuleGroupReference"><span class="hs-identifier">StatefulRuleGroupReference</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference.html#newStatefulRuleGroupReference"><span class="hs-identifier">newStatefulRuleGroupReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference.html#statefulRuleGroupReference_priority"><span class="hs-identifier">statefulRuleGroupReference_priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference.html#statefulRuleGroupReference_resourceArn"><span class="hs-identifier">statefulRuleGroupReference_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatefulRuleOptions</span></span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleOptions.html#StatefulRuleOptions"><span class="hs-identifier">StatefulRuleOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleOptions.html#newStatefulRuleOptions"><span class="hs-identifier">newStatefulRuleOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleOptions.html#statefulRuleOptions_ruleOrder"><span class="hs-identifier">statefulRuleOptions_ruleOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatelessRule</span></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#StatelessRule"><span class="hs-identifier">StatelessRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#newStatelessRule"><span class="hs-identifier">newStatelessRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#statelessRule_ruleDefinition"><span class="hs-identifier">statelessRule_ruleDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html#statelessRule_priority"><span class="hs-identifier">statelessRule_priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatelessRuleGroupReference</span></span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference.html#StatelessRuleGroupReference"><span class="hs-identifier">StatelessRuleGroupReference</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference.html#newStatelessRuleGroupReference"><span class="hs-identifier">newStatelessRuleGroupReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference.html#statelessRuleGroupReference_resourceArn"><span class="hs-identifier">statelessRuleGroupReference_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference.html#statelessRuleGroupReference_priority"><span class="hs-identifier">statelessRuleGroupReference_priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatelessRulesAndCustomActions</span></span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions.html#StatelessRulesAndCustomActions"><span class="hs-identifier">StatelessRulesAndCustomActions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions.html#newStatelessRulesAndCustomActions"><span class="hs-identifier">newStatelessRulesAndCustomActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions.html#statelessRulesAndCustomActions_customActions"><span class="hs-identifier">statelessRulesAndCustomActions_customActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions.html#statelessRulesAndCustomActions_statelessRules"><span class="hs-identifier">statelessRulesAndCustomActions_statelessRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SubnetMapping</span></span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SubnetMapping.html#SubnetMapping"><span class="hs-identifier">SubnetMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SubnetMapping.html#newSubnetMapping"><span class="hs-identifier">newSubnetMapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SubnetMapping.html#subnetMapping_subnetId"><span class="hs-identifier">subnetMapping_subnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SyncState</span></span><span>
+</span><span id="line-330"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SyncState.html#SyncState"><span class="hs-identifier">SyncState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SyncState.html#newSyncState"><span class="hs-identifier">newSyncState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SyncState.html#syncState_config"><span class="hs-identifier">syncState_config</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SyncState.html#syncState_attachment"><span class="hs-identifier">syncState_attachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TCPFlagField</span></span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlagField.html#TCPFlagField"><span class="hs-identifier">TCPFlagField</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlagField.html#newTCPFlagField"><span class="hs-identifier">newTCPFlagField</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlagField.html#tCPFlagField_masks"><span class="hs-identifier">tCPFlagField_masks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlagField.html#tCPFlagField_flags"><span class="hs-identifier">tCPFlagField_flags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ActionDefinition.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.ActionDefinition</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Address.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Address</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Attachment.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Attachment</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.AttachmentStatus.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.AttachmentStatus</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ConfigurationSyncState.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.ConfigurationSyncState</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.CustomAction.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.CustomAction</span></a></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Dimension.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Dimension</span></a></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Firewall</span></a></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallMetadata.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.FirewallMetadata</span></a></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicy.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.FirewallPolicy</span></a></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata</span></a></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallPolicyResponse.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.FirewallPolicyResponse</span></a></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatus.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.FirewallStatus</span></a></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.FirewallStatusValue.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.FirewallStatusValue</span></a></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.GeneratedRulesType.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.GeneratedRulesType</span></a></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Header.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Header</span></a></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.IPSet.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.IPSet</span></a></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationConfig.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.LogDestinationConfig</span></a></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogDestinationType.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.LogDestinationType</span></a></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LogType.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.LogType</span></a></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.LoggingConfiguration.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.LoggingConfiguration</span></a></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.MatchAttributes.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.MatchAttributes</span></a></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PerObjectStatus.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.PerObjectStatus</span></a></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PerObjectSyncStatus.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.PerObjectSyncStatus</span></a></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortRange.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.PortRange</span></a></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PortSet.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.PortSet</span></a></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.PublishMetricAction.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.PublishMetricAction</span></a></span><span>
+</span><span id="line-378"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.ResourceStatus</span></a></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleDefinition.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleDefinition</span></a></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroup.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleGroup</span></a></span><span>
+</span><span id="line-381"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupMetadata.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleGroupMetadata</span></a></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupResponse.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleGroupResponse</span></a></span><span>
+</span><span id="line-383"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleGroupType.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleGroupType</span></a></span><span>
+</span><span id="line-384"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleOption.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleOption</span></a></span><span>
+</span><span id="line-385"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleOrder.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleOrder</span></a></span><span>
+</span><span id="line-386"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RuleVariables.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RuleVariables</span></a></span><span>
+</span><span id="line-387"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSource.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RulesSource</span></a></span><span>
+</span><span id="line-388"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.RulesSourceList.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.RulesSourceList</span></a></span><span>
+</span><span id="line-389"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulAction.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatefulAction</span></a></span><span>
+</span><span id="line-390"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulEngineOptions.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatefulEngineOptions</span></a></span><span>
+</span><span id="line-391"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRule.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatefulRule</span></a></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleDirection.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatefulRuleDirection</span></a></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference</span></a></span><span>
+</span><span id="line-394"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleOptions.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatefulRuleOptions</span></a></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatefulRuleProtocol.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatefulRuleProtocol</span></a></span><span>
+</span><span id="line-396"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRule.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatelessRule</span></a></span><span>
+</span><span id="line-397"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference</span></a></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions</span></a></span><span>
+</span><span id="line-399"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SubnetMapping.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.SubnetMapping</span></a></span><span>
+</span><span id="line-400"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SyncState.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.SyncState</span></a></span><span>
+</span><span id="line-401"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.TCPFlag</span></a></span><span>
+</span><span id="line-402"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlagField.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.TCPFlagField</span></a></span><span>
+</span><span id="line-403"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Tag</span></a></span><span>
+</span><span id="line-404"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.TargetType</span></a></span><span>
+</span><span id="line-405"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-406"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- | API version @2020-11-12@ of the Amazon Network Firewall SDK configuration.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-410"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-411"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-412"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-413"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;NetworkFirewall&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;network-firewall&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;network-firewall&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2020-11-12&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-419"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-420"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-421"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-423"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;NetworkFirewall&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679243682"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-425"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-426"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-427"></span><span>    </span><span id="local-6989586621679243682"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679243682"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-428"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-429"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679243676"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-433"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-434"></span><span>    </span><span id="local-6989586621679243676"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679243676"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679243675"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-435"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-436"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-437"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-438"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-440"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-441"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-442"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-443"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-444"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-445"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-446"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-447"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-448"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-449"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-450"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-451"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-452"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-454"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-455"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-456"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-457"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-458"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-459"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-461"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-462"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-463"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-464"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-465"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-466"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-467"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-469"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-470"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-471"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-472"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-473"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-474"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-475"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-476"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679243675"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-477"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-478"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-479"></span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- | Unable to send logs to a configured logging destination.</span><span>
+</span><span id="line-481"></span><span id="local-6989586621679243670"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_LogDestinationPermissionException"><span class="hs-identifier hs-type">_LogDestinationPermissionException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243670"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243670"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-482"></span><span id="_LogDestinationPermissionException"><span class="annot"><span class="annottext">_LogDestinationPermissionException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_LogDestinationPermissionException"><span class="hs-identifier hs-var hs-var">_LogDestinationPermissionException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-483"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LogDestinationPermissionException&quot;</span></span><span>
+</span><span id="line-486"></span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- | The operation failed because of a problem with your request. Examples</span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- include:</span><span>
+</span><span id="line-489"></span><span class="hs-comment">--</span><span>
+</span><span id="line-490"></span><span class="hs-comment">-- -   You specified an unsupported parameter name or value.</span><span>
+</span><span id="line-491"></span><span class="hs-comment">--</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- -   You tried to update a property with a value that isn\'t among the</span><span>
+</span><span id="line-493"></span><span class="hs-comment">--     available types.</span><span>
+</span><span id="line-494"></span><span class="hs-comment">--</span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- -   Your request references an ARN that is malformed, or corresponds to</span><span>
+</span><span id="line-496"></span><span class="hs-comment">--     a resource that isn\'t valid in the context of the request.</span><span>
+</span><span id="line-497"></span><span id="local-6989586621679243668"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidRequestException"><span class="hs-identifier hs-type">_InvalidRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243668"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243668"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-498"></span><span id="_InvalidRequestException"><span class="annot"><span class="annottext">_InvalidRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_InvalidRequestException"><span class="hs-identifier hs-var hs-var">_InvalidRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-499"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-500"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-501"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidRequestException&quot;</span></span><span>
+</span><span id="line-502"></span><span>
+</span><span id="line-503"></span><span class="hs-comment">-- | The operation you requested isn\'t supported by Network Firewall.</span><span>
+</span><span id="line-504"></span><span id="local-6989586621679243667"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_UnsupportedOperationException"><span class="hs-identifier hs-type">_UnsupportedOperationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243667"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243667"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-505"></span><span id="_UnsupportedOperationException"><span class="annot"><span class="annottext">_UnsupportedOperationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_UnsupportedOperationException"><span class="hs-identifier hs-var hs-var">_UnsupportedOperationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-506"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-507"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-508"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;UnsupportedOperationException&quot;</span></span><span>
+</span><span id="line-509"></span><span>
+</span><span id="line-510"></span><span class="hs-comment">-- | Unable to change the resource because your account doesn\'t own it.</span><span>
+</span><span id="line-511"></span><span id="local-6989586621679243666"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_ResourceOwnerCheckException"><span class="hs-identifier hs-type">_ResourceOwnerCheckException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243666"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243666"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-512"></span><span id="_ResourceOwnerCheckException"><span class="annot"><span class="annottext">_ResourceOwnerCheckException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_ResourceOwnerCheckException"><span class="hs-identifier hs-var hs-var">_ResourceOwnerCheckException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-513"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-514"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-515"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceOwnerCheckException&quot;</span></span><span>
+</span><span id="line-516"></span><span>
+</span><span id="line-517"></span><span class="hs-comment">-- | The policy statement failed validation.</span><span>
+</span><span id="line-518"></span><span id="local-6989586621679243665"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidResourcePolicyException"><span class="hs-identifier hs-type">_InvalidResourcePolicyException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243665"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243665"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-519"></span><span id="_InvalidResourcePolicyException"><span class="annot"><span class="annottext">_InvalidResourcePolicyException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_InvalidResourcePolicyException"><span class="hs-identifier hs-var hs-var">_InvalidResourcePolicyException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-520"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-521"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-522"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidResourcePolicyException&quot;</span></span><span>
+</span><span id="line-523"></span><span>
+</span><span id="line-524"></span><span class="hs-comment">-- | Unable to process the request due to throttling limitations.</span><span>
+</span><span id="line-525"></span><span id="local-6989586621679243664"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243664"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243664"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-526"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-527"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-528"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-529"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-530"></span><span>
+</span><span id="line-531"></span><span class="hs-comment">-- | Your request is valid, but Network Firewall couldn&#8217;t perform the</span><span>
+</span><span id="line-532"></span><span class="hs-comment">-- operation because of a system problem. Retry your request.</span><span>
+</span><span id="line-533"></span><span id="local-6989586621679243663"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InternalServerError"><span class="hs-identifier hs-type">_InternalServerError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243663"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243663"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-534"></span><span id="_InternalServerError"><span class="annot"><span class="annottext">_InternalServerError :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_InternalServerError"><span class="hs-identifier hs-var hs-var">_InternalServerError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-535"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-536"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-537"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerError&quot;</span></span><span>
+</span><span id="line-538"></span><span>
+</span><span id="line-539"></span><span class="hs-comment">-- | The token you provided is stale or isn\'t valid for the operation.</span><span>
+</span><span id="line-540"></span><span id="local-6989586621679243662"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidTokenException"><span class="hs-identifier hs-type">_InvalidTokenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243662"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243662"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-541"></span><span id="_InvalidTokenException"><span class="annot"><span class="annottext">_InvalidTokenException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_InvalidTokenException"><span class="hs-identifier hs-var hs-var">_InvalidTokenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-542"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-543"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-544"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidTokenException&quot;</span></span><span>
+</span><span id="line-545"></span><span>
+</span><span id="line-546"></span><span class="hs-comment">-- | The operation failed because it\'s not valid. For example, you might</span><span>
+</span><span id="line-547"></span><span class="hs-comment">-- have tried to delete a rule group or firewall policy that\'s in use.</span><span>
+</span><span id="line-548"></span><span id="local-6989586621679243661"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InvalidOperationException"><span class="hs-identifier hs-type">_InvalidOperationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243661"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243661"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-549"></span><span id="_InvalidOperationException"><span class="annot"><span class="annottext">_InvalidOperationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_InvalidOperationException"><span class="hs-identifier hs-var hs-var">_InvalidOperationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-550"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-551"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-552"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidOperationException&quot;</span></span><span>
+</span><span id="line-553"></span><span>
+</span><span id="line-554"></span><span class="hs-comment">-- | AWS doesn\'t currently have enough available capacity to fulfill your</span><span>
+</span><span id="line-555"></span><span class="hs-comment">-- request. Try your request later.</span><span>
+</span><span id="line-556"></span><span id="local-6989586621679243660"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_InsufficientCapacityException"><span class="hs-identifier hs-type">_InsufficientCapacityException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243660"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243660"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-557"></span><span id="_InsufficientCapacityException"><span class="annot"><span class="annottext">_InsufficientCapacityException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_InsufficientCapacityException"><span class="hs-identifier hs-var hs-var">_InsufficientCapacityException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-558"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-559"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-560"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InsufficientCapacityException&quot;</span></span><span>
+</span><span id="line-561"></span><span>
+</span><span id="line-562"></span><span class="hs-comment">-- | Unable to locate a resource using the parameters that you provided.</span><span>
+</span><span id="line-563"></span><span id="local-6989586621679243659"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243659"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243659"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-564"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-565"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-566"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-567"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-568"></span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- | Unable to perform the operation because doing so would violate a limit</span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- setting.</span><span>
+</span><span id="line-571"></span><span id="local-6989586621679243658"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679243658"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679243658"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-572"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.NetworkFirewall.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-573"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-574"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-575"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-576"></span></pre></body></html>

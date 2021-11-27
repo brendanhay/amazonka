@@ -1,0 +1,1037 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Proton.Types.EnvironmentSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Proton.Types.EnvironmentSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentStatus.html"><span class="hs-identifier">Amazonka.Proton.Types.DeploymentStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.Provisioning.html"><span class="hs-identifier">Amazonka.Proton.Types.Provisioning</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A summary of the environment detail data.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEnvironmentSummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679262416"><span id="local-6989586621679262417"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentSummary"><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-var">EnvironmentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentSummary%27"><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-var">EnvironmentSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An environment deployment status message.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdeploymentStatusMessage%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AdeploymentStatusMessage%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">deploymentStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the environment account that the environment infrastructure</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- resources are provisioned in.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AenvironmentAccountId%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AenvironmentAccountId%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">environmentAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | When included, indicates that the environment template is for customer</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- provisioned and managed infrastructure.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aprovisioning%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Maybe Provisioning
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aprovisioning%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">provisioning</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.Provisioning.html#Provisioning"><span class="hs-identifier hs-type">Provisioning</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- allows AWS Proton to make calls to other services on your behalf.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AprotonServiceRoleArn%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AprotonServiceRoleArn%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">protonServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the environment account connection that the environment is</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AenvironmentAccountConnectionId%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AenvironmentAccountConnectionId%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">environmentAccountConnectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The description of the environment.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Adescription%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the environment.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aarn%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aarn%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The time when the environment was created.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcreatedAt%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AcreatedAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The environment deployment status.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdeploymentStatus%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; DeploymentStatus
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AdeploymentStatus%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The time when a deployment of the environment was last attempted.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AlastDeploymentAttemptedAt%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AlastDeploymentAttemptedAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">lastDeploymentAttemptedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The time when the environment was last deployed successfully.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AlastDeploymentSucceededAt%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AlastDeploymentSucceededAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">lastDeploymentSucceededAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the environment.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aname%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aname%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the major version of the environment template.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtemplateMajorVersion%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateMajorVersion%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">templateMajorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the minor version of the environment template.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AtemplateMinorVersion%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateMinorVersion%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">templateMinorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the environment template.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtemplateName%3AEnvironmentSummary%27"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateName%3AEnvironmentSummary%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262396"><span id="local-6989586621679262398"><span class="annot"><span class="annottext">EnvironmentSummary -&gt; EnvironmentSummary -&gt; Bool
+(EnvironmentSummary -&gt; EnvironmentSummary -&gt; Bool)
+-&gt; (EnvironmentSummary -&gt; EnvironmentSummary -&gt; Bool)
+-&gt; Eq EnvironmentSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnvironmentSummary -&gt; EnvironmentSummary -&gt; Bool
+$c/= :: EnvironmentSummary -&gt; EnvironmentSummary -&gt; Bool
+== :: EnvironmentSummary -&gt; EnvironmentSummary -&gt; Bool
+$c== :: EnvironmentSummary -&gt; EnvironmentSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262389"><span id="local-6989586621679262391"><span id="local-6989586621679262393"><span class="annot"><span class="annottext">Int -&gt; EnvironmentSummary -&gt; ShowS
+[EnvironmentSummary] -&gt; ShowS
+EnvironmentSummary -&gt; String
+(Int -&gt; EnvironmentSummary -&gt; ShowS)
+-&gt; (EnvironmentSummary -&gt; String)
+-&gt; ([EnvironmentSummary] -&gt; ShowS)
+-&gt; Show EnvironmentSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnvironmentSummary] -&gt; ShowS
+$cshowList :: [EnvironmentSummary] -&gt; ShowS
+show :: EnvironmentSummary -&gt; String
+$cshow :: EnvironmentSummary -&gt; String
+showsPrec :: Int -&gt; EnvironmentSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnvironmentSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EnvironmentSummary -&gt; Rep EnvironmentSummary x)
+-&gt; (forall x. Rep EnvironmentSummary x -&gt; EnvironmentSummary)
+-&gt; Generic EnvironmentSummary
+forall x. Rep EnvironmentSummary x -&gt; EnvironmentSummary
+forall x. EnvironmentSummary -&gt; Rep EnvironmentSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnvironmentSummary x -&gt; EnvironmentSummary
+$cfrom :: forall x. EnvironmentSummary -&gt; Rep EnvironmentSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'EnvironmentSummary' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'deploymentStatusMessage', 'environmentSummary_deploymentStatusMessage' - An environment deployment status message.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'environmentAccountId', 'environmentSummary_environmentAccountId' - The ID of the environment account that the environment infrastructure</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- resources are provisioned in.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'provisioning', 'environmentSummary_provisioning' - When included, indicates that the environment template is for customer</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- provisioned and managed infrastructure.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'protonServiceRoleArn', 'environmentSummary_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- allows AWS Proton to make calls to other services on your behalf.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'environmentAccountConnectionId', 'environmentSummary_environmentAccountConnectionId' - The ID of the environment account connection that the environment is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'description', 'environmentSummary_description' - The description of the environment.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'arn', 'environmentSummary_arn' - The Amazon Resource Name (ARN) of the environment.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'createdAt', 'environmentSummary_createdAt' - The time when the environment was created.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'deploymentStatus', 'environmentSummary_deploymentStatus' - The environment deployment status.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'lastDeploymentAttemptedAt', 'environmentSummary_lastDeploymentAttemptedAt' - The time when a deployment of the environment was last attempted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'lastDeploymentSucceededAt', 'environmentSummary_lastDeploymentSucceededAt' - The time when the environment was last deployed successfully.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'name', 'environmentSummary_name' - The name of the environment.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'templateMajorVersion', 'environmentSummary_templateMajorVersion' - The ID of the major version of the environment template.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'templateMinorVersion', 'environmentSummary_templateMinorVersion' - The ID of the minor version of the environment template.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'templateName', 'environmentSummary_templateName' - The name of the environment template.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#newEnvironmentSummary"><span class="hs-identifier hs-type">newEnvironmentSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'deploymentStatus'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-comment">-- | 'lastDeploymentAttemptedAt'</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'lastDeploymentSucceededAt'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'templateMajorVersion'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'templateMinorVersion'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'templateName'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span>
+</span><span id="line-130"></span><span id="newEnvironmentSummary"><span class="annot"><span class="annottext">newEnvironmentSummary :: Text
+-&gt; UTCTime
+-&gt; DeploymentStatus
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#newEnvironmentSummary"><span class="hs-identifier hs-var hs-var">newEnvironmentSummary</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679262383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262383"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679262382"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679262382"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679262381"><span class="annot"><span class="annottext">DeploymentStatus
+</span><a href="#local-6989586621679262381"><span class="hs-identifier hs-var">pDeploymentStatus_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679262380"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679262380"><span class="hs-identifier hs-var">pLastDeploymentAttemptedAt_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679262379"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679262379"><span class="hs-identifier hs-var">pLastDeploymentSucceededAt_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679262378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262378"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679262377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262377"><span class="hs-identifier hs-var">pTemplateMajorVersion_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679262376"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262376"><span class="hs-identifier hs-var">pTemplateMinorVersion_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679262375"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262375"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">EnvironmentSummary' :: Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Provisioning
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; DeploymentStatus
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentStatusMessage:EnvironmentSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AdeploymentStatusMessage%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">deploymentStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:environmentAccountId:EnvironmentSummary' :: Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AenvironmentAccountId%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">environmentAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisioning:EnvironmentSummary' :: Maybe Provisioning
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aprovisioning%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">provisioning</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Provisioning
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:protonServiceRoleArn:EnvironmentSummary' :: Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AprotonServiceRoleArn%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:environmentAccountConnectionId:EnvironmentSummary' :: Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AenvironmentAccountConnectionId%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:EnvironmentSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Adescription%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aarn%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262383"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:EnvironmentSummary' :: POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AcreatedAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679262382"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:deploymentStatus:EnvironmentSummary' :: DeploymentStatus
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AdeploymentStatus%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentStatus
+</span><a href="#local-6989586621679262381"><span class="hs-identifier hs-var">pDeploymentStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastDeploymentAttemptedAt:EnvironmentSummary' :: POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AlastDeploymentAttemptedAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">lastDeploymentAttemptedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679262380"><span class="hs-identifier hs-var">pLastDeploymentAttemptedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastDeploymentSucceededAt:EnvironmentSummary' :: POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AlastDeploymentSucceededAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">lastDeploymentSucceededAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679262379"><span class="hs-identifier hs-var">pLastDeploymentSucceededAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aname%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262378"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateMajorVersion:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateMajorVersion%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262377"><span class="hs-identifier hs-var">pTemplateMajorVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateMinorVersion:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateMinorVersion%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262376"><span class="hs-identifier hs-var">pTemplateMinorVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateName:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateName%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262375"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | An environment deployment status message.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_deploymentStatusMessage"><span class="hs-identifier hs-type">environmentSummary_deploymentStatusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="environmentSummary_deploymentStatusMessage"><span class="annot"><span class="annottext">environmentSummary_deploymentStatusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_deploymentStatusMessage"><span class="hs-identifier hs-var hs-var">environmentSummary_deploymentStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Maybe (Sensitive Text))
+-&gt; (EnvironmentSummary
+    -&gt; Maybe (Sensitive Text) -&gt; EnvironmentSummary)
+-&gt; Lens
+     EnvironmentSummary
+     EnvironmentSummary
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262369"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+deploymentStatusMessage :: Maybe (Sensitive Text)
+$sel:deploymentStatusMessage:EnvironmentSummary' :: EnvironmentSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262369"><span class="hs-identifier hs-var hs-var">deploymentStatusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262369"><span class="hs-identifier hs-var">deploymentStatusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262368"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262367"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatusMessage:EnvironmentSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AdeploymentStatusMessage%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">deploymentStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; EnvironmentSummary -&gt; f EnvironmentSummary)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentSummary
+-&gt; f EnvironmentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The ID of the environment account that the environment infrastructure</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- resources are provisioned in.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_environmentAccountId"><span class="hs-identifier hs-type">environmentSummary_environmentAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="environmentSummary_environmentAccountId"><span class="annot"><span class="annottext">environmentSummary_environmentAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_environmentAccountId"><span class="hs-identifier hs-var hs-var">environmentSummary_environmentAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Maybe Text)
+-&gt; (EnvironmentSummary -&gt; Maybe Text -&gt; EnvironmentSummary)
+-&gt; Lens
+     EnvironmentSummary EnvironmentSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262362"><span class="annot"><span class="annottext">Maybe Text
+environmentAccountId :: Maybe Text
+$sel:environmentAccountId:EnvironmentSummary' :: EnvironmentSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679262362"><span class="hs-identifier hs-var hs-var">environmentAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262362"><span class="hs-identifier hs-var">environmentAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262361"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentAccountId:EnvironmentSummary' :: Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AenvironmentAccountId%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">environmentAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | When included, indicates that the environment template is for customer</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- provisioned and managed infrastructure.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_provisioning"><span class="hs-identifier hs-type">environmentSummary_provisioning</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.Provisioning.html#Provisioning"><span class="hs-identifier hs-type">Provisioning</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="environmentSummary_provisioning"><span class="annot"><span class="annottext">environmentSummary_provisioning :: (Maybe Provisioning -&gt; f (Maybe Provisioning))
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_provisioning"><span class="hs-identifier hs-var hs-var">environmentSummary_provisioning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Maybe Provisioning)
+-&gt; (EnvironmentSummary -&gt; Maybe Provisioning -&gt; EnvironmentSummary)
+-&gt; Lens
+     EnvironmentSummary
+     EnvironmentSummary
+     (Maybe Provisioning)
+     (Maybe Provisioning)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262358"><span class="annot"><span class="annottext">Maybe Provisioning
+provisioning :: Maybe Provisioning
+$sel:provisioning:EnvironmentSummary' :: EnvironmentSummary -&gt; Maybe Provisioning
+</span><a href="#local-6989586621679262358"><span class="hs-identifier hs-var hs-var">provisioning</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Provisioning
+</span><a href="#local-6989586621679262358"><span class="hs-identifier hs-var">provisioning</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262357"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262356"><span class="annot"><span class="annottext">Maybe Provisioning
+</span><a href="#local-6989586621679262356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioning:EnvironmentSummary' :: Maybe Provisioning
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aprovisioning%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">provisioning</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Provisioning
+</span><a href="#local-6989586621679262356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- allows AWS Proton to make calls to other services on your behalf.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_protonServiceRoleArn"><span class="hs-identifier hs-type">environmentSummary_protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="environmentSummary_protonServiceRoleArn"><span class="annot"><span class="annottext">environmentSummary_protonServiceRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_protonServiceRoleArn"><span class="hs-identifier hs-var hs-var">environmentSummary_protonServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Maybe Text)
+-&gt; (EnvironmentSummary -&gt; Maybe Text -&gt; EnvironmentSummary)
+-&gt; Lens
+     EnvironmentSummary EnvironmentSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262354"><span class="annot"><span class="annottext">Maybe Text
+protonServiceRoleArn :: Maybe Text
+$sel:protonServiceRoleArn:EnvironmentSummary' :: EnvironmentSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679262354"><span class="hs-identifier hs-var hs-var">protonServiceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262354"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262353"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protonServiceRoleArn:EnvironmentSummary' :: Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AprotonServiceRoleArn%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The ID of the environment account connection that the environment is</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_environmentAccountConnectionId"><span class="hs-identifier hs-type">environmentSummary_environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="environmentSummary_environmentAccountConnectionId"><span class="annot"><span class="annottext">environmentSummary_environmentAccountConnectionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_environmentAccountConnectionId"><span class="hs-identifier hs-var hs-var">environmentSummary_environmentAccountConnectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Maybe Text)
+-&gt; (EnvironmentSummary -&gt; Maybe Text -&gt; EnvironmentSummary)
+-&gt; Lens
+     EnvironmentSummary EnvironmentSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262350"><span class="annot"><span class="annottext">Maybe Text
+environmentAccountConnectionId :: Maybe Text
+$sel:environmentAccountConnectionId:EnvironmentSummary' :: EnvironmentSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679262350"><span class="hs-identifier hs-var hs-var">environmentAccountConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262350"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262349"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentAccountConnectionId:EnvironmentSummary' :: Maybe Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AenvironmentAccountConnectionId%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The description of the environment.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_description"><span class="hs-identifier hs-type">environmentSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="environmentSummary_description"><span class="annot"><span class="annottext">environmentSummary_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_description"><span class="hs-identifier hs-var hs-var">environmentSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Maybe (Sensitive Text))
+-&gt; (EnvironmentSummary
+    -&gt; Maybe (Sensitive Text) -&gt; EnvironmentSummary)
+-&gt; Lens
+     EnvironmentSummary
+     EnvironmentSummary
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262346"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:EnvironmentSummary' :: EnvironmentSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262346"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262346"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262345"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262344"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:EnvironmentSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Adescription%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679262344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; EnvironmentSummary -&gt; f EnvironmentSummary)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentSummary
+-&gt; f EnvironmentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the environment.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_arn"><span class="hs-identifier hs-type">environmentSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-191"></span><span id="environmentSummary_arn"><span class="annot"><span class="annottext">environmentSummary_arn :: (Text -&gt; f Text) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_arn"><span class="hs-identifier hs-var hs-var">environmentSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Text)
+-&gt; (EnvironmentSummary -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262342"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:EnvironmentSummary' :: EnvironmentSummary -&gt; Text
+</span><a href="#local-6989586621679262342"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262342"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262341"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aarn%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The time when the environment was created.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_createdAt"><span class="hs-identifier hs-type">environmentSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-195"></span><span id="environmentSummary_createdAt"><span class="annot"><span class="annottext">environmentSummary_createdAt :: (UTCTime -&gt; f UTCTime)
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_createdAt"><span class="hs-identifier hs-var hs-var">environmentSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; POSIX)
+-&gt; (EnvironmentSummary -&gt; POSIX -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262338"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:EnvironmentSummary' :: EnvironmentSummary -&gt; POSIX
+</span><a href="#local-6989586621679262338"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262338"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262337"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262336"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:EnvironmentSummary' :: POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AcreatedAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; EnvironmentSummary
+-&gt; f EnvironmentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The environment deployment status.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_deploymentStatus"><span class="hs-identifier hs-type">environmentSummary_deploymentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span>
+</span><span id="line-199"></span><span id="environmentSummary_deploymentStatus"><span class="annot"><span class="annottext">environmentSummary_deploymentStatus :: (DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_deploymentStatus"><span class="hs-identifier hs-var hs-var">environmentSummary_deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; DeploymentStatus)
+-&gt; (EnvironmentSummary -&gt; DeploymentStatus -&gt; EnvironmentSummary)
+-&gt; Lens
+     EnvironmentSummary
+     EnvironmentSummary
+     DeploymentStatus
+     DeploymentStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262334"><span class="annot"><span class="annottext">DeploymentStatus
+deploymentStatus :: DeploymentStatus
+$sel:deploymentStatus:EnvironmentSummary' :: EnvironmentSummary -&gt; DeploymentStatus
+</span><a href="#local-6989586621679262334"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentStatus
+</span><a href="#local-6989586621679262334"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262333"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262332"><span class="annot"><span class="annottext">DeploymentStatus
+</span><a href="#local-6989586621679262332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatus:EnvironmentSummary' :: DeploymentStatus
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AdeploymentStatus%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentStatus
+</span><a href="#local-6989586621679262332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The time when a deployment of the environment was last attempted.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_lastDeploymentAttemptedAt"><span class="hs-identifier hs-type">environmentSummary_lastDeploymentAttemptedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-203"></span><span id="environmentSummary_lastDeploymentAttemptedAt"><span class="annot"><span class="annottext">environmentSummary_lastDeploymentAttemptedAt :: (UTCTime -&gt; f UTCTime)
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_lastDeploymentAttemptedAt"><span class="hs-identifier hs-var hs-var">environmentSummary_lastDeploymentAttemptedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; POSIX)
+-&gt; (EnvironmentSummary -&gt; POSIX -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262330"><span class="annot"><span class="annottext">POSIX
+lastDeploymentAttemptedAt :: POSIX
+$sel:lastDeploymentAttemptedAt:EnvironmentSummary' :: EnvironmentSummary -&gt; POSIX
+</span><a href="#local-6989586621679262330"><span class="hs-identifier hs-var hs-var">lastDeploymentAttemptedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262330"><span class="hs-identifier hs-var">lastDeploymentAttemptedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262329"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262328"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDeploymentAttemptedAt:EnvironmentSummary' :: POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AlastDeploymentAttemptedAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">lastDeploymentAttemptedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; EnvironmentSummary
+-&gt; f EnvironmentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The time when the environment was last deployed successfully.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_lastDeploymentSucceededAt"><span class="hs-identifier hs-type">environmentSummary_lastDeploymentSucceededAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-207"></span><span id="environmentSummary_lastDeploymentSucceededAt"><span class="annot"><span class="annottext">environmentSummary_lastDeploymentSucceededAt :: (UTCTime -&gt; f UTCTime)
+-&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_lastDeploymentSucceededAt"><span class="hs-identifier hs-var hs-var">environmentSummary_lastDeploymentSucceededAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; POSIX)
+-&gt; (EnvironmentSummary -&gt; POSIX -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262326"><span class="annot"><span class="annottext">POSIX
+lastDeploymentSucceededAt :: POSIX
+$sel:lastDeploymentSucceededAt:EnvironmentSummary' :: EnvironmentSummary -&gt; POSIX
+</span><a href="#local-6989586621679262326"><span class="hs-identifier hs-var hs-var">lastDeploymentSucceededAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262326"><span class="hs-identifier hs-var">lastDeploymentSucceededAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262325"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262324"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDeploymentSucceededAt:EnvironmentSummary' :: POSIX
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AlastDeploymentSucceededAt%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">lastDeploymentSucceededAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679262324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; EnvironmentSummary
+-&gt; f EnvironmentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The name of the environment.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_name"><span class="hs-identifier hs-type">environmentSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-211"></span><span id="environmentSummary_name"><span class="annot"><span class="annottext">environmentSummary_name :: (Text -&gt; f Text) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_name"><span class="hs-identifier hs-var hs-var">environmentSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Text)
+-&gt; (EnvironmentSummary -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262322"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:EnvironmentSummary' :: EnvironmentSummary -&gt; Text
+</span><a href="#local-6989586621679262322"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262322"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262321"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3Aname%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The ID of the major version of the environment template.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_templateMajorVersion"><span class="hs-identifier hs-type">environmentSummary_templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-215"></span><span id="environmentSummary_templateMajorVersion"><span class="annot"><span class="annottext">environmentSummary_templateMajorVersion :: (Text -&gt; f Text) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_templateMajorVersion"><span class="hs-identifier hs-var hs-var">environmentSummary_templateMajorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Text)
+-&gt; (EnvironmentSummary -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262318"><span class="annot"><span class="annottext">Text
+templateMajorVersion :: Text
+$sel:templateMajorVersion:EnvironmentSummary' :: EnvironmentSummary -&gt; Text
+</span><a href="#local-6989586621679262318"><span class="hs-identifier hs-var hs-var">templateMajorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262318"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262317"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262316"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateMajorVersion:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateMajorVersion%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The ID of the minor version of the environment template.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_templateMinorVersion"><span class="hs-identifier hs-type">environmentSummary_templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-219"></span><span id="environmentSummary_templateMinorVersion"><span class="annot"><span class="annottext">environmentSummary_templateMinorVersion :: (Text -&gt; f Text) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_templateMinorVersion"><span class="hs-identifier hs-var hs-var">environmentSummary_templateMinorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Text)
+-&gt; (EnvironmentSummary -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262314"><span class="annot"><span class="annottext">Text
+templateMinorVersion :: Text
+$sel:templateMinorVersion:EnvironmentSummary' :: EnvironmentSummary -&gt; Text
+</span><a href="#local-6989586621679262314"><span class="hs-identifier hs-var hs-var">templateMinorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262314"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262313"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateMinorVersion:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateMinorVersion%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The name of the environment template.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_templateName"><span class="hs-identifier hs-type">environmentSummary_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-223"></span><span id="environmentSummary_templateName"><span class="annot"><span class="annottext">environmentSummary_templateName :: (Text -&gt; f Text) -&gt; EnvironmentSummary -&gt; f EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#environmentSummary_templateName"><span class="hs-identifier hs-var hs-var">environmentSummary_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentSummary -&gt; Text)
+-&gt; (EnvironmentSummary -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Lens EnvironmentSummary EnvironmentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262310"><span class="annot"><span class="annottext">Text
+templateName :: Text
+$sel:templateName:EnvironmentSummary' :: EnvironmentSummary -&gt; Text
+</span><a href="#local-6989586621679262310"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262310"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262309"><span class="annot"><span class="annottext">s :: EnvironmentSummary
+</span><a href="#local-6989586621679262309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-type">EnvironmentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262308"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentSummary
+</span><a href="#local-6989586621679262309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:EnvironmentSummary' :: Text
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#%24sel%3AtemplateName%3AEnvironmentSummary%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262305"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679262303"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EnvironmentSummary)
+-&gt; Value
+-&gt; Parser EnvironmentSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EnvironmentSummary&quot;</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262300"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Provisioning
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; DeploymentStatus
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; EnvironmentSummary
+</span><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary%27"><span class="hs-identifier hs-var">EnvironmentSummary'</span></a></span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Provisioning
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; DeploymentStatus
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; EnvironmentSummary)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Provisioning
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentStatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Provisioning
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Provisioning
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Provisioning
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser (Maybe Provisioning)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Provisioning)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;provisioning&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protonServiceRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentAccountConnectionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Text
+      -&gt; POSIX
+      -&gt; DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX
+   -&gt; DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX
+      -&gt; DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser POSIX
+-&gt; Parser
+     (DeploymentStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (DeploymentStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EnvironmentSummary)
+-&gt; Parser DeploymentStatus
+-&gt; Parser
+     (POSIX
+      -&gt; POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeploymentStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Parser POSIX
+-&gt; Parser
+     (POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastDeploymentAttemptedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Parser POSIX
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastDeploymentSucceededAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateMajorVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; EnvironmentSummary)
+-&gt; Parser Text -&gt; Parser (Text -&gt; EnvironmentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateMinorVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; EnvironmentSummary)
+-&gt; Parser Text -&gt; Parser EnvironmentSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262293"><span id="local-6989586621679262295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span></span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentSummary.html#EnvironmentSummary"><span class="hs-identifier hs-type">EnvironmentSummary</span></a></span></span><span>
+</span><span id="line-251"></span></pre></body></html>

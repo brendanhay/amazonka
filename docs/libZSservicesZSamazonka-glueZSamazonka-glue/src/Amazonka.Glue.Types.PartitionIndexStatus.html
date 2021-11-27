@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.PartitionIndexStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.PartitionIndexStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus"><span class="hs-identifier">PartitionIndexStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_ACTIVE"><span class="hs-identifier">PartitionIndexStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_CREATING"><span class="hs-identifier">PartitionIndexStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_DELETING"><span class="hs-identifier">PartitionIndexStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_FAILED"><span class="hs-identifier">PartitionIndexStatus_FAILED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679692328"><span id="local-6989586621679692329"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartitionIndexStatus"><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus"><span class="hs-identifier hs-var">PartitionIndexStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionIndexStatus%27"><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus%27"><span class="hs-identifier hs-var">PartitionIndexStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPartitionIndexStatus"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; Text
+</span><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#fromPartitionIndexStatus"><span class="hs-identifier hs-var hs-var">fromPartitionIndexStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679692320"><span id="local-6989586621679692322"><span id="local-6989586621679692324"><span class="annot"><span class="annottext">Int -&gt; PartitionIndexStatus -&gt; ShowS
+[PartitionIndexStatus] -&gt; ShowS
+PartitionIndexStatus -&gt; String
+(Int -&gt; PartitionIndexStatus -&gt; ShowS)
+-&gt; (PartitionIndexStatus -&gt; String)
+-&gt; ([PartitionIndexStatus] -&gt; ShowS)
+-&gt; Show PartitionIndexStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PartitionIndexStatus] -&gt; ShowS
+$cshowList :: [PartitionIndexStatus] -&gt; ShowS
+show :: PartitionIndexStatus -&gt; String
+$cshow :: PartitionIndexStatus -&gt; String
+showsPrec :: Int -&gt; PartitionIndexStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PartitionIndexStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679692311"><span id="local-6989586621679692313"><span id="local-6989586621679692315"><span id="local-6989586621679692317"><span class="annot"><span class="annottext">ReadPrec [PartitionIndexStatus]
+ReadPrec PartitionIndexStatus
+Int -&gt; ReadS PartitionIndexStatus
+ReadS [PartitionIndexStatus]
+(Int -&gt; ReadS PartitionIndexStatus)
+-&gt; ReadS [PartitionIndexStatus]
+-&gt; ReadPrec PartitionIndexStatus
+-&gt; ReadPrec [PartitionIndexStatus]
+-&gt; Read PartitionIndexStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PartitionIndexStatus]
+$creadListPrec :: ReadPrec [PartitionIndexStatus]
+readPrec :: ReadPrec PartitionIndexStatus
+$creadPrec :: ReadPrec PartitionIndexStatus
+readList :: ReadS [PartitionIndexStatus]
+$creadList :: ReadS [PartitionIndexStatus]
+readsPrec :: Int -&gt; ReadS PartitionIndexStatus
+$creadsPrec :: Int -&gt; ReadS PartitionIndexStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679692306"><span id="local-6989586621679692308"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+(PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool)
+-&gt; (PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool)
+-&gt; Eq PartitionIndexStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+$c/= :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+== :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+$c== :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679692290"><span id="local-6989586621679692292"><span id="local-6989586621679692294"><span id="local-6989586621679692296"><span id="local-6989586621679692298"><span id="local-6989586621679692300"><span id="local-6989586621679692302"><span class="annot"><span class="annottext">Eq PartitionIndexStatus
+Eq PartitionIndexStatus
+-&gt; (PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Ordering)
+-&gt; (PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool)
+-&gt; (PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool)
+-&gt; (PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool)
+-&gt; (PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool)
+-&gt; (PartitionIndexStatus
+    -&gt; PartitionIndexStatus -&gt; PartitionIndexStatus)
+-&gt; (PartitionIndexStatus
+    -&gt; PartitionIndexStatus -&gt; PartitionIndexStatus)
+-&gt; Ord PartitionIndexStatus
+PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Ordering
+PartitionIndexStatus
+-&gt; PartitionIndexStatus -&gt; PartitionIndexStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PartitionIndexStatus
+-&gt; PartitionIndexStatus -&gt; PartitionIndexStatus
+$cmin :: PartitionIndexStatus
+-&gt; PartitionIndexStatus -&gt; PartitionIndexStatus
+max :: PartitionIndexStatus
+-&gt; PartitionIndexStatus -&gt; PartitionIndexStatus
+$cmax :: PartitionIndexStatus
+-&gt; PartitionIndexStatus -&gt; PartitionIndexStatus
+&gt;= :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+$c&gt;= :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+&gt; :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+$c&gt; :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+&lt;= :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+$c&lt;= :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+&lt; :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+$c&lt; :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Bool
+compare :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Ordering
+$ccompare :: PartitionIndexStatus -&gt; PartitionIndexStatus -&gt; Ordering
+$cp1Ord :: Eq PartitionIndexStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PartitionIndexStatus -&gt; Rep PartitionIndexStatus x)
+-&gt; (forall x. Rep PartitionIndexStatus x -&gt; PartitionIndexStatus)
+-&gt; Generic PartitionIndexStatus
+forall x. Rep PartitionIndexStatus x -&gt; PartitionIndexStatus
+forall x. PartitionIndexStatus -&gt; Rep PartitionIndexStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PartitionIndexStatus x -&gt; PartitionIndexStatus
+$cfrom :: forall x. PartitionIndexStatus -&gt; Rep PartitionIndexStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679692282"><span id="local-6989586621679692284"><span class="annot"><span class="annottext">Int -&gt; PartitionIndexStatus -&gt; Int
+PartitionIndexStatus -&gt; Int
+(Int -&gt; PartitionIndexStatus -&gt; Int)
+-&gt; (PartitionIndexStatus -&gt; Int) -&gt; Hashable PartitionIndexStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PartitionIndexStatus -&gt; Int
+$chash :: PartitionIndexStatus -&gt; Int
+hashWithSalt :: Int -&gt; PartitionIndexStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PartitionIndexStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679692279"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; ()
+(PartitionIndexStatus -&gt; ()) -&gt; NFData PartitionIndexStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PartitionIndexStatus -&gt; ()
+$crnf :: PartitionIndexStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679692276"><span class="annot"><span class="annottext">Text -&gt; Either String PartitionIndexStatus
+(Text -&gt; Either String PartitionIndexStatus)
+-&gt; FromText PartitionIndexStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PartitionIndexStatus
+$cfromText :: Text -&gt; Either String PartitionIndexStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679692273"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; Text
+(PartitionIndexStatus -&gt; Text) -&gt; ToText PartitionIndexStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PartitionIndexStatus -&gt; Text
+$ctoText :: PartitionIndexStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679692270"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; ByteString
+(PartitionIndexStatus -&gt; ByteString)
+-&gt; ToByteString PartitionIndexStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PartitionIndexStatus -&gt; ByteString
+$ctoBS :: PartitionIndexStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679692267"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; ByteStringBuilder
+(PartitionIndexStatus -&gt; ByteStringBuilder)
+-&gt; ToLog PartitionIndexStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PartitionIndexStatus -&gt; ByteStringBuilder
+$cbuild :: PartitionIndexStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679692264"><span class="annot"><span class="annottext">HeaderName -&gt; PartitionIndexStatus -&gt; [Header]
+(HeaderName -&gt; PartitionIndexStatus -&gt; [Header])
+-&gt; ToHeader PartitionIndexStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PartitionIndexStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PartitionIndexStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679692261"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; QueryString
+(PartitionIndexStatus -&gt; QueryString)
+-&gt; ToQuery PartitionIndexStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PartitionIndexStatus -&gt; QueryString
+$ctoQuery :: PartitionIndexStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679692256"><span id="local-6989586621679692258"><span class="annot"><span class="annottext">Value -&gt; Parser [PartitionIndexStatus]
+Value -&gt; Parser PartitionIndexStatus
+(Value -&gt; Parser PartitionIndexStatus)
+-&gt; (Value -&gt; Parser [PartitionIndexStatus])
+-&gt; FromJSON PartitionIndexStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PartitionIndexStatus]
+$cparseJSONList :: Value -&gt; Parser [PartitionIndexStatus]
+parseJSON :: Value -&gt; Parser PartitionIndexStatus
+$cparseJSON :: Value -&gt; Parser PartitionIndexStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679692251"><span id="local-6989586621679692253"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartitionIndexStatus]
+FromJSONKeyFunction PartitionIndexStatus
+FromJSONKeyFunction PartitionIndexStatus
+-&gt; FromJSONKeyFunction [PartitionIndexStatus]
+-&gt; FromJSONKey PartitionIndexStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PartitionIndexStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PartitionIndexStatus]
+fromJSONKey :: FromJSONKeyFunction PartitionIndexStatus
+$cfromJSONKey :: FromJSONKeyFunction PartitionIndexStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679692242"><span id="local-6989586621679692244"><span id="local-6989586621679692246"><span id="local-6989586621679692248"><span class="annot"><span class="annottext">[PartitionIndexStatus] -&gt; Encoding
+[PartitionIndexStatus] -&gt; Value
+PartitionIndexStatus -&gt; Encoding
+PartitionIndexStatus -&gt; Value
+(PartitionIndexStatus -&gt; Value)
+-&gt; (PartitionIndexStatus -&gt; Encoding)
+-&gt; ([PartitionIndexStatus] -&gt; Value)
+-&gt; ([PartitionIndexStatus] -&gt; Encoding)
+-&gt; ToJSON PartitionIndexStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PartitionIndexStatus] -&gt; Encoding
+$ctoEncodingList :: [PartitionIndexStatus] -&gt; Encoding
+toJSONList :: [PartitionIndexStatus] -&gt; Value
+$ctoJSONList :: [PartitionIndexStatus] -&gt; Value
+toEncoding :: PartitionIndexStatus -&gt; Encoding
+$ctoEncoding :: PartitionIndexStatus -&gt; Encoding
+toJSON :: PartitionIndexStatus -&gt; Value
+$ctoJSON :: PartitionIndexStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679692237"><span id="local-6989586621679692239"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartitionIndexStatus]
+ToJSONKeyFunction PartitionIndexStatus
+ToJSONKeyFunction PartitionIndexStatus
+-&gt; ToJSONKeyFunction [PartitionIndexStatus]
+-&gt; ToJSONKey PartitionIndexStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PartitionIndexStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PartitionIndexStatus]
+toJSONKey :: ToJSONKeyFunction PartitionIndexStatus
+$ctoJSONKey :: ToJSONKeyFunction PartitionIndexStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679692234"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartitionIndexStatus
+([Node] -&gt; Either String PartitionIndexStatus)
+-&gt; FromXML PartitionIndexStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PartitionIndexStatus
+$cparseXML :: [Node] -&gt; Either String PartitionIndexStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679692231"><span class="annot"><span class="annottext">PartitionIndexStatus -&gt; XML
+(PartitionIndexStatus -&gt; XML) -&gt; ToXML PartitionIndexStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PartitionIndexStatus -&gt; XML
+$ctoXML :: PartitionIndexStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_ACTIVE"><span class="hs-identifier hs-type">PartitionIndexStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus"><span class="hs-identifier hs-type">PartitionIndexStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionIndexStatus_ACTIVE"><span id="%24mPartitionIndexStatus_ACTIVE"><span id="PartitionIndexStatus_ACTIVE"><span class="annot"><span class="annottext">$bPartitionIndexStatus_ACTIVE :: PartitionIndexStatus
+$mPartitionIndexStatus_ACTIVE :: forall r. PartitionIndexStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#%24bPartitionIndexStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">PartitionIndexStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus%27"><span class="hs-identifier hs-type">PartitionIndexStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_CREATING"><span class="hs-identifier hs-type">PartitionIndexStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus"><span class="hs-identifier hs-type">PartitionIndexStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionIndexStatus_CREATING"><span id="%24mPartitionIndexStatus_CREATING"><span id="PartitionIndexStatus_CREATING"><span class="annot"><span class="annottext">$bPartitionIndexStatus_CREATING :: PartitionIndexStatus
+$mPartitionIndexStatus_CREATING :: forall r. PartitionIndexStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#%24bPartitionIndexStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">PartitionIndexStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus%27"><span class="hs-identifier hs-type">PartitionIndexStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_DELETING"><span class="hs-identifier hs-type">PartitionIndexStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus"><span class="hs-identifier hs-type">PartitionIndexStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionIndexStatus_DELETING"><span id="%24mPartitionIndexStatus_DELETING"><span id="PartitionIndexStatus_DELETING"><span class="annot"><span class="annottext">$bPartitionIndexStatus_DELETING :: PartitionIndexStatus
+$mPartitionIndexStatus_DELETING :: forall r. PartitionIndexStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#%24bPartitionIndexStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">PartitionIndexStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus%27"><span class="hs-identifier hs-type">PartitionIndexStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_FAILED"><span class="hs-identifier hs-type">PartitionIndexStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus"><span class="hs-identifier hs-type">PartitionIndexStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartitionIndexStatus_FAILED"><span id="%24mPartitionIndexStatus_FAILED"><span id="PartitionIndexStatus_FAILED"><span class="annot"><span class="annottext">$bPartitionIndexStatus_FAILED :: PartitionIndexStatus
+$mPartitionIndexStatus_FAILED :: forall r. PartitionIndexStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#%24bPartitionIndexStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">PartitionIndexStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus%27"><span class="hs-identifier hs-type">PartitionIndexStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_ACTIVE"><span class="hs-pragma hs-type">PartitionIndexStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_CREATING"><span class="hs-pragma hs-type">PartitionIndexStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_DELETING"><span class="hs-pragma hs-type">PartitionIndexStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus_FAILED"><span class="hs-pragma hs-type">PartitionIndexStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus%27"><span class="hs-pragma hs-type">PartitionIndexStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

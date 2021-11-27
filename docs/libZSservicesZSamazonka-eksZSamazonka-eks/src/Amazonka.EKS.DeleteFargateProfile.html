@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EKS.DeleteFargateProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an Fargate profile.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When you delete a Fargate profile, any pods running on Fargate that were</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- created with the profile are deleted. If those pods match another</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Fargate profile, then they are scheduled on Fargate with that profile.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- If they no longer match any Fargate profiles, then they are not</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- scheduled on Fargate and they may remain in a pending state.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Only one Fargate profile in a cluster can be in the @DELETING@ status at</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- a time. You must wait for a Fargate profile to finish deleting before</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- you can delete any other profiles in that cluster.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EKS.DeleteFargateProfile</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier">DeleteFargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#newDeleteFargateProfile"><span class="hs-identifier">newDeleteFargateProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfile_clusterName"><span class="hs-identifier">deleteFargateProfile_clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfile_fargateProfileName"><span class="hs-identifier">deleteFargateProfile_fargateProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier">DeleteFargateProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#newDeleteFargateProfileResponse"><span class="hs-identifier">newDeleteFargateProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfileResponse_fargateProfile"><span class="hs-identifier">deleteFargateProfileResponse_fargateProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfileResponse_httpStatus"><span class="hs-identifier">deleteFargateProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.html"><span class="hs-identifier">Amazonka.EKS.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDeleteFargateProfile' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679276167"><span id="local-6989586621679276168"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFargateProfile"><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-var">DeleteFargateProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFargateProfile%27"><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile%27"><span class="hs-identifier hs-var">DeleteFargateProfile'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon EKS cluster associated with the Fargate profile</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AclusterName%3ADeleteFargateProfile%27"><span class="annot"><span class="annottext">DeleteFargateProfile -&gt; Text
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AclusterName%3ADeleteFargateProfile%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the Fargate profile to delete.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AfargateProfileName%3ADeleteFargateProfile%27"><span class="annot"><span class="annottext">DeleteFargateProfile -&gt; Text
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AfargateProfileName%3ADeleteFargateProfile%27"><span class="hs-identifier hs-var hs-var">fargateProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276160"><span id="local-6989586621679276162"><span class="annot"><span class="annottext">DeleteFargateProfile -&gt; DeleteFargateProfile -&gt; Bool
+(DeleteFargateProfile -&gt; DeleteFargateProfile -&gt; Bool)
+-&gt; (DeleteFargateProfile -&gt; DeleteFargateProfile -&gt; Bool)
+-&gt; Eq DeleteFargateProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFargateProfile -&gt; DeleteFargateProfile -&gt; Bool
+$c/= :: DeleteFargateProfile -&gt; DeleteFargateProfile -&gt; Bool
+== :: DeleteFargateProfile -&gt; DeleteFargateProfile -&gt; Bool
+$c== :: DeleteFargateProfile -&gt; DeleteFargateProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276151"><span id="local-6989586621679276153"><span id="local-6989586621679276155"><span id="local-6989586621679276157"><span class="annot"><span class="annottext">ReadPrec [DeleteFargateProfile]
+ReadPrec DeleteFargateProfile
+Int -&gt; ReadS DeleteFargateProfile
+ReadS [DeleteFargateProfile]
+(Int -&gt; ReadS DeleteFargateProfile)
+-&gt; ReadS [DeleteFargateProfile]
+-&gt; ReadPrec DeleteFargateProfile
+-&gt; ReadPrec [DeleteFargateProfile]
+-&gt; Read DeleteFargateProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFargateProfile]
+$creadListPrec :: ReadPrec [DeleteFargateProfile]
+readPrec :: ReadPrec DeleteFargateProfile
+$creadPrec :: ReadPrec DeleteFargateProfile
+readList :: ReadS [DeleteFargateProfile]
+$creadList :: ReadS [DeleteFargateProfile]
+readsPrec :: Int -&gt; ReadS DeleteFargateProfile
+$creadsPrec :: Int -&gt; ReadS DeleteFargateProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276144"><span id="local-6989586621679276146"><span id="local-6989586621679276148"><span class="annot"><span class="annottext">Int -&gt; DeleteFargateProfile -&gt; ShowS
+[DeleteFargateProfile] -&gt; ShowS
+DeleteFargateProfile -&gt; String
+(Int -&gt; DeleteFargateProfile -&gt; ShowS)
+-&gt; (DeleteFargateProfile -&gt; String)
+-&gt; ([DeleteFargateProfile] -&gt; ShowS)
+-&gt; Show DeleteFargateProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFargateProfile] -&gt; ShowS
+$cshowList :: [DeleteFargateProfile] -&gt; ShowS
+show :: DeleteFargateProfile -&gt; String
+$cshow :: DeleteFargateProfile -&gt; String
+showsPrec :: Int -&gt; DeleteFargateProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFargateProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteFargateProfile -&gt; Rep DeleteFargateProfile x)
+-&gt; (forall x. Rep DeleteFargateProfile x -&gt; DeleteFargateProfile)
+-&gt; Generic DeleteFargateProfile
+forall x. Rep DeleteFargateProfile x -&gt; DeleteFargateProfile
+forall x. DeleteFargateProfile -&gt; Rep DeleteFargateProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteFargateProfile x -&gt; DeleteFargateProfile
+$cfrom :: forall x. DeleteFargateProfile -&gt; Rep DeleteFargateProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'DeleteFargateProfile' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'clusterName', 'deleteFargateProfile_clusterName' - The name of the Amazon EKS cluster associated with the Fargate profile</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'fargateProfileName', 'deleteFargateProfile_fargateProfileName' - The name of the Fargate profile to delete.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#newDeleteFargateProfile"><span class="hs-identifier hs-type">newDeleteFargateProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'clusterName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'fargateProfileName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span>
+</span><span id="line-88"></span><span id="newDeleteFargateProfile"><span class="annot"><span class="annottext">newDeleteFargateProfile :: Text -&gt; Text -&gt; DeleteFargateProfile
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#newDeleteFargateProfile"><span class="hs-identifier hs-var hs-var">newDeleteFargateProfile</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679276139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276139"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679276138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276138"><span class="hs-identifier hs-var">pFargateProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">DeleteFargateProfile' :: Text -&gt; Text -&gt; DeleteFargateProfile
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile%27"><span class="hs-identifier hs-type">DeleteFargateProfile'</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterName:DeleteFargateProfile' :: Text
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AclusterName%3ADeleteFargateProfile%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276139"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:fargateProfileName:DeleteFargateProfile' :: Text
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AfargateProfileName%3ADeleteFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276138"><span class="hs-identifier hs-var">pFargateProfileName_</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the Amazon EKS cluster associated with the Fargate profile</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfile_clusterName"><span class="hs-identifier hs-type">deleteFargateProfile_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="deleteFargateProfile_clusterName"><span class="annot"><span class="annottext">deleteFargateProfile_clusterName :: (Text -&gt; f Text) -&gt; DeleteFargateProfile -&gt; f DeleteFargateProfile
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfile_clusterName"><span class="hs-identifier hs-var hs-var">deleteFargateProfile_clusterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFargateProfile -&gt; Text)
+-&gt; (DeleteFargateProfile -&gt; Text -&gt; DeleteFargateProfile)
+-&gt; Lens DeleteFargateProfile DeleteFargateProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile%27"><span class="hs-identifier hs-type">DeleteFargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276135"><span class="annot"><span class="annottext">Text
+clusterName :: Text
+$sel:clusterName:DeleteFargateProfile' :: DeleteFargateProfile -&gt; Text
+</span><a href="#local-6989586621679276135"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276135"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276134"><span class="annot"><span class="annottext">s :: DeleteFargateProfile
+</span><a href="#local-6989586621679276134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile%27"><span class="hs-identifier hs-type">DeleteFargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFargateProfile
+</span><a href="#local-6989586621679276134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DeleteFargateProfile' :: Text
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AclusterName%3ADeleteFargateProfile%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of the Fargate profile to delete.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfile_fargateProfileName"><span class="hs-identifier hs-type">deleteFargateProfile_fargateProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="deleteFargateProfile_fargateProfileName"><span class="annot"><span class="annottext">deleteFargateProfile_fargateProfileName :: (Text -&gt; f Text) -&gt; DeleteFargateProfile -&gt; f DeleteFargateProfile
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfile_fargateProfileName"><span class="hs-identifier hs-var hs-var">deleteFargateProfile_fargateProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFargateProfile -&gt; Text)
+-&gt; (DeleteFargateProfile -&gt; Text -&gt; DeleteFargateProfile)
+-&gt; Lens DeleteFargateProfile DeleteFargateProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile%27"><span class="hs-identifier hs-type">DeleteFargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276132"><span class="annot"><span class="annottext">Text
+fargateProfileName :: Text
+$sel:fargateProfileName:DeleteFargateProfile' :: DeleteFargateProfile -&gt; Text
+</span><a href="#local-6989586621679276132"><span class="hs-identifier hs-var hs-var">fargateProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276132"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276131"><span class="annot"><span class="annottext">s :: DeleteFargateProfile
+</span><a href="#local-6989586621679276131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile%27"><span class="hs-identifier hs-type">DeleteFargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276130"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFargateProfile
+</span><a href="#local-6989586621679276131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargateProfileName:DeleteFargateProfile' :: Text
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AfargateProfileName%3ADeleteFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-type">DeleteFargateProfileResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679276126"><span class="annot"><span class="annottext">request :: DeleteFargateProfile -&gt; Request DeleteFargateProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteFargateProfile -&gt; Request DeleteFargateProfile
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679276122"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteFargateProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFargateProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteFargateProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteFargateProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFargateProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276119"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276119"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276118"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679276118"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276117"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe FargateProfile -&gt; Int -&gt; DeleteFargateProfileResponse
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse%27"><span class="hs-identifier hs-var">DeleteFargateProfileResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FargateProfile -&gt; Int -&gt; DeleteFargateProfileResponse)
+-&gt; Either String (Maybe FargateProfile)
+-&gt; Either String (Int -&gt; DeleteFargateProfileResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FargateProfile)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fargateProfile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteFargateProfileResponse)
+-&gt; Either String Int -&gt; Either String DeleteFargateProfileResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276119"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276109"><span id="local-6989586621679276111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679276102"><span class="annot"><span class="annottext">toHeaders :: DeleteFargateProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteFargateProfile -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679276096"><span class="annot"><span class="annottext">toPath :: DeleteFargateProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile%27"><span class="hs-identifier hs-type">DeleteFargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276093"><span id="local-6989586621679276094"><span class="annot"><span class="annottext">Text
+fargateProfileName :: Text
+clusterName :: Text
+$sel:fargateProfileName:DeleteFargateProfile' :: DeleteFargateProfile -&gt; Text
+$sel:clusterName:DeleteFargateProfile' :: DeleteFargateProfile -&gt; Text
+</span><a href="#local-6989586621679276093"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/clusters/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276094"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/fargate-profiles/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276093"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfile"><span class="hs-identifier hs-type">DeleteFargateProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679276089"><span class="annot"><span class="annottext">toQuery :: DeleteFargateProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFargateProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDeleteFargateProfileResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679276086"><span id="local-6989586621679276087"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFargateProfileResponse"><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-var">DeleteFargateProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFargateProfileResponse%27"><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse%27"><span class="hs-identifier hs-var">DeleteFargateProfileResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The deleted Fargate profile.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AfargateProfile%3ADeleteFargateProfileResponse%27"><span class="annot"><span class="annottext">DeleteFargateProfileResponse -&gt; Maybe FargateProfile
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AfargateProfile%3ADeleteFargateProfileResponse%27"><span class="hs-identifier hs-var hs-var">fargateProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteFargateProfileResponse%27"><span class="annot"><span class="annottext">DeleteFargateProfileResponse -&gt; Int
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AhttpStatus%3ADeleteFargateProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276080"><span id="local-6989586621679276082"><span class="annot"><span class="annottext">DeleteFargateProfileResponse
+-&gt; DeleteFargateProfileResponse -&gt; Bool
+(DeleteFargateProfileResponse
+ -&gt; DeleteFargateProfileResponse -&gt; Bool)
+-&gt; (DeleteFargateProfileResponse
+    -&gt; DeleteFargateProfileResponse -&gt; Bool)
+-&gt; Eq DeleteFargateProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFargateProfileResponse
+-&gt; DeleteFargateProfileResponse -&gt; Bool
+$c/= :: DeleteFargateProfileResponse
+-&gt; DeleteFargateProfileResponse -&gt; Bool
+== :: DeleteFargateProfileResponse
+-&gt; DeleteFargateProfileResponse -&gt; Bool
+$c== :: DeleteFargateProfileResponse
+-&gt; DeleteFargateProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276072"><span id="local-6989586621679276074"><span id="local-6989586621679276076"><span id="local-6989586621679276078"><span class="annot"><span class="annottext">ReadPrec [DeleteFargateProfileResponse]
+ReadPrec DeleteFargateProfileResponse
+Int -&gt; ReadS DeleteFargateProfileResponse
+ReadS [DeleteFargateProfileResponse]
+(Int -&gt; ReadS DeleteFargateProfileResponse)
+-&gt; ReadS [DeleteFargateProfileResponse]
+-&gt; ReadPrec DeleteFargateProfileResponse
+-&gt; ReadPrec [DeleteFargateProfileResponse]
+-&gt; Read DeleteFargateProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFargateProfileResponse]
+$creadListPrec :: ReadPrec [DeleteFargateProfileResponse]
+readPrec :: ReadPrec DeleteFargateProfileResponse
+$creadPrec :: ReadPrec DeleteFargateProfileResponse
+readList :: ReadS [DeleteFargateProfileResponse]
+$creadList :: ReadS [DeleteFargateProfileResponse]
+readsPrec :: Int -&gt; ReadS DeleteFargateProfileResponse
+$creadsPrec :: Int -&gt; ReadS DeleteFargateProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276066"><span id="local-6989586621679276068"><span id="local-6989586621679276070"><span class="annot"><span class="annottext">Int -&gt; DeleteFargateProfileResponse -&gt; ShowS
+[DeleteFargateProfileResponse] -&gt; ShowS
+DeleteFargateProfileResponse -&gt; String
+(Int -&gt; DeleteFargateProfileResponse -&gt; ShowS)
+-&gt; (DeleteFargateProfileResponse -&gt; String)
+-&gt; ([DeleteFargateProfileResponse] -&gt; ShowS)
+-&gt; Show DeleteFargateProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFargateProfileResponse] -&gt; ShowS
+$cshowList :: [DeleteFargateProfileResponse] -&gt; ShowS
+show :: DeleteFargateProfileResponse -&gt; String
+$cshow :: DeleteFargateProfileResponse -&gt; String
+showsPrec :: Int -&gt; DeleteFargateProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFargateProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteFargateProfileResponse -&gt; Rep DeleteFargateProfileResponse x)
+-&gt; (forall x.
+    Rep DeleteFargateProfileResponse x -&gt; DeleteFargateProfileResponse)
+-&gt; Generic DeleteFargateProfileResponse
+forall x.
+Rep DeleteFargateProfileResponse x -&gt; DeleteFargateProfileResponse
+forall x.
+DeleteFargateProfileResponse -&gt; Rep DeleteFargateProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteFargateProfileResponse x -&gt; DeleteFargateProfileResponse
+$cfrom :: forall x.
+DeleteFargateProfileResponse -&gt; Rep DeleteFargateProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'DeleteFargateProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'fargateProfile', 'deleteFargateProfileResponse_fargateProfile' - The deleted Fargate profile.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'deleteFargateProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#newDeleteFargateProfileResponse"><span class="hs-identifier hs-type">newDeleteFargateProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-type">DeleteFargateProfileResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="newDeleteFargateProfileResponse"><span class="annot"><span class="annottext">newDeleteFargateProfileResponse :: Int -&gt; DeleteFargateProfileResponse
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#newDeleteFargateProfileResponse"><span class="hs-identifier hs-var hs-var">newDeleteFargateProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679276063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">DeleteFargateProfileResponse' :: Maybe FargateProfile -&gt; Int -&gt; DeleteFargateProfileResponse
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse%27"><span class="hs-identifier hs-type">DeleteFargateProfileResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fargateProfile:DeleteFargateProfileResponse' :: Maybe FargateProfile
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AfargateProfile%3ADeleteFargateProfileResponse%27"><span class="hs-identifier hs-var">fargateProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Maybe FargateProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFargateProfileResponse' :: Int
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AhttpStatus%3ADeleteFargateProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The deleted Fargate profile.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfileResponse_fargateProfile"><span class="hs-identifier hs-type">deleteFargateProfileResponse_fargateProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-type">DeleteFargateProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="deleteFargateProfileResponse_fargateProfile"><span class="annot"><span class="annottext">deleteFargateProfileResponse_fargateProfile :: (Maybe FargateProfile -&gt; f (Maybe FargateProfile))
+-&gt; DeleteFargateProfileResponse -&gt; f DeleteFargateProfileResponse
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfileResponse_fargateProfile"><span class="hs-identifier hs-var hs-var">deleteFargateProfileResponse_fargateProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFargateProfileResponse -&gt; Maybe FargateProfile)
+-&gt; (DeleteFargateProfileResponse
+    -&gt; Maybe FargateProfile -&gt; DeleteFargateProfileResponse)
+-&gt; Lens
+     DeleteFargateProfileResponse
+     DeleteFargateProfileResponse
+     (Maybe FargateProfile)
+     (Maybe FargateProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse%27"><span class="hs-identifier hs-type">DeleteFargateProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276062"><span class="annot"><span class="annottext">Maybe FargateProfile
+fargateProfile :: Maybe FargateProfile
+$sel:fargateProfile:DeleteFargateProfileResponse' :: DeleteFargateProfileResponse -&gt; Maybe FargateProfile
+</span><a href="#local-6989586621679276062"><span class="hs-identifier hs-var hs-var">fargateProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FargateProfile
+</span><a href="#local-6989586621679276062"><span class="hs-identifier hs-var">fargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276061"><span class="annot"><span class="annottext">s :: DeleteFargateProfileResponse
+</span><a href="#local-6989586621679276061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse%27"><span class="hs-identifier hs-type">DeleteFargateProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276060"><span class="annot"><span class="annottext">Maybe FargateProfile
+</span><a href="#local-6989586621679276060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFargateProfileResponse
+</span><a href="#local-6989586621679276061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargateProfile:DeleteFargateProfileResponse' :: Maybe FargateProfile
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AfargateProfile%3ADeleteFargateProfileResponse%27"><span class="hs-identifier hs-var">fargateProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FargateProfile
+</span><a href="#local-6989586621679276060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-type">DeleteFargateProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfileResponse_httpStatus"><span class="hs-identifier hs-type">deleteFargateProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-type">DeleteFargateProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span id="deleteFargateProfileResponse_httpStatus"><span class="annot"><span class="annottext">deleteFargateProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteFargateProfileResponse -&gt; f DeleteFargateProfileResponse
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#deleteFargateProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteFargateProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFargateProfileResponse -&gt; Int)
+-&gt; (DeleteFargateProfileResponse
+    -&gt; Int -&gt; DeleteFargateProfileResponse)
+-&gt; Lens
+     DeleteFargateProfileResponse DeleteFargateProfileResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse%27"><span class="hs-identifier hs-type">DeleteFargateProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276059"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteFargateProfileResponse' :: DeleteFargateProfileResponse -&gt; Int
+</span><a href="#local-6989586621679276059"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276059"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276058"><span class="annot"><span class="annottext">s :: DeleteFargateProfileResponse
+</span><a href="#local-6989586621679276058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse%27"><span class="hs-identifier hs-type">DeleteFargateProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFargateProfileResponse
+</span><a href="#local-6989586621679276058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFargateProfileResponse' :: Int
+</span><a href="Amazonka.EKS.DeleteFargateProfile.html#%24sel%3AhttpStatus%3ADeleteFargateProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-type">DeleteFargateProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.DeleteFargateProfile.html#DeleteFargateProfileResponse"><span class="hs-identifier hs-type">DeleteFargateProfileResponse</span></a></span></span><span>
+</span><span id="line-185"></span></pre></body></html>

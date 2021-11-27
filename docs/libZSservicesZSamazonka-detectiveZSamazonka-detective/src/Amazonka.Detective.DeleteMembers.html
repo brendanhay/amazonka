@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Detective.DeleteMembers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes one or more member accounts from the administrator account\'s</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- behavior graph. This operation can only be called by a Detective</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- administrator account. That account cannot use @DeleteMembers@ to delete</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- their own account from the behavior graph. To disable a behavior graph,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the administrator account uses the @DeleteGraph@ API method.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Detective.DeleteMembers</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier">DeleteMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#newDeleteMembers"><span class="hs-identifier">newDeleteMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembers_graphArn"><span class="hs-identifier">deleteMembers_graphArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembers_accountIds"><span class="hs-identifier">deleteMembers_accountIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier">DeleteMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#newDeleteMembersResponse"><span class="hs-identifier">newDeleteMembersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_accountIds"><span class="hs-identifier">deleteMembersResponse_accountIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_unprocessedAccounts"><span class="hs-identifier">deleteMembersResponse_unprocessedAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_httpStatus"><span class="hs-identifier">deleteMembersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Detective.Types.html"><span class="hs-identifier">Amazonka.Detective.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteMembers' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679161579"><span id="local-6989586621679161580"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMembers"><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-var">DeleteMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMembers%27"><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-var">DeleteMembers'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the behavior graph to delete members from.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AgraphArn%3ADeleteMembers%27"><span class="annot"><span class="annottext">DeleteMembers -&gt; Text
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AgraphArn%3ADeleteMembers%27"><span class="hs-identifier hs-var hs-var">graphArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The list of AWS account identifiers for the member accounts to delete</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- from the behavior graph. You can delete up to 50 member accounts at a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AaccountIds%3ADeleteMembers%27"><span class="annot"><span class="annottext">DeleteMembers -&gt; NonEmpty Text
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembers%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679161572"><span id="local-6989586621679161574"><span class="annot"><span class="annottext">DeleteMembers -&gt; DeleteMembers -&gt; Bool
+(DeleteMembers -&gt; DeleteMembers -&gt; Bool)
+-&gt; (DeleteMembers -&gt; DeleteMembers -&gt; Bool) -&gt; Eq DeleteMembers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteMembers -&gt; DeleteMembers -&gt; Bool
+$c/= :: DeleteMembers -&gt; DeleteMembers -&gt; Bool
+== :: DeleteMembers -&gt; DeleteMembers -&gt; Bool
+$c== :: DeleteMembers -&gt; DeleteMembers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161563"><span id="local-6989586621679161565"><span id="local-6989586621679161567"><span id="local-6989586621679161569"><span class="annot"><span class="annottext">ReadPrec [DeleteMembers]
+ReadPrec DeleteMembers
+Int -&gt; ReadS DeleteMembers
+ReadS [DeleteMembers]
+(Int -&gt; ReadS DeleteMembers)
+-&gt; ReadS [DeleteMembers]
+-&gt; ReadPrec DeleteMembers
+-&gt; ReadPrec [DeleteMembers]
+-&gt; Read DeleteMembers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteMembers]
+$creadListPrec :: ReadPrec [DeleteMembers]
+readPrec :: ReadPrec DeleteMembers
+$creadPrec :: ReadPrec DeleteMembers
+readList :: ReadS [DeleteMembers]
+$creadList :: ReadS [DeleteMembers]
+readsPrec :: Int -&gt; ReadS DeleteMembers
+$creadsPrec :: Int -&gt; ReadS DeleteMembers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161556"><span id="local-6989586621679161558"><span id="local-6989586621679161560"><span class="annot"><span class="annottext">Int -&gt; DeleteMembers -&gt; ShowS
+[DeleteMembers] -&gt; ShowS
+DeleteMembers -&gt; String
+(Int -&gt; DeleteMembers -&gt; ShowS)
+-&gt; (DeleteMembers -&gt; String)
+-&gt; ([DeleteMembers] -&gt; ShowS)
+-&gt; Show DeleteMembers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteMembers] -&gt; ShowS
+$cshowList :: [DeleteMembers] -&gt; ShowS
+show :: DeleteMembers -&gt; String
+$cshow :: DeleteMembers -&gt; String
+showsPrec :: Int -&gt; DeleteMembers -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteMembers -&gt; Rep DeleteMembers x)
+-&gt; (forall x. Rep DeleteMembers x -&gt; DeleteMembers)
+-&gt; Generic DeleteMembers
+forall x. Rep DeleteMembers x -&gt; DeleteMembers
+forall x. DeleteMembers -&gt; Rep DeleteMembers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteMembers x -&gt; DeleteMembers
+$cfrom :: forall x. DeleteMembers -&gt; Rep DeleteMembers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DeleteMembers' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'graphArn', 'deleteMembers_graphArn' - The ARN of the behavior graph to delete members from.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'accountIds', 'deleteMembers_accountIds' - The list of AWS account identifiers for the member accounts to delete</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- from the behavior graph. You can delete up to 50 member accounts at a</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#newDeleteMembers"><span class="hs-identifier hs-type">newDeleteMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'graphArn'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'accountIds'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span>
+</span><span id="line-85"></span><span id="newDeleteMembers"><span class="annot"><span class="annottext">newDeleteMembers :: Text -&gt; NonEmpty Text -&gt; DeleteMembers
+</span><a href="Amazonka.Detective.DeleteMembers.html#newDeleteMembers"><span class="hs-identifier hs-var hs-var">newDeleteMembers</span></a></span></span><span> </span><span id="local-6989586621679161551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161551"><span class="hs-identifier hs-var">pGraphArn_</span></a></span></span><span> </span><span id="local-6989586621679161550"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679161550"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DeleteMembers' :: Text -&gt; NonEmpty Text -&gt; DeleteMembers
+</span><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:graphArn:DeleteMembers' :: Text
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AgraphArn%3ADeleteMembers%27"><span class="hs-identifier hs-var">graphArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161551"><span class="hs-identifier hs-var">pGraphArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIds:DeleteMembers' :: NonEmpty Text
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679161550"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The ARN of the behavior graph to delete members from.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembers_graphArn"><span class="hs-identifier hs-type">deleteMembers_graphArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="deleteMembers_graphArn"><span class="annot"><span class="annottext">deleteMembers_graphArn :: (Text -&gt; f Text) -&gt; DeleteMembers -&gt; f DeleteMembers
+</span><a href="Amazonka.Detective.DeleteMembers.html#deleteMembers_graphArn"><span class="hs-identifier hs-var hs-var">deleteMembers_graphArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMembers -&gt; Text)
+-&gt; (DeleteMembers -&gt; Text -&gt; DeleteMembers)
+-&gt; Lens DeleteMembers DeleteMembers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161545"><span class="annot"><span class="annottext">Text
+graphArn :: Text
+$sel:graphArn:DeleteMembers' :: DeleteMembers -&gt; Text
+</span><a href="#local-6989586621679161545"><span class="hs-identifier hs-var hs-var">graphArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161545"><span class="hs-identifier hs-var">graphArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161544"><span class="annot"><span class="annottext">s :: DeleteMembers
+</span><a href="#local-6989586621679161544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembers
+</span><a href="#local-6989586621679161544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:graphArn:DeleteMembers' :: Text
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AgraphArn%3ADeleteMembers%27"><span class="hs-identifier hs-var">graphArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The list of AWS account identifiers for the member accounts to delete</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- from the behavior graph. You can delete up to 50 member accounts at a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembers_accountIds"><span class="hs-identifier hs-type">deleteMembers_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="deleteMembers_accountIds"><span class="annot"><span class="annottext">deleteMembers_accountIds :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; DeleteMembers -&gt; f DeleteMembers
+</span><a href="Amazonka.Detective.DeleteMembers.html#deleteMembers_accountIds"><span class="hs-identifier hs-var hs-var">deleteMembers_accountIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMembers -&gt; NonEmpty Text)
+-&gt; (DeleteMembers -&gt; NonEmpty Text -&gt; DeleteMembers)
+-&gt; Lens DeleteMembers DeleteMembers (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161542"><span class="annot"><span class="annottext">NonEmpty Text
+accountIds :: NonEmpty Text
+$sel:accountIds:DeleteMembers' :: DeleteMembers -&gt; NonEmpty Text
+</span><a href="#local-6989586621679161542"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679161542"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161541"><span class="annot"><span class="annottext">s :: DeleteMembers
+</span><a href="#local-6989586621679161541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161540"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679161540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembers
+</span><a href="#local-6989586621679161541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeleteMembers' :: NonEmpty Text
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679161540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; DeleteMembers -&gt; f DeleteMembers)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; DeleteMembers
+-&gt; f DeleteMembers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679161535"><span class="annot"><span class="annottext">request :: DeleteMembers -&gt; Request DeleteMembers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMembers -&gt; Request DeleteMembers
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Detective.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679161531"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteMembers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteMembers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteMembers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteMembers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteMembers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679161528"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161528"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679161527"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679161527"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679161526"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161526"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe [UnprocessedAccount] -&gt; Int -&gt; DeleteMembersResponse
+</span><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-var">DeleteMembersResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe [UnprocessedAccount] -&gt; Int -&gt; DeleteMembersResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
+-&gt; Either
+     String (Maybe [UnprocessedAccount] -&gt; Int -&gt; DeleteMembersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountIds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [UnprocessedAccount] -&gt; Int -&gt; DeleteMembersResponse)
+-&gt; Either String (Maybe [UnprocessedAccount])
+-&gt; Either String (Int -&gt; DeleteMembersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [UnprocessedAccount]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UnprocessedAccounts&quot;</span></span><span>
+</span><span id="line-112"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UnprocessedAccount]))
+-&gt; Maybe [UnprocessedAccount]
+-&gt; Either String (Maybe [UnprocessedAccount])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedAccount]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteMembersResponse)
+-&gt; Either String Int -&gt; Either String DeleteMembersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161528"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161517"><span id="local-6989586621679161519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679161510"><span class="annot"><span class="annottext">toHeaders :: DeleteMembers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteMembers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161500"><span id="local-6989586621679161502"><span id="local-6989586621679161504"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679161498"><span class="annot"><span class="annottext">toJSON :: DeleteMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161495"><span id="local-6989586621679161496"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+accountIds :: NonEmpty Text
+graphArn :: Text
+$sel:accountIds:DeleteMembers' :: DeleteMembers -&gt; NonEmpty Text
+$sel:graphArn:DeleteMembers' :: DeleteMembers -&gt; Text
+</span><a href="#local-6989586621679161495"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GraphArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161496"><span class="hs-identifier hs-var">graphArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679161495"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679161489"><span class="annot"><span class="annottext">toPath :: DeleteMembers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteMembers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/graph/members/removal&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679161485"><span class="annot"><span class="annottext">toQuery :: DeleteMembers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMembers -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newDeleteMembersResponse' smart constructor.</span><span>
+</span><span id="line-148"></span><span id="local-6989586621679161482"><span id="local-6989586621679161483"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMembersResponse"><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-var">DeleteMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMembersResponse%27"><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-var">DeleteMembersResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of AWS account identifiers for the member accounts that</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- Detective successfully deleted from the behavior graph.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AaccountIds%3ADeleteMembersResponse%27"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The list of member accounts that Detective was not able to delete from</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- the behavior graph. For each member account, provides the reason that</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- the deletion could not be processed.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; Maybe [UnprocessedAccount]
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Detective.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; Int
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679161475"><span id="local-6989586621679161477"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
+(DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool)
+-&gt; (DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool)
+-&gt; Eq DeleteMembersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
+$c/= :: DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
+== :: DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
+$c== :: DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161467"><span id="local-6989586621679161469"><span id="local-6989586621679161471"><span id="local-6989586621679161473"><span class="annot"><span class="annottext">ReadPrec [DeleteMembersResponse]
+ReadPrec DeleteMembersResponse
+Int -&gt; ReadS DeleteMembersResponse
+ReadS [DeleteMembersResponse]
+(Int -&gt; ReadS DeleteMembersResponse)
+-&gt; ReadS [DeleteMembersResponse]
+-&gt; ReadPrec DeleteMembersResponse
+-&gt; ReadPrec [DeleteMembersResponse]
+-&gt; Read DeleteMembersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteMembersResponse]
+$creadListPrec :: ReadPrec [DeleteMembersResponse]
+readPrec :: ReadPrec DeleteMembersResponse
+$creadPrec :: ReadPrec DeleteMembersResponse
+readList :: ReadS [DeleteMembersResponse]
+$creadList :: ReadS [DeleteMembersResponse]
+readsPrec :: Int -&gt; ReadS DeleteMembersResponse
+$creadsPrec :: Int -&gt; ReadS DeleteMembersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161461"><span id="local-6989586621679161463"><span id="local-6989586621679161465"><span class="annot"><span class="annottext">Int -&gt; DeleteMembersResponse -&gt; ShowS
+[DeleteMembersResponse] -&gt; ShowS
+DeleteMembersResponse -&gt; String
+(Int -&gt; DeleteMembersResponse -&gt; ShowS)
+-&gt; (DeleteMembersResponse -&gt; String)
+-&gt; ([DeleteMembersResponse] -&gt; ShowS)
+-&gt; Show DeleteMembersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteMembersResponse] -&gt; ShowS
+$cshowList :: [DeleteMembersResponse] -&gt; ShowS
+show :: DeleteMembersResponse -&gt; String
+$cshow :: DeleteMembersResponse -&gt; String
+showsPrec :: Int -&gt; DeleteMembersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteMembersResponse -&gt; Rep DeleteMembersResponse x)
+-&gt; (forall x. Rep DeleteMembersResponse x -&gt; DeleteMembersResponse)
+-&gt; Generic DeleteMembersResponse
+forall x. Rep DeleteMembersResponse x -&gt; DeleteMembersResponse
+forall x. DeleteMembersResponse -&gt; Rep DeleteMembersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteMembersResponse x -&gt; DeleteMembersResponse
+$cfrom :: forall x. DeleteMembersResponse -&gt; Rep DeleteMembersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'DeleteMembersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'accountIds', 'deleteMembersResponse_accountIds' - The list of AWS account identifiers for the member accounts that</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Detective successfully deleted from the behavior graph.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'unprocessedAccounts', 'deleteMembersResponse_unprocessedAccounts' - The list of member accounts that Detective was not able to delete from</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- the behavior graph. For each member account, provides the reason that</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- the deletion could not be processed.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'httpStatus', 'deleteMembersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#newDeleteMembersResponse"><span class="hs-identifier hs-type">newDeleteMembersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span>
+</span><span id="line-181"></span><span id="newDeleteMembersResponse"><span class="annot"><span class="annottext">newDeleteMembersResponse :: Int -&gt; DeleteMembersResponse
+</span><a href="Amazonka.Detective.DeleteMembers.html#newDeleteMembersResponse"><span class="hs-identifier hs-var hs-var">newDeleteMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679161458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">DeleteMembersResponse' :: Maybe (NonEmpty Text)
+-&gt; Maybe [UnprocessedAccount] -&gt; Int -&gt; DeleteMembersResponse
+</span><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountIds:DeleteMembersResponse' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteMembersResponse' :: Maybe [UnprocessedAccount]
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedAccount]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMembersResponse' :: Int
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The list of AWS account identifiers for the member accounts that</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Detective successfully deleted from the behavior graph.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_accountIds"><span class="hs-identifier hs-type">deleteMembersResponse_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="deleteMembersResponse_accountIds"><span class="annot"><span class="annottext">deleteMembersResponse_accountIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; DeleteMembersResponse -&gt; f DeleteMembersResponse
+</span><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_accountIds"><span class="hs-identifier hs-var hs-var">deleteMembersResponse_accountIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMembersResponse -&gt; Maybe (NonEmpty Text))
+-&gt; (DeleteMembersResponse
+    -&gt; Maybe (NonEmpty Text) -&gt; DeleteMembersResponse)
+-&gt; Lens
+     DeleteMembersResponse
+     DeleteMembersResponse
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161457"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+accountIds :: Maybe (NonEmpty Text)
+$sel:accountIds:DeleteMembersResponse' :: DeleteMembersResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679161457"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679161457"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161456"><span class="annot"><span class="annottext">s :: DeleteMembersResponse
+</span><a href="#local-6989586621679161456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161455"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679161455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembersResponse
+</span><a href="#local-6989586621679161456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeleteMembersResponse' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679161455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; DeleteMembersResponse -&gt; f DeleteMembersResponse)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; DeleteMembersResponse
+-&gt; f DeleteMembersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The list of member accounts that Detective was not able to delete from</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- the behavior graph. For each member account, provides the reason that</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- the deletion could not be processed.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_unprocessedAccounts"><span class="hs-identifier hs-type">deleteMembersResponse_unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Detective.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="deleteMembersResponse_unprocessedAccounts"><span class="annot"><span class="annottext">deleteMembersResponse_unprocessedAccounts :: (Maybe [UnprocessedAccount] -&gt; f (Maybe [UnprocessedAccount]))
+-&gt; DeleteMembersResponse -&gt; f DeleteMembersResponse
+</span><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_unprocessedAccounts"><span class="hs-identifier hs-var hs-var">deleteMembersResponse_unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMembersResponse -&gt; Maybe [UnprocessedAccount])
+-&gt; (DeleteMembersResponse
+    -&gt; Maybe [UnprocessedAccount] -&gt; DeleteMembersResponse)
+-&gt; Lens
+     DeleteMembersResponse
+     DeleteMembersResponse
+     (Maybe [UnprocessedAccount])
+     (Maybe [UnprocessedAccount])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161453"><span class="annot"><span class="annottext">Maybe [UnprocessedAccount]
+unprocessedAccounts :: Maybe [UnprocessedAccount]
+$sel:unprocessedAccounts:DeleteMembersResponse' :: DeleteMembersResponse -&gt; Maybe [UnprocessedAccount]
+</span><a href="#local-6989586621679161453"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedAccount]
+</span><a href="#local-6989586621679161453"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161452"><span class="annot"><span class="annottext">s :: DeleteMembersResponse
+</span><a href="#local-6989586621679161452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161451"><span class="annot"><span class="annottext">Maybe [UnprocessedAccount]
+</span><a href="#local-6989586621679161451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembersResponse
+</span><a href="#local-6989586621679161452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteMembersResponse' :: Maybe [UnprocessedAccount]
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedAccount]
+</span><a href="#local-6989586621679161451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnprocessedAccount] -&gt; f (Maybe [UnprocessedAccount]))
+ -&gt; DeleteMembersResponse -&gt; f DeleteMembersResponse)
+-&gt; ((Maybe [UnprocessedAccount] -&gt; f (Maybe [UnprocessedAccount]))
+    -&gt; Maybe [UnprocessedAccount] -&gt; f (Maybe [UnprocessedAccount]))
+-&gt; (Maybe [UnprocessedAccount] -&gt; f (Maybe [UnprocessedAccount]))
+-&gt; DeleteMembersResponse
+-&gt; f DeleteMembersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnprocessedAccount]
+  [UnprocessedAccount]
+  [UnprocessedAccount]
+  [UnprocessedAccount]
+-&gt; Iso
+     (Maybe [UnprocessedAccount])
+     (Maybe [UnprocessedAccount])
+     (Maybe [UnprocessedAccount])
+     (Maybe [UnprocessedAccount])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnprocessedAccount]
+  [UnprocessedAccount]
+  [UnprocessedAccount]
+  [UnprocessedAccount]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_httpStatus"><span class="hs-identifier hs-type">deleteMembersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span id="deleteMembersResponse_httpStatus"><span class="annot"><span class="annottext">deleteMembersResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteMembersResponse -&gt; f DeleteMembersResponse
+</span><a href="Amazonka.Detective.DeleteMembers.html#deleteMembersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteMembersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMembersResponse -&gt; Int)
+-&gt; (DeleteMembersResponse -&gt; Int -&gt; DeleteMembersResponse)
+-&gt; Lens DeleteMembersResponse DeleteMembersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161450"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteMembersResponse' :: DeleteMembersResponse -&gt; Int
+</span><a href="#local-6989586621679161450"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161450"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161449"><span class="annot"><span class="annottext">s :: DeleteMembersResponse
+</span><a href="#local-6989586621679161449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembersResponse
+</span><a href="#local-6989586621679161449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMembersResponse' :: Int
+</span><a href="Amazonka.Detective.DeleteMembers.html#%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Detective.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

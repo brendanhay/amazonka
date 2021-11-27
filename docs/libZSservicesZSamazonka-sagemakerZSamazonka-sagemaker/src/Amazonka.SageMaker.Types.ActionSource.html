@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.ActionSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.ActionSource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A structure describing the source of an action.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActionSource' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621680287625"><span id="local-6989586621680287626"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionSource"><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-var">ActionSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionSource%27"><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-var">ActionSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the source.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AsourceType%3AActionSource%27"><span class="annot"><span class="annottext">ActionSource -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceType%3AActionSource%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ID of the source.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceId%3AActionSource%27"><span class="annot"><span class="annottext">ActionSource -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceId%3AActionSource%27"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The URI of the source.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsourceUri%3AActionSource%27"><span class="annot"><span class="annottext">ActionSource -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceUri%3AActionSource%27"><span class="hs-identifier hs-var hs-var">sourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680287617"><span id="local-6989586621680287619"><span class="annot"><span class="annottext">ActionSource -&gt; ActionSource -&gt; Bool
+(ActionSource -&gt; ActionSource -&gt; Bool)
+-&gt; (ActionSource -&gt; ActionSource -&gt; Bool) -&gt; Eq ActionSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActionSource -&gt; ActionSource -&gt; Bool
+$c/= :: ActionSource -&gt; ActionSource -&gt; Bool
+== :: ActionSource -&gt; ActionSource -&gt; Bool
+$c== :: ActionSource -&gt; ActionSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680287608"><span id="local-6989586621680287610"><span id="local-6989586621680287612"><span id="local-6989586621680287614"><span class="annot"><span class="annottext">ReadPrec [ActionSource]
+ReadPrec ActionSource
+Int -&gt; ReadS ActionSource
+ReadS [ActionSource]
+(Int -&gt; ReadS ActionSource)
+-&gt; ReadS [ActionSource]
+-&gt; ReadPrec ActionSource
+-&gt; ReadPrec [ActionSource]
+-&gt; Read ActionSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActionSource]
+$creadListPrec :: ReadPrec [ActionSource]
+readPrec :: ReadPrec ActionSource
+$creadPrec :: ReadPrec ActionSource
+readList :: ReadS [ActionSource]
+$creadList :: ReadS [ActionSource]
+readsPrec :: Int -&gt; ReadS ActionSource
+$creadsPrec :: Int -&gt; ReadS ActionSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680287601"><span id="local-6989586621680287603"><span id="local-6989586621680287605"><span class="annot"><span class="annottext">Int -&gt; ActionSource -&gt; ShowS
+[ActionSource] -&gt; ShowS
+ActionSource -&gt; String
+(Int -&gt; ActionSource -&gt; ShowS)
+-&gt; (ActionSource -&gt; String)
+-&gt; ([ActionSource] -&gt; ShowS)
+-&gt; Show ActionSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActionSource] -&gt; ShowS
+$cshowList :: [ActionSource] -&gt; ShowS
+show :: ActionSource -&gt; String
+$cshow :: ActionSource -&gt; String
+showsPrec :: Int -&gt; ActionSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActionSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ActionSource -&gt; Rep ActionSource x)
+-&gt; (forall x. Rep ActionSource x -&gt; ActionSource)
+-&gt; Generic ActionSource
+forall x. Rep ActionSource x -&gt; ActionSource
+forall x. ActionSource -&gt; Rep ActionSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActionSource x -&gt; ActionSource
+$cfrom :: forall x. ActionSource -&gt; Rep ActionSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ActionSource' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'sourceType', 'actionSource_sourceType' - The type of the source.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'sourceId', 'actionSource_sourceId' - The ID of the source.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'sourceUri', 'actionSource_sourceUri' - The URI of the source.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#newActionSource"><span class="hs-identifier hs-type">newActionSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'sourceUri'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span>
+</span><span id="line-56"></span><span id="newActionSource"><span class="annot"><span class="annottext">newActionSource :: Text -&gt; ActionSource
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#newActionSource"><span class="hs-identifier hs-var hs-var">newActionSource</span></a></span></span><span> </span><span id="local-6989586621680287595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680287595"><span class="hs-identifier hs-var">pSourceUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">ActionSource' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ActionSource
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceType:ActionSource' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceType%3AActionSource%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceId:ActionSource' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceId%3AActionSource%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceUri:ActionSource' :: Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceUri%3AActionSource%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680287595"><span class="hs-identifier hs-var">pSourceUri_</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The type of the source.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#actionSource_sourceType"><span class="hs-identifier hs-type">actionSource_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="actionSource_sourceType"><span class="annot"><span class="annottext">actionSource_sourceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ActionSource -&gt; f ActionSource
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#actionSource_sourceType"><span class="hs-identifier hs-var hs-var">actionSource_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSource -&gt; Maybe Text)
+-&gt; (ActionSource -&gt; Maybe Text -&gt; ActionSource)
+-&gt; Lens ActionSource ActionSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287591"><span class="annot"><span class="annottext">Maybe Text
+sourceType :: Maybe Text
+$sel:sourceType:ActionSource' :: ActionSource -&gt; Maybe Text
+</span><a href="#local-6989586621680287591"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287591"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287590"><span class="annot"><span class="annottext">s :: ActionSource
+</span><a href="#local-6989586621680287590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSource
+</span><a href="#local-6989586621680287590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:ActionSource' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceType%3AActionSource%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The ID of the source.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#actionSource_sourceId"><span class="hs-identifier hs-type">actionSource_sourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="actionSource_sourceId"><span class="annot"><span class="annottext">actionSource_sourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ActionSource -&gt; f ActionSource
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#actionSource_sourceId"><span class="hs-identifier hs-var hs-var">actionSource_sourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSource -&gt; Maybe Text)
+-&gt; (ActionSource -&gt; Maybe Text -&gt; ActionSource)
+-&gt; Lens ActionSource ActionSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287587"><span class="annot"><span class="annottext">Maybe Text
+sourceId :: Maybe Text
+$sel:sourceId:ActionSource' :: ActionSource -&gt; Maybe Text
+</span><a href="#local-6989586621680287587"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287587"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287586"><span class="annot"><span class="annottext">s :: ActionSource
+</span><a href="#local-6989586621680287586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSource
+</span><a href="#local-6989586621680287586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:ActionSource' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceId%3AActionSource%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The URI of the source.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#actionSource_sourceUri"><span class="hs-identifier hs-type">actionSource_sourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="actionSource_sourceUri"><span class="annot"><span class="annottext">actionSource_sourceUri :: (Text -&gt; f Text) -&gt; ActionSource -&gt; f ActionSource
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#actionSource_sourceUri"><span class="hs-identifier hs-var hs-var">actionSource_sourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionSource -&gt; Text)
+-&gt; (ActionSource -&gt; Text -&gt; ActionSource)
+-&gt; Lens ActionSource ActionSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287583"><span class="annot"><span class="annottext">Text
+sourceUri :: Text
+$sel:sourceUri:ActionSource' :: ActionSource -&gt; Text
+</span><a href="#local-6989586621680287583"><span class="hs-identifier hs-var hs-var">sourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680287583"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287582"><span class="annot"><span class="annottext">s :: ActionSource
+</span><a href="#local-6989586621680287582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287581"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680287581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSource
+</span><a href="#local-6989586621680287582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceUri:ActionSource' :: Text
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#%24sel%3AsourceUri%3AActionSource%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680287581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287578"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680287576"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ActionSource) -&gt; Value -&gt; Parser ActionSource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ActionSource&quot;</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680287573"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680287573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ActionSource
+</span><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-var">ActionSource'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ActionSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; ActionSource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680287573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; ActionSource)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; ActionSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680287573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ActionSource) -&gt; Parser Text -&gt; Parser ActionSource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680287573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287566"><span id="local-6989586621680287568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287555"><span id="local-6989586621680287557"><span id="local-6989586621680287559"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource"><span class="hs-identifier hs-type">ActionSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680287553"><span class="annot"><span class="annottext">toJSON :: ActionSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ActionSource.html#ActionSource%27"><span class="hs-identifier hs-type">ActionSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287549"><span id="local-6989586621680287550"><span id="local-6989586621680287551"><span class="annot"><span class="annottext">Maybe Text
+Text
+sourceUri :: Text
+sourceId :: Maybe Text
+sourceType :: Maybe Text
+$sel:sourceUri:ActionSource' :: ActionSource -&gt; Text
+$sel:sourceId:ActionSource' :: ActionSource -&gt; Maybe Text
+$sel:sourceType:ActionSource' :: ActionSource -&gt; Maybe Text
+</span><a href="#local-6989586621680287549"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287551"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680287550"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680287549"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span></pre></body></html>

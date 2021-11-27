@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.MapFilterComparison</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.MapFilterComparison</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison"><span class="hs-identifier">MapFilterComparison</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison_EQUALS"><span class="hs-identifier">MapFilterComparison_EQUALS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison_NOT_EQUALS"><span class="hs-identifier">MapFilterComparison_NOT_EQUALS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679980388"><span id="local-6989586621679980389"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MapFilterComparison"><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison"><span class="hs-identifier hs-var">MapFilterComparison</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MapFilterComparison%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison%27"><span class="hs-identifier hs-var">MapFilterComparison'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMapFilterComparison"><span class="annot"><span class="annottext">MapFilterComparison -&gt; Text
+</span><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#fromMapFilterComparison"><span class="hs-identifier hs-var hs-var">fromMapFilterComparison</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980380"><span id="local-6989586621679980382"><span id="local-6989586621679980384"><span class="annot"><span class="annottext">Int -&gt; MapFilterComparison -&gt; ShowS
+[MapFilterComparison] -&gt; ShowS
+MapFilterComparison -&gt; String
+(Int -&gt; MapFilterComparison -&gt; ShowS)
+-&gt; (MapFilterComparison -&gt; String)
+-&gt; ([MapFilterComparison] -&gt; ShowS)
+-&gt; Show MapFilterComparison
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MapFilterComparison] -&gt; ShowS
+$cshowList :: [MapFilterComparison] -&gt; ShowS
+show :: MapFilterComparison -&gt; String
+$cshow :: MapFilterComparison -&gt; String
+showsPrec :: Int -&gt; MapFilterComparison -&gt; ShowS
+$cshowsPrec :: Int -&gt; MapFilterComparison -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679980371"><span id="local-6989586621679980373"><span id="local-6989586621679980375"><span id="local-6989586621679980377"><span class="annot"><span class="annottext">ReadPrec [MapFilterComparison]
+ReadPrec MapFilterComparison
+Int -&gt; ReadS MapFilterComparison
+ReadS [MapFilterComparison]
+(Int -&gt; ReadS MapFilterComparison)
+-&gt; ReadS [MapFilterComparison]
+-&gt; ReadPrec MapFilterComparison
+-&gt; ReadPrec [MapFilterComparison]
+-&gt; Read MapFilterComparison
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MapFilterComparison]
+$creadListPrec :: ReadPrec [MapFilterComparison]
+readPrec :: ReadPrec MapFilterComparison
+$creadPrec :: ReadPrec MapFilterComparison
+readList :: ReadS [MapFilterComparison]
+$creadList :: ReadS [MapFilterComparison]
+readsPrec :: Int -&gt; ReadS MapFilterComparison
+$creadsPrec :: Int -&gt; ReadS MapFilterComparison
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679980366"><span id="local-6989586621679980368"><span class="annot"><span class="annottext">MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+(MapFilterComparison -&gt; MapFilterComparison -&gt; Bool)
+-&gt; (MapFilterComparison -&gt; MapFilterComparison -&gt; Bool)
+-&gt; Eq MapFilterComparison
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+$c/= :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+== :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+$c== :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679980350"><span id="local-6989586621679980352"><span id="local-6989586621679980354"><span id="local-6989586621679980356"><span id="local-6989586621679980358"><span id="local-6989586621679980360"><span id="local-6989586621679980362"><span class="annot"><span class="annottext">Eq MapFilterComparison
+Eq MapFilterComparison
+-&gt; (MapFilterComparison -&gt; MapFilterComparison -&gt; Ordering)
+-&gt; (MapFilterComparison -&gt; MapFilterComparison -&gt; Bool)
+-&gt; (MapFilterComparison -&gt; MapFilterComparison -&gt; Bool)
+-&gt; (MapFilterComparison -&gt; MapFilterComparison -&gt; Bool)
+-&gt; (MapFilterComparison -&gt; MapFilterComparison -&gt; Bool)
+-&gt; (MapFilterComparison
+    -&gt; MapFilterComparison -&gt; MapFilterComparison)
+-&gt; (MapFilterComparison
+    -&gt; MapFilterComparison -&gt; MapFilterComparison)
+-&gt; Ord MapFilterComparison
+MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+MapFilterComparison -&gt; MapFilterComparison -&gt; Ordering
+MapFilterComparison -&gt; MapFilterComparison -&gt; MapFilterComparison
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MapFilterComparison -&gt; MapFilterComparison -&gt; MapFilterComparison
+$cmin :: MapFilterComparison -&gt; MapFilterComparison -&gt; MapFilterComparison
+max :: MapFilterComparison -&gt; MapFilterComparison -&gt; MapFilterComparison
+$cmax :: MapFilterComparison -&gt; MapFilterComparison -&gt; MapFilterComparison
+&gt;= :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+$c&gt;= :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+&gt; :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+$c&gt; :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+&lt;= :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+$c&lt;= :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+&lt; :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+$c&lt; :: MapFilterComparison -&gt; MapFilterComparison -&gt; Bool
+compare :: MapFilterComparison -&gt; MapFilterComparison -&gt; Ordering
+$ccompare :: MapFilterComparison -&gt; MapFilterComparison -&gt; Ordering
+$cp1Ord :: Eq MapFilterComparison
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MapFilterComparison -&gt; Rep MapFilterComparison x)
+-&gt; (forall x. Rep MapFilterComparison x -&gt; MapFilterComparison)
+-&gt; Generic MapFilterComparison
+forall x. Rep MapFilterComparison x -&gt; MapFilterComparison
+forall x. MapFilterComparison -&gt; Rep MapFilterComparison x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MapFilterComparison x -&gt; MapFilterComparison
+$cfrom :: forall x. MapFilterComparison -&gt; Rep MapFilterComparison x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980342"><span id="local-6989586621679980344"><span class="annot"><span class="annottext">Int -&gt; MapFilterComparison -&gt; Int
+MapFilterComparison -&gt; Int
+(Int -&gt; MapFilterComparison -&gt; Int)
+-&gt; (MapFilterComparison -&gt; Int) -&gt; Hashable MapFilterComparison
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MapFilterComparison -&gt; Int
+$chash :: MapFilterComparison -&gt; Int
+hashWithSalt :: Int -&gt; MapFilterComparison -&gt; Int
+$chashWithSalt :: Int -&gt; MapFilterComparison -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679980339"><span class="annot"><span class="annottext">MapFilterComparison -&gt; ()
+(MapFilterComparison -&gt; ()) -&gt; NFData MapFilterComparison
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MapFilterComparison -&gt; ()
+$crnf :: MapFilterComparison -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679980336"><span class="annot"><span class="annottext">Text -&gt; Either String MapFilterComparison
+(Text -&gt; Either String MapFilterComparison)
+-&gt; FromText MapFilterComparison
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MapFilterComparison
+$cfromText :: Text -&gt; Either String MapFilterComparison
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679980333"><span class="annot"><span class="annottext">MapFilterComparison -&gt; Text
+(MapFilterComparison -&gt; Text) -&gt; ToText MapFilterComparison
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MapFilterComparison -&gt; Text
+$ctoText :: MapFilterComparison -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679980330"><span class="annot"><span class="annottext">MapFilterComparison -&gt; ByteString
+(MapFilterComparison -&gt; ByteString)
+-&gt; ToByteString MapFilterComparison
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MapFilterComparison -&gt; ByteString
+$ctoBS :: MapFilterComparison -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679980327"><span class="annot"><span class="annottext">MapFilterComparison -&gt; ByteStringBuilder
+(MapFilterComparison -&gt; ByteStringBuilder)
+-&gt; ToLog MapFilterComparison
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MapFilterComparison -&gt; ByteStringBuilder
+$cbuild :: MapFilterComparison -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679980324"><span class="annot"><span class="annottext">HeaderName -&gt; MapFilterComparison -&gt; [Header]
+(HeaderName -&gt; MapFilterComparison -&gt; [Header])
+-&gt; ToHeader MapFilterComparison
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MapFilterComparison -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MapFilterComparison -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679980321"><span class="annot"><span class="annottext">MapFilterComparison -&gt; QueryString
+(MapFilterComparison -&gt; QueryString) -&gt; ToQuery MapFilterComparison
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MapFilterComparison -&gt; QueryString
+$ctoQuery :: MapFilterComparison -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679980316"><span id="local-6989586621679980318"><span class="annot"><span class="annottext">Value -&gt; Parser [MapFilterComparison]
+Value -&gt; Parser MapFilterComparison
+(Value -&gt; Parser MapFilterComparison)
+-&gt; (Value -&gt; Parser [MapFilterComparison])
+-&gt; FromJSON MapFilterComparison
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MapFilterComparison]
+$cparseJSONList :: Value -&gt; Parser [MapFilterComparison]
+parseJSON :: Value -&gt; Parser MapFilterComparison
+$cparseJSON :: Value -&gt; Parser MapFilterComparison
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679980311"><span id="local-6989586621679980313"><span class="annot"><span class="annottext">FromJSONKeyFunction [MapFilterComparison]
+FromJSONKeyFunction MapFilterComparison
+FromJSONKeyFunction MapFilterComparison
+-&gt; FromJSONKeyFunction [MapFilterComparison]
+-&gt; FromJSONKey MapFilterComparison
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MapFilterComparison]
+$cfromJSONKeyList :: FromJSONKeyFunction [MapFilterComparison]
+fromJSONKey :: FromJSONKeyFunction MapFilterComparison
+$cfromJSONKey :: FromJSONKeyFunction MapFilterComparison
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679980302"><span id="local-6989586621679980304"><span id="local-6989586621679980306"><span id="local-6989586621679980308"><span class="annot"><span class="annottext">[MapFilterComparison] -&gt; Encoding
+[MapFilterComparison] -&gt; Value
+MapFilterComparison -&gt; Encoding
+MapFilterComparison -&gt; Value
+(MapFilterComparison -&gt; Value)
+-&gt; (MapFilterComparison -&gt; Encoding)
+-&gt; ([MapFilterComparison] -&gt; Value)
+-&gt; ([MapFilterComparison] -&gt; Encoding)
+-&gt; ToJSON MapFilterComparison
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MapFilterComparison] -&gt; Encoding
+$ctoEncodingList :: [MapFilterComparison] -&gt; Encoding
+toJSONList :: [MapFilterComparison] -&gt; Value
+$ctoJSONList :: [MapFilterComparison] -&gt; Value
+toEncoding :: MapFilterComparison -&gt; Encoding
+$ctoEncoding :: MapFilterComparison -&gt; Encoding
+toJSON :: MapFilterComparison -&gt; Value
+$ctoJSON :: MapFilterComparison -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679980297"><span id="local-6989586621679980299"><span class="annot"><span class="annottext">ToJSONKeyFunction [MapFilterComparison]
+ToJSONKeyFunction MapFilterComparison
+ToJSONKeyFunction MapFilterComparison
+-&gt; ToJSONKeyFunction [MapFilterComparison]
+-&gt; ToJSONKey MapFilterComparison
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MapFilterComparison]
+$ctoJSONKeyList :: ToJSONKeyFunction [MapFilterComparison]
+toJSONKey :: ToJSONKeyFunction MapFilterComparison
+$ctoJSONKey :: ToJSONKeyFunction MapFilterComparison
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679980294"><span class="annot"><span class="annottext">[Node] -&gt; Either String MapFilterComparison
+([Node] -&gt; Either String MapFilterComparison)
+-&gt; FromXML MapFilterComparison
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MapFilterComparison
+$cparseXML :: [Node] -&gt; Either String MapFilterComparison
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679980291"><span class="annot"><span class="annottext">MapFilterComparison -&gt; XML
+(MapFilterComparison -&gt; XML) -&gt; ToXML MapFilterComparison
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MapFilterComparison -&gt; XML
+$ctoXML :: MapFilterComparison -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison_EQUALS"><span class="hs-identifier hs-type">MapFilterComparison_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison"><span class="hs-identifier hs-type">MapFilterComparison</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMapFilterComparison_EQUALS"><span id="%24mMapFilterComparison_EQUALS"><span id="MapFilterComparison_EQUALS"><span class="annot"><span class="annottext">$bMapFilterComparison_EQUALS :: MapFilterComparison
+$mMapFilterComparison_EQUALS :: forall r. MapFilterComparison -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#%24bMapFilterComparison_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">MapFilterComparison_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison%27"><span class="hs-identifier hs-type">MapFilterComparison'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUALS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison_NOT_EQUALS"><span class="hs-identifier hs-type">MapFilterComparison_NOT_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison"><span class="hs-identifier hs-type">MapFilterComparison</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMapFilterComparison_NOT_EQUALS"><span id="%24mMapFilterComparison_NOT_EQUALS"><span id="MapFilterComparison_NOT_EQUALS"><span class="annot"><span class="annottext">$bMapFilterComparison_NOT_EQUALS :: MapFilterComparison
+$mMapFilterComparison_NOT_EQUALS :: forall r. MapFilterComparison -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#%24bMapFilterComparison_NOT_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">MapFilterComparison_NOT_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison%27"><span class="hs-identifier hs-type">MapFilterComparison'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_EQUALS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison_EQUALS"><span class="hs-pragma hs-type">MapFilterComparison_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison_NOT_EQUALS"><span class="hs-pragma hs-type">MapFilterComparison_NOT_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.MapFilterComparison.html#MapFilterComparison%27"><span class="hs-pragma hs-type">MapFilterComparison'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

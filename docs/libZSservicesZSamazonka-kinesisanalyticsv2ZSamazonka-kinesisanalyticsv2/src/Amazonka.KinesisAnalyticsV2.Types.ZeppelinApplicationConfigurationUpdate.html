@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Updates to the configuration of Kinesis Data Analytics Studio notebook.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newZeppelinApplicationConfigurationUpdate' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679299802"><span id="local-6989586621679299803"></span></span><span class="hs-keyword">data</span><span> </span><span id="ZeppelinApplicationConfigurationUpdate"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-var">ZeppelinApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ZeppelinApplicationConfigurationUpdate%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">ZeppelinApplicationConfigurationUpdate'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updates to the customer artifacts. Custom artifacts are dependency JAR</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- files and user-defined functions (UDF).</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcustomArtifactsConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe [CustomArtifactConfiguration]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AcustomArtifactsConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">customArtifactsConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration.html#CustomArtifactConfiguration"><span class="hs-identifier hs-type">CustomArtifactConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Updates to the configuration of the Amazon Glue Data Catalog that is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- associated with the Kinesis Data Analytics Studio notebook.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcatalogConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe CatalogConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AcatalogConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">catalogConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate.html#CatalogConfigurationUpdate"><span class="hs-identifier hs-type">CatalogConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdeployAsApplicationConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AdeployAsApplicationConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">deployAsApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate.html#DeployAsApplicationConfigurationUpdate"><span class="hs-identifier hs-type">DeployAsApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Updates to the monitoring configuration of a Kinesis Data Analytics</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Studio notebook.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmonitoringConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AmonitoringConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">monitoringConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate.html#ZeppelinMonitoringConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinMonitoringConfigurationUpdate</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299793"><span id="local-6989586621679299795"><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+-&gt; ZeppelinApplicationConfigurationUpdate -&gt; Bool
+(ZeppelinApplicationConfigurationUpdate
+ -&gt; ZeppelinApplicationConfigurationUpdate -&gt; Bool)
+-&gt; (ZeppelinApplicationConfigurationUpdate
+    -&gt; ZeppelinApplicationConfigurationUpdate -&gt; Bool)
+-&gt; Eq ZeppelinApplicationConfigurationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ZeppelinApplicationConfigurationUpdate
+-&gt; ZeppelinApplicationConfigurationUpdate -&gt; Bool
+$c/= :: ZeppelinApplicationConfigurationUpdate
+-&gt; ZeppelinApplicationConfigurationUpdate -&gt; Bool
+== :: ZeppelinApplicationConfigurationUpdate
+-&gt; ZeppelinApplicationConfigurationUpdate -&gt; Bool
+$c== :: ZeppelinApplicationConfigurationUpdate
+-&gt; ZeppelinApplicationConfigurationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299784"><span id="local-6989586621679299786"><span id="local-6989586621679299788"><span id="local-6989586621679299790"><span class="annot"><span class="annottext">ReadPrec [ZeppelinApplicationConfigurationUpdate]
+ReadPrec ZeppelinApplicationConfigurationUpdate
+Int -&gt; ReadS ZeppelinApplicationConfigurationUpdate
+ReadS [ZeppelinApplicationConfigurationUpdate]
+(Int -&gt; ReadS ZeppelinApplicationConfigurationUpdate)
+-&gt; ReadS [ZeppelinApplicationConfigurationUpdate]
+-&gt; ReadPrec ZeppelinApplicationConfigurationUpdate
+-&gt; ReadPrec [ZeppelinApplicationConfigurationUpdate]
+-&gt; Read ZeppelinApplicationConfigurationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ZeppelinApplicationConfigurationUpdate]
+$creadListPrec :: ReadPrec [ZeppelinApplicationConfigurationUpdate]
+readPrec :: ReadPrec ZeppelinApplicationConfigurationUpdate
+$creadPrec :: ReadPrec ZeppelinApplicationConfigurationUpdate
+readList :: ReadS [ZeppelinApplicationConfigurationUpdate]
+$creadList :: ReadS [ZeppelinApplicationConfigurationUpdate]
+readsPrec :: Int -&gt; ReadS ZeppelinApplicationConfigurationUpdate
+$creadsPrec :: Int -&gt; ReadS ZeppelinApplicationConfigurationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299777"><span id="local-6989586621679299779"><span id="local-6989586621679299781"><span class="annot"><span class="annottext">Int -&gt; ZeppelinApplicationConfigurationUpdate -&gt; ShowS
+[ZeppelinApplicationConfigurationUpdate] -&gt; ShowS
+ZeppelinApplicationConfigurationUpdate -&gt; String
+(Int -&gt; ZeppelinApplicationConfigurationUpdate -&gt; ShowS)
+-&gt; (ZeppelinApplicationConfigurationUpdate -&gt; String)
+-&gt; ([ZeppelinApplicationConfigurationUpdate] -&gt; ShowS)
+-&gt; Show ZeppelinApplicationConfigurationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ZeppelinApplicationConfigurationUpdate] -&gt; ShowS
+$cshowList :: [ZeppelinApplicationConfigurationUpdate] -&gt; ShowS
+show :: ZeppelinApplicationConfigurationUpdate -&gt; String
+$cshow :: ZeppelinApplicationConfigurationUpdate -&gt; String
+showsPrec :: Int -&gt; ZeppelinApplicationConfigurationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ZeppelinApplicationConfigurationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ZeppelinApplicationConfigurationUpdate
+ -&gt; Rep ZeppelinApplicationConfigurationUpdate x)
+-&gt; (forall x.
+    Rep ZeppelinApplicationConfigurationUpdate x
+    -&gt; ZeppelinApplicationConfigurationUpdate)
+-&gt; Generic ZeppelinApplicationConfigurationUpdate
+forall x.
+Rep ZeppelinApplicationConfigurationUpdate x
+-&gt; ZeppelinApplicationConfigurationUpdate
+forall x.
+ZeppelinApplicationConfigurationUpdate
+-&gt; Rep ZeppelinApplicationConfigurationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ZeppelinApplicationConfigurationUpdate x
+-&gt; ZeppelinApplicationConfigurationUpdate
+$cfrom :: forall x.
+ZeppelinApplicationConfigurationUpdate
+-&gt; Rep ZeppelinApplicationConfigurationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'ZeppelinApplicationConfigurationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'customArtifactsConfigurationUpdate', 'zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate' - Updates to the customer artifacts. Custom artifacts are dependency JAR</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- files and user-defined functions (UDF).</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'catalogConfigurationUpdate', 'zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate' - Updates to the configuration of the Amazon Glue Data Catalog that is</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- associated with the Kinesis Data Analytics Studio notebook.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'deployAsApplicationConfigurationUpdate', 'zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate' - Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'monitoringConfigurationUpdate', 'zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate' - Updates to the monitoring configuration of a Kinesis Data Analytics</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Studio notebook.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#newZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">newZeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span>
+</span><span id="line-67"></span><span id="newZeppelinApplicationConfigurationUpdate"><span class="annot"><span class="annottext">newZeppelinApplicationConfigurationUpdate :: ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#newZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-var hs-var">newZeppelinApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate' :: Maybe [CustomArtifactConfiguration]
+-&gt; Maybe CatalogConfigurationUpdate
+-&gt; Maybe DeployAsApplicationConfigurationUpdate
+-&gt; Maybe ZeppelinMonitoringConfigurationUpdate
+-&gt; ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customArtifactsConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe [CustomArtifactConfiguration]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AcustomArtifactsConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">customArtifactsConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe CatalogConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AcatalogConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">catalogConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe CatalogConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:deployAsApplicationConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AdeployAsApplicationConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">deployAsApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AmonitoringConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Updates to the customer artifacts. Custom artifacts are dependency JAR</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- files and user-defined functions (UDF).</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate"><span class="hs-identifier hs-type">zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration.html#CustomArtifactConfiguration"><span class="hs-identifier hs-type">CustomArtifactConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate"><span class="annot"><span class="annottext">zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate :: (Maybe [CustomArtifactConfiguration]
+ -&gt; f (Maybe [CustomArtifactConfiguration]))
+-&gt; ZeppelinApplicationConfigurationUpdate
+-&gt; f ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfigurationUpdate
+ -&gt; Maybe [CustomArtifactConfiguration])
+-&gt; (ZeppelinApplicationConfigurationUpdate
+    -&gt; Maybe [CustomArtifactConfiguration]
+    -&gt; ZeppelinApplicationConfigurationUpdate)
+-&gt; Lens
+     ZeppelinApplicationConfigurationUpdate
+     ZeppelinApplicationConfigurationUpdate
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299768"><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+customArtifactsConfigurationUpdate :: Maybe [CustomArtifactConfiguration]
+$sel:customArtifactsConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299768"><span class="hs-identifier hs-var hs-var">customArtifactsConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299768"><span class="hs-identifier hs-var">customArtifactsConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299767"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299766"><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customArtifactsConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe [CustomArtifactConfiguration]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AcustomArtifactsConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">customArtifactsConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomArtifactConfiguration]
+  -&gt; f (Maybe [CustomArtifactConfiguration]))
+ -&gt; ZeppelinApplicationConfigurationUpdate
+ -&gt; f ZeppelinApplicationConfigurationUpdate)
+-&gt; ((Maybe [CustomArtifactConfiguration]
+     -&gt; f (Maybe [CustomArtifactConfiguration]))
+    -&gt; Maybe [CustomArtifactConfiguration]
+    -&gt; f (Maybe [CustomArtifactConfiguration]))
+-&gt; (Maybe [CustomArtifactConfiguration]
+    -&gt; f (Maybe [CustomArtifactConfiguration]))
+-&gt; ZeppelinApplicationConfigurationUpdate
+-&gt; f ZeppelinApplicationConfigurationUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+-&gt; Iso
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Updates to the configuration of the Amazon Glue Data Catalog that is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- associated with the Kinesis Data Analytics Studio notebook.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate"><span class="hs-identifier hs-type">zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate.html#CatalogConfigurationUpdate"><span class="hs-identifier hs-type">CatalogConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate"><span class="annot"><span class="annottext">zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate :: (Maybe CatalogConfigurationUpdate
+ -&gt; f (Maybe CatalogConfigurationUpdate))
+-&gt; ZeppelinApplicationConfigurationUpdate
+-&gt; f ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfigurationUpdate
+ -&gt; Maybe CatalogConfigurationUpdate)
+-&gt; (ZeppelinApplicationConfigurationUpdate
+    -&gt; Maybe CatalogConfigurationUpdate
+    -&gt; ZeppelinApplicationConfigurationUpdate)
+-&gt; Lens
+     ZeppelinApplicationConfigurationUpdate
+     ZeppelinApplicationConfigurationUpdate
+     (Maybe CatalogConfigurationUpdate)
+     (Maybe CatalogConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299761"><span class="annot"><span class="annottext">Maybe CatalogConfigurationUpdate
+catalogConfigurationUpdate :: Maybe CatalogConfigurationUpdate
+$sel:catalogConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe CatalogConfigurationUpdate
+</span><a href="#local-6989586621679299761"><span class="hs-identifier hs-var hs-var">catalogConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogConfigurationUpdate
+</span><a href="#local-6989586621679299761"><span class="hs-identifier hs-var">catalogConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299760"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299759"><span class="annot"><span class="annottext">Maybe CatalogConfigurationUpdate
+</span><a href="#local-6989586621679299759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe CatalogConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AcatalogConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">catalogConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogConfigurationUpdate
+</span><a href="#local-6989586621679299759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate"><span class="hs-identifier hs-type">zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate.html#DeployAsApplicationConfigurationUpdate"><span class="hs-identifier hs-type">DeployAsApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate"><span class="annot"><span class="annottext">zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate :: (Maybe DeployAsApplicationConfigurationUpdate
+ -&gt; f (Maybe DeployAsApplicationConfigurationUpdate))
+-&gt; ZeppelinApplicationConfigurationUpdate
+-&gt; f ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfigurationUpdate
+ -&gt; Maybe DeployAsApplicationConfigurationUpdate)
+-&gt; (ZeppelinApplicationConfigurationUpdate
+    -&gt; Maybe DeployAsApplicationConfigurationUpdate
+    -&gt; ZeppelinApplicationConfigurationUpdate)
+-&gt; Lens
+     ZeppelinApplicationConfigurationUpdate
+     ZeppelinApplicationConfigurationUpdate
+     (Maybe DeployAsApplicationConfigurationUpdate)
+     (Maybe DeployAsApplicationConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299757"><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfigurationUpdate
+deployAsApplicationConfigurationUpdate :: Maybe DeployAsApplicationConfigurationUpdate
+$sel:deployAsApplicationConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299757"><span class="hs-identifier hs-var hs-var">deployAsApplicationConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299757"><span class="hs-identifier hs-var">deployAsApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299756"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299755"><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployAsApplicationConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AdeployAsApplicationConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">deployAsApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Updates to the monitoring configuration of a Kinesis Data Analytics</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Studio notebook.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate"><span class="hs-identifier hs-type">zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate.html#ZeppelinMonitoringConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinMonitoringConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate"><span class="annot"><span class="annottext">zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate :: (Maybe ZeppelinMonitoringConfigurationUpdate
+ -&gt; f (Maybe ZeppelinMonitoringConfigurationUpdate))
+-&gt; ZeppelinApplicationConfigurationUpdate
+-&gt; f ZeppelinApplicationConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfigurationUpdate
+ -&gt; Maybe ZeppelinMonitoringConfigurationUpdate)
+-&gt; (ZeppelinApplicationConfigurationUpdate
+    -&gt; Maybe ZeppelinMonitoringConfigurationUpdate
+    -&gt; ZeppelinApplicationConfigurationUpdate)
+-&gt; Lens
+     ZeppelinApplicationConfigurationUpdate
+     ZeppelinApplicationConfigurationUpdate
+     (Maybe ZeppelinMonitoringConfigurationUpdate)
+     (Maybe ZeppelinMonitoringConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299753"><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfigurationUpdate
+monitoringConfigurationUpdate :: Maybe ZeppelinMonitoringConfigurationUpdate
+$sel:monitoringConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="#local-6989586621679299753"><span class="hs-identifier hs-var hs-var">monitoringConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="#local-6989586621679299753"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299752"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299751"><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="#local-6989586621679299751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#%24sel%3AmonitoringConfigurationUpdate%3AZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="#local-6989586621679299751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679299747"><span id="local-6989586621679299749"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679299744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679299736"><span id="local-6989586621679299738"><span id="local-6989586621679299740"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate</span></a></span></span></span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679299734"><span class="annot"><span class="annottext">toJSON :: ZeppelinApplicationConfigurationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate.html#ZeppelinApplicationConfigurationUpdate%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299729"><span id="local-6989586621679299730"><span id="local-6989586621679299731"><span id="local-6989586621679299732"><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+Maybe CatalogConfigurationUpdate
+Maybe DeployAsApplicationConfigurationUpdate
+Maybe ZeppelinMonitoringConfigurationUpdate
+monitoringConfigurationUpdate :: Maybe ZeppelinMonitoringConfigurationUpdate
+deployAsApplicationConfigurationUpdate :: Maybe DeployAsApplicationConfigurationUpdate
+catalogConfigurationUpdate :: Maybe CatalogConfigurationUpdate
+customArtifactsConfigurationUpdate :: Maybe [CustomArtifactConfiguration]
+$sel:monitoringConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe ZeppelinMonitoringConfigurationUpdate
+$sel:deployAsApplicationConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe DeployAsApplicationConfigurationUpdate
+$sel:catalogConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe CatalogConfigurationUpdate
+$sel:customArtifactsConfigurationUpdate:ZeppelinApplicationConfigurationUpdate' :: ZeppelinApplicationConfigurationUpdate
+-&gt; Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299729"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomArtifactsConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CustomArtifactConfiguration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">([CustomArtifactConfiguration] -&gt; Pair)
+-&gt; Maybe [CustomArtifactConfiguration] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299732"><span class="hs-identifier hs-var">customArtifactsConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CatalogConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(CatalogConfigurationUpdate -&gt; Pair)
+-&gt; Maybe CatalogConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CatalogConfigurationUpdate
+</span><a href="#local-6989586621679299731"><span class="hs-identifier hs-var">catalogConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeployAsApplicationConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeployAsApplicationConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">(DeployAsApplicationConfigurationUpdate -&gt; Pair)
+-&gt; Maybe DeployAsApplicationConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfigurationUpdate
+</span><a href="#local-6989586621679299730"><span class="hs-identifier hs-var">deployAsApplicationConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ZeppelinMonitoringConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(ZeppelinMonitoringConfigurationUpdate -&gt; Pair)
+-&gt; Maybe ZeppelinMonitoringConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfigurationUpdate
+</span><a href="#local-6989586621679299729"><span class="hs-identifier hs-var">monitoringConfigurationUpdate</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span></pre></body></html>

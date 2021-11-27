@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.RootAccess</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.RootAccess</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier">RootAccess</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess_Disabled"><span class="hs-identifier">RootAccess_Disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess_Enabled"><span class="hs-identifier">RootAccess_Enabled</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680338931"><span id="local-6989586621680338932"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RootAccess"><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier hs-var">RootAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootAccess%27"><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess%27"><span class="hs-identifier hs-var">RootAccess'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRootAccess"><span class="annot"><span class="annottext">RootAccess -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.RootAccess.html#fromRootAccess"><span class="hs-identifier hs-var hs-var">fromRootAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338923"><span id="local-6989586621680338925"><span id="local-6989586621680338927"><span class="annot"><span class="annottext">Int -&gt; RootAccess -&gt; ShowS
+[RootAccess] -&gt; ShowS
+RootAccess -&gt; String
+(Int -&gt; RootAccess -&gt; ShowS)
+-&gt; (RootAccess -&gt; String)
+-&gt; ([RootAccess] -&gt; ShowS)
+-&gt; Show RootAccess
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RootAccess] -&gt; ShowS
+$cshowList :: [RootAccess] -&gt; ShowS
+show :: RootAccess -&gt; String
+$cshow :: RootAccess -&gt; String
+showsPrec :: Int -&gt; RootAccess -&gt; ShowS
+$cshowsPrec :: Int -&gt; RootAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680338914"><span id="local-6989586621680338916"><span id="local-6989586621680338918"><span id="local-6989586621680338920"><span class="annot"><span class="annottext">ReadPrec [RootAccess]
+ReadPrec RootAccess
+Int -&gt; ReadS RootAccess
+ReadS [RootAccess]
+(Int -&gt; ReadS RootAccess)
+-&gt; ReadS [RootAccess]
+-&gt; ReadPrec RootAccess
+-&gt; ReadPrec [RootAccess]
+-&gt; Read RootAccess
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RootAccess]
+$creadListPrec :: ReadPrec [RootAccess]
+readPrec :: ReadPrec RootAccess
+$creadPrec :: ReadPrec RootAccess
+readList :: ReadS [RootAccess]
+$creadList :: ReadS [RootAccess]
+readsPrec :: Int -&gt; ReadS RootAccess
+$creadsPrec :: Int -&gt; ReadS RootAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680338909"><span id="local-6989586621680338911"><span class="annot"><span class="annottext">RootAccess -&gt; RootAccess -&gt; Bool
+(RootAccess -&gt; RootAccess -&gt; Bool)
+-&gt; (RootAccess -&gt; RootAccess -&gt; Bool) -&gt; Eq RootAccess
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RootAccess -&gt; RootAccess -&gt; Bool
+$c/= :: RootAccess -&gt; RootAccess -&gt; Bool
+== :: RootAccess -&gt; RootAccess -&gt; Bool
+$c== :: RootAccess -&gt; RootAccess -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680338893"><span id="local-6989586621680338895"><span id="local-6989586621680338897"><span id="local-6989586621680338899"><span id="local-6989586621680338901"><span id="local-6989586621680338903"><span id="local-6989586621680338905"><span class="annot"><span class="annottext">Eq RootAccess
+Eq RootAccess
+-&gt; (RootAccess -&gt; RootAccess -&gt; Ordering)
+-&gt; (RootAccess -&gt; RootAccess -&gt; Bool)
+-&gt; (RootAccess -&gt; RootAccess -&gt; Bool)
+-&gt; (RootAccess -&gt; RootAccess -&gt; Bool)
+-&gt; (RootAccess -&gt; RootAccess -&gt; Bool)
+-&gt; (RootAccess -&gt; RootAccess -&gt; RootAccess)
+-&gt; (RootAccess -&gt; RootAccess -&gt; RootAccess)
+-&gt; Ord RootAccess
+RootAccess -&gt; RootAccess -&gt; Bool
+RootAccess -&gt; RootAccess -&gt; Ordering
+RootAccess -&gt; RootAccess -&gt; RootAccess
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RootAccess -&gt; RootAccess -&gt; RootAccess
+$cmin :: RootAccess -&gt; RootAccess -&gt; RootAccess
+max :: RootAccess -&gt; RootAccess -&gt; RootAccess
+$cmax :: RootAccess -&gt; RootAccess -&gt; RootAccess
+&gt;= :: RootAccess -&gt; RootAccess -&gt; Bool
+$c&gt;= :: RootAccess -&gt; RootAccess -&gt; Bool
+&gt; :: RootAccess -&gt; RootAccess -&gt; Bool
+$c&gt; :: RootAccess -&gt; RootAccess -&gt; Bool
+&lt;= :: RootAccess -&gt; RootAccess -&gt; Bool
+$c&lt;= :: RootAccess -&gt; RootAccess -&gt; Bool
+&lt; :: RootAccess -&gt; RootAccess -&gt; Bool
+$c&lt; :: RootAccess -&gt; RootAccess -&gt; Bool
+compare :: RootAccess -&gt; RootAccess -&gt; Ordering
+$ccompare :: RootAccess -&gt; RootAccess -&gt; Ordering
+$cp1Ord :: Eq RootAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RootAccess -&gt; Rep RootAccess x)
+-&gt; (forall x. Rep RootAccess x -&gt; RootAccess) -&gt; Generic RootAccess
+forall x. Rep RootAccess x -&gt; RootAccess
+forall x. RootAccess -&gt; Rep RootAccess x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RootAccess x -&gt; RootAccess
+$cfrom :: forall x. RootAccess -&gt; Rep RootAccess x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338885"><span id="local-6989586621680338887"><span class="annot"><span class="annottext">Int -&gt; RootAccess -&gt; Int
+RootAccess -&gt; Int
+(Int -&gt; RootAccess -&gt; Int)
+-&gt; (RootAccess -&gt; Int) -&gt; Hashable RootAccess
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RootAccess -&gt; Int
+$chash :: RootAccess -&gt; Int
+hashWithSalt :: Int -&gt; RootAccess -&gt; Int
+$chashWithSalt :: Int -&gt; RootAccess -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680338882"><span class="annot"><span class="annottext">RootAccess -&gt; ()
+(RootAccess -&gt; ()) -&gt; NFData RootAccess
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RootAccess -&gt; ()
+$crnf :: RootAccess -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680338879"><span class="annot"><span class="annottext">Text -&gt; Either String RootAccess
+(Text -&gt; Either String RootAccess) -&gt; FromText RootAccess
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RootAccess
+$cfromText :: Text -&gt; Either String RootAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680338876"><span class="annot"><span class="annottext">RootAccess -&gt; Text
+(RootAccess -&gt; Text) -&gt; ToText RootAccess
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RootAccess -&gt; Text
+$ctoText :: RootAccess -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680338873"><span class="annot"><span class="annottext">RootAccess -&gt; ByteString
+(RootAccess -&gt; ByteString) -&gt; ToByteString RootAccess
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RootAccess -&gt; ByteString
+$ctoBS :: RootAccess -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680338870"><span class="annot"><span class="annottext">RootAccess -&gt; ByteStringBuilder
+(RootAccess -&gt; ByteStringBuilder) -&gt; ToLog RootAccess
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RootAccess -&gt; ByteStringBuilder
+$cbuild :: RootAccess -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680338867"><span class="annot"><span class="annottext">HeaderName -&gt; RootAccess -&gt; [Header]
+(HeaderName -&gt; RootAccess -&gt; [Header]) -&gt; ToHeader RootAccess
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RootAccess -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RootAccess -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680338864"><span class="annot"><span class="annottext">RootAccess -&gt; QueryString
+(RootAccess -&gt; QueryString) -&gt; ToQuery RootAccess
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RootAccess -&gt; QueryString
+$ctoQuery :: RootAccess -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680338859"><span id="local-6989586621680338861"><span class="annot"><span class="annottext">Value -&gt; Parser [RootAccess]
+Value -&gt; Parser RootAccess
+(Value -&gt; Parser RootAccess)
+-&gt; (Value -&gt; Parser [RootAccess]) -&gt; FromJSON RootAccess
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RootAccess]
+$cparseJSONList :: Value -&gt; Parser [RootAccess]
+parseJSON :: Value -&gt; Parser RootAccess
+$cparseJSON :: Value -&gt; Parser RootAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680338854"><span id="local-6989586621680338856"><span class="annot"><span class="annottext">FromJSONKeyFunction [RootAccess]
+FromJSONKeyFunction RootAccess
+FromJSONKeyFunction RootAccess
+-&gt; FromJSONKeyFunction [RootAccess] -&gt; FromJSONKey RootAccess
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RootAccess]
+$cfromJSONKeyList :: FromJSONKeyFunction [RootAccess]
+fromJSONKey :: FromJSONKeyFunction RootAccess
+$cfromJSONKey :: FromJSONKeyFunction RootAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680338845"><span id="local-6989586621680338847"><span id="local-6989586621680338849"><span id="local-6989586621680338851"><span class="annot"><span class="annottext">[RootAccess] -&gt; Encoding
+[RootAccess] -&gt; Value
+RootAccess -&gt; Encoding
+RootAccess -&gt; Value
+(RootAccess -&gt; Value)
+-&gt; (RootAccess -&gt; Encoding)
+-&gt; ([RootAccess] -&gt; Value)
+-&gt; ([RootAccess] -&gt; Encoding)
+-&gt; ToJSON RootAccess
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RootAccess] -&gt; Encoding
+$ctoEncodingList :: [RootAccess] -&gt; Encoding
+toJSONList :: [RootAccess] -&gt; Value
+$ctoJSONList :: [RootAccess] -&gt; Value
+toEncoding :: RootAccess -&gt; Encoding
+$ctoEncoding :: RootAccess -&gt; Encoding
+toJSON :: RootAccess -&gt; Value
+$ctoJSON :: RootAccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680338840"><span id="local-6989586621680338842"><span class="annot"><span class="annottext">ToJSONKeyFunction [RootAccess]
+ToJSONKeyFunction RootAccess
+ToJSONKeyFunction RootAccess
+-&gt; ToJSONKeyFunction [RootAccess] -&gt; ToJSONKey RootAccess
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RootAccess]
+$ctoJSONKeyList :: ToJSONKeyFunction [RootAccess]
+toJSONKey :: ToJSONKeyFunction RootAccess
+$ctoJSONKey :: ToJSONKeyFunction RootAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680338837"><span class="annot"><span class="annottext">[Node] -&gt; Either String RootAccess
+([Node] -&gt; Either String RootAccess) -&gt; FromXML RootAccess
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RootAccess
+$cparseXML :: [Node] -&gt; Either String RootAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680338834"><span class="annot"><span class="annottext">RootAccess -&gt; XML
+(RootAccess -&gt; XML) -&gt; ToXML RootAccess
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RootAccess -&gt; XML
+$ctoXML :: RootAccess -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess_Disabled"><span class="hs-identifier hs-type">RootAccess_Disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier hs-type">RootAccess</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRootAccess_Disabled"><span id="%24mRootAccess_Disabled"><span id="RootAccess_Disabled"><span class="annot"><span class="annottext">$bRootAccess_Disabled :: RootAccess
+$mRootAccess_Disabled :: forall r. RootAccess -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.RootAccess.html#%24bRootAccess_Disabled"><span class="hs-identifier hs-var hs-var hs-var">RootAccess_Disabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess%27"><span class="hs-identifier hs-type">RootAccess'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disabled&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess_Enabled"><span class="hs-identifier hs-type">RootAccess_Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier hs-type">RootAccess</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRootAccess_Enabled"><span id="%24mRootAccess_Enabled"><span id="RootAccess_Enabled"><span class="annot"><span class="annottext">$bRootAccess_Enabled :: RootAccess
+$mRootAccess_Enabled :: forall r. RootAccess -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.RootAccess.html#%24bRootAccess_Enabled"><span class="hs-identifier hs-var hs-var hs-var">RootAccess_Enabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess%27"><span class="hs-identifier hs-type">RootAccess'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enabled&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess_Disabled"><span class="hs-pragma hs-type">RootAccess_Disabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess_Enabled"><span class="hs-pragma hs-type">RootAccess_Enabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.RootAccess.html#RootAccess%27"><span class="hs-pragma hs-type">RootAccess'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,816 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.LifecycleRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.LifecycleRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.AbortIncompleteMultipartUpload.html"><span class="hs-identifier">Amazonka.S3.Types.AbortIncompleteMultipartUpload</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ExpirationStatus.html"><span class="hs-identifier">Amazonka.S3.Types.ExpirationStatus</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleExpiration.html"><span class="hs-identifier">Amazonka.S3.Types.LifecycleExpiration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRuleFilter.html"><span class="hs-identifier">Amazonka.S3.Types.LifecycleRuleFilter</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionExpiration.html"><span class="hs-identifier">Amazonka.S3.Types.NoncurrentVersionExpiration</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html"><span class="hs-identifier">Amazonka.S3.Types.NoncurrentVersionTransition</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html"><span class="hs-identifier">Amazonka.S3.Types.Transition</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | A lifecycle rule for individual objects in an Amazon S3 bucket.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newLifecycleRule' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679558220"><span id="local-6989586621679558221"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecycleRule"><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-var">LifecycleRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleRule%27"><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-var">LifecycleRule'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies when an Amazon S3 object transitions to a specified storage</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- class.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atransitions%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe [Transition]
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Atransitions%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">transitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AnoncurrentVersionExpiration%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe NoncurrentVersionExpiration
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AnoncurrentVersionExpiration%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">noncurrentVersionExpiration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Prefix identifying one or more objects to which the rule applies. This</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- is no longer used; use @Filter@ instead.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aprefix%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe Text
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aprefix%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Specifies the transition rule for the lifecycle rule that describes when</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- noncurrent objects transition to a specific storage class. If your</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- bucket is versioning-enabled (or versioning is suspended), you can set</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- this action to request that Amazon S3 transition noncurrent object</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- versions to a specific storage class at a set period in the object\'s</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- lifetime.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnoncurrentVersionTransitions%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe [NoncurrentVersionTransition]
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AnoncurrentVersionTransitions%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">noncurrentVersionTransitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Specifies the expiration for the lifecycle of the object in the form of</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- date, days and, whether the object has a delete marker.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aexpiration%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe LifecycleExpiration
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aexpiration%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Unique identifier for the rule. The value cannot be longer than 255</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- characters.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aid%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe Text
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aid%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The @Filter@ is used to identify objects that a Lifecycle Rule applies</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- specified. @Filter@ is required if the @LifecycleRule@ does not containt</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- a @Prefix@ element.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Afilter%27%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe LifecycleRuleFilter
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Afilter%27%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AabortIncompleteMultipartUpload%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; Maybe AbortIncompleteMultipartUpload
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AabortIncompleteMultipartUpload%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">abortIncompleteMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the rule is not currently being applied.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Astatus%3ALifecycleRule%27"><span class="annot"><span class="annottext">LifecycleRule -&gt; ExpirationStatus
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Astatus%3ALifecycleRule%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ExpirationStatus.html#ExpirationStatus"><span class="hs-identifier hs-type">ExpirationStatus</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558206"><span id="local-6989586621679558208"><span class="annot"><span class="annottext">LifecycleRule -&gt; LifecycleRule -&gt; Bool
+(LifecycleRule -&gt; LifecycleRule -&gt; Bool)
+-&gt; (LifecycleRule -&gt; LifecycleRule -&gt; Bool) -&gt; Eq LifecycleRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LifecycleRule -&gt; LifecycleRule -&gt; Bool
+$c/= :: LifecycleRule -&gt; LifecycleRule -&gt; Bool
+== :: LifecycleRule -&gt; LifecycleRule -&gt; Bool
+$c== :: LifecycleRule -&gt; LifecycleRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558197"><span id="local-6989586621679558199"><span id="local-6989586621679558201"><span id="local-6989586621679558203"><span class="annot"><span class="annottext">ReadPrec [LifecycleRule]
+ReadPrec LifecycleRule
+Int -&gt; ReadS LifecycleRule
+ReadS [LifecycleRule]
+(Int -&gt; ReadS LifecycleRule)
+-&gt; ReadS [LifecycleRule]
+-&gt; ReadPrec LifecycleRule
+-&gt; ReadPrec [LifecycleRule]
+-&gt; Read LifecycleRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LifecycleRule]
+$creadListPrec :: ReadPrec [LifecycleRule]
+readPrec :: ReadPrec LifecycleRule
+$creadPrec :: ReadPrec LifecycleRule
+readList :: ReadS [LifecycleRule]
+$creadList :: ReadS [LifecycleRule]
+readsPrec :: Int -&gt; ReadS LifecycleRule
+$creadsPrec :: Int -&gt; ReadS LifecycleRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558190"><span id="local-6989586621679558192"><span id="local-6989586621679558194"><span class="annot"><span class="annottext">Int -&gt; LifecycleRule -&gt; ShowS
+[LifecycleRule] -&gt; ShowS
+LifecycleRule -&gt; String
+(Int -&gt; LifecycleRule -&gt; ShowS)
+-&gt; (LifecycleRule -&gt; String)
+-&gt; ([LifecycleRule] -&gt; ShowS)
+-&gt; Show LifecycleRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LifecycleRule] -&gt; ShowS
+$cshowList :: [LifecycleRule] -&gt; ShowS
+show :: LifecycleRule -&gt; String
+$cshow :: LifecycleRule -&gt; String
+showsPrec :: Int -&gt; LifecycleRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; LifecycleRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LifecycleRule -&gt; Rep LifecycleRule x)
+-&gt; (forall x. Rep LifecycleRule x -&gt; LifecycleRule)
+-&gt; Generic LifecycleRule
+forall x. Rep LifecycleRule x -&gt; LifecycleRule
+forall x. LifecycleRule -&gt; Rep LifecycleRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LifecycleRule x -&gt; LifecycleRule
+$cfrom :: forall x. LifecycleRule -&gt; Rep LifecycleRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'LifecycleRule' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'transitions', 'lifecycleRule_transitions' - Specifies when an Amazon S3 object transitions to a specified storage</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- class.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'noncurrentVersionExpiration', 'lifecycleRule_noncurrentVersionExpiration' - Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'prefix', 'lifecycleRule_prefix' - Prefix identifying one or more objects to which the rule applies. This</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- is no longer used; use @Filter@ instead.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'noncurrentVersionTransitions', 'lifecycleRule_noncurrentVersionTransitions' - Specifies the transition rule for the lifecycle rule that describes when</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- noncurrent objects transition to a specific storage class. If your</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- bucket is versioning-enabled (or versioning is suspended), you can set</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- this action to request that Amazon S3 transition noncurrent object</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- versions to a specific storage class at a set period in the object\'s</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- lifetime.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'expiration', 'lifecycleRule_expiration' - Specifies the expiration for the lifecycle of the object in the form of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- date, days and, whether the object has a delete marker.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'id', 'lifecycleRule_id' - Unique identifier for the rule. The value cannot be longer than 255</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- characters.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'filter'', 'lifecycleRule_filter' - The @Filter@ is used to identify objects that a Lifecycle Rule applies</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- specified. @Filter@ is required if the @LifecycleRule@ does not containt</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- a @Prefix@ element.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'abortIncompleteMultipartUpload', 'lifecycleRule_abortIncompleteMultipartUpload' - Undocumented member.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'status', 'lifecycleRule_status' - If \'Enabled\', the rule is currently being applied. If \'Disabled\',</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the rule is not currently being applied.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#newLifecycleRule"><span class="hs-identifier hs-type">newLifecycleRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.ExpirationStatus.html#ExpirationStatus"><span class="hs-identifier hs-type">ExpirationStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span>
+</span><span id="line-122"></span><span id="newLifecycleRule"><span class="annot"><span class="annottext">newLifecycleRule :: ExpirationStatus -&gt; LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#newLifecycleRule"><span class="hs-identifier hs-var hs-var">newLifecycleRule</span></a></span></span><span> </span><span id="local-6989586621679558184"><span class="annot"><span class="annottext">ExpirationStatus
+</span><a href="#local-6989586621679558184"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">LifecycleRule' :: Maybe [Transition]
+-&gt; Maybe NoncurrentVersionExpiration
+-&gt; Maybe Text
+-&gt; Maybe [NoncurrentVersionTransition]
+-&gt; Maybe LifecycleExpiration
+-&gt; Maybe Text
+-&gt; Maybe LifecycleRuleFilter
+-&gt; Maybe AbortIncompleteMultipartUpload
+-&gt; ExpirationStatus
+-&gt; LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitions:LifecycleRule' :: Maybe [Transition]
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Atransitions%3ALifecycleRule%27"><span class="hs-identifier hs-var">transitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Transition]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:noncurrentVersionExpiration:LifecycleRule' :: Maybe NoncurrentVersionExpiration
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AnoncurrentVersionExpiration%3ALifecycleRule%27"><span class="hs-identifier hs-var">noncurrentVersionExpiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NoncurrentVersionExpiration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aprefix%3ALifecycleRule%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:noncurrentVersionTransitions:LifecycleRule' :: Maybe [NoncurrentVersionTransition]
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AnoncurrentVersionTransitions%3ALifecycleRule%27"><span class="hs-identifier hs-var">noncurrentVersionTransitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NoncurrentVersionTransition]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:expiration:LifecycleRule' :: Maybe LifecycleExpiration
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aexpiration%3ALifecycleRule%27"><span class="hs-identifier hs-var">expiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleExpiration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:LifecycleRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aid%3ALifecycleRule%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':LifecycleRule' :: Maybe LifecycleRuleFilter
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Afilter%27%3ALifecycleRule%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:abortIncompleteMultipartUpload:LifecycleRule' :: Maybe AbortIncompleteMultipartUpload
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AabortIncompleteMultipartUpload%3ALifecycleRule%27"><span class="hs-identifier hs-var">abortIncompleteMultipartUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbortIncompleteMultipartUpload
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:LifecycleRule' :: ExpirationStatus
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Astatus%3ALifecycleRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExpirationStatus
+</span><a href="#local-6989586621679558184"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Specifies when an Amazon S3 object transitions to a specified storage</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- class.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_transitions"><span class="hs-identifier hs-type">lifecycleRule_transitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="lifecycleRule_transitions"><span class="annot"><span class="annottext">lifecycleRule_transitions :: (Maybe [Transition] -&gt; f (Maybe [Transition]))
+-&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_transitions"><span class="hs-identifier hs-var hs-var">lifecycleRule_transitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe [Transition])
+-&gt; (LifecycleRule -&gt; Maybe [Transition] -&gt; LifecycleRule)
+-&gt; Lens
+     LifecycleRule
+     LifecycleRule
+     (Maybe [Transition])
+     (Maybe [Transition])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558180"><span class="annot"><span class="annottext">Maybe [Transition]
+transitions :: Maybe [Transition]
+$sel:transitions:LifecycleRule' :: LifecycleRule -&gt; Maybe [Transition]
+</span><a href="#local-6989586621679558180"><span class="hs-identifier hs-var hs-var">transitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Transition]
+</span><a href="#local-6989586621679558180"><span class="hs-identifier hs-var">transitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558179"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558178"><span class="annot"><span class="annottext">Maybe [Transition]
+</span><a href="#local-6989586621679558178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitions:LifecycleRule' :: Maybe [Transition]
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Atransitions%3ALifecycleRule%27"><span class="hs-identifier hs-var">transitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Transition]
+</span><a href="#local-6989586621679558178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Transition] -&gt; f (Maybe [Transition]))
+ -&gt; LifecycleRule -&gt; f LifecycleRule)
+-&gt; ((Maybe [Transition] -&gt; f (Maybe [Transition]))
+    -&gt; Maybe [Transition] -&gt; f (Maybe [Transition]))
+-&gt; (Maybe [Transition] -&gt; f (Maybe [Transition]))
+-&gt; LifecycleRule
+-&gt; f LifecycleRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Transition] [Transition] [Transition] [Transition]
+-&gt; Iso
+     (Maybe [Transition])
+     (Maybe [Transition])
+     (Maybe [Transition])
+     (Maybe [Transition])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Transition] [Transition] [Transition] [Transition]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_noncurrentVersionExpiration"><span class="hs-identifier hs-type">lifecycleRule_noncurrentVersionExpiration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="lifecycleRule_noncurrentVersionExpiration"><span class="annot"><span class="annottext">lifecycleRule_noncurrentVersionExpiration :: (Maybe NoncurrentVersionExpiration
+ -&gt; f (Maybe NoncurrentVersionExpiration))
+-&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_noncurrentVersionExpiration"><span class="hs-identifier hs-var hs-var">lifecycleRule_noncurrentVersionExpiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe NoncurrentVersionExpiration)
+-&gt; (LifecycleRule
+    -&gt; Maybe NoncurrentVersionExpiration -&gt; LifecycleRule)
+-&gt; Lens
+     LifecycleRule
+     LifecycleRule
+     (Maybe NoncurrentVersionExpiration)
+     (Maybe NoncurrentVersionExpiration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558173"><span class="annot"><span class="annottext">Maybe NoncurrentVersionExpiration
+noncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
+$sel:noncurrentVersionExpiration:LifecycleRule' :: LifecycleRule -&gt; Maybe NoncurrentVersionExpiration
+</span><a href="#local-6989586621679558173"><span class="hs-identifier hs-var hs-var">noncurrentVersionExpiration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NoncurrentVersionExpiration
+</span><a href="#local-6989586621679558173"><span class="hs-identifier hs-var">noncurrentVersionExpiration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558172"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558171"><span class="annot"><span class="annottext">Maybe NoncurrentVersionExpiration
+</span><a href="#local-6989586621679558171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncurrentVersionExpiration:LifecycleRule' :: Maybe NoncurrentVersionExpiration
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AnoncurrentVersionExpiration%3ALifecycleRule%27"><span class="hs-identifier hs-var">noncurrentVersionExpiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NoncurrentVersionExpiration
+</span><a href="#local-6989586621679558171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Prefix identifying one or more objects to which the rule applies. This</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- is no longer used; use @Filter@ instead.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_prefix"><span class="hs-identifier hs-type">lifecycleRule_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="lifecycleRule_prefix"><span class="annot"><span class="annottext">lifecycleRule_prefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_prefix"><span class="hs-identifier hs-var hs-var">lifecycleRule_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe Text)
+-&gt; (LifecycleRule -&gt; Maybe Text -&gt; LifecycleRule)
+-&gt; Lens LifecycleRule LifecycleRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558169"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:LifecycleRule' :: LifecycleRule -&gt; Maybe Text
+</span><a href="#local-6989586621679558169"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558169"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558168"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558167"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aprefix%3ALifecycleRule%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Specifies the transition rule for the lifecycle rule that describes when</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- noncurrent objects transition to a specific storage class. If your</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- bucket is versioning-enabled (or versioning is suspended), you can set</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- this action to request that Amazon S3 transition noncurrent object</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- versions to a specific storage class at a set period in the object\'s</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- lifetime.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_noncurrentVersionTransitions"><span class="hs-identifier hs-type">lifecycleRule_noncurrentVersionTransitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="lifecycleRule_noncurrentVersionTransitions"><span class="annot"><span class="annottext">lifecycleRule_noncurrentVersionTransitions :: (Maybe [NoncurrentVersionTransition]
+ -&gt; f (Maybe [NoncurrentVersionTransition]))
+-&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_noncurrentVersionTransitions"><span class="hs-identifier hs-var hs-var">lifecycleRule_noncurrentVersionTransitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe [NoncurrentVersionTransition])
+-&gt; (LifecycleRule
+    -&gt; Maybe [NoncurrentVersionTransition] -&gt; LifecycleRule)
+-&gt; Lens
+     LifecycleRule
+     LifecycleRule
+     (Maybe [NoncurrentVersionTransition])
+     (Maybe [NoncurrentVersionTransition])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558165"><span class="annot"><span class="annottext">Maybe [NoncurrentVersionTransition]
+noncurrentVersionTransitions :: Maybe [NoncurrentVersionTransition]
+$sel:noncurrentVersionTransitions:LifecycleRule' :: LifecycleRule -&gt; Maybe [NoncurrentVersionTransition]
+</span><a href="#local-6989586621679558165"><span class="hs-identifier hs-var hs-var">noncurrentVersionTransitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NoncurrentVersionTransition]
+</span><a href="#local-6989586621679558165"><span class="hs-identifier hs-var">noncurrentVersionTransitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558164"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558163"><span class="annot"><span class="annottext">Maybe [NoncurrentVersionTransition]
+</span><a href="#local-6989586621679558163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncurrentVersionTransitions:LifecycleRule' :: Maybe [NoncurrentVersionTransition]
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AnoncurrentVersionTransitions%3ALifecycleRule%27"><span class="hs-identifier hs-var">noncurrentVersionTransitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NoncurrentVersionTransition]
+</span><a href="#local-6989586621679558163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NoncurrentVersionTransition]
+  -&gt; f (Maybe [NoncurrentVersionTransition]))
+ -&gt; LifecycleRule -&gt; f LifecycleRule)
+-&gt; ((Maybe [NoncurrentVersionTransition]
+     -&gt; f (Maybe [NoncurrentVersionTransition]))
+    -&gt; Maybe [NoncurrentVersionTransition]
+    -&gt; f (Maybe [NoncurrentVersionTransition]))
+-&gt; (Maybe [NoncurrentVersionTransition]
+    -&gt; f (Maybe [NoncurrentVersionTransition]))
+-&gt; LifecycleRule
+-&gt; f LifecycleRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NoncurrentVersionTransition]
+  [NoncurrentVersionTransition]
+  [NoncurrentVersionTransition]
+  [NoncurrentVersionTransition]
+-&gt; Iso
+     (Maybe [NoncurrentVersionTransition])
+     (Maybe [NoncurrentVersionTransition])
+     (Maybe [NoncurrentVersionTransition])
+     (Maybe [NoncurrentVersionTransition])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NoncurrentVersionTransition]
+  [NoncurrentVersionTransition]
+  [NoncurrentVersionTransition]
+  [NoncurrentVersionTransition]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Specifies the expiration for the lifecycle of the object in the form of</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- date, days and, whether the object has a delete marker.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_expiration"><span class="hs-identifier hs-type">lifecycleRule_expiration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleExpiration.html#LifecycleExpiration"><span class="hs-identifier hs-type">LifecycleExpiration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="lifecycleRule_expiration"><span class="annot"><span class="annottext">lifecycleRule_expiration :: (Maybe LifecycleExpiration -&gt; f (Maybe LifecycleExpiration))
+-&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_expiration"><span class="hs-identifier hs-var hs-var">lifecycleRule_expiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe LifecycleExpiration)
+-&gt; (LifecycleRule -&gt; Maybe LifecycleExpiration -&gt; LifecycleRule)
+-&gt; Lens
+     LifecycleRule
+     LifecycleRule
+     (Maybe LifecycleExpiration)
+     (Maybe LifecycleExpiration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558161"><span class="annot"><span class="annottext">Maybe LifecycleExpiration
+expiration :: Maybe LifecycleExpiration
+$sel:expiration:LifecycleRule' :: LifecycleRule -&gt; Maybe LifecycleExpiration
+</span><a href="#local-6989586621679558161"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleExpiration
+</span><a href="#local-6989586621679558161"><span class="hs-identifier hs-var">expiration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558160"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558159"><span class="annot"><span class="annottext">Maybe LifecycleExpiration
+</span><a href="#local-6989586621679558159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiration:LifecycleRule' :: Maybe LifecycleExpiration
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aexpiration%3ALifecycleRule%27"><span class="hs-identifier hs-var">expiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleExpiration
+</span><a href="#local-6989586621679558159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Unique identifier for the rule. The value cannot be longer than 255</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- characters.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_id"><span class="hs-identifier hs-type">lifecycleRule_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="lifecycleRule_id"><span class="annot"><span class="annottext">lifecycleRule_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_id"><span class="hs-identifier hs-var hs-var">lifecycleRule_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe Text)
+-&gt; (LifecycleRule -&gt; Maybe Text -&gt; LifecycleRule)
+-&gt; Lens LifecycleRule LifecycleRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558157"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:LifecycleRule' :: LifecycleRule -&gt; Maybe Text
+</span><a href="#local-6989586621679558157"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558157"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558156"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558155"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LifecycleRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Aid%3ALifecycleRule%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The @Filter@ is used to identify objects that a Lifecycle Rule applies</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- specified. @Filter@ is required if the @LifecycleRule@ does not containt</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- a @Prefix@ element.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_filter"><span class="hs-identifier hs-type">lifecycleRule_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="lifecycleRule_filter"><span class="annot"><span class="annottext">lifecycleRule_filter :: (Maybe LifecycleRuleFilter -&gt; f (Maybe LifecycleRuleFilter))
+-&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_filter"><span class="hs-identifier hs-var hs-var">lifecycleRule_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe LifecycleRuleFilter)
+-&gt; (LifecycleRule -&gt; Maybe LifecycleRuleFilter -&gt; LifecycleRule)
+-&gt; Lens
+     LifecycleRule
+     LifecycleRule
+     (Maybe LifecycleRuleFilter)
+     (Maybe LifecycleRuleFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558153"><span class="annot"><span class="annottext">Maybe LifecycleRuleFilter
+filter' :: Maybe LifecycleRuleFilter
+$sel:filter':LifecycleRule' :: LifecycleRule -&gt; Maybe LifecycleRuleFilter
+</span><a href="#local-6989586621679558153"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleFilter
+</span><a href="#local-6989586621679558153"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558152"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558151"><span class="annot"><span class="annottext">Maybe LifecycleRuleFilter
+</span><a href="#local-6989586621679558151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':LifecycleRule' :: Maybe LifecycleRuleFilter
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Afilter%27%3ALifecycleRule%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleFilter
+</span><a href="#local-6989586621679558151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_abortIncompleteMultipartUpload"><span class="hs-identifier hs-type">lifecycleRule_abortIncompleteMultipartUpload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.AbortIncompleteMultipartUpload.html#AbortIncompleteMultipartUpload"><span class="hs-identifier hs-type">AbortIncompleteMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="lifecycleRule_abortIncompleteMultipartUpload"><span class="annot"><span class="annottext">lifecycleRule_abortIncompleteMultipartUpload :: (Maybe AbortIncompleteMultipartUpload
+ -&gt; f (Maybe AbortIncompleteMultipartUpload))
+-&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_abortIncompleteMultipartUpload"><span class="hs-identifier hs-var hs-var">lifecycleRule_abortIncompleteMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; Maybe AbortIncompleteMultipartUpload)
+-&gt; (LifecycleRule
+    -&gt; Maybe AbortIncompleteMultipartUpload -&gt; LifecycleRule)
+-&gt; Lens
+     LifecycleRule
+     LifecycleRule
+     (Maybe AbortIncompleteMultipartUpload)
+     (Maybe AbortIncompleteMultipartUpload)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558149"><span class="annot"><span class="annottext">Maybe AbortIncompleteMultipartUpload
+abortIncompleteMultipartUpload :: Maybe AbortIncompleteMultipartUpload
+$sel:abortIncompleteMultipartUpload:LifecycleRule' :: LifecycleRule -&gt; Maybe AbortIncompleteMultipartUpload
+</span><a href="#local-6989586621679558149"><span class="hs-identifier hs-var hs-var">abortIncompleteMultipartUpload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbortIncompleteMultipartUpload
+</span><a href="#local-6989586621679558149"><span class="hs-identifier hs-var">abortIncompleteMultipartUpload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558148"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558147"><span class="annot"><span class="annottext">Maybe AbortIncompleteMultipartUpload
+</span><a href="#local-6989586621679558147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortIncompleteMultipartUpload:LifecycleRule' :: Maybe AbortIncompleteMultipartUpload
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3AabortIncompleteMultipartUpload%3ALifecycleRule%27"><span class="hs-identifier hs-var">abortIncompleteMultipartUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbortIncompleteMultipartUpload
+</span><a href="#local-6989586621679558147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- the rule is not currently being applied.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_status"><span class="hs-identifier hs-type">lifecycleRule_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ExpirationStatus.html#ExpirationStatus"><span class="hs-identifier hs-type">ExpirationStatus</span></a></span><span>
+</span><span id="line-187"></span><span id="lifecycleRule_status"><span class="annot"><span class="annottext">lifecycleRule_status :: (ExpirationStatus -&gt; f ExpirationStatus)
+-&gt; LifecycleRule -&gt; f LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#lifecycleRule_status"><span class="hs-identifier hs-var hs-var">lifecycleRule_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRule -&gt; ExpirationStatus)
+-&gt; (LifecycleRule -&gt; ExpirationStatus -&gt; LifecycleRule)
+-&gt; Lens
+     LifecycleRule LifecycleRule ExpirationStatus ExpirationStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558145"><span class="annot"><span class="annottext">ExpirationStatus
+status :: ExpirationStatus
+$sel:status:LifecycleRule' :: LifecycleRule -&gt; ExpirationStatus
+</span><a href="#local-6989586621679558145"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpirationStatus
+</span><a href="#local-6989586621679558145"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558144"><span class="annot"><span class="annottext">s :: LifecycleRule
+</span><a href="#local-6989586621679558144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558143"><span class="annot"><span class="annottext">ExpirationStatus
+</span><a href="#local-6989586621679558143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRule
+</span><a href="#local-6989586621679558144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:LifecycleRule' :: ExpirationStatus
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#%24sel%3Astatus%3ALifecycleRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExpirationStatus
+</span><a href="#local-6989586621679558143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679558140"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LifecycleRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558138"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Transition]
+-&gt; Maybe NoncurrentVersionExpiration
+-&gt; Maybe Text
+-&gt; Maybe [NoncurrentVersionTransition]
+-&gt; Maybe LifecycleExpiration
+-&gt; Maybe Text
+-&gt; Maybe LifecycleRuleFilter
+-&gt; Maybe AbortIncompleteMultipartUpload
+-&gt; ExpirationStatus
+-&gt; LifecycleRule
+</span><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-var">LifecycleRule'</span></a></span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Transition]
+ -&gt; Maybe NoncurrentVersionExpiration
+ -&gt; Maybe Text
+ -&gt; Maybe [NoncurrentVersionTransition]
+ -&gt; Maybe LifecycleExpiration
+ -&gt; Maybe Text
+ -&gt; Maybe LifecycleRuleFilter
+ -&gt; Maybe AbortIncompleteMultipartUpload
+ -&gt; ExpirationStatus
+ -&gt; LifecycleRule)
+-&gt; Either String (Maybe [Transition])
+-&gt; Either
+     String
+     (Maybe NoncurrentVersionExpiration
+      -&gt; Maybe Text
+      -&gt; Maybe [NoncurrentVersionTransition]
+      -&gt; Maybe LifecycleExpiration
+      -&gt; Maybe Text
+      -&gt; Maybe LifecycleRuleFilter
+      -&gt; Maybe AbortIncompleteMultipartUpload
+      -&gt; ExpirationStatus
+      -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Transition])
+-&gt; [Node] -&gt; Either String (Maybe [Transition])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Transition]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Transition&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe NoncurrentVersionExpiration
+   -&gt; Maybe Text
+   -&gt; Maybe [NoncurrentVersionTransition]
+   -&gt; Maybe LifecycleExpiration
+   -&gt; Maybe Text
+   -&gt; Maybe LifecycleRuleFilter
+   -&gt; Maybe AbortIncompleteMultipartUpload
+   -&gt; ExpirationStatus
+   -&gt; LifecycleRule)
+-&gt; Either String (Maybe NoncurrentVersionExpiration)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [NoncurrentVersionTransition]
+      -&gt; Maybe LifecycleExpiration
+      -&gt; Maybe Text
+      -&gt; Maybe LifecycleRuleFilter
+      -&gt; Maybe AbortIncompleteMultipartUpload
+      -&gt; ExpirationStatus
+      -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NoncurrentVersionExpiration)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NoncurrentVersionExpiration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [NoncurrentVersionTransition]
+   -&gt; Maybe LifecycleExpiration
+   -&gt; Maybe Text
+   -&gt; Maybe LifecycleRuleFilter
+   -&gt; Maybe AbortIncompleteMultipartUpload
+   -&gt; ExpirationStatus
+   -&gt; LifecycleRule)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [NoncurrentVersionTransition]
+      -&gt; Maybe LifecycleExpiration
+      -&gt; Maybe Text
+      -&gt; Maybe LifecycleRuleFilter
+      -&gt; Maybe AbortIncompleteMultipartUpload
+      -&gt; ExpirationStatus
+      -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [NoncurrentVersionTransition]
+   -&gt; Maybe LifecycleExpiration
+   -&gt; Maybe Text
+   -&gt; Maybe LifecycleRuleFilter
+   -&gt; Maybe AbortIncompleteMultipartUpload
+   -&gt; ExpirationStatus
+   -&gt; LifecycleRule)
+-&gt; Either String (Maybe [NoncurrentVersionTransition])
+-&gt; Either
+     String
+     (Maybe LifecycleExpiration
+      -&gt; Maybe Text
+      -&gt; Maybe LifecycleRuleFilter
+      -&gt; Maybe AbortIncompleteMultipartUpload
+      -&gt; ExpirationStatus
+      -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [NoncurrentVersionTransition])
+-&gt; [Node] -&gt; Either String (Maybe [NoncurrentVersionTransition])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span>
+</span><span id="line-196"></span><span>                      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [NoncurrentVersionTransition]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NoncurrentVersionTransition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>                      </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-198"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LifecycleExpiration
+   -&gt; Maybe Text
+   -&gt; Maybe LifecycleRuleFilter
+   -&gt; Maybe AbortIncompleteMultipartUpload
+   -&gt; ExpirationStatus
+   -&gt; LifecycleRule)
+-&gt; Either String (Maybe LifecycleExpiration)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe LifecycleRuleFilter
+      -&gt; Maybe AbortIncompleteMultipartUpload
+      -&gt; ExpirationStatus
+      -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LifecycleExpiration)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Expiration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe LifecycleRuleFilter
+   -&gt; Maybe AbortIncompleteMultipartUpload
+   -&gt; ExpirationStatus
+   -&gt; LifecycleRule)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe LifecycleRuleFilter
+      -&gt; Maybe AbortIncompleteMultipartUpload
+      -&gt; ExpirationStatus
+      -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ID&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LifecycleRuleFilter
+   -&gt; Maybe AbortIncompleteMultipartUpload
+   -&gt; ExpirationStatus
+   -&gt; LifecycleRule)
+-&gt; Either String (Maybe LifecycleRuleFilter)
+-&gt; Either
+     String
+     (Maybe AbortIncompleteMultipartUpload
+      -&gt; ExpirationStatus -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LifecycleRuleFilter)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AbortIncompleteMultipartUpload
+   -&gt; ExpirationStatus -&gt; LifecycleRule)
+-&gt; Either String (Maybe AbortIncompleteMultipartUpload)
+-&gt; Either String (ExpirationStatus -&gt; LifecycleRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe AbortIncompleteMultipartUpload)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbortIncompleteMultipartUpload&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">Either String (ExpirationStatus -&gt; LifecycleRule)
+-&gt; Either String ExpirationStatus -&gt; Either String LifecycleRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ExpirationStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558129"><span id="local-6989586621679558131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule"><span class="hs-identifier hs-type">LifecycleRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679558122"><span class="annot"><span class="annottext">toXML :: LifecycleRule -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.LifecycleRule.html#LifecycleRule%27"><span class="hs-identifier hs-type">LifecycleRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558112"><span id="local-6989586621679558113"><span id="local-6989586621679558114"><span id="local-6989586621679558115"><span id="local-6989586621679558116"><span id="local-6989586621679558117"><span id="local-6989586621679558118"><span id="local-6989586621679558119"><span id="local-6989586621679558120"><span class="annot"><span class="annottext">Maybe [Transition]
+Maybe [NoncurrentVersionTransition]
+Maybe Text
+Maybe AbortIncompleteMultipartUpload
+Maybe LifecycleExpiration
+Maybe NoncurrentVersionExpiration
+Maybe LifecycleRuleFilter
+ExpirationStatus
+status :: ExpirationStatus
+abortIncompleteMultipartUpload :: Maybe AbortIncompleteMultipartUpload
+filter' :: Maybe LifecycleRuleFilter
+id :: Maybe Text
+expiration :: Maybe LifecycleExpiration
+noncurrentVersionTransitions :: Maybe [NoncurrentVersionTransition]
+prefix :: Maybe Text
+noncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
+transitions :: Maybe [Transition]
+$sel:status:LifecycleRule' :: LifecycleRule -&gt; ExpirationStatus
+$sel:abortIncompleteMultipartUpload:LifecycleRule' :: LifecycleRule -&gt; Maybe AbortIncompleteMultipartUpload
+$sel:filter':LifecycleRule' :: LifecycleRule -&gt; Maybe LifecycleRuleFilter
+$sel:id:LifecycleRule' :: LifecycleRule -&gt; Maybe Text
+$sel:expiration:LifecycleRule' :: LifecycleRule -&gt; Maybe LifecycleExpiration
+$sel:noncurrentVersionTransitions:LifecycleRule' :: LifecycleRule -&gt; Maybe [NoncurrentVersionTransition]
+$sel:prefix:LifecycleRule' :: LifecycleRule -&gt; Maybe Text
+$sel:noncurrentVersionExpiration:LifecycleRule' :: LifecycleRule -&gt; Maybe NoncurrentVersionExpiration
+$sel:transitions:LifecycleRule' :: LifecycleRule -&gt; Maybe [Transition]
+</span><a href="#local-6989586621679558112"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
+forall a. ToXML a =&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Name -&gt; [Transition] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Transition&quot;</span></span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">([Transition] -&gt; XML) -&gt; Maybe [Transition] -&gt; Maybe XML
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Transition]
+</span><a href="#local-6989586621679558120"><span class="hs-identifier hs-var">transitions</span></a></span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;NoncurrentVersionExpiration&quot;</span></span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe NoncurrentVersionExpiration -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe NoncurrentVersionExpiration
+</span><a href="#local-6989586621679558119"><span class="hs-identifier hs-var">noncurrentVersionExpiration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558118"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
+forall a. ToXML a =&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Name -&gt; [NoncurrentVersionTransition] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;NoncurrentVersionTransition&quot;</span></span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">([NoncurrentVersionTransition] -&gt; XML)
+-&gt; Maybe [NoncurrentVersionTransition] -&gt; Maybe XML
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NoncurrentVersionTransition]
+</span><a href="#local-6989586621679558117"><span class="hs-identifier hs-var">noncurrentVersionTransitions</span></a></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Expiration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe LifecycleExpiration -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleExpiration
+</span><a href="#local-6989586621679558116"><span class="hs-identifier hs-var">expiration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558115"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe LifecycleRuleFilter -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleFilter
+</span><a href="#local-6989586621679558114"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;AbortIncompleteMultipartUpload&quot;</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe AbortIncompleteMultipartUpload -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbortIncompleteMultipartUpload
+</span><a href="#local-6989586621679558113"><span class="hs-identifier hs-var">abortIncompleteMultipartUpload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ExpirationStatus -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ExpirationStatus
+</span><a href="#local-6989586621679558112"><span class="hs-identifier hs-var">status</span></a></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span></pre></body></html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.LogTargetConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.LogTargetConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogLevel.html"><span class="hs-identifier">Amazonka.IoT.Types.LogLevel</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTarget.html"><span class="hs-identifier">Amazonka.IoT.Types.LogTarget</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The target configuration.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLogTargetConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679789415"><span id="local-6989586621679789416"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogTargetConfiguration"><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-var">LogTargetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogTargetConfiguration%27"><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration%27"><span class="hs-identifier hs-var">LogTargetConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The logging level.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlogLevel%3ALogTargetConfiguration%27"><span class="annot"><span class="annottext">LogTargetConfiguration -&gt; Maybe LogLevel
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#%24sel%3AlogLevel%3ALogTargetConfiguration%27"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A log target</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlogTarget%3ALogTargetConfiguration%27"><span class="annot"><span class="annottext">LogTargetConfiguration -&gt; Maybe LogTarget
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#%24sel%3AlogTarget%3ALogTargetConfiguration%27"><span class="hs-identifier hs-var hs-var">logTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789408"><span id="local-6989586621679789410"><span class="annot"><span class="annottext">LogTargetConfiguration -&gt; LogTargetConfiguration -&gt; Bool
+(LogTargetConfiguration -&gt; LogTargetConfiguration -&gt; Bool)
+-&gt; (LogTargetConfiguration -&gt; LogTargetConfiguration -&gt; Bool)
+-&gt; Eq LogTargetConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LogTargetConfiguration -&gt; LogTargetConfiguration -&gt; Bool
+$c/= :: LogTargetConfiguration -&gt; LogTargetConfiguration -&gt; Bool
+== :: LogTargetConfiguration -&gt; LogTargetConfiguration -&gt; Bool
+$c== :: LogTargetConfiguration -&gt; LogTargetConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789399"><span id="local-6989586621679789401"><span id="local-6989586621679789403"><span id="local-6989586621679789405"><span class="annot"><span class="annottext">ReadPrec [LogTargetConfiguration]
+ReadPrec LogTargetConfiguration
+Int -&gt; ReadS LogTargetConfiguration
+ReadS [LogTargetConfiguration]
+(Int -&gt; ReadS LogTargetConfiguration)
+-&gt; ReadS [LogTargetConfiguration]
+-&gt; ReadPrec LogTargetConfiguration
+-&gt; ReadPrec [LogTargetConfiguration]
+-&gt; Read LogTargetConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LogTargetConfiguration]
+$creadListPrec :: ReadPrec [LogTargetConfiguration]
+readPrec :: ReadPrec LogTargetConfiguration
+$creadPrec :: ReadPrec LogTargetConfiguration
+readList :: ReadS [LogTargetConfiguration]
+$creadList :: ReadS [LogTargetConfiguration]
+readsPrec :: Int -&gt; ReadS LogTargetConfiguration
+$creadsPrec :: Int -&gt; ReadS LogTargetConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789392"><span id="local-6989586621679789394"><span id="local-6989586621679789396"><span class="annot"><span class="annottext">Int -&gt; LogTargetConfiguration -&gt; ShowS
+[LogTargetConfiguration] -&gt; ShowS
+LogTargetConfiguration -&gt; String
+(Int -&gt; LogTargetConfiguration -&gt; ShowS)
+-&gt; (LogTargetConfiguration -&gt; String)
+-&gt; ([LogTargetConfiguration] -&gt; ShowS)
+-&gt; Show LogTargetConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LogTargetConfiguration] -&gt; ShowS
+$cshowList :: [LogTargetConfiguration] -&gt; ShowS
+show :: LogTargetConfiguration -&gt; String
+$cshow :: LogTargetConfiguration -&gt; String
+showsPrec :: Int -&gt; LogTargetConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; LogTargetConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LogTargetConfiguration -&gt; Rep LogTargetConfiguration x)
+-&gt; (forall x.
+    Rep LogTargetConfiguration x -&gt; LogTargetConfiguration)
+-&gt; Generic LogTargetConfiguration
+forall x. Rep LogTargetConfiguration x -&gt; LogTargetConfiguration
+forall x. LogTargetConfiguration -&gt; Rep LogTargetConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LogTargetConfiguration x -&gt; LogTargetConfiguration
+$cfrom :: forall x. LogTargetConfiguration -&gt; Rep LogTargetConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'LogTargetConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'logLevel', 'logTargetConfiguration_logLevel' - The logging level.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'logTarget', 'logTargetConfiguration_logTarget' - A log target</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#newLogTargetConfiguration"><span class="hs-identifier hs-type">newLogTargetConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span>
+</span><span id="line-52"></span><span id="newLogTargetConfiguration"><span class="annot"><span class="annottext">newLogTargetConfiguration :: LogTargetConfiguration
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#newLogTargetConfiguration"><span class="hs-identifier hs-var hs-var">newLogTargetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">LogTargetConfiguration' :: Maybe LogLevel -&gt; Maybe LogTarget -&gt; LogTargetConfiguration
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration%27"><span class="hs-identifier hs-type">LogTargetConfiguration'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logLevel:LogTargetConfiguration' :: Maybe LogLevel
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#%24sel%3AlogLevel%3ALogTargetConfiguration%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:logTarget:LogTargetConfiguration' :: Maybe LogTarget
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#%24sel%3AlogTarget%3ALogTargetConfiguration%27"><span class="hs-identifier hs-var">logTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The logging level.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#logTargetConfiguration_logLevel"><span class="hs-identifier hs-type">logTargetConfiguration_logLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="logTargetConfiguration_logLevel"><span class="annot"><span class="annottext">logTargetConfiguration_logLevel :: (Maybe LogLevel -&gt; f (Maybe LogLevel))
+-&gt; LogTargetConfiguration -&gt; f LogTargetConfiguration
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#logTargetConfiguration_logLevel"><span class="hs-identifier hs-var hs-var">logTargetConfiguration_logLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogTargetConfiguration -&gt; Maybe LogLevel)
+-&gt; (LogTargetConfiguration
+    -&gt; Maybe LogLevel -&gt; LogTargetConfiguration)
+-&gt; Lens
+     LogTargetConfiguration
+     LogTargetConfiguration
+     (Maybe LogLevel)
+     (Maybe LogLevel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration%27"><span class="hs-identifier hs-type">LogTargetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789383"><span class="annot"><span class="annottext">Maybe LogLevel
+logLevel :: Maybe LogLevel
+$sel:logLevel:LogTargetConfiguration' :: LogTargetConfiguration -&gt; Maybe LogLevel
+</span><a href="#local-6989586621679789383"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679789383"><span class="hs-identifier hs-var">logLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789382"><span class="annot"><span class="annottext">s :: LogTargetConfiguration
+</span><a href="#local-6989586621679789382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration%27"><span class="hs-identifier hs-type">LogTargetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789381"><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679789381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTargetConfiguration
+</span><a href="#local-6989586621679789382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logLevel:LogTargetConfiguration' :: Maybe LogLevel
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#%24sel%3AlogLevel%3ALogTargetConfiguration%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679789381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A log target</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#logTargetConfiguration_logTarget"><span class="hs-identifier hs-type">logTargetConfiguration_logTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="logTargetConfiguration_logTarget"><span class="annot"><span class="annottext">logTargetConfiguration_logTarget :: (Maybe LogTarget -&gt; f (Maybe LogTarget))
+-&gt; LogTargetConfiguration -&gt; f LogTargetConfiguration
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#logTargetConfiguration_logTarget"><span class="hs-identifier hs-var hs-var">logTargetConfiguration_logTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogTargetConfiguration -&gt; Maybe LogTarget)
+-&gt; (LogTargetConfiguration
+    -&gt; Maybe LogTarget -&gt; LogTargetConfiguration)
+-&gt; Lens
+     LogTargetConfiguration
+     LogTargetConfiguration
+     (Maybe LogTarget)
+     (Maybe LogTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration%27"><span class="hs-identifier hs-type">LogTargetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789379"><span class="annot"><span class="annottext">Maybe LogTarget
+logTarget :: Maybe LogTarget
+$sel:logTarget:LogTargetConfiguration' :: LogTargetConfiguration -&gt; Maybe LogTarget
+</span><a href="#local-6989586621679789379"><span class="hs-identifier hs-var hs-var">logTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogTarget
+</span><a href="#local-6989586621679789379"><span class="hs-identifier hs-var">logTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789378"><span class="annot"><span class="annottext">s :: LogTargetConfiguration
+</span><a href="#local-6989586621679789378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration%27"><span class="hs-identifier hs-type">LogTargetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789377"><span class="annot"><span class="annottext">Maybe LogTarget
+</span><a href="#local-6989586621679789377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTargetConfiguration
+</span><a href="#local-6989586621679789378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTarget:LogTargetConfiguration' :: Maybe LogTarget
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#%24sel%3AlogTarget%3ALogTargetConfiguration%27"><span class="hs-identifier hs-var">logTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogTarget
+</span><a href="#local-6989586621679789377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789374"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679789372"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogTargetConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LogTargetConfiguration)
+-&gt; Value
+-&gt; Parser LogTargetConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LogTargetConfiguration&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789369"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679789369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe LogLevel -&gt; Maybe LogTarget -&gt; LogTargetConfiguration
+</span><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration%27"><span class="hs-identifier hs-var">LogTargetConfiguration'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LogLevel -&gt; Maybe LogTarget -&gt; LogTargetConfiguration)
+-&gt; Parser (Maybe LogLevel)
+-&gt; Parser (Maybe LogTarget -&gt; LogTargetConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679789369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogLevel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LogTarget -&gt; LogTargetConfiguration)
+-&gt; Parser (Maybe LogTarget) -&gt; Parser LogTargetConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679789369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789363"><span id="local-6989586621679789365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

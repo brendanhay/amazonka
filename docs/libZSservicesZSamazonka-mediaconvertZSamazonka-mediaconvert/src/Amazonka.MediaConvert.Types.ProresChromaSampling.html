@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.ProresChromaSampling</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.ProresChromaSampling</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling"><span class="hs-identifier">ProresChromaSampling</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling_PRESERVE_444_SAMPLING"><span class="hs-identifier">ProresChromaSampling_PRESERVE_444_SAMPLING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling_SUBSAMPLE_TO_422"><span class="hs-identifier">ProresChromaSampling_SUBSAMPLE_TO_422</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | This setting applies only to ProRes 4444 and ProRes 4444 XQ outputs that</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- you create from inputs that use 4:4:4 chroma sampling. Set Preserve</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- 4:4:4 sampling (PRESERVE_444_SAMPLING) to allow outputs to also use</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- 4:4:4 chroma sampling. You must specify a value for this setting when</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- your output codec profile supports 4:4:4 chroma sampling. Related</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Settings: When you set Chroma sampling to Preserve 4:4:4 sampling</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- (PRESERVE_444_SAMPLING), you must choose an output codec profile that</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- supports 4:4:4 chroma sampling. These values for Profile (CodecProfile)</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- support 4:4:4 chroma sampling: Apple ProRes 4444 (APPLE_PRORES_4444) or</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Apple ProRes 4444 XQ (APPLE_PRORES_4444_XQ). When you set Chroma</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- sampling to Preserve 4:4:4 sampling, you must disable all video</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- preprocessors except for Nexguard file marker (PartnerWatermarking).</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- When you set Chroma sampling to Preserve 4:4:4 sampling and use</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- framerate conversion, you must set Frame rate conversion algorithm</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- (FramerateConversionAlgorithm) to Drop duplicate (DUPLICATE_DROP).</span><span>
+</span><span id="line-47"></span><span id="local-6989586621680000542"><span id="local-6989586621680000543"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresChromaSampling"><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling"><span class="hs-identifier hs-var">ProresChromaSampling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresChromaSampling%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling%27"><span class="hs-identifier hs-var">ProresChromaSampling'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProresChromaSampling"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#fromProresChromaSampling"><span class="hs-identifier hs-var hs-var">fromProresChromaSampling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680000534"><span id="local-6989586621680000536"><span id="local-6989586621680000538"><span class="annot"><span class="annottext">Int -&gt; ProresChromaSampling -&gt; ShowS
+[ProresChromaSampling] -&gt; ShowS
+ProresChromaSampling -&gt; String
+(Int -&gt; ProresChromaSampling -&gt; ShowS)
+-&gt; (ProresChromaSampling -&gt; String)
+-&gt; ([ProresChromaSampling] -&gt; ShowS)
+-&gt; Show ProresChromaSampling
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProresChromaSampling] -&gt; ShowS
+$cshowList :: [ProresChromaSampling] -&gt; ShowS
+show :: ProresChromaSampling -&gt; String
+$cshow :: ProresChromaSampling -&gt; String
+showsPrec :: Int -&gt; ProresChromaSampling -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProresChromaSampling -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680000525"><span id="local-6989586621680000527"><span id="local-6989586621680000529"><span id="local-6989586621680000531"><span class="annot"><span class="annottext">ReadPrec [ProresChromaSampling]
+ReadPrec ProresChromaSampling
+Int -&gt; ReadS ProresChromaSampling
+ReadS [ProresChromaSampling]
+(Int -&gt; ReadS ProresChromaSampling)
+-&gt; ReadS [ProresChromaSampling]
+-&gt; ReadPrec ProresChromaSampling
+-&gt; ReadPrec [ProresChromaSampling]
+-&gt; Read ProresChromaSampling
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProresChromaSampling]
+$creadListPrec :: ReadPrec [ProresChromaSampling]
+readPrec :: ReadPrec ProresChromaSampling
+$creadPrec :: ReadPrec ProresChromaSampling
+readList :: ReadS [ProresChromaSampling]
+$creadList :: ReadS [ProresChromaSampling]
+readsPrec :: Int -&gt; ReadS ProresChromaSampling
+$creadsPrec :: Int -&gt; ReadS ProresChromaSampling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680000520"><span id="local-6989586621680000522"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+(ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
+-&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
+-&gt; Eq ProresChromaSampling
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+$c/= :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+== :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+$c== :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680000504"><span id="local-6989586621680000506"><span id="local-6989586621680000508"><span id="local-6989586621680000510"><span id="local-6989586621680000512"><span id="local-6989586621680000514"><span id="local-6989586621680000516"><span class="annot"><span class="annottext">Eq ProresChromaSampling
+Eq ProresChromaSampling
+-&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Ordering)
+-&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
+-&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
+-&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
+-&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
+-&gt; (ProresChromaSampling
+    -&gt; ProresChromaSampling -&gt; ProresChromaSampling)
+-&gt; (ProresChromaSampling
+    -&gt; ProresChromaSampling -&gt; ProresChromaSampling)
+-&gt; Ord ProresChromaSampling
+ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+ProresChromaSampling -&gt; ProresChromaSampling -&gt; Ordering
+ProresChromaSampling
+-&gt; ProresChromaSampling -&gt; ProresChromaSampling
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProresChromaSampling
+-&gt; ProresChromaSampling -&gt; ProresChromaSampling
+$cmin :: ProresChromaSampling
+-&gt; ProresChromaSampling -&gt; ProresChromaSampling
+max :: ProresChromaSampling
+-&gt; ProresChromaSampling -&gt; ProresChromaSampling
+$cmax :: ProresChromaSampling
+-&gt; ProresChromaSampling -&gt; ProresChromaSampling
+&gt;= :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+$c&gt;= :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+&gt; :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+$c&gt; :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+&lt;= :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+$c&lt;= :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+&lt; :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+$c&lt; :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+compare :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Ordering
+$ccompare :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Ordering
+$cp1Ord :: Eq ProresChromaSampling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ProresChromaSampling -&gt; Rep ProresChromaSampling x)
+-&gt; (forall x. Rep ProresChromaSampling x -&gt; ProresChromaSampling)
+-&gt; Generic ProresChromaSampling
+forall x. Rep ProresChromaSampling x -&gt; ProresChromaSampling
+forall x. ProresChromaSampling -&gt; Rep ProresChromaSampling x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProresChromaSampling x -&gt; ProresChromaSampling
+$cfrom :: forall x. ProresChromaSampling -&gt; Rep ProresChromaSampling x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680000496"><span id="local-6989586621680000498"><span class="annot"><span class="annottext">Int -&gt; ProresChromaSampling -&gt; Int
+ProresChromaSampling -&gt; Int
+(Int -&gt; ProresChromaSampling -&gt; Int)
+-&gt; (ProresChromaSampling -&gt; Int) -&gt; Hashable ProresChromaSampling
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProresChromaSampling -&gt; Int
+$chash :: ProresChromaSampling -&gt; Int
+hashWithSalt :: Int -&gt; ProresChromaSampling -&gt; Int
+$chashWithSalt :: Int -&gt; ProresChromaSampling -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680000493"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ()
+(ProresChromaSampling -&gt; ()) -&gt; NFData ProresChromaSampling
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProresChromaSampling -&gt; ()
+$crnf :: ProresChromaSampling -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680000490"><span class="annot"><span class="annottext">Text -&gt; Either String ProresChromaSampling
+(Text -&gt; Either String ProresChromaSampling)
+-&gt; FromText ProresChromaSampling
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProresChromaSampling
+$cfromText :: Text -&gt; Either String ProresChromaSampling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680000487"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; Text
+(ProresChromaSampling -&gt; Text) -&gt; ToText ProresChromaSampling
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProresChromaSampling -&gt; Text
+$ctoText :: ProresChromaSampling -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680000484"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ByteString
+(ProresChromaSampling -&gt; ByteString)
+-&gt; ToByteString ProresChromaSampling
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProresChromaSampling -&gt; ByteString
+$ctoBS :: ProresChromaSampling -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680000481"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ByteStringBuilder
+(ProresChromaSampling -&gt; ByteStringBuilder)
+-&gt; ToLog ProresChromaSampling
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProresChromaSampling -&gt; ByteStringBuilder
+$cbuild :: ProresChromaSampling -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680000478"><span class="annot"><span class="annottext">HeaderName -&gt; ProresChromaSampling -&gt; [Header]
+(HeaderName -&gt; ProresChromaSampling -&gt; [Header])
+-&gt; ToHeader ProresChromaSampling
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProresChromaSampling -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProresChromaSampling -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680000475"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; QueryString
+(ProresChromaSampling -&gt; QueryString)
+-&gt; ToQuery ProresChromaSampling
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProresChromaSampling -&gt; QueryString
+$ctoQuery :: ProresChromaSampling -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680000470"><span id="local-6989586621680000472"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresChromaSampling]
+Value -&gt; Parser ProresChromaSampling
+(Value -&gt; Parser ProresChromaSampling)
+-&gt; (Value -&gt; Parser [ProresChromaSampling])
+-&gt; FromJSON ProresChromaSampling
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProresChromaSampling]
+$cparseJSONList :: Value -&gt; Parser [ProresChromaSampling]
+parseJSON :: Value -&gt; Parser ProresChromaSampling
+$cparseJSON :: Value -&gt; Parser ProresChromaSampling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680000465"><span id="local-6989586621680000467"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresChromaSampling]
+FromJSONKeyFunction ProresChromaSampling
+FromJSONKeyFunction ProresChromaSampling
+-&gt; FromJSONKeyFunction [ProresChromaSampling]
+-&gt; FromJSONKey ProresChromaSampling
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProresChromaSampling]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProresChromaSampling]
+fromJSONKey :: FromJSONKeyFunction ProresChromaSampling
+$cfromJSONKey :: FromJSONKeyFunction ProresChromaSampling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680000456"><span id="local-6989586621680000458"><span id="local-6989586621680000460"><span id="local-6989586621680000462"><span class="annot"><span class="annottext">[ProresChromaSampling] -&gt; Encoding
+[ProresChromaSampling] -&gt; Value
+ProresChromaSampling -&gt; Encoding
+ProresChromaSampling -&gt; Value
+(ProresChromaSampling -&gt; Value)
+-&gt; (ProresChromaSampling -&gt; Encoding)
+-&gt; ([ProresChromaSampling] -&gt; Value)
+-&gt; ([ProresChromaSampling] -&gt; Encoding)
+-&gt; ToJSON ProresChromaSampling
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProresChromaSampling] -&gt; Encoding
+$ctoEncodingList :: [ProresChromaSampling] -&gt; Encoding
+toJSONList :: [ProresChromaSampling] -&gt; Value
+$ctoJSONList :: [ProresChromaSampling] -&gt; Value
+toEncoding :: ProresChromaSampling -&gt; Encoding
+$ctoEncoding :: ProresChromaSampling -&gt; Encoding
+toJSON :: ProresChromaSampling -&gt; Value
+$ctoJSON :: ProresChromaSampling -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680000451"><span id="local-6989586621680000453"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresChromaSampling]
+ToJSONKeyFunction ProresChromaSampling
+ToJSONKeyFunction ProresChromaSampling
+-&gt; ToJSONKeyFunction [ProresChromaSampling]
+-&gt; ToJSONKey ProresChromaSampling
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProresChromaSampling]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProresChromaSampling]
+toJSONKey :: ToJSONKeyFunction ProresChromaSampling
+$ctoJSONKey :: ToJSONKeyFunction ProresChromaSampling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621680000448"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresChromaSampling
+([Node] -&gt; Either String ProresChromaSampling)
+-&gt; FromXML ProresChromaSampling
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProresChromaSampling
+$cparseXML :: [Node] -&gt; Either String ProresChromaSampling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621680000445"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; XML
+(ProresChromaSampling -&gt; XML) -&gt; ToXML ProresChromaSampling
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProresChromaSampling -&gt; XML
+$ctoXML :: ProresChromaSampling -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling_PRESERVE_444_SAMPLING"><span class="hs-identifier hs-type">ProresChromaSampling_PRESERVE_444_SAMPLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling"><span class="hs-identifier hs-type">ProresChromaSampling</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProresChromaSampling_PRESERVE_444_SAMPLING"><span id="%24mProresChromaSampling_PRESERVE_444_SAMPLING"><span id="ProresChromaSampling_PRESERVE_444_SAMPLING"><span class="annot"><span class="annottext">$bProresChromaSampling_PRESERVE_444_SAMPLING :: ProresChromaSampling
+$mProresChromaSampling_PRESERVE_444_SAMPLING :: forall r. ProresChromaSampling -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#%24bProresChromaSampling_PRESERVE_444_SAMPLING"><span class="hs-identifier hs-var hs-var hs-var">ProresChromaSampling_PRESERVE_444_SAMPLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling%27"><span class="hs-identifier hs-type">ProresChromaSampling'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRESERVE_444_SAMPLING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling_SUBSAMPLE_TO_422"><span class="hs-identifier hs-type">ProresChromaSampling_SUBSAMPLE_TO_422</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling"><span class="hs-identifier hs-type">ProresChromaSampling</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProresChromaSampling_SUBSAMPLE_TO_422"><span id="%24mProresChromaSampling_SUBSAMPLE_TO_422"><span id="ProresChromaSampling_SUBSAMPLE_TO_422"><span class="annot"><span class="annottext">$bProresChromaSampling_SUBSAMPLE_TO_422 :: ProresChromaSampling
+$mProresChromaSampling_SUBSAMPLE_TO_422 :: forall r. ProresChromaSampling -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#%24bProresChromaSampling_SUBSAMPLE_TO_422"><span class="hs-identifier hs-var hs-var hs-var">ProresChromaSampling_SUBSAMPLE_TO_422</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling%27"><span class="hs-identifier hs-type">ProresChromaSampling'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBSAMPLE_TO_422&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling_PRESERVE_444_SAMPLING"><span class="hs-pragma hs-type">ProresChromaSampling_PRESERVE_444_SAMPLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling_SUBSAMPLE_TO_422"><span class="hs-pragma hs-type">ProresChromaSampling_SUBSAMPLE_TO_422</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling%27"><span class="hs-pragma hs-type">ProresChromaSampling'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

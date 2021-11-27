@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RobOMaker.Types.UploadBehavior</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RobOMaker.Types.UploadBehavior</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior"><span class="hs-identifier">UploadBehavior</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior_UPLOAD_ON_TERMINATE"><span class="hs-identifier">UploadBehavior_UPLOAD_ON_TERMINATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE"><span class="hs-identifier">UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679372327"><span id="local-6989586621679372328"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UploadBehavior"><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior"><span class="hs-identifier hs-var">UploadBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadBehavior%27"><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior%27"><span class="hs-identifier hs-var">UploadBehavior'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUploadBehavior"><span class="annot"><span class="annottext">UploadBehavior -&gt; Text
+</span><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#fromUploadBehavior"><span class="hs-identifier hs-var hs-var">fromUploadBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372319"><span id="local-6989586621679372321"><span id="local-6989586621679372323"><span class="annot"><span class="annottext">Int -&gt; UploadBehavior -&gt; ShowS
+[UploadBehavior] -&gt; ShowS
+UploadBehavior -&gt; String
+(Int -&gt; UploadBehavior -&gt; ShowS)
+-&gt; (UploadBehavior -&gt; String)
+-&gt; ([UploadBehavior] -&gt; ShowS)
+-&gt; Show UploadBehavior
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UploadBehavior] -&gt; ShowS
+$cshowList :: [UploadBehavior] -&gt; ShowS
+show :: UploadBehavior -&gt; String
+$cshow :: UploadBehavior -&gt; String
+showsPrec :: Int -&gt; UploadBehavior -&gt; ShowS
+$cshowsPrec :: Int -&gt; UploadBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679372310"><span id="local-6989586621679372312"><span id="local-6989586621679372314"><span id="local-6989586621679372316"><span class="annot"><span class="annottext">ReadPrec [UploadBehavior]
+ReadPrec UploadBehavior
+Int -&gt; ReadS UploadBehavior
+ReadS [UploadBehavior]
+(Int -&gt; ReadS UploadBehavior)
+-&gt; ReadS [UploadBehavior]
+-&gt; ReadPrec UploadBehavior
+-&gt; ReadPrec [UploadBehavior]
+-&gt; Read UploadBehavior
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UploadBehavior]
+$creadListPrec :: ReadPrec [UploadBehavior]
+readPrec :: ReadPrec UploadBehavior
+$creadPrec :: ReadPrec UploadBehavior
+readList :: ReadS [UploadBehavior]
+$creadList :: ReadS [UploadBehavior]
+readsPrec :: Int -&gt; ReadS UploadBehavior
+$creadsPrec :: Int -&gt; ReadS UploadBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372305"><span id="local-6989586621679372307"><span class="annot"><span class="annottext">UploadBehavior -&gt; UploadBehavior -&gt; Bool
+(UploadBehavior -&gt; UploadBehavior -&gt; Bool)
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; Bool) -&gt; Eq UploadBehavior
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+$c/= :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+== :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+$c== :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372289"><span id="local-6989586621679372291"><span id="local-6989586621679372293"><span id="local-6989586621679372295"><span id="local-6989586621679372297"><span id="local-6989586621679372299"><span id="local-6989586621679372301"><span class="annot"><span class="annottext">Eq UploadBehavior
+Eq UploadBehavior
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; Ordering)
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; Bool)
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; Bool)
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; Bool)
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; Bool)
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; UploadBehavior)
+-&gt; (UploadBehavior -&gt; UploadBehavior -&gt; UploadBehavior)
+-&gt; Ord UploadBehavior
+UploadBehavior -&gt; UploadBehavior -&gt; Bool
+UploadBehavior -&gt; UploadBehavior -&gt; Ordering
+UploadBehavior -&gt; UploadBehavior -&gt; UploadBehavior
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UploadBehavior -&gt; UploadBehavior -&gt; UploadBehavior
+$cmin :: UploadBehavior -&gt; UploadBehavior -&gt; UploadBehavior
+max :: UploadBehavior -&gt; UploadBehavior -&gt; UploadBehavior
+$cmax :: UploadBehavior -&gt; UploadBehavior -&gt; UploadBehavior
+&gt;= :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+$c&gt;= :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+&gt; :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+$c&gt; :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+&lt;= :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+$c&lt;= :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+&lt; :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+$c&lt; :: UploadBehavior -&gt; UploadBehavior -&gt; Bool
+compare :: UploadBehavior -&gt; UploadBehavior -&gt; Ordering
+$ccompare :: UploadBehavior -&gt; UploadBehavior -&gt; Ordering
+$cp1Ord :: Eq UploadBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UploadBehavior -&gt; Rep UploadBehavior x)
+-&gt; (forall x. Rep UploadBehavior x -&gt; UploadBehavior)
+-&gt; Generic UploadBehavior
+forall x. Rep UploadBehavior x -&gt; UploadBehavior
+forall x. UploadBehavior -&gt; Rep UploadBehavior x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UploadBehavior x -&gt; UploadBehavior
+$cfrom :: forall x. UploadBehavior -&gt; Rep UploadBehavior x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372281"><span id="local-6989586621679372283"><span class="annot"><span class="annottext">Int -&gt; UploadBehavior -&gt; Int
+UploadBehavior -&gt; Int
+(Int -&gt; UploadBehavior -&gt; Int)
+-&gt; (UploadBehavior -&gt; Int) -&gt; Hashable UploadBehavior
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UploadBehavior -&gt; Int
+$chash :: UploadBehavior -&gt; Int
+hashWithSalt :: Int -&gt; UploadBehavior -&gt; Int
+$chashWithSalt :: Int -&gt; UploadBehavior -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372278"><span class="annot"><span class="annottext">UploadBehavior -&gt; ()
+(UploadBehavior -&gt; ()) -&gt; NFData UploadBehavior
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UploadBehavior -&gt; ()
+$crnf :: UploadBehavior -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372275"><span class="annot"><span class="annottext">Text -&gt; Either String UploadBehavior
+(Text -&gt; Either String UploadBehavior) -&gt; FromText UploadBehavior
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UploadBehavior
+$cfromText :: Text -&gt; Either String UploadBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372272"><span class="annot"><span class="annottext">UploadBehavior -&gt; Text
+(UploadBehavior -&gt; Text) -&gt; ToText UploadBehavior
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UploadBehavior -&gt; Text
+$ctoText :: UploadBehavior -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372269"><span class="annot"><span class="annottext">UploadBehavior -&gt; ByteString
+(UploadBehavior -&gt; ByteString) -&gt; ToByteString UploadBehavior
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UploadBehavior -&gt; ByteString
+$ctoBS :: UploadBehavior -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372266"><span class="annot"><span class="annottext">UploadBehavior -&gt; ByteStringBuilder
+(UploadBehavior -&gt; ByteStringBuilder) -&gt; ToLog UploadBehavior
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UploadBehavior -&gt; ByteStringBuilder
+$cbuild :: UploadBehavior -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372263"><span class="annot"><span class="annottext">HeaderName -&gt; UploadBehavior -&gt; [Header]
+(HeaderName -&gt; UploadBehavior -&gt; [Header])
+-&gt; ToHeader UploadBehavior
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UploadBehavior -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UploadBehavior -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372260"><span class="annot"><span class="annottext">UploadBehavior -&gt; QueryString
+(UploadBehavior -&gt; QueryString) -&gt; ToQuery UploadBehavior
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UploadBehavior -&gt; QueryString
+$ctoQuery :: UploadBehavior -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372255"><span id="local-6989586621679372257"><span class="annot"><span class="annottext">Value -&gt; Parser [UploadBehavior]
+Value -&gt; Parser UploadBehavior
+(Value -&gt; Parser UploadBehavior)
+-&gt; (Value -&gt; Parser [UploadBehavior]) -&gt; FromJSON UploadBehavior
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UploadBehavior]
+$cparseJSONList :: Value -&gt; Parser [UploadBehavior]
+parseJSON :: Value -&gt; Parser UploadBehavior
+$cparseJSON :: Value -&gt; Parser UploadBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372250"><span id="local-6989586621679372252"><span class="annot"><span class="annottext">FromJSONKeyFunction [UploadBehavior]
+FromJSONKeyFunction UploadBehavior
+FromJSONKeyFunction UploadBehavior
+-&gt; FromJSONKeyFunction [UploadBehavior]
+-&gt; FromJSONKey UploadBehavior
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UploadBehavior]
+$cfromJSONKeyList :: FromJSONKeyFunction [UploadBehavior]
+fromJSONKey :: FromJSONKeyFunction UploadBehavior
+$cfromJSONKey :: FromJSONKeyFunction UploadBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372241"><span id="local-6989586621679372243"><span id="local-6989586621679372245"><span id="local-6989586621679372247"><span class="annot"><span class="annottext">[UploadBehavior] -&gt; Encoding
+[UploadBehavior] -&gt; Value
+UploadBehavior -&gt; Encoding
+UploadBehavior -&gt; Value
+(UploadBehavior -&gt; Value)
+-&gt; (UploadBehavior -&gt; Encoding)
+-&gt; ([UploadBehavior] -&gt; Value)
+-&gt; ([UploadBehavior] -&gt; Encoding)
+-&gt; ToJSON UploadBehavior
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UploadBehavior] -&gt; Encoding
+$ctoEncodingList :: [UploadBehavior] -&gt; Encoding
+toJSONList :: [UploadBehavior] -&gt; Value
+$ctoJSONList :: [UploadBehavior] -&gt; Value
+toEncoding :: UploadBehavior -&gt; Encoding
+$ctoEncoding :: UploadBehavior -&gt; Encoding
+toJSON :: UploadBehavior -&gt; Value
+$ctoJSON :: UploadBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372236"><span id="local-6989586621679372238"><span class="annot"><span class="annottext">ToJSONKeyFunction [UploadBehavior]
+ToJSONKeyFunction UploadBehavior
+ToJSONKeyFunction UploadBehavior
+-&gt; ToJSONKeyFunction [UploadBehavior] -&gt; ToJSONKey UploadBehavior
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UploadBehavior]
+$ctoJSONKeyList :: ToJSONKeyFunction [UploadBehavior]
+toJSONKey :: ToJSONKeyFunction UploadBehavior
+$ctoJSONKey :: ToJSONKeyFunction UploadBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372233"><span class="annot"><span class="annottext">[Node] -&gt; Either String UploadBehavior
+([Node] -&gt; Either String UploadBehavior) -&gt; FromXML UploadBehavior
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UploadBehavior
+$cparseXML :: [Node] -&gt; Either String UploadBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372230"><span class="annot"><span class="annottext">UploadBehavior -&gt; XML
+(UploadBehavior -&gt; XML) -&gt; ToXML UploadBehavior
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UploadBehavior -&gt; XML
+$ctoXML :: UploadBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior_UPLOAD_ON_TERMINATE"><span class="hs-identifier hs-type">UploadBehavior_UPLOAD_ON_TERMINATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior"><span class="hs-identifier hs-type">UploadBehavior</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUploadBehavior_UPLOAD_ON_TERMINATE"><span id="%24mUploadBehavior_UPLOAD_ON_TERMINATE"><span id="UploadBehavior_UPLOAD_ON_TERMINATE"><span class="annot"><span class="annottext">$bUploadBehavior_UPLOAD_ON_TERMINATE :: UploadBehavior
+$mUploadBehavior_UPLOAD_ON_TERMINATE :: forall r. UploadBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#%24bUploadBehavior_UPLOAD_ON_TERMINATE"><span class="hs-identifier hs-var hs-var hs-var">UploadBehavior_UPLOAD_ON_TERMINATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior%27"><span class="hs-identifier hs-type">UploadBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPLOAD_ON_TERMINATE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE"><span class="hs-identifier hs-type">UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior"><span class="hs-identifier hs-type">UploadBehavior</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE"><span id="%24mUploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE"><span id="UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE"><span class="annot"><span class="annottext">$bUploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE :: UploadBehavior
+$mUploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE :: forall r. UploadBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#%24bUploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE"><span class="hs-identifier hs-var hs-var hs-var">UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior%27"><span class="hs-identifier hs-type">UploadBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPLOAD_ROLLING_AUTO_REMOVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior_UPLOAD_ON_TERMINATE"><span class="hs-pragma hs-type">UploadBehavior_UPLOAD_ON_TERMINATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE"><span class="hs-pragma hs-type">UploadBehavior_UPLOAD_ROLLING_AUTO_REMOVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.UploadBehavior.html#UploadBehavior%27"><span class="hs-pragma hs-type">UploadBehavior'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

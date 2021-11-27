@@ -1,0 +1,1017 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Transfer.UpdateAccess</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Allows you to update parameters for the access specified in the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @ServerID@ and @ExternalID@ parameters.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transfer.UpdateAccess</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier">UpdateAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#newUpdateAccess"><span class="hs-identifier">newUpdateAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectoryType"><span class="hs-identifier">updateAccess_homeDirectoryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_posixProfile"><span class="hs-identifier">updateAccess_posixProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectoryMappings"><span class="hs-identifier">updateAccess_homeDirectoryMappings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_role"><span class="hs-identifier">updateAccess_role</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_policy"><span class="hs-identifier">updateAccess_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectory"><span class="hs-identifier">updateAccess_homeDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_serverId"><span class="hs-identifier">updateAccess_serverId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_externalId"><span class="hs-identifier">updateAccess_externalId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier">UpdateAccessResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#newUpdateAccessResponse"><span class="hs-identifier">newUpdateAccessResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_httpStatus"><span class="hs-identifier">updateAccessResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_serverId"><span class="hs-identifier">updateAccessResponse_serverId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_externalId"><span class="hs-identifier">updateAccessResponse_externalId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.html"><span class="hs-identifier">Amazonka.Transfer.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newUpdateAccess' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679249562"><span id="local-6989586621679249563"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAccess"><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-var">UpdateAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAccess%27"><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-var">UpdateAccess'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of landing directory (folder) you want your users\' home</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- directory to be when they log into the server. If you set it to @PATH@,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the user will see the absolute Amazon S3 bucket or EFS paths as is in</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- their file transfer protocol clients. If you set it @LOGICAL@, you need</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- to provide mappings in the @HomeDirectoryMappings@ for how you want to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- make Amazon S3 or EFS paths visible to your users.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AhomeDirectoryType%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Maybe HomeDirectoryType
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectoryType%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">homeDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.HomeDirectoryType.html#HomeDirectoryType"><span class="hs-identifier hs-type">HomeDirectoryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AposixProfile%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Maybe PosixProfile
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AposixProfile%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">posixProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.PosixProfile.html#PosixProfile"><span class="hs-identifier hs-type">PosixProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Logical directory mappings that specify what Amazon S3 or Amazon EFS</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- paths and keys should be visible to your user and how you want to make</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- them visible. You must specify the @Entry@ and @Target@ pair, where</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @Entry@ shows how the path is made visible and @Target@ is the actual</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Amazon S3 or Amazon EFS path. If you only specify a target, it is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- displayed as is. You also must ensure that your Amazon Web Services</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Identity and Access Management (IAM) role provides access to paths in</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @Target@. This value can only be set when @HomeDirectoryType@ is set to</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- /LOGICAL/.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @[ { \&quot;Entry\&quot;: \&quot;\/directory1\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- In most cases, you can use this value instead of the session policy to</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- lock down your user to the designated home directory (\&quot;@chroot@\&quot;). To</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- do this, you can set @Entry@ to @\/@ and set @Target@ to the</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @HomeDirectory@ parameter value.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example for @chroot@.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @[ { \&quot;Entry:\&quot;: \&quot;\/\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- If the target of a logical directory entry does not exist in Amazon S3</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- API or EFS API to create 0 byte objects as place holders for your</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- @s3@ or @efs@ so you can use the put-object operation. For example, you</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- use the following:</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Make sure that the end of the key name ends in a @\/@ for it to be</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- considered a folder.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AhomeDirectoryMappings%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectoryMappings%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">homeDirectoryMappings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.HomeDirectoryMapEntry.html#HomeDirectoryMapEntry"><span class="hs-identifier hs-type">HomeDirectoryMapEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- your users\' access to your Amazon S3 bucket or EFS file system. The</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- policies attached to this role determine the level of access that you</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- want to provide your users when transferring files into and out of your</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket or EFS file system. The IAM role should also contain a</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- trust relationship that allows the server to access your resources when</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- servicing your users\' transfer requests.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3Arole%27%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3Arole%27%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | A session policy for your user so that you can use the same IAM role</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- across multiple users. This policy scopes down user access to portions</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- of their Amazon S3 bucket. Variables that you can use inside this policy</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- @${Transfer:HomeBucket}@.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- This only applies when the domain of @ServerId@ is S3. EFS does not use</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- session policies.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- For session policies, Amazon Web Services Transfer Family stores the</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- policy. You save the policy as a JSON blob and pass it in the @Policy@</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- argument.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- For an example of a session policy, see</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy&gt;.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole&gt;</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web ServicesSecurity Token Service API Reference/.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3Apolicy%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3Apolicy%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The landing directory (folder) for a user when they log in to the server</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- using the client.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhomeDirectory%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectory%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">homeDirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance. This is the</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- specific server that you added your user to.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AserverId%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AserverId%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | A unique identifier that is required to identify specific groups within</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- your directory. The users of the group that you associate have access to</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- your Amazon S3 or Amazon EFS resources over the enabled protocols using</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Transfer Family. If you know the group name, you can</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- view the SID values by running the following command using Windows</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- PowerShell.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- @Get-ADGroup -Filter {samAccountName -like \&quot;YourGroupName*\&quot;} -Properties * | Select SamAccountName,ObjectSid@</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- In that command, replace /YourGroupName/ with the name of your Active</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- Directory group.</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- consisting of uppercase and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AexternalId%3AUpdateAccess%27"><span class="annot"><span class="annottext">UpdateAccess -&gt; Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AexternalId%3AUpdateAccess%27"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249549"><span id="local-6989586621679249551"><span class="annot"><span class="annottext">UpdateAccess -&gt; UpdateAccess -&gt; Bool
+(UpdateAccess -&gt; UpdateAccess -&gt; Bool)
+-&gt; (UpdateAccess -&gt; UpdateAccess -&gt; Bool) -&gt; Eq UpdateAccess
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAccess -&gt; UpdateAccess -&gt; Bool
+$c/= :: UpdateAccess -&gt; UpdateAccess -&gt; Bool
+== :: UpdateAccess -&gt; UpdateAccess -&gt; Bool
+$c== :: UpdateAccess -&gt; UpdateAccess -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249540"><span id="local-6989586621679249542"><span id="local-6989586621679249544"><span id="local-6989586621679249546"><span class="annot"><span class="annottext">ReadPrec [UpdateAccess]
+ReadPrec UpdateAccess
+Int -&gt; ReadS UpdateAccess
+ReadS [UpdateAccess]
+(Int -&gt; ReadS UpdateAccess)
+-&gt; ReadS [UpdateAccess]
+-&gt; ReadPrec UpdateAccess
+-&gt; ReadPrec [UpdateAccess]
+-&gt; Read UpdateAccess
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAccess]
+$creadListPrec :: ReadPrec [UpdateAccess]
+readPrec :: ReadPrec UpdateAccess
+$creadPrec :: ReadPrec UpdateAccess
+readList :: ReadS [UpdateAccess]
+$creadList :: ReadS [UpdateAccess]
+readsPrec :: Int -&gt; ReadS UpdateAccess
+$creadsPrec :: Int -&gt; ReadS UpdateAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249533"><span id="local-6989586621679249535"><span id="local-6989586621679249537"><span class="annot"><span class="annottext">Int -&gt; UpdateAccess -&gt; ShowS
+[UpdateAccess] -&gt; ShowS
+UpdateAccess -&gt; String
+(Int -&gt; UpdateAccess -&gt; ShowS)
+-&gt; (UpdateAccess -&gt; String)
+-&gt; ([UpdateAccess] -&gt; ShowS)
+-&gt; Show UpdateAccess
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAccess] -&gt; ShowS
+$cshowList :: [UpdateAccess] -&gt; ShowS
+show :: UpdateAccess -&gt; String
+$cshow :: UpdateAccess -&gt; String
+showsPrec :: Int -&gt; UpdateAccess -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAccess -&gt; Rep UpdateAccess x)
+-&gt; (forall x. Rep UpdateAccess x -&gt; UpdateAccess)
+-&gt; Generic UpdateAccess
+forall x. Rep UpdateAccess x -&gt; UpdateAccess
+forall x. UpdateAccess -&gt; Rep UpdateAccess x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAccess x -&gt; UpdateAccess
+$cfrom :: forall x. UpdateAccess -&gt; Rep UpdateAccess x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'UpdateAccess' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'homeDirectoryType', 'updateAccess_homeDirectoryType' - The type of landing directory (folder) you want your users\' home</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- directory to be when they log into the server. If you set it to @PATH@,</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- the user will see the absolute Amazon S3 bucket or EFS paths as is in</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- their file transfer protocol clients. If you set it @LOGICAL@, you need</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- to provide mappings in the @HomeDirectoryMappings@ for how you want to</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- make Amazon S3 or EFS paths visible to your users.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'posixProfile', 'updateAccess_posixProfile' - Undocumented member.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'homeDirectoryMappings', 'updateAccess_homeDirectoryMappings' - Logical directory mappings that specify what Amazon S3 or Amazon EFS</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- paths and keys should be visible to your user and how you want to make</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- them visible. You must specify the @Entry@ and @Target@ pair, where</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @Entry@ shows how the path is made visible and @Target@ is the actual</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Amazon S3 or Amazon EFS path. If you only specify a target, it is</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- displayed as is. You also must ensure that your Amazon Web Services</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Identity and Access Management (IAM) role provides access to paths in</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- @Target@. This value can only be set when @HomeDirectoryType@ is set to</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- /LOGICAL/.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @[ { \&quot;Entry\&quot;: \&quot;\/directory1\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- In most cases, you can use this value instead of the session policy to</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- lock down your user to the designated home directory (\&quot;@chroot@\&quot;). To</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- do this, you can set @Entry@ to @\/@ and set @Target@ to the</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- @HomeDirectory@ parameter value.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example for @chroot@.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @[ { \&quot;Entry:\&quot;: \&quot;\/\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- If the target of a logical directory entry does not exist in Amazon S3</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- API or EFS API to create 0 byte objects as place holders for your</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- @s3@ or @efs@ so you can use the put-object operation. For example, you</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- use the following:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Make sure that the end of the key name ends in a @\/@ for it to be</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- considered a folder.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'role'', 'updateAccess_role' - Specifies the Amazon Resource Name (ARN) of the IAM role that controls</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- your users\' access to your Amazon S3 bucket or EFS file system. The</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- policies attached to this role determine the level of access that you</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- want to provide your users when transferring files into and out of your</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Amazon S3 bucket or EFS file system. The IAM role should also contain a</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- trust relationship that allows the server to access your resources when</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- servicing your users\' transfer requests.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'policy', 'updateAccess_policy' - A session policy for your user so that you can use the same IAM role</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- across multiple users. This policy scopes down user access to portions</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- of their Amazon S3 bucket. Variables that you can use inside this policy</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @${Transfer:HomeBucket}@.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- This only applies when the domain of @ServerId@ is S3. EFS does not use</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- session policies.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- For session policies, Amazon Web Services Transfer Family stores the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- policy. You save the policy as a JSON blob and pass it in the @Policy@</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- argument.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- For an example of a session policy, see</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy&gt;.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole&gt;</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- in the /Amazon Web ServicesSecurity Token Service API Reference/.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'homeDirectory', 'updateAccess_homeDirectory' - The landing directory (folder) for a user when they log in to the server</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- using the client.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'serverId', 'updateAccess_serverId' - A system-assigned unique identifier for a server instance. This is the</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- specific server that you added your user to.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'externalId', 'updateAccess_externalId' - A unique identifier that is required to identify specific groups within</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- your directory. The users of the group that you associate have access to</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- your Amazon S3 or Amazon EFS resources over the enabled protocols using</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Amazon Web Services Transfer Family. If you know the group name, you can</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- view the SID values by running the following command using Windows</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- PowerShell.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- @Get-ADGroup -Filter {samAccountName -like \&quot;YourGroupName*\&quot;} -Properties * | Select SamAccountName,ObjectSid@</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- In that command, replace /YourGroupName/ with the name of your Active</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Directory group.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- consisting of uppercase and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#newUpdateAccess"><span class="hs-identifier hs-type">newUpdateAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-comment">-- | 'serverId'</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'externalId'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span>
+</span><span id="line-267"></span><span id="newUpdateAccess"><span class="annot"><span class="annottext">newUpdateAccess :: Text -&gt; Text -&gt; UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#newUpdateAccess"><span class="hs-identifier hs-var hs-var">newUpdateAccess</span></a></span></span><span> </span><span id="local-6989586621679249528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249528"><span class="hs-identifier hs-var">pServerId_</span></a></span></span><span> </span><span id="local-6989586621679249527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249527"><span class="hs-identifier hs-var">pExternalId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><span class="annottext">UpdateAccess' :: Maybe HomeDirectoryType
+-&gt; Maybe PosixProfile
+-&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:homeDirectoryType:UpdateAccess' :: Maybe HomeDirectoryType
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectoryType%3AUpdateAccess%27"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:posixProfile:UpdateAccess' :: Maybe PosixProfile
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AposixProfile%3AUpdateAccess%27"><span class="hs-identifier hs-var">posixProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:homeDirectoryMappings:UpdateAccess' :: Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectoryMappings%3AUpdateAccess%27"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':UpdateAccess' :: Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3Arole%27%3AUpdateAccess%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:UpdateAccess' :: Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3Apolicy%3AUpdateAccess%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:homeDirectory:UpdateAccess' :: Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectory%3AUpdateAccess%27"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverId:UpdateAccess' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AserverId%3AUpdateAccess%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249528"><span class="hs-identifier hs-var">pServerId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:externalId:UpdateAccess' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AexternalId%3AUpdateAccess%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249527"><span class="hs-identifier hs-var">pExternalId_</span></a></span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The type of landing directory (folder) you want your users\' home</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- directory to be when they log into the server. If you set it to @PATH@,</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- the user will see the absolute Amazon S3 bucket or EFS paths as is in</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- their file transfer protocol clients. If you set it @LOGICAL@, you need</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- to provide mappings in the @HomeDirectoryMappings@ for how you want to</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- make Amazon S3 or EFS paths visible to your users.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectoryType"><span class="hs-identifier hs-type">updateAccess_homeDirectoryType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.HomeDirectoryType.html#HomeDirectoryType"><span class="hs-identifier hs-type">HomeDirectoryType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="updateAccess_homeDirectoryType"><span class="annot"><span class="annottext">updateAccess_homeDirectoryType :: (Maybe HomeDirectoryType -&gt; f (Maybe HomeDirectoryType))
+-&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectoryType"><span class="hs-identifier hs-var hs-var">updateAccess_homeDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Maybe HomeDirectoryType)
+-&gt; (UpdateAccess -&gt; Maybe HomeDirectoryType -&gt; UpdateAccess)
+-&gt; Lens
+     UpdateAccess
+     UpdateAccess
+     (Maybe HomeDirectoryType)
+     (Maybe HomeDirectoryType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249524"><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+homeDirectoryType :: Maybe HomeDirectoryType
+$sel:homeDirectoryType:UpdateAccess' :: UpdateAccess -&gt; Maybe HomeDirectoryType
+</span><a href="#local-6989586621679249524"><span class="hs-identifier hs-var hs-var">homeDirectoryType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679249524"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249523"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249522"><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679249522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeDirectoryType:UpdateAccess' :: Maybe HomeDirectoryType
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectoryType%3AUpdateAccess%27"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679249522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_posixProfile"><span class="hs-identifier hs-type">updateAccess_posixProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.PosixProfile.html#PosixProfile"><span class="hs-identifier hs-type">PosixProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="updateAccess_posixProfile"><span class="annot"><span class="annottext">updateAccess_posixProfile :: (Maybe PosixProfile -&gt; f (Maybe PosixProfile))
+-&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_posixProfile"><span class="hs-identifier hs-var hs-var">updateAccess_posixProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Maybe PosixProfile)
+-&gt; (UpdateAccess -&gt; Maybe PosixProfile -&gt; UpdateAccess)
+-&gt; Lens
+     UpdateAccess UpdateAccess (Maybe PosixProfile) (Maybe PosixProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249521"><span class="annot"><span class="annottext">Maybe PosixProfile
+posixProfile :: Maybe PosixProfile
+$sel:posixProfile:UpdateAccess' :: UpdateAccess -&gt; Maybe PosixProfile
+</span><a href="#local-6989586621679249521"><span class="hs-identifier hs-var hs-var">posixProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679249521"><span class="hs-identifier hs-var">posixProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249520"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249519"><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679249519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:posixProfile:UpdateAccess' :: Maybe PosixProfile
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AposixProfile%3AUpdateAccess%27"><span class="hs-identifier hs-var">posixProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679249519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | Logical directory mappings that specify what Amazon S3 or Amazon EFS</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- paths and keys should be visible to your user and how you want to make</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- them visible. You must specify the @Entry@ and @Target@ pair, where</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- @Entry@ shows how the path is made visible and @Target@ is the actual</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Amazon S3 or Amazon EFS path. If you only specify a target, it is</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- displayed as is. You also must ensure that your Amazon Web Services</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- Identity and Access Management (IAM) role provides access to paths in</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- @Target@. This value can only be set when @HomeDirectoryType@ is set to</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- /LOGICAL/.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- @[ { \&quot;Entry\&quot;: \&quot;\/directory1\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- In most cases, you can use this value instead of the session policy to</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- lock down your user to the designated home directory (\&quot;@chroot@\&quot;). To</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- do this, you can set @Entry@ to @\/@ and set @Target@ to the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- @HomeDirectory@ parameter value.</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example for @chroot@.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- @[ { \&quot;Entry:\&quot;: \&quot;\/\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- If the target of a logical directory entry does not exist in Amazon S3</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- API or EFS API to create 0 byte objects as place holders for your</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- @s3@ or @efs@ so you can use the put-object operation. For example, you</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- use the following:</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- Make sure that the end of the key name ends in a @\/@ for it to be</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- considered a folder.</span><span>
+</span><span id="line-324"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectoryMappings"><span class="hs-identifier hs-type">updateAccess_homeDirectoryMappings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.HomeDirectoryMapEntry.html#HomeDirectoryMapEntry"><span class="hs-identifier hs-type">HomeDirectoryMapEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span id="updateAccess_homeDirectoryMappings"><span class="annot"><span class="annottext">updateAccess_homeDirectoryMappings :: (Maybe (NonEmpty HomeDirectoryMapEntry)
+ -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+-&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectoryMappings"><span class="hs-identifier hs-var hs-var">updateAccess_homeDirectoryMappings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Maybe (NonEmpty HomeDirectoryMapEntry))
+-&gt; (UpdateAccess
+    -&gt; Maybe (NonEmpty HomeDirectoryMapEntry) -&gt; UpdateAccess)
+-&gt; Lens
+     UpdateAccess
+     UpdateAccess
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249518"><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+homeDirectoryMappings :: Maybe (NonEmpty HomeDirectoryMapEntry)
+$sel:homeDirectoryMappings:UpdateAccess' :: UpdateAccess -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679249518"><span class="hs-identifier hs-var hs-var">homeDirectoryMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679249518"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249517"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249516"><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeDirectoryMappings:UpdateAccess' :: Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectoryMappings%3AUpdateAccess%27"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty HomeDirectoryMapEntry)
+  -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+ -&gt; UpdateAccess -&gt; f UpdateAccess)
+-&gt; ((Maybe (NonEmpty HomeDirectoryMapEntry)
+     -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+    -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+    -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+-&gt; (Maybe (NonEmpty HomeDirectoryMapEntry)
+    -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+-&gt; UpdateAccess
+-&gt; f UpdateAccess
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+-&gt; Iso
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- your users\' access to your Amazon S3 bucket or EFS file system. The</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- policies attached to this role determine the level of access that you</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- want to provide your users when transferring files into and out of your</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- Amazon S3 bucket or EFS file system. The IAM role should also contain a</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- trust relationship that allows the server to access your resources when</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- servicing your users\' transfer requests.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_role"><span class="hs-identifier hs-type">updateAccess_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="updateAccess_role"><span class="annot"><span class="annottext">updateAccess_role :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_role"><span class="hs-identifier hs-var hs-var">updateAccess_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Maybe Text)
+-&gt; (UpdateAccess -&gt; Maybe Text -&gt; UpdateAccess)
+-&gt; Lens UpdateAccess UpdateAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249512"><span class="annot"><span class="annottext">Maybe Text
+role' :: Maybe Text
+$sel:role':UpdateAccess' :: UpdateAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679249512"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249512"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249511"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':UpdateAccess' :: Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3Arole%27%3AUpdateAccess%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | A session policy for your user so that you can use the same IAM role</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- across multiple users. This policy scopes down user access to portions</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- of their Amazon S3 bucket. Variables that you can use inside this policy</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- @${Transfer:HomeBucket}@.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- This only applies when the domain of @ServerId@ is S3. EFS does not use</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- session policies.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- For session policies, Amazon Web Services Transfer Family stores the</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- policy. You save the policy as a JSON blob and pass it in the @Policy@</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- argument.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- For an example of a session policy, see</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy&gt;.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole&gt;</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- in the /Amazon Web ServicesSecurity Token Service API Reference/.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_policy"><span class="hs-identifier hs-type">updateAccess_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span id="updateAccess_policy"><span class="annot"><span class="annottext">updateAccess_policy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_policy"><span class="hs-identifier hs-var hs-var">updateAccess_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Maybe Text)
+-&gt; (UpdateAccess -&gt; Maybe Text -&gt; UpdateAccess)
+-&gt; Lens UpdateAccess UpdateAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249509"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:UpdateAccess' :: UpdateAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679249509"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249509"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249508"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:UpdateAccess' :: Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3Apolicy%3AUpdateAccess%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | The landing directory (folder) for a user when they log in to the server</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- using the client.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.</span><span>
+</span><span id="line-364"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectory"><span class="hs-identifier hs-type">updateAccess_homeDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span id="updateAccess_homeDirectory"><span class="annot"><span class="annottext">updateAccess_homeDirectory :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_homeDirectory"><span class="hs-identifier hs-var hs-var">updateAccess_homeDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Maybe Text)
+-&gt; (UpdateAccess -&gt; Maybe Text -&gt; UpdateAccess)
+-&gt; Lens UpdateAccess UpdateAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249506"><span class="annot"><span class="annottext">Maybe Text
+homeDirectory :: Maybe Text
+$sel:homeDirectory:UpdateAccess' :: UpdateAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679249506"><span class="hs-identifier hs-var hs-var">homeDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249506"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249505"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeDirectory:UpdateAccess' :: Maybe Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhomeDirectory%3AUpdateAccess%27"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance. This is the</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- specific server that you added your user to.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_serverId"><span class="hs-identifier hs-type">updateAccess_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-370"></span><span id="updateAccess_serverId"><span class="annot"><span class="annottext">updateAccess_serverId :: (Text -&gt; f Text) -&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_serverId"><span class="hs-identifier hs-var hs-var">updateAccess_serverId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Text)
+-&gt; (UpdateAccess -&gt; Text -&gt; UpdateAccess)
+-&gt; Lens UpdateAccess UpdateAccess Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249503"><span class="annot"><span class="annottext">Text
+serverId :: Text
+$sel:serverId:UpdateAccess' :: UpdateAccess -&gt; Text
+</span><a href="#local-6989586621679249503"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249503"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249502"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:UpdateAccess' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AserverId%3AUpdateAccess%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- | A unique identifier that is required to identify specific groups within</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- your directory. The users of the group that you associate have access to</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- your Amazon S3 or Amazon EFS resources over the enabled protocols using</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- Amazon Web Services Transfer Family. If you know the group name, you can</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- view the SID values by running the following command using Windows</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- PowerShell.</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- @Get-ADGroup -Filter {samAccountName -like \&quot;YourGroupName*\&quot;} -Properties * | Select SamAccountName,ObjectSid@</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- In that command, replace /YourGroupName/ with the name of your Active</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- Directory group.</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- consisting of uppercase and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
+</span><span id="line-388"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_externalId"><span class="hs-identifier hs-type">updateAccess_externalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-389"></span><span id="updateAccess_externalId"><span class="annot"><span class="annottext">updateAccess_externalId :: (Text -&gt; f Text) -&gt; UpdateAccess -&gt; f UpdateAccess
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccess_externalId"><span class="hs-identifier hs-var hs-var">updateAccess_externalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccess -&gt; Text)
+-&gt; (UpdateAccess -&gt; Text -&gt; UpdateAccess)
+-&gt; Lens UpdateAccess UpdateAccess Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249500"><span class="annot"><span class="annottext">Text
+externalId :: Text
+$sel:externalId:UpdateAccess' :: UpdateAccess -&gt; Text
+</span><a href="#local-6989586621679249500"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249500"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249499"><span class="annot"><span class="annottext">s :: UpdateAccess
+</span><a href="#local-6989586621679249499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccess
+</span><a href="#local-6989586621679249499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalId:UpdateAccess' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AexternalId%3AUpdateAccess%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-392"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span>
+</span><span id="line-393"></span><span>  </span><span id="local-6989586621679249494"><span class="annot"><span class="annottext">request :: UpdateAccess -&gt; Request UpdateAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAccess -&gt; Request UpdateAccess
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Transfer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-394"></span><span>  </span><span id="local-6989586621679249490"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateAccess
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateAccess)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-395"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateAccess))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateAccess
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateAccess)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-396"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249487"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249487"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249486"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249486"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249485"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249485"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-397"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; UpdateAccessResponse
+</span><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-var">UpdateAccessResponse'</span></a></span><span>
+</span><span id="line-398"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; UpdateAccessResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; Text -&gt; UpdateAccessResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249487"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; UpdateAccessResponse)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; UpdateAccessResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249485"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateAccessResponse)
+-&gt; Either String Text -&gt; Either String UpdateAccessResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249485"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExternalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-402"></span><span>
+</span><span id="line-403"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249477"><span id="local-6989586621679249479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span></span></span><span>
+</span><span id="line-404"></span><span>
+</span><span id="line-405"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span></span><span>
+</span><span id="line-406"></span><span>
+</span><span id="line-407"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-408"></span><span>  </span><span id="local-6989586621679249470"><span class="annot"><span class="annottext">toHeaders :: UpdateAccess -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAccess -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-410"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-411"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-412"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransferService.UpdateAccess&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-413"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-414"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-416"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-417"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-418"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-420"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249460"><span id="local-6989586621679249462"><span id="local-6989586621679249464"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-423"></span><span>  </span><span id="local-6989586621679249458"><span class="annot"><span class="annottext">toJSON :: UpdateAccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess%27"><span class="hs-identifier hs-type">UpdateAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249449"><span id="local-6989586621679249450"><span id="local-6989586621679249451"><span id="local-6989586621679249452"><span id="local-6989586621679249453"><span id="local-6989586621679249454"><span id="local-6989586621679249455"><span id="local-6989586621679249456"><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+Maybe Text
+Maybe HomeDirectoryType
+Maybe PosixProfile
+Text
+externalId :: Text
+serverId :: Text
+homeDirectory :: Maybe Text
+policy :: Maybe Text
+role' :: Maybe Text
+homeDirectoryMappings :: Maybe (NonEmpty HomeDirectoryMapEntry)
+posixProfile :: Maybe PosixProfile
+homeDirectoryType :: Maybe HomeDirectoryType
+$sel:externalId:UpdateAccess' :: UpdateAccess -&gt; Text
+$sel:serverId:UpdateAccess' :: UpdateAccess -&gt; Text
+$sel:homeDirectory:UpdateAccess' :: UpdateAccess -&gt; Maybe Text
+$sel:policy:UpdateAccess' :: UpdateAccess -&gt; Maybe Text
+$sel:role':UpdateAccess' :: UpdateAccess -&gt; Maybe Text
+$sel:homeDirectoryMappings:UpdateAccess' :: UpdateAccess -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+$sel:posixProfile:UpdateAccess' :: UpdateAccess -&gt; Maybe PosixProfile
+$sel:homeDirectoryType:UpdateAccess' :: UpdateAccess -&gt; Maybe HomeDirectoryType
+</span><a href="#local-6989586621679249449"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-424"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-425"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-426"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeDirectoryType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HomeDirectoryType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span>              </span><span class="annot"><span class="annottext">(HomeDirectoryType -&gt; Pair)
+-&gt; Maybe HomeDirectoryType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679249456"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PosixProfile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PosixProfile -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PosixProfile -&gt; Pair) -&gt; Maybe PosixProfile -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679249455"><span class="hs-identifier hs-var">posixProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeDirectoryMappings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty HomeDirectoryMapEntry -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty HomeDirectoryMapEntry -&gt; Pair)
+-&gt; Maybe (NonEmpty HomeDirectoryMapEntry) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679249454"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Role&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249453"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249452"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-433"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeDirectory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249451"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExternalId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249449"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-437"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>
+</span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-440"></span><span>  </span><span id="local-6989586621679249443"><span class="annot"><span class="annottext">toPath :: UpdateAccess -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateAccess -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-441"></span><span>
+</span><span id="line-442"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccess"><span class="hs-identifier hs-type">UpdateAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-443"></span><span>  </span><span id="local-6989586621679249439"><span class="annot"><span class="annottext">toQuery :: UpdateAccess -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAccess -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- | /See:/ 'newUpdateAccessResponse' smart constructor.</span><span>
+</span><span id="line-446"></span><span id="local-6989586621679249436"><span id="local-6989586621679249437"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAccessResponse"><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-var">UpdateAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAccessResponse%27"><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-var">UpdateAccessResponse'</span></a></span></span><span>
+</span><span id="line-447"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-448"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateAccessResponse%27"><span class="annot"><span class="annottext">UpdateAccessResponse -&gt; Int
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhttpStatus%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-449"></span><span>    </span><span class="hs-comment">-- | The ID of the server that the user is attached to.</span><span>
+</span><span id="line-450"></span><span>    </span><span id="%24sel%3AserverId%3AUpdateAccessResponse%27"><span class="annot"><span class="annottext">UpdateAccessResponse -&gt; Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AserverId%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-451"></span><span>    </span><span class="hs-comment">-- | The external ID of the group whose users have access to your Amazon S3</span><span>
+</span><span id="line-452"></span><span>    </span><span class="hs-comment">-- or Amazon EFS resources over the enabled protocols using Amazon Web</span><span>
+</span><span id="line-453"></span><span>    </span><span class="hs-comment">-- ServicesTransfer Family.</span><span>
+</span><span id="line-454"></span><span>    </span><span id="%24sel%3AexternalId%3AUpdateAccessResponse%27"><span class="annot"><span class="annottext">UpdateAccessResponse -&gt; Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AexternalId%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-455"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-456"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249429"><span id="local-6989586621679249431"><span class="annot"><span class="annottext">UpdateAccessResponse -&gt; UpdateAccessResponse -&gt; Bool
+(UpdateAccessResponse -&gt; UpdateAccessResponse -&gt; Bool)
+-&gt; (UpdateAccessResponse -&gt; UpdateAccessResponse -&gt; Bool)
+-&gt; Eq UpdateAccessResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAccessResponse -&gt; UpdateAccessResponse -&gt; Bool
+$c/= :: UpdateAccessResponse -&gt; UpdateAccessResponse -&gt; Bool
+== :: UpdateAccessResponse -&gt; UpdateAccessResponse -&gt; Bool
+$c== :: UpdateAccessResponse -&gt; UpdateAccessResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249421"><span id="local-6989586621679249423"><span id="local-6989586621679249425"><span id="local-6989586621679249427"><span class="annot"><span class="annottext">ReadPrec [UpdateAccessResponse]
+ReadPrec UpdateAccessResponse
+Int -&gt; ReadS UpdateAccessResponse
+ReadS [UpdateAccessResponse]
+(Int -&gt; ReadS UpdateAccessResponse)
+-&gt; ReadS [UpdateAccessResponse]
+-&gt; ReadPrec UpdateAccessResponse
+-&gt; ReadPrec [UpdateAccessResponse]
+-&gt; Read UpdateAccessResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAccessResponse]
+$creadListPrec :: ReadPrec [UpdateAccessResponse]
+readPrec :: ReadPrec UpdateAccessResponse
+$creadPrec :: ReadPrec UpdateAccessResponse
+readList :: ReadS [UpdateAccessResponse]
+$creadList :: ReadS [UpdateAccessResponse]
+readsPrec :: Int -&gt; ReadS UpdateAccessResponse
+$creadsPrec :: Int -&gt; ReadS UpdateAccessResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249415"><span id="local-6989586621679249417"><span id="local-6989586621679249419"><span class="annot"><span class="annottext">Int -&gt; UpdateAccessResponse -&gt; ShowS
+[UpdateAccessResponse] -&gt; ShowS
+UpdateAccessResponse -&gt; String
+(Int -&gt; UpdateAccessResponse -&gt; ShowS)
+-&gt; (UpdateAccessResponse -&gt; String)
+-&gt; ([UpdateAccessResponse] -&gt; ShowS)
+-&gt; Show UpdateAccessResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAccessResponse] -&gt; ShowS
+$cshowList :: [UpdateAccessResponse] -&gt; ShowS
+show :: UpdateAccessResponse -&gt; String
+$cshow :: UpdateAccessResponse -&gt; String
+showsPrec :: Int -&gt; UpdateAccessResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAccessResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAccessResponse -&gt; Rep UpdateAccessResponse x)
+-&gt; (forall x. Rep UpdateAccessResponse x -&gt; UpdateAccessResponse)
+-&gt; Generic UpdateAccessResponse
+forall x. Rep UpdateAccessResponse x -&gt; UpdateAccessResponse
+forall x. UpdateAccessResponse -&gt; Rep UpdateAccessResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAccessResponse x -&gt; UpdateAccessResponse
+$cfrom :: forall x. UpdateAccessResponse -&gt; Rep UpdateAccessResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- Create a value of 'UpdateAccessResponse' with all optional fields omitted.</span><span>
+</span><span id="line-460"></span><span class="hs-comment">--</span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-462"></span><span class="hs-comment">--</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-465"></span><span class="hs-comment">--</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- 'httpStatus', 'updateAccessResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- 'serverId', 'updateAccessResponse_serverId' - The ID of the server that the user is attached to.</span><span>
+</span><span id="line-469"></span><span class="hs-comment">--</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- 'externalId', 'updateAccessResponse_externalId' - The external ID of the group whose users have access to your Amazon S3</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- or Amazon EFS resources over the enabled protocols using Amazon Web</span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- ServicesTransfer Family.</span><span>
+</span><span id="line-473"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#newUpdateAccessResponse"><span class="hs-identifier hs-type">newUpdateAccessResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-474"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-475"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-476"></span><span>  </span><span class="hs-comment">-- | 'serverId'</span><span>
+</span><span id="line-477"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-478"></span><span>  </span><span class="hs-comment">-- | 'externalId'</span><span>
+</span><span id="line-479"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-480"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span>
+</span><span id="line-481"></span><span id="newUpdateAccessResponse"><span class="annot"><span class="annottext">newUpdateAccessResponse :: Int -&gt; Text -&gt; Text -&gt; UpdateAccessResponse
+</span><a href="Amazonka.Transfer.UpdateAccess.html#newUpdateAccessResponse"><span class="hs-identifier hs-var hs-var">newUpdateAccessResponse</span></a></span></span><span>
+</span><span id="line-482"></span><span>  </span><span id="local-6989586621679249412"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249412"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-483"></span><span>  </span><span id="local-6989586621679249411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249411"><span class="hs-identifier hs-var">pServerId_</span></a></span></span><span>
+</span><span id="line-484"></span><span>  </span><span id="local-6989586621679249410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249410"><span class="hs-identifier hs-var">pExternalId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">UpdateAccessResponse' :: Int -&gt; Text -&gt; Text -&gt; UpdateAccessResponse
+</span><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-type">UpdateAccessResponse'</span></a></span><span>
+</span><span id="line-486"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAccessResponse' :: Int
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhttpStatus%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249412"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-487"></span><span>        </span><span class="annot"><span class="annottext">$sel:serverId:UpdateAccessResponse' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AserverId%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249411"><span class="hs-identifier hs-var">pServerId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-488"></span><span>        </span><span class="annot"><span class="annottext">$sel:externalId:UpdateAccessResponse' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AexternalId%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249410"><span class="hs-identifier hs-var">pExternalId_</span></a></span><span>
+</span><span id="line-489"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-492"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_httpStatus"><span class="hs-identifier hs-type">updateAccessResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-493"></span><span id="updateAccessResponse_httpStatus"><span class="annot"><span class="annottext">updateAccessResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateAccessResponse -&gt; f UpdateAccessResponse
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateAccessResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccessResponse -&gt; Int)
+-&gt; (UpdateAccessResponse -&gt; Int -&gt; UpdateAccessResponse)
+-&gt; Lens UpdateAccessResponse UpdateAccessResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-type">UpdateAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249409"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateAccessResponse' :: UpdateAccessResponse -&gt; Int
+</span><a href="#local-6989586621679249409"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249409"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249408"><span class="annot"><span class="annottext">s :: UpdateAccessResponse
+</span><a href="#local-6989586621679249408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-type">UpdateAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249407"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccessResponse
+</span><a href="#local-6989586621679249408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAccessResponse' :: Int
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AhttpStatus%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-494"></span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- | The ID of the server that the user is attached to.</span><span>
+</span><span id="line-496"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_serverId"><span class="hs-identifier hs-type">updateAccessResponse_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-497"></span><span id="updateAccessResponse_serverId"><span class="annot"><span class="annottext">updateAccessResponse_serverId :: (Text -&gt; f Text) -&gt; UpdateAccessResponse -&gt; f UpdateAccessResponse
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_serverId"><span class="hs-identifier hs-var hs-var">updateAccessResponse_serverId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccessResponse -&gt; Text)
+-&gt; (UpdateAccessResponse -&gt; Text -&gt; UpdateAccessResponse)
+-&gt; Lens UpdateAccessResponse UpdateAccessResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-type">UpdateAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249406"><span class="annot"><span class="annottext">Text
+serverId :: Text
+$sel:serverId:UpdateAccessResponse' :: UpdateAccessResponse -&gt; Text
+</span><a href="#local-6989586621679249406"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249406"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249405"><span class="annot"><span class="annottext">s :: UpdateAccessResponse
+</span><a href="#local-6989586621679249405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-type">UpdateAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccessResponse
+</span><a href="#local-6989586621679249405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:UpdateAccessResponse' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AserverId%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-498"></span><span>
+</span><span id="line-499"></span><span class="hs-comment">-- | The external ID of the group whose users have access to your Amazon S3</span><span>
+</span><span id="line-500"></span><span class="hs-comment">-- or Amazon EFS resources over the enabled protocols using Amazon Web</span><span>
+</span><span id="line-501"></span><span class="hs-comment">-- ServicesTransfer Family.</span><span>
+</span><span id="line-502"></span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_externalId"><span class="hs-identifier hs-type">updateAccessResponse_externalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-503"></span><span id="updateAccessResponse_externalId"><span class="annot"><span class="annottext">updateAccessResponse_externalId :: (Text -&gt; f Text) -&gt; UpdateAccessResponse -&gt; f UpdateAccessResponse
+</span><a href="Amazonka.Transfer.UpdateAccess.html#updateAccessResponse_externalId"><span class="hs-identifier hs-var hs-var">updateAccessResponse_externalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAccessResponse -&gt; Text)
+-&gt; (UpdateAccessResponse -&gt; Text -&gt; UpdateAccessResponse)
+-&gt; Lens UpdateAccessResponse UpdateAccessResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-type">UpdateAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249403"><span class="annot"><span class="annottext">Text
+externalId :: Text
+$sel:externalId:UpdateAccessResponse' :: UpdateAccessResponse -&gt; Text
+</span><a href="#local-6989586621679249403"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249403"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249402"><span class="annot"><span class="annottext">s :: UpdateAccessResponse
+</span><a href="#local-6989586621679249402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse%27"><span class="hs-identifier hs-type">UpdateAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccessResponse
+</span><a href="#local-6989586621679249402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalId:UpdateAccessResponse' :: Text
+</span><a href="Amazonka.Transfer.UpdateAccess.html#%24sel%3AexternalId%3AUpdateAccessResponse%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-504"></span><span>
+</span><span id="line-505"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.UpdateAccess.html#UpdateAccessResponse"><span class="hs-identifier hs-type">UpdateAccessResponse</span></a></span></span><span>
+</span><span id="line-506"></span></pre></body></html>

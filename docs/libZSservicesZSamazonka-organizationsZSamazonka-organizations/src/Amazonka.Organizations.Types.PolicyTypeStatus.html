@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Organizations.Types.PolicyTypeStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Organizations.Types.PolicyTypeStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus"><span class="hs-identifier">PolicyTypeStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_ENABLED"><span class="hs-identifier">PolicyTypeStatus_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_PENDING_DISABLE"><span class="hs-identifier">PolicyTypeStatus_PENDING_DISABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_PENDING_ENABLE"><span class="hs-identifier">PolicyTypeStatus_PENDING_ENABLE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679239024"><span id="local-6989586621679239025"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyTypeStatus"><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus"><span class="hs-identifier hs-var">PolicyTypeStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyTypeStatus%27"><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus%27"><span class="hs-identifier hs-var">PolicyTypeStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyTypeStatus"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; Text
+</span><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#fromPolicyTypeStatus"><span class="hs-identifier hs-var hs-var">fromPolicyTypeStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239016"><span id="local-6989586621679239018"><span id="local-6989586621679239020"><span class="annot"><span class="annottext">Int -&gt; PolicyTypeStatus -&gt; ShowS
+[PolicyTypeStatus] -&gt; ShowS
+PolicyTypeStatus -&gt; String
+(Int -&gt; PolicyTypeStatus -&gt; ShowS)
+-&gt; (PolicyTypeStatus -&gt; String)
+-&gt; ([PolicyTypeStatus] -&gt; ShowS)
+-&gt; Show PolicyTypeStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PolicyTypeStatus] -&gt; ShowS
+$cshowList :: [PolicyTypeStatus] -&gt; ShowS
+show :: PolicyTypeStatus -&gt; String
+$cshow :: PolicyTypeStatus -&gt; String
+showsPrec :: Int -&gt; PolicyTypeStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PolicyTypeStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679239007"><span id="local-6989586621679239009"><span id="local-6989586621679239011"><span id="local-6989586621679239013"><span class="annot"><span class="annottext">ReadPrec [PolicyTypeStatus]
+ReadPrec PolicyTypeStatus
+Int -&gt; ReadS PolicyTypeStatus
+ReadS [PolicyTypeStatus]
+(Int -&gt; ReadS PolicyTypeStatus)
+-&gt; ReadS [PolicyTypeStatus]
+-&gt; ReadPrec PolicyTypeStatus
+-&gt; ReadPrec [PolicyTypeStatus]
+-&gt; Read PolicyTypeStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PolicyTypeStatus]
+$creadListPrec :: ReadPrec [PolicyTypeStatus]
+readPrec :: ReadPrec PolicyTypeStatus
+$creadPrec :: ReadPrec PolicyTypeStatus
+readList :: ReadS [PolicyTypeStatus]
+$creadList :: ReadS [PolicyTypeStatus]
+readsPrec :: Int -&gt; ReadS PolicyTypeStatus
+$creadsPrec :: Int -&gt; ReadS PolicyTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679239002"><span id="local-6989586621679239004"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+(PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool)
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool)
+-&gt; Eq PolicyTypeStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+$c/= :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+== :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+$c== :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679238986"><span id="local-6989586621679238988"><span id="local-6989586621679238990"><span id="local-6989586621679238992"><span id="local-6989586621679238994"><span id="local-6989586621679238996"><span id="local-6989586621679238998"><span class="annot"><span class="annottext">Eq PolicyTypeStatus
+Eq PolicyTypeStatus
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Ordering)
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool)
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool)
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool)
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool)
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; PolicyTypeStatus)
+-&gt; (PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; PolicyTypeStatus)
+-&gt; Ord PolicyTypeStatus
+PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Ordering
+PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; PolicyTypeStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; PolicyTypeStatus
+$cmin :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; PolicyTypeStatus
+max :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; PolicyTypeStatus
+$cmax :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; PolicyTypeStatus
+&gt;= :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+$c&gt;= :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+&gt; :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+$c&gt; :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+&lt;= :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+$c&lt;= :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+&lt; :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+$c&lt; :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Bool
+compare :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Ordering
+$ccompare :: PolicyTypeStatus -&gt; PolicyTypeStatus -&gt; Ordering
+$cp1Ord :: Eq PolicyTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PolicyTypeStatus -&gt; Rep PolicyTypeStatus x)
+-&gt; (forall x. Rep PolicyTypeStatus x -&gt; PolicyTypeStatus)
+-&gt; Generic PolicyTypeStatus
+forall x. Rep PolicyTypeStatus x -&gt; PolicyTypeStatus
+forall x. PolicyTypeStatus -&gt; Rep PolicyTypeStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PolicyTypeStatus x -&gt; PolicyTypeStatus
+$cfrom :: forall x. PolicyTypeStatus -&gt; Rep PolicyTypeStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238978"><span id="local-6989586621679238980"><span class="annot"><span class="annottext">Int -&gt; PolicyTypeStatus -&gt; Int
+PolicyTypeStatus -&gt; Int
+(Int -&gt; PolicyTypeStatus -&gt; Int)
+-&gt; (PolicyTypeStatus -&gt; Int) -&gt; Hashable PolicyTypeStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PolicyTypeStatus -&gt; Int
+$chash :: PolicyTypeStatus -&gt; Int
+hashWithSalt :: Int -&gt; PolicyTypeStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PolicyTypeStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679238975"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; ()
+(PolicyTypeStatus -&gt; ()) -&gt; NFData PolicyTypeStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PolicyTypeStatus -&gt; ()
+$crnf :: PolicyTypeStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679238972"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyTypeStatus
+(Text -&gt; Either String PolicyTypeStatus)
+-&gt; FromText PolicyTypeStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PolicyTypeStatus
+$cfromText :: Text -&gt; Either String PolicyTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679238969"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; Text
+(PolicyTypeStatus -&gt; Text) -&gt; ToText PolicyTypeStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PolicyTypeStatus -&gt; Text
+$ctoText :: PolicyTypeStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679238966"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; ByteString
+(PolicyTypeStatus -&gt; ByteString) -&gt; ToByteString PolicyTypeStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PolicyTypeStatus -&gt; ByteString
+$ctoBS :: PolicyTypeStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679238963"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; ByteStringBuilder
+(PolicyTypeStatus -&gt; ByteStringBuilder) -&gt; ToLog PolicyTypeStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PolicyTypeStatus -&gt; ByteStringBuilder
+$cbuild :: PolicyTypeStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679238960"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyTypeStatus -&gt; [Header]
+(HeaderName -&gt; PolicyTypeStatus -&gt; [Header])
+-&gt; ToHeader PolicyTypeStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PolicyTypeStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PolicyTypeStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679238957"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; QueryString
+(PolicyTypeStatus -&gt; QueryString) -&gt; ToQuery PolicyTypeStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PolicyTypeStatus -&gt; QueryString
+$ctoQuery :: PolicyTypeStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679238952"><span id="local-6989586621679238954"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyTypeStatus]
+Value -&gt; Parser PolicyTypeStatus
+(Value -&gt; Parser PolicyTypeStatus)
+-&gt; (Value -&gt; Parser [PolicyTypeStatus])
+-&gt; FromJSON PolicyTypeStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PolicyTypeStatus]
+$cparseJSONList :: Value -&gt; Parser [PolicyTypeStatus]
+parseJSON :: Value -&gt; Parser PolicyTypeStatus
+$cparseJSON :: Value -&gt; Parser PolicyTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679238947"><span id="local-6989586621679238949"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyTypeStatus]
+FromJSONKeyFunction PolicyTypeStatus
+FromJSONKeyFunction PolicyTypeStatus
+-&gt; FromJSONKeyFunction [PolicyTypeStatus]
+-&gt; FromJSONKey PolicyTypeStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PolicyTypeStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PolicyTypeStatus]
+fromJSONKey :: FromJSONKeyFunction PolicyTypeStatus
+$cfromJSONKey :: FromJSONKeyFunction PolicyTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679238938"><span id="local-6989586621679238940"><span id="local-6989586621679238942"><span id="local-6989586621679238944"><span class="annot"><span class="annottext">[PolicyTypeStatus] -&gt; Encoding
+[PolicyTypeStatus] -&gt; Value
+PolicyTypeStatus -&gt; Encoding
+PolicyTypeStatus -&gt; Value
+(PolicyTypeStatus -&gt; Value)
+-&gt; (PolicyTypeStatus -&gt; Encoding)
+-&gt; ([PolicyTypeStatus] -&gt; Value)
+-&gt; ([PolicyTypeStatus] -&gt; Encoding)
+-&gt; ToJSON PolicyTypeStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PolicyTypeStatus] -&gt; Encoding
+$ctoEncodingList :: [PolicyTypeStatus] -&gt; Encoding
+toJSONList :: [PolicyTypeStatus] -&gt; Value
+$ctoJSONList :: [PolicyTypeStatus] -&gt; Value
+toEncoding :: PolicyTypeStatus -&gt; Encoding
+$ctoEncoding :: PolicyTypeStatus -&gt; Encoding
+toJSON :: PolicyTypeStatus -&gt; Value
+$ctoJSON :: PolicyTypeStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679238933"><span id="local-6989586621679238935"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyTypeStatus]
+ToJSONKeyFunction PolicyTypeStatus
+ToJSONKeyFunction PolicyTypeStatus
+-&gt; ToJSONKeyFunction [PolicyTypeStatus]
+-&gt; ToJSONKey PolicyTypeStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PolicyTypeStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PolicyTypeStatus]
+toJSONKey :: ToJSONKeyFunction PolicyTypeStatus
+$ctoJSONKey :: ToJSONKeyFunction PolicyTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679238930"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyTypeStatus
+([Node] -&gt; Either String PolicyTypeStatus)
+-&gt; FromXML PolicyTypeStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PolicyTypeStatus
+$cparseXML :: [Node] -&gt; Either String PolicyTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679238927"><span class="annot"><span class="annottext">PolicyTypeStatus -&gt; XML
+(PolicyTypeStatus -&gt; XML) -&gt; ToXML PolicyTypeStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PolicyTypeStatus -&gt; XML
+$ctoXML :: PolicyTypeStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_ENABLED"><span class="hs-identifier hs-type">PolicyTypeStatus_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus"><span class="hs-identifier hs-type">PolicyTypeStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPolicyTypeStatus_ENABLED"><span id="%24mPolicyTypeStatus_ENABLED"><span id="PolicyTypeStatus_ENABLED"><span class="annot"><span class="annottext">$bPolicyTypeStatus_ENABLED :: PolicyTypeStatus
+$mPolicyTypeStatus_ENABLED :: forall r. PolicyTypeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#%24bPolicyTypeStatus_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">PolicyTypeStatus_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus%27"><span class="hs-identifier hs-type">PolicyTypeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_PENDING_DISABLE"><span class="hs-identifier hs-type">PolicyTypeStatus_PENDING_DISABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus"><span class="hs-identifier hs-type">PolicyTypeStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPolicyTypeStatus_PENDING_DISABLE"><span id="%24mPolicyTypeStatus_PENDING_DISABLE"><span id="PolicyTypeStatus_PENDING_DISABLE"><span class="annot"><span class="annottext">$bPolicyTypeStatus_PENDING_DISABLE :: PolicyTypeStatus
+$mPolicyTypeStatus_PENDING_DISABLE :: forall r. PolicyTypeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#%24bPolicyTypeStatus_PENDING_DISABLE"><span class="hs-identifier hs-var hs-var hs-var">PolicyTypeStatus_PENDING_DISABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus%27"><span class="hs-identifier hs-type">PolicyTypeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_DISABLE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_PENDING_ENABLE"><span class="hs-identifier hs-type">PolicyTypeStatus_PENDING_ENABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus"><span class="hs-identifier hs-type">PolicyTypeStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPolicyTypeStatus_PENDING_ENABLE"><span id="%24mPolicyTypeStatus_PENDING_ENABLE"><span id="PolicyTypeStatus_PENDING_ENABLE"><span class="annot"><span class="annottext">$bPolicyTypeStatus_PENDING_ENABLE :: PolicyTypeStatus
+$mPolicyTypeStatus_PENDING_ENABLE :: forall r. PolicyTypeStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#%24bPolicyTypeStatus_PENDING_ENABLE"><span class="hs-identifier hs-var hs-var hs-var">PolicyTypeStatus_PENDING_ENABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus%27"><span class="hs-identifier hs-type">PolicyTypeStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_ENABLE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_ENABLED"><span class="hs-pragma hs-type">PolicyTypeStatus_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_PENDING_DISABLE"><span class="hs-pragma hs-type">PolicyTypeStatus_PENDING_DISABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus_PENDING_ENABLE"><span class="hs-pragma hs-type">PolicyTypeStatus_PENDING_ENABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.PolicyTypeStatus.html#PolicyTypeStatus%27"><span class="hs-pragma hs-type">PolicyTypeStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

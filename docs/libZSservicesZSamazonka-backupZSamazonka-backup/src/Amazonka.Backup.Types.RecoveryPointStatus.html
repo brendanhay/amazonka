@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Backup.Types.RecoveryPointStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Backup.Types.RecoveryPointStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus"><span class="hs-identifier">RecoveryPointStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_COMPLETED"><span class="hs-identifier">RecoveryPointStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_DELETING"><span class="hs-identifier">RecoveryPointStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_EXPIRED"><span class="hs-identifier">RecoveryPointStatus_EXPIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_PARTIAL"><span class="hs-identifier">RecoveryPointStatus_PARTIAL</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679308802"><span id="local-6989586621679308803"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecoveryPointStatus"><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus"><span class="hs-identifier hs-var">RecoveryPointStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecoveryPointStatus%27"><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus%27"><span class="hs-identifier hs-var">RecoveryPointStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecoveryPointStatus"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; Text
+</span><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#fromRecoveryPointStatus"><span class="hs-identifier hs-var hs-var">fromRecoveryPointStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308794"><span id="local-6989586621679308796"><span id="local-6989586621679308798"><span class="annot"><span class="annottext">Int -&gt; RecoveryPointStatus -&gt; ShowS
+[RecoveryPointStatus] -&gt; ShowS
+RecoveryPointStatus -&gt; String
+(Int -&gt; RecoveryPointStatus -&gt; ShowS)
+-&gt; (RecoveryPointStatus -&gt; String)
+-&gt; ([RecoveryPointStatus] -&gt; ShowS)
+-&gt; Show RecoveryPointStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecoveryPointStatus] -&gt; ShowS
+$cshowList :: [RecoveryPointStatus] -&gt; ShowS
+show :: RecoveryPointStatus -&gt; String
+$cshow :: RecoveryPointStatus -&gt; String
+showsPrec :: Int -&gt; RecoveryPointStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecoveryPointStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679308785"><span id="local-6989586621679308787"><span id="local-6989586621679308789"><span id="local-6989586621679308791"><span class="annot"><span class="annottext">ReadPrec [RecoveryPointStatus]
+ReadPrec RecoveryPointStatus
+Int -&gt; ReadS RecoveryPointStatus
+ReadS [RecoveryPointStatus]
+(Int -&gt; ReadS RecoveryPointStatus)
+-&gt; ReadS [RecoveryPointStatus]
+-&gt; ReadPrec RecoveryPointStatus
+-&gt; ReadPrec [RecoveryPointStatus]
+-&gt; Read RecoveryPointStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecoveryPointStatus]
+$creadListPrec :: ReadPrec [RecoveryPointStatus]
+readPrec :: ReadPrec RecoveryPointStatus
+$creadPrec :: ReadPrec RecoveryPointStatus
+readList :: ReadS [RecoveryPointStatus]
+$creadList :: ReadS [RecoveryPointStatus]
+readsPrec :: Int -&gt; ReadS RecoveryPointStatus
+$creadsPrec :: Int -&gt; ReadS RecoveryPointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679308780"><span id="local-6989586621679308782"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+(RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool)
+-&gt; (RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool)
+-&gt; Eq RecoveryPointStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+$c/= :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+== :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+$c== :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679308764"><span id="local-6989586621679308766"><span id="local-6989586621679308768"><span id="local-6989586621679308770"><span id="local-6989586621679308772"><span id="local-6989586621679308774"><span id="local-6989586621679308776"><span class="annot"><span class="annottext">Eq RecoveryPointStatus
+Eq RecoveryPointStatus
+-&gt; (RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Ordering)
+-&gt; (RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool)
+-&gt; (RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool)
+-&gt; (RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool)
+-&gt; (RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool)
+-&gt; (RecoveryPointStatus
+    -&gt; RecoveryPointStatus -&gt; RecoveryPointStatus)
+-&gt; (RecoveryPointStatus
+    -&gt; RecoveryPointStatus -&gt; RecoveryPointStatus)
+-&gt; Ord RecoveryPointStatus
+RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Ordering
+RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; RecoveryPointStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; RecoveryPointStatus
+$cmin :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; RecoveryPointStatus
+max :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; RecoveryPointStatus
+$cmax :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; RecoveryPointStatus
+&gt;= :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+$c&gt;= :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+&gt; :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+$c&gt; :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+&lt;= :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+$c&lt;= :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+&lt; :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+$c&lt; :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Bool
+compare :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Ordering
+$ccompare :: RecoveryPointStatus -&gt; RecoveryPointStatus -&gt; Ordering
+$cp1Ord :: Eq RecoveryPointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RecoveryPointStatus -&gt; Rep RecoveryPointStatus x)
+-&gt; (forall x. Rep RecoveryPointStatus x -&gt; RecoveryPointStatus)
+-&gt; Generic RecoveryPointStatus
+forall x. Rep RecoveryPointStatus x -&gt; RecoveryPointStatus
+forall x. RecoveryPointStatus -&gt; Rep RecoveryPointStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RecoveryPointStatus x -&gt; RecoveryPointStatus
+$cfrom :: forall x. RecoveryPointStatus -&gt; Rep RecoveryPointStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308756"><span id="local-6989586621679308758"><span class="annot"><span class="annottext">Int -&gt; RecoveryPointStatus -&gt; Int
+RecoveryPointStatus -&gt; Int
+(Int -&gt; RecoveryPointStatus -&gt; Int)
+-&gt; (RecoveryPointStatus -&gt; Int) -&gt; Hashable RecoveryPointStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RecoveryPointStatus -&gt; Int
+$chash :: RecoveryPointStatus -&gt; Int
+hashWithSalt :: Int -&gt; RecoveryPointStatus -&gt; Int
+$chashWithSalt :: Int -&gt; RecoveryPointStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679308753"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; ()
+(RecoveryPointStatus -&gt; ()) -&gt; NFData RecoveryPointStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RecoveryPointStatus -&gt; ()
+$crnf :: RecoveryPointStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679308750"><span class="annot"><span class="annottext">Text -&gt; Either String RecoveryPointStatus
+(Text -&gt; Either String RecoveryPointStatus)
+-&gt; FromText RecoveryPointStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RecoveryPointStatus
+$cfromText :: Text -&gt; Either String RecoveryPointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679308747"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; Text
+(RecoveryPointStatus -&gt; Text) -&gt; ToText RecoveryPointStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RecoveryPointStatus -&gt; Text
+$ctoText :: RecoveryPointStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679308744"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; ByteString
+(RecoveryPointStatus -&gt; ByteString)
+-&gt; ToByteString RecoveryPointStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RecoveryPointStatus -&gt; ByteString
+$ctoBS :: RecoveryPointStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679308741"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; ByteStringBuilder
+(RecoveryPointStatus -&gt; ByteStringBuilder)
+-&gt; ToLog RecoveryPointStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RecoveryPointStatus -&gt; ByteStringBuilder
+$cbuild :: RecoveryPointStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679308738"><span class="annot"><span class="annottext">HeaderName -&gt; RecoveryPointStatus -&gt; [Header]
+(HeaderName -&gt; RecoveryPointStatus -&gt; [Header])
+-&gt; ToHeader RecoveryPointStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RecoveryPointStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RecoveryPointStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679308735"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; QueryString
+(RecoveryPointStatus -&gt; QueryString) -&gt; ToQuery RecoveryPointStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RecoveryPointStatus -&gt; QueryString
+$ctoQuery :: RecoveryPointStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679308730"><span id="local-6989586621679308732"><span class="annot"><span class="annottext">Value -&gt; Parser [RecoveryPointStatus]
+Value -&gt; Parser RecoveryPointStatus
+(Value -&gt; Parser RecoveryPointStatus)
+-&gt; (Value -&gt; Parser [RecoveryPointStatus])
+-&gt; FromJSON RecoveryPointStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RecoveryPointStatus]
+$cparseJSONList :: Value -&gt; Parser [RecoveryPointStatus]
+parseJSON :: Value -&gt; Parser RecoveryPointStatus
+$cparseJSON :: Value -&gt; Parser RecoveryPointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679308725"><span id="local-6989586621679308727"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecoveryPointStatus]
+FromJSONKeyFunction RecoveryPointStatus
+FromJSONKeyFunction RecoveryPointStatus
+-&gt; FromJSONKeyFunction [RecoveryPointStatus]
+-&gt; FromJSONKey RecoveryPointStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RecoveryPointStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [RecoveryPointStatus]
+fromJSONKey :: FromJSONKeyFunction RecoveryPointStatus
+$cfromJSONKey :: FromJSONKeyFunction RecoveryPointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679308716"><span id="local-6989586621679308718"><span id="local-6989586621679308720"><span id="local-6989586621679308722"><span class="annot"><span class="annottext">[RecoveryPointStatus] -&gt; Encoding
+[RecoveryPointStatus] -&gt; Value
+RecoveryPointStatus -&gt; Encoding
+RecoveryPointStatus -&gt; Value
+(RecoveryPointStatus -&gt; Value)
+-&gt; (RecoveryPointStatus -&gt; Encoding)
+-&gt; ([RecoveryPointStatus] -&gt; Value)
+-&gt; ([RecoveryPointStatus] -&gt; Encoding)
+-&gt; ToJSON RecoveryPointStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RecoveryPointStatus] -&gt; Encoding
+$ctoEncodingList :: [RecoveryPointStatus] -&gt; Encoding
+toJSONList :: [RecoveryPointStatus] -&gt; Value
+$ctoJSONList :: [RecoveryPointStatus] -&gt; Value
+toEncoding :: RecoveryPointStatus -&gt; Encoding
+$ctoEncoding :: RecoveryPointStatus -&gt; Encoding
+toJSON :: RecoveryPointStatus -&gt; Value
+$ctoJSON :: RecoveryPointStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679308711"><span id="local-6989586621679308713"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecoveryPointStatus]
+ToJSONKeyFunction RecoveryPointStatus
+ToJSONKeyFunction RecoveryPointStatus
+-&gt; ToJSONKeyFunction [RecoveryPointStatus]
+-&gt; ToJSONKey RecoveryPointStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RecoveryPointStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [RecoveryPointStatus]
+toJSONKey :: ToJSONKeyFunction RecoveryPointStatus
+$ctoJSONKey :: ToJSONKeyFunction RecoveryPointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679308708"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecoveryPointStatus
+([Node] -&gt; Either String RecoveryPointStatus)
+-&gt; FromXML RecoveryPointStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RecoveryPointStatus
+$cparseXML :: [Node] -&gt; Either String RecoveryPointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679308705"><span class="annot"><span class="annottext">RecoveryPointStatus -&gt; XML
+(RecoveryPointStatus -&gt; XML) -&gt; ToXML RecoveryPointStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RecoveryPointStatus -&gt; XML
+$ctoXML :: RecoveryPointStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_COMPLETED"><span class="hs-identifier hs-type">RecoveryPointStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus"><span class="hs-identifier hs-type">RecoveryPointStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecoveryPointStatus_COMPLETED"><span id="%24mRecoveryPointStatus_COMPLETED"><span id="RecoveryPointStatus_COMPLETED"><span class="annot"><span class="annottext">$bRecoveryPointStatus_COMPLETED :: RecoveryPointStatus
+$mRecoveryPointStatus_COMPLETED :: forall r. RecoveryPointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#%24bRecoveryPointStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">RecoveryPointStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus%27"><span class="hs-identifier hs-type">RecoveryPointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_DELETING"><span class="hs-identifier hs-type">RecoveryPointStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus"><span class="hs-identifier hs-type">RecoveryPointStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecoveryPointStatus_DELETING"><span id="%24mRecoveryPointStatus_DELETING"><span id="RecoveryPointStatus_DELETING"><span class="annot"><span class="annottext">$bRecoveryPointStatus_DELETING :: RecoveryPointStatus
+$mRecoveryPointStatus_DELETING :: forall r. RecoveryPointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#%24bRecoveryPointStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">RecoveryPointStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus%27"><span class="hs-identifier hs-type">RecoveryPointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_EXPIRED"><span class="hs-identifier hs-type">RecoveryPointStatus_EXPIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus"><span class="hs-identifier hs-type">RecoveryPointStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecoveryPointStatus_EXPIRED"><span id="%24mRecoveryPointStatus_EXPIRED"><span id="RecoveryPointStatus_EXPIRED"><span class="annot"><span class="annottext">$bRecoveryPointStatus_EXPIRED :: RecoveryPointStatus
+$mRecoveryPointStatus_EXPIRED :: forall r. RecoveryPointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#%24bRecoveryPointStatus_EXPIRED"><span class="hs-identifier hs-var hs-var hs-var">RecoveryPointStatus_EXPIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus%27"><span class="hs-identifier hs-type">RecoveryPointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPIRED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_PARTIAL"><span class="hs-identifier hs-type">RecoveryPointStatus_PARTIAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus"><span class="hs-identifier hs-type">RecoveryPointStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecoveryPointStatus_PARTIAL"><span id="%24mRecoveryPointStatus_PARTIAL"><span id="RecoveryPointStatus_PARTIAL"><span class="annot"><span class="annottext">$bRecoveryPointStatus_PARTIAL :: RecoveryPointStatus
+$mRecoveryPointStatus_PARTIAL :: forall r. RecoveryPointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#%24bRecoveryPointStatus_PARTIAL"><span class="hs-identifier hs-var hs-var hs-var">RecoveryPointStatus_PARTIAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus%27"><span class="hs-identifier hs-type">RecoveryPointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARTIAL&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_COMPLETED"><span class="hs-pragma hs-type">RecoveryPointStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_DELETING"><span class="hs-pragma hs-type">RecoveryPointStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_EXPIRED"><span class="hs-pragma hs-type">RecoveryPointStatus_EXPIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus_PARTIAL"><span class="hs-pragma hs-type">RecoveryPointStatus_PARTIAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus%27"><span class="hs-pragma hs-type">RecoveryPointStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

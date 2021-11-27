@@ -5,30 +5,30 @@
 @version 2.0
 
 
-module Test.AWS.Diff
+module Test.Amazonka.Diff
 
 -- | Display the difference between two Haskell values, with control over
 --   the diff parameters.
 diff :: (Show a, Show b) => a -> b -> IO String
 
 
-module Test.AWS.Orphans
+module Test.Amazonka.Orphans
 instance Data.Aeson.Types.FromJSON.FromJSON Data.ByteString.Internal.ByteString
 
 
-module Test.AWS.Assert
+module Test.Amazonka.Assert
 assertDiff :: (Eq a, Show a) => String -> a -> Either String a -> Assertion
 
 
-module Test.AWS.TH
+module Test.Amazonka.TH
 mkTime :: Text -> Q Exp
-instance Language.Haskell.TH.Syntax.Lift (Network.AWS.Data.Time.Time a)
+instance Language.Haskell.TH.Syntax.Lift (Amazonka.Data.Time.Time a)
 instance Language.Haskell.TH.Syntax.Lift Data.Time.Clock.Internal.UTCTime.UTCTime
 instance Language.Haskell.TH.Syntax.Lift Data.Time.Calendar.Days.Day
 instance Language.Haskell.TH.Syntax.Lift Data.Time.Clock.Internal.DiffTime.DiffTime
 
 
-module Test.AWS.Prelude
+module Test.Amazonka.Prelude
 
 -- | Map each element of a structure to an action, evaluate these actions
 --   from left to right, and collect the results. For a version that
@@ -1139,7 +1139,7 @@ assertDiff :: (Eq a, Show a) => String -> a -> Either String a -> Assertion
 mkTime :: Text -> Q Exp
 
 
-module Test.AWS.Fixture
+module Test.Amazonka.Fixture
 res :: (AWSRequest a, Eq (AWSResponse a), Show (AWSResponse a)) => TestName -> FilePath -> Service -> Proxy a -> AWSResponse a -> TestTree
 req :: (AWSRequest a, Eq a, Show a) => TestName -> FilePath -> a -> TestTree
 testResponse :: forall a. AWSRequest a => Service -> Proxy a -> ByteStringLazy -> IO (Either String (AWSResponse a))
@@ -1154,7 +1154,7 @@ Req :: Method -> ByteString -> ByteString -> [Header] -> ByteString -> Req
 [_body] :: Req -> ByteString
 mkReq :: Method -> ByteString -> ByteString -> [Header] -> ByteString -> Req
 sortKeys :: Ord a => [(a, b)] -> [(a, b)]
-instance GHC.Generics.Generic Test.AWS.Fixture.Req
-instance GHC.Show.Show Test.AWS.Fixture.Req
-instance GHC.Classes.Eq Test.AWS.Fixture.Req
-instance Data.Aeson.Types.FromJSON.FromJSON Test.AWS.Fixture.Req
+instance GHC.Generics.Generic Test.Amazonka.Fixture.Req
+instance GHC.Show.Show Test.Amazonka.Fixture.Req
+instance GHC.Classes.Eq Test.Amazonka.Fixture.Req
+instance Data.Aeson.Types.FromJSON.FromJSON Test.Amazonka.Fixture.Req

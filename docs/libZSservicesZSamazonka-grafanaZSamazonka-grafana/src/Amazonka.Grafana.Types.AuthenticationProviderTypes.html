@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Grafana.Types.AuthenticationProviderTypes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Grafana.Types.AuthenticationProviderTypes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes"><span class="hs-identifier">AuthenticationProviderTypes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes_AWS_SSO"><span class="hs-identifier">AuthenticationProviderTypes_AWS_SSO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes_SAML"><span class="hs-identifier">AuthenticationProviderTypes_SAML</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679183759"><span id="local-6989586621679183760"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthenticationProviderTypes"><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes"><span class="hs-identifier hs-var">AuthenticationProviderTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthenticationProviderTypes%27"><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes%27"><span class="hs-identifier hs-var">AuthenticationProviderTypes'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthenticationProviderTypes"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; Text
+</span><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#fromAuthenticationProviderTypes"><span class="hs-identifier hs-var hs-var">fromAuthenticationProviderTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183751"><span id="local-6989586621679183753"><span id="local-6989586621679183755"><span class="annot"><span class="annottext">Int -&gt; AuthenticationProviderTypes -&gt; ShowS
+[AuthenticationProviderTypes] -&gt; ShowS
+AuthenticationProviderTypes -&gt; String
+(Int -&gt; AuthenticationProviderTypes -&gt; ShowS)
+-&gt; (AuthenticationProviderTypes -&gt; String)
+-&gt; ([AuthenticationProviderTypes] -&gt; ShowS)
+-&gt; Show AuthenticationProviderTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthenticationProviderTypes] -&gt; ShowS
+$cshowList :: [AuthenticationProviderTypes] -&gt; ShowS
+show :: AuthenticationProviderTypes -&gt; String
+$cshow :: AuthenticationProviderTypes -&gt; String
+showsPrec :: Int -&gt; AuthenticationProviderTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthenticationProviderTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679183742"><span id="local-6989586621679183744"><span id="local-6989586621679183746"><span id="local-6989586621679183748"><span class="annot"><span class="annottext">ReadPrec [AuthenticationProviderTypes]
+ReadPrec AuthenticationProviderTypes
+Int -&gt; ReadS AuthenticationProviderTypes
+ReadS [AuthenticationProviderTypes]
+(Int -&gt; ReadS AuthenticationProviderTypes)
+-&gt; ReadS [AuthenticationProviderTypes]
+-&gt; ReadPrec AuthenticationProviderTypes
+-&gt; ReadPrec [AuthenticationProviderTypes]
+-&gt; Read AuthenticationProviderTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthenticationProviderTypes]
+$creadListPrec :: ReadPrec [AuthenticationProviderTypes]
+readPrec :: ReadPrec AuthenticationProviderTypes
+$creadPrec :: ReadPrec AuthenticationProviderTypes
+readList :: ReadS [AuthenticationProviderTypes]
+$creadList :: ReadS [AuthenticationProviderTypes]
+readsPrec :: Int -&gt; ReadS AuthenticationProviderTypes
+$creadsPrec :: Int -&gt; ReadS AuthenticationProviderTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679183737"><span id="local-6989586621679183739"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+(AuthenticationProviderTypes
+ -&gt; AuthenticationProviderTypes -&gt; Bool)
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; Bool)
+-&gt; Eq AuthenticationProviderTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+$c/= :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+== :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+$c== :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679183721"><span id="local-6989586621679183723"><span id="local-6989586621679183725"><span id="local-6989586621679183727"><span id="local-6989586621679183729"><span id="local-6989586621679183731"><span id="local-6989586621679183733"><span class="annot"><span class="annottext">Eq AuthenticationProviderTypes
+Eq AuthenticationProviderTypes
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; Ordering)
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; Bool)
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; Bool)
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; Bool)
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; Bool)
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; AuthenticationProviderTypes)
+-&gt; (AuthenticationProviderTypes
+    -&gt; AuthenticationProviderTypes -&gt; AuthenticationProviderTypes)
+-&gt; Ord AuthenticationProviderTypes
+AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; Ordering
+AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; AuthenticationProviderTypes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; AuthenticationProviderTypes
+$cmin :: AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; AuthenticationProviderTypes
+max :: AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; AuthenticationProviderTypes
+$cmax :: AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; AuthenticationProviderTypes
+&gt;= :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+$c&gt;= :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+&gt; :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+$c&gt; :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+&lt;= :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+$c&lt;= :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+&lt; :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+$c&lt; :: AuthenticationProviderTypes -&gt; AuthenticationProviderTypes -&gt; Bool
+compare :: AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; Ordering
+$ccompare :: AuthenticationProviderTypes
+-&gt; AuthenticationProviderTypes -&gt; Ordering
+$cp1Ord :: Eq AuthenticationProviderTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AuthenticationProviderTypes -&gt; Rep AuthenticationProviderTypes x)
+-&gt; (forall x.
+    Rep AuthenticationProviderTypes x -&gt; AuthenticationProviderTypes)
+-&gt; Generic AuthenticationProviderTypes
+forall x.
+Rep AuthenticationProviderTypes x -&gt; AuthenticationProviderTypes
+forall x.
+AuthenticationProviderTypes -&gt; Rep AuthenticationProviderTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AuthenticationProviderTypes x -&gt; AuthenticationProviderTypes
+$cfrom :: forall x.
+AuthenticationProviderTypes -&gt; Rep AuthenticationProviderTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183713"><span id="local-6989586621679183715"><span class="annot"><span class="annottext">Int -&gt; AuthenticationProviderTypes -&gt; Int
+AuthenticationProviderTypes -&gt; Int
+(Int -&gt; AuthenticationProviderTypes -&gt; Int)
+-&gt; (AuthenticationProviderTypes -&gt; Int)
+-&gt; Hashable AuthenticationProviderTypes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthenticationProviderTypes -&gt; Int
+$chash :: AuthenticationProviderTypes -&gt; Int
+hashWithSalt :: Int -&gt; AuthenticationProviderTypes -&gt; Int
+$chashWithSalt :: Int -&gt; AuthenticationProviderTypes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679183710"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; ()
+(AuthenticationProviderTypes -&gt; ())
+-&gt; NFData AuthenticationProviderTypes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthenticationProviderTypes -&gt; ()
+$crnf :: AuthenticationProviderTypes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679183707"><span class="annot"><span class="annottext">Text -&gt; Either String AuthenticationProviderTypes
+(Text -&gt; Either String AuthenticationProviderTypes)
+-&gt; FromText AuthenticationProviderTypes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthenticationProviderTypes
+$cfromText :: Text -&gt; Either String AuthenticationProviderTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679183704"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; Text
+(AuthenticationProviderTypes -&gt; Text)
+-&gt; ToText AuthenticationProviderTypes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthenticationProviderTypes -&gt; Text
+$ctoText :: AuthenticationProviderTypes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183701"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; ByteString
+(AuthenticationProviderTypes -&gt; ByteString)
+-&gt; ToByteString AuthenticationProviderTypes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthenticationProviderTypes -&gt; ByteString
+$ctoBS :: AuthenticationProviderTypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183698"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; ByteStringBuilder
+(AuthenticationProviderTypes -&gt; ByteStringBuilder)
+-&gt; ToLog AuthenticationProviderTypes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthenticationProviderTypes -&gt; ByteStringBuilder
+$cbuild :: AuthenticationProviderTypes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183695"><span class="annot"><span class="annottext">HeaderName -&gt; AuthenticationProviderTypes -&gt; [Header]
+(HeaderName -&gt; AuthenticationProviderTypes -&gt; [Header])
+-&gt; ToHeader AuthenticationProviderTypes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthenticationProviderTypes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthenticationProviderTypes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183692"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; QueryString
+(AuthenticationProviderTypes -&gt; QueryString)
+-&gt; ToQuery AuthenticationProviderTypes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthenticationProviderTypes -&gt; QueryString
+$ctoQuery :: AuthenticationProviderTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183687"><span id="local-6989586621679183689"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthenticationProviderTypes]
+Value -&gt; Parser AuthenticationProviderTypes
+(Value -&gt; Parser AuthenticationProviderTypes)
+-&gt; (Value -&gt; Parser [AuthenticationProviderTypes])
+-&gt; FromJSON AuthenticationProviderTypes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthenticationProviderTypes]
+$cparseJSONList :: Value -&gt; Parser [AuthenticationProviderTypes]
+parseJSON :: Value -&gt; Parser AuthenticationProviderTypes
+$cparseJSON :: Value -&gt; Parser AuthenticationProviderTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183682"><span id="local-6989586621679183684"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthenticationProviderTypes]
+FromJSONKeyFunction AuthenticationProviderTypes
+FromJSONKeyFunction AuthenticationProviderTypes
+-&gt; FromJSONKeyFunction [AuthenticationProviderTypes]
+-&gt; FromJSONKey AuthenticationProviderTypes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthenticationProviderTypes]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthenticationProviderTypes]
+fromJSONKey :: FromJSONKeyFunction AuthenticationProviderTypes
+$cfromJSONKey :: FromJSONKeyFunction AuthenticationProviderTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183673"><span id="local-6989586621679183675"><span id="local-6989586621679183677"><span id="local-6989586621679183679"><span class="annot"><span class="annottext">[AuthenticationProviderTypes] -&gt; Encoding
+[AuthenticationProviderTypes] -&gt; Value
+AuthenticationProviderTypes -&gt; Encoding
+AuthenticationProviderTypes -&gt; Value
+(AuthenticationProviderTypes -&gt; Value)
+-&gt; (AuthenticationProviderTypes -&gt; Encoding)
+-&gt; ([AuthenticationProviderTypes] -&gt; Value)
+-&gt; ([AuthenticationProviderTypes] -&gt; Encoding)
+-&gt; ToJSON AuthenticationProviderTypes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthenticationProviderTypes] -&gt; Encoding
+$ctoEncodingList :: [AuthenticationProviderTypes] -&gt; Encoding
+toJSONList :: [AuthenticationProviderTypes] -&gt; Value
+$ctoJSONList :: [AuthenticationProviderTypes] -&gt; Value
+toEncoding :: AuthenticationProviderTypes -&gt; Encoding
+$ctoEncoding :: AuthenticationProviderTypes -&gt; Encoding
+toJSON :: AuthenticationProviderTypes -&gt; Value
+$ctoJSON :: AuthenticationProviderTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183668"><span id="local-6989586621679183670"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthenticationProviderTypes]
+ToJSONKeyFunction AuthenticationProviderTypes
+ToJSONKeyFunction AuthenticationProviderTypes
+-&gt; ToJSONKeyFunction [AuthenticationProviderTypes]
+-&gt; ToJSONKey AuthenticationProviderTypes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthenticationProviderTypes]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthenticationProviderTypes]
+toJSONKey :: ToJSONKeyFunction AuthenticationProviderTypes
+$ctoJSONKey :: ToJSONKeyFunction AuthenticationProviderTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183665"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthenticationProviderTypes
+([Node] -&gt; Either String AuthenticationProviderTypes)
+-&gt; FromXML AuthenticationProviderTypes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthenticationProviderTypes
+$cparseXML :: [Node] -&gt; Either String AuthenticationProviderTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183662"><span class="annot"><span class="annottext">AuthenticationProviderTypes -&gt; XML
+(AuthenticationProviderTypes -&gt; XML)
+-&gt; ToXML AuthenticationProviderTypes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthenticationProviderTypes -&gt; XML
+$ctoXML :: AuthenticationProviderTypes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes_AWS_SSO"><span class="hs-identifier hs-type">AuthenticationProviderTypes_AWS_SSO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes"><span class="hs-identifier hs-type">AuthenticationProviderTypes</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationProviderTypes_AWS_SSO"><span id="%24mAuthenticationProviderTypes_AWS_SSO"><span id="AuthenticationProviderTypes_AWS_SSO"><span class="annot"><span class="annottext">$bAuthenticationProviderTypes_AWS_SSO :: AuthenticationProviderTypes
+$mAuthenticationProviderTypes_AWS_SSO :: forall r.
+AuthenticationProviderTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#%24bAuthenticationProviderTypes_AWS_SSO"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationProviderTypes_AWS_SSO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes%27"><span class="hs-identifier hs-type">AuthenticationProviderTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_SSO&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes_SAML"><span class="hs-identifier hs-type">AuthenticationProviderTypes_SAML</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes"><span class="hs-identifier hs-type">AuthenticationProviderTypes</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationProviderTypes_SAML"><span id="%24mAuthenticationProviderTypes_SAML"><span id="AuthenticationProviderTypes_SAML"><span class="annot"><span class="annottext">$bAuthenticationProviderTypes_SAML :: AuthenticationProviderTypes
+$mAuthenticationProviderTypes_SAML :: forall r.
+AuthenticationProviderTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#%24bAuthenticationProviderTypes_SAML"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationProviderTypes_SAML</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes%27"><span class="hs-identifier hs-type">AuthenticationProviderTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SAML&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes_AWS_SSO"><span class="hs-pragma hs-type">AuthenticationProviderTypes_AWS_SSO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes_SAML"><span class="hs-pragma hs-type">AuthenticationProviderTypes_SAML</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationProviderTypes.html#AuthenticationProviderTypes%27"><span class="hs-pragma hs-type">AuthenticationProviderTypes'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

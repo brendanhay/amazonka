@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelProtocol.html"><span class="hs-identifier">Amazonka.KinesisVideo.Types.ChannelProtocol</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelRole.html"><span class="hs-identifier">Amazonka.KinesisVideo.Types.ChannelRole</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An object that contains the endpoint configuration for the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @SINGLE_MASTER@ channel type.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSingleMasterChannelEndpointConfiguration' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679175795"><span id="local-6989586621679175796"></span></span><span class="hs-keyword">data</span><span> </span><span id="SingleMasterChannelEndpointConfiguration"><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-var">SingleMasterChannelEndpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SingleMasterChannelEndpointConfiguration%27"><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-var">SingleMasterChannelEndpointConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This property is used to determine the nature of communication over this</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- returns a websocket endpoint. If @HTTPS@ is specified, this API returns</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- an @HTTPS@ endpoint.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aprotocols%3ASingleMasterChannelEndpointConfiguration%27"><span class="annot"><span class="annottext">SingleMasterChannelEndpointConfiguration
+-&gt; Maybe (NonEmpty ChannelProtocol)
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#%24sel%3Aprotocols%3ASingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-var hs-var">protocols</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelProtocol.html#ChannelProtocol"><span class="hs-identifier hs-type">ChannelProtocol</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | This property is used to determine messaging permissions in this</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- returns an endpoint that a client can use to receive offers from and</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- send answers to any of the viewers on this signaling channel. If</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @VIEWER@ is specified, this API returns an endpoint that a client can</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- use only to send offers to another @MASTER@ client on this signaling</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Arole%27%3ASingleMasterChannelEndpointConfiguration%27"><span class="annot"><span class="annottext">SingleMasterChannelEndpointConfiguration -&gt; Maybe ChannelRole
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#%24sel%3Arole%27%3ASingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelRole.html#ChannelRole"><span class="hs-identifier hs-type">ChannelRole</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175788"><span id="local-6989586621679175790"><span class="annot"><span class="annottext">SingleMasterChannelEndpointConfiguration
+-&gt; SingleMasterChannelEndpointConfiguration -&gt; Bool
+(SingleMasterChannelEndpointConfiguration
+ -&gt; SingleMasterChannelEndpointConfiguration -&gt; Bool)
+-&gt; (SingleMasterChannelEndpointConfiguration
+    -&gt; SingleMasterChannelEndpointConfiguration -&gt; Bool)
+-&gt; Eq SingleMasterChannelEndpointConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SingleMasterChannelEndpointConfiguration
+-&gt; SingleMasterChannelEndpointConfiguration -&gt; Bool
+$c/= :: SingleMasterChannelEndpointConfiguration
+-&gt; SingleMasterChannelEndpointConfiguration -&gt; Bool
+== :: SingleMasterChannelEndpointConfiguration
+-&gt; SingleMasterChannelEndpointConfiguration -&gt; Bool
+$c== :: SingleMasterChannelEndpointConfiguration
+-&gt; SingleMasterChannelEndpointConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175779"><span id="local-6989586621679175781"><span id="local-6989586621679175783"><span id="local-6989586621679175785"><span class="annot"><span class="annottext">ReadPrec [SingleMasterChannelEndpointConfiguration]
+ReadPrec SingleMasterChannelEndpointConfiguration
+Int -&gt; ReadS SingleMasterChannelEndpointConfiguration
+ReadS [SingleMasterChannelEndpointConfiguration]
+(Int -&gt; ReadS SingleMasterChannelEndpointConfiguration)
+-&gt; ReadS [SingleMasterChannelEndpointConfiguration]
+-&gt; ReadPrec SingleMasterChannelEndpointConfiguration
+-&gt; ReadPrec [SingleMasterChannelEndpointConfiguration]
+-&gt; Read SingleMasterChannelEndpointConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SingleMasterChannelEndpointConfiguration]
+$creadListPrec :: ReadPrec [SingleMasterChannelEndpointConfiguration]
+readPrec :: ReadPrec SingleMasterChannelEndpointConfiguration
+$creadPrec :: ReadPrec SingleMasterChannelEndpointConfiguration
+readList :: ReadS [SingleMasterChannelEndpointConfiguration]
+$creadList :: ReadS [SingleMasterChannelEndpointConfiguration]
+readsPrec :: Int -&gt; ReadS SingleMasterChannelEndpointConfiguration
+$creadsPrec :: Int -&gt; ReadS SingleMasterChannelEndpointConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175772"><span id="local-6989586621679175774"><span id="local-6989586621679175776"><span class="annot"><span class="annottext">Int -&gt; SingleMasterChannelEndpointConfiguration -&gt; ShowS
+[SingleMasterChannelEndpointConfiguration] -&gt; ShowS
+SingleMasterChannelEndpointConfiguration -&gt; String
+(Int -&gt; SingleMasterChannelEndpointConfiguration -&gt; ShowS)
+-&gt; (SingleMasterChannelEndpointConfiguration -&gt; String)
+-&gt; ([SingleMasterChannelEndpointConfiguration] -&gt; ShowS)
+-&gt; Show SingleMasterChannelEndpointConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SingleMasterChannelEndpointConfiguration] -&gt; ShowS
+$cshowList :: [SingleMasterChannelEndpointConfiguration] -&gt; ShowS
+show :: SingleMasterChannelEndpointConfiguration -&gt; String
+$cshow :: SingleMasterChannelEndpointConfiguration -&gt; String
+showsPrec :: Int -&gt; SingleMasterChannelEndpointConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; SingleMasterChannelEndpointConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SingleMasterChannelEndpointConfiguration
+ -&gt; Rep SingleMasterChannelEndpointConfiguration x)
+-&gt; (forall x.
+    Rep SingleMasterChannelEndpointConfiguration x
+    -&gt; SingleMasterChannelEndpointConfiguration)
+-&gt; Generic SingleMasterChannelEndpointConfiguration
+forall x.
+Rep SingleMasterChannelEndpointConfiguration x
+-&gt; SingleMasterChannelEndpointConfiguration
+forall x.
+SingleMasterChannelEndpointConfiguration
+-&gt; Rep SingleMasterChannelEndpointConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SingleMasterChannelEndpointConfiguration x
+-&gt; SingleMasterChannelEndpointConfiguration
+$cfrom :: forall x.
+SingleMasterChannelEndpointConfiguration
+-&gt; Rep SingleMasterChannelEndpointConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'SingleMasterChannelEndpointConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'protocols', 'singleMasterChannelEndpointConfiguration_protocols' - This property is used to determine the nature of communication over this</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- returns a websocket endpoint. If @HTTPS@ is specified, this API returns</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- an @HTTPS@ endpoint.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'role'', 'singleMasterChannelEndpointConfiguration_role' - This property is used to determine messaging permissions in this</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- returns an endpoint that a client can use to receive offers from and</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- send answers to any of the viewers on this signaling channel. If</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @VIEWER@ is specified, this API returns an endpoint that a client can</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- use only to send offers to another @MASTER@ client on this signaling</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#newSingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">newSingleMasterChannelEndpointConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span><span>
+</span><span id="line-71"></span><span id="newSingleMasterChannelEndpointConfiguration"><span class="annot"><span class="annottext">newSingleMasterChannelEndpointConfiguration :: SingleMasterChannelEndpointConfiguration
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#newSingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-var hs-var">newSingleMasterChannelEndpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">SingleMasterChannelEndpointConfiguration' :: Maybe (NonEmpty ChannelProtocol)
+-&gt; Maybe ChannelRole -&gt; SingleMasterChannelEndpointConfiguration
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protocols:SingleMasterChannelEndpointConfiguration' :: Maybe (NonEmpty ChannelProtocol)
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#%24sel%3Aprotocols%3ASingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-var">protocols</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty ChannelProtocol)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':SingleMasterChannelEndpointConfiguration' :: Maybe ChannelRole
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#%24sel%3Arole%27%3ASingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelRole
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | This property is used to determine the nature of communication over this</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- returns a websocket endpoint. If @HTTPS@ is specified, this API returns</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- an @HTTPS@ endpoint.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#singleMasterChannelEndpointConfiguration_protocols"><span class="hs-identifier hs-type">singleMasterChannelEndpointConfiguration_protocols</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelProtocol.html#ChannelProtocol"><span class="hs-identifier hs-type">ChannelProtocol</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="singleMasterChannelEndpointConfiguration_protocols"><span class="annot"><span class="annottext">singleMasterChannelEndpointConfiguration_protocols :: (Maybe (NonEmpty ChannelProtocol)
+ -&gt; f (Maybe (NonEmpty ChannelProtocol)))
+-&gt; SingleMasterChannelEndpointConfiguration
+-&gt; f SingleMasterChannelEndpointConfiguration
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#singleMasterChannelEndpointConfiguration_protocols"><span class="hs-identifier hs-var hs-var">singleMasterChannelEndpointConfiguration_protocols</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleMasterChannelEndpointConfiguration
+ -&gt; Maybe (NonEmpty ChannelProtocol))
+-&gt; (SingleMasterChannelEndpointConfiguration
+    -&gt; Maybe (NonEmpty ChannelProtocol)
+    -&gt; SingleMasterChannelEndpointConfiguration)
+-&gt; Lens
+     SingleMasterChannelEndpointConfiguration
+     SingleMasterChannelEndpointConfiguration
+     (Maybe (NonEmpty ChannelProtocol))
+     (Maybe (NonEmpty ChannelProtocol))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175763"><span class="annot"><span class="annottext">Maybe (NonEmpty ChannelProtocol)
+protocols :: Maybe (NonEmpty ChannelProtocol)
+$sel:protocols:SingleMasterChannelEndpointConfiguration' :: SingleMasterChannelEndpointConfiguration
+-&gt; Maybe (NonEmpty ChannelProtocol)
+</span><a href="#local-6989586621679175763"><span class="hs-identifier hs-var hs-var">protocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ChannelProtocol)
+</span><a href="#local-6989586621679175763"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175762"><span class="annot"><span class="annottext">s :: SingleMasterChannelEndpointConfiguration
+</span><a href="#local-6989586621679175762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175761"><span class="annot"><span class="annottext">Maybe (NonEmpty ChannelProtocol)
+</span><a href="#local-6989586621679175761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleMasterChannelEndpointConfiguration
+</span><a href="#local-6989586621679175762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocols:SingleMasterChannelEndpointConfiguration' :: Maybe (NonEmpty ChannelProtocol)
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#%24sel%3Aprotocols%3ASingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-var">protocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ChannelProtocol)
+</span><a href="#local-6989586621679175761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ChannelProtocol)
+  -&gt; f (Maybe (NonEmpty ChannelProtocol)))
+ -&gt; SingleMasterChannelEndpointConfiguration
+ -&gt; f SingleMasterChannelEndpointConfiguration)
+-&gt; ((Maybe (NonEmpty ChannelProtocol)
+     -&gt; f (Maybe (NonEmpty ChannelProtocol)))
+    -&gt; Maybe (NonEmpty ChannelProtocol)
+    -&gt; f (Maybe (NonEmpty ChannelProtocol)))
+-&gt; (Maybe (NonEmpty ChannelProtocol)
+    -&gt; f (Maybe (NonEmpty ChannelProtocol)))
+-&gt; SingleMasterChannelEndpointConfiguration
+-&gt; f SingleMasterChannelEndpointConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ChannelProtocol)
+  (NonEmpty ChannelProtocol)
+  (NonEmpty ChannelProtocol)
+  (NonEmpty ChannelProtocol)
+-&gt; Iso
+     (Maybe (NonEmpty ChannelProtocol))
+     (Maybe (NonEmpty ChannelProtocol))
+     (Maybe (NonEmpty ChannelProtocol))
+     (Maybe (NonEmpty ChannelProtocol))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ChannelProtocol)
+  (NonEmpty ChannelProtocol)
+  (NonEmpty ChannelProtocol)
+  (NonEmpty ChannelProtocol)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | This property is used to determine messaging permissions in this</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- returns an endpoint that a client can use to receive offers from and</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- send answers to any of the viewers on this signaling channel. If</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @VIEWER@ is specified, this API returns an endpoint that a client can</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- use only to send offers to another @MASTER@ client on this signaling</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#singleMasterChannelEndpointConfiguration_role"><span class="hs-identifier hs-type">singleMasterChannelEndpointConfiguration_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelRole.html#ChannelRole"><span class="hs-identifier hs-type">ChannelRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="singleMasterChannelEndpointConfiguration_role"><span class="annot"><span class="annottext">singleMasterChannelEndpointConfiguration_role :: (Maybe ChannelRole -&gt; f (Maybe ChannelRole))
+-&gt; SingleMasterChannelEndpointConfiguration
+-&gt; f SingleMasterChannelEndpointConfiguration
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#singleMasterChannelEndpointConfiguration_role"><span class="hs-identifier hs-var hs-var">singleMasterChannelEndpointConfiguration_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleMasterChannelEndpointConfiguration -&gt; Maybe ChannelRole)
+-&gt; (SingleMasterChannelEndpointConfiguration
+    -&gt; Maybe ChannelRole -&gt; SingleMasterChannelEndpointConfiguration)
+-&gt; Lens
+     SingleMasterChannelEndpointConfiguration
+     SingleMasterChannelEndpointConfiguration
+     (Maybe ChannelRole)
+     (Maybe ChannelRole)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175756"><span class="annot"><span class="annottext">Maybe ChannelRole
+role' :: Maybe ChannelRole
+$sel:role':SingleMasterChannelEndpointConfiguration' :: SingleMasterChannelEndpointConfiguration -&gt; Maybe ChannelRole
+</span><a href="#local-6989586621679175756"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelRole
+</span><a href="#local-6989586621679175756"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175755"><span class="annot"><span class="annottext">s :: SingleMasterChannelEndpointConfiguration
+</span><a href="#local-6989586621679175755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175754"><span class="annot"><span class="annottext">Maybe ChannelRole
+</span><a href="#local-6989586621679175754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleMasterChannelEndpointConfiguration
+</span><a href="#local-6989586621679175755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':SingleMasterChannelEndpointConfiguration' :: Maybe ChannelRole
+</span><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#%24sel%3Arole%27%3ASingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelRole
+</span><a href="#local-6989586621679175754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679175750"><span id="local-6989586621679175752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679175747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679175739"><span id="local-6989586621679175741"><span id="local-6989586621679175743"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679175737"><span class="annot"><span class="annottext">toJSON :: SingleMasterChannelEndpointConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.html#SingleMasterChannelEndpointConfiguration%27"><span class="hs-identifier hs-type">SingleMasterChannelEndpointConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175734"><span id="local-6989586621679175735"><span class="annot"><span class="annottext">Maybe (NonEmpty ChannelProtocol)
+Maybe ChannelRole
+role' :: Maybe ChannelRole
+protocols :: Maybe (NonEmpty ChannelProtocol)
+$sel:role':SingleMasterChannelEndpointConfiguration' :: SingleMasterChannelEndpointConfiguration -&gt; Maybe ChannelRole
+$sel:protocols:SingleMasterChannelEndpointConfiguration' :: SingleMasterChannelEndpointConfiguration
+-&gt; Maybe (NonEmpty ChannelProtocol)
+</span><a href="#local-6989586621679175734"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protocols&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ChannelProtocol -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty ChannelProtocol -&gt; Pair)
+-&gt; Maybe (NonEmpty ChannelProtocol) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ChannelProtocol)
+</span><a href="#local-6989586621679175735"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Role&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChannelRole -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ChannelRole -&gt; Pair) -&gt; Maybe ChannelRole -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChannelRole
+</span><a href="#local-6989586621679175734"><span class="hs-identifier hs-var">role'</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span></pre></body></html>

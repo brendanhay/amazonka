@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus"><span class="hs-identifier">ResolverQueryLogConfigStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_CREATED"><span class="hs-identifier">ResolverQueryLogConfigStatus_CREATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_CREATING"><span class="hs-identifier">ResolverQueryLogConfigStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_DELETING"><span class="hs-identifier">ResolverQueryLogConfigStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_FAILED"><span class="hs-identifier">ResolverQueryLogConfigStatus_FAILED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679285461"><span id="local-6989586621679285462"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResolverQueryLogConfigStatus"><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus"><span class="hs-identifier hs-var">ResolverQueryLogConfigStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolverQueryLogConfigStatus%27"><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus%27"><span class="hs-identifier hs-var">ResolverQueryLogConfigStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResolverQueryLogConfigStatus"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus -&gt; Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#fromResolverQueryLogConfigStatus"><span class="hs-identifier hs-var hs-var">fromResolverQueryLogConfigStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285453"><span id="local-6989586621679285455"><span id="local-6989586621679285457"><span class="annot"><span class="annottext">Int -&gt; ResolverQueryLogConfigStatus -&gt; ShowS
+[ResolverQueryLogConfigStatus] -&gt; ShowS
+ResolverQueryLogConfigStatus -&gt; String
+(Int -&gt; ResolverQueryLogConfigStatus -&gt; ShowS)
+-&gt; (ResolverQueryLogConfigStatus -&gt; String)
+-&gt; ([ResolverQueryLogConfigStatus] -&gt; ShowS)
+-&gt; Show ResolverQueryLogConfigStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResolverQueryLogConfigStatus] -&gt; ShowS
+$cshowList :: [ResolverQueryLogConfigStatus] -&gt; ShowS
+show :: ResolverQueryLogConfigStatus -&gt; String
+$cshow :: ResolverQueryLogConfigStatus -&gt; String
+showsPrec :: Int -&gt; ResolverQueryLogConfigStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResolverQueryLogConfigStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679285444"><span id="local-6989586621679285446"><span id="local-6989586621679285448"><span id="local-6989586621679285450"><span class="annot"><span class="annottext">ReadPrec [ResolverQueryLogConfigStatus]
+ReadPrec ResolverQueryLogConfigStatus
+Int -&gt; ReadS ResolverQueryLogConfigStatus
+ReadS [ResolverQueryLogConfigStatus]
+(Int -&gt; ReadS ResolverQueryLogConfigStatus)
+-&gt; ReadS [ResolverQueryLogConfigStatus]
+-&gt; ReadPrec ResolverQueryLogConfigStatus
+-&gt; ReadPrec [ResolverQueryLogConfigStatus]
+-&gt; Read ResolverQueryLogConfigStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResolverQueryLogConfigStatus]
+$creadListPrec :: ReadPrec [ResolverQueryLogConfigStatus]
+readPrec :: ReadPrec ResolverQueryLogConfigStatus
+$creadPrec :: ReadPrec ResolverQueryLogConfigStatus
+readList :: ReadS [ResolverQueryLogConfigStatus]
+$creadList :: ReadS [ResolverQueryLogConfigStatus]
+readsPrec :: Int -&gt; ReadS ResolverQueryLogConfigStatus
+$creadsPrec :: Int -&gt; ReadS ResolverQueryLogConfigStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679285439"><span id="local-6989586621679285441"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+(ResolverQueryLogConfigStatus
+ -&gt; ResolverQueryLogConfigStatus -&gt; Bool)
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; Bool)
+-&gt; Eq ResolverQueryLogConfigStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+$c/= :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+== :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+$c== :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679285423"><span id="local-6989586621679285425"><span id="local-6989586621679285427"><span id="local-6989586621679285429"><span id="local-6989586621679285431"><span id="local-6989586621679285433"><span id="local-6989586621679285435"><span class="annot"><span class="annottext">Eq ResolverQueryLogConfigStatus
+Eq ResolverQueryLogConfigStatus
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; Ordering)
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; Bool)
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; Bool)
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; Bool)
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; Bool)
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; ResolverQueryLogConfigStatus)
+-&gt; (ResolverQueryLogConfigStatus
+    -&gt; ResolverQueryLogConfigStatus -&gt; ResolverQueryLogConfigStatus)
+-&gt; Ord ResolverQueryLogConfigStatus
+ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Ordering
+ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; ResolverQueryLogConfigStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; ResolverQueryLogConfigStatus
+$cmin :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; ResolverQueryLogConfigStatus
+max :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; ResolverQueryLogConfigStatus
+$cmax :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; ResolverQueryLogConfigStatus
+&gt;= :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+$c&gt;= :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+&gt; :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+$c&gt; :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+&lt;= :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+$c&lt;= :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+&lt; :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+$c&lt; :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Bool
+compare :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Ordering
+$ccompare :: ResolverQueryLogConfigStatus
+-&gt; ResolverQueryLogConfigStatus -&gt; Ordering
+$cp1Ord :: Eq ResolverQueryLogConfigStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ResolverQueryLogConfigStatus -&gt; Rep ResolverQueryLogConfigStatus x)
+-&gt; (forall x.
+    Rep ResolverQueryLogConfigStatus x -&gt; ResolverQueryLogConfigStatus)
+-&gt; Generic ResolverQueryLogConfigStatus
+forall x.
+Rep ResolverQueryLogConfigStatus x -&gt; ResolverQueryLogConfigStatus
+forall x.
+ResolverQueryLogConfigStatus -&gt; Rep ResolverQueryLogConfigStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResolverQueryLogConfigStatus x -&gt; ResolverQueryLogConfigStatus
+$cfrom :: forall x.
+ResolverQueryLogConfigStatus -&gt; Rep ResolverQueryLogConfigStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285415"><span id="local-6989586621679285417"><span class="annot"><span class="annottext">Int -&gt; ResolverQueryLogConfigStatus -&gt; Int
+ResolverQueryLogConfigStatus -&gt; Int
+(Int -&gt; ResolverQueryLogConfigStatus -&gt; Int)
+-&gt; (ResolverQueryLogConfigStatus -&gt; Int)
+-&gt; Hashable ResolverQueryLogConfigStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResolverQueryLogConfigStatus -&gt; Int
+$chash :: ResolverQueryLogConfigStatus -&gt; Int
+hashWithSalt :: Int -&gt; ResolverQueryLogConfigStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ResolverQueryLogConfigStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679285412"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus -&gt; ()
+(ResolverQueryLogConfigStatus -&gt; ())
+-&gt; NFData ResolverQueryLogConfigStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResolverQueryLogConfigStatus -&gt; ()
+$crnf :: ResolverQueryLogConfigStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679285409"><span class="annot"><span class="annottext">Text -&gt; Either String ResolverQueryLogConfigStatus
+(Text -&gt; Either String ResolverQueryLogConfigStatus)
+-&gt; FromText ResolverQueryLogConfigStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResolverQueryLogConfigStatus
+$cfromText :: Text -&gt; Either String ResolverQueryLogConfigStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679285406"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus -&gt; Text
+(ResolverQueryLogConfigStatus -&gt; Text)
+-&gt; ToText ResolverQueryLogConfigStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResolverQueryLogConfigStatus -&gt; Text
+$ctoText :: ResolverQueryLogConfigStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679285403"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus -&gt; ByteString
+(ResolverQueryLogConfigStatus -&gt; ByteString)
+-&gt; ToByteString ResolverQueryLogConfigStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResolverQueryLogConfigStatus -&gt; ByteString
+$ctoBS :: ResolverQueryLogConfigStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679285400"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus -&gt; ByteStringBuilder
+(ResolverQueryLogConfigStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ResolverQueryLogConfigStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResolverQueryLogConfigStatus -&gt; ByteStringBuilder
+$cbuild :: ResolverQueryLogConfigStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679285397"><span class="annot"><span class="annottext">HeaderName -&gt; ResolverQueryLogConfigStatus -&gt; [Header]
+(HeaderName -&gt; ResolverQueryLogConfigStatus -&gt; [Header])
+-&gt; ToHeader ResolverQueryLogConfigStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResolverQueryLogConfigStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResolverQueryLogConfigStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679285394"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus -&gt; QueryString
+(ResolverQueryLogConfigStatus -&gt; QueryString)
+-&gt; ToQuery ResolverQueryLogConfigStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResolverQueryLogConfigStatus -&gt; QueryString
+$ctoQuery :: ResolverQueryLogConfigStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679285389"><span id="local-6989586621679285391"><span class="annot"><span class="annottext">Value -&gt; Parser [ResolverQueryLogConfigStatus]
+Value -&gt; Parser ResolverQueryLogConfigStatus
+(Value -&gt; Parser ResolverQueryLogConfigStatus)
+-&gt; (Value -&gt; Parser [ResolverQueryLogConfigStatus])
+-&gt; FromJSON ResolverQueryLogConfigStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResolverQueryLogConfigStatus]
+$cparseJSONList :: Value -&gt; Parser [ResolverQueryLogConfigStatus]
+parseJSON :: Value -&gt; Parser ResolverQueryLogConfigStatus
+$cparseJSON :: Value -&gt; Parser ResolverQueryLogConfigStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679285384"><span id="local-6989586621679285386"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResolverQueryLogConfigStatus]
+FromJSONKeyFunction ResolverQueryLogConfigStatus
+FromJSONKeyFunction ResolverQueryLogConfigStatus
+-&gt; FromJSONKeyFunction [ResolverQueryLogConfigStatus]
+-&gt; FromJSONKey ResolverQueryLogConfigStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResolverQueryLogConfigStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResolverQueryLogConfigStatus]
+fromJSONKey :: FromJSONKeyFunction ResolverQueryLogConfigStatus
+$cfromJSONKey :: FromJSONKeyFunction ResolverQueryLogConfigStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679285375"><span id="local-6989586621679285377"><span id="local-6989586621679285379"><span id="local-6989586621679285381"><span class="annot"><span class="annottext">[ResolverQueryLogConfigStatus] -&gt; Encoding
+[ResolverQueryLogConfigStatus] -&gt; Value
+ResolverQueryLogConfigStatus -&gt; Encoding
+ResolverQueryLogConfigStatus -&gt; Value
+(ResolverQueryLogConfigStatus -&gt; Value)
+-&gt; (ResolverQueryLogConfigStatus -&gt; Encoding)
+-&gt; ([ResolverQueryLogConfigStatus] -&gt; Value)
+-&gt; ([ResolverQueryLogConfigStatus] -&gt; Encoding)
+-&gt; ToJSON ResolverQueryLogConfigStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResolverQueryLogConfigStatus] -&gt; Encoding
+$ctoEncodingList :: [ResolverQueryLogConfigStatus] -&gt; Encoding
+toJSONList :: [ResolverQueryLogConfigStatus] -&gt; Value
+$ctoJSONList :: [ResolverQueryLogConfigStatus] -&gt; Value
+toEncoding :: ResolverQueryLogConfigStatus -&gt; Encoding
+$ctoEncoding :: ResolverQueryLogConfigStatus -&gt; Encoding
+toJSON :: ResolverQueryLogConfigStatus -&gt; Value
+$ctoJSON :: ResolverQueryLogConfigStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679285370"><span id="local-6989586621679285372"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResolverQueryLogConfigStatus]
+ToJSONKeyFunction ResolverQueryLogConfigStatus
+ToJSONKeyFunction ResolverQueryLogConfigStatus
+-&gt; ToJSONKeyFunction [ResolverQueryLogConfigStatus]
+-&gt; ToJSONKey ResolverQueryLogConfigStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResolverQueryLogConfigStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResolverQueryLogConfigStatus]
+toJSONKey :: ToJSONKeyFunction ResolverQueryLogConfigStatus
+$ctoJSONKey :: ToJSONKeyFunction ResolverQueryLogConfigStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679285367"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResolverQueryLogConfigStatus
+([Node] -&gt; Either String ResolverQueryLogConfigStatus)
+-&gt; FromXML ResolverQueryLogConfigStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResolverQueryLogConfigStatus
+$cparseXML :: [Node] -&gt; Either String ResolverQueryLogConfigStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679285364"><span class="annot"><span class="annottext">ResolverQueryLogConfigStatus -&gt; XML
+(ResolverQueryLogConfigStatus -&gt; XML)
+-&gt; ToXML ResolverQueryLogConfigStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResolverQueryLogConfigStatus -&gt; XML
+$ctoXML :: ResolverQueryLogConfigStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_CREATED"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus_CREATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverQueryLogConfigStatus_CREATED"><span id="%24mResolverQueryLogConfigStatus_CREATED"><span id="ResolverQueryLogConfigStatus_CREATED"><span class="annot"><span class="annottext">$bResolverQueryLogConfigStatus_CREATED :: ResolverQueryLogConfigStatus
+$mResolverQueryLogConfigStatus_CREATED :: forall r.
+ResolverQueryLogConfigStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#%24bResolverQueryLogConfigStatus_CREATED"><span class="hs-identifier hs-var hs-var hs-var">ResolverQueryLogConfigStatus_CREATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus%27"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_CREATING"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverQueryLogConfigStatus_CREATING"><span id="%24mResolverQueryLogConfigStatus_CREATING"><span id="ResolverQueryLogConfigStatus_CREATING"><span class="annot"><span class="annottext">$bResolverQueryLogConfigStatus_CREATING :: ResolverQueryLogConfigStatus
+$mResolverQueryLogConfigStatus_CREATING :: forall r.
+ResolverQueryLogConfigStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#%24bResolverQueryLogConfigStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">ResolverQueryLogConfigStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus%27"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_DELETING"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverQueryLogConfigStatus_DELETING"><span id="%24mResolverQueryLogConfigStatus_DELETING"><span id="ResolverQueryLogConfigStatus_DELETING"><span class="annot"><span class="annottext">$bResolverQueryLogConfigStatus_DELETING :: ResolverQueryLogConfigStatus
+$mResolverQueryLogConfigStatus_DELETING :: forall r.
+ResolverQueryLogConfigStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#%24bResolverQueryLogConfigStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ResolverQueryLogConfigStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus%27"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_FAILED"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverQueryLogConfigStatus_FAILED"><span id="%24mResolverQueryLogConfigStatus_FAILED"><span id="ResolverQueryLogConfigStatus_FAILED"><span class="annot"><span class="annottext">$bResolverQueryLogConfigStatus_FAILED :: ResolverQueryLogConfigStatus
+$mResolverQueryLogConfigStatus_FAILED :: forall r.
+ResolverQueryLogConfigStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#%24bResolverQueryLogConfigStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ResolverQueryLogConfigStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus%27"><span class="hs-identifier hs-type">ResolverQueryLogConfigStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_CREATED"><span class="hs-pragma hs-type">ResolverQueryLogConfigStatus_CREATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_CREATING"><span class="hs-pragma hs-type">ResolverQueryLogConfigStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_DELETING"><span class="hs-pragma hs-type">ResolverQueryLogConfigStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus_FAILED"><span class="hs-pragma hs-type">ResolverQueryLogConfigStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus.html#ResolverQueryLogConfigStatus%27"><span class="hs-pragma hs-type">ResolverQueryLogConfigStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MQ.Types.LogsSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MQ.Types.LogsSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.PendingLogs.html"><span class="hs-identifier">Amazonka.MQ.Types.PendingLogs</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The list of information about logs currently enabled and pending to be</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- deployed for the specified broker.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLogsSummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679224262"><span id="local-6989586621679224263"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogsSummary"><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-var">LogsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogsSummary%27"><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-var">LogsSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of information about logs pending to be deployed for the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specified broker.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Apending%3ALogsSummary%27"><span class="annot"><span class="annottext">LogsSummary -&gt; Maybe PendingLogs
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Apending%3ALogsSummary%27"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Enables audit logging. Every user management action made using JMX or</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the ActiveMQ Web Console is logged.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aaudit%3ALogsSummary%27"><span class="annot"><span class="annottext">LogsSummary -&gt; Maybe Bool
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Aaudit%3ALogsSummary%27"><span class="hs-identifier hs-var hs-var">audit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The location of the CloudWatch Logs log group where audit logs are sent.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AauditLogGroup%3ALogsSummary%27"><span class="annot"><span class="annottext">LogsSummary -&gt; Maybe Text
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3AauditLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var hs-var">auditLogGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The location of the CloudWatch Logs log group where general logs are</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- sent.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AgeneralLogGroup%3ALogsSummary%27"><span class="annot"><span class="annottext">LogsSummary -&gt; Text
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3AgeneralLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var hs-var">generalLogGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Enables general logging.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Ageneral%3ALogsSummary%27"><span class="annot"><span class="annottext">LogsSummary -&gt; Bool
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Ageneral%3ALogsSummary%27"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224252"><span id="local-6989586621679224254"><span class="annot"><span class="annottext">LogsSummary -&gt; LogsSummary -&gt; Bool
+(LogsSummary -&gt; LogsSummary -&gt; Bool)
+-&gt; (LogsSummary -&gt; LogsSummary -&gt; Bool) -&gt; Eq LogsSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LogsSummary -&gt; LogsSummary -&gt; Bool
+$c/= :: LogsSummary -&gt; LogsSummary -&gt; Bool
+== :: LogsSummary -&gt; LogsSummary -&gt; Bool
+$c== :: LogsSummary -&gt; LogsSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224243"><span id="local-6989586621679224245"><span id="local-6989586621679224247"><span id="local-6989586621679224249"><span class="annot"><span class="annottext">ReadPrec [LogsSummary]
+ReadPrec LogsSummary
+Int -&gt; ReadS LogsSummary
+ReadS [LogsSummary]
+(Int -&gt; ReadS LogsSummary)
+-&gt; ReadS [LogsSummary]
+-&gt; ReadPrec LogsSummary
+-&gt; ReadPrec [LogsSummary]
+-&gt; Read LogsSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LogsSummary]
+$creadListPrec :: ReadPrec [LogsSummary]
+readPrec :: ReadPrec LogsSummary
+$creadPrec :: ReadPrec LogsSummary
+readList :: ReadS [LogsSummary]
+$creadList :: ReadS [LogsSummary]
+readsPrec :: Int -&gt; ReadS LogsSummary
+$creadsPrec :: Int -&gt; ReadS LogsSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224236"><span id="local-6989586621679224238"><span id="local-6989586621679224240"><span class="annot"><span class="annottext">Int -&gt; LogsSummary -&gt; ShowS
+[LogsSummary] -&gt; ShowS
+LogsSummary -&gt; String
+(Int -&gt; LogsSummary -&gt; ShowS)
+-&gt; (LogsSummary -&gt; String)
+-&gt; ([LogsSummary] -&gt; ShowS)
+-&gt; Show LogsSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LogsSummary] -&gt; ShowS
+$cshowList :: [LogsSummary] -&gt; ShowS
+show :: LogsSummary -&gt; String
+$cshow :: LogsSummary -&gt; String
+showsPrec :: Int -&gt; LogsSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; LogsSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LogsSummary -&gt; Rep LogsSummary x)
+-&gt; (forall x. Rep LogsSummary x -&gt; LogsSummary)
+-&gt; Generic LogsSummary
+forall x. Rep LogsSummary x -&gt; LogsSummary
+forall x. LogsSummary -&gt; Rep LogsSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LogsSummary x -&gt; LogsSummary
+$cfrom :: forall x. LogsSummary -&gt; Rep LogsSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'LogsSummary' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'pending', 'logsSummary_pending' - The list of information about logs pending to be deployed for the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- specified broker.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'audit', 'logsSummary_audit' - Enables audit logging. Every user management action made using JMX or</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- the ActiveMQ Web Console is logged.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'auditLogGroup', 'logsSummary_auditLogGroup' - The location of the CloudWatch Logs log group where audit logs are sent.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'generalLogGroup', 'logsSummary_generalLogGroup' - The location of the CloudWatch Logs log group where general logs are</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- sent.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'general', 'logsSummary_general' - Enables general logging.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#newLogsSummary"><span class="hs-identifier hs-type">newLogsSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'generalLogGroup'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'general'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span>
+</span><span id="line-74"></span><span id="newLogsSummary"><span class="annot"><span class="annottext">newLogsSummary :: Text -&gt; Bool -&gt; LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#newLogsSummary"><span class="hs-identifier hs-var hs-var">newLogsSummary</span></a></span></span><span> </span><span id="local-6989586621679224230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224230"><span class="hs-identifier hs-var">pGeneralLogGroup_</span></a></span></span><span> </span><span id="local-6989586621679224229"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224229"><span class="hs-identifier hs-var">pGeneral_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">LogsSummary' :: Maybe PendingLogs
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pending:LogsSummary' :: Maybe PendingLogs
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Apending%3ALogsSummary%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PendingLogs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:audit:LogsSummary' :: Maybe Bool
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Aaudit%3ALogsSummary%27"><span class="hs-identifier hs-var">audit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:auditLogGroup:LogsSummary' :: Maybe Text
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3AauditLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var">auditLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:generalLogGroup:LogsSummary' :: Text
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3AgeneralLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var">generalLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224230"><span class="hs-identifier hs-var">pGeneralLogGroup_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:general:LogsSummary' :: Bool
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Ageneral%3ALogsSummary%27"><span class="hs-identifier hs-var">general</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224229"><span class="hs-identifier hs-var">pGeneral_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The list of information about logs pending to be deployed for the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- specified broker.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_pending"><span class="hs-identifier hs-type">logsSummary_pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="logsSummary_pending"><span class="annot"><span class="annottext">logsSummary_pending :: (Maybe PendingLogs -&gt; f (Maybe PendingLogs))
+-&gt; LogsSummary -&gt; f LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_pending"><span class="hs-identifier hs-var hs-var">logsSummary_pending</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogsSummary -&gt; Maybe PendingLogs)
+-&gt; (LogsSummary -&gt; Maybe PendingLogs -&gt; LogsSummary)
+-&gt; Lens
+     LogsSummary LogsSummary (Maybe PendingLogs) (Maybe PendingLogs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224225"><span class="annot"><span class="annottext">Maybe PendingLogs
+pending :: Maybe PendingLogs
+$sel:pending:LogsSummary' :: LogsSummary -&gt; Maybe PendingLogs
+</span><a href="#local-6989586621679224225"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PendingLogs
+</span><a href="#local-6989586621679224225"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224224"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224223"><span class="annot"><span class="annottext">Maybe PendingLogs
+</span><a href="#local-6989586621679224223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:LogsSummary' :: Maybe PendingLogs
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Apending%3ALogsSummary%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PendingLogs
+</span><a href="#local-6989586621679224223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Enables audit logging. Every user management action made using JMX or</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the ActiveMQ Web Console is logged.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_audit"><span class="hs-identifier hs-type">logsSummary_audit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="logsSummary_audit"><span class="annot"><span class="annottext">logsSummary_audit :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; LogsSummary -&gt; f LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_audit"><span class="hs-identifier hs-var hs-var">logsSummary_audit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogsSummary -&gt; Maybe Bool)
+-&gt; (LogsSummary -&gt; Maybe Bool -&gt; LogsSummary)
+-&gt; Lens LogsSummary LogsSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224221"><span class="annot"><span class="annottext">Maybe Bool
+audit :: Maybe Bool
+$sel:audit:LogsSummary' :: LogsSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679224221"><span class="hs-identifier hs-var hs-var">audit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224221"><span class="hs-identifier hs-var">audit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224220"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224219"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audit:LogsSummary' :: Maybe Bool
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Aaudit%3ALogsSummary%27"><span class="hs-identifier hs-var">audit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The location of the CloudWatch Logs log group where audit logs are sent.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_auditLogGroup"><span class="hs-identifier hs-type">logsSummary_auditLogGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="logsSummary_auditLogGroup"><span class="annot"><span class="annottext">logsSummary_auditLogGroup :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogsSummary -&gt; f LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_auditLogGroup"><span class="hs-identifier hs-var hs-var">logsSummary_auditLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogsSummary -&gt; Maybe Text)
+-&gt; (LogsSummary -&gt; Maybe Text -&gt; LogsSummary)
+-&gt; Lens LogsSummary LogsSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224217"><span class="annot"><span class="annottext">Maybe Text
+auditLogGroup :: Maybe Text
+$sel:auditLogGroup:LogsSummary' :: LogsSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679224217"><span class="hs-identifier hs-var hs-var">auditLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224217"><span class="hs-identifier hs-var">auditLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224216"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditLogGroup:LogsSummary' :: Maybe Text
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3AauditLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var">auditLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The location of the CloudWatch Logs log group where general logs are</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- sent.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_generalLogGroup"><span class="hs-identifier hs-type">logsSummary_generalLogGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="logsSummary_generalLogGroup"><span class="annot"><span class="annottext">logsSummary_generalLogGroup :: (Text -&gt; f Text) -&gt; LogsSummary -&gt; f LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_generalLogGroup"><span class="hs-identifier hs-var hs-var">logsSummary_generalLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogsSummary -&gt; Text)
+-&gt; (LogsSummary -&gt; Text -&gt; LogsSummary)
+-&gt; Lens LogsSummary LogsSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224213"><span class="annot"><span class="annottext">Text
+generalLogGroup :: Text
+$sel:generalLogGroup:LogsSummary' :: LogsSummary -&gt; Text
+</span><a href="#local-6989586621679224213"><span class="hs-identifier hs-var hs-var">generalLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224213"><span class="hs-identifier hs-var">generalLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224212"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generalLogGroup:LogsSummary' :: Text
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3AgeneralLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var">generalLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Enables general logging.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_general"><span class="hs-identifier hs-type">logsSummary_general</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-104"></span><span id="logsSummary_general"><span class="annot"><span class="annottext">logsSummary_general :: (Bool -&gt; f Bool) -&gt; LogsSummary -&gt; f LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#logsSummary_general"><span class="hs-identifier hs-var hs-var">logsSummary_general</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogsSummary -&gt; Bool)
+-&gt; (LogsSummary -&gt; Bool -&gt; LogsSummary)
+-&gt; Lens LogsSummary LogsSummary Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224209"><span class="annot"><span class="annottext">Bool
+general :: Bool
+$sel:general:LogsSummary' :: LogsSummary -&gt; Bool
+</span><a href="#local-6989586621679224209"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224209"><span class="hs-identifier hs-var">general</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224208"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224207"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:general:LogsSummary' :: Bool
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#%24sel%3Ageneral%3ALogsSummary%27"><span class="hs-identifier hs-var">general</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224204"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679224202"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogsSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LogsSummary) -&gt; Value -&gt; Parser LogsSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LogsSummary&quot;</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224199"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224199"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe PendingLogs
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary
+</span><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-var">LogsSummary'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PendingLogs
+ -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary)
+-&gt; Parser (Maybe PendingLogs)
+-&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PendingLogs)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pending&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Bool -&gt; LogsSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;auditLogGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Bool -&gt; LogsSummary)
+-&gt; Parser Text -&gt; Parser (Bool -&gt; LogsSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;generalLogGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; LogsSummary) -&gt; Parser Bool -&gt; Parser LogsSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;general&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224192"><span id="local-6989586621679224194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span><span>
+</span><span id="line-122"></span></pre></body></html>

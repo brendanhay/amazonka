@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LookoutVision.DetectAnomalies</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Detects anomalies in an image that you supply.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- The response from @DetectAnomalies@ includes a boolean prediction that</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the image contains one or more anomalies and a confidence value for the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- prediction.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Before calling @DetectAnomalies@, you must first start your model with</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the StartModel operation. You are charged for the amount of time, in</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- minutes, that a model runs and for the number of anomaly detection units</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- that your model uses. If you are not using a model, use the StopModel</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- operation to stop your model.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- This operation requires permissions to perform the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @lookoutvision:DetectAnomalies@ operation.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutVision.DetectAnomalies</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier">DetectAnomalies</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#newDetectAnomalies"><span class="hs-identifier">newDetectAnomalies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_projectName"><span class="hs-identifier">detectAnomalies_projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_modelVersion"><span class="hs-identifier">detectAnomalies_modelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_contentType"><span class="hs-identifier">detectAnomalies_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_body"><span class="hs-identifier">detectAnomalies_body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier">DetectAnomaliesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#newDetectAnomaliesResponse"><span class="hs-identifier">newDetectAnomaliesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomaliesResponse_detectAnomalyResult"><span class="hs-identifier">detectAnomaliesResponse_detectAnomalyResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomaliesResponse_httpStatus"><span class="hs-identifier">detectAnomaliesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.html"><span class="hs-identifier">Amazonka.LookoutVision.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newDetectAnomalies' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679184789"><span id="local-6989586621679184790"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectAnomalies"><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-var">DetectAnomalies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectAnomalies%27"><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-var">DetectAnomalies'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the project that contains the model version that you want to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AprojectName%3ADetectAnomalies%27"><span class="annot"><span class="annottext">DetectAnomalies -&gt; Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AprojectName%3ADetectAnomalies%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The version of the model that you want to use.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmodelVersion%3ADetectAnomalies%27"><span class="annot"><span class="annottext">DetectAnomalies -&gt; Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AmodelVersion%3ADetectAnomalies%27"><span class="hs-identifier hs-var hs-var">modelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The type of the image passed in @Body@. Valid values are @image\/png@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- (PNG format images) and @image\/jpeg@ (JPG format images).</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcontentType%3ADetectAnomalies%27"><span class="annot"><span class="annottext">DetectAnomalies -&gt; Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AcontentType%3ADetectAnomalies%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The unencrypted image bytes that you want to analyze.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Abody%3ADetectAnomalies%27"><span class="annot"><span class="annottext">DetectAnomalies -&gt; HashedBody
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3Abody%3ADetectAnomalies%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184778"><span id="local-6989586621679184780"><span id="local-6989586621679184782"><span class="annot"><span class="annottext">Int -&gt; DetectAnomalies -&gt; ShowS
+[DetectAnomalies] -&gt; ShowS
+DetectAnomalies -&gt; String
+(Int -&gt; DetectAnomalies -&gt; ShowS)
+-&gt; (DetectAnomalies -&gt; String)
+-&gt; ([DetectAnomalies] -&gt; ShowS)
+-&gt; Show DetectAnomalies
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectAnomalies] -&gt; ShowS
+$cshowList :: [DetectAnomalies] -&gt; ShowS
+show :: DetectAnomalies -&gt; String
+$cshow :: DetectAnomalies -&gt; String
+showsPrec :: Int -&gt; DetectAnomalies -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectAnomalies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DetectAnomalies -&gt; Rep DetectAnomalies x)
+-&gt; (forall x. Rep DetectAnomalies x -&gt; DetectAnomalies)
+-&gt; Generic DetectAnomalies
+forall x. Rep DetectAnomalies x -&gt; DetectAnomalies
+forall x. DetectAnomalies -&gt; Rep DetectAnomalies x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectAnomalies x -&gt; DetectAnomalies
+$cfrom :: forall x. DetectAnomalies -&gt; Rep DetectAnomalies x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'DetectAnomalies' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'projectName', 'detectAnomalies_projectName' - The name of the project that contains the model version that you want to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'modelVersion', 'detectAnomalies_modelVersion' - The version of the model that you want to use.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'contentType', 'detectAnomalies_contentType' - The type of the image passed in @Body@. Valid values are @image\/png@</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- (PNG format images) and @image\/jpeg@ (JPG format images).</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'body', 'detectAnomalies_body' - The unencrypted image bytes that you want to analyze.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#newDetectAnomalies"><span class="hs-identifier hs-type">newDetectAnomalies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'projectName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'modelVersion'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'contentType'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'body'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span>
+</span><span id="line-107"></span><span id="newDetectAnomalies"><span class="annot"><span class="annottext">newDetectAnomalies :: Text -&gt; Text -&gt; Text -&gt; HashedBody -&gt; DetectAnomalies
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#newDetectAnomalies"><span class="hs-identifier hs-var hs-var">newDetectAnomalies</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679184773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184773"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679184772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184772"><span class="hs-identifier hs-var">pModelVersion_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679184771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184771"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679184770"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679184770"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">DetectAnomalies' :: Text -&gt; Text -&gt; Text -&gt; HashedBody -&gt; DetectAnomalies
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectName:DetectAnomalies' :: Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AprojectName%3ADetectAnomalies%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184773"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelVersion:DetectAnomalies' :: Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AmodelVersion%3ADetectAnomalies%27"><span class="hs-identifier hs-var">modelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184772"><span class="hs-identifier hs-var">pModelVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentType:DetectAnomalies' :: Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AcontentType%3ADetectAnomalies%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184771"><span class="hs-identifier hs-var">pContentType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:body:DetectAnomalies' :: HashedBody
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3Abody%3ADetectAnomalies%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679184770"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The name of the project that contains the model version that you want to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_projectName"><span class="hs-identifier hs-type">detectAnomalies_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="detectAnomalies_projectName"><span class="annot"><span class="annottext">detectAnomalies_projectName :: (Text -&gt; f Text) -&gt; DetectAnomalies -&gt; f DetectAnomalies
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_projectName"><span class="hs-identifier hs-var hs-var">detectAnomalies_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectAnomalies -&gt; Text)
+-&gt; (DetectAnomalies -&gt; Text -&gt; DetectAnomalies)
+-&gt; Lens DetectAnomalies DetectAnomalies Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184767"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:DetectAnomalies' :: DetectAnomalies -&gt; Text
+</span><a href="#local-6989586621679184767"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184767"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184766"><span class="annot"><span class="annottext">s :: DetectAnomalies
+</span><a href="#local-6989586621679184766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectAnomalies
+</span><a href="#local-6989586621679184766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:DetectAnomalies' :: Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AprojectName%3ADetectAnomalies%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The version of the model that you want to use.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_modelVersion"><span class="hs-identifier hs-type">detectAnomalies_modelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="detectAnomalies_modelVersion"><span class="annot"><span class="annottext">detectAnomalies_modelVersion :: (Text -&gt; f Text) -&gt; DetectAnomalies -&gt; f DetectAnomalies
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_modelVersion"><span class="hs-identifier hs-var hs-var">detectAnomalies_modelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectAnomalies -&gt; Text)
+-&gt; (DetectAnomalies -&gt; Text -&gt; DetectAnomalies)
+-&gt; Lens DetectAnomalies DetectAnomalies Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184764"><span class="annot"><span class="annottext">Text
+modelVersion :: Text
+$sel:modelVersion:DetectAnomalies' :: DetectAnomalies -&gt; Text
+</span><a href="#local-6989586621679184764"><span class="hs-identifier hs-var hs-var">modelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184764"><span class="hs-identifier hs-var">modelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184763"><span class="annot"><span class="annottext">s :: DetectAnomalies
+</span><a href="#local-6989586621679184763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectAnomalies
+</span><a href="#local-6989586621679184763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelVersion:DetectAnomalies' :: Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AmodelVersion%3ADetectAnomalies%27"><span class="hs-identifier hs-var">modelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The type of the image passed in @Body@. Valid values are @image\/png@</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- (PNG format images) and @image\/jpeg@ (JPG format images).</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_contentType"><span class="hs-identifier hs-type">detectAnomalies_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="detectAnomalies_contentType"><span class="annot"><span class="annottext">detectAnomalies_contentType :: (Text -&gt; f Text) -&gt; DetectAnomalies -&gt; f DetectAnomalies
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_contentType"><span class="hs-identifier hs-var hs-var">detectAnomalies_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectAnomalies -&gt; Text)
+-&gt; (DetectAnomalies -&gt; Text -&gt; DetectAnomalies)
+-&gt; Lens DetectAnomalies DetectAnomalies Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184761"><span class="annot"><span class="annottext">Text
+contentType :: Text
+$sel:contentType:DetectAnomalies' :: DetectAnomalies -&gt; Text
+</span><a href="#local-6989586621679184761"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184761"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184760"><span class="annot"><span class="annottext">s :: DetectAnomalies
+</span><a href="#local-6989586621679184760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectAnomalies
+</span><a href="#local-6989586621679184760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:DetectAnomalies' :: Text
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AcontentType%3ADetectAnomalies%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The unencrypted image bytes that you want to analyze.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_body"><span class="hs-identifier hs-type">detectAnomalies_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
+</span><span id="line-135"></span><span id="detectAnomalies_body"><span class="annot"><span class="annottext">detectAnomalies_body :: (HashedBody -&gt; f HashedBody)
+-&gt; DetectAnomalies -&gt; f DetectAnomalies
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomalies_body"><span class="hs-identifier hs-var hs-var">detectAnomalies_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectAnomalies -&gt; HashedBody)
+-&gt; (DetectAnomalies -&gt; HashedBody -&gt; DetectAnomalies)
+-&gt; Lens DetectAnomalies DetectAnomalies HashedBody HashedBody
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184758"><span class="annot"><span class="annottext">HashedBody
+body :: HashedBody
+$sel:body:DetectAnomalies' :: DetectAnomalies -&gt; HashedBody
+</span><a href="#local-6989586621679184758"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679184758"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184757"><span class="annot"><span class="annottext">s :: DetectAnomalies
+</span><a href="#local-6989586621679184757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184756"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679184756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectAnomalies
+</span><a href="#local-6989586621679184757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:DetectAnomalies' :: HashedBody
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3Abody%3ADetectAnomalies%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679184756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-type">DetectAnomaliesResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679184752"><span class="annot"><span class="annottext">request :: DetectAnomalies -&gt; Request DetectAnomalies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetectAnomalies -&gt; Request DetectAnomalies
+forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postBody</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LookoutVision.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679184748"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DetectAnomalies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DetectAnomalies)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DetectAnomalies))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DetectAnomalies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DetectAnomalies)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184745"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184745"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184744"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679184744"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184743"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184743"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe DetectAnomalyResult -&gt; Int -&gt; DetectAnomaliesResponse
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse%27"><span class="hs-identifier hs-var">DetectAnomaliesResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DetectAnomalyResult -&gt; Int -&gt; DetectAnomaliesResponse)
+-&gt; Either String (Maybe DetectAnomalyResult)
+-&gt; Either String (Int -&gt; DetectAnomaliesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DetectAnomalyResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DetectAnomalyResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DetectAnomaliesResponse)
+-&gt; Either String Int -&gt; Either String DetectAnomaliesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184745"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679184736"><span class="annot"><span class="annottext">toBody :: DetectAnomalies -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184731"><span id="local-6989586621679184732"><span id="local-6989586621679184733"><span id="local-6989586621679184734"><span class="annot"><span class="annottext">Text
+HashedBody
+body :: HashedBody
+contentType :: Text
+modelVersion :: Text
+projectName :: Text
+$sel:body:DetectAnomalies' :: DetectAnomalies -&gt; HashedBody
+$sel:contentType:DetectAnomalies' :: DetectAnomalies -&gt; Text
+$sel:modelVersion:DetectAnomalies' :: DetectAnomalies -&gt; Text
+$sel:projectName:DetectAnomalies' :: DetectAnomalies -&gt; Text
+</span><a href="#local-6989586621679184731"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; RequestBody
+forall a. ToBody a =&gt; a -&gt; RequestBody
+</span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679184731"><span class="hs-identifier hs-var">body</span></a></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679184728"><span class="annot"><span class="annottext">toHeaders :: DetectAnomalies -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184723"><span id="local-6989586621679184724"><span id="local-6989586621679184725"><span id="local-6989586621679184726"><span class="annot"><span class="annottext">Text
+HashedBody
+body :: HashedBody
+contentType :: Text
+modelVersion :: Text
+projectName :: Text
+$sel:body:DetectAnomalies' :: DetectAnomalies -&gt; HashedBody
+$sel:contentType:DetectAnomalies' :: DetectAnomalies -&gt; Text
+$sel:modelVersion:DetectAnomalies' :: DetectAnomalies -&gt; Text
+$sel:projectName:DetectAnomalies' :: DetectAnomalies -&gt; Text
+</span><a href="#local-6989586621679184723"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184724"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679184719"><span class="annot"><span class="annottext">toPath :: DetectAnomalies -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies%27"><span class="hs-identifier hs-type">DetectAnomalies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184714"><span id="local-6989586621679184715"><span id="local-6989586621679184716"><span id="local-6989586621679184717"><span class="annot"><span class="annottext">Text
+HashedBody
+body :: HashedBody
+contentType :: Text
+modelVersion :: Text
+projectName :: Text
+$sel:body:DetectAnomalies' :: DetectAnomalies -&gt; HashedBody
+$sel:contentType:DetectAnomalies' :: DetectAnomalies -&gt; Text
+$sel:modelVersion:DetectAnomalies' :: DetectAnomalies -&gt; Text
+$sel:projectName:DetectAnomalies' :: DetectAnomalies -&gt; Text
+</span><a href="#local-6989586621679184714"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-11-20/projects/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184717"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/models/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184716"><span class="hs-identifier hs-var">modelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detect&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomalies"><span class="hs-identifier hs-type">DetectAnomalies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679184710"><span class="annot"><span class="annottext">toQuery :: DetectAnomalies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetectAnomalies -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newDetectAnomaliesResponse' smart constructor.</span><span>
+</span><span id="line-172"></span><span id="local-6989586621679184706"><span id="local-6989586621679184707"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectAnomaliesResponse"><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-var">DetectAnomaliesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectAnomaliesResponse%27"><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse%27"><span class="hs-identifier hs-var">DetectAnomaliesResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The results of the @DetectAnomalies@ operation.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AdetectAnomalyResult%3ADetectAnomaliesResponse%27"><span class="annot"><span class="annottext">DetectAnomaliesResponse -&gt; Maybe DetectAnomalyResult
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AdetectAnomalyResult%3ADetectAnomaliesResponse%27"><span class="hs-identifier hs-var hs-var">detectAnomalyResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DetectAnomalyResult.html#DetectAnomalyResult"><span class="hs-identifier hs-type">DetectAnomalyResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetectAnomaliesResponse%27"><span class="annot"><span class="annottext">DetectAnomaliesResponse -&gt; Int
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AhttpStatus%3ADetectAnomaliesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184700"><span id="local-6989586621679184702"><span class="annot"><span class="annottext">DetectAnomaliesResponse -&gt; DetectAnomaliesResponse -&gt; Bool
+(DetectAnomaliesResponse -&gt; DetectAnomaliesResponse -&gt; Bool)
+-&gt; (DetectAnomaliesResponse -&gt; DetectAnomaliesResponse -&gt; Bool)
+-&gt; Eq DetectAnomaliesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectAnomaliesResponse -&gt; DetectAnomaliesResponse -&gt; Bool
+$c/= :: DetectAnomaliesResponse -&gt; DetectAnomaliesResponse -&gt; Bool
+== :: DetectAnomaliesResponse -&gt; DetectAnomaliesResponse -&gt; Bool
+$c== :: DetectAnomaliesResponse -&gt; DetectAnomaliesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184691"><span id="local-6989586621679184693"><span id="local-6989586621679184695"><span id="local-6989586621679184697"><span class="annot"><span class="annottext">ReadPrec [DetectAnomaliesResponse]
+ReadPrec DetectAnomaliesResponse
+Int -&gt; ReadS DetectAnomaliesResponse
+ReadS [DetectAnomaliesResponse]
+(Int -&gt; ReadS DetectAnomaliesResponse)
+-&gt; ReadS [DetectAnomaliesResponse]
+-&gt; ReadPrec DetectAnomaliesResponse
+-&gt; ReadPrec [DetectAnomaliesResponse]
+-&gt; Read DetectAnomaliesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectAnomaliesResponse]
+$creadListPrec :: ReadPrec [DetectAnomaliesResponse]
+readPrec :: ReadPrec DetectAnomaliesResponse
+$creadPrec :: ReadPrec DetectAnomaliesResponse
+readList :: ReadS [DetectAnomaliesResponse]
+$creadList :: ReadS [DetectAnomaliesResponse]
+readsPrec :: Int -&gt; ReadS DetectAnomaliesResponse
+$creadsPrec :: Int -&gt; ReadS DetectAnomaliesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184684"><span id="local-6989586621679184686"><span id="local-6989586621679184688"><span class="annot"><span class="annottext">Int -&gt; DetectAnomaliesResponse -&gt; ShowS
+[DetectAnomaliesResponse] -&gt; ShowS
+DetectAnomaliesResponse -&gt; String
+(Int -&gt; DetectAnomaliesResponse -&gt; ShowS)
+-&gt; (DetectAnomaliesResponse -&gt; String)
+-&gt; ([DetectAnomaliesResponse] -&gt; ShowS)
+-&gt; Show DetectAnomaliesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectAnomaliesResponse] -&gt; ShowS
+$cshowList :: [DetectAnomaliesResponse] -&gt; ShowS
+show :: DetectAnomaliesResponse -&gt; String
+$cshow :: DetectAnomaliesResponse -&gt; String
+showsPrec :: Int -&gt; DetectAnomaliesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectAnomaliesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DetectAnomaliesResponse -&gt; Rep DetectAnomaliesResponse x)
+-&gt; (forall x.
+    Rep DetectAnomaliesResponse x -&gt; DetectAnomaliesResponse)
+-&gt; Generic DetectAnomaliesResponse
+forall x. Rep DetectAnomaliesResponse x -&gt; DetectAnomaliesResponse
+forall x. DetectAnomaliesResponse -&gt; Rep DetectAnomaliesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectAnomaliesResponse x -&gt; DetectAnomaliesResponse
+$cfrom :: forall x. DetectAnomaliesResponse -&gt; Rep DetectAnomaliesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'DetectAnomaliesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'detectAnomalyResult', 'detectAnomaliesResponse_detectAnomalyResult' - The results of the @DetectAnomalies@ operation.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'detectAnomaliesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#newDetectAnomaliesResponse"><span class="hs-identifier hs-type">newDetectAnomaliesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-type">DetectAnomaliesResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newDetectAnomaliesResponse"><span class="annot"><span class="annottext">newDetectAnomaliesResponse :: Int -&gt; DetectAnomaliesResponse
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#newDetectAnomaliesResponse"><span class="hs-identifier hs-var hs-var">newDetectAnomaliesResponse</span></a></span></span><span> </span><span id="local-6989586621679184681"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">DetectAnomaliesResponse' :: Maybe DetectAnomalyResult -&gt; Int -&gt; DetectAnomaliesResponse
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse%27"><span class="hs-identifier hs-type">DetectAnomaliesResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectAnomalyResult:DetectAnomaliesResponse' :: Maybe DetectAnomalyResult
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AdetectAnomalyResult%3ADetectAnomaliesResponse%27"><span class="hs-identifier hs-var">detectAnomalyResult</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe DetectAnomalyResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetectAnomaliesResponse' :: Int
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AhttpStatus%3ADetectAnomaliesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The results of the @DetectAnomalies@ operation.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomaliesResponse_detectAnomalyResult"><span class="hs-identifier hs-type">detectAnomaliesResponse_detectAnomalyResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-type">DetectAnomaliesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DetectAnomalyResult.html#DetectAnomalyResult"><span class="hs-identifier hs-type">DetectAnomalyResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="detectAnomaliesResponse_detectAnomalyResult"><span class="annot"><span class="annottext">detectAnomaliesResponse_detectAnomalyResult :: (Maybe DetectAnomalyResult -&gt; f (Maybe DetectAnomalyResult))
+-&gt; DetectAnomaliesResponse -&gt; f DetectAnomaliesResponse
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomaliesResponse_detectAnomalyResult"><span class="hs-identifier hs-var hs-var">detectAnomaliesResponse_detectAnomalyResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectAnomaliesResponse -&gt; Maybe DetectAnomalyResult)
+-&gt; (DetectAnomaliesResponse
+    -&gt; Maybe DetectAnomalyResult -&gt; DetectAnomaliesResponse)
+-&gt; Lens
+     DetectAnomaliesResponse
+     DetectAnomaliesResponse
+     (Maybe DetectAnomalyResult)
+     (Maybe DetectAnomalyResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse%27"><span class="hs-identifier hs-type">DetectAnomaliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184680"><span class="annot"><span class="annottext">Maybe DetectAnomalyResult
+detectAnomalyResult :: Maybe DetectAnomalyResult
+$sel:detectAnomalyResult:DetectAnomaliesResponse' :: DetectAnomaliesResponse -&gt; Maybe DetectAnomalyResult
+</span><a href="#local-6989586621679184680"><span class="hs-identifier hs-var hs-var">detectAnomalyResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectAnomalyResult
+</span><a href="#local-6989586621679184680"><span class="hs-identifier hs-var">detectAnomalyResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184679"><span class="annot"><span class="annottext">s :: DetectAnomaliesResponse
+</span><a href="#local-6989586621679184679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse%27"><span class="hs-identifier hs-type">DetectAnomaliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184678"><span class="annot"><span class="annottext">Maybe DetectAnomalyResult
+</span><a href="#local-6989586621679184678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectAnomaliesResponse
+</span><a href="#local-6989586621679184679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectAnomalyResult:DetectAnomaliesResponse' :: Maybe DetectAnomalyResult
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AdetectAnomalyResult%3ADetectAnomaliesResponse%27"><span class="hs-identifier hs-var">detectAnomalyResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectAnomalyResult
+</span><a href="#local-6989586621679184678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-type">DetectAnomaliesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomaliesResponse_httpStatus"><span class="hs-identifier hs-type">detectAnomaliesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-type">DetectAnomaliesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-208"></span><span id="detectAnomaliesResponse_httpStatus"><span class="annot"><span class="annottext">detectAnomaliesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DetectAnomaliesResponse -&gt; f DetectAnomaliesResponse
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#detectAnomaliesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">detectAnomaliesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectAnomaliesResponse -&gt; Int)
+-&gt; (DetectAnomaliesResponse -&gt; Int -&gt; DetectAnomaliesResponse)
+-&gt; Lens DetectAnomaliesResponse DetectAnomaliesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse%27"><span class="hs-identifier hs-type">DetectAnomaliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184677"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DetectAnomaliesResponse' :: DetectAnomaliesResponse -&gt; Int
+</span><a href="#local-6989586621679184677"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184677"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184676"><span class="annot"><span class="annottext">s :: DetectAnomaliesResponse
+</span><a href="#local-6989586621679184676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse%27"><span class="hs-identifier hs-type">DetectAnomaliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectAnomaliesResponse
+</span><a href="#local-6989586621679184676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectAnomaliesResponse' :: Int
+</span><a href="Amazonka.LookoutVision.DetectAnomalies.html#%24sel%3AhttpStatus%3ADetectAnomaliesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-type">DetectAnomaliesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.DetectAnomalies.html#DetectAnomaliesResponse"><span class="hs-identifier hs-type">DetectAnomaliesResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

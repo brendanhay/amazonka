@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MachineLearning.Types.Algorithm
+module Amazonka.MachineLearning.Types.Algorithm
 
 -- | The function used to train an <tt>MLModel</tt>. Training choices
 --   supported by Amazon ML include the following:
@@ -18,28 +18,28 @@ newtype Algorithm
 Algorithm' :: Text -> Algorithm
 [fromAlgorithm] :: Algorithm -> Text
 pattern Algorithm_Sgd :: Algorithm
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.Algorithm.Algorithm
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance GHC.Read.Read Amazonka.MachineLearning.Types.Algorithm.Algorithm
+instance GHC.Show.Show Amazonka.MachineLearning.Types.Algorithm.Algorithm
 
 
-module Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable
+module Amazonka.MachineLearning.Types.BatchPredictionFilterVariable
 
 -- | A list of the variables to use in searching or filtering
 --   <tt>BatchPrediction</tt>.
@@ -73,28 +73,28 @@ pattern BatchPredictionFilterVariable_LastUpdatedAt :: BatchPredictionFilterVari
 pattern BatchPredictionFilterVariable_MLModelId :: BatchPredictionFilterVariable
 pattern BatchPredictionFilterVariable_Name :: BatchPredictionFilterVariable
 pattern BatchPredictionFilterVariable_Status :: BatchPredictionFilterVariable
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance GHC.Read.Read Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
+instance GHC.Show.Show Amazonka.MachineLearning.Types.BatchPredictionFilterVariable.BatchPredictionFilterVariable
 
 
-module Network.AWS.MachineLearning.Types.DataSourceFilterVariable
+module Amazonka.MachineLearning.Types.DataSourceFilterVariable
 
 -- | A list of the variables to use in searching or filtering
 --   <tt>DataSource</tt>.
@@ -125,28 +125,28 @@ pattern DataSourceFilterVariable_IAMUser :: DataSourceFilterVariable
 pattern DataSourceFilterVariable_LastUpdatedAt :: DataSourceFilterVariable
 pattern DataSourceFilterVariable_Name :: DataSourceFilterVariable
 pattern DataSourceFilterVariable_Status :: DataSourceFilterVariable
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance GHC.Read.Read Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
+instance GHC.Show.Show Amazonka.MachineLearning.Types.DataSourceFilterVariable.DataSourceFilterVariable
 
 
-module Network.AWS.MachineLearning.Types.DetailsAttributes
+module Amazonka.MachineLearning.Types.DetailsAttributes
 
 -- | Contains the key values of <tt>DetailsMap</tt>:
 --   
@@ -161,28 +161,28 @@ DetailsAttributes' :: Text -> DetailsAttributes
 [fromDetailsAttributes] :: DetailsAttributes -> Text
 pattern DetailsAttributes_Algorithm :: DetailsAttributes
 pattern DetailsAttributes_PredictiveModelType :: DetailsAttributes
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance GHC.Read.Read Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
+instance GHC.Show.Show Amazonka.MachineLearning.Types.DetailsAttributes.DetailsAttributes
 
 
-module Network.AWS.MachineLearning.Types.EntityStatus
+module Amazonka.MachineLearning.Types.EntityStatus
 
 -- | Object status with the following possible values:
 --   
@@ -201,28 +201,28 @@ pattern EntityStatus_DELETED :: EntityStatus
 pattern EntityStatus_FAILED :: EntityStatus
 pattern EntityStatus_INPROGRESS :: EntityStatus
 pattern EntityStatus_PENDING :: EntityStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance GHC.Read.Read Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
+instance GHC.Show.Show Amazonka.MachineLearning.Types.EntityStatus.EntityStatus
 
 
-module Network.AWS.MachineLearning.Types.BatchPrediction
+module Amazonka.MachineLearning.Types.BatchPrediction
 
 -- | Represents the output of a <tt>GetBatchPrediction</tt> operation.
 --   
@@ -458,16 +458,16 @@ batchPrediction_message :: Lens' BatchPrediction (Maybe Text)
 --   <tt>s3 key</tt> portion of the <tt>outputURI</tt> field: ':', '//',
 --   '/./', '/../'.
 batchPrediction_outputUri :: Lens' BatchPrediction (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.BatchPrediction.BatchPrediction
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.BatchPrediction.BatchPrediction
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.BatchPrediction.BatchPrediction
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.BatchPrediction.BatchPrediction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.BatchPrediction.BatchPrediction
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.BatchPrediction.BatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.BatchPrediction.BatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.BatchPrediction.BatchPrediction
+instance GHC.Show.Show Amazonka.MachineLearning.Types.BatchPrediction.BatchPrediction
+instance GHC.Read.Read Amazonka.MachineLearning.Types.BatchPrediction.BatchPrediction
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.BatchPrediction.BatchPrediction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.BatchPrediction.BatchPrediction
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.BatchPrediction.BatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.BatchPrediction.BatchPrediction
 
 
-module Network.AWS.MachineLearning.Types.EvaluationFilterVariable
+module Amazonka.MachineLearning.Types.EvaluationFilterVariable
 
 -- | A list of the variables to use in searching or filtering
 --   <tt>Evaluation</tt>.
@@ -500,28 +500,28 @@ pattern EvaluationFilterVariable_LastUpdatedAt :: EvaluationFilterVariable
 pattern EvaluationFilterVariable_MLModelId :: EvaluationFilterVariable
 pattern EvaluationFilterVariable_Name :: EvaluationFilterVariable
 pattern EvaluationFilterVariable_Status :: EvaluationFilterVariable
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance GHC.Read.Read Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
+instance GHC.Show.Show Amazonka.MachineLearning.Types.EvaluationFilterVariable.EvaluationFilterVariable
 
 
-module Network.AWS.MachineLearning.Types.MLModelFilterVariable
+module Amazonka.MachineLearning.Types.MLModelFilterVariable
 newtype MLModelFilterVariable
 MLModelFilterVariable' :: Text -> MLModelFilterVariable
 [fromMLModelFilterVariable] :: MLModelFilterVariable -> Text
@@ -535,56 +535,56 @@ pattern MLModelFilterVariable_RealtimeEndpointStatus :: MLModelFilterVariable
 pattern MLModelFilterVariable_Status :: MLModelFilterVariable
 pattern MLModelFilterVariable_TrainingDataSourceId :: MLModelFilterVariable
 pattern MLModelFilterVariable_TrainingDataURI :: MLModelFilterVariable
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance GHC.Read.Read Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
+instance GHC.Show.Show Amazonka.MachineLearning.Types.MLModelFilterVariable.MLModelFilterVariable
 
 
-module Network.AWS.MachineLearning.Types.MLModelType
+module Amazonka.MachineLearning.Types.MLModelType
 newtype MLModelType
 MLModelType' :: Text -> MLModelType
 [fromMLModelType] :: MLModelType -> Text
 pattern MLModelType_BINARY :: MLModelType
 pattern MLModelType_MULTICLASS :: MLModelType
 pattern MLModelType_REGRESSION :: MLModelType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.MLModelType.MLModelType
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance GHC.Read.Read Amazonka.MachineLearning.Types.MLModelType.MLModelType
+instance GHC.Show.Show Amazonka.MachineLearning.Types.MLModelType.MLModelType
 
 
-module Network.AWS.MachineLearning.Types.PerformanceMetrics
+module Amazonka.MachineLearning.Types.PerformanceMetrics
 
 -- | Measurements of how well the <tt>MLModel</tt> performed on known
 --   observations. One of the following metrics is returned, based on the
@@ -624,16 +624,16 @@ newPerformanceMetrics :: PerformanceMetrics
 
 -- | Undocumented member.
 performanceMetrics_properties :: Lens' PerformanceMetrics (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
+instance GHC.Show.Show Amazonka.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
+instance GHC.Read.Read Amazonka.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.PerformanceMetrics.PerformanceMetrics
 
 
-module Network.AWS.MachineLearning.Types.Evaluation
+module Amazonka.MachineLearning.Types.Evaluation
 
 -- | Represents the output of <tt>GetEvaluation</tt> operation.
 --   
@@ -883,16 +883,16 @@ evaluation_message :: Lens' Evaluation (Maybe Text)
 -- | The ID of the <tt>DataSource</tt> that is used to evaluate the
 --   <tt>MLModel</tt>.
 evaluation_evaluationDataSourceId :: Lens' Evaluation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.Evaluation.Evaluation
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.Evaluation.Evaluation
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.Evaluation.Evaluation
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.Evaluation.Evaluation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.Evaluation.Evaluation
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.Evaluation.Evaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.Evaluation.Evaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.Evaluation.Evaluation
+instance GHC.Show.Show Amazonka.MachineLearning.Types.Evaluation.Evaluation
+instance GHC.Read.Read Amazonka.MachineLearning.Types.Evaluation.Evaluation
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.Evaluation.Evaluation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.Evaluation.Evaluation
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.Evaluation.Evaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.Evaluation.Evaluation
 
 
-module Network.AWS.MachineLearning.Types.Prediction
+module Amazonka.MachineLearning.Types.Prediction
 
 -- | The output from a <tt>Predict</tt> operation:
 --   
@@ -956,16 +956,16 @@ prediction_predictedScores :: Lens' Prediction (Maybe (HashMap Text Double))
 
 -- | Undocumented member.
 prediction_details :: Lens' Prediction (Maybe (HashMap DetailsAttributes Text))
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.Prediction.Prediction
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.Prediction.Prediction
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.Prediction.Prediction
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.Prediction.Prediction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.Prediction.Prediction
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.Prediction.Prediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.Prediction.Prediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.Prediction.Prediction
+instance GHC.Show.Show Amazonka.MachineLearning.Types.Prediction.Prediction
+instance GHC.Read.Read Amazonka.MachineLearning.Types.Prediction.Prediction
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.Prediction.Prediction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.Prediction.Prediction
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.Prediction.Prediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.Prediction.Prediction
 
 
-module Network.AWS.MachineLearning.Types.RDSDatabase
+module Amazonka.MachineLearning.Types.RDSDatabase
 
 -- | The database details of an Amazon RDS database.
 --   
@@ -997,17 +997,17 @@ rDSDatabase_instanceIdentifier :: Lens' RDSDatabase Text
 
 -- | Undocumented member.
 rDSDatabase_databaseName :: Lens' RDSDatabase Text
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.RDSDatabase.RDSDatabase
 
 
-module Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
+module Amazonka.MachineLearning.Types.RDSDatabaseCredentials
 
 -- | The database credentials to connect to a database on an RDS DB
 --   instance.
@@ -1039,16 +1039,16 @@ rDSDatabaseCredentials_username :: Lens' RDSDatabaseCredentials Text
 
 -- | Undocumented member.
 rDSDatabaseCredentials_password :: Lens' RDSDatabaseCredentials Text
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.RDSDatabaseCredentials.RDSDatabaseCredentials
 
 
-module Network.AWS.MachineLearning.Types.RDSDataSpec
+module Amazonka.MachineLearning.Types.RDSDataSpec
 
 -- | The data specification of an Amazon Relational Database Service
 --   (Amazon RDS) <tt>DataSource</tt>.
@@ -1525,16 +1525,16 @@ rDSDataSpec_subnetId :: Lens' RDSDataSpec Text
 --   Pipeline to carry out the copy operation from Amazon RDS to an Amazon
 --   S3 task.
 rDSDataSpec_securityGroupIds :: Lens' RDSDataSpec [Text]
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RDSDataSpec.RDSDataSpec
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RDSDataSpec.RDSDataSpec
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RDSDataSpec.RDSDataSpec
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RDSDataSpec.RDSDataSpec
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RDSDataSpec.RDSDataSpec
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RDSDataSpec.RDSDataSpec
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.RDSDataSpec.RDSDataSpec
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RDSDataSpec.RDSDataSpec
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RDSDataSpec.RDSDataSpec
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RDSDataSpec.RDSDataSpec
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RDSDataSpec.RDSDataSpec
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RDSDataSpec.RDSDataSpec
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RDSDataSpec.RDSDataSpec
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.RDSDataSpec.RDSDataSpec
 
 
-module Network.AWS.MachineLearning.Types.RDSMetadata
+module Amazonka.MachineLearning.Types.RDSMetadata
 
 -- | The datasource details that are specific to Amazon RDS.
 --   
@@ -1628,16 +1628,16 @@ rDSMetadata_resourceRole :: Lens' RDSMetadata (Maybe Text)
 --   Amazon S3. For more information, see <a>Role templates</a> for data
 --   pipelines.
 rDSMetadata_serviceRole :: Lens' RDSMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RDSMetadata.RDSMetadata
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RDSMetadata.RDSMetadata
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RDSMetadata.RDSMetadata
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RDSMetadata.RDSMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.RDSMetadata.RDSMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RDSMetadata.RDSMetadata
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RDSMetadata.RDSMetadata
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RDSMetadata.RDSMetadata
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RDSMetadata.RDSMetadata
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RDSMetadata.RDSMetadata
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RDSMetadata.RDSMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.RDSMetadata.RDSMetadata
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RDSMetadata.RDSMetadata
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RDSMetadata.RDSMetadata
 
 
-module Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
+module Amazonka.MachineLearning.Types.RealtimeEndpointStatus
 newtype RealtimeEndpointStatus
 RealtimeEndpointStatus' :: Text -> RealtimeEndpointStatus
 [fromRealtimeEndpointStatus] :: RealtimeEndpointStatus -> Text
@@ -1645,28 +1645,28 @@ pattern RealtimeEndpointStatus_FAILED :: RealtimeEndpointStatus
 pattern RealtimeEndpointStatus_NONE :: RealtimeEndpointStatus
 pattern RealtimeEndpointStatus_READY :: RealtimeEndpointStatus
 pattern RealtimeEndpointStatus_UPDATING :: RealtimeEndpointStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RealtimeEndpointStatus.RealtimeEndpointStatus
 
 
-module Network.AWS.MachineLearning.Types.RealtimeEndpointInfo
+module Amazonka.MachineLearning.Types.RealtimeEndpointInfo
 
 -- | Describes the real-time endpoint information for an <tt>MLModel</tt>.
 --   
@@ -1767,16 +1767,16 @@ realtimeEndpointInfo_endpointStatus :: Lens' RealtimeEndpointInfo (Maybe Realtim
 -- | The maximum processing rate for the real-time endpoint for
 --   <tt>MLModel</tt>, measured in incoming requests per second.
 realtimeEndpointInfo_peakRequestsPerSecond :: Lens' RealtimeEndpointInfo (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RealtimeEndpointInfo.RealtimeEndpointInfo
 
 
-module Network.AWS.MachineLearning.Types.MLModel
+module Amazonka.MachineLearning.Types.MLModel
 
 -- | Represents the output of a <tt>GetMLModel</tt> operation.
 --   
@@ -2180,16 +2180,16 @@ mLModel_message :: Lens' MLModel (Maybe Text)
 --   For example, "Is this a HIGH-, LOW-, or MEDIUM-risk trade?".</li>
 --   </ul>
 mLModel_mLModelType :: Lens' MLModel (Maybe MLModelType)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.MLModel.MLModel
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.MLModel.MLModel
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.MLModel.MLModel
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.MLModel.MLModel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.MLModel.MLModel
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.MLModel.MLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.MLModel.MLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.MLModel.MLModel
+instance GHC.Show.Show Amazonka.MachineLearning.Types.MLModel.MLModel
+instance GHC.Read.Read Amazonka.MachineLearning.Types.MLModel.MLModel
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.MLModel.MLModel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.MLModel.MLModel
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.MLModel.MLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.MLModel.MLModel
 
 
-module Network.AWS.MachineLearning.Types.RedshiftDatabase
+module Amazonka.MachineLearning.Types.RedshiftDatabase
 
 -- | Describes the database details required to connect to an Amazon
 --   Redshift database.
@@ -2221,17 +2221,17 @@ redshiftDatabase_databaseName :: Lens' RedshiftDatabase Text
 
 -- | Undocumented member.
 redshiftDatabase_clusterIdentifier :: Lens' RedshiftDatabase Text
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.RedshiftDatabase.RedshiftDatabase
 
 
-module Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials
+module Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials
 
 -- | Describes the database credentials for connecting to a database on an
 --   Amazon Redshift cluster.
@@ -2263,16 +2263,16 @@ redshiftDatabaseCredentials_username :: Lens' RedshiftDatabaseCredentials Text
 
 -- | Undocumented member.
 redshiftDatabaseCredentials_password :: Lens' RedshiftDatabaseCredentials Text
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials.RedshiftDatabaseCredentials
 
 
-module Network.AWS.MachineLearning.Types.RedshiftDataSpec
+module Amazonka.MachineLearning.Types.RedshiftDataSpec
 
 -- | Describes the data specification of an Amazon Redshift
 --   <tt>DataSource</tt>.
@@ -2678,16 +2678,16 @@ redshiftDataSpec_databaseCredentials :: Lens' RedshiftDataSpec RedshiftDatabaseC
 -- | Describes an Amazon S3 location to store the result set of the
 --   <tt>SelectSqlQuery</tt> query.
 redshiftDataSpec_s3StagingLocation :: Lens' RedshiftDataSpec Text
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.RedshiftDataSpec.RedshiftDataSpec
 
 
-module Network.AWS.MachineLearning.Types.RedshiftMetadata
+module Amazonka.MachineLearning.Types.RedshiftMetadata
 
 -- | Describes the <tt>DataSource</tt> details specific to Amazon Redshift.
 --   
@@ -2731,16 +2731,16 @@ redshiftMetadata_redshiftDatabase :: Lens' RedshiftMetadata (Maybe RedshiftDatab
 
 -- | Undocumented member.
 redshiftMetadata_databaseUserName :: Lens' RedshiftMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
+instance GHC.Show.Show Amazonka.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
+instance GHC.Read.Read Amazonka.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.RedshiftMetadata.RedshiftMetadata
 
 
-module Network.AWS.MachineLearning.Types.DataSource
+module Amazonka.MachineLearning.Types.DataSource
 
 -- | Represents the output of the <tt>GetDataSource</tt> operation.
 --   
@@ -2975,16 +2975,16 @@ dataSource_dataRearrangement :: Lens' DataSource (Maybe Text)
 
 -- | Undocumented member.
 dataSource_roleARN :: Lens' DataSource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.DataSource.DataSource
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.DataSource.DataSource
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.DataSource.DataSource
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.DataSource.DataSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.DataSource.DataSource
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.DataSource.DataSource
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.DataSource.DataSource
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.DataSource.DataSource
+instance GHC.Show.Show Amazonka.MachineLearning.Types.DataSource.DataSource
+instance GHC.Read.Read Amazonka.MachineLearning.Types.DataSource.DataSource
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.DataSource.DataSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.DataSource.DataSource
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.DataSource.DataSource
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.DataSource.DataSource
 
 
-module Network.AWS.MachineLearning.Types.S3DataSpec
+module Amazonka.MachineLearning.Types.S3DataSpec
 
 -- | Describes the data specification of a <tt>DataSource</tt>.
 --   
@@ -3354,16 +3354,16 @@ s3DataSpec_dataRearrangement :: Lens' S3DataSpec (Maybe Text)
 --   URI specifies a data file or an Amazon Simple Storage Service (Amazon
 --   S3) directory or bucket containing data files.
 s3DataSpec_dataLocationS3 :: Lens' S3DataSpec Text
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.S3DataSpec.S3DataSpec
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.S3DataSpec.S3DataSpec
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.S3DataSpec.S3DataSpec
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.S3DataSpec.S3DataSpec
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.S3DataSpec.S3DataSpec
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.S3DataSpec.S3DataSpec
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.S3DataSpec.S3DataSpec
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.S3DataSpec.S3DataSpec
+instance GHC.Show.Show Amazonka.MachineLearning.Types.S3DataSpec.S3DataSpec
+instance GHC.Read.Read Amazonka.MachineLearning.Types.S3DataSpec.S3DataSpec
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.S3DataSpec.S3DataSpec
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.S3DataSpec.S3DataSpec
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.S3DataSpec.S3DataSpec
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.S3DataSpec.S3DataSpec
 
 
-module Network.AWS.MachineLearning.Types.SortOrder
+module Amazonka.MachineLearning.Types.SortOrder
 
 -- | The sort order specified in a listing condition. Possible values
 --   include the following:
@@ -3379,28 +3379,28 @@ SortOrder' :: Text -> SortOrder
 [fromSortOrder] :: SortOrder -> Text
 pattern SortOrder_Asc :: SortOrder
 pattern SortOrder_Dsc :: SortOrder
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.SortOrder.SortOrder
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance GHC.Read.Read Amazonka.MachineLearning.Types.SortOrder.SortOrder
+instance GHC.Show.Show Amazonka.MachineLearning.Types.SortOrder.SortOrder
 
 
-module Network.AWS.MachineLearning.Types.Tag
+module Amazonka.MachineLearning.Types.Tag
 
 -- | A custom key-value pair associated with an ML object, such as an ML
 --   model.
@@ -3443,17 +3443,17 @@ tag_value :: Lens' Tag (Maybe Text)
 -- | A unique identifier for the tag. Valid characters include Unicode
 --   letters, digits, white space, _, ., /, =, +, -, %, and @.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.MachineLearning.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.MachineLearning.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.Tag.Tag
 
 
-module Network.AWS.MachineLearning.Types.TaggableResourceType
+module Amazonka.MachineLearning.Types.TaggableResourceType
 newtype TaggableResourceType
 TaggableResourceType' :: Text -> TaggableResourceType
 [fromTaggableResourceType] :: TaggableResourceType -> Text
@@ -3461,28 +3461,28 @@ pattern TaggableResourceType_BatchPrediction :: TaggableResourceType
 pattern TaggableResourceType_DataSource :: TaggableResourceType
 pattern TaggableResourceType_Evaluation :: TaggableResourceType
 pattern TaggableResourceType_MLModel :: TaggableResourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance GHC.Classes.Ord Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance GHC.Read.Read Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
-instance GHC.Show.Show Network.AWS.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.XML.ToXML Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.XML.FromXML Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.Log.ToLog Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.Text.ToText Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Amazonka.Data.Text.FromText Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance GHC.Generics.Generic Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance GHC.Classes.Ord Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance GHC.Classes.Eq Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance GHC.Read.Read Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
+instance GHC.Show.Show Amazonka.MachineLearning.Types.TaggableResourceType.TaggableResourceType
 
 
-module Network.AWS.MachineLearning.Types
+module Amazonka.MachineLearning.Types
 
 -- | API version <tt>2014-12-12</tt> of the Amazon Machine Learning SDK
 --   configuration.
@@ -6586,7 +6586,7 @@ tag_key :: Lens' Tag (Maybe Text)
 --   <b>Note:</b> Not all response parameters will be populated. Whether a
 --   response parameter is populated depends on the type of model
 --   requested.
-module Network.AWS.MachineLearning.Predict
+module Amazonka.MachineLearning.Predict
 
 -- | <i>See:</i> <a>newPredict</a> smart constructor.
 data Predict
@@ -6653,29 +6653,29 @@ predictResponse_prediction :: Lens' PredictResponse (Maybe Prediction)
 
 -- | The response's http status code.
 predictResponse_httpStatus :: Lens' PredictResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Predict.Predict
-instance GHC.Show.Show Network.AWS.MachineLearning.Predict.Predict
-instance GHC.Read.Read Network.AWS.MachineLearning.Predict.Predict
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Predict.Predict
-instance GHC.Generics.Generic Network.AWS.MachineLearning.Predict.PredictResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.Predict.PredictResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.Predict.PredictResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.Predict.PredictResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.Predict.Predict
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Predict.PredictResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.Predict.Predict
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.Predict.Predict
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.Predict.Predict
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.Predict.Predict
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.Predict.Predict
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.Predict.Predict
+instance GHC.Generics.Generic Amazonka.MachineLearning.Predict.Predict
+instance GHC.Show.Show Amazonka.MachineLearning.Predict.Predict
+instance GHC.Read.Read Amazonka.MachineLearning.Predict.Predict
+instance GHC.Classes.Eq Amazonka.MachineLearning.Predict.Predict
+instance GHC.Generics.Generic Amazonka.MachineLearning.Predict.PredictResponse
+instance GHC.Show.Show Amazonka.MachineLearning.Predict.PredictResponse
+instance GHC.Read.Read Amazonka.MachineLearning.Predict.PredictResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.Predict.PredictResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.Predict.Predict
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Predict.PredictResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.Predict.Predict
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.Predict.Predict
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.Predict.Predict
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.Predict.Predict
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.Predict.Predict
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.Predict.Predict
 
 
 -- | Returns an <tt>MLModel</tt> that includes detailed metadata, data
 --   source information, and the current status of the <tt>MLModel</tt>.
 --   
 --   <tt>GetMLModel</tt> provides results in normal or verbose format.
-module Network.AWS.MachineLearning.GetMLModel
+module Amazonka.MachineLearning.GetMLModel
 
 -- | <i>See:</i> <a>newGetMLModel</a> smart constructor.
 data GetMLModel
@@ -7214,27 +7214,27 @@ getMLModelResponse_mLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 
 -- | The response's http status code.
 getMLModelResponse_httpStatus :: Lens' GetMLModelResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance GHC.Show.Show Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance GHC.Read.Read Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetMLModel.GetMLModelResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.GetMLModel.GetMLModelResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.GetMLModel.GetMLModelResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetMLModel.GetMLModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetMLModel.GetMLModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.GetMLModel.GetMLModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.GetMLModel.GetMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance GHC.Show.Show Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance GHC.Read.Read Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetMLModel.GetMLModelResponse
+instance GHC.Show.Show Amazonka.MachineLearning.GetMLModel.GetMLModelResponse
+instance GHC.Read.Read Amazonka.MachineLearning.GetMLModel.GetMLModelResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetMLModel.GetMLModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetMLModel.GetMLModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.GetMLModel.GetMLModel
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.GetMLModel.GetMLModel
 
 
 -- | Returns an <tt>Evaluation</tt> that includes metadata as well as the
 --   current status of the <tt>Evaluation</tt>.
-module Network.AWS.MachineLearning.GetEvaluation
+module Amazonka.MachineLearning.GetEvaluation
 
 -- | <i>See:</i> <a>newGetEvaluation</a> smart constructor.
 data GetEvaluation
@@ -7572,22 +7572,22 @@ getEvaluationResponse_evaluationDataSourceId :: Lens' GetEvaluationResponse (May
 
 -- | The response's http status code.
 getEvaluationResponse_httpStatus :: Lens' GetEvaluationResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance GHC.Show.Show Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance GHC.Read.Read Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetEvaluation.GetEvaluationResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.GetEvaluation.GetEvaluationResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.GetEvaluation.GetEvaluationResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetEvaluation.GetEvaluationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetEvaluation.GetEvaluationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.GetEvaluation.GetEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance GHC.Show.Show Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance GHC.Read.Read Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetEvaluation.GetEvaluationResponse
+instance GHC.Show.Show Amazonka.MachineLearning.GetEvaluation.GetEvaluationResponse
+instance GHC.Read.Read Amazonka.MachineLearning.GetEvaluation.GetEvaluationResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetEvaluation.GetEvaluationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetEvaluation.GetEvaluationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.GetEvaluation.GetEvaluation
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.GetEvaluation.GetEvaluation
 
 
 -- | Returns a <tt>DataSource</tt> that includes metadata and data file
@@ -7596,7 +7596,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.GetEvaluatio
 --   <tt>GetDataSource</tt> provides results in normal or verbose format.
 --   The verbose format adds the schema description and the list of files
 --   pointed to by the DataSource to the normal format.
-module Network.AWS.MachineLearning.GetDataSource
+module Amazonka.MachineLearning.GetDataSource
 
 -- | <i>See:</i> <a>newGetDataSource</a> smart constructor.
 data GetDataSource
@@ -7963,28 +7963,28 @@ getDataSourceResponse_roleARN :: Lens' GetDataSourceResponse (Maybe Text)
 
 -- | The response's http status code.
 getDataSourceResponse_httpStatus :: Lens' GetDataSourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance GHC.Show.Show Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance GHC.Read.Read Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetDataSource.GetDataSourceResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.GetDataSource.GetDataSourceResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.GetDataSource.GetDataSourceResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetDataSource.GetDataSourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetDataSource.GetDataSourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.GetDataSource.GetDataSource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.GetDataSource.GetDataSource
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance GHC.Show.Show Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance GHC.Read.Read Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetDataSource.GetDataSourceResponse
+instance GHC.Show.Show Amazonka.MachineLearning.GetDataSource.GetDataSourceResponse
+instance GHC.Read.Read Amazonka.MachineLearning.GetDataSource.GetDataSourceResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetDataSource.GetDataSourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetDataSource.GetDataSourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.GetDataSource.GetDataSource
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.GetDataSource.GetDataSource
 
 
 -- | Returns a <tt>BatchPrediction</tt> that includes detailed metadata,
 --   status, and data file information for a <tt>Batch Prediction</tt>
 --   request.
-module Network.AWS.MachineLearning.GetBatchPrediction
+module Amazonka.MachineLearning.GetBatchPrediction
 
 -- | <i>See:</i> <a>newGetBatchPrediction</a> smart constructor.
 data GetBatchPrediction
@@ -8311,26 +8311,26 @@ getBatchPredictionResponse_outputUri :: Lens' GetBatchPredictionResponse (Maybe 
 
 -- | The response's http status code.
 getBatchPredictionResponse_httpStatus :: Lens' GetBatchPredictionResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance GHC.Show.Show Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance GHC.Read.Read Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance GHC.Generics.Generic Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance GHC.Show.Show Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance GHC.Read.Read Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
+instance GHC.Show.Show Amazonka.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
+instance GHC.Read.Read Amazonka.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetBatchPrediction.GetBatchPredictionResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.GetBatchPrediction.GetBatchPrediction
 
 
 -- | Describes one or more of the tags for your Amazon ML object.
-module Network.AWS.MachineLearning.DescribeTags
+module Amazonka.MachineLearning.DescribeTags
 
 -- | <i>See:</i> <a>newDescribeTags</a> smart constructor.
 data DescribeTags
@@ -8419,29 +8419,29 @@ describeTagsResponse_tags :: Lens' DescribeTagsResponse (Maybe [Tag])
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens' DescribeTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeTags.DescribeTagsResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeTags.DescribeTagsResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeTags.DescribeTagsResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeTags.DescribeTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeTags.DescribeTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DescribeTags.DescribeTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DescribeTags.DescribeTags
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeTags.DescribeTagsResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeTags.DescribeTagsResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeTags.DescribeTagsResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeTags.DescribeTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeTags.DescribeTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DescribeTags.DescribeTags
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DescribeTags.DescribeTags
 
 
 -- | Returns a list of <tt>MLModel</tt> that match the search criteria in
 --   the request.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MachineLearning.DescribeMLModels
+module Amazonka.MachineLearning.DescribeMLModels
 
 -- | <i>See:</i> <a>newDescribeMLModels</a> smart constructor.
 data DescribeMLModels
@@ -8785,30 +8785,30 @@ describeMLModelsResponse_nextToken :: Lens' DescribeMLModelsResponse (Maybe Text
 
 -- | The response's http status code.
 describeMLModelsResponse_httpStatus :: Lens' DescribeMLModelsResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DescribeMLModels.DescribeMLModels
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeMLModels.DescribeMLModelsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DescribeMLModels.DescribeMLModels
 
 
 -- | Returns a list of <tt>DescribeEvaluations</tt> that match the search
 --   criteria in the request.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MachineLearning.DescribeEvaluations
+module Amazonka.MachineLearning.DescribeEvaluations
 
 -- | <i>See:</i> <a>newDescribeEvaluations</a> smart constructor.
 data DescribeEvaluations
@@ -9136,30 +9136,30 @@ describeEvaluationsResponse_nextToken :: Lens' DescribeEvaluationsResponse (Mayb
 
 -- | The response's http status code.
 describeEvaluationsResponse_httpStatus :: Lens' DescribeEvaluationsResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DescribeEvaluations.DescribeEvaluations
 
 
 -- | Returns a list of <tt>DataSource</tt> that match the search criteria
 --   in the request.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MachineLearning.DescribeDataSources
+module Amazonka.MachineLearning.DescribeDataSources
 
 -- | <i>See:</i> <a>newDescribeDataSources</a> smart constructor.
 data DescribeDataSources
@@ -9478,30 +9478,30 @@ describeDataSourcesResponse_nextToken :: Lens' DescribeDataSourcesResponse (Mayb
 
 -- | The response's http status code.
 describeDataSourcesResponse_httpStatus :: Lens' DescribeDataSourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DescribeDataSources.DescribeDataSources
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeDataSources.DescribeDataSourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DescribeDataSources.DescribeDataSources
 
 
 -- | Returns a list of <tt>BatchPrediction</tt> operations that match the
 --   search criteria in the request.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MachineLearning.DescribeBatchPredictions
+module Amazonka.MachineLearning.DescribeBatchPredictions
 
 -- | <i>See:</i> <a>newDescribeBatchPredictions</a> smart constructor.
 data DescribeBatchPredictions
@@ -9843,30 +9843,30 @@ describeBatchPredictionsResponse_nextToken :: Lens' DescribeBatchPredictionsResp
 
 -- | The response's http status code.
 describeBatchPredictionsResponse_httpStatus :: Lens' DescribeBatchPredictionsResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance GHC.Generics.Generic Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DescribeBatchPredictions.DescribeBatchPredictions
 
 
 -- | Deletes the specified tags associated with an ML object. After this
 --   operation is complete, you can't recover deleted tags.
 --   
 --   If you specify a tag that doesn't exist, Amazon ML ignores it.
-module Network.AWS.MachineLearning.DeleteTags
+module Amazonka.MachineLearning.DeleteTags
 
 -- | <i>See:</i> <a>newDeleteTags</a> smart constructor.
 data DeleteTags
@@ -9953,26 +9953,26 @@ deleteTagsResponse_resourceType :: Lens' DeleteTagsResponse (Maybe TaggableResou
 
 -- | The response's http status code.
 deleteTagsResponse_httpStatus :: Lens' DeleteTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteTags.DeleteTagsResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteTags.DeleteTagsResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteTags.DeleteTagsResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteTags.DeleteTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteTags.DeleteTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DeleteTags.DeleteTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteTags.DeleteTags
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteTags.DeleteTagsResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteTags.DeleteTagsResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteTags.DeleteTagsResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteTags.DeleteTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteTags.DeleteTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DeleteTags.DeleteTags
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DeleteTags.DeleteTags
 
 
 -- | Deletes a real time endpoint of an <tt>MLModel</tt>.
-module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
+module Amazonka.MachineLearning.DeleteRealtimeEndpoint
 
 -- | <i>See:</i> <a>newDeleteRealtimeEndpoint</a> smart constructor.
 data DeleteRealtimeEndpoint
@@ -10052,22 +10052,22 @@ deleteRealtimeEndpointResponse_mLModelId :: Lens' DeleteRealtimeEndpointResponse
 
 -- | The response's http status code.
 deleteRealtimeEndpointResponse_httpStatus :: Lens' DeleteRealtimeEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DeleteRealtimeEndpoint.DeleteRealtimeEndpoint
 
 
 -- | Assigns the <tt>DELETED</tt> status to an <tt>MLModel</tt>, rendering
@@ -10079,7 +10079,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteRealti
 --   
 --   <b>Caution:</b> The result of the <tt>DeleteMLModel</tt> operation is
 --   irreversible.
-module Network.AWS.MachineLearning.DeleteMLModel
+module Amazonka.MachineLearning.DeleteMLModel
 
 -- | <i>See:</i> <a>newDeleteMLModel</a> smart constructor.
 data DeleteMLModel
@@ -10148,22 +10148,22 @@ deleteMLModelResponse_mLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteMLModelResponse_httpStatus :: Lens' DeleteMLModelResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModelResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModelResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModelResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteMLModel.DeleteMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteMLModel.DeleteMLModelResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteMLModel.DeleteMLModelResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteMLModel.DeleteMLModelResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteMLModel.DeleteMLModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteMLModel.DeleteMLModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DeleteMLModel.DeleteMLModel
 
 
 -- | Assigns the <tt>DELETED</tt> status to an <tt>Evaluation</tt>,
@@ -10175,7 +10175,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteMLMode
 --   
 --   <b>Caution:</b> The results of the <tt>DeleteEvaluation</tt> operation
 --   are irreversible.
-module Network.AWS.MachineLearning.DeleteEvaluation
+module Amazonka.MachineLearning.DeleteEvaluation
 
 -- | <i>See:</i> <a>newDeleteEvaluation</a> smart constructor.
 data DeleteEvaluation
@@ -10249,22 +10249,22 @@ deleteEvaluationResponse_evaluationId :: Lens' DeleteEvaluationResponse (Maybe T
 
 -- | The response's http status code.
 deleteEvaluationResponse_httpStatus :: Lens' DeleteEvaluationResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DeleteEvaluation.DeleteEvaluation
 
 
 -- | Assigns the DELETED status to a <tt>DataSource</tt>, rendering it
@@ -10276,7 +10276,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteEvalua
 --   
 --   <b>Caution:</b> The results of the <tt>DeleteDataSource</tt> operation
 --   are irreversible.
-module Network.AWS.MachineLearning.DeleteDataSource
+module Amazonka.MachineLearning.DeleteDataSource
 
 -- | <i>See:</i> <a>newDeleteDataSource</a> smart constructor.
 data DeleteDataSource
@@ -10342,22 +10342,22 @@ deleteDataSourceResponse_dataSourceId :: Lens' DeleteDataSourceResponse (Maybe T
 
 -- | The response's http status code.
 deleteDataSourceResponse_httpStatus :: Lens' DeleteDataSourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteDataSource.DeleteDataSource
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteDataSource.DeleteDataSourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DeleteDataSource.DeleteDataSource
 
 
 -- | Assigns the DELETED status to a <tt>BatchPrediction</tt>, rendering it
@@ -10369,7 +10369,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteDataSo
 --   
 --   <b>Caution:</b> The result of the <tt>DeleteBatchPrediction</tt>
 --   operation is irreversible.
-module Network.AWS.MachineLearning.DeleteBatchPrediction
+module Amazonka.MachineLearning.DeleteBatchPrediction
 
 -- | <i>See:</i> <a>newDeleteBatchPrediction</a> smart constructor.
 data DeleteBatchPrediction
@@ -10442,28 +10442,28 @@ deleteBatchPredictionResponse_batchPredictionId :: Lens' DeleteBatchPredictionRe
 
 -- | The response's http status code.
 deleteBatchPredictionResponse_httpStatus :: Lens' DeleteBatchPredictionResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance GHC.Generics.Generic Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
+instance GHC.Show.Show Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
+instance GHC.Read.Read Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPredictionResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.DeleteBatchPrediction.DeleteBatchPrediction
 
 
 -- | Creates a real-time endpoint for the <tt>MLModel</tt>. The endpoint
 --   contains the URI of the <tt>MLModel</tt>; that is, the location to
 --   send real-time prediction requests for the specified <tt>MLModel</tt>.
-module Network.AWS.MachineLearning.CreateRealtimeEndpoint
+module Amazonka.MachineLearning.CreateRealtimeEndpoint
 
 -- | <i>See:</i> <a>newCreateRealtimeEndpoint</a> smart constructor.
 data CreateRealtimeEndpoint
@@ -10547,22 +10547,22 @@ createRealtimeEndpointResponse_mLModelId :: Lens' CreateRealtimeEndpointResponse
 
 -- | The response's http status code.
 createRealtimeEndpointResponse_httpStatus :: Lens' CreateRealtimeEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance GHC.Show.Show Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance GHC.Read.Read Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
+instance GHC.Show.Show Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
+instance GHC.Read.Read Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.CreateRealtimeEndpoint.CreateRealtimeEndpoint
 
 
 -- | Creates a new <tt>MLModel</tt> using the <tt>DataSource</tt> and the
@@ -10586,7 +10586,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateRealti
 --   to <tt>true</tt> in <tt>CreateDataSourceFromRDS</tt>,
 --   <tt>CreateDataSourceFromS3</tt>, or
 --   <tt>CreateDataSourceFromRedshift</tt> operations.
-module Network.AWS.MachineLearning.CreateMLModel
+module Amazonka.MachineLearning.CreateMLModel
 
 -- | <i>See:</i> <a>newCreateMLModel</a> smart constructor.
 data CreateMLModel
@@ -10875,22 +10875,22 @@ createMLModelResponse_mLModelId :: Lens' CreateMLModelResponse (Maybe Text)
 
 -- | The response's http status code.
 createMLModelResponse_httpStatus :: Lens' CreateMLModelResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateMLModel.CreateMLModelResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateMLModel.CreateMLModelResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateMLModel.CreateMLModelResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateMLModel.CreateMLModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateMLModel.CreateMLModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateMLModel.CreateMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance GHC.Show.Show Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance GHC.Read.Read Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateMLModel.CreateMLModelResponse
+instance GHC.Show.Show Amazonka.MachineLearning.CreateMLModel.CreateMLModelResponse
+instance GHC.Read.Read Amazonka.MachineLearning.CreateMLModel.CreateMLModelResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateMLModel.CreateMLModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateMLModel.CreateMLModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.CreateMLModel.CreateMLModel
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.CreateMLModel.CreateMLModel
 
 
 -- | Creates a new <tt>Evaluation</tt> of an <tt>MLModel</tt>. An
@@ -10914,7 +10914,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateMLMode
 --   
 --   You can use the <tt>GetEvaluation</tt> operation to check progress of
 --   the evaluation during the creation operation.
-module Network.AWS.MachineLearning.CreateEvaluation
+module Amazonka.MachineLearning.CreateEvaluation
 
 -- | <i>See:</i> <a>newCreateEvaluation</a> smart constructor.
 data CreateEvaluation
@@ -11030,22 +11030,22 @@ createEvaluationResponse_evaluationId :: Lens' CreateEvaluationResponse (Maybe T
 
 -- | The response's http status code.
 createEvaluationResponse_httpStatus :: Lens' CreateEvaluationResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluationResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluationResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluationResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateEvaluation.CreateEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance GHC.Show.Show Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance GHC.Read.Read Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateEvaluation.CreateEvaluationResponse
+instance GHC.Show.Show Amazonka.MachineLearning.CreateEvaluation.CreateEvaluationResponse
+instance GHC.Read.Read Amazonka.MachineLearning.CreateEvaluation.CreateEvaluationResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateEvaluation.CreateEvaluationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateEvaluation.CreateEvaluationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.CreateEvaluation.CreateEvaluation
 
 
 -- | Creates a <tt>DataSource</tt> object. A <tt>DataSource</tt> references
@@ -11085,7 +11085,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateEvalua
 --   manipulated; for example, will it be combined with another variable or
 --   will it be split apart into word combinations? The recipe provides
 --   answers to these questions.
-module Network.AWS.MachineLearning.CreateDataSourceFromS3
+module Amazonka.MachineLearning.CreateDataSourceFromS3
 
 -- | <i>See:</i> <a>newCreateDataSourceFromS3</a> smart constructor.
 data CreateDataSourceFromS3
@@ -11242,22 +11242,22 @@ createDataSourceFromS3Response_dataSourceId :: Lens' CreateDataSourceFromS3Respo
 
 -- | The response's http status code.
 createDataSourceFromS3Response_httpStatus :: Lens' CreateDataSourceFromS3Response Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Show.Show Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Read.Read Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance GHC.Show.Show Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance GHC.Read.Read Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
 
 
 -- | Creates a <tt>DataSource</tt> from a database hosted on an Amazon
@@ -11303,7 +11303,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSo
 --   datasource and copy the values to a <tt>CreateDataSource</tt> call.
 --   Change the settings that you want to change and make sure that all
 --   required fields have the appropriate values.
-module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
+module Amazonka.MachineLearning.CreateDataSourceFromRedshift
 
 -- | <i>See:</i> <a>newCreateDataSourceFromRedshift</a> smart constructor.
 data CreateDataSourceFromRedshift
@@ -11524,22 +11524,22 @@ createDataSourceFromRedshiftResponse_dataSourceId :: Lens' CreateDataSourceFromR
 
 -- | The response's http status code.
 createDataSourceFromRedshiftResponse_httpStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance GHC.Show.Show Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance GHC.Read.Read Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
+instance GHC.Show.Show Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
+instance GHC.Read.Read Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshiftResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.CreateDataSourceFromRedshift.CreateDataSourceFromRedshift
 
 
 -- | Creates a <tt>DataSource</tt> object from an <a>Amazon Relational
@@ -11562,7 +11562,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSo
 --   <tt>Status</tt> parameter to <tt>FAILED</tt> and includes an error
 --   message in the <tt>Message</tt> attribute of the
 --   <tt>GetDataSource</tt> operation response.
-module Network.AWS.MachineLearning.CreateDataSourceFromRDS
+module Amazonka.MachineLearning.CreateDataSourceFromRDS
 
 -- | <i>See:</i> <a>newCreateDataSourceFromRDS</a> smart constructor.
 data CreateDataSourceFromRDS
@@ -11805,22 +11805,22 @@ createDataSourceFromRDSResponse_dataSourceId :: Lens' CreateDataSourceFromRDSRes
 
 -- | The response's http status code.
 createDataSourceFromRDSResponse_httpStatus :: Lens' CreateDataSourceFromRDSResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance GHC.Show.Show Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance GHC.Read.Read Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
+instance GHC.Show.Show Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
+instance GHC.Read.Read Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDSResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.CreateDataSourceFromRDS.CreateDataSourceFromRDS
 
 
 -- | Generates predictions for a group of observations. The observations to
@@ -11839,7 +11839,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSo
 --   operation and checking the <tt>Status</tt> parameter of the result.
 --   After the <tt>COMPLETED</tt> status appears, the results are available
 --   in the location specified by the <tt>OutputUri</tt> parameter.
-module Network.AWS.MachineLearning.CreateBatchPrediction
+module Amazonka.MachineLearning.CreateBatchPrediction
 
 -- | <i>See:</i> <a>newCreateBatchPrediction</a> smart constructor.
 data CreateBatchPrediction
@@ -11983,29 +11983,29 @@ createBatchPredictionResponse_batchPredictionId :: Lens' CreateBatchPredictionRe
 
 -- | The response's http status code.
 createBatchPredictionResponse_httpStatus :: Lens' CreateBatchPredictionResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance GHC.Show.Show Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance GHC.Read.Read Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
+instance GHC.Show.Show Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
+instance GHC.Read.Read Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPredictionResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.CreateBatchPrediction.CreateBatchPrediction
 
 
 -- | Adds one or more tags to an object, up to a limit of 10. Each tag
 --   consists of a key and an optional value. If you add a tag using a key
 --   that is already associated with the ML object, <tt>AddTags</tt>
 --   updates the tag's value.
-module Network.AWS.MachineLearning.AddTags
+module Amazonka.MachineLearning.AddTags
 
 -- | <i>See:</i> <a>newAddTags</a> smart constructor.
 data AddTags
@@ -12095,22 +12095,22 @@ addTagsResponse_resourceType :: Lens' AddTagsResponse (Maybe TaggableResourceTyp
 
 -- | The response's http status code.
 addTagsResponse_httpStatus :: Lens' AddTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.AddTags.AddTags
-instance GHC.Show.Show Network.AWS.MachineLearning.AddTags.AddTags
-instance GHC.Read.Read Network.AWS.MachineLearning.AddTags.AddTags
-instance GHC.Classes.Eq Network.AWS.MachineLearning.AddTags.AddTags
-instance GHC.Generics.Generic Network.AWS.MachineLearning.AddTags.AddTagsResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.AddTags.AddTagsResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.AddTags.AddTagsResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.AddTags.AddTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.AddTags.AddTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.AddTags.AddTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.AddTags.AddTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.AddTags.AddTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.AddTags.AddTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.MachineLearning.AddTags.AddTags
+instance GHC.Show.Show Amazonka.MachineLearning.AddTags.AddTags
+instance GHC.Read.Read Amazonka.MachineLearning.AddTags.AddTags
+instance GHC.Classes.Eq Amazonka.MachineLearning.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.MachineLearning.AddTags.AddTagsResponse
+instance GHC.Show.Show Amazonka.MachineLearning.AddTags.AddTagsResponse
+instance GHC.Read.Read Amazonka.MachineLearning.AddTags.AddTagsResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.AddTags.AddTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.AddTags.AddTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.AddTags.AddTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.AddTags.AddTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.AddTags.AddTags
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.AddTags.AddTags
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.AddTags.AddTags
 
 
 -- | Updates the <tt>BatchPredictionName</tt> of a
@@ -12118,7 +12118,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.AddTags.AddT
 --   
 --   You can use the <tt>GetBatchPrediction</tt> operation to view the
 --   contents of the updated data element.
-module Network.AWS.MachineLearning.UpdateBatchPrediction
+module Amazonka.MachineLearning.UpdateBatchPrediction
 
 -- | <i>See:</i> <a>newUpdateBatchPrediction</a> smart constructor.
 data UpdateBatchPrediction
@@ -12200,29 +12200,29 @@ updateBatchPredictionResponse_batchPredictionId :: Lens' UpdateBatchPredictionRe
 
 -- | The response's http status code.
 updateBatchPredictionResponse_httpStatus :: Lens' UpdateBatchPredictionResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPredictionResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.UpdateBatchPrediction.UpdateBatchPrediction
 
 
 -- | Updates the <tt>DataSourceName</tt> of a <tt>DataSource</tt>.
 --   
 --   You can use the <tt>GetDataSource</tt> operation to view the contents
 --   of the updated data element.
-module Network.AWS.MachineLearning.UpdateDataSource
+module Amazonka.MachineLearning.UpdateDataSource
 
 -- | <i>See:</i> <a>newUpdateDataSource</a> smart constructor.
 data UpdateDataSource
@@ -12304,29 +12304,29 @@ updateDataSourceResponse_dataSourceId :: Lens' UpdateDataSourceResponse (Maybe T
 
 -- | The response's http status code.
 updateDataSourceResponse_httpStatus :: Lens' UpdateDataSourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.UpdateDataSource.UpdateDataSource
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateDataSource.UpdateDataSourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.UpdateDataSource.UpdateDataSource
 
 
 -- | Updates the <tt>EvaluationName</tt> of an <tt>Evaluation</tt>.
 --   
 --   You can use the <tt>GetEvaluation</tt> operation to view the contents
 --   of the updated data element.
-module Network.AWS.MachineLearning.UpdateEvaluation
+module Amazonka.MachineLearning.UpdateEvaluation
 
 -- | <i>See:</i> <a>newUpdateEvaluation</a> smart constructor.
 data UpdateEvaluation
@@ -12408,22 +12408,22 @@ updateEvaluationResponse_evaluationId :: Lens' UpdateEvaluationResponse (Maybe T
 
 -- | The response's http status code.
 updateEvaluationResponse_httpStatus :: Lens' UpdateEvaluationResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.UpdateEvaluation.UpdateEvaluation
 
 
 -- | Updates the <tt>MLModelName</tt> and the <tt>ScoreThreshold</tt> of an
@@ -12431,7 +12431,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.UpdateEvalua
 --   
 --   You can use the <tt>GetMLModel</tt> operation to view the contents of
 --   the updated data element.
-module Network.AWS.MachineLearning.UpdateMLModel
+module Amazonka.MachineLearning.UpdateMLModel
 
 -- | <i>See:</i> <a>newUpdateMLModel</a> smart constructor.
 data UpdateMLModel
@@ -12542,25 +12542,25 @@ updateMLModelResponse_mLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 
 -- | The response's http status code.
 updateMLModelResponse_httpStatus :: Lens' UpdateMLModelResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance GHC.Generics.Generic Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModelResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModelResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModelResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.UpdateMLModel.UpdateMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance GHC.Generics.Generic Amazonka.MachineLearning.UpdateMLModel.UpdateMLModelResponse
+instance GHC.Show.Show Amazonka.MachineLearning.UpdateMLModel.UpdateMLModelResponse
+instance GHC.Read.Read Amazonka.MachineLearning.UpdateMLModel.UpdateMLModelResponse
+instance GHC.Classes.Eq Amazonka.MachineLearning.UpdateMLModel.UpdateMLModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateMLModel.UpdateMLModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance Control.DeepSeq.NFData Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance Amazonka.Data.Path.ToPath Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
+instance Amazonka.Data.Query.ToQuery Amazonka.MachineLearning.UpdateMLModel.UpdateMLModel
 
 
-module Network.AWS.MachineLearning.Lens
+module Amazonka.MachineLearning.Lens
 
 -- | The ID assigned to the <tt>DataSource</tt> during creation.
 updateDataSource_dataSourceId :: Lens' UpdateDataSource Text
@@ -14816,7 +14816,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag (Maybe Text)
 
 
-module Network.AWS.MachineLearning.Waiters
+module Amazonka.MachineLearning.Waiters
 
 -- | Polls <a>DescribeMLModels</a> every 30 seconds until a successful
 --   state is reached. An error is returned after 60 failed checks.
@@ -14840,7 +14840,7 @@ newEvaluationAvailable :: Wait DescribeEvaluations
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Definition of the public APIs exposed by Amazon Machine Learning
-module Network.AWS.MachineLearning
+module Amazonka.MachineLearning
 
 -- | API version <tt>2014-12-12</tt> of the Amazon Machine Learning SDK
 --   configuration.

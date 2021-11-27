@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.FileSystemConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.FileSystemConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The Amazon Elastic File System (EFS) storage configuration for a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- SageMaker image.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFileSystemConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680305860"><span id="local-6989586621680305861"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSystemConfig"><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-var">FileSystemConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemConfig%27"><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-var">FileSystemConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default POSIX group ID (GID). If not specified, defaults to @100@.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdefaultGid%3AFileSystemConfig%27"><span class="annot"><span class="annottext">FileSystemConfig -&gt; Maybe Natural
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AdefaultGid%3AFileSystemConfig%27"><span class="hs-identifier hs-var hs-var">defaultGid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The path within the image to mount the user\'s EFS home directory. The</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- directory should be empty. If not specified, defaults to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- /\/home\/sagemaker-user/.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmountPath%3AFileSystemConfig%27"><span class="annot"><span class="annottext">FileSystemConfig -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AmountPath%3AFileSystemConfig%27"><span class="hs-identifier hs-var hs-var">mountPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The default POSIX user ID (UID). If not specified, defaults to @1000@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdefaultUid%3AFileSystemConfig%27"><span class="annot"><span class="annottext">FileSystemConfig -&gt; Maybe Natural
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AdefaultUid%3AFileSystemConfig%27"><span class="hs-identifier hs-var hs-var">defaultUid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680305852"><span id="local-6989586621680305854"><span class="annot"><span class="annottext">FileSystemConfig -&gt; FileSystemConfig -&gt; Bool
+(FileSystemConfig -&gt; FileSystemConfig -&gt; Bool)
+-&gt; (FileSystemConfig -&gt; FileSystemConfig -&gt; Bool)
+-&gt; Eq FileSystemConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileSystemConfig -&gt; FileSystemConfig -&gt; Bool
+$c/= :: FileSystemConfig -&gt; FileSystemConfig -&gt; Bool
+== :: FileSystemConfig -&gt; FileSystemConfig -&gt; Bool
+$c== :: FileSystemConfig -&gt; FileSystemConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305843"><span id="local-6989586621680305845"><span id="local-6989586621680305847"><span id="local-6989586621680305849"><span class="annot"><span class="annottext">ReadPrec [FileSystemConfig]
+ReadPrec FileSystemConfig
+Int -&gt; ReadS FileSystemConfig
+ReadS [FileSystemConfig]
+(Int -&gt; ReadS FileSystemConfig)
+-&gt; ReadS [FileSystemConfig]
+-&gt; ReadPrec FileSystemConfig
+-&gt; ReadPrec [FileSystemConfig]
+-&gt; Read FileSystemConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileSystemConfig]
+$creadListPrec :: ReadPrec [FileSystemConfig]
+readPrec :: ReadPrec FileSystemConfig
+$creadPrec :: ReadPrec FileSystemConfig
+readList :: ReadS [FileSystemConfig]
+$creadList :: ReadS [FileSystemConfig]
+readsPrec :: Int -&gt; ReadS FileSystemConfig
+$creadsPrec :: Int -&gt; ReadS FileSystemConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305836"><span id="local-6989586621680305838"><span id="local-6989586621680305840"><span class="annot"><span class="annottext">Int -&gt; FileSystemConfig -&gt; ShowS
+[FileSystemConfig] -&gt; ShowS
+FileSystemConfig -&gt; String
+(Int -&gt; FileSystemConfig -&gt; ShowS)
+-&gt; (FileSystemConfig -&gt; String)
+-&gt; ([FileSystemConfig] -&gt; ShowS)
+-&gt; Show FileSystemConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileSystemConfig] -&gt; ShowS
+$cshowList :: [FileSystemConfig] -&gt; ShowS
+show :: FileSystemConfig -&gt; String
+$cshow :: FileSystemConfig -&gt; String
+showsPrec :: Int -&gt; FileSystemConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileSystemConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FileSystemConfig -&gt; Rep FileSystemConfig x)
+-&gt; (forall x. Rep FileSystemConfig x -&gt; FileSystemConfig)
+-&gt; Generic FileSystemConfig
+forall x. Rep FileSystemConfig x -&gt; FileSystemConfig
+forall x. FileSystemConfig -&gt; Rep FileSystemConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FileSystemConfig x -&gt; FileSystemConfig
+$cfrom :: forall x. FileSystemConfig -&gt; Rep FileSystemConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'FileSystemConfig' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'defaultGid', 'fileSystemConfig_defaultGid' - The default POSIX group ID (GID). If not specified, defaults to @100@.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'mountPath', 'fileSystemConfig_mountPath' - The path within the image to mount the user\'s EFS home directory. The</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- directory should be empty. If not specified, defaults to</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /\/home\/sagemaker-user/.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'defaultUid', 'fileSystemConfig_defaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#newFileSystemConfig"><span class="hs-identifier hs-type">newFileSystemConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span><span>
+</span><span id="line-59"></span><span id="newFileSystemConfig"><span class="annot"><span class="annottext">newFileSystemConfig :: FileSystemConfig
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#newFileSystemConfig"><span class="hs-identifier hs-var hs-var">newFileSystemConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">FileSystemConfig' :: Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; FileSystemConfig
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultGid:FileSystemConfig' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AdefaultGid%3AFileSystemConfig%27"><span class="hs-identifier hs-var">defaultGid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:mountPath:FileSystemConfig' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AmountPath%3AFileSystemConfig%27"><span class="hs-identifier hs-var">mountPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultUid:FileSystemConfig' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AdefaultUid%3AFileSystemConfig%27"><span class="hs-identifier hs-var">defaultUid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The default POSIX group ID (GID). If not specified, defaults to @100@.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#fileSystemConfig_defaultGid"><span class="hs-identifier hs-type">fileSystemConfig_defaultGid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="fileSystemConfig_defaultGid"><span class="annot"><span class="annottext">fileSystemConfig_defaultGid :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FileSystemConfig -&gt; f FileSystemConfig
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#fileSystemConfig_defaultGid"><span class="hs-identifier hs-var hs-var">fileSystemConfig_defaultGid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemConfig -&gt; Maybe Natural)
+-&gt; (FileSystemConfig -&gt; Maybe Natural -&gt; FileSystemConfig)
+-&gt; Lens
+     FileSystemConfig FileSystemConfig (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305827"><span class="annot"><span class="annottext">Maybe Natural
+defaultGid :: Maybe Natural
+$sel:defaultGid:FileSystemConfig' :: FileSystemConfig -&gt; Maybe Natural
+</span><a href="#local-6989586621680305827"><span class="hs-identifier hs-var hs-var">defaultGid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305827"><span class="hs-identifier hs-var">defaultGid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305826"><span class="annot"><span class="annottext">s :: FileSystemConfig
+</span><a href="#local-6989586621680305826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305825"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemConfig
+</span><a href="#local-6989586621680305826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultGid:FileSystemConfig' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AdefaultGid%3AFileSystemConfig%27"><span class="hs-identifier hs-var">defaultGid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The path within the image to mount the user\'s EFS home directory. The</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- directory should be empty. If not specified, defaults to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- /\/home\/sagemaker-user/.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#fileSystemConfig_mountPath"><span class="hs-identifier hs-type">fileSystemConfig_mountPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="fileSystemConfig_mountPath"><span class="annot"><span class="annottext">fileSystemConfig_mountPath :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FileSystemConfig -&gt; f FileSystemConfig
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#fileSystemConfig_mountPath"><span class="hs-identifier hs-var hs-var">fileSystemConfig_mountPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemConfig -&gt; Maybe Text)
+-&gt; (FileSystemConfig -&gt; Maybe Text -&gt; FileSystemConfig)
+-&gt; Lens FileSystemConfig FileSystemConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305823"><span class="annot"><span class="annottext">Maybe Text
+mountPath :: Maybe Text
+$sel:mountPath:FileSystemConfig' :: FileSystemConfig -&gt; Maybe Text
+</span><a href="#local-6989586621680305823"><span class="hs-identifier hs-var hs-var">mountPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305823"><span class="hs-identifier hs-var">mountPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305822"><span class="annot"><span class="annottext">s :: FileSystemConfig
+</span><a href="#local-6989586621680305822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemConfig
+</span><a href="#local-6989586621680305822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mountPath:FileSystemConfig' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AmountPath%3AFileSystemConfig%27"><span class="hs-identifier hs-var">mountPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The default POSIX user ID (UID). If not specified, defaults to @1000@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#fileSystemConfig_defaultUid"><span class="hs-identifier hs-type">fileSystemConfig_defaultUid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="fileSystemConfig_defaultUid"><span class="annot"><span class="annottext">fileSystemConfig_defaultUid :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FileSystemConfig -&gt; f FileSystemConfig
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#fileSystemConfig_defaultUid"><span class="hs-identifier hs-var hs-var">fileSystemConfig_defaultUid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileSystemConfig -&gt; Maybe Natural)
+-&gt; (FileSystemConfig -&gt; Maybe Natural -&gt; FileSystemConfig)
+-&gt; Lens
+     FileSystemConfig FileSystemConfig (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305819"><span class="annot"><span class="annottext">Maybe Natural
+defaultUid :: Maybe Natural
+$sel:defaultUid:FileSystemConfig' :: FileSystemConfig -&gt; Maybe Natural
+</span><a href="#local-6989586621680305819"><span class="hs-identifier hs-var hs-var">defaultUid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305819"><span class="hs-identifier hs-var">defaultUid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305818"><span class="annot"><span class="annottext">s :: FileSystemConfig
+</span><a href="#local-6989586621680305818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305817"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemConfig
+</span><a href="#local-6989586621680305818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultUid:FileSystemConfig' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#%24sel%3AdefaultUid%3AFileSystemConfig%27"><span class="hs-identifier hs-var">defaultUid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305814"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680305812"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSystemConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FileSystemConfig)
+-&gt; Value
+-&gt; Parser FileSystemConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FileSystemConfig&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680305809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; FileSystemConfig
+</span><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-var">FileSystemConfig'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Text -&gt; Maybe Natural -&gt; FileSystemConfig)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; FileSystemConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultGid&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; FileSystemConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; FileSystemConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MountPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; FileSystemConfig)
+-&gt; Parser (Maybe Natural) -&gt; Parser FileSystemConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultUid&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305803"><span id="local-6989586621680305805"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305792"><span id="local-6989586621680305794"><span id="local-6989586621680305796"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig"><span class="hs-identifier hs-type">FileSystemConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621680305790"><span class="annot"><span class="annottext">toJSON :: FileSystemConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemConfig.html#FileSystemConfig%27"><span class="hs-identifier hs-type">FileSystemConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305786"><span id="local-6989586621680305787"><span id="local-6989586621680305788"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+defaultUid :: Maybe Natural
+mountPath :: Maybe Text
+defaultGid :: Maybe Natural
+$sel:defaultUid:FileSystemConfig' :: FileSystemConfig -&gt; Maybe Natural
+$sel:mountPath:FileSystemConfig' :: FileSystemConfig -&gt; Maybe Text
+$sel:defaultGid:FileSystemConfig' :: FileSystemConfig -&gt; Maybe Natural
+</span><a href="#local-6989586621680305786"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultGid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305788"><span class="hs-identifier hs-var">defaultGid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MountPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305787"><span class="hs-identifier hs-var">mountPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultUid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680305786"><span class="hs-identifier hs-var">defaultUid</span></a></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span></pre></body></html>

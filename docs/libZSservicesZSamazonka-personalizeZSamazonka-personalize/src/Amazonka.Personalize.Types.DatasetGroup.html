@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.Types.DatasetGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.Types.DatasetGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A dataset group is a collection of related datasets (Interactions, User,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- and Item). You create a dataset group by calling CreateDatasetGroup. You</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- then create a dataset and add it to a dataset group by calling</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- CreateDataset. The dataset group is used to create and train a solution</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- by calling CreateSolution. A dataset group can contain only one of each</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- type of dataset.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- You can specify an Key Management Service (KMS) key to encrypt the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- datasets in the group.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newDatasetGroup' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679268611"><span id="local-6989586621679268612"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetGroup"><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-var">DatasetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetGroup%27"><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-var">DatasetGroup'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If creating a dataset group fails, provides the reason why.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfailureReason%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AfailureReason%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The current status of the dataset group.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- A dataset group can be in one of the following states:</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   DELETE PENDING</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Astatus%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3Astatus%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- used to encrypt the datasets.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AkmsKeyArn%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The last update date and time (in Unix time) of the dataset group.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlastUpdatedDateTime%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AlastUpdatedDateTime%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name of the dataset group.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3Aname%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The creation date and time (in Unix time) of the dataset group.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcreationDateTime%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AcreationDateTime%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset group.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdatasetGroupArn%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AdatasetGroupArn%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">datasetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role that has permissions to create the dataset</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AroleArn%3ADatasetGroup%27"><span class="annot"><span class="annottext">DatasetGroup -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AroleArn%3ADatasetGroup%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268598"><span id="local-6989586621679268600"><span class="annot"><span class="annottext">DatasetGroup -&gt; DatasetGroup -&gt; Bool
+(DatasetGroup -&gt; DatasetGroup -&gt; Bool)
+-&gt; (DatasetGroup -&gt; DatasetGroup -&gt; Bool) -&gt; Eq DatasetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatasetGroup -&gt; DatasetGroup -&gt; Bool
+$c/= :: DatasetGroup -&gt; DatasetGroup -&gt; Bool
+== :: DatasetGroup -&gt; DatasetGroup -&gt; Bool
+$c== :: DatasetGroup -&gt; DatasetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268589"><span id="local-6989586621679268591"><span id="local-6989586621679268593"><span id="local-6989586621679268595"><span class="annot"><span class="annottext">ReadPrec [DatasetGroup]
+ReadPrec DatasetGroup
+Int -&gt; ReadS DatasetGroup
+ReadS [DatasetGroup]
+(Int -&gt; ReadS DatasetGroup)
+-&gt; ReadS [DatasetGroup]
+-&gt; ReadPrec DatasetGroup
+-&gt; ReadPrec [DatasetGroup]
+-&gt; Read DatasetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatasetGroup]
+$creadListPrec :: ReadPrec [DatasetGroup]
+readPrec :: ReadPrec DatasetGroup
+$creadPrec :: ReadPrec DatasetGroup
+readList :: ReadS [DatasetGroup]
+$creadList :: ReadS [DatasetGroup]
+readsPrec :: Int -&gt; ReadS DatasetGroup
+$creadsPrec :: Int -&gt; ReadS DatasetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268582"><span id="local-6989586621679268584"><span id="local-6989586621679268586"><span class="annot"><span class="annottext">Int -&gt; DatasetGroup -&gt; ShowS
+[DatasetGroup] -&gt; ShowS
+DatasetGroup -&gt; String
+(Int -&gt; DatasetGroup -&gt; ShowS)
+-&gt; (DatasetGroup -&gt; String)
+-&gt; ([DatasetGroup] -&gt; ShowS)
+-&gt; Show DatasetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatasetGroup] -&gt; ShowS
+$cshowList :: [DatasetGroup] -&gt; ShowS
+show :: DatasetGroup -&gt; String
+$cshow :: DatasetGroup -&gt; String
+showsPrec :: Int -&gt; DatasetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatasetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DatasetGroup -&gt; Rep DatasetGroup x)
+-&gt; (forall x. Rep DatasetGroup x -&gt; DatasetGroup)
+-&gt; Generic DatasetGroup
+forall x. Rep DatasetGroup x -&gt; DatasetGroup
+forall x. DatasetGroup -&gt; Rep DatasetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatasetGroup x -&gt; DatasetGroup
+$cfrom :: forall x. DatasetGroup -&gt; Rep DatasetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'DatasetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'failureReason', 'datasetGroup_failureReason' - If creating a dataset group fails, provides the reason why.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'status', 'datasetGroup_status' - The current status of the dataset group.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- A dataset group can be in one of the following states:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   DELETE PENDING</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'kmsKeyArn', 'datasetGroup_kmsKeyArn' - The Amazon Resource Name (ARN) of the Key Management Service (KMS) key</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- used to encrypt the datasets.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'lastUpdatedDateTime', 'datasetGroup_lastUpdatedDateTime' - The last update date and time (in Unix time) of the dataset group.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'name', 'datasetGroup_name' - The name of the dataset group.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'creationDateTime', 'datasetGroup_creationDateTime' - The creation date and time (in Unix time) of the dataset group.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'datasetGroupArn', 'datasetGroup_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'roleArn', 'datasetGroup_roleArn' - The ARN of the IAM role that has permissions to create the dataset</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#newDatasetGroup"><span class="hs-identifier hs-type">newDatasetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span>
+</span><span id="line-98"></span><span id="newDatasetGroup"><span class="annot"><span class="annottext">newDatasetGroup :: DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#newDatasetGroup"><span class="hs-identifier hs-var hs-var">newDatasetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">DatasetGroup' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AfailureReason%3ADatasetGroup%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3Astatus%3ADatasetGroup%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AkmsKeyArn%3ADatasetGroup%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:DatasetGroup' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AlastUpdatedDateTime%3ADatasetGroup%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3Aname%3ADatasetGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:DatasetGroup' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AcreationDateTime%3ADatasetGroup%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetGroupArn:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AdatasetGroupArn%3ADatasetGroup%27"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AroleArn%3ADatasetGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | If creating a dataset group fails, provides the reason why.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_failureReason"><span class="hs-identifier hs-type">datasetGroup_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="datasetGroup_failureReason"><span class="annot"><span class="annottext">datasetGroup_failureReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_failureReason"><span class="hs-identifier hs-var hs-var">datasetGroup_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe Text)
+-&gt; (DatasetGroup -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268573"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:DatasetGroup' :: DatasetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679268573"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268573"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268572"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AfailureReason%3ADatasetGroup%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The current status of the dataset group.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- A dataset group can be in one of the following states:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   DELETE PENDING</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_status"><span class="hs-identifier hs-type">datasetGroup_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="datasetGroup_status"><span class="annot"><span class="annottext">datasetGroup_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_status"><span class="hs-identifier hs-var hs-var">datasetGroup_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe Text)
+-&gt; (DatasetGroup -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268569"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:DatasetGroup' :: DatasetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679268569"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268569"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268568"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3Astatus%3ADatasetGroup%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- used to encrypt the datasets.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_kmsKeyArn"><span class="hs-identifier hs-type">datasetGroup_kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="datasetGroup_kmsKeyArn"><span class="annot"><span class="annottext">datasetGroup_kmsKeyArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_kmsKeyArn"><span class="hs-identifier hs-var hs-var">datasetGroup_kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe Text)
+-&gt; (DatasetGroup -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268565"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyArn :: Maybe Text
+$sel:kmsKeyArn:DatasetGroup' :: DatasetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679268565"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268565"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268564"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268563"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AkmsKeyArn%3ADatasetGroup%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The last update date and time (in Unix time) of the dataset group.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_lastUpdatedDateTime"><span class="hs-identifier hs-type">datasetGroup_lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="datasetGroup_lastUpdatedDateTime"><span class="annot"><span class="annottext">datasetGroup_lastUpdatedDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_lastUpdatedDateTime"><span class="hs-identifier hs-var hs-var">datasetGroup_lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe POSIX)
+-&gt; (DatasetGroup -&gt; Maybe POSIX -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268561"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDateTime :: Maybe POSIX
+$sel:lastUpdatedDateTime:DatasetGroup' :: DatasetGroup -&gt; Maybe POSIX
+</span><a href="#local-6989586621679268561"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268561"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268560"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268559"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:DatasetGroup' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AlastUpdatedDateTime%3ADatasetGroup%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetGroup -&gt; f DatasetGroup)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetGroup
+-&gt; f DatasetGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the dataset group.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_name"><span class="hs-identifier hs-type">datasetGroup_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="datasetGroup_name"><span class="annot"><span class="annottext">datasetGroup_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_name"><span class="hs-identifier hs-var hs-var">datasetGroup_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe Text)
+-&gt; (DatasetGroup -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268554"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DatasetGroup' :: DatasetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679268554"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268554"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268553"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268552"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3Aname%3ADatasetGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The creation date and time (in Unix time) of the dataset group.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_creationDateTime"><span class="hs-identifier hs-type">datasetGroup_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="datasetGroup_creationDateTime"><span class="annot"><span class="annottext">datasetGroup_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_creationDateTime"><span class="hs-identifier hs-var hs-var">datasetGroup_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe POSIX)
+-&gt; (DatasetGroup -&gt; Maybe POSIX -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268550"><span class="annot"><span class="annottext">Maybe POSIX
+creationDateTime :: Maybe POSIX
+$sel:creationDateTime:DatasetGroup' :: DatasetGroup -&gt; Maybe POSIX
+</span><a href="#local-6989586621679268550"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268550"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268549"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268548"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:DatasetGroup' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AcreationDateTime%3ADatasetGroup%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetGroup -&gt; f DatasetGroup)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetGroup
+-&gt; f DatasetGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset group.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_datasetGroupArn"><span class="hs-identifier hs-type">datasetGroup_datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="datasetGroup_datasetGroupArn"><span class="annot"><span class="annottext">datasetGroup_datasetGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_datasetGroupArn"><span class="hs-identifier hs-var hs-var">datasetGroup_datasetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe Text)
+-&gt; (DatasetGroup -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268546"><span class="annot"><span class="annottext">Maybe Text
+datasetGroupArn :: Maybe Text
+$sel:datasetGroupArn:DatasetGroup' :: DatasetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679268546"><span class="hs-identifier hs-var hs-var">datasetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268546"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268545"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268544"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetGroupArn:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AdatasetGroupArn%3ADatasetGroup%27"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The ARN of the IAM role that has permissions to create the dataset</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_roleArn"><span class="hs-identifier hs-type">datasetGroup_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="datasetGroup_roleArn"><span class="annot"><span class="annottext">datasetGroup_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DatasetGroup -&gt; f DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#datasetGroup_roleArn"><span class="hs-identifier hs-var hs-var">datasetGroup_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetGroup -&gt; Maybe Text)
+-&gt; (DatasetGroup -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Lens DatasetGroup DatasetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268542"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:DatasetGroup' :: DatasetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679268542"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268542"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268541"><span class="annot"><span class="annottext">s :: DatasetGroup
+</span><a href="#local-6989586621679268541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-type">DatasetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268540"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetGroup
+</span><a href="#local-6989586621679268541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DatasetGroup' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#%24sel%3AroleArn%3ADatasetGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268537"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679268535"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DatasetGroup) -&gt; Value -&gt; Parser DatasetGroup
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DatasetGroup&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DatasetGroup
+</span><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup%27"><span class="hs-identifier hs-var">DatasetGroup'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; DatasetGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DatasetGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DatasetGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DatasetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DatasetGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DatasetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DatasetGroup)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; DatasetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; DatasetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DatasetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DatasetGroup)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; DatasetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DatasetGroup)
+-&gt; Parser (Maybe Text) -&gt; Parser DatasetGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268526"><span id="local-6989586621679268528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetGroup.html#DatasetGroup"><span class="hs-identifier hs-type">DatasetGroup</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

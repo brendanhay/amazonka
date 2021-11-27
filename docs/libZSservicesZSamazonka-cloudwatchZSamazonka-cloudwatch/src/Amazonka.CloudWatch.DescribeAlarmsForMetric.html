@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatch.DescribeAlarmsForMetric</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the alarms for the specified metric. To filter the results,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specify a statistic, period, or unit.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation retrieves only standard alarms that are based on the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- specified metric. It does not return alarms based on math expressions</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- that use the specified metric, or composite alarms that use the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- specified metric.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatch.DescribeAlarmsForMetric</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#newDescribeAlarmsForMetric"><span class="hs-identifier">newDescribeAlarmsForMetric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_period"><span class="hs-identifier">describeAlarmsForMetric_period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_dimensions"><span class="hs-identifier">describeAlarmsForMetric_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_unit"><span class="hs-identifier">describeAlarmsForMetric_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_statistic"><span class="hs-identifier">describeAlarmsForMetric_statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_extendedStatistic"><span class="hs-identifier">describeAlarmsForMetric_extendedStatistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_metricName"><span class="hs-identifier">describeAlarmsForMetric_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_namespace"><span class="hs-identifier">describeAlarmsForMetric_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier">DescribeAlarmsForMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#newDescribeAlarmsForMetricResponse"><span class="hs-identifier">newDescribeAlarmsForMetricResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetricResponse_metricAlarms"><span class="hs-identifier">describeAlarmsForMetricResponse_metricAlarms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetricResponse_httpStatus"><span class="hs-identifier">describeAlarmsForMetricResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html"><span class="hs-identifier">Amazonka.CloudWatch.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDescribeAlarmsForMetric' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679265220"><span id="local-6989586621679265221"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAlarmsForMetric"><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-var">DescribeAlarmsForMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAlarmsForMetric%27"><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">DescribeAlarmsForMetric'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The period, in seconds, over which the statistic is applied.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aperiod%3ADescribeAlarmsForMetric%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Aperiod%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The dimensions associated with the metric. If the metric has any</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- associated dimensions, you must specify them in order for the call to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Adimensions%3ADescribeAlarmsForMetric%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; Maybe [Dimension]
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Adimensions%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The unit for the metric.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aunit%3ADescribeAlarmsForMetric%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; Maybe StandardUnit
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Aunit%3ADescribeAlarmsForMetric%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-type">StandardUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The statistic for the metric, other than percentiles. For percentile</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- statistics, use @ExtendedStatistics@.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Astatistic%3ADescribeAlarmsForMetric%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; Maybe Statistic
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Astatistic%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Statistic.html#Statistic"><span class="hs-identifier hs-type">Statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The percentile statistic for the metric. Specify a value between p0.0</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- and p100.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AextendedStatistic%3ADescribeAlarmsForMetric%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AextendedStatistic%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var hs-var">extendedStatistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The name of the metric.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AmetricName%3ADescribeAlarmsForMetric%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AmetricName%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The namespace of the metric.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Anamespace%3ADescribeAlarmsForMetric%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Anamespace%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265208"><span id="local-6989586621679265210"><span class="annot"><span class="annottext">DescribeAlarmsForMetric -&gt; DescribeAlarmsForMetric -&gt; Bool
+(DescribeAlarmsForMetric -&gt; DescribeAlarmsForMetric -&gt; Bool)
+-&gt; (DescribeAlarmsForMetric -&gt; DescribeAlarmsForMetric -&gt; Bool)
+-&gt; Eq DescribeAlarmsForMetric
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAlarmsForMetric -&gt; DescribeAlarmsForMetric -&gt; Bool
+$c/= :: DescribeAlarmsForMetric -&gt; DescribeAlarmsForMetric -&gt; Bool
+== :: DescribeAlarmsForMetric -&gt; DescribeAlarmsForMetric -&gt; Bool
+$c== :: DescribeAlarmsForMetric -&gt; DescribeAlarmsForMetric -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265199"><span id="local-6989586621679265201"><span id="local-6989586621679265203"><span id="local-6989586621679265205"><span class="annot"><span class="annottext">ReadPrec [DescribeAlarmsForMetric]
+ReadPrec DescribeAlarmsForMetric
+Int -&gt; ReadS DescribeAlarmsForMetric
+ReadS [DescribeAlarmsForMetric]
+(Int -&gt; ReadS DescribeAlarmsForMetric)
+-&gt; ReadS [DescribeAlarmsForMetric]
+-&gt; ReadPrec DescribeAlarmsForMetric
+-&gt; ReadPrec [DescribeAlarmsForMetric]
+-&gt; Read DescribeAlarmsForMetric
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAlarmsForMetric]
+$creadListPrec :: ReadPrec [DescribeAlarmsForMetric]
+readPrec :: ReadPrec DescribeAlarmsForMetric
+$creadPrec :: ReadPrec DescribeAlarmsForMetric
+readList :: ReadS [DescribeAlarmsForMetric]
+$creadList :: ReadS [DescribeAlarmsForMetric]
+readsPrec :: Int -&gt; ReadS DescribeAlarmsForMetric
+$creadsPrec :: Int -&gt; ReadS DescribeAlarmsForMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265192"><span id="local-6989586621679265194"><span id="local-6989586621679265196"><span class="annot"><span class="annottext">Int -&gt; DescribeAlarmsForMetric -&gt; ShowS
+[DescribeAlarmsForMetric] -&gt; ShowS
+DescribeAlarmsForMetric -&gt; String
+(Int -&gt; DescribeAlarmsForMetric -&gt; ShowS)
+-&gt; (DescribeAlarmsForMetric -&gt; String)
+-&gt; ([DescribeAlarmsForMetric] -&gt; ShowS)
+-&gt; Show DescribeAlarmsForMetric
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAlarmsForMetric] -&gt; ShowS
+$cshowList :: [DescribeAlarmsForMetric] -&gt; ShowS
+show :: DescribeAlarmsForMetric -&gt; String
+$cshow :: DescribeAlarmsForMetric -&gt; String
+showsPrec :: Int -&gt; DescribeAlarmsForMetric -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAlarmsForMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAlarmsForMetric -&gt; Rep DescribeAlarmsForMetric x)
+-&gt; (forall x.
+    Rep DescribeAlarmsForMetric x -&gt; DescribeAlarmsForMetric)
+-&gt; Generic DescribeAlarmsForMetric
+forall x. Rep DescribeAlarmsForMetric x -&gt; DescribeAlarmsForMetric
+forall x. DescribeAlarmsForMetric -&gt; Rep DescribeAlarmsForMetric x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeAlarmsForMetric x -&gt; DescribeAlarmsForMetric
+$cfrom :: forall x. DescribeAlarmsForMetric -&gt; Rep DescribeAlarmsForMetric x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'DescribeAlarmsForMetric' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'period', 'describeAlarmsForMetric_period' - The period, in seconds, over which the statistic is applied.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'dimensions', 'describeAlarmsForMetric_dimensions' - The dimensions associated with the metric. If the metric has any</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- associated dimensions, you must specify them in order for the call to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'unit', 'describeAlarmsForMetric_unit' - The unit for the metric.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'statistic', 'describeAlarmsForMetric_statistic' - The statistic for the metric, other than percentiles. For percentile</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- statistics, use @ExtendedStatistics@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'extendedStatistic', 'describeAlarmsForMetric_extendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- and p100.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'metricName', 'describeAlarmsForMetric_metricName' - The name of the metric.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'namespace', 'describeAlarmsForMetric_namespace' - The namespace of the metric.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#newDescribeAlarmsForMetric"><span class="hs-identifier hs-type">newDescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'metricName'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span>
+</span><span id="line-115"></span><span id="newDescribeAlarmsForMetric"><span class="annot"><span class="annottext">newDescribeAlarmsForMetric :: Text -&gt; Text -&gt; DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#newDescribeAlarmsForMetric"><span class="hs-identifier hs-var hs-var">newDescribeAlarmsForMetric</span></a></span></span><span> </span><span id="local-6989586621679265187"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265187"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span id="local-6989586621679265186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265186"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric' :: Maybe Natural
+-&gt; Maybe [Dimension]
+-&gt; Maybe StandardUnit
+-&gt; Maybe Statistic
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:period:DescribeAlarmsForMetric' :: Maybe Natural
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Aperiod%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:DescribeAlarmsForMetric' :: Maybe [Dimension]
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Adimensions%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:unit:DescribeAlarmsForMetric' :: Maybe StandardUnit
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Aunit%3ADescribeAlarmsForMetric%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:statistic:DescribeAlarmsForMetric' :: Maybe Statistic
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Astatistic%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:extendedStatistic:DescribeAlarmsForMetric' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AextendedStatistic%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">extendedStatistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:DescribeAlarmsForMetric' :: Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AmetricName%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265187"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:DescribeAlarmsForMetric' :: Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Anamespace%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265186"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The period, in seconds, over which the statistic is applied.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_period"><span class="hs-identifier hs-type">describeAlarmsForMetric_period</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="describeAlarmsForMetric_period"><span class="annot"><span class="annottext">describeAlarmsForMetric_period :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_period"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetric_period</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetric -&gt; Maybe Natural)
+-&gt; (DescribeAlarmsForMetric
+    -&gt; Maybe Natural -&gt; DescribeAlarmsForMetric)
+-&gt; Lens
+     DescribeAlarmsForMetric
+     DescribeAlarmsForMetric
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265183"><span class="annot"><span class="annottext">Maybe Natural
+period :: Maybe Natural
+$sel:period:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe Natural
+</span><a href="#local-6989586621679265183"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265183"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265182"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265181"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:DescribeAlarmsForMetric' :: Maybe Natural
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Aperiod%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The dimensions associated with the metric. If the metric has any</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- associated dimensions, you must specify them in order for the call to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_dimensions"><span class="hs-identifier hs-type">describeAlarmsForMetric_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="describeAlarmsForMetric_dimensions"><span class="annot"><span class="annottext">describeAlarmsForMetric_dimensions :: (Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_dimensions"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetric_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetric -&gt; Maybe [Dimension])
+-&gt; (DescribeAlarmsForMetric
+    -&gt; Maybe [Dimension] -&gt; DescribeAlarmsForMetric)
+-&gt; Lens
+     DescribeAlarmsForMetric
+     DescribeAlarmsForMetric
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265180"><span class="annot"><span class="annottext">Maybe [Dimension]
+dimensions :: Maybe [Dimension]
+$sel:dimensions:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe [Dimension]
+</span><a href="#local-6989586621679265180"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679265180"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265179"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265178"><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679265178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:DescribeAlarmsForMetric' :: Maybe [Dimension]
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Adimensions%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679265178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+ -&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric)
+-&gt; ((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+    -&gt; Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; (Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; DescribeAlarmsForMetric
+-&gt; f DescribeAlarmsForMetric
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Dimension] [Dimension] [Dimension] [Dimension]
+-&gt; Iso
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Dimension] [Dimension] [Dimension] [Dimension]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The unit for the metric.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_unit"><span class="hs-identifier hs-type">describeAlarmsForMetric_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-type">StandardUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="describeAlarmsForMetric_unit"><span class="annot"><span class="annottext">describeAlarmsForMetric_unit :: (Maybe StandardUnit -&gt; f (Maybe StandardUnit))
+-&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_unit"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetric_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetric -&gt; Maybe StandardUnit)
+-&gt; (DescribeAlarmsForMetric
+    -&gt; Maybe StandardUnit -&gt; DescribeAlarmsForMetric)
+-&gt; Lens
+     DescribeAlarmsForMetric
+     DescribeAlarmsForMetric
+     (Maybe StandardUnit)
+     (Maybe StandardUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265174"><span class="annot"><span class="annottext">Maybe StandardUnit
+unit :: Maybe StandardUnit
+$sel:unit:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe StandardUnit
+</span><a href="#local-6989586621679265174"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679265174"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265173"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265172"><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679265172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:DescribeAlarmsForMetric' :: Maybe StandardUnit
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Aunit%3ADescribeAlarmsForMetric%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679265172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The statistic for the metric, other than percentiles. For percentile</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- statistics, use @ExtendedStatistics@.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_statistic"><span class="hs-identifier hs-type">describeAlarmsForMetric_statistic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Statistic.html#Statistic"><span class="hs-identifier hs-type">Statistic</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="describeAlarmsForMetric_statistic"><span class="annot"><span class="annottext">describeAlarmsForMetric_statistic :: (Maybe Statistic -&gt; f (Maybe Statistic))
+-&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_statistic"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetric_statistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetric -&gt; Maybe Statistic)
+-&gt; (DescribeAlarmsForMetric
+    -&gt; Maybe Statistic -&gt; DescribeAlarmsForMetric)
+-&gt; Lens
+     DescribeAlarmsForMetric
+     DescribeAlarmsForMetric
+     (Maybe Statistic)
+     (Maybe Statistic)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265171"><span class="annot"><span class="annottext">Maybe Statistic
+statistic :: Maybe Statistic
+$sel:statistic:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe Statistic
+</span><a href="#local-6989586621679265171"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679265171"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265170"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265169"><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679265169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistic:DescribeAlarmsForMetric' :: Maybe Statistic
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Astatistic%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679265169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The percentile statistic for the metric. Specify a value between p0.0</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- and p100.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_extendedStatistic"><span class="hs-identifier hs-type">describeAlarmsForMetric_extendedStatistic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="describeAlarmsForMetric_extendedStatistic"><span class="annot"><span class="annottext">describeAlarmsForMetric_extendedStatistic :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_extendedStatistic"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetric_extendedStatistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetric -&gt; Maybe Text)
+-&gt; (DescribeAlarmsForMetric
+    -&gt; Maybe Text -&gt; DescribeAlarmsForMetric)
+-&gt; Lens
+     DescribeAlarmsForMetric
+     DescribeAlarmsForMetric
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265168"><span class="annot"><span class="annottext">Maybe Text
+extendedStatistic :: Maybe Text
+$sel:extendedStatistic:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe Text
+</span><a href="#local-6989586621679265168"><span class="hs-identifier hs-var hs-var">extendedStatistic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265168"><span class="hs-identifier hs-var">extendedStatistic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265167"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extendedStatistic:DescribeAlarmsForMetric' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AextendedStatistic%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">extendedStatistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The name of the metric.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_metricName"><span class="hs-identifier hs-type">describeAlarmsForMetric_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="describeAlarmsForMetric_metricName"><span class="annot"><span class="annottext">describeAlarmsForMetric_metricName :: (Text -&gt; f Text)
+-&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_metricName"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetric_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetric -&gt; Text)
+-&gt; (DescribeAlarmsForMetric -&gt; Text -&gt; DescribeAlarmsForMetric)
+-&gt; Lens DescribeAlarmsForMetric DescribeAlarmsForMetric Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265165"><span class="annot"><span class="annottext">Text
+metricName :: Text
+$sel:metricName:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Text
+</span><a href="#local-6989586621679265165"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265165"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265164"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:DescribeAlarmsForMetric' :: Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AmetricName%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The namespace of the metric.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_namespace"><span class="hs-identifier hs-type">describeAlarmsForMetric_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="describeAlarmsForMetric_namespace"><span class="annot"><span class="annottext">describeAlarmsForMetric_namespace :: (Text -&gt; f Text)
+-&gt; DescribeAlarmsForMetric -&gt; f DescribeAlarmsForMetric
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetric_namespace"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetric_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetric -&gt; Text)
+-&gt; (DescribeAlarmsForMetric -&gt; Text -&gt; DescribeAlarmsForMetric)
+-&gt; Lens DescribeAlarmsForMetric DescribeAlarmsForMetric Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265162"><span class="annot"><span class="annottext">Text
+namespace :: Text
+$sel:namespace:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Text
+</span><a href="#local-6989586621679265162"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265162"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265161"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetric
+</span><a href="#local-6989586621679265161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:DescribeAlarmsForMetric' :: Text
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3Anamespace%3ADescribeAlarmsForMetric%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-160"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679265156"><span class="annot"><span class="annottext">request :: DescribeAlarmsForMetric -&gt; Request DescribeAlarmsForMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAlarmsForMetric -&gt; Request DescribeAlarmsForMetric
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679265152"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAlarmsForMetric
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAlarmsForMetric)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeAlarmsForMetric))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAlarmsForMetric
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAlarmsForMetric)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeAlarmsForMetricResult&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265149"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265149"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679265148"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679265148"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679265147"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679265147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MetricAlarm] -&gt; Int -&gt; DescribeAlarmsForMetricResponse
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var">DescribeAlarmsForMetricResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MetricAlarm] -&gt; Int -&gt; DescribeAlarmsForMetricResponse)
+-&gt; Either String (Maybe [MetricAlarm])
+-&gt; Either String (Int -&gt; DescribeAlarmsForMetricResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679265147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricAlarms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-169"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [MetricAlarm]))
+-&gt; Either String (Maybe [MetricAlarm])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [MetricAlarm])
+-&gt; [Node] -&gt; Either String (Maybe [MetricAlarm])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [MetricAlarm]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAlarmsForMetricResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeAlarmsForMetricResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265149"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265136"><span id="local-6989586621679265138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679265129"><span class="annot"><span class="annottext">toHeaders :: DescribeAlarmsForMetric -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAlarmsForMetric -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679265124"><span class="annot"><span class="annottext">toPath :: DescribeAlarmsForMetric -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAlarmsForMetric -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric"><span class="hs-identifier hs-type">DescribeAlarmsForMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679265120"><span class="annot"><span class="annottext">toQuery :: DescribeAlarmsForMetric -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetric%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265112"><span id="local-6989586621679265113"><span id="local-6989586621679265114"><span id="local-6989586621679265115"><span id="local-6989586621679265116"><span id="local-6989586621679265117"><span id="local-6989586621679265118"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Dimension]
+Maybe Text
+Maybe StandardUnit
+Maybe Statistic
+Text
+namespace :: Text
+metricName :: Text
+extendedStatistic :: Maybe Text
+statistic :: Maybe Statistic
+unit :: Maybe StandardUnit
+dimensions :: Maybe [Dimension]
+period :: Maybe Natural
+$sel:namespace:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Text
+$sel:metricName:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Text
+$sel:extendedStatistic:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe Text
+$sel:statistic:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe Statistic
+$sel:unit:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe StandardUnit
+$sel:dimensions:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe [Dimension]
+$sel:period:DescribeAlarmsForMetric' :: DescribeAlarmsForMetric -&gt; Maybe Natural
+</span><a href="#local-6989586621679265112"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeAlarmsForMetric&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-08-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Period&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265118"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Dimension] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Dimension] -&gt; QueryString)
+-&gt; Maybe [Dimension] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679265117"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe StandardUnit -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679265116"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Statistic&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Statistic -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679265115"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExtendedStatistic&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265114"><span class="hs-identifier hs-var">extendedStatistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265113"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265112"><span class="hs-identifier hs-var">namespace</span></a></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | /See:/ 'newDescribeAlarmsForMetricResponse' smart constructor.</span><span>
+</span><span id="line-203"></span><span id="local-6989586621679265108"><span id="local-6989586621679265109"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAlarmsForMetricResponse"><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-var">DescribeAlarmsForMetricResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAlarmsForMetricResponse%27"><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var">DescribeAlarmsForMetricResponse'</span></a></span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information for each alarm with the specified metric.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AmetricAlarms%3ADescribeAlarmsForMetricResponse%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetricResponse -&gt; Maybe [MetricAlarm]
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AmetricAlarms%3ADescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var hs-var">metricAlarms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#MetricAlarm"><span class="hs-identifier hs-type">MetricAlarm</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAlarmsForMetricResponse%27"><span class="annot"><span class="annottext">DescribeAlarmsForMetricResponse -&gt; Int
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AhttpStatus%3ADescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265102"><span id="local-6989586621679265104"><span class="annot"><span class="annottext">DescribeAlarmsForMetricResponse
+-&gt; DescribeAlarmsForMetricResponse -&gt; Bool
+(DescribeAlarmsForMetricResponse
+ -&gt; DescribeAlarmsForMetricResponse -&gt; Bool)
+-&gt; (DescribeAlarmsForMetricResponse
+    -&gt; DescribeAlarmsForMetricResponse -&gt; Bool)
+-&gt; Eq DescribeAlarmsForMetricResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAlarmsForMetricResponse
+-&gt; DescribeAlarmsForMetricResponse -&gt; Bool
+$c/= :: DescribeAlarmsForMetricResponse
+-&gt; DescribeAlarmsForMetricResponse -&gt; Bool
+== :: DescribeAlarmsForMetricResponse
+-&gt; DescribeAlarmsForMetricResponse -&gt; Bool
+$c== :: DescribeAlarmsForMetricResponse
+-&gt; DescribeAlarmsForMetricResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265094"><span id="local-6989586621679265096"><span id="local-6989586621679265098"><span id="local-6989586621679265100"><span class="annot"><span class="annottext">ReadPrec [DescribeAlarmsForMetricResponse]
+ReadPrec DescribeAlarmsForMetricResponse
+Int -&gt; ReadS DescribeAlarmsForMetricResponse
+ReadS [DescribeAlarmsForMetricResponse]
+(Int -&gt; ReadS DescribeAlarmsForMetricResponse)
+-&gt; ReadS [DescribeAlarmsForMetricResponse]
+-&gt; ReadPrec DescribeAlarmsForMetricResponse
+-&gt; ReadPrec [DescribeAlarmsForMetricResponse]
+-&gt; Read DescribeAlarmsForMetricResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAlarmsForMetricResponse]
+$creadListPrec :: ReadPrec [DescribeAlarmsForMetricResponse]
+readPrec :: ReadPrec DescribeAlarmsForMetricResponse
+$creadPrec :: ReadPrec DescribeAlarmsForMetricResponse
+readList :: ReadS [DescribeAlarmsForMetricResponse]
+$creadList :: ReadS [DescribeAlarmsForMetricResponse]
+readsPrec :: Int -&gt; ReadS DescribeAlarmsForMetricResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAlarmsForMetricResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265088"><span id="local-6989586621679265090"><span id="local-6989586621679265092"><span class="annot"><span class="annottext">Int -&gt; DescribeAlarmsForMetricResponse -&gt; ShowS
+[DescribeAlarmsForMetricResponse] -&gt; ShowS
+DescribeAlarmsForMetricResponse -&gt; String
+(Int -&gt; DescribeAlarmsForMetricResponse -&gt; ShowS)
+-&gt; (DescribeAlarmsForMetricResponse -&gt; String)
+-&gt; ([DescribeAlarmsForMetricResponse] -&gt; ShowS)
+-&gt; Show DescribeAlarmsForMetricResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAlarmsForMetricResponse] -&gt; ShowS
+$cshowList :: [DescribeAlarmsForMetricResponse] -&gt; ShowS
+show :: DescribeAlarmsForMetricResponse -&gt; String
+$cshow :: DescribeAlarmsForMetricResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAlarmsForMetricResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAlarmsForMetricResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAlarmsForMetricResponse
+ -&gt; Rep DescribeAlarmsForMetricResponse x)
+-&gt; (forall x.
+    Rep DescribeAlarmsForMetricResponse x
+    -&gt; DescribeAlarmsForMetricResponse)
+-&gt; Generic DescribeAlarmsForMetricResponse
+forall x.
+Rep DescribeAlarmsForMetricResponse x
+-&gt; DescribeAlarmsForMetricResponse
+forall x.
+DescribeAlarmsForMetricResponse
+-&gt; Rep DescribeAlarmsForMetricResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAlarmsForMetricResponse x
+-&gt; DescribeAlarmsForMetricResponse
+$cfrom :: forall x.
+DescribeAlarmsForMetricResponse
+-&gt; Rep DescribeAlarmsForMetricResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Create a value of 'DescribeAlarmsForMetricResponse' with all optional fields omitted.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'metricAlarms', 'describeAlarmsForMetricResponse_metricAlarms' - The information for each alarm with the specified metric.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'httpStatus', 'describeAlarmsForMetricResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#newDescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">newDescribeAlarmsForMetricResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse</span></a></span><span>
+</span><span id="line-226"></span><span id="newDescribeAlarmsForMetricResponse"><span class="annot"><span class="annottext">newDescribeAlarmsForMetricResponse :: Int -&gt; DescribeAlarmsForMetricResponse
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#newDescribeAlarmsForMetricResponse"><span class="hs-identifier hs-var hs-var">newDescribeAlarmsForMetricResponse</span></a></span></span><span> </span><span id="local-6989586621679265085"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">DescribeAlarmsForMetricResponse' :: Maybe [MetricAlarm] -&gt; Int -&gt; DescribeAlarmsForMetricResponse
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse'</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricAlarms:DescribeAlarmsForMetricResponse' :: Maybe [MetricAlarm]
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AmetricAlarms%3ADescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var">metricAlarms</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MetricAlarm]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAlarmsForMetricResponse' :: Int
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AhttpStatus%3ADescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The information for each alarm with the specified metric.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetricResponse_metricAlarms"><span class="hs-identifier hs-type">describeAlarmsForMetricResponse_metricAlarms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#MetricAlarm"><span class="hs-identifier hs-type">MetricAlarm</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="describeAlarmsForMetricResponse_metricAlarms"><span class="annot"><span class="annottext">describeAlarmsForMetricResponse_metricAlarms :: (Maybe [MetricAlarm] -&gt; f (Maybe [MetricAlarm]))
+-&gt; DescribeAlarmsForMetricResponse
+-&gt; f DescribeAlarmsForMetricResponse
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetricResponse_metricAlarms"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetricResponse_metricAlarms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetricResponse -&gt; Maybe [MetricAlarm])
+-&gt; (DescribeAlarmsForMetricResponse
+    -&gt; Maybe [MetricAlarm] -&gt; DescribeAlarmsForMetricResponse)
+-&gt; Lens
+     DescribeAlarmsForMetricResponse
+     DescribeAlarmsForMetricResponse
+     (Maybe [MetricAlarm])
+     (Maybe [MetricAlarm])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265084"><span class="annot"><span class="annottext">Maybe [MetricAlarm]
+metricAlarms :: Maybe [MetricAlarm]
+$sel:metricAlarms:DescribeAlarmsForMetricResponse' :: DescribeAlarmsForMetricResponse -&gt; Maybe [MetricAlarm]
+</span><a href="#local-6989586621679265084"><span class="hs-identifier hs-var hs-var">metricAlarms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricAlarm]
+</span><a href="#local-6989586621679265084"><span class="hs-identifier hs-var">metricAlarms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265083"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetricResponse
+</span><a href="#local-6989586621679265083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265082"><span class="annot"><span class="annottext">Maybe [MetricAlarm]
+</span><a href="#local-6989586621679265082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetricResponse
+</span><a href="#local-6989586621679265083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricAlarms:DescribeAlarmsForMetricResponse' :: Maybe [MetricAlarm]
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AmetricAlarms%3ADescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var">metricAlarms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricAlarm]
+</span><a href="#local-6989586621679265082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricAlarm] -&gt; f (Maybe [MetricAlarm]))
+ -&gt; DescribeAlarmsForMetricResponse
+ -&gt; f DescribeAlarmsForMetricResponse)
+-&gt; ((Maybe [MetricAlarm] -&gt; f (Maybe [MetricAlarm]))
+    -&gt; Maybe [MetricAlarm] -&gt; f (Maybe [MetricAlarm]))
+-&gt; (Maybe [MetricAlarm] -&gt; f (Maybe [MetricAlarm]))
+-&gt; DescribeAlarmsForMetricResponse
+-&gt; f DescribeAlarmsForMetricResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MetricAlarm] [MetricAlarm] [MetricAlarm] [MetricAlarm]
+-&gt; Iso
+     (Maybe [MetricAlarm])
+     (Maybe [MetricAlarm])
+     (Maybe [MetricAlarm])
+     (Maybe [MetricAlarm])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MetricAlarm] [MetricAlarm] [MetricAlarm] [MetricAlarm]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetricResponse_httpStatus"><span class="hs-identifier hs-type">describeAlarmsForMetricResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-239"></span><span id="describeAlarmsForMetricResponse_httpStatus"><span class="annot"><span class="annottext">describeAlarmsForMetricResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAlarmsForMetricResponse
+-&gt; f DescribeAlarmsForMetricResponse
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#describeAlarmsForMetricResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAlarmsForMetricResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlarmsForMetricResponse -&gt; Int)
+-&gt; (DescribeAlarmsForMetricResponse
+    -&gt; Int -&gt; DescribeAlarmsForMetricResponse)
+-&gt; Lens
+     DescribeAlarmsForMetricResponse
+     DescribeAlarmsForMetricResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265081"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAlarmsForMetricResponse' :: DescribeAlarmsForMetricResponse -&gt; Int
+</span><a href="#local-6989586621679265081"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265081"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265080"><span class="annot"><span class="annottext">s :: DescribeAlarmsForMetricResponse
+</span><a href="#local-6989586621679265080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlarmsForMetricResponse
+</span><a href="#local-6989586621679265080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAlarmsForMetricResponse' :: Int
+</span><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#%24sel%3AhttpStatus%3ADescribeAlarmsForMetricResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679265077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.DescribeAlarmsForMetric.html#DescribeAlarmsForMetricResponse"><span class="hs-identifier hs-type">DescribeAlarmsForMetricResponse</span></a></span></span><span>
+</span><span id="line-244"></span></pre></body></html>

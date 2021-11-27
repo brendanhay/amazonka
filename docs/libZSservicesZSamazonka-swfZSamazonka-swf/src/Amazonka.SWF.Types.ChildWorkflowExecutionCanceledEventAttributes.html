@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html"><span class="hs-identifier">Amazonka.SWF.Types.WorkflowExecution</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html"><span class="hs-identifier">Amazonka.SWF.Types.WorkflowType</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Provide details of the @ChildWorkflowExecutionCanceled@ event.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newChildWorkflowExecutionCanceledEventAttributes' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679356190"><span id="local-6989586621679356191"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChildWorkflowExecutionCanceledEventAttributes"><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-var">ChildWorkflowExecutionCanceledEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChildWorkflowExecutionCanceledEventAttributes%27"><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details of the cancellation (if provided).</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adetails%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes -&gt; Maybe Text
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3Adetails%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The child workflow execution that was canceled.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AworkflowExecution%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes -&gt; WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of the child workflow execution.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AworkflowType%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes -&gt; WorkflowType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- to the @StartChildWorkflowExecution@ Decision to start this child</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- workflow execution. This information can be useful for diagnosing</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AinitiatedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- child workflow execution was started. This information can be useful for</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- diagnosing problems by tracing back the chain of events leading up to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- this event.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AstartedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AstartedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679356180"><span id="local-6989586621679356182"><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes
+-&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; Bool
+(ChildWorkflowExecutionCanceledEventAttributes
+ -&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; Bool)
+-&gt; (ChildWorkflowExecutionCanceledEventAttributes
+    -&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; Bool)
+-&gt; Eq ChildWorkflowExecutionCanceledEventAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChildWorkflowExecutionCanceledEventAttributes
+-&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; Bool
+$c/= :: ChildWorkflowExecutionCanceledEventAttributes
+-&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; Bool
+== :: ChildWorkflowExecutionCanceledEventAttributes
+-&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; Bool
+$c== :: ChildWorkflowExecutionCanceledEventAttributes
+-&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356171"><span id="local-6989586621679356173"><span id="local-6989586621679356175"><span id="local-6989586621679356177"><span class="annot"><span class="annottext">ReadPrec [ChildWorkflowExecutionCanceledEventAttributes]
+ReadPrec ChildWorkflowExecutionCanceledEventAttributes
+Int -&gt; ReadS ChildWorkflowExecutionCanceledEventAttributes
+ReadS [ChildWorkflowExecutionCanceledEventAttributes]
+(Int -&gt; ReadS ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; ReadS [ChildWorkflowExecutionCanceledEventAttributes]
+-&gt; ReadPrec ChildWorkflowExecutionCanceledEventAttributes
+-&gt; ReadPrec [ChildWorkflowExecutionCanceledEventAttributes]
+-&gt; Read ChildWorkflowExecutionCanceledEventAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChildWorkflowExecutionCanceledEventAttributes]
+$creadListPrec :: ReadPrec [ChildWorkflowExecutionCanceledEventAttributes]
+readPrec :: ReadPrec ChildWorkflowExecutionCanceledEventAttributes
+$creadPrec :: ReadPrec ChildWorkflowExecutionCanceledEventAttributes
+readList :: ReadS [ChildWorkflowExecutionCanceledEventAttributes]
+$creadList :: ReadS [ChildWorkflowExecutionCanceledEventAttributes]
+readsPrec :: Int -&gt; ReadS ChildWorkflowExecutionCanceledEventAttributes
+$creadsPrec :: Int -&gt; ReadS ChildWorkflowExecutionCanceledEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356164"><span id="local-6989586621679356166"><span id="local-6989586621679356168"><span class="annot"><span class="annottext">Int -&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; ShowS
+[ChildWorkflowExecutionCanceledEventAttributes] -&gt; ShowS
+ChildWorkflowExecutionCanceledEventAttributes -&gt; String
+(Int -&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; ShowS)
+-&gt; (ChildWorkflowExecutionCanceledEventAttributes -&gt; String)
+-&gt; ([ChildWorkflowExecutionCanceledEventAttributes] -&gt; ShowS)
+-&gt; Show ChildWorkflowExecutionCanceledEventAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChildWorkflowExecutionCanceledEventAttributes] -&gt; ShowS
+$cshowList :: [ChildWorkflowExecutionCanceledEventAttributes] -&gt; ShowS
+show :: ChildWorkflowExecutionCanceledEventAttributes -&gt; String
+$cshow :: ChildWorkflowExecutionCanceledEventAttributes -&gt; String
+showsPrec :: Int -&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChildWorkflowExecutionCanceledEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ChildWorkflowExecutionCanceledEventAttributes
+ -&gt; Rep ChildWorkflowExecutionCanceledEventAttributes x)
+-&gt; (forall x.
+    Rep ChildWorkflowExecutionCanceledEventAttributes x
+    -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Generic ChildWorkflowExecutionCanceledEventAttributes
+forall x.
+Rep ChildWorkflowExecutionCanceledEventAttributes x
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+forall x.
+ChildWorkflowExecutionCanceledEventAttributes
+-&gt; Rep ChildWorkflowExecutionCanceledEventAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ChildWorkflowExecutionCanceledEventAttributes x
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+$cfrom :: forall x.
+ChildWorkflowExecutionCanceledEventAttributes
+-&gt; Rep ChildWorkflowExecutionCanceledEventAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'ChildWorkflowExecutionCanceledEventAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'details', 'childWorkflowExecutionCanceledEventAttributes_details' - Details of the cancellation (if provided).</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'workflowExecution', 'childWorkflowExecutionCanceledEventAttributes_workflowExecution' - The child workflow execution that was canceled.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'workflowType', 'childWorkflowExecutionCanceledEventAttributes_workflowType' - The type of the child workflow execution.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'initiatedEventId', 'childWorkflowExecutionCanceledEventAttributes_initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- to the @StartChildWorkflowExecution@ Decision to start this child</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- workflow execution. This information can be useful for diagnosing</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'startedEventId', 'childWorkflowExecutionCanceledEventAttributes_startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- child workflow execution was started. This information can be useful for</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- diagnosing problems by tracing back the chain of events leading up to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- this event.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#newChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">newChildWorkflowExecutionCanceledEventAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'workflowExecution'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'workflowType'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'initiatedEventId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'startedEventId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span>
+</span><span id="line-84"></span><span id="newChildWorkflowExecutionCanceledEventAttributes"><span class="annot"><span class="annottext">newChildWorkflowExecutionCanceledEventAttributes :: WorkflowExecution
+-&gt; WorkflowType
+-&gt; Integer
+-&gt; Integer
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#newChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-var hs-var">newChildWorkflowExecutionCanceledEventAttributes</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679356158"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356158"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679356157"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356157"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679356156"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356156"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679356155"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356155"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes' :: Maybe Text
+-&gt; WorkflowExecution
+-&gt; WorkflowType
+-&gt; Integer
+-&gt; Integer
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:details:ChildWorkflowExecutionCanceledEventAttributes' :: Maybe Text
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3Adetails%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowExecution:ChildWorkflowExecutionCanceledEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356158"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowType:ChildWorkflowExecutionCanceledEventAttributes' :: WorkflowType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356157"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:initiatedEventId:ChildWorkflowExecutionCanceledEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356156"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:ChildWorkflowExecutionCanceledEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AstartedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356155"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Details of the cancellation (if provided).</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_details"><span class="hs-identifier hs-type">childWorkflowExecutionCanceledEventAttributes_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="childWorkflowExecutionCanceledEventAttributes_details"><span class="annot"><span class="annottext">childWorkflowExecutionCanceledEventAttributes_details :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+-&gt; f ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_details"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionCanceledEventAttributes_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionCanceledEventAttributes -&gt; Maybe Text)
+-&gt; (ChildWorkflowExecutionCanceledEventAttributes
+    -&gt; Maybe Text -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionCanceledEventAttributes
+     ChildWorkflowExecutionCanceledEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356151"><span class="annot"><span class="annottext">Maybe Text
+details :: Maybe Text
+$sel:details:ChildWorkflowExecutionCanceledEventAttributes' :: ChildWorkflowExecutionCanceledEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679356151"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356151"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356150"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ChildWorkflowExecutionCanceledEventAttributes' :: Maybe Text
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3Adetails%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The child workflow execution that was canceled.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_workflowExecution"><span class="hs-identifier hs-type">childWorkflowExecutionCanceledEventAttributes_workflowExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span>
+</span><span id="line-108"></span><span id="childWorkflowExecutionCanceledEventAttributes_workflowExecution"><span class="annot"><span class="annottext">childWorkflowExecutionCanceledEventAttributes_workflowExecution :: (WorkflowExecution -&gt; f WorkflowExecution)
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+-&gt; f ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_workflowExecution"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionCanceledEventAttributes_workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionCanceledEventAttributes
+ -&gt; WorkflowExecution)
+-&gt; (ChildWorkflowExecutionCanceledEventAttributes
+    -&gt; WorkflowExecution
+    -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionCanceledEventAttributes
+     ChildWorkflowExecutionCanceledEventAttributes
+     WorkflowExecution
+     WorkflowExecution
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356147"><span class="annot"><span class="annottext">WorkflowExecution
+workflowExecution :: WorkflowExecution
+$sel:workflowExecution:ChildWorkflowExecutionCanceledEventAttributes' :: ChildWorkflowExecutionCanceledEventAttributes -&gt; WorkflowExecution
+</span><a href="#local-6989586621679356147"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356147"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356146"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356145"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecution:ChildWorkflowExecutionCanceledEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The type of the child workflow execution.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_workflowType"><span class="hs-identifier hs-type">childWorkflowExecutionCanceledEventAttributes_workflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
+</span><span id="line-112"></span><span id="childWorkflowExecutionCanceledEventAttributes_workflowType"><span class="annot"><span class="annottext">childWorkflowExecutionCanceledEventAttributes_workflowType :: (WorkflowType -&gt; f WorkflowType)
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+-&gt; f ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_workflowType"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionCanceledEventAttributes_workflowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionCanceledEventAttributes -&gt; WorkflowType)
+-&gt; (ChildWorkflowExecutionCanceledEventAttributes
+    -&gt; WorkflowType -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionCanceledEventAttributes
+     ChildWorkflowExecutionCanceledEventAttributes
+     WorkflowType
+     WorkflowType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356143"><span class="annot"><span class="annottext">WorkflowType
+workflowType :: WorkflowType
+$sel:workflowType:ChildWorkflowExecutionCanceledEventAttributes' :: ChildWorkflowExecutionCanceledEventAttributes -&gt; WorkflowType
+</span><a href="#local-6989586621679356143"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356143"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356142"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356141"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:ChildWorkflowExecutionCanceledEventAttributes' :: WorkflowType
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- to the @StartChildWorkflowExecution@ Decision to start this child</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- workflow execution. This information can be useful for diagnosing</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_initiatedEventId"><span class="hs-identifier hs-type">childWorkflowExecutionCanceledEventAttributes_initiatedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-119"></span><span id="childWorkflowExecutionCanceledEventAttributes_initiatedEventId"><span class="annot"><span class="annottext">childWorkflowExecutionCanceledEventAttributes_initiatedEventId :: (Integer -&gt; f Integer)
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+-&gt; f ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_initiatedEventId"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionCanceledEventAttributes_initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionCanceledEventAttributes -&gt; Integer)
+-&gt; (ChildWorkflowExecutionCanceledEventAttributes
+    -&gt; Integer -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionCanceledEventAttributes
+     ChildWorkflowExecutionCanceledEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356139"><span class="annot"><span class="annottext">Integer
+initiatedEventId :: Integer
+$sel:initiatedEventId:ChildWorkflowExecutionCanceledEventAttributes' :: ChildWorkflowExecutionCanceledEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679356139"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356139"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356138"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356137"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedEventId:ChildWorkflowExecutionCanceledEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- child workflow execution was started. This information can be useful for</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- diagnosing problems by tracing back the chain of events leading up to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- this event.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_startedEventId"><span class="hs-identifier hs-type">childWorkflowExecutionCanceledEventAttributes_startedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-126"></span><span id="childWorkflowExecutionCanceledEventAttributes_startedEventId"><span class="annot"><span class="annottext">childWorkflowExecutionCanceledEventAttributes_startedEventId :: (Integer -&gt; f Integer)
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+-&gt; f ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#childWorkflowExecutionCanceledEventAttributes_startedEventId"><span class="hs-identifier hs-var hs-var">childWorkflowExecutionCanceledEventAttributes_startedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChildWorkflowExecutionCanceledEventAttributes -&gt; Integer)
+-&gt; (ChildWorkflowExecutionCanceledEventAttributes
+    -&gt; Integer -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Lens
+     ChildWorkflowExecutionCanceledEventAttributes
+     ChildWorkflowExecutionCanceledEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356135"><span class="annot"><span class="annottext">Integer
+startedEventId :: Integer
+$sel:startedEventId:ChildWorkflowExecutionCanceledEventAttributes' :: ChildWorkflowExecutionCanceledEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679356135"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356135"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356134"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356133"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="#local-6989586621679356134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:ChildWorkflowExecutionCanceledEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#%24sel%3AstartedEventId%3AChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679356130"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679356128"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChildWorkflowExecutionCanceledEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Value
+-&gt; Parser ChildWorkflowExecutionCanceledEventAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChildWorkflowExecutionCanceledEventAttributes&quot;</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679356125"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; WorkflowExecution
+-&gt; WorkflowType
+-&gt; Integer
+-&gt; Integer
+-&gt; ChildWorkflowExecutionCanceledEventAttributes
+</span><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes%27"><span class="hs-identifier hs-var">ChildWorkflowExecutionCanceledEventAttributes'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; WorkflowExecution
+ -&gt; WorkflowType
+ -&gt; Integer
+ -&gt; Integer
+ -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (WorkflowExecution
+      -&gt; WorkflowType
+      -&gt; Integer
+      -&gt; Integer
+      -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (WorkflowExecution
+   -&gt; WorkflowType
+   -&gt; Integer
+   -&gt; Integer
+   -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Parser WorkflowExecution
+-&gt; Parser
+     (WorkflowType
+      -&gt; Integer
+      -&gt; Integer
+      -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecution
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowExecution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (WorkflowType
+   -&gt; Integer
+   -&gt; Integer
+   -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Parser WorkflowType
+-&gt; Parser
+     (Integer
+      -&gt; Integer -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Integer
+   -&gt; Integer -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser
+     (Integer -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initiatedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">Parser (Integer -&gt; ChildWorkflowExecutionCanceledEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser ChildWorkflowExecutionCanceledEventAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679356118"><span id="local-6989586621679356120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679356115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes.html#ChildWorkflowExecutionCanceledEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionCanceledEventAttributes</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

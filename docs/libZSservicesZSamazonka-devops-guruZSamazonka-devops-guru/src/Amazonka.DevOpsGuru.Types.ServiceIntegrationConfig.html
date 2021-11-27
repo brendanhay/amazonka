@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.OpsCenterIntegration.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types.OpsCenterIntegration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the integration of DevOps Guru with another AWS</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- service, such as AWS Systems Manager.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newServiceIntegrationConfig' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679236797"><span id="local-6989586621679236798"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceIntegrationConfig"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig"><span class="hs-identifier hs-var">ServiceIntegrationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceIntegrationConfig%27"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig%27"><span class="hs-identifier hs-var">ServiceIntegrationConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about whether DevOps Guru is configured to create an OpsItem</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- in AWS Systems Manager OpsCenter for each created insight.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AopsCenter%3AServiceIntegrationConfig%27"><span class="annot"><span class="annottext">ServiceIntegrationConfig -&gt; Maybe OpsCenterIntegration
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#%24sel%3AopsCenter%3AServiceIntegrationConfig%27"><span class="hs-identifier hs-var hs-var">opsCenter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.OpsCenterIntegration.html#OpsCenterIntegration"><span class="hs-identifier hs-type">OpsCenterIntegration</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236791"><span id="local-6989586621679236793"><span class="annot"><span class="annottext">ServiceIntegrationConfig -&gt; ServiceIntegrationConfig -&gt; Bool
+(ServiceIntegrationConfig -&gt; ServiceIntegrationConfig -&gt; Bool)
+-&gt; (ServiceIntegrationConfig -&gt; ServiceIntegrationConfig -&gt; Bool)
+-&gt; Eq ServiceIntegrationConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceIntegrationConfig -&gt; ServiceIntegrationConfig -&gt; Bool
+$c/= :: ServiceIntegrationConfig -&gt; ServiceIntegrationConfig -&gt; Bool
+== :: ServiceIntegrationConfig -&gt; ServiceIntegrationConfig -&gt; Bool
+$c== :: ServiceIntegrationConfig -&gt; ServiceIntegrationConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236782"><span id="local-6989586621679236784"><span id="local-6989586621679236786"><span id="local-6989586621679236788"><span class="annot"><span class="annottext">ReadPrec [ServiceIntegrationConfig]
+ReadPrec ServiceIntegrationConfig
+Int -&gt; ReadS ServiceIntegrationConfig
+ReadS [ServiceIntegrationConfig]
+(Int -&gt; ReadS ServiceIntegrationConfig)
+-&gt; ReadS [ServiceIntegrationConfig]
+-&gt; ReadPrec ServiceIntegrationConfig
+-&gt; ReadPrec [ServiceIntegrationConfig]
+-&gt; Read ServiceIntegrationConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceIntegrationConfig]
+$creadListPrec :: ReadPrec [ServiceIntegrationConfig]
+readPrec :: ReadPrec ServiceIntegrationConfig
+$creadPrec :: ReadPrec ServiceIntegrationConfig
+readList :: ReadS [ServiceIntegrationConfig]
+$creadList :: ReadS [ServiceIntegrationConfig]
+readsPrec :: Int -&gt; ReadS ServiceIntegrationConfig
+$creadsPrec :: Int -&gt; ReadS ServiceIntegrationConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236775"><span id="local-6989586621679236777"><span id="local-6989586621679236779"><span class="annot"><span class="annottext">Int -&gt; ServiceIntegrationConfig -&gt; ShowS
+[ServiceIntegrationConfig] -&gt; ShowS
+ServiceIntegrationConfig -&gt; String
+(Int -&gt; ServiceIntegrationConfig -&gt; ShowS)
+-&gt; (ServiceIntegrationConfig -&gt; String)
+-&gt; ([ServiceIntegrationConfig] -&gt; ShowS)
+-&gt; Show ServiceIntegrationConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceIntegrationConfig] -&gt; ShowS
+$cshowList :: [ServiceIntegrationConfig] -&gt; ShowS
+show :: ServiceIntegrationConfig -&gt; String
+$cshow :: ServiceIntegrationConfig -&gt; String
+showsPrec :: Int -&gt; ServiceIntegrationConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceIntegrationConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ServiceIntegrationConfig -&gt; Rep ServiceIntegrationConfig x)
+-&gt; (forall x.
+    Rep ServiceIntegrationConfig x -&gt; ServiceIntegrationConfig)
+-&gt; Generic ServiceIntegrationConfig
+forall x.
+Rep ServiceIntegrationConfig x -&gt; ServiceIntegrationConfig
+forall x.
+ServiceIntegrationConfig -&gt; Rep ServiceIntegrationConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ServiceIntegrationConfig x -&gt; ServiceIntegrationConfig
+$cfrom :: forall x.
+ServiceIntegrationConfig -&gt; Rep ServiceIntegrationConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'ServiceIntegrationConfig' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'opsCenter', 'serviceIntegrationConfig_opsCenter' - Information about whether DevOps Guru is configured to create an OpsItem</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- in AWS Systems Manager OpsCenter for each created insight.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#newServiceIntegrationConfig"><span class="hs-identifier hs-type">newServiceIntegrationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig"><span class="hs-identifier hs-type">ServiceIntegrationConfig</span></a></span><span>
+</span><span id="line-50"></span><span id="newServiceIntegrationConfig"><span class="annot"><span class="annottext">newServiceIntegrationConfig :: ServiceIntegrationConfig
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#newServiceIntegrationConfig"><span class="hs-identifier hs-var hs-var">newServiceIntegrationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ServiceIntegrationConfig' :: Maybe OpsCenterIntegration -&gt; ServiceIntegrationConfig
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig%27"><span class="hs-identifier hs-type">ServiceIntegrationConfig'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:opsCenter:ServiceIntegrationConfig' :: Maybe OpsCenterIntegration
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#%24sel%3AopsCenter%3AServiceIntegrationConfig%27"><span class="hs-identifier hs-var">opsCenter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe OpsCenterIntegration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Information about whether DevOps Guru is configured to create an OpsItem</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- in AWS Systems Manager OpsCenter for each created insight.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#serviceIntegrationConfig_opsCenter"><span class="hs-identifier hs-type">serviceIntegrationConfig_opsCenter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig"><span class="hs-identifier hs-type">ServiceIntegrationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.OpsCenterIntegration.html#OpsCenterIntegration"><span class="hs-identifier hs-type">OpsCenterIntegration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="serviceIntegrationConfig_opsCenter"><span class="annot"><span class="annottext">serviceIntegrationConfig_opsCenter :: (Maybe OpsCenterIntegration -&gt; f (Maybe OpsCenterIntegration))
+-&gt; ServiceIntegrationConfig -&gt; f ServiceIntegrationConfig
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#serviceIntegrationConfig_opsCenter"><span class="hs-identifier hs-var hs-var">serviceIntegrationConfig_opsCenter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceIntegrationConfig -&gt; Maybe OpsCenterIntegration)
+-&gt; (ServiceIntegrationConfig
+    -&gt; Maybe OpsCenterIntegration -&gt; ServiceIntegrationConfig)
+-&gt; Lens
+     ServiceIntegrationConfig
+     ServiceIntegrationConfig
+     (Maybe OpsCenterIntegration)
+     (Maybe OpsCenterIntegration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig%27"><span class="hs-identifier hs-type">ServiceIntegrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236766"><span class="annot"><span class="annottext">Maybe OpsCenterIntegration
+opsCenter :: Maybe OpsCenterIntegration
+$sel:opsCenter:ServiceIntegrationConfig' :: ServiceIntegrationConfig -&gt; Maybe OpsCenterIntegration
+</span><a href="#local-6989586621679236766"><span class="hs-identifier hs-var hs-var">opsCenter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpsCenterIntegration
+</span><a href="#local-6989586621679236766"><span class="hs-identifier hs-var">opsCenter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236765"><span class="annot"><span class="annottext">s :: ServiceIntegrationConfig
+</span><a href="#local-6989586621679236765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig%27"><span class="hs-identifier hs-type">ServiceIntegrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236764"><span class="annot"><span class="annottext">Maybe OpsCenterIntegration
+</span><a href="#local-6989586621679236764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceIntegrationConfig
+</span><a href="#local-6989586621679236765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsCenter:ServiceIntegrationConfig' :: Maybe OpsCenterIntegration
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#%24sel%3AopsCenter%3AServiceIntegrationConfig%27"><span class="hs-identifier hs-var">opsCenter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpsCenterIntegration
+</span><a href="#local-6989586621679236764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig"><span class="hs-identifier hs-type">ServiceIntegrationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236761"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig"><span class="hs-identifier hs-type">ServiceIntegrationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679236759"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceIntegrationConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ServiceIntegrationConfig)
+-&gt; Value
+-&gt; Parser ServiceIntegrationConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ServiceIntegrationConfig&quot;</span></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236756"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236756"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe OpsCenterIntegration -&gt; ServiceIntegrationConfig
+</span><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig%27"><span class="hs-identifier hs-var">ServiceIntegrationConfig'</span></a></span><span>
+</span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OpsCenterIntegration -&gt; ServiceIntegrationConfig)
+-&gt; Parser (Maybe OpsCenterIntegration)
+-&gt; Parser ServiceIntegrationConfig
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpsCenterIntegration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OpsCenter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236750"><span id="local-6989586621679236752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig"><span class="hs-identifier hs-type">ServiceIntegrationConfig</span></a></span></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig.html#ServiceIntegrationConfig"><span class="hs-identifier hs-type">ServiceIntegrationConfig</span></a></span></span><span>
+</span><span id="line-73"></span></pre></body></html>

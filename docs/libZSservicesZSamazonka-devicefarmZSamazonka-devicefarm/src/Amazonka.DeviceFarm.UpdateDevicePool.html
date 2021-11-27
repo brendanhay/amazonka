@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.UpdateDevicePool</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the name, description, and rules in a device pool given the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attributes and the pool ARN. Rule updates are all-or-nothing, meaning</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- they can only be updated as a whole (or not at all).</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.UpdateDevicePool</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier">UpdateDevicePool</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#newUpdateDevicePool"><span class="hs-identifier">newUpdateDevicePool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_rules"><span class="hs-identifier">updateDevicePool_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_clearMaxDevices"><span class="hs-identifier">updateDevicePool_clearMaxDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_name"><span class="hs-identifier">updateDevicePool_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_maxDevices"><span class="hs-identifier">updateDevicePool_maxDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_description"><span class="hs-identifier">updateDevicePool_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_arn"><span class="hs-identifier">updateDevicePool_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier">UpdateDevicePoolResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#newUpdateDevicePoolResponse"><span class="hs-identifier">newUpdateDevicePoolResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePoolResponse_devicePool"><span class="hs-identifier">updateDevicePoolResponse_devicePool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePoolResponse_httpStatus"><span class="hs-identifier">updateDevicePoolResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Represents a request to the update device pool operation.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newUpdateDevicePool' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679389601"><span id="local-6989586621679389602"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevicePool"><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-var">UpdateDevicePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevicePool%27"><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-var">UpdateDevicePool'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the rules to modify for the device pool. Updating rules is</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- optional. If you update rules for your request, the update replaces the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- existing rules.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Arules%3AUpdateDevicePool%27"><span class="annot"><span class="annottext">UpdateDevicePool -&gt; Maybe [Rule]
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Arules%3AUpdateDevicePool%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Sets whether the @maxDevices@ parameter applies to your device pool. If</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- you set this parameter to @true@, the @maxDevices@ parameter does not</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- apply, and Device Farm does not limit the number of devices that it adds</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- to your device pool. In this case, Device Farm adds all available</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- devices that meet the criteria specified in the @rules@ parameter.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If you use this parameter in your request, you cannot use the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @maxDevices@ parameter in the same request.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AclearMaxDevices%3AUpdateDevicePool%27"><span class="annot"><span class="annottext">UpdateDevicePool -&gt; Maybe Bool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AclearMaxDevices%3AUpdateDevicePool%27"><span class="hs-identifier hs-var hs-var">clearMaxDevices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A string that represents the name of the device pool to update.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aname%3AUpdateDevicePool%27"><span class="annot"><span class="annottext">UpdateDevicePool -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Aname%3AUpdateDevicePool%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The number of devices that Device Farm can add to your device pool.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Device Farm adds devices that are available and that meet the criteria</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- that you assign for the @rules@ parameter. Depending on how many devices</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- meet these constraints, your device pool might contain fewer devices</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- than the value for this parameter.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- By specifying the maximum number of devices, you can control the costs</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- that you incur by running tests.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- If you use this parameter in your request, you cannot use the</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @clearMaxDevices@ parameter in the same request.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AmaxDevices%3AUpdateDevicePool%27"><span class="annot"><span class="annottext">UpdateDevicePool -&gt; Maybe Int
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AmaxDevices%3AUpdateDevicePool%27"><span class="hs-identifier hs-var hs-var">maxDevices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A description of the device pool to update.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateDevicePool%27"><span class="annot"><span class="annottext">UpdateDevicePool -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Adescription%3AUpdateDevicePool%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateDevicePool%27"><span class="annot"><span class="annottext">UpdateDevicePool -&gt; Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Aarn%3AUpdateDevicePool%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389590"><span id="local-6989586621679389592"><span class="annot"><span class="annottext">UpdateDevicePool -&gt; UpdateDevicePool -&gt; Bool
+(UpdateDevicePool -&gt; UpdateDevicePool -&gt; Bool)
+-&gt; (UpdateDevicePool -&gt; UpdateDevicePool -&gt; Bool)
+-&gt; Eq UpdateDevicePool
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDevicePool -&gt; UpdateDevicePool -&gt; Bool
+$c/= :: UpdateDevicePool -&gt; UpdateDevicePool -&gt; Bool
+== :: UpdateDevicePool -&gt; UpdateDevicePool -&gt; Bool
+$c== :: UpdateDevicePool -&gt; UpdateDevicePool -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389581"><span id="local-6989586621679389583"><span id="local-6989586621679389585"><span id="local-6989586621679389587"><span class="annot"><span class="annottext">ReadPrec [UpdateDevicePool]
+ReadPrec UpdateDevicePool
+Int -&gt; ReadS UpdateDevicePool
+ReadS [UpdateDevicePool]
+(Int -&gt; ReadS UpdateDevicePool)
+-&gt; ReadS [UpdateDevicePool]
+-&gt; ReadPrec UpdateDevicePool
+-&gt; ReadPrec [UpdateDevicePool]
+-&gt; Read UpdateDevicePool
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDevicePool]
+$creadListPrec :: ReadPrec [UpdateDevicePool]
+readPrec :: ReadPrec UpdateDevicePool
+$creadPrec :: ReadPrec UpdateDevicePool
+readList :: ReadS [UpdateDevicePool]
+$creadList :: ReadS [UpdateDevicePool]
+readsPrec :: Int -&gt; ReadS UpdateDevicePool
+$creadsPrec :: Int -&gt; ReadS UpdateDevicePool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389574"><span id="local-6989586621679389576"><span id="local-6989586621679389578"><span class="annot"><span class="annottext">Int -&gt; UpdateDevicePool -&gt; ShowS
+[UpdateDevicePool] -&gt; ShowS
+UpdateDevicePool -&gt; String
+(Int -&gt; UpdateDevicePool -&gt; ShowS)
+-&gt; (UpdateDevicePool -&gt; String)
+-&gt; ([UpdateDevicePool] -&gt; ShowS)
+-&gt; Show UpdateDevicePool
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDevicePool] -&gt; ShowS
+$cshowList :: [UpdateDevicePool] -&gt; ShowS
+show :: UpdateDevicePool -&gt; String
+$cshow :: UpdateDevicePool -&gt; String
+showsPrec :: Int -&gt; UpdateDevicePool -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDevicePool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDevicePool -&gt; Rep UpdateDevicePool x)
+-&gt; (forall x. Rep UpdateDevicePool x -&gt; UpdateDevicePool)
+-&gt; Generic UpdateDevicePool
+forall x. Rep UpdateDevicePool x -&gt; UpdateDevicePool
+forall x. UpdateDevicePool -&gt; Rep UpdateDevicePool x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDevicePool x -&gt; UpdateDevicePool
+$cfrom :: forall x. UpdateDevicePool -&gt; Rep UpdateDevicePool x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'UpdateDevicePool' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'rules', 'updateDevicePool_rules' - Represents the rules to modify for the device pool. Updating rules is</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- optional. If you update rules for your request, the update replaces the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- existing rules.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'clearMaxDevices', 'updateDevicePool_clearMaxDevices' - Sets whether the @maxDevices@ parameter applies to your device pool. If</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- you set this parameter to @true@, the @maxDevices@ parameter does not</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- apply, and Device Farm does not limit the number of devices that it adds</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- to your device pool. In this case, Device Farm adds all available</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- devices that meet the criteria specified in the @rules@ parameter.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- If you use this parameter in your request, you cannot use the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @maxDevices@ parameter in the same request.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'name', 'updateDevicePool_name' - A string that represents the name of the device pool to update.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'maxDevices', 'updateDevicePool_maxDevices' - The number of devices that Device Farm can add to your device pool.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Device Farm adds devices that are available and that meet the criteria</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- that you assign for the @rules@ parameter. Depending on how many devices</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- meet these constraints, your device pool might contain fewer devices</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- than the value for this parameter.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- By specifying the maximum number of devices, you can control the costs</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- that you incur by running tests.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- If you use this parameter in your request, you cannot use the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @clearMaxDevices@ parameter in the same request.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'description', 'updateDevicePool_description' - A description of the device pool to update.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'arn', 'updateDevicePool_arn' - The Amazon Resource Name (ARN) of the Device Farm device pool to update.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#newUpdateDevicePool"><span class="hs-identifier hs-type">newUpdateDevicePool</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span>
+</span><span id="line-136"></span><span id="newUpdateDevicePool"><span class="annot"><span class="annottext">newUpdateDevicePool :: Text -&gt; UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#newUpdateDevicePool"><span class="hs-identifier hs-var hs-var">newUpdateDevicePool</span></a></span></span><span> </span><span id="local-6989586621679389569"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">UpdateDevicePool' :: Maybe [Rule]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:UpdateDevicePool' :: Maybe [Rule]
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Arules%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:clearMaxDevices:UpdateDevicePool' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AclearMaxDevices%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">clearMaxDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateDevicePool' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Aname%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxDevices:UpdateDevicePool' :: Maybe Int
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AmaxDevices%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">maxDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateDevicePool' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Adescription%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateDevicePool' :: Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Aarn%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Represents the rules to modify for the device pool. Updating rules is</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- optional. If you update rules for your request, the update replaces the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- existing rules.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_rules"><span class="hs-identifier hs-type">updateDevicePool_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="updateDevicePool_rules"><span class="annot"><span class="annottext">updateDevicePool_rules :: (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; UpdateDevicePool -&gt; f UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_rules"><span class="hs-identifier hs-var hs-var">updateDevicePool_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePool -&gt; Maybe [Rule])
+-&gt; (UpdateDevicePool -&gt; Maybe [Rule] -&gt; UpdateDevicePool)
+-&gt; Lens
+     UpdateDevicePool UpdateDevicePool (Maybe [Rule]) (Maybe [Rule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389566"><span class="annot"><span class="annottext">Maybe [Rule]
+rules :: Maybe [Rule]
+$sel:rules:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe [Rule]
+</span><a href="#local-6989586621679389566"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679389566"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389565"><span class="annot"><span class="annottext">s :: UpdateDevicePool
+</span><a href="#local-6989586621679389565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389564"><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePool
+</span><a href="#local-6989586621679389565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:UpdateDevicePool' :: Maybe [Rule]
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Arules%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; f (Maybe [Rule]))
+ -&gt; UpdateDevicePool -&gt; f UpdateDevicePool)
+-&gt; ((Maybe [Rule] -&gt; f (Maybe [Rule]))
+    -&gt; Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; UpdateDevicePool
+-&gt; f UpdateDevicePool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+-&gt; Iso (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Sets whether the @maxDevices@ parameter applies to your device pool. If</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- you set this parameter to @true@, the @maxDevices@ parameter does not</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- apply, and Device Farm does not limit the number of devices that it adds</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- to your device pool. In this case, Device Farm adds all available</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- devices that meet the criteria specified in the @rules@ parameter.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If you use this parameter in your request, you cannot use the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @maxDevices@ parameter in the same request.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_clearMaxDevices"><span class="hs-identifier hs-type">updateDevicePool_clearMaxDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="updateDevicePool_clearMaxDevices"><span class="annot"><span class="annottext">updateDevicePool_clearMaxDevices :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateDevicePool -&gt; f UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_clearMaxDevices"><span class="hs-identifier hs-var hs-var">updateDevicePool_clearMaxDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePool -&gt; Maybe Bool)
+-&gt; (UpdateDevicePool -&gt; Maybe Bool -&gt; UpdateDevicePool)
+-&gt; Lens UpdateDevicePool UpdateDevicePool (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389560"><span class="annot"><span class="annottext">Maybe Bool
+clearMaxDevices :: Maybe Bool
+$sel:clearMaxDevices:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Bool
+</span><a href="#local-6989586621679389560"><span class="hs-identifier hs-var hs-var">clearMaxDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679389560"><span class="hs-identifier hs-var">clearMaxDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389559"><span class="annot"><span class="annottext">s :: UpdateDevicePool
+</span><a href="#local-6989586621679389559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389558"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679389558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePool
+</span><a href="#local-6989586621679389559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clearMaxDevices:UpdateDevicePool' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AclearMaxDevices%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">clearMaxDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679389558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A string that represents the name of the device pool to update.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_name"><span class="hs-identifier hs-type">updateDevicePool_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="updateDevicePool_name"><span class="annot"><span class="annottext">updateDevicePool_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDevicePool -&gt; f UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_name"><span class="hs-identifier hs-var hs-var">updateDevicePool_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePool -&gt; Maybe Text)
+-&gt; (UpdateDevicePool -&gt; Maybe Text -&gt; UpdateDevicePool)
+-&gt; Lens UpdateDevicePool UpdateDevicePool (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389557"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Text
+</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389557"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389556"><span class="annot"><span class="annottext">s :: UpdateDevicePool
+</span><a href="#local-6989586621679389556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389555"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePool
+</span><a href="#local-6989586621679389556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateDevicePool' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Aname%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The number of devices that Device Farm can add to your device pool.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Device Farm adds devices that are available and that meet the criteria</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- that you assign for the @rules@ parameter. Depending on how many devices</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- meet these constraints, your device pool might contain fewer devices</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- than the value for this parameter.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- By specifying the maximum number of devices, you can control the costs</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- that you incur by running tests.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- If you use this parameter in your request, you cannot use the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- @clearMaxDevices@ parameter in the same request.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_maxDevices"><span class="hs-identifier hs-type">updateDevicePool_maxDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="updateDevicePool_maxDevices"><span class="annot"><span class="annottext">updateDevicePool_maxDevices :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateDevicePool -&gt; f UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_maxDevices"><span class="hs-identifier hs-var hs-var">updateDevicePool_maxDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePool -&gt; Maybe Int)
+-&gt; (UpdateDevicePool -&gt; Maybe Int -&gt; UpdateDevicePool)
+-&gt; Lens UpdateDevicePool UpdateDevicePool (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389554"><span class="annot"><span class="annottext">Maybe Int
+maxDevices :: Maybe Int
+$sel:maxDevices:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Int
+</span><a href="#local-6989586621679389554"><span class="hs-identifier hs-var hs-var">maxDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389554"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389553"><span class="annot"><span class="annottext">s :: UpdateDevicePool
+</span><a href="#local-6989586621679389553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389552"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePool
+</span><a href="#local-6989586621679389553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxDevices:UpdateDevicePool' :: Maybe Int
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AmaxDevices%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">maxDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | A description of the device pool to update.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_description"><span class="hs-identifier hs-type">updateDevicePool_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="updateDevicePool_description"><span class="annot"><span class="annottext">updateDevicePool_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDevicePool -&gt; f UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_description"><span class="hs-identifier hs-var hs-var">updateDevicePool_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePool -&gt; Maybe Text)
+-&gt; (UpdateDevicePool -&gt; Maybe Text -&gt; UpdateDevicePool)
+-&gt; Lens UpdateDevicePool UpdateDevicePool (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389551"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Text
+</span><a href="#local-6989586621679389551"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389551"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389550"><span class="annot"><span class="annottext">s :: UpdateDevicePool
+</span><a href="#local-6989586621679389550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePool
+</span><a href="#local-6989586621679389550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateDevicePool' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Adescription%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_arn"><span class="hs-identifier hs-type">updateDevicePool_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-187"></span><span id="updateDevicePool_arn"><span class="annot"><span class="annottext">updateDevicePool_arn :: (Text -&gt; f Text) -&gt; UpdateDevicePool -&gt; f UpdateDevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePool_arn"><span class="hs-identifier hs-var hs-var">updateDevicePool_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePool -&gt; Text)
+-&gt; (UpdateDevicePool -&gt; Text -&gt; UpdateDevicePool)
+-&gt; Lens UpdateDevicePool UpdateDevicePool Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389548"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:UpdateDevicePool' :: UpdateDevicePool -&gt; Text
+</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389547"><span class="annot"><span class="annottext">s :: UpdateDevicePool
+</span><a href="#local-6989586621679389547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389546"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePool
+</span><a href="#local-6989586621679389547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateDevicePool' :: Text
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3Aarn%3AUpdateDevicePool%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-191"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-type">UpdateDevicePoolResponse</span></a></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679389542"><span class="annot"><span class="annottext">request :: UpdateDevicePool -&gt; Request UpdateDevicePool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDevicePool -&gt; Request UpdateDevicePool
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679389538"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDevicePool
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDevicePool)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateDevicePool))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDevicePool
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDevicePool)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389535"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389535"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389534"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389534"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389533"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389533"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe DevicePool -&gt; Int -&gt; UpdateDevicePoolResponse
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse%27"><span class="hs-identifier hs-var">UpdateDevicePoolResponse'</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DevicePool -&gt; Int -&gt; UpdateDevicePoolResponse)
+-&gt; Either String (Maybe DevicePool)
+-&gt; Either String (Int -&gt; UpdateDevicePoolResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DevicePool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;devicePool&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDevicePoolResponse)
+-&gt; Either String Int -&gt; Either String UpdateDevicePoolResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389535"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389525"><span id="local-6989586621679389527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679389518"><span class="annot"><span class="annottext">toHeaders :: UpdateDevicePool -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDevicePool -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.UpdateDevicePool&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-212"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-213"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-217"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389508"><span id="local-6989586621679389510"><span id="local-6989586621679389512"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679389506"><span class="annot"><span class="annottext">toJSON :: UpdateDevicePool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool%27"><span class="hs-identifier hs-type">UpdateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389499"><span id="local-6989586621679389500"><span id="local-6989586621679389501"><span id="local-6989586621679389502"><span id="local-6989586621679389503"><span id="local-6989586621679389504"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Rule]
+Maybe Text
+Text
+arn :: Text
+description :: Maybe Text
+maxDevices :: Maybe Int
+name :: Maybe Text
+clearMaxDevices :: Maybe Bool
+rules :: Maybe [Rule]
+$sel:arn:UpdateDevicePool' :: UpdateDevicePool -&gt; Text
+$sel:description:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Text
+$sel:maxDevices:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Int
+$sel:name:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Text
+$sel:clearMaxDevices:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe Bool
+$sel:rules:UpdateDevicePool' :: UpdateDevicePool -&gt; Maybe [Rule]
+</span><a href="#local-6989586621679389499"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Rule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Rule] -&gt; Pair) -&gt; Maybe [Rule] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679389504"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clearMaxDevices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679389503"><span class="hs-identifier hs-var">clearMaxDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389502"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxDevices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389501"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389500"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389499"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679389493"><span class="annot"><span class="annottext">toPath :: UpdateDevicePool -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDevicePool -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePool"><span class="hs-identifier hs-type">UpdateDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679389489"><span class="annot"><span class="annottext">toQuery :: UpdateDevicePool -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDevicePool -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | Represents the result of an update device pool request.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- /See:/ 'newUpdateDevicePoolResponse' smart constructor.</span><span>
+</span><span id="line-244"></span><span id="local-6989586621679389486"><span id="local-6989586621679389487"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevicePoolResponse"><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-var">UpdateDevicePoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevicePoolResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse%27"><span class="hs-identifier hs-var">UpdateDevicePoolResponse'</span></a></span></span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The device pool you just updated.</span><span>
+</span><span id="line-246"></span><span>    </span><span id="%24sel%3AdevicePool%3AUpdateDevicePoolResponse%27"><span class="annot"><span class="annottext">UpdateDevicePoolResponse -&gt; Maybe DevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AdevicePool%3AUpdateDevicePoolResponse%27"><span class="hs-identifier hs-var hs-var">devicePool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DevicePool.html#DevicePool"><span class="hs-identifier hs-type">DevicePool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-248"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDevicePoolResponse%27"><span class="annot"><span class="annottext">UpdateDevicePoolResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AhttpStatus%3AUpdateDevicePoolResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389480"><span id="local-6989586621679389482"><span class="annot"><span class="annottext">UpdateDevicePoolResponse -&gt; UpdateDevicePoolResponse -&gt; Bool
+(UpdateDevicePoolResponse -&gt; UpdateDevicePoolResponse -&gt; Bool)
+-&gt; (UpdateDevicePoolResponse -&gt; UpdateDevicePoolResponse -&gt; Bool)
+-&gt; Eq UpdateDevicePoolResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDevicePoolResponse -&gt; UpdateDevicePoolResponse -&gt; Bool
+$c/= :: UpdateDevicePoolResponse -&gt; UpdateDevicePoolResponse -&gt; Bool
+== :: UpdateDevicePoolResponse -&gt; UpdateDevicePoolResponse -&gt; Bool
+$c== :: UpdateDevicePoolResponse -&gt; UpdateDevicePoolResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389472"><span id="local-6989586621679389474"><span id="local-6989586621679389476"><span id="local-6989586621679389478"><span class="annot"><span class="annottext">ReadPrec [UpdateDevicePoolResponse]
+ReadPrec UpdateDevicePoolResponse
+Int -&gt; ReadS UpdateDevicePoolResponse
+ReadS [UpdateDevicePoolResponse]
+(Int -&gt; ReadS UpdateDevicePoolResponse)
+-&gt; ReadS [UpdateDevicePoolResponse]
+-&gt; ReadPrec UpdateDevicePoolResponse
+-&gt; ReadPrec [UpdateDevicePoolResponse]
+-&gt; Read UpdateDevicePoolResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDevicePoolResponse]
+$creadListPrec :: ReadPrec [UpdateDevicePoolResponse]
+readPrec :: ReadPrec UpdateDevicePoolResponse
+$creadPrec :: ReadPrec UpdateDevicePoolResponse
+readList :: ReadS [UpdateDevicePoolResponse]
+$creadList :: ReadS [UpdateDevicePoolResponse]
+readsPrec :: Int -&gt; ReadS UpdateDevicePoolResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDevicePoolResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389466"><span id="local-6989586621679389468"><span id="local-6989586621679389470"><span class="annot"><span class="annottext">Int -&gt; UpdateDevicePoolResponse -&gt; ShowS
+[UpdateDevicePoolResponse] -&gt; ShowS
+UpdateDevicePoolResponse -&gt; String
+(Int -&gt; UpdateDevicePoolResponse -&gt; ShowS)
+-&gt; (UpdateDevicePoolResponse -&gt; String)
+-&gt; ([UpdateDevicePoolResponse] -&gt; ShowS)
+-&gt; Show UpdateDevicePoolResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDevicePoolResponse] -&gt; ShowS
+$cshowList :: [UpdateDevicePoolResponse] -&gt; ShowS
+show :: UpdateDevicePoolResponse -&gt; String
+$cshow :: UpdateDevicePoolResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDevicePoolResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDevicePoolResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDevicePoolResponse -&gt; Rep UpdateDevicePoolResponse x)
+-&gt; (forall x.
+    Rep UpdateDevicePoolResponse x -&gt; UpdateDevicePoolResponse)
+-&gt; Generic UpdateDevicePoolResponse
+forall x.
+Rep UpdateDevicePoolResponse x -&gt; UpdateDevicePoolResponse
+forall x.
+UpdateDevicePoolResponse -&gt; Rep UpdateDevicePoolResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDevicePoolResponse x -&gt; UpdateDevicePoolResponse
+$cfrom :: forall x.
+UpdateDevicePoolResponse -&gt; Rep UpdateDevicePoolResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Create a value of 'UpdateDevicePoolResponse' with all optional fields omitted.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'devicePool', 'updateDevicePoolResponse_devicePool' - The device pool you just updated.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'httpStatus', 'updateDevicePoolResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#newUpdateDevicePoolResponse"><span class="hs-identifier hs-type">newUpdateDevicePoolResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-type">UpdateDevicePoolResponse</span></a></span><span>
+</span><span id="line-267"></span><span id="newUpdateDevicePoolResponse"><span class="annot"><span class="annottext">newUpdateDevicePoolResponse :: Int -&gt; UpdateDevicePoolResponse
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#newUpdateDevicePoolResponse"><span class="hs-identifier hs-var hs-var">newUpdateDevicePoolResponse</span></a></span></span><span> </span><span id="local-6989586621679389463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389463"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><span class="annottext">UpdateDevicePoolResponse' :: Maybe DevicePool -&gt; Int -&gt; UpdateDevicePoolResponse
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse%27"><span class="hs-identifier hs-type">UpdateDevicePoolResponse'</span></a></span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:devicePool:UpdateDevicePoolResponse' :: Maybe DevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AdevicePool%3AUpdateDevicePoolResponse%27"><span class="hs-identifier hs-var">devicePool</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">Maybe DevicePool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDevicePoolResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AhttpStatus%3AUpdateDevicePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389463"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The device pool you just updated.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePoolResponse_devicePool"><span class="hs-identifier hs-type">updateDevicePoolResponse_devicePool</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-type">UpdateDevicePoolResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DevicePool.html#DevicePool"><span class="hs-identifier hs-type">DevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="updateDevicePoolResponse_devicePool"><span class="annot"><span class="annottext">updateDevicePoolResponse_devicePool :: (Maybe DevicePool -&gt; f (Maybe DevicePool))
+-&gt; UpdateDevicePoolResponse -&gt; f UpdateDevicePoolResponse
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePoolResponse_devicePool"><span class="hs-identifier hs-var hs-var">updateDevicePoolResponse_devicePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePoolResponse -&gt; Maybe DevicePool)
+-&gt; (UpdateDevicePoolResponse
+    -&gt; Maybe DevicePool -&gt; UpdateDevicePoolResponse)
+-&gt; Lens
+     UpdateDevicePoolResponse
+     UpdateDevicePoolResponse
+     (Maybe DevicePool)
+     (Maybe DevicePool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse%27"><span class="hs-identifier hs-type">UpdateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389462"><span class="annot"><span class="annottext">Maybe DevicePool
+devicePool :: Maybe DevicePool
+$sel:devicePool:UpdateDevicePoolResponse' :: UpdateDevicePoolResponse -&gt; Maybe DevicePool
+</span><a href="#local-6989586621679389462"><span class="hs-identifier hs-var hs-var">devicePool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DevicePool
+</span><a href="#local-6989586621679389462"><span class="hs-identifier hs-var">devicePool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389461"><span class="annot"><span class="annottext">s :: UpdateDevicePoolResponse
+</span><a href="#local-6989586621679389461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse%27"><span class="hs-identifier hs-type">UpdateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389460"><span class="annot"><span class="annottext">Maybe DevicePool
+</span><a href="#local-6989586621679389460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePoolResponse
+</span><a href="#local-6989586621679389461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devicePool:UpdateDevicePoolResponse' :: Maybe DevicePool
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AdevicePool%3AUpdateDevicePoolResponse%27"><span class="hs-identifier hs-var">devicePool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DevicePool
+</span><a href="#local-6989586621679389460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-type">UpdateDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePoolResponse_httpStatus"><span class="hs-identifier hs-type">updateDevicePoolResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-type">UpdateDevicePoolResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-280"></span><span id="updateDevicePoolResponse_httpStatus"><span class="annot"><span class="annottext">updateDevicePoolResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDevicePoolResponse -&gt; f UpdateDevicePoolResponse
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#updateDevicePoolResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDevicePoolResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDevicePoolResponse -&gt; Int)
+-&gt; (UpdateDevicePoolResponse -&gt; Int -&gt; UpdateDevicePoolResponse)
+-&gt; Lens UpdateDevicePoolResponse UpdateDevicePoolResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse%27"><span class="hs-identifier hs-type">UpdateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389459"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDevicePoolResponse' :: UpdateDevicePoolResponse -&gt; Int
+</span><a href="#local-6989586621679389459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389458"><span class="annot"><span class="annottext">s :: UpdateDevicePoolResponse
+</span><a href="#local-6989586621679389458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse%27"><span class="hs-identifier hs-type">UpdateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevicePoolResponse
+</span><a href="#local-6989586621679389458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDevicePoolResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#%24sel%3AhttpStatus%3AUpdateDevicePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-type">UpdateDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.UpdateDevicePool.html#UpdateDevicePoolResponse"><span class="hs-identifier hs-type">UpdateDevicePoolResponse</span></a></span></span><span>
+</span><span id="line-283"></span></pre></body></html>

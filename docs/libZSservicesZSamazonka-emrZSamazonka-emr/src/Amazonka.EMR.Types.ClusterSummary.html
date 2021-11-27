@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMR.Types.ClusterSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.Types.ClusterSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterStatus.html"><span class="hs-identifier">Amazonka.EMR.Types.ClusterStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The summary description of the cluster.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newClusterSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679366654"><span id="local-6989586621679366655"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterSummary"><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-var">ClusterSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterSummary%27"><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-var">ClusterSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details about the current status of the cluster.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3AClusterSummary%27"><span class="annot"><span class="annottext">ClusterSummary -&gt; Maybe ClusterStatus
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Astatus%3AClusterSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterStatus.html#ClusterStatus"><span class="hs-identifier hs-type">ClusterStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name of the cluster.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AclusterArn%3AClusterSummary%27"><span class="annot"><span class="annottext">ClusterSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AclusterArn%3AClusterSummary%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost where the cluster is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- launched.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AoutpostArn%3AClusterSummary%27"><span class="annot"><span class="annottext">ClusterSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AoutpostArn%3AClusterSummary%27"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | An approximation of the cost of the cluster, represented in</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- m1.small\/hours. This value is incremented one time for every hour an</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- m1.small instance runs. Larger instances are weighted more, so an EC2</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- instance that is roughly four times more expensive would result in the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- normalized instance hours being incremented by four. This result is only</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- an approximation and does not reflect the actual billing rate.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AnormalizedInstanceHours%3AClusterSummary%27"><span class="annot"><span class="annottext">ClusterSummary -&gt; Maybe Int
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AnormalizedInstanceHours%3AClusterSummary%27"><span class="hs-identifier hs-var hs-var">normalizedInstanceHours</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the cluster.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aname%3AClusterSummary%27"><span class="annot"><span class="annottext">ClusterSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Aname%3AClusterSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the cluster.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aid%3AClusterSummary%27"><span class="annot"><span class="annottext">ClusterSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Aid%3AClusterSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366643"><span id="local-6989586621679366645"><span class="annot"><span class="annottext">ClusterSummary -&gt; ClusterSummary -&gt; Bool
+(ClusterSummary -&gt; ClusterSummary -&gt; Bool)
+-&gt; (ClusterSummary -&gt; ClusterSummary -&gt; Bool) -&gt; Eq ClusterSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClusterSummary -&gt; ClusterSummary -&gt; Bool
+$c/= :: ClusterSummary -&gt; ClusterSummary -&gt; Bool
+== :: ClusterSummary -&gt; ClusterSummary -&gt; Bool
+$c== :: ClusterSummary -&gt; ClusterSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366634"><span id="local-6989586621679366636"><span id="local-6989586621679366638"><span id="local-6989586621679366640"><span class="annot"><span class="annottext">ReadPrec [ClusterSummary]
+ReadPrec ClusterSummary
+Int -&gt; ReadS ClusterSummary
+ReadS [ClusterSummary]
+(Int -&gt; ReadS ClusterSummary)
+-&gt; ReadS [ClusterSummary]
+-&gt; ReadPrec ClusterSummary
+-&gt; ReadPrec [ClusterSummary]
+-&gt; Read ClusterSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClusterSummary]
+$creadListPrec :: ReadPrec [ClusterSummary]
+readPrec :: ReadPrec ClusterSummary
+$creadPrec :: ReadPrec ClusterSummary
+readList :: ReadS [ClusterSummary]
+$creadList :: ReadS [ClusterSummary]
+readsPrec :: Int -&gt; ReadS ClusterSummary
+$creadsPrec :: Int -&gt; ReadS ClusterSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366627"><span id="local-6989586621679366629"><span id="local-6989586621679366631"><span class="annot"><span class="annottext">Int -&gt; ClusterSummary -&gt; ShowS
+[ClusterSummary] -&gt; ShowS
+ClusterSummary -&gt; String
+(Int -&gt; ClusterSummary -&gt; ShowS)
+-&gt; (ClusterSummary -&gt; String)
+-&gt; ([ClusterSummary] -&gt; ShowS)
+-&gt; Show ClusterSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClusterSummary] -&gt; ShowS
+$cshowList :: [ClusterSummary] -&gt; ShowS
+show :: ClusterSummary -&gt; String
+$cshow :: ClusterSummary -&gt; String
+showsPrec :: Int -&gt; ClusterSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClusterSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ClusterSummary -&gt; Rep ClusterSummary x)
+-&gt; (forall x. Rep ClusterSummary x -&gt; ClusterSummary)
+-&gt; Generic ClusterSummary
+forall x. Rep ClusterSummary x -&gt; ClusterSummary
+forall x. ClusterSummary -&gt; Rep ClusterSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClusterSummary x -&gt; ClusterSummary
+$cfrom :: forall x. ClusterSummary -&gt; Rep ClusterSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ClusterSummary' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'status', 'clusterSummary_status' - The details about the current status of the cluster.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'clusterArn', 'clusterSummary_clusterArn' - The Amazon Resource Name of the cluster.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'outpostArn', 'clusterSummary_outpostArn' - The Amazon Resource Name (ARN) of the Outpost where the cluster is</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- launched.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'normalizedInstanceHours', 'clusterSummary_normalizedInstanceHours' - An approximation of the cost of the cluster, represented in</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- m1.small\/hours. This value is incremented one time for every hour an</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- m1.small instance runs. Larger instances are weighted more, so an EC2</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- instance that is roughly four times more expensive would result in the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- normalized instance hours being incremented by four. This result is only</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- an approximation and does not reflect the actual billing rate.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'name', 'clusterSummary_name' - The name of the cluster.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'id', 'clusterSummary_id' - The unique identifier for the cluster.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#newClusterSummary"><span class="hs-identifier hs-type">newClusterSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span>
+</span><span id="line-79"></span><span id="newClusterSummary"><span class="annot"><span class="annottext">newClusterSummary :: ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#newClusterSummary"><span class="hs-identifier hs-var hs-var">newClusterSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ClusterSummary' :: Maybe ClusterStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ClusterSummary' :: Maybe ClusterStatus
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Astatus%3AClusterSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterArn:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AclusterArn%3AClusterSummary%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:outpostArn:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AoutpostArn%3AClusterSummary%27"><span class="hs-identifier hs-var">outpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:normalizedInstanceHours:ClusterSummary' :: Maybe Int
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AnormalizedInstanceHours%3AClusterSummary%27"><span class="hs-identifier hs-var">normalizedInstanceHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Aname%3AClusterSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Aid%3AClusterSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The details about the current status of the cluster.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_status"><span class="hs-identifier hs-type">clusterSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterStatus.html#ClusterStatus"><span class="hs-identifier hs-type">ClusterStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="clusterSummary_status"><span class="annot"><span class="annottext">clusterSummary_status :: (Maybe ClusterStatus -&gt; f (Maybe ClusterStatus))
+-&gt; ClusterSummary -&gt; f ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_status"><span class="hs-identifier hs-var hs-var">clusterSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterSummary -&gt; Maybe ClusterStatus)
+-&gt; (ClusterSummary -&gt; Maybe ClusterStatus -&gt; ClusterSummary)
+-&gt; Lens
+     ClusterSummary
+     ClusterSummary
+     (Maybe ClusterStatus)
+     (Maybe ClusterStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366618"><span class="annot"><span class="annottext">Maybe ClusterStatus
+status :: Maybe ClusterStatus
+$sel:status:ClusterSummary' :: ClusterSummary -&gt; Maybe ClusterStatus
+</span><a href="#local-6989586621679366618"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterStatus
+</span><a href="#local-6989586621679366618"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366617"><span class="annot"><span class="annottext">s :: ClusterSummary
+</span><a href="#local-6989586621679366617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366616"><span class="annot"><span class="annottext">Maybe ClusterStatus
+</span><a href="#local-6989586621679366616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSummary
+</span><a href="#local-6989586621679366617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ClusterSummary' :: Maybe ClusterStatus
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Astatus%3AClusterSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterStatus
+</span><a href="#local-6989586621679366616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name of the cluster.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_clusterArn"><span class="hs-identifier hs-type">clusterSummary_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="clusterSummary_clusterArn"><span class="annot"><span class="annottext">clusterSummary_clusterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterSummary -&gt; f ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_clusterArn"><span class="hs-identifier hs-var hs-var">clusterSummary_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterSummary -&gt; Maybe Text)
+-&gt; (ClusterSummary -&gt; Maybe Text -&gt; ClusterSummary)
+-&gt; Lens ClusterSummary ClusterSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366614"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:ClusterSummary' :: ClusterSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679366614"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366614"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366613"><span class="annot"><span class="annottext">s :: ClusterSummary
+</span><a href="#local-6989586621679366613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSummary
+</span><a href="#local-6989586621679366613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AclusterArn%3AClusterSummary%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost where the cluster is</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- launched.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_outpostArn"><span class="hs-identifier hs-type">clusterSummary_outpostArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="clusterSummary_outpostArn"><span class="annot"><span class="annottext">clusterSummary_outpostArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterSummary -&gt; f ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_outpostArn"><span class="hs-identifier hs-var hs-var">clusterSummary_outpostArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterSummary -&gt; Maybe Text)
+-&gt; (ClusterSummary -&gt; Maybe Text -&gt; ClusterSummary)
+-&gt; Lens ClusterSummary ClusterSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366610"><span class="annot"><span class="annottext">Maybe Text
+outpostArn :: Maybe Text
+$sel:outpostArn:ClusterSummary' :: ClusterSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679366610"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366610"><span class="hs-identifier hs-var">outpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366609"><span class="annot"><span class="annottext">s :: ClusterSummary
+</span><a href="#local-6989586621679366609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366608"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSummary
+</span><a href="#local-6989586621679366609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostArn:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AoutpostArn%3AClusterSummary%27"><span class="hs-identifier hs-var">outpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | An approximation of the cost of the cluster, represented in</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- m1.small\/hours. This value is incremented one time for every hour an</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- m1.small instance runs. Larger instances are weighted more, so an EC2</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- instance that is roughly four times more expensive would result in the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- normalized instance hours being incremented by four. This result is only</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- an approximation and does not reflect the actual billing rate.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_normalizedInstanceHours"><span class="hs-identifier hs-type">clusterSummary_normalizedInstanceHours</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="clusterSummary_normalizedInstanceHours"><span class="annot"><span class="annottext">clusterSummary_normalizedInstanceHours :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ClusterSummary -&gt; f ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_normalizedInstanceHours"><span class="hs-identifier hs-var hs-var">clusterSummary_normalizedInstanceHours</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterSummary -&gt; Maybe Int)
+-&gt; (ClusterSummary -&gt; Maybe Int -&gt; ClusterSummary)
+-&gt; Lens ClusterSummary ClusterSummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366606"><span class="annot"><span class="annottext">Maybe Int
+normalizedInstanceHours :: Maybe Int
+$sel:normalizedInstanceHours:ClusterSummary' :: ClusterSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679366606"><span class="hs-identifier hs-var hs-var">normalizedInstanceHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679366606"><span class="hs-identifier hs-var">normalizedInstanceHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366605"><span class="annot"><span class="annottext">s :: ClusterSummary
+</span><a href="#local-6989586621679366605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366604"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679366604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSummary
+</span><a href="#local-6989586621679366605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:normalizedInstanceHours:ClusterSummary' :: Maybe Int
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3AnormalizedInstanceHours%3AClusterSummary%27"><span class="hs-identifier hs-var">normalizedInstanceHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679366604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the cluster.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_name"><span class="hs-identifier hs-type">clusterSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="clusterSummary_name"><span class="annot"><span class="annottext">clusterSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterSummary -&gt; f ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_name"><span class="hs-identifier hs-var hs-var">clusterSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterSummary -&gt; Maybe Text)
+-&gt; (ClusterSummary -&gt; Maybe Text -&gt; ClusterSummary)
+-&gt; Lens ClusterSummary ClusterSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366602"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ClusterSummary' :: ClusterSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679366602"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366602"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366601"><span class="annot"><span class="annottext">s :: ClusterSummary
+</span><a href="#local-6989586621679366601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSummary
+</span><a href="#local-6989586621679366601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Aname%3AClusterSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The unique identifier for the cluster.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_id"><span class="hs-identifier hs-type">clusterSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="clusterSummary_id"><span class="annot"><span class="annottext">clusterSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterSummary -&gt; f ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#clusterSummary_id"><span class="hs-identifier hs-var hs-var">clusterSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterSummary -&gt; Maybe Text)
+-&gt; (ClusterSummary -&gt; Maybe Text -&gt; ClusterSummary)
+-&gt; Lens ClusterSummary ClusterSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366598"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ClusterSummary' :: ClusterSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679366598"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366598"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366597"><span class="annot"><span class="annottext">s :: ClusterSummary
+</span><a href="#local-6989586621679366597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-type">ClusterSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366596"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSummary
+</span><a href="#local-6989586621679366597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ClusterSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#%24sel%3Aid%3AClusterSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679366596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366593"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679366591"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ClusterSummary)
+-&gt; Value
+-&gt; Parser ClusterSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ClusterSummary&quot;</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366588"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366588"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe ClusterStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ClusterSummary
+</span><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary%27"><span class="hs-identifier hs-var">ClusterSummary'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ClusterStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ClusterSummary)
+-&gt; Parser (Maybe ClusterStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ClusterSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClusterStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ClusterSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; ClusterSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; ClusterSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; ClusterSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutpostArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; ClusterSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ClusterSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NormalizedInstanceHours&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ClusterSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ClusterSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ClusterSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser ClusterSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366582"><span id="local-6989586621679366584"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.ClusterSummary.html#ClusterSummary"><span class="hs-identifier hs-type">ClusterSummary</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

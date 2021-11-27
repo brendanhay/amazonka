@@ -1,0 +1,760 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MigrationHub.ListProgressUpdateStreams</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists progress update streams associated with the user account making</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- this call.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MigrationHub.ListProgressUpdateStreams</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#newListProgressUpdateStreams"><span class="hs-identifier">newListProgressUpdateStreams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreams_nextToken"><span class="hs-identifier">listProgressUpdateStreams_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreams_maxResults"><span class="hs-identifier">listProgressUpdateStreams_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier">ListProgressUpdateStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#newListProgressUpdateStreamsResponse"><span class="hs-identifier">newListProgressUpdateStreamsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList"><span class="hs-identifier">listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_nextToken"><span class="hs-identifier">listProgressUpdateStreamsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_httpStatus"><span class="hs-identifier">listProgressUpdateStreamsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.Types.html"><span class="hs-identifier">Amazonka.MigrationHub.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListProgressUpdateStreams' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679171375"><span id="local-6989586621679171376"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProgressUpdateStreams"><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-var">ListProgressUpdateStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProgressUpdateStreams%27"><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams%27"><span class="hs-identifier hs-var">ListProgressUpdateStreams'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListProgressUpdateStreams%27"><span class="annot"><span class="annottext">ListProgressUpdateStreams -&gt; Maybe Text
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AnextToken%3AListProgressUpdateStreams%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Filter to limit the maximum number of results to list per page.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListProgressUpdateStreams%27"><span class="annot"><span class="annottext">ListProgressUpdateStreams -&gt; Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AmaxResults%3AListProgressUpdateStreams%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171368"><span id="local-6989586621679171370"><span class="annot"><span class="annottext">ListProgressUpdateStreams -&gt; ListProgressUpdateStreams -&gt; Bool
+(ListProgressUpdateStreams -&gt; ListProgressUpdateStreams -&gt; Bool)
+-&gt; (ListProgressUpdateStreams -&gt; ListProgressUpdateStreams -&gt; Bool)
+-&gt; Eq ListProgressUpdateStreams
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProgressUpdateStreams -&gt; ListProgressUpdateStreams -&gt; Bool
+$c/= :: ListProgressUpdateStreams -&gt; ListProgressUpdateStreams -&gt; Bool
+== :: ListProgressUpdateStreams -&gt; ListProgressUpdateStreams -&gt; Bool
+$c== :: ListProgressUpdateStreams -&gt; ListProgressUpdateStreams -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171359"><span id="local-6989586621679171361"><span id="local-6989586621679171363"><span id="local-6989586621679171365"><span class="annot"><span class="annottext">ReadPrec [ListProgressUpdateStreams]
+ReadPrec ListProgressUpdateStreams
+Int -&gt; ReadS ListProgressUpdateStreams
+ReadS [ListProgressUpdateStreams]
+(Int -&gt; ReadS ListProgressUpdateStreams)
+-&gt; ReadS [ListProgressUpdateStreams]
+-&gt; ReadPrec ListProgressUpdateStreams
+-&gt; ReadPrec [ListProgressUpdateStreams]
+-&gt; Read ListProgressUpdateStreams
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProgressUpdateStreams]
+$creadListPrec :: ReadPrec [ListProgressUpdateStreams]
+readPrec :: ReadPrec ListProgressUpdateStreams
+$creadPrec :: ReadPrec ListProgressUpdateStreams
+readList :: ReadS [ListProgressUpdateStreams]
+$creadList :: ReadS [ListProgressUpdateStreams]
+readsPrec :: Int -&gt; ReadS ListProgressUpdateStreams
+$creadsPrec :: Int -&gt; ReadS ListProgressUpdateStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171352"><span id="local-6989586621679171354"><span id="local-6989586621679171356"><span class="annot"><span class="annottext">Int -&gt; ListProgressUpdateStreams -&gt; ShowS
+[ListProgressUpdateStreams] -&gt; ShowS
+ListProgressUpdateStreams -&gt; String
+(Int -&gt; ListProgressUpdateStreams -&gt; ShowS)
+-&gt; (ListProgressUpdateStreams -&gt; String)
+-&gt; ([ListProgressUpdateStreams] -&gt; ShowS)
+-&gt; Show ListProgressUpdateStreams
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProgressUpdateStreams] -&gt; ShowS
+$cshowList :: [ListProgressUpdateStreams] -&gt; ShowS
+show :: ListProgressUpdateStreams -&gt; String
+$cshow :: ListProgressUpdateStreams -&gt; String
+showsPrec :: Int -&gt; ListProgressUpdateStreams -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProgressUpdateStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProgressUpdateStreams -&gt; Rep ListProgressUpdateStreams x)
+-&gt; (forall x.
+    Rep ListProgressUpdateStreams x -&gt; ListProgressUpdateStreams)
+-&gt; Generic ListProgressUpdateStreams
+forall x.
+Rep ListProgressUpdateStreams x -&gt; ListProgressUpdateStreams
+forall x.
+ListProgressUpdateStreams -&gt; Rep ListProgressUpdateStreams x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProgressUpdateStreams x -&gt; ListProgressUpdateStreams
+$cfrom :: forall x.
+ListProgressUpdateStreams -&gt; Rep ListProgressUpdateStreams x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListProgressUpdateStreams' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listProgressUpdateStreams_nextToken' - If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'maxResults', 'listProgressUpdateStreams_maxResults' - Filter to limit the maximum number of results to list per page.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#newListProgressUpdateStreams"><span class="hs-identifier hs-type">newListProgressUpdateStreams</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span>
+</span><span id="line-80"></span><span id="newListProgressUpdateStreams"><span class="annot"><span class="annottext">newListProgressUpdateStreams :: ListProgressUpdateStreams
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#newListProgressUpdateStreams"><span class="hs-identifier hs-var hs-var">newListProgressUpdateStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListProgressUpdateStreams' :: Maybe Text -&gt; Maybe Natural -&gt; ListProgressUpdateStreams
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams%27"><span class="hs-identifier hs-type">ListProgressUpdateStreams'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListProgressUpdateStreams' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AnextToken%3AListProgressUpdateStreams%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListProgressUpdateStreams' :: Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AmaxResults%3AListProgressUpdateStreams%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreams_nextToken"><span class="hs-identifier hs-type">listProgressUpdateStreams_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="listProgressUpdateStreams_nextToken"><span class="annot"><span class="annottext">listProgressUpdateStreams_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProgressUpdateStreams -&gt; f ListProgressUpdateStreams
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreams_nextToken"><span class="hs-identifier hs-var hs-var">listProgressUpdateStreams_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProgressUpdateStreams -&gt; Maybe Text)
+-&gt; (ListProgressUpdateStreams
+    -&gt; Maybe Text -&gt; ListProgressUpdateStreams)
+-&gt; Lens
+     ListProgressUpdateStreams
+     ListProgressUpdateStreams
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams%27"><span class="hs-identifier hs-type">ListProgressUpdateStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171346"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProgressUpdateStreams' :: ListProgressUpdateStreams -&gt; Maybe Text
+</span><a href="#local-6989586621679171346"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171346"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171345"><span class="annot"><span class="annottext">s :: ListProgressUpdateStreams
+</span><a href="#local-6989586621679171345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams%27"><span class="hs-identifier hs-type">ListProgressUpdateStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProgressUpdateStreams
+</span><a href="#local-6989586621679171345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProgressUpdateStreams' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AnextToken%3AListProgressUpdateStreams%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Filter to limit the maximum number of results to list per page.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreams_maxResults"><span class="hs-identifier hs-type">listProgressUpdateStreams_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="listProgressUpdateStreams_maxResults"><span class="annot"><span class="annottext">listProgressUpdateStreams_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListProgressUpdateStreams -&gt; f ListProgressUpdateStreams
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreams_maxResults"><span class="hs-identifier hs-var hs-var">listProgressUpdateStreams_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProgressUpdateStreams -&gt; Maybe Natural)
+-&gt; (ListProgressUpdateStreams
+    -&gt; Maybe Natural -&gt; ListProgressUpdateStreams)
+-&gt; Lens
+     ListProgressUpdateStreams
+     ListProgressUpdateStreams
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams%27"><span class="hs-identifier hs-type">ListProgressUpdateStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171343"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListProgressUpdateStreams' :: ListProgressUpdateStreams -&gt; Maybe Natural
+</span><a href="#local-6989586621679171343"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171343"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171342"><span class="annot"><span class="annottext">s :: ListProgressUpdateStreams
+</span><a href="#local-6989586621679171342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams%27"><span class="hs-identifier hs-type">ListProgressUpdateStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171341"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProgressUpdateStreams
+</span><a href="#local-6989586621679171342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListProgressUpdateStreams' :: Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AmaxResults%3AListProgressUpdateStreams%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679171337"><span class="annot"><span class="annottext">page :: ListProgressUpdateStreams
+-&gt; AWSResponse ListProgressUpdateStreams
+-&gt; Maybe ListProgressUpdateStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679171335"><span class="annot"><span class="annottext">ListProgressUpdateStreams
+</span><a href="#local-6989586621679171335"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679171334"><span class="annot"><span class="annottext">AWSResponse ListProgressUpdateStreams
+</span><a href="#local-6989586621679171334"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-100"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProgressUpdateStreams
+ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171334"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+-&gt; Getting (First Text) ListProgressUpdateStreamsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListProgressUpdateStreamsResponse
+-&gt; Const (First Text) ListProgressUpdateStreamsResponse
+Lens' ListProgressUpdateStreamsResponse (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_nextToken"><span class="hs-identifier hs-var">listProgressUpdateStreamsResponse_nextToken</span></a></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListProgressUpdateStreamsResponse
+ -&gt; Const (First Text) ListProgressUpdateStreamsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListProgressUpdateStreamsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-103"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListProgressUpdateStreams
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-106"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProgressUpdateStreams
+ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171334"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+-&gt; Getting
+     (First [ProgressUpdateStreamSummary])
+     ListProgressUpdateStreamsResponse
+     [ProgressUpdateStreamSummary]
+-&gt; Maybe [ProgressUpdateStreamSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ProgressUpdateStreamSummary]
+ -&gt; Const
+      (First [ProgressUpdateStreamSummary])
+      (Maybe [ProgressUpdateStreamSummary]))
+-&gt; ListProgressUpdateStreamsResponse
+-&gt; Const
+     (First [ProgressUpdateStreamSummary])
+     ListProgressUpdateStreamsResponse
+Lens'
+  ListProgressUpdateStreamsResponse
+  (Maybe [ProgressUpdateStreamSummary])
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList"><span class="hs-identifier hs-var">listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList</span></a></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ProgressUpdateStreamSummary]
+  -&gt; Const
+       (First [ProgressUpdateStreamSummary])
+       (Maybe [ProgressUpdateStreamSummary]))
+ -&gt; ListProgressUpdateStreamsResponse
+ -&gt; Const
+      (First [ProgressUpdateStreamSummary])
+      ListProgressUpdateStreamsResponse)
+-&gt; (([ProgressUpdateStreamSummary]
+     -&gt; Const
+          (First [ProgressUpdateStreamSummary])
+          [ProgressUpdateStreamSummary])
+    -&gt; Maybe [ProgressUpdateStreamSummary]
+    -&gt; Const
+         (First [ProgressUpdateStreamSummary])
+         (Maybe [ProgressUpdateStreamSummary]))
+-&gt; Getting
+     (First [ProgressUpdateStreamSummary])
+     ListProgressUpdateStreamsResponse
+     [ProgressUpdateStreamSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ProgressUpdateStreamSummary]
+ -&gt; Const
+      (First [ProgressUpdateStreamSummary])
+      [ProgressUpdateStreamSummary])
+-&gt; Maybe [ProgressUpdateStreamSummary]
+-&gt; Const
+     (First [ProgressUpdateStreamSummary])
+     (Maybe [ProgressUpdateStreamSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListProgressUpdateStreams
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">ListProgressUpdateStreams -&gt; Maybe ListProgressUpdateStreams
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListProgressUpdateStreams -&gt; Maybe ListProgressUpdateStreams)
+-&gt; ListProgressUpdateStreams -&gt; Maybe ListProgressUpdateStreams
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ListProgressUpdateStreams
+</span><a href="#local-6989586621679171335"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListProgressUpdateStreams
+-&gt; (ListProgressUpdateStreams -&gt; ListProgressUpdateStreams)
+-&gt; ListProgressUpdateStreams
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListProgressUpdateStreams -&gt; Identity ListProgressUpdateStreams
+Lens
+  ListProgressUpdateStreams
+  ListProgressUpdateStreams
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreams_nextToken"><span class="hs-identifier hs-var">listProgressUpdateStreams_nextToken</span></a></span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListProgressUpdateStreams -&gt; Identity ListProgressUpdateStreams)
+-&gt; Maybe Text
+-&gt; ListProgressUpdateStreams
+-&gt; ListProgressUpdateStreams
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProgressUpdateStreams
+ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171334"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+-&gt; Getting (First Text) ListProgressUpdateStreamsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListProgressUpdateStreamsResponse
+-&gt; Const (First Text) ListProgressUpdateStreamsResponse
+Lens' ListProgressUpdateStreamsResponse (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_nextToken"><span class="hs-identifier hs-var">listProgressUpdateStreamsResponse_nextToken</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListProgressUpdateStreamsResponse
+ -&gt; Const (First Text) ListProgressUpdateStreamsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListProgressUpdateStreamsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679171324"><span class="annot"><span class="annottext">request :: ListProgressUpdateStreams -&gt; Request ListProgressUpdateStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListProgressUpdateStreams -&gt; Request ListProgressUpdateStreams
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MigrationHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679171320"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListProgressUpdateStreams
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProgressUpdateStreams)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListProgressUpdateStreams))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListProgressUpdateStreams
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProgressUpdateStreams)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171317"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679171316"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679171316"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679171315"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListProgressUpdateStreamsResponse
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">ListProgressUpdateStreamsResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ProgressUpdateStreamSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListProgressUpdateStreamsResponse)
+-&gt; Either String (Maybe [ProgressUpdateStreamSummary])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListProgressUpdateStreamsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ProgressUpdateStreamSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressUpdateStreamSummaryList&quot;</span></span><span>
+</span><span id="line-129"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProgressUpdateStreamSummary]))
+-&gt; Maybe [ProgressUpdateStreamSummary]
+-&gt; Either String (Maybe [ProgressUpdateStreamSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListProgressUpdateStreamsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListProgressUpdateStreamsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListProgressUpdateStreamsResponse)
+-&gt; Either String Int
+-&gt; Either String ListProgressUpdateStreamsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171317"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171306"><span id="local-6989586621679171308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679171299"><span class="annot"><span class="annottext">toHeaders :: ListProgressUpdateStreams -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListProgressUpdateStreams -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSMigrationHub.ListProgressUpdateStreams&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-146"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171289"><span id="local-6989586621679171291"><span id="local-6989586621679171293"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679171287"><span class="annot"><span class="annottext">toJSON :: ListProgressUpdateStreams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams%27"><span class="hs-identifier hs-type">ListProgressUpdateStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171284"><span id="local-6989586621679171285"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListProgressUpdateStreams' :: ListProgressUpdateStreams -&gt; Maybe Natural
+$sel:nextToken:ListProgressUpdateStreams' :: ListProgressUpdateStreams -&gt; Maybe Text
+</span><a href="#local-6989586621679171284"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171285"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171284"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679171278"><span class="annot"><span class="annottext">toPath :: ListProgressUpdateStreams -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListProgressUpdateStreams -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreams"><span class="hs-identifier hs-type">ListProgressUpdateStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679171274"><span class="annot"><span class="annottext">toQuery :: ListProgressUpdateStreams -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListProgressUpdateStreams -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newListProgressUpdateStreamsResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679171271"><span id="local-6989586621679171272"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProgressUpdateStreamsResponse"><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-var">ListProgressUpdateStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProgressUpdateStreamsResponse%27"><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">ListProgressUpdateStreamsResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of progress update streams up to the max number of results passed</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- in the input.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AprogressUpdateStreamSummaryList%3AListProgressUpdateStreamsResponse%27"><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+-&gt; Maybe [ProgressUpdateStreamSummary]
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AprogressUpdateStreamSummaryList%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var hs-var">progressUpdateStreamSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.html#ProgressUpdateStreamSummary"><span class="hs-identifier hs-type">ProgressUpdateStreamSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | If there are more streams created than the max result, return the next</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- token to be passed to the next call as a bookmark of where to start</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- from.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AnextToken%3AListProgressUpdateStreamsResponse%27"><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse -&gt; Maybe Text
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AnextToken%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProgressUpdateStreamsResponse%27"><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse -&gt; Int
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AhttpStatus%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171264"><span id="local-6989586621679171266"><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+-&gt; ListProgressUpdateStreamsResponse -&gt; Bool
+(ListProgressUpdateStreamsResponse
+ -&gt; ListProgressUpdateStreamsResponse -&gt; Bool)
+-&gt; (ListProgressUpdateStreamsResponse
+    -&gt; ListProgressUpdateStreamsResponse -&gt; Bool)
+-&gt; Eq ListProgressUpdateStreamsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProgressUpdateStreamsResponse
+-&gt; ListProgressUpdateStreamsResponse -&gt; Bool
+$c/= :: ListProgressUpdateStreamsResponse
+-&gt; ListProgressUpdateStreamsResponse -&gt; Bool
+== :: ListProgressUpdateStreamsResponse
+-&gt; ListProgressUpdateStreamsResponse -&gt; Bool
+$c== :: ListProgressUpdateStreamsResponse
+-&gt; ListProgressUpdateStreamsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171256"><span id="local-6989586621679171258"><span id="local-6989586621679171260"><span id="local-6989586621679171262"><span class="annot"><span class="annottext">ReadPrec [ListProgressUpdateStreamsResponse]
+ReadPrec ListProgressUpdateStreamsResponse
+Int -&gt; ReadS ListProgressUpdateStreamsResponse
+ReadS [ListProgressUpdateStreamsResponse]
+(Int -&gt; ReadS ListProgressUpdateStreamsResponse)
+-&gt; ReadS [ListProgressUpdateStreamsResponse]
+-&gt; ReadPrec ListProgressUpdateStreamsResponse
+-&gt; ReadPrec [ListProgressUpdateStreamsResponse]
+-&gt; Read ListProgressUpdateStreamsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProgressUpdateStreamsResponse]
+$creadListPrec :: ReadPrec [ListProgressUpdateStreamsResponse]
+readPrec :: ReadPrec ListProgressUpdateStreamsResponse
+$creadPrec :: ReadPrec ListProgressUpdateStreamsResponse
+readList :: ReadS [ListProgressUpdateStreamsResponse]
+$creadList :: ReadS [ListProgressUpdateStreamsResponse]
+readsPrec :: Int -&gt; ReadS ListProgressUpdateStreamsResponse
+$creadsPrec :: Int -&gt; ReadS ListProgressUpdateStreamsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171250"><span id="local-6989586621679171252"><span id="local-6989586621679171254"><span class="annot"><span class="annottext">Int -&gt; ListProgressUpdateStreamsResponse -&gt; ShowS
+[ListProgressUpdateStreamsResponse] -&gt; ShowS
+ListProgressUpdateStreamsResponse -&gt; String
+(Int -&gt; ListProgressUpdateStreamsResponse -&gt; ShowS)
+-&gt; (ListProgressUpdateStreamsResponse -&gt; String)
+-&gt; ([ListProgressUpdateStreamsResponse] -&gt; ShowS)
+-&gt; Show ListProgressUpdateStreamsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProgressUpdateStreamsResponse] -&gt; ShowS
+$cshowList :: [ListProgressUpdateStreamsResponse] -&gt; ShowS
+show :: ListProgressUpdateStreamsResponse -&gt; String
+$cshow :: ListProgressUpdateStreamsResponse -&gt; String
+showsPrec :: Int -&gt; ListProgressUpdateStreamsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProgressUpdateStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProgressUpdateStreamsResponse
+ -&gt; Rep ListProgressUpdateStreamsResponse x)
+-&gt; (forall x.
+    Rep ListProgressUpdateStreamsResponse x
+    -&gt; ListProgressUpdateStreamsResponse)
+-&gt; Generic ListProgressUpdateStreamsResponse
+forall x.
+Rep ListProgressUpdateStreamsResponse x
+-&gt; ListProgressUpdateStreamsResponse
+forall x.
+ListProgressUpdateStreamsResponse
+-&gt; Rep ListProgressUpdateStreamsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProgressUpdateStreamsResponse x
+-&gt; ListProgressUpdateStreamsResponse
+$cfrom :: forall x.
+ListProgressUpdateStreamsResponse
+-&gt; Rep ListProgressUpdateStreamsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'ListProgressUpdateStreamsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'progressUpdateStreamSummaryList', 'listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- in the input.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'nextToken', 'listProgressUpdateStreamsResponse_nextToken' - If there are more streams created than the max result, return the next</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- token to be passed to the next call as a bookmark of where to start</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- from.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'listProgressUpdateStreamsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#newListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">newListProgressUpdateStreamsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newListProgressUpdateStreamsResponse"><span class="annot"><span class="annottext">newListProgressUpdateStreamsResponse :: Int -&gt; ListProgressUpdateStreamsResponse
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#newListProgressUpdateStreamsResponse"><span class="hs-identifier hs-var hs-var">newListProgressUpdateStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679171247"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse' :: Maybe [ProgressUpdateStreamSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListProgressUpdateStreamsResponse
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse' :: Maybe [ProgressUpdateStreamSummary]
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AprogressUpdateStreamSummaryList%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">progressUpdateStreamSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListProgressUpdateStreamsResponse' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AnextToken%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProgressUpdateStreamsResponse' :: Int
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AhttpStatus%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | List of progress update streams up to the max number of results passed</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- in the input.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList"><span class="hs-identifier hs-type">listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary.html#ProgressUpdateStreamSummary"><span class="hs-identifier hs-type">ProgressUpdateStreamSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList"><span class="annot"><span class="annottext">listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: (Maybe [ProgressUpdateStreamSummary]
+ -&gt; f (Maybe [ProgressUpdateStreamSummary]))
+-&gt; ListProgressUpdateStreamsResponse
+-&gt; f ListProgressUpdateStreamsResponse
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList"><span class="hs-identifier hs-var hs-var">listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProgressUpdateStreamsResponse
+ -&gt; Maybe [ProgressUpdateStreamSummary])
+-&gt; (ListProgressUpdateStreamsResponse
+    -&gt; Maybe [ProgressUpdateStreamSummary]
+    -&gt; ListProgressUpdateStreamsResponse)
+-&gt; Lens'
+     ListProgressUpdateStreamsResponse
+     (Maybe [ProgressUpdateStreamSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171246"><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary]
+progressUpdateStreamSummaryList :: Maybe [ProgressUpdateStreamSummary]
+$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse' :: ListProgressUpdateStreamsResponse
+-&gt; Maybe [ProgressUpdateStreamSummary]
+</span><a href="#local-6989586621679171246"><span class="hs-identifier hs-var hs-var">progressUpdateStreamSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary]
+</span><a href="#local-6989586621679171246"><span class="hs-identifier hs-var">progressUpdateStreamSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171245"><span class="annot"><span class="annottext">s :: ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171244"><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary]
+</span><a href="#local-6989586621679171244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse' :: Maybe [ProgressUpdateStreamSummary]
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AprogressUpdateStreamSummaryList%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">progressUpdateStreamSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProgressUpdateStreamSummary]
+</span><a href="#local-6989586621679171244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProgressUpdateStreamSummary]
+  -&gt; f (Maybe [ProgressUpdateStreamSummary]))
+ -&gt; ListProgressUpdateStreamsResponse
+ -&gt; f ListProgressUpdateStreamsResponse)
+-&gt; ((Maybe [ProgressUpdateStreamSummary]
+     -&gt; f (Maybe [ProgressUpdateStreamSummary]))
+    -&gt; Maybe [ProgressUpdateStreamSummary]
+    -&gt; f (Maybe [ProgressUpdateStreamSummary]))
+-&gt; (Maybe [ProgressUpdateStreamSummary]
+    -&gt; f (Maybe [ProgressUpdateStreamSummary]))
+-&gt; ListProgressUpdateStreamsResponse
+-&gt; f ListProgressUpdateStreamsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProgressUpdateStreamSummary]
+  [ProgressUpdateStreamSummary]
+  [ProgressUpdateStreamSummary]
+  [ProgressUpdateStreamSummary]
+-&gt; Iso
+     (Maybe [ProgressUpdateStreamSummary])
+     (Maybe [ProgressUpdateStreamSummary])
+     (Maybe [ProgressUpdateStreamSummary])
+     (Maybe [ProgressUpdateStreamSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProgressUpdateStreamSummary]
+  [ProgressUpdateStreamSummary]
+  [ProgressUpdateStreamSummary]
+  [ProgressUpdateStreamSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | If there are more streams created than the max result, return the next</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- token to be passed to the next call as a bookmark of where to start</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- from.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_nextToken"><span class="hs-identifier hs-type">listProgressUpdateStreamsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="listProgressUpdateStreamsResponse_nextToken"><span class="annot"><span class="annottext">listProgressUpdateStreamsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProgressUpdateStreamsResponse
+-&gt; f ListProgressUpdateStreamsResponse
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listProgressUpdateStreamsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProgressUpdateStreamsResponse -&gt; Maybe Text)
+-&gt; (ListProgressUpdateStreamsResponse
+    -&gt; Maybe Text -&gt; ListProgressUpdateStreamsResponse)
+-&gt; Lens' ListProgressUpdateStreamsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171241"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProgressUpdateStreamsResponse' :: ListProgressUpdateStreamsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679171241"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171241"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171240"><span class="annot"><span class="annottext">s :: ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProgressUpdateStreamsResponse' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AnextToken%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_httpStatus"><span class="hs-identifier hs-type">listProgressUpdateStreamsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="listProgressUpdateStreamsResponse_httpStatus"><span class="annot"><span class="annottext">listProgressUpdateStreamsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListProgressUpdateStreamsResponse
+-&gt; f ListProgressUpdateStreamsResponse
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#listProgressUpdateStreamsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listProgressUpdateStreamsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProgressUpdateStreamsResponse -&gt; Int)
+-&gt; (ListProgressUpdateStreamsResponse
+    -&gt; Int -&gt; ListProgressUpdateStreamsResponse)
+-&gt; Lens
+     ListProgressUpdateStreamsResponse
+     ListProgressUpdateStreamsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171238"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListProgressUpdateStreamsResponse' :: ListProgressUpdateStreamsResponse -&gt; Int
+</span><a href="#local-6989586621679171238"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171238"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171237"><span class="annot"><span class="annottext">s :: ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProgressUpdateStreamsResponse
+</span><a href="#local-6989586621679171237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProgressUpdateStreamsResponse' :: Int
+</span><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#%24sel%3AhttpStatus%3AListProgressUpdateStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679171234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListProgressUpdateStreams.html#ListProgressUpdateStreamsResponse"><span class="hs-identifier hs-type">ListProgressUpdateStreamsResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

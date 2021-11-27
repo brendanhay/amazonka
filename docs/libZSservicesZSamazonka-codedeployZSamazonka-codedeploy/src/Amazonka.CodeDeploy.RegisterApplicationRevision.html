@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeDeploy.RegisterApplicationRevision</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers with AWS CodeDeploy a revision for the specified application.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeDeploy.RegisterApplicationRevision</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier">RegisterApplicationRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#newRegisterApplicationRevision"><span class="hs-identifier">newRegisterApplicationRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_description"><span class="hs-identifier">registerApplicationRevision_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_applicationName"><span class="hs-identifier">registerApplicationRevision_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_revision"><span class="hs-identifier">registerApplicationRevision_revision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse"><span class="hs-identifier">RegisterApplicationRevisionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#newRegisterApplicationRevisionResponse"><span class="hs-identifier">newRegisterApplicationRevisionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.html"><span class="hs-identifier">Amazonka.CodeDeploy.Types</span></a></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | Represents the input of a RegisterApplicationRevision operation.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newRegisterApplicationRevision' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679318801"><span id="local-6989586621679318802"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterApplicationRevision"><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-var">RegisterApplicationRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterApplicationRevision%27"><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-var">RegisterApplicationRevision'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A comment about the revision.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Adescription%3ARegisterApplicationRevision%27"><span class="annot"><span class="annottext">RegisterApplicationRevision -&gt; Maybe Text
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3Adescription%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name of an AWS CodeDeploy application associated with the IAM user</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- or AWS account.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AapplicationName%3ARegisterApplicationRevision%27"><span class="annot"><span class="annottext">RegisterApplicationRevision -&gt; Text
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3AapplicationName%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Information about the application revision to register, including type</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- and location.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Arevision%3ARegisterApplicationRevision%27"><span class="annot"><span class="annottext">RegisterApplicationRevision -&gt; RevisionLocation
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3Arevision%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318793"><span id="local-6989586621679318795"><span class="annot"><span class="annottext">RegisterApplicationRevision -&gt; RegisterApplicationRevision -&gt; Bool
+(RegisterApplicationRevision
+ -&gt; RegisterApplicationRevision -&gt; Bool)
+-&gt; (RegisterApplicationRevision
+    -&gt; RegisterApplicationRevision -&gt; Bool)
+-&gt; Eq RegisterApplicationRevision
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterApplicationRevision -&gt; RegisterApplicationRevision -&gt; Bool
+$c/= :: RegisterApplicationRevision -&gt; RegisterApplicationRevision -&gt; Bool
+== :: RegisterApplicationRevision -&gt; RegisterApplicationRevision -&gt; Bool
+$c== :: RegisterApplicationRevision -&gt; RegisterApplicationRevision -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318784"><span id="local-6989586621679318786"><span id="local-6989586621679318788"><span id="local-6989586621679318790"><span class="annot"><span class="annottext">ReadPrec [RegisterApplicationRevision]
+ReadPrec RegisterApplicationRevision
+Int -&gt; ReadS RegisterApplicationRevision
+ReadS [RegisterApplicationRevision]
+(Int -&gt; ReadS RegisterApplicationRevision)
+-&gt; ReadS [RegisterApplicationRevision]
+-&gt; ReadPrec RegisterApplicationRevision
+-&gt; ReadPrec [RegisterApplicationRevision]
+-&gt; Read RegisterApplicationRevision
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterApplicationRevision]
+$creadListPrec :: ReadPrec [RegisterApplicationRevision]
+readPrec :: ReadPrec RegisterApplicationRevision
+$creadPrec :: ReadPrec RegisterApplicationRevision
+readList :: ReadS [RegisterApplicationRevision]
+$creadList :: ReadS [RegisterApplicationRevision]
+readsPrec :: Int -&gt; ReadS RegisterApplicationRevision
+$creadsPrec :: Int -&gt; ReadS RegisterApplicationRevision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318777"><span id="local-6989586621679318779"><span id="local-6989586621679318781"><span class="annot"><span class="annottext">Int -&gt; RegisterApplicationRevision -&gt; ShowS
+[RegisterApplicationRevision] -&gt; ShowS
+RegisterApplicationRevision -&gt; String
+(Int -&gt; RegisterApplicationRevision -&gt; ShowS)
+-&gt; (RegisterApplicationRevision -&gt; String)
+-&gt; ([RegisterApplicationRevision] -&gt; ShowS)
+-&gt; Show RegisterApplicationRevision
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterApplicationRevision] -&gt; ShowS
+$cshowList :: [RegisterApplicationRevision] -&gt; ShowS
+show :: RegisterApplicationRevision -&gt; String
+$cshow :: RegisterApplicationRevision -&gt; String
+showsPrec :: Int -&gt; RegisterApplicationRevision -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterApplicationRevision -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterApplicationRevision -&gt; Rep RegisterApplicationRevision x)
+-&gt; (forall x.
+    Rep RegisterApplicationRevision x -&gt; RegisterApplicationRevision)
+-&gt; Generic RegisterApplicationRevision
+forall x.
+Rep RegisterApplicationRevision x -&gt; RegisterApplicationRevision
+forall x.
+RegisterApplicationRevision -&gt; Rep RegisterApplicationRevision x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterApplicationRevision x -&gt; RegisterApplicationRevision
+$cfrom :: forall x.
+RegisterApplicationRevision -&gt; Rep RegisterApplicationRevision x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'RegisterApplicationRevision' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'description', 'registerApplicationRevision_description' - A comment about the revision.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'applicationName', 'registerApplicationRevision_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- or AWS account.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'revision', 'registerApplicationRevision_revision' - Information about the application revision to register, including type</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- and location.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#newRegisterApplicationRevision"><span class="hs-identifier hs-type">newRegisterApplicationRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'revision'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span>
+</span><span id="line-83"></span><span id="newRegisterApplicationRevision"><span class="annot"><span class="annottext">newRegisterApplicationRevision :: Text -&gt; RevisionLocation -&gt; RegisterApplicationRevision
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#newRegisterApplicationRevision"><span class="hs-identifier hs-var hs-var">newRegisterApplicationRevision</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679318772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318772"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679318771"><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679318771"><span class="hs-identifier hs-var">pRevision_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">RegisterApplicationRevision' :: Maybe Text
+-&gt; Text -&gt; RevisionLocation -&gt; RegisterApplicationRevision
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:RegisterApplicationRevision' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3Adescription%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationName:RegisterApplicationRevision' :: Text
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3AapplicationName%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318772"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:revision:RegisterApplicationRevision' :: RevisionLocation
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3Arevision%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679318771"><span class="hs-identifier hs-var">pRevision_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A comment about the revision.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_description"><span class="hs-identifier hs-type">registerApplicationRevision_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="registerApplicationRevision_description"><span class="annot"><span class="annottext">registerApplicationRevision_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterApplicationRevision -&gt; f RegisterApplicationRevision
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_description"><span class="hs-identifier hs-var hs-var">registerApplicationRevision_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterApplicationRevision -&gt; Maybe Text)
+-&gt; (RegisterApplicationRevision
+    -&gt; Maybe Text -&gt; RegisterApplicationRevision)
+-&gt; Lens
+     RegisterApplicationRevision
+     RegisterApplicationRevision
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318768"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RegisterApplicationRevision' :: RegisterApplicationRevision -&gt; Maybe Text
+</span><a href="#local-6989586621679318768"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318768"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318767"><span class="annot"><span class="annottext">s :: RegisterApplicationRevision
+</span><a href="#local-6989586621679318767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterApplicationRevision
+</span><a href="#local-6989586621679318767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RegisterApplicationRevision' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3Adescription%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The name of an AWS CodeDeploy application associated with the IAM user</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- or AWS account.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_applicationName"><span class="hs-identifier hs-type">registerApplicationRevision_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="registerApplicationRevision_applicationName"><span class="annot"><span class="annottext">registerApplicationRevision_applicationName :: (Text -&gt; f Text)
+-&gt; RegisterApplicationRevision -&gt; f RegisterApplicationRevision
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_applicationName"><span class="hs-identifier hs-var hs-var">registerApplicationRevision_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterApplicationRevision -&gt; Text)
+-&gt; (RegisterApplicationRevision
+    -&gt; Text -&gt; RegisterApplicationRevision)
+-&gt; Lens
+     RegisterApplicationRevision RegisterApplicationRevision Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318765"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:RegisterApplicationRevision' :: RegisterApplicationRevision -&gt; Text
+</span><a href="#local-6989586621679318765"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318765"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318764"><span class="annot"><span class="annottext">s :: RegisterApplicationRevision
+</span><a href="#local-6989586621679318764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterApplicationRevision
+</span><a href="#local-6989586621679318764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:RegisterApplicationRevision' :: Text
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3AapplicationName%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Information about the application revision to register, including type</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- and location.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_revision"><span class="hs-identifier hs-type">registerApplicationRevision_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span>
+</span><span id="line-105"></span><span id="registerApplicationRevision_revision"><span class="annot"><span class="annottext">registerApplicationRevision_revision :: (RevisionLocation -&gt; f RevisionLocation)
+-&gt; RegisterApplicationRevision -&gt; f RegisterApplicationRevision
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#registerApplicationRevision_revision"><span class="hs-identifier hs-var hs-var">registerApplicationRevision_revision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterApplicationRevision -&gt; RevisionLocation)
+-&gt; (RegisterApplicationRevision
+    -&gt; RevisionLocation -&gt; RegisterApplicationRevision)
+-&gt; Lens
+     RegisterApplicationRevision
+     RegisterApplicationRevision
+     RevisionLocation
+     RevisionLocation
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318762"><span class="annot"><span class="annottext">RevisionLocation
+revision :: RevisionLocation
+$sel:revision:RegisterApplicationRevision' :: RegisterApplicationRevision -&gt; RevisionLocation
+</span><a href="#local-6989586621679318762"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679318762"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318761"><span class="annot"><span class="annottext">s :: RegisterApplicationRevision
+</span><a href="#local-6989586621679318761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318760"><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679318760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterApplicationRevision
+</span><a href="#local-6989586621679318761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:RegisterApplicationRevision' :: RevisionLocation
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#%24sel%3Arevision%3ARegisterApplicationRevision%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679318760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse"><span class="hs-identifier hs-type">RegisterApplicationRevisionResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679318756"><span class="annot"><span class="annottext">request :: RegisterApplicationRevision -&gt; Request RegisterApplicationRevision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RegisterApplicationRevision
+-&gt; Request RegisterApplicationRevision
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679318752"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterApplicationRevision
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterApplicationRevision)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse RegisterApplicationRevision
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterApplicationRevision
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterApplicationRevision)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse RegisterApplicationRevision
+RegisterApplicationRevisionResponse
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse%27"><span class="hs-identifier hs-var">RegisterApplicationRevisionResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318745"><span id="local-6989586621679318747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679318738"><span class="annot"><span class="annottext">toHeaders :: RegisterApplicationRevision -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RegisterApplicationRevision -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeDeploy_20141006.RegisterApplicationRevision&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-127"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318728"><span id="local-6989586621679318730"><span id="local-6989586621679318732"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679318726"><span class="annot"><span class="annottext">toJSON :: RegisterApplicationRevision -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision%27"><span class="hs-identifier hs-type">RegisterApplicationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318722"><span id="local-6989586621679318723"><span id="local-6989586621679318724"><span class="annot"><span class="annottext">Maybe Text
+Text
+RevisionLocation
+revision :: RevisionLocation
+applicationName :: Text
+description :: Maybe Text
+$sel:revision:RegisterApplicationRevision' :: RegisterApplicationRevision -&gt; RevisionLocation
+$sel:applicationName:RegisterApplicationRevision' :: RegisterApplicationRevision -&gt; Text
+$sel:description:RegisterApplicationRevision' :: RegisterApplicationRevision -&gt; Maybe Text
+</span><a href="#local-6989586621679318722"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318724"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318723"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revision&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RevisionLocation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679318722"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679318715"><span class="annot"><span class="annottext">toPath :: RegisterApplicationRevision -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterApplicationRevision -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevision"><span class="hs-identifier hs-type">RegisterApplicationRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679318711"><span class="annot"><span class="annottext">toQuery :: RegisterApplicationRevision -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterApplicationRevision -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newRegisterApplicationRevisionResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679318708"><span id="local-6989586621679318709"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterApplicationRevisionResponse"><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse"><span class="hs-identifier hs-var">RegisterApplicationRevisionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterApplicationRevisionResponse%27"><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse%27"><span class="hs-identifier hs-var">RegisterApplicationRevisionResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318704"><span id="local-6989586621679318706"><span class="annot"><span class="annottext">RegisterApplicationRevisionResponse
+-&gt; RegisterApplicationRevisionResponse -&gt; Bool
+(RegisterApplicationRevisionResponse
+ -&gt; RegisterApplicationRevisionResponse -&gt; Bool)
+-&gt; (RegisterApplicationRevisionResponse
+    -&gt; RegisterApplicationRevisionResponse -&gt; Bool)
+-&gt; Eq RegisterApplicationRevisionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterApplicationRevisionResponse
+-&gt; RegisterApplicationRevisionResponse -&gt; Bool
+$c/= :: RegisterApplicationRevisionResponse
+-&gt; RegisterApplicationRevisionResponse -&gt; Bool
+== :: RegisterApplicationRevisionResponse
+-&gt; RegisterApplicationRevisionResponse -&gt; Bool
+$c== :: RegisterApplicationRevisionResponse
+-&gt; RegisterApplicationRevisionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318696"><span id="local-6989586621679318698"><span id="local-6989586621679318700"><span id="local-6989586621679318702"><span class="annot"><span class="annottext">ReadPrec [RegisterApplicationRevisionResponse]
+ReadPrec RegisterApplicationRevisionResponse
+Int -&gt; ReadS RegisterApplicationRevisionResponse
+ReadS [RegisterApplicationRevisionResponse]
+(Int -&gt; ReadS RegisterApplicationRevisionResponse)
+-&gt; ReadS [RegisterApplicationRevisionResponse]
+-&gt; ReadPrec RegisterApplicationRevisionResponse
+-&gt; ReadPrec [RegisterApplicationRevisionResponse]
+-&gt; Read RegisterApplicationRevisionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterApplicationRevisionResponse]
+$creadListPrec :: ReadPrec [RegisterApplicationRevisionResponse]
+readPrec :: ReadPrec RegisterApplicationRevisionResponse
+$creadPrec :: ReadPrec RegisterApplicationRevisionResponse
+readList :: ReadS [RegisterApplicationRevisionResponse]
+$creadList :: ReadS [RegisterApplicationRevisionResponse]
+readsPrec :: Int -&gt; ReadS RegisterApplicationRevisionResponse
+$creadsPrec :: Int -&gt; ReadS RegisterApplicationRevisionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318690"><span id="local-6989586621679318692"><span id="local-6989586621679318694"><span class="annot"><span class="annottext">Int -&gt; RegisterApplicationRevisionResponse -&gt; ShowS
+[RegisterApplicationRevisionResponse] -&gt; ShowS
+RegisterApplicationRevisionResponse -&gt; String
+(Int -&gt; RegisterApplicationRevisionResponse -&gt; ShowS)
+-&gt; (RegisterApplicationRevisionResponse -&gt; String)
+-&gt; ([RegisterApplicationRevisionResponse] -&gt; ShowS)
+-&gt; Show RegisterApplicationRevisionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterApplicationRevisionResponse] -&gt; ShowS
+$cshowList :: [RegisterApplicationRevisionResponse] -&gt; ShowS
+show :: RegisterApplicationRevisionResponse -&gt; String
+$cshow :: RegisterApplicationRevisionResponse -&gt; String
+showsPrec :: Int -&gt; RegisterApplicationRevisionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterApplicationRevisionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterApplicationRevisionResponse
+ -&gt; Rep RegisterApplicationRevisionResponse x)
+-&gt; (forall x.
+    Rep RegisterApplicationRevisionResponse x
+    -&gt; RegisterApplicationRevisionResponse)
+-&gt; Generic RegisterApplicationRevisionResponse
+forall x.
+Rep RegisterApplicationRevisionResponse x
+-&gt; RegisterApplicationRevisionResponse
+forall x.
+RegisterApplicationRevisionResponse
+-&gt; Rep RegisterApplicationRevisionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterApplicationRevisionResponse x
+-&gt; RegisterApplicationRevisionResponse
+$cfrom :: forall x.
+RegisterApplicationRevisionResponse
+-&gt; Rep RegisterApplicationRevisionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'RegisterApplicationRevisionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#newRegisterApplicationRevisionResponse"><span class="hs-identifier hs-type">newRegisterApplicationRevisionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse"><span class="hs-identifier hs-type">RegisterApplicationRevisionResponse</span></a></span><span>
+</span><span id="line-164"></span><span id="newRegisterApplicationRevisionResponse"><span class="annot"><span class="annottext">newRegisterApplicationRevisionResponse :: RegisterApplicationRevisionResponse
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#newRegisterApplicationRevisionResponse"><span class="hs-identifier hs-var hs-var">newRegisterApplicationRevisionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">RegisterApplicationRevisionResponse
+</span><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse%27"><span class="hs-identifier hs-var">RegisterApplicationRevisionResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679318686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.CodeDeploy.RegisterApplicationRevision.html#RegisterApplicationRevisionResponse"><span class="hs-identifier hs-type">RegisterApplicationRevisionResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

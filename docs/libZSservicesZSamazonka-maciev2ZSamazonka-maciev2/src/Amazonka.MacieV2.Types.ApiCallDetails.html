@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.ApiCallDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.ApiCallDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about an API operation that an entity invoked for</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- an affected resource.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newApiCallDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679383173"><span id="local-6989586621679383174"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApiCallDetails"><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-var">ApiCallDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCallDetails%27"><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-var">ApiCallDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The first date and time, in UTC and extended ISO 8601 format, when any</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- operation was invoked and produced the finding.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfirstSeen%3AApiCallDetails%27"><span class="annot"><span class="annottext">ApiCallDetails -&gt; Maybe POSIX
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AfirstSeen%3AApiCallDetails%27"><span class="hs-identifier hs-var hs-var">firstSeen</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The URL of the Amazon Web Service that provides the operation, for</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- example: s3.amazonaws.com.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AapiServiceName%3AApiCallDetails%27"><span class="annot"><span class="annottext">ApiCallDetails -&gt; Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AapiServiceName%3AApiCallDetails%27"><span class="hs-identifier hs-var hs-var">apiServiceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The most recent date and time, in UTC and extended ISO 8601 format, when</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the specified operation (api) was invoked and produced the finding.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastSeen%3AApiCallDetails%27"><span class="annot"><span class="annottext">ApiCallDetails -&gt; Maybe POSIX
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AlastSeen%3AApiCallDetails%27"><span class="hs-identifier hs-var hs-var">lastSeen</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the operation that was invoked most recently and produced</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the finding.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aapi%3AApiCallDetails%27"><span class="annot"><span class="annottext">ApiCallDetails -&gt; Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3Aapi%3AApiCallDetails%27"><span class="hs-identifier hs-var hs-var">api</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383164"><span id="local-6989586621679383166"><span class="annot"><span class="annottext">ApiCallDetails -&gt; ApiCallDetails -&gt; Bool
+(ApiCallDetails -&gt; ApiCallDetails -&gt; Bool)
+-&gt; (ApiCallDetails -&gt; ApiCallDetails -&gt; Bool) -&gt; Eq ApiCallDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApiCallDetails -&gt; ApiCallDetails -&gt; Bool
+$c/= :: ApiCallDetails -&gt; ApiCallDetails -&gt; Bool
+== :: ApiCallDetails -&gt; ApiCallDetails -&gt; Bool
+$c== :: ApiCallDetails -&gt; ApiCallDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383155"><span id="local-6989586621679383157"><span id="local-6989586621679383159"><span id="local-6989586621679383161"><span class="annot"><span class="annottext">ReadPrec [ApiCallDetails]
+ReadPrec ApiCallDetails
+Int -&gt; ReadS ApiCallDetails
+ReadS [ApiCallDetails]
+(Int -&gt; ReadS ApiCallDetails)
+-&gt; ReadS [ApiCallDetails]
+-&gt; ReadPrec ApiCallDetails
+-&gt; ReadPrec [ApiCallDetails]
+-&gt; Read ApiCallDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApiCallDetails]
+$creadListPrec :: ReadPrec [ApiCallDetails]
+readPrec :: ReadPrec ApiCallDetails
+$creadPrec :: ReadPrec ApiCallDetails
+readList :: ReadS [ApiCallDetails]
+$creadList :: ReadS [ApiCallDetails]
+readsPrec :: Int -&gt; ReadS ApiCallDetails
+$creadsPrec :: Int -&gt; ReadS ApiCallDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383148"><span id="local-6989586621679383150"><span id="local-6989586621679383152"><span class="annot"><span class="annottext">Int -&gt; ApiCallDetails -&gt; ShowS
+[ApiCallDetails] -&gt; ShowS
+ApiCallDetails -&gt; String
+(Int -&gt; ApiCallDetails -&gt; ShowS)
+-&gt; (ApiCallDetails -&gt; String)
+-&gt; ([ApiCallDetails] -&gt; ShowS)
+-&gt; Show ApiCallDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApiCallDetails] -&gt; ShowS
+$cshowList :: [ApiCallDetails] -&gt; ShowS
+show :: ApiCallDetails -&gt; String
+$cshow :: ApiCallDetails -&gt; String
+showsPrec :: Int -&gt; ApiCallDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApiCallDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApiCallDetails -&gt; Rep ApiCallDetails x)
+-&gt; (forall x. Rep ApiCallDetails x -&gt; ApiCallDetails)
+-&gt; Generic ApiCallDetails
+forall x. Rep ApiCallDetails x -&gt; ApiCallDetails
+forall x. ApiCallDetails -&gt; Rep ApiCallDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApiCallDetails x -&gt; ApiCallDetails
+$cfrom :: forall x. ApiCallDetails -&gt; Rep ApiCallDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'ApiCallDetails' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'firstSeen', 'apiCallDetails_firstSeen' - The first date and time, in UTC and extended ISO 8601 format, when any</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- operation was invoked and produced the finding.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'apiServiceName', 'apiCallDetails_apiServiceName' - The URL of the Amazon Web Service that provides the operation, for</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- example: s3.amazonaws.com.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'lastSeen', 'apiCallDetails_lastSeen' - The most recent date and time, in UTC and extended ISO 8601 format, when</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- the specified operation (api) was invoked and produced the finding.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'api', 'apiCallDetails_api' - The name of the operation that was invoked most recently and produced</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- the finding.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#newApiCallDetails"><span class="hs-identifier hs-type">newApiCallDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span>
+</span><span id="line-67"></span><span id="newApiCallDetails"><span class="annot"><span class="annottext">newApiCallDetails :: ApiCallDetails
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#newApiCallDetails"><span class="hs-identifier hs-var hs-var">newApiCallDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ApiCallDetails' :: Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApiCallDetails
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:firstSeen:ApiCallDetails' :: Maybe POSIX
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AfirstSeen%3AApiCallDetails%27"><span class="hs-identifier hs-var">firstSeen</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiServiceName:ApiCallDetails' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AapiServiceName%3AApiCallDetails%27"><span class="hs-identifier hs-var">apiServiceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastSeen:ApiCallDetails' :: Maybe POSIX
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AlastSeen%3AApiCallDetails%27"><span class="hs-identifier hs-var">lastSeen</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:api:ApiCallDetails' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3Aapi%3AApiCallDetails%27"><span class="hs-identifier hs-var">api</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The first date and time, in UTC and extended ISO 8601 format, when any</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- operation was invoked and produced the finding.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_firstSeen"><span class="hs-identifier hs-type">apiCallDetails_firstSeen</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="apiCallDetails_firstSeen"><span class="annot"><span class="annottext">apiCallDetails_firstSeen :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiCallDetails -&gt; f ApiCallDetails
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_firstSeen"><span class="hs-identifier hs-var hs-var">apiCallDetails_firstSeen</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiCallDetails -&gt; Maybe POSIX)
+-&gt; (ApiCallDetails -&gt; Maybe POSIX -&gt; ApiCallDetails)
+-&gt; Lens ApiCallDetails ApiCallDetails (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383139"><span class="annot"><span class="annottext">Maybe POSIX
+firstSeen :: Maybe POSIX
+$sel:firstSeen:ApiCallDetails' :: ApiCallDetails -&gt; Maybe POSIX
+</span><a href="#local-6989586621679383139"><span class="hs-identifier hs-var hs-var">firstSeen</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679383139"><span class="hs-identifier hs-var">firstSeen</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383138"><span class="annot"><span class="annottext">s :: ApiCallDetails
+</span><a href="#local-6989586621679383138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383137"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679383137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCallDetails
+</span><a href="#local-6989586621679383138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstSeen:ApiCallDetails' :: Maybe POSIX
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AfirstSeen%3AApiCallDetails%27"><span class="hs-identifier hs-var">firstSeen</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679383137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ApiCallDetails -&gt; f ApiCallDetails)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiCallDetails
+-&gt; f ApiCallDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The URL of the Amazon Web Service that provides the operation, for</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- example: s3.amazonaws.com.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_apiServiceName"><span class="hs-identifier hs-type">apiCallDetails_apiServiceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="apiCallDetails_apiServiceName"><span class="annot"><span class="annottext">apiCallDetails_apiServiceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApiCallDetails -&gt; f ApiCallDetails
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_apiServiceName"><span class="hs-identifier hs-var hs-var">apiCallDetails_apiServiceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiCallDetails -&gt; Maybe Text)
+-&gt; (ApiCallDetails -&gt; Maybe Text -&gt; ApiCallDetails)
+-&gt; Lens ApiCallDetails ApiCallDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383132"><span class="annot"><span class="annottext">Maybe Text
+apiServiceName :: Maybe Text
+$sel:apiServiceName:ApiCallDetails' :: ApiCallDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679383132"><span class="hs-identifier hs-var hs-var">apiServiceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383132"><span class="hs-identifier hs-var">apiServiceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383131"><span class="annot"><span class="annottext">s :: ApiCallDetails
+</span><a href="#local-6989586621679383131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCallDetails
+</span><a href="#local-6989586621679383131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiServiceName:ApiCallDetails' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AapiServiceName%3AApiCallDetails%27"><span class="hs-identifier hs-var">apiServiceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The most recent date and time, in UTC and extended ISO 8601 format, when</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the specified operation (api) was invoked and produced the finding.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_lastSeen"><span class="hs-identifier hs-type">apiCallDetails_lastSeen</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="apiCallDetails_lastSeen"><span class="annot"><span class="annottext">apiCallDetails_lastSeen :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiCallDetails -&gt; f ApiCallDetails
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_lastSeen"><span class="hs-identifier hs-var hs-var">apiCallDetails_lastSeen</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiCallDetails -&gt; Maybe POSIX)
+-&gt; (ApiCallDetails -&gt; Maybe POSIX -&gt; ApiCallDetails)
+-&gt; Lens ApiCallDetails ApiCallDetails (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383128"><span class="annot"><span class="annottext">Maybe POSIX
+lastSeen :: Maybe POSIX
+$sel:lastSeen:ApiCallDetails' :: ApiCallDetails -&gt; Maybe POSIX
+</span><a href="#local-6989586621679383128"><span class="hs-identifier hs-var hs-var">lastSeen</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679383128"><span class="hs-identifier hs-var">lastSeen</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383127"><span class="annot"><span class="annottext">s :: ApiCallDetails
+</span><a href="#local-6989586621679383127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383126"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679383126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCallDetails
+</span><a href="#local-6989586621679383127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastSeen:ApiCallDetails' :: Maybe POSIX
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3AlastSeen%3AApiCallDetails%27"><span class="hs-identifier hs-var">lastSeen</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679383126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ApiCallDetails -&gt; f ApiCallDetails)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiCallDetails
+-&gt; f ApiCallDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the operation that was invoked most recently and produced</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the finding.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_api"><span class="hs-identifier hs-type">apiCallDetails_api</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="apiCallDetails_api"><span class="annot"><span class="annottext">apiCallDetails_api :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApiCallDetails -&gt; f ApiCallDetails
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#apiCallDetails_api"><span class="hs-identifier hs-var hs-var">apiCallDetails_api</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiCallDetails -&gt; Maybe Text)
+-&gt; (ApiCallDetails -&gt; Maybe Text -&gt; ApiCallDetails)
+-&gt; Lens ApiCallDetails ApiCallDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383124"><span class="annot"><span class="annottext">Maybe Text
+api :: Maybe Text
+$sel:api:ApiCallDetails' :: ApiCallDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679383124"><span class="hs-identifier hs-var hs-var">api</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383124"><span class="hs-identifier hs-var">api</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383123"><span class="annot"><span class="annottext">s :: ApiCallDetails
+</span><a href="#local-6989586621679383123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-type">ApiCallDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCallDetails
+</span><a href="#local-6989586621679383123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:api:ApiCallDetails' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#%24sel%3Aapi%3AApiCallDetails%27"><span class="hs-identifier hs-var">api</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383119"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679383117"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApiCallDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApiCallDetails)
+-&gt; Value
+-&gt; Parser ApiCallDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApiCallDetails&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383114"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383114"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApiCallDetails
+</span><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails%27"><span class="hs-identifier hs-var">ApiCallDetails'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApiCallDetails)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApiCallDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;firstSeen&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ApiCallDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; ApiCallDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiServiceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; ApiCallDetails)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; ApiCallDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastSeen&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ApiCallDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser ApiCallDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;api&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383108"><span id="local-6989586621679383110"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ApiCallDetails.html#ApiCallDetails"><span class="hs-identifier hs-type">ApiCallDetails</span></a></span></span><span>
+</span><span id="line-110"></span></pre></body></html>

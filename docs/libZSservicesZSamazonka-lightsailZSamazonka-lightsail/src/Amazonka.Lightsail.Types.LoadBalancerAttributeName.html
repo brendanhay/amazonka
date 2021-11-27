@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.LoadBalancerAttributeName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.LoadBalancerAttributeName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName"><span class="hs-identifier">LoadBalancerAttributeName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_HealthCheckPath"><span class="hs-identifier">LoadBalancerAttributeName_HealthCheckPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_SessionStickinessEnabled"><span class="hs-identifier">LoadBalancerAttributeName_SessionStickinessEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds"><span class="hs-identifier">LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679613278"><span id="local-6989586621679613279"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoadBalancerAttributeName"><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName"><span class="hs-identifier hs-var">LoadBalancerAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerAttributeName%27"><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName%27"><span class="hs-identifier hs-var">LoadBalancerAttributeName'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLoadBalancerAttributeName"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; Text
+</span><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#fromLoadBalancerAttributeName"><span class="hs-identifier hs-var hs-var">fromLoadBalancerAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679613270"><span id="local-6989586621679613272"><span id="local-6989586621679613274"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerAttributeName -&gt; ShowS
+[LoadBalancerAttributeName] -&gt; ShowS
+LoadBalancerAttributeName -&gt; String
+(Int -&gt; LoadBalancerAttributeName -&gt; ShowS)
+-&gt; (LoadBalancerAttributeName -&gt; String)
+-&gt; ([LoadBalancerAttributeName] -&gt; ShowS)
+-&gt; Show LoadBalancerAttributeName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LoadBalancerAttributeName] -&gt; ShowS
+$cshowList :: [LoadBalancerAttributeName] -&gt; ShowS
+show :: LoadBalancerAttributeName -&gt; String
+$cshow :: LoadBalancerAttributeName -&gt; String
+showsPrec :: Int -&gt; LoadBalancerAttributeName -&gt; ShowS
+$cshowsPrec :: Int -&gt; LoadBalancerAttributeName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679613261"><span id="local-6989586621679613263"><span id="local-6989586621679613265"><span id="local-6989586621679613267"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerAttributeName]
+ReadPrec LoadBalancerAttributeName
+Int -&gt; ReadS LoadBalancerAttributeName
+ReadS [LoadBalancerAttributeName]
+(Int -&gt; ReadS LoadBalancerAttributeName)
+-&gt; ReadS [LoadBalancerAttributeName]
+-&gt; ReadPrec LoadBalancerAttributeName
+-&gt; ReadPrec [LoadBalancerAttributeName]
+-&gt; Read LoadBalancerAttributeName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LoadBalancerAttributeName]
+$creadListPrec :: ReadPrec [LoadBalancerAttributeName]
+readPrec :: ReadPrec LoadBalancerAttributeName
+$creadPrec :: ReadPrec LoadBalancerAttributeName
+readList :: ReadS [LoadBalancerAttributeName]
+$creadList :: ReadS [LoadBalancerAttributeName]
+readsPrec :: Int -&gt; ReadS LoadBalancerAttributeName
+$creadsPrec :: Int -&gt; ReadS LoadBalancerAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679613256"><span id="local-6989586621679613258"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+(LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool)
+-&gt; (LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool)
+-&gt; Eq LoadBalancerAttributeName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+$c/= :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+== :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+$c== :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679613240"><span id="local-6989586621679613242"><span id="local-6989586621679613244"><span id="local-6989586621679613246"><span id="local-6989586621679613248"><span id="local-6989586621679613250"><span id="local-6989586621679613252"><span class="annot"><span class="annottext">Eq LoadBalancerAttributeName
+Eq LoadBalancerAttributeName
+-&gt; (LoadBalancerAttributeName
+    -&gt; LoadBalancerAttributeName -&gt; Ordering)
+-&gt; (LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool)
+-&gt; (LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool)
+-&gt; (LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool)
+-&gt; (LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool)
+-&gt; (LoadBalancerAttributeName
+    -&gt; LoadBalancerAttributeName -&gt; LoadBalancerAttributeName)
+-&gt; (LoadBalancerAttributeName
+    -&gt; LoadBalancerAttributeName -&gt; LoadBalancerAttributeName)
+-&gt; Ord LoadBalancerAttributeName
+LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Ordering
+LoadBalancerAttributeName
+-&gt; LoadBalancerAttributeName -&gt; LoadBalancerAttributeName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LoadBalancerAttributeName
+-&gt; LoadBalancerAttributeName -&gt; LoadBalancerAttributeName
+$cmin :: LoadBalancerAttributeName
+-&gt; LoadBalancerAttributeName -&gt; LoadBalancerAttributeName
+max :: LoadBalancerAttributeName
+-&gt; LoadBalancerAttributeName -&gt; LoadBalancerAttributeName
+$cmax :: LoadBalancerAttributeName
+-&gt; LoadBalancerAttributeName -&gt; LoadBalancerAttributeName
+&gt;= :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+$c&gt;= :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+&gt; :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+$c&gt; :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+&lt;= :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+$c&lt;= :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+&lt; :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+$c&lt; :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Bool
+compare :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Ordering
+$ccompare :: LoadBalancerAttributeName -&gt; LoadBalancerAttributeName -&gt; Ordering
+$cp1Ord :: Eq LoadBalancerAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ LoadBalancerAttributeName -&gt; Rep LoadBalancerAttributeName x)
+-&gt; (forall x.
+    Rep LoadBalancerAttributeName x -&gt; LoadBalancerAttributeName)
+-&gt; Generic LoadBalancerAttributeName
+forall x.
+Rep LoadBalancerAttributeName x -&gt; LoadBalancerAttributeName
+forall x.
+LoadBalancerAttributeName -&gt; Rep LoadBalancerAttributeName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LoadBalancerAttributeName x -&gt; LoadBalancerAttributeName
+$cfrom :: forall x.
+LoadBalancerAttributeName -&gt; Rep LoadBalancerAttributeName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679613232"><span id="local-6989586621679613234"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerAttributeName -&gt; Int
+LoadBalancerAttributeName -&gt; Int
+(Int -&gt; LoadBalancerAttributeName -&gt; Int)
+-&gt; (LoadBalancerAttributeName -&gt; Int)
+-&gt; Hashable LoadBalancerAttributeName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LoadBalancerAttributeName -&gt; Int
+$chash :: LoadBalancerAttributeName -&gt; Int
+hashWithSalt :: Int -&gt; LoadBalancerAttributeName -&gt; Int
+$chashWithSalt :: Int -&gt; LoadBalancerAttributeName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679613229"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; ()
+(LoadBalancerAttributeName -&gt; ())
+-&gt; NFData LoadBalancerAttributeName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LoadBalancerAttributeName -&gt; ()
+$crnf :: LoadBalancerAttributeName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679613226"><span class="annot"><span class="annottext">Text -&gt; Either String LoadBalancerAttributeName
+(Text -&gt; Either String LoadBalancerAttributeName)
+-&gt; FromText LoadBalancerAttributeName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LoadBalancerAttributeName
+$cfromText :: Text -&gt; Either String LoadBalancerAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679613223"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; Text
+(LoadBalancerAttributeName -&gt; Text)
+-&gt; ToText LoadBalancerAttributeName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LoadBalancerAttributeName -&gt; Text
+$ctoText :: LoadBalancerAttributeName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679613220"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; ByteString
+(LoadBalancerAttributeName -&gt; ByteString)
+-&gt; ToByteString LoadBalancerAttributeName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LoadBalancerAttributeName -&gt; ByteString
+$ctoBS :: LoadBalancerAttributeName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679613217"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; ByteStringBuilder
+(LoadBalancerAttributeName -&gt; ByteStringBuilder)
+-&gt; ToLog LoadBalancerAttributeName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LoadBalancerAttributeName -&gt; ByteStringBuilder
+$cbuild :: LoadBalancerAttributeName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679613214"><span class="annot"><span class="annottext">HeaderName -&gt; LoadBalancerAttributeName -&gt; [Header]
+(HeaderName -&gt; LoadBalancerAttributeName -&gt; [Header])
+-&gt; ToHeader LoadBalancerAttributeName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LoadBalancerAttributeName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LoadBalancerAttributeName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679613211"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; QueryString
+(LoadBalancerAttributeName -&gt; QueryString)
+-&gt; ToQuery LoadBalancerAttributeName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LoadBalancerAttributeName -&gt; QueryString
+$ctoQuery :: LoadBalancerAttributeName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679613206"><span id="local-6989586621679613208"><span class="annot"><span class="annottext">Value -&gt; Parser [LoadBalancerAttributeName]
+Value -&gt; Parser LoadBalancerAttributeName
+(Value -&gt; Parser LoadBalancerAttributeName)
+-&gt; (Value -&gt; Parser [LoadBalancerAttributeName])
+-&gt; FromJSON LoadBalancerAttributeName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LoadBalancerAttributeName]
+$cparseJSONList :: Value -&gt; Parser [LoadBalancerAttributeName]
+parseJSON :: Value -&gt; Parser LoadBalancerAttributeName
+$cparseJSON :: Value -&gt; Parser LoadBalancerAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679613201"><span id="local-6989586621679613203"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoadBalancerAttributeName]
+FromJSONKeyFunction LoadBalancerAttributeName
+FromJSONKeyFunction LoadBalancerAttributeName
+-&gt; FromJSONKeyFunction [LoadBalancerAttributeName]
+-&gt; FromJSONKey LoadBalancerAttributeName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LoadBalancerAttributeName]
+$cfromJSONKeyList :: FromJSONKeyFunction [LoadBalancerAttributeName]
+fromJSONKey :: FromJSONKeyFunction LoadBalancerAttributeName
+$cfromJSONKey :: FromJSONKeyFunction LoadBalancerAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679613192"><span id="local-6989586621679613194"><span id="local-6989586621679613196"><span id="local-6989586621679613198"><span class="annot"><span class="annottext">[LoadBalancerAttributeName] -&gt; Encoding
+[LoadBalancerAttributeName] -&gt; Value
+LoadBalancerAttributeName -&gt; Encoding
+LoadBalancerAttributeName -&gt; Value
+(LoadBalancerAttributeName -&gt; Value)
+-&gt; (LoadBalancerAttributeName -&gt; Encoding)
+-&gt; ([LoadBalancerAttributeName] -&gt; Value)
+-&gt; ([LoadBalancerAttributeName] -&gt; Encoding)
+-&gt; ToJSON LoadBalancerAttributeName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LoadBalancerAttributeName] -&gt; Encoding
+$ctoEncodingList :: [LoadBalancerAttributeName] -&gt; Encoding
+toJSONList :: [LoadBalancerAttributeName] -&gt; Value
+$ctoJSONList :: [LoadBalancerAttributeName] -&gt; Value
+toEncoding :: LoadBalancerAttributeName -&gt; Encoding
+$ctoEncoding :: LoadBalancerAttributeName -&gt; Encoding
+toJSON :: LoadBalancerAttributeName -&gt; Value
+$ctoJSON :: LoadBalancerAttributeName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679613187"><span id="local-6989586621679613189"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoadBalancerAttributeName]
+ToJSONKeyFunction LoadBalancerAttributeName
+ToJSONKeyFunction LoadBalancerAttributeName
+-&gt; ToJSONKeyFunction [LoadBalancerAttributeName]
+-&gt; ToJSONKey LoadBalancerAttributeName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LoadBalancerAttributeName]
+$ctoJSONKeyList :: ToJSONKeyFunction [LoadBalancerAttributeName]
+toJSONKey :: ToJSONKeyFunction LoadBalancerAttributeName
+$ctoJSONKey :: ToJSONKeyFunction LoadBalancerAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679613184"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoadBalancerAttributeName
+([Node] -&gt; Either String LoadBalancerAttributeName)
+-&gt; FromXML LoadBalancerAttributeName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LoadBalancerAttributeName
+$cparseXML :: [Node] -&gt; Either String LoadBalancerAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679613181"><span class="annot"><span class="annottext">LoadBalancerAttributeName -&gt; XML
+(LoadBalancerAttributeName -&gt; XML)
+-&gt; ToXML LoadBalancerAttributeName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LoadBalancerAttributeName -&gt; XML
+$ctoXML :: LoadBalancerAttributeName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_HealthCheckPath"><span class="hs-identifier hs-type">LoadBalancerAttributeName_HealthCheckPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName"><span class="hs-identifier hs-type">LoadBalancerAttributeName</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLoadBalancerAttributeName_HealthCheckPath"><span id="%24mLoadBalancerAttributeName_HealthCheckPath"><span id="LoadBalancerAttributeName_HealthCheckPath"><span class="annot"><span class="annottext">$bLoadBalancerAttributeName_HealthCheckPath :: LoadBalancerAttributeName
+$mLoadBalancerAttributeName_HealthCheckPath :: forall r.
+LoadBalancerAttributeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#%24bLoadBalancerAttributeName_HealthCheckPath"><span class="hs-identifier hs-var hs-var hs-var">LoadBalancerAttributeName_HealthCheckPath</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName%27"><span class="hs-identifier hs-type">LoadBalancerAttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HealthCheckPath&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_SessionStickinessEnabled"><span class="hs-identifier hs-type">LoadBalancerAttributeName_SessionStickinessEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName"><span class="hs-identifier hs-type">LoadBalancerAttributeName</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLoadBalancerAttributeName_SessionStickinessEnabled"><span id="%24mLoadBalancerAttributeName_SessionStickinessEnabled"><span id="LoadBalancerAttributeName_SessionStickinessEnabled"><span class="annot"><span class="annottext">$bLoadBalancerAttributeName_SessionStickinessEnabled :: LoadBalancerAttributeName
+$mLoadBalancerAttributeName_SessionStickinessEnabled :: forall r.
+LoadBalancerAttributeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#%24bLoadBalancerAttributeName_SessionStickinessEnabled"><span class="hs-identifier hs-var hs-var hs-var">LoadBalancerAttributeName_SessionStickinessEnabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName%27"><span class="hs-identifier hs-type">LoadBalancerAttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SessionStickinessEnabled&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds"><span class="hs-identifier hs-type">LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName"><span class="hs-identifier hs-type">LoadBalancerAttributeName</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds"><span id="%24mLoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds"><span id="LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds"><span class="annot"><span class="annottext">$bLoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds :: LoadBalancerAttributeName
+$mLoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds :: forall r.
+LoadBalancerAttributeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#%24bLoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds"><span class="hs-identifier hs-var hs-var hs-var">LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName%27"><span class="hs-identifier hs-type">LoadBalancerAttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SessionStickiness_LB_CookieDurationSeconds&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_HealthCheckPath"><span class="hs-pragma hs-type">LoadBalancerAttributeName_HealthCheckPath</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_SessionStickinessEnabled"><span class="hs-pragma hs-type">LoadBalancerAttributeName_SessionStickinessEnabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds"><span class="hs-pragma hs-type">LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.LoadBalancerAttributeName.html#LoadBalancerAttributeName%27"><span class="hs-pragma hs-type">LoadBalancerAttributeName'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

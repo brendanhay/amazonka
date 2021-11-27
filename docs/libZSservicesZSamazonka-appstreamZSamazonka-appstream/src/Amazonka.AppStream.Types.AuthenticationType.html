@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppStream.Types.AuthenticationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppStream.Types.AuthenticationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier">AuthenticationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_API"><span class="hs-identifier">AuthenticationType_API</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_SAML"><span class="hs-identifier">AuthenticationType_SAML</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_USERPOOL"><span class="hs-identifier">AuthenticationType_USERPOOL</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679285124"><span id="local-6989586621679285125"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthenticationType"><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-var">AuthenticationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthenticationType%27"><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType%27"><span class="hs-identifier hs-var">AuthenticationType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthenticationType"><span class="annot"><span class="annottext">AuthenticationType -&gt; Text
+</span><a href="Amazonka.AppStream.Types.AuthenticationType.html#fromAuthenticationType"><span class="hs-identifier hs-var hs-var">fromAuthenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285116"><span id="local-6989586621679285118"><span id="local-6989586621679285120"><span class="annot"><span class="annottext">Int -&gt; AuthenticationType -&gt; ShowS
+[AuthenticationType] -&gt; ShowS
+AuthenticationType -&gt; String
+(Int -&gt; AuthenticationType -&gt; ShowS)
+-&gt; (AuthenticationType -&gt; String)
+-&gt; ([AuthenticationType] -&gt; ShowS)
+-&gt; Show AuthenticationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthenticationType] -&gt; ShowS
+$cshowList :: [AuthenticationType] -&gt; ShowS
+show :: AuthenticationType -&gt; String
+$cshow :: AuthenticationType -&gt; String
+showsPrec :: Int -&gt; AuthenticationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthenticationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679285107"><span id="local-6989586621679285109"><span id="local-6989586621679285111"><span id="local-6989586621679285113"><span class="annot"><span class="annottext">ReadPrec [AuthenticationType]
+ReadPrec AuthenticationType
+Int -&gt; ReadS AuthenticationType
+ReadS [AuthenticationType]
+(Int -&gt; ReadS AuthenticationType)
+-&gt; ReadS [AuthenticationType]
+-&gt; ReadPrec AuthenticationType
+-&gt; ReadPrec [AuthenticationType]
+-&gt; Read AuthenticationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthenticationType]
+$creadListPrec :: ReadPrec [AuthenticationType]
+readPrec :: ReadPrec AuthenticationType
+$creadPrec :: ReadPrec AuthenticationType
+readList :: ReadS [AuthenticationType]
+$creadList :: ReadS [AuthenticationType]
+readsPrec :: Int -&gt; ReadS AuthenticationType
+$creadsPrec :: Int -&gt; ReadS AuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679285102"><span id="local-6989586621679285104"><span class="annot"><span class="annottext">AuthenticationType -&gt; AuthenticationType -&gt; Bool
+(AuthenticationType -&gt; AuthenticationType -&gt; Bool)
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; Bool)
+-&gt; Eq AuthenticationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+$c/= :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+== :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+$c== :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679285086"><span id="local-6989586621679285088"><span id="local-6989586621679285090"><span id="local-6989586621679285092"><span id="local-6989586621679285094"><span id="local-6989586621679285096"><span id="local-6989586621679285098"><span class="annot"><span class="annottext">Eq AuthenticationType
+Eq AuthenticationType
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; Ordering)
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; Bool)
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; Bool)
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; Bool)
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; Bool)
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; AuthenticationType)
+-&gt; (AuthenticationType -&gt; AuthenticationType -&gt; AuthenticationType)
+-&gt; Ord AuthenticationType
+AuthenticationType -&gt; AuthenticationType -&gt; Bool
+AuthenticationType -&gt; AuthenticationType -&gt; Ordering
+AuthenticationType -&gt; AuthenticationType -&gt; AuthenticationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthenticationType -&gt; AuthenticationType -&gt; AuthenticationType
+$cmin :: AuthenticationType -&gt; AuthenticationType -&gt; AuthenticationType
+max :: AuthenticationType -&gt; AuthenticationType -&gt; AuthenticationType
+$cmax :: AuthenticationType -&gt; AuthenticationType -&gt; AuthenticationType
+&gt;= :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+$c&gt;= :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+&gt; :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+$c&gt; :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+&lt;= :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+$c&lt;= :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+&lt; :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+$c&lt; :: AuthenticationType -&gt; AuthenticationType -&gt; Bool
+compare :: AuthenticationType -&gt; AuthenticationType -&gt; Ordering
+$ccompare :: AuthenticationType -&gt; AuthenticationType -&gt; Ordering
+$cp1Ord :: Eq AuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AuthenticationType -&gt; Rep AuthenticationType x)
+-&gt; (forall x. Rep AuthenticationType x -&gt; AuthenticationType)
+-&gt; Generic AuthenticationType
+forall x. Rep AuthenticationType x -&gt; AuthenticationType
+forall x. AuthenticationType -&gt; Rep AuthenticationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthenticationType x -&gt; AuthenticationType
+$cfrom :: forall x. AuthenticationType -&gt; Rep AuthenticationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285078"><span id="local-6989586621679285080"><span class="annot"><span class="annottext">Int -&gt; AuthenticationType -&gt; Int
+AuthenticationType -&gt; Int
+(Int -&gt; AuthenticationType -&gt; Int)
+-&gt; (AuthenticationType -&gt; Int) -&gt; Hashable AuthenticationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthenticationType -&gt; Int
+$chash :: AuthenticationType -&gt; Int
+hashWithSalt :: Int -&gt; AuthenticationType -&gt; Int
+$chashWithSalt :: Int -&gt; AuthenticationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679285075"><span class="annot"><span class="annottext">AuthenticationType -&gt; ()
+(AuthenticationType -&gt; ()) -&gt; NFData AuthenticationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthenticationType -&gt; ()
+$crnf :: AuthenticationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679285072"><span class="annot"><span class="annottext">Text -&gt; Either String AuthenticationType
+(Text -&gt; Either String AuthenticationType)
+-&gt; FromText AuthenticationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthenticationType
+$cfromText :: Text -&gt; Either String AuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679285069"><span class="annot"><span class="annottext">AuthenticationType -&gt; Text
+(AuthenticationType -&gt; Text) -&gt; ToText AuthenticationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthenticationType -&gt; Text
+$ctoText :: AuthenticationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679285066"><span class="annot"><span class="annottext">AuthenticationType -&gt; ByteString
+(AuthenticationType -&gt; ByteString)
+-&gt; ToByteString AuthenticationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthenticationType -&gt; ByteString
+$ctoBS :: AuthenticationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679285063"><span class="annot"><span class="annottext">AuthenticationType -&gt; ByteStringBuilder
+(AuthenticationType -&gt; ByteStringBuilder)
+-&gt; ToLog AuthenticationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthenticationType -&gt; ByteStringBuilder
+$cbuild :: AuthenticationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679285060"><span class="annot"><span class="annottext">HeaderName -&gt; AuthenticationType -&gt; [Header]
+(HeaderName -&gt; AuthenticationType -&gt; [Header])
+-&gt; ToHeader AuthenticationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthenticationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthenticationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679285057"><span class="annot"><span class="annottext">AuthenticationType -&gt; QueryString
+(AuthenticationType -&gt; QueryString) -&gt; ToQuery AuthenticationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthenticationType -&gt; QueryString
+$ctoQuery :: AuthenticationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679285052"><span id="local-6989586621679285054"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthenticationType]
+Value -&gt; Parser AuthenticationType
+(Value -&gt; Parser AuthenticationType)
+-&gt; (Value -&gt; Parser [AuthenticationType])
+-&gt; FromJSON AuthenticationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthenticationType]
+$cparseJSONList :: Value -&gt; Parser [AuthenticationType]
+parseJSON :: Value -&gt; Parser AuthenticationType
+$cparseJSON :: Value -&gt; Parser AuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679285047"><span id="local-6989586621679285049"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthenticationType]
+FromJSONKeyFunction AuthenticationType
+FromJSONKeyFunction AuthenticationType
+-&gt; FromJSONKeyFunction [AuthenticationType]
+-&gt; FromJSONKey AuthenticationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthenticationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthenticationType]
+fromJSONKey :: FromJSONKeyFunction AuthenticationType
+$cfromJSONKey :: FromJSONKeyFunction AuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679285038"><span id="local-6989586621679285040"><span id="local-6989586621679285042"><span id="local-6989586621679285044"><span class="annot"><span class="annottext">[AuthenticationType] -&gt; Encoding
+[AuthenticationType] -&gt; Value
+AuthenticationType -&gt; Encoding
+AuthenticationType -&gt; Value
+(AuthenticationType -&gt; Value)
+-&gt; (AuthenticationType -&gt; Encoding)
+-&gt; ([AuthenticationType] -&gt; Value)
+-&gt; ([AuthenticationType] -&gt; Encoding)
+-&gt; ToJSON AuthenticationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthenticationType] -&gt; Encoding
+$ctoEncodingList :: [AuthenticationType] -&gt; Encoding
+toJSONList :: [AuthenticationType] -&gt; Value
+$ctoJSONList :: [AuthenticationType] -&gt; Value
+toEncoding :: AuthenticationType -&gt; Encoding
+$ctoEncoding :: AuthenticationType -&gt; Encoding
+toJSON :: AuthenticationType -&gt; Value
+$ctoJSON :: AuthenticationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679285033"><span id="local-6989586621679285035"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthenticationType]
+ToJSONKeyFunction AuthenticationType
+ToJSONKeyFunction AuthenticationType
+-&gt; ToJSONKeyFunction [AuthenticationType]
+-&gt; ToJSONKey AuthenticationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthenticationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthenticationType]
+toJSONKey :: ToJSONKeyFunction AuthenticationType
+$ctoJSONKey :: ToJSONKeyFunction AuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679285030"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthenticationType
+([Node] -&gt; Either String AuthenticationType)
+-&gt; FromXML AuthenticationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthenticationType
+$cparseXML :: [Node] -&gt; Either String AuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679285027"><span class="annot"><span class="annottext">AuthenticationType -&gt; XML
+(AuthenticationType -&gt; XML) -&gt; ToXML AuthenticationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthenticationType -&gt; XML
+$ctoXML :: AuthenticationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_API"><span class="hs-identifier hs-type">AuthenticationType_API</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationType_API"><span id="%24mAuthenticationType_API"><span id="AuthenticationType_API"><span class="annot"><span class="annottext">$bAuthenticationType_API :: AuthenticationType
+$mAuthenticationType_API :: forall r. AuthenticationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.AuthenticationType.html#%24bAuthenticationType_API"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationType_API</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType%27"><span class="hs-identifier hs-type">AuthenticationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;API&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_SAML"><span class="hs-identifier hs-type">AuthenticationType_SAML</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationType_SAML"><span id="%24mAuthenticationType_SAML"><span id="AuthenticationType_SAML"><span class="annot"><span class="annottext">$bAuthenticationType_SAML :: AuthenticationType
+$mAuthenticationType_SAML :: forall r. AuthenticationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.AuthenticationType.html#%24bAuthenticationType_SAML"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationType_SAML</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType%27"><span class="hs-identifier hs-type">AuthenticationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SAML&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_USERPOOL"><span class="hs-identifier hs-type">AuthenticationType_USERPOOL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationType_USERPOOL"><span id="%24mAuthenticationType_USERPOOL"><span id="AuthenticationType_USERPOOL"><span class="annot"><span class="annottext">$bAuthenticationType_USERPOOL :: AuthenticationType
+$mAuthenticationType_USERPOOL :: forall r. AuthenticationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.AuthenticationType.html#%24bAuthenticationType_USERPOOL"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationType_USERPOOL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType%27"><span class="hs-identifier hs-type">AuthenticationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USERPOOL&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_API"><span class="hs-pragma hs-type">AuthenticationType_API</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_SAML"><span class="hs-pragma hs-type">AuthenticationType_SAML</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType_USERPOOL"><span class="hs-pragma hs-type">AuthenticationType_USERPOOL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.AuthenticationType.html#AuthenticationType%27"><span class="hs-pragma hs-type">AuthenticationType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

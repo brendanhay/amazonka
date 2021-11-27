@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.UnassignVolume</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Unassigns an assigned Amazon EBS volume. The volume remains registered</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with the stack. For more information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __Required Permissions__: To use this action, an IAM user must have a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Manage permissions level for the stack, or an attached policy that</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- explicitly grants permissions. For more information on user permissions,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.UnassignVolume</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier">UnassignVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#newUnassignVolume"><span class="hs-identifier">newUnassignVolume</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#unassignVolume_volumeId"><span class="hs-identifier">unassignVolume_volumeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse"><span class="hs-identifier">UnassignVolumeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#newUnassignVolumeResponse"><span class="hs-identifier">newUnassignVolumeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.html"><span class="hs-identifier">Amazonka.OpsWorks.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUnassignVolume' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679395687"><span id="local-6989586621679395688"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnassignVolume"><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-var">UnassignVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnassignVolume%27"><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume%27"><span class="hs-identifier hs-var">UnassignVolume'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The volume ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AvolumeId%3AUnassignVolume%27"><span class="annot"><span class="annottext">UnassignVolume -&gt; Text
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#%24sel%3AvolumeId%3AUnassignVolume%27"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395681"><span id="local-6989586621679395683"><span class="annot"><span class="annottext">UnassignVolume -&gt; UnassignVolume -&gt; Bool
+(UnassignVolume -&gt; UnassignVolume -&gt; Bool)
+-&gt; (UnassignVolume -&gt; UnassignVolume -&gt; Bool) -&gt; Eq UnassignVolume
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnassignVolume -&gt; UnassignVolume -&gt; Bool
+$c/= :: UnassignVolume -&gt; UnassignVolume -&gt; Bool
+== :: UnassignVolume -&gt; UnassignVolume -&gt; Bool
+$c== :: UnassignVolume -&gt; UnassignVolume -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395672"><span id="local-6989586621679395674"><span id="local-6989586621679395676"><span id="local-6989586621679395678"><span class="annot"><span class="annottext">ReadPrec [UnassignVolume]
+ReadPrec UnassignVolume
+Int -&gt; ReadS UnassignVolume
+ReadS [UnassignVolume]
+(Int -&gt; ReadS UnassignVolume)
+-&gt; ReadS [UnassignVolume]
+-&gt; ReadPrec UnassignVolume
+-&gt; ReadPrec [UnassignVolume]
+-&gt; Read UnassignVolume
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnassignVolume]
+$creadListPrec :: ReadPrec [UnassignVolume]
+readPrec :: ReadPrec UnassignVolume
+$creadPrec :: ReadPrec UnassignVolume
+readList :: ReadS [UnassignVolume]
+$creadList :: ReadS [UnassignVolume]
+readsPrec :: Int -&gt; ReadS UnassignVolume
+$creadsPrec :: Int -&gt; ReadS UnassignVolume
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395665"><span id="local-6989586621679395667"><span id="local-6989586621679395669"><span class="annot"><span class="annottext">Int -&gt; UnassignVolume -&gt; ShowS
+[UnassignVolume] -&gt; ShowS
+UnassignVolume -&gt; String
+(Int -&gt; UnassignVolume -&gt; ShowS)
+-&gt; (UnassignVolume -&gt; String)
+-&gt; ([UnassignVolume] -&gt; ShowS)
+-&gt; Show UnassignVolume
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnassignVolume] -&gt; ShowS
+$cshowList :: [UnassignVolume] -&gt; ShowS
+show :: UnassignVolume -&gt; String
+$cshow :: UnassignVolume -&gt; String
+showsPrec :: Int -&gt; UnassignVolume -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnassignVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UnassignVolume -&gt; Rep UnassignVolume x)
+-&gt; (forall x. Rep UnassignVolume x -&gt; UnassignVolume)
+-&gt; Generic UnassignVolume
+forall x. Rep UnassignVolume x -&gt; UnassignVolume
+forall x. UnassignVolume -&gt; Rep UnassignVolume x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UnassignVolume x -&gt; UnassignVolume
+$cfrom :: forall x. UnassignVolume -&gt; Rep UnassignVolume x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'UnassignVolume' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'volumeId', 'unassignVolume_volumeId' - The volume ID.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#newUnassignVolume"><span class="hs-identifier hs-type">newUnassignVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'volumeId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span>
+</span><span id="line-73"></span><span id="newUnassignVolume"><span class="annot"><span class="annottext">newUnassignVolume :: Text -&gt; UnassignVolume
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#newUnassignVolume"><span class="hs-identifier hs-var hs-var">newUnassignVolume</span></a></span></span><span> </span><span id="local-6989586621679395660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395660"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">UnassignVolume' :: Text -&gt; UnassignVolume
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume%27"><span class="hs-identifier hs-type">UnassignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:UnassignVolume' :: Text
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#%24sel%3AvolumeId%3AUnassignVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395660"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The volume ID.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#unassignVolume_volumeId"><span class="hs-identifier hs-type">unassignVolume_volumeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="unassignVolume_volumeId"><span class="annot"><span class="annottext">unassignVolume_volumeId :: (Text -&gt; f Text) -&gt; UnassignVolume -&gt; f UnassignVolume
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#unassignVolume_volumeId"><span class="hs-identifier hs-var hs-var">unassignVolume_volumeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnassignVolume -&gt; Text)
+-&gt; (UnassignVolume -&gt; Text -&gt; UnassignVolume)
+-&gt; Lens UnassignVolume UnassignVolume Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume%27"><span class="hs-identifier hs-type">UnassignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395657"><span class="annot"><span class="annottext">Text
+volumeId :: Text
+$sel:volumeId:UnassignVolume' :: UnassignVolume -&gt; Text
+</span><a href="#local-6989586621679395657"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395657"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395656"><span class="annot"><span class="annottext">s :: UnassignVolume
+</span><a href="#local-6989586621679395656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume%27"><span class="hs-identifier hs-type">UnassignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395655"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnassignVolume
+</span><a href="#local-6989586621679395656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:UnassignVolume' :: Text
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#%24sel%3AvolumeId%3AUnassignVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse"><span class="hs-identifier hs-type">UnassignVolumeResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679395651"><span class="annot"><span class="annottext">request :: UnassignVolume -&gt; Request UnassignVolume
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UnassignVolume -&gt; Request UnassignVolume
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679395647"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UnassignVolume
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UnassignVolume)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UnassignVolume
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UnassignVolume
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UnassignVolume)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UnassignVolume
+UnassignVolumeResponse
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse%27"><span class="hs-identifier hs-var">UnassignVolumeResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395640"><span id="local-6989586621679395642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679395633"><span class="annot"><span class="annottext">toHeaders :: UnassignVolume -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UnassignVolume -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpsWorks_20130218.UnassignVolume&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395623"><span id="local-6989586621679395625"><span id="local-6989586621679395627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679395621"><span class="annot"><span class="annottext">toJSON :: UnassignVolume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume%27"><span class="hs-identifier hs-type">UnassignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395619"><span class="annot"><span class="annottext">Text
+volumeId :: Text
+$sel:volumeId:UnassignVolume' :: UnassignVolume -&gt; Text
+</span><a href="#local-6989586621679395619"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395619"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679395613"><span class="annot"><span class="annottext">toPath :: UnassignVolume -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UnassignVolume -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolume"><span class="hs-identifier hs-type">UnassignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679395609"><span class="annot"><span class="annottext">toQuery :: UnassignVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UnassignVolume -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newUnassignVolumeResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679395606"><span id="local-6989586621679395607"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnassignVolumeResponse"><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse"><span class="hs-identifier hs-var">UnassignVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnassignVolumeResponse%27"><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse%27"><span class="hs-identifier hs-var">UnassignVolumeResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395602"><span id="local-6989586621679395604"><span class="annot"><span class="annottext">UnassignVolumeResponse -&gt; UnassignVolumeResponse -&gt; Bool
+(UnassignVolumeResponse -&gt; UnassignVolumeResponse -&gt; Bool)
+-&gt; (UnassignVolumeResponse -&gt; UnassignVolumeResponse -&gt; Bool)
+-&gt; Eq UnassignVolumeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnassignVolumeResponse -&gt; UnassignVolumeResponse -&gt; Bool
+$c/= :: UnassignVolumeResponse -&gt; UnassignVolumeResponse -&gt; Bool
+== :: UnassignVolumeResponse -&gt; UnassignVolumeResponse -&gt; Bool
+$c== :: UnassignVolumeResponse -&gt; UnassignVolumeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395594"><span id="local-6989586621679395596"><span id="local-6989586621679395598"><span id="local-6989586621679395600"><span class="annot"><span class="annottext">ReadPrec [UnassignVolumeResponse]
+ReadPrec UnassignVolumeResponse
+Int -&gt; ReadS UnassignVolumeResponse
+ReadS [UnassignVolumeResponse]
+(Int -&gt; ReadS UnassignVolumeResponse)
+-&gt; ReadS [UnassignVolumeResponse]
+-&gt; ReadPrec UnassignVolumeResponse
+-&gt; ReadPrec [UnassignVolumeResponse]
+-&gt; Read UnassignVolumeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnassignVolumeResponse]
+$creadListPrec :: ReadPrec [UnassignVolumeResponse]
+readPrec :: ReadPrec UnassignVolumeResponse
+$creadPrec :: ReadPrec UnassignVolumeResponse
+readList :: ReadS [UnassignVolumeResponse]
+$creadList :: ReadS [UnassignVolumeResponse]
+readsPrec :: Int -&gt; ReadS UnassignVolumeResponse
+$creadsPrec :: Int -&gt; ReadS UnassignVolumeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395588"><span id="local-6989586621679395590"><span id="local-6989586621679395592"><span class="annot"><span class="annottext">Int -&gt; UnassignVolumeResponse -&gt; ShowS
+[UnassignVolumeResponse] -&gt; ShowS
+UnassignVolumeResponse -&gt; String
+(Int -&gt; UnassignVolumeResponse -&gt; ShowS)
+-&gt; (UnassignVolumeResponse -&gt; String)
+-&gt; ([UnassignVolumeResponse] -&gt; ShowS)
+-&gt; Show UnassignVolumeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnassignVolumeResponse] -&gt; ShowS
+$cshowList :: [UnassignVolumeResponse] -&gt; ShowS
+show :: UnassignVolumeResponse -&gt; String
+$cshow :: UnassignVolumeResponse -&gt; String
+showsPrec :: Int -&gt; UnassignVolumeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnassignVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UnassignVolumeResponse -&gt; Rep UnassignVolumeResponse x)
+-&gt; (forall x.
+    Rep UnassignVolumeResponse x -&gt; UnassignVolumeResponse)
+-&gt; Generic UnassignVolumeResponse
+forall x. Rep UnassignVolumeResponse x -&gt; UnassignVolumeResponse
+forall x. UnassignVolumeResponse -&gt; Rep UnassignVolumeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UnassignVolumeResponse x -&gt; UnassignVolumeResponse
+$cfrom :: forall x. UnassignVolumeResponse -&gt; Rep UnassignVolumeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'UnassignVolumeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#newUnassignVolumeResponse"><span class="hs-identifier hs-type">newUnassignVolumeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse"><span class="hs-identifier hs-type">UnassignVolumeResponse</span></a></span><span>
+</span><span id="line-132"></span><span id="newUnassignVolumeResponse"><span class="annot"><span class="annottext">newUnassignVolumeResponse :: UnassignVolumeResponse
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#newUnassignVolumeResponse"><span class="hs-identifier hs-var hs-var">newUnassignVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UnassignVolumeResponse
+</span><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse%27"><span class="hs-identifier hs-var">UnassignVolumeResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UnassignVolume.html#UnassignVolumeResponse"><span class="hs-identifier hs-type">UnassignVolumeResponse</span></a></span></span><span>
+</span><span id="line-135"></span></pre></body></html>

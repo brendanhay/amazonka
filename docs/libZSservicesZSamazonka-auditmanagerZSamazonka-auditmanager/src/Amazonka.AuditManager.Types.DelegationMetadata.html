@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.Types.DelegationMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.Types.DelegationMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.DelegationStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The metadata associated with the specified delegation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDelegationMetadata' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679292290"><span id="local-6989586621679292291"></span></span><span class="hs-keyword">data</span><span> </span><span id="DelegationMetadata"><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-var">DelegationMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DelegationMetadata%27"><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-var">DelegationMetadata'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies when the delegation was created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3ADelegationMetadata%27"><span class="annot"><span class="annottext">DelegationMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AcreationTime%3ADelegationMetadata%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The current status of the delgation.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ADelegationMetadata%27"><span class="annot"><span class="annottext">DelegationMetadata -&gt; Maybe DelegationStatus
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3Astatus%3ADelegationMetadata%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationStatus.html#DelegationStatus"><span class="hs-identifier hs-type">DelegationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the control set delegated for review.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcontrolSetName%3ADelegationMetadata%27"><span class="annot"><span class="annottext">DelegationMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AcontrolSetName%3ADelegationMetadata%27"><span class="hs-identifier hs-var hs-var">controlSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the delegation.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aid%3ADelegationMetadata%27"><span class="annot"><span class="annottext">DelegationMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3Aid%3ADelegationMetadata%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the specified assessment.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AassessmentId%3ADelegationMetadata%27"><span class="annot"><span class="annottext">DelegationMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AassessmentId%3ADelegationMetadata%27"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AroleArn%3ADelegationMetadata%27"><span class="annot"><span class="annottext">DelegationMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AroleArn%3ADelegationMetadata%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the associated assessment.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AassessmentName%3ADelegationMetadata%27"><span class="annot"><span class="annottext">DelegationMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AassessmentName%3ADelegationMetadata%27"><span class="hs-identifier hs-var hs-var">assessmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292278"><span id="local-6989586621679292280"><span class="annot"><span class="annottext">DelegationMetadata -&gt; DelegationMetadata -&gt; Bool
+(DelegationMetadata -&gt; DelegationMetadata -&gt; Bool)
+-&gt; (DelegationMetadata -&gt; DelegationMetadata -&gt; Bool)
+-&gt; Eq DelegationMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DelegationMetadata -&gt; DelegationMetadata -&gt; Bool
+$c/= :: DelegationMetadata -&gt; DelegationMetadata -&gt; Bool
+== :: DelegationMetadata -&gt; DelegationMetadata -&gt; Bool
+$c== :: DelegationMetadata -&gt; DelegationMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292269"><span id="local-6989586621679292271"><span id="local-6989586621679292273"><span id="local-6989586621679292275"><span class="annot"><span class="annottext">ReadPrec [DelegationMetadata]
+ReadPrec DelegationMetadata
+Int -&gt; ReadS DelegationMetadata
+ReadS [DelegationMetadata]
+(Int -&gt; ReadS DelegationMetadata)
+-&gt; ReadS [DelegationMetadata]
+-&gt; ReadPrec DelegationMetadata
+-&gt; ReadPrec [DelegationMetadata]
+-&gt; Read DelegationMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DelegationMetadata]
+$creadListPrec :: ReadPrec [DelegationMetadata]
+readPrec :: ReadPrec DelegationMetadata
+$creadPrec :: ReadPrec DelegationMetadata
+readList :: ReadS [DelegationMetadata]
+$creadList :: ReadS [DelegationMetadata]
+readsPrec :: Int -&gt; ReadS DelegationMetadata
+$creadsPrec :: Int -&gt; ReadS DelegationMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292262"><span id="local-6989586621679292264"><span id="local-6989586621679292266"><span class="annot"><span class="annottext">Int -&gt; DelegationMetadata -&gt; ShowS
+[DelegationMetadata] -&gt; ShowS
+DelegationMetadata -&gt; String
+(Int -&gt; DelegationMetadata -&gt; ShowS)
+-&gt; (DelegationMetadata -&gt; String)
+-&gt; ([DelegationMetadata] -&gt; ShowS)
+-&gt; Show DelegationMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DelegationMetadata] -&gt; ShowS
+$cshowList :: [DelegationMetadata] -&gt; ShowS
+show :: DelegationMetadata -&gt; String
+$cshow :: DelegationMetadata -&gt; String
+showsPrec :: Int -&gt; DelegationMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; DelegationMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DelegationMetadata -&gt; Rep DelegationMetadata x)
+-&gt; (forall x. Rep DelegationMetadata x -&gt; DelegationMetadata)
+-&gt; Generic DelegationMetadata
+forall x. Rep DelegationMetadata x -&gt; DelegationMetadata
+forall x. DelegationMetadata -&gt; Rep DelegationMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DelegationMetadata x -&gt; DelegationMetadata
+$cfrom :: forall x. DelegationMetadata -&gt; Rep DelegationMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'DelegationMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'creationTime', 'delegationMetadata_creationTime' - Specifies when the delegation was created.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'status', 'delegationMetadata_status' - The current status of the delgation.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'controlSetName', 'delegationMetadata_controlSetName' - Specifies the name of the control set delegated for review.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'id', 'delegationMetadata_id' - The unique identifier for the delegation.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'assessmentId', 'delegationMetadata_assessmentId' - The unique identifier for the specified assessment.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'roleArn', 'delegationMetadata_roleArn' - The Amazon Resource Name (ARN) of the IAM role.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'assessmentName', 'delegationMetadata_assessmentName' - The name of the associated assessment.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#newDelegationMetadata"><span class="hs-identifier hs-type">newDelegationMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span>
+</span><span id="line-71"></span><span id="newDelegationMetadata"><span class="annot"><span class="annottext">newDelegationMetadata :: DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#newDelegationMetadata"><span class="hs-identifier hs-var hs-var">newDelegationMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DelegationMetadata' :: Maybe POSIX
+-&gt; Maybe DelegationStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DelegationMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AcreationTime%3ADelegationMetadata%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DelegationMetadata' :: Maybe DelegationStatus
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3Astatus%3ADelegationMetadata%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DelegationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlSetName:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AcontrolSetName%3ADelegationMetadata%27"><span class="hs-identifier hs-var">controlSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3Aid%3ADelegationMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentId:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AassessmentId%3ADelegationMetadata%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AroleArn%3ADelegationMetadata%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentName:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AassessmentName%3ADelegationMetadata%27"><span class="hs-identifier hs-var">assessmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Specifies when the delegation was created.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_creationTime"><span class="hs-identifier hs-type">delegationMetadata_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="delegationMetadata_creationTime"><span class="annot"><span class="annottext">delegationMetadata_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DelegationMetadata -&gt; f DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_creationTime"><span class="hs-identifier hs-var hs-var">delegationMetadata_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegationMetadata -&gt; Maybe POSIX)
+-&gt; (DelegationMetadata -&gt; Maybe POSIX -&gt; DelegationMetadata)
+-&gt; Lens
+     DelegationMetadata DelegationMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292253"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DelegationMetadata' :: DelegationMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679292253"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292253"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292252"><span class="annot"><span class="annottext">s :: DelegationMetadata
+</span><a href="#local-6989586621679292252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292251"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationMetadata
+</span><a href="#local-6989586621679292252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DelegationMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AcreationTime%3ADelegationMetadata%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DelegationMetadata -&gt; f DelegationMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DelegationMetadata
+-&gt; f DelegationMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The current status of the delgation.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_status"><span class="hs-identifier hs-type">delegationMetadata_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationStatus.html#DelegationStatus"><span class="hs-identifier hs-type">DelegationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="delegationMetadata_status"><span class="annot"><span class="annottext">delegationMetadata_status :: (Maybe DelegationStatus -&gt; f (Maybe DelegationStatus))
+-&gt; DelegationMetadata -&gt; f DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_status"><span class="hs-identifier hs-var hs-var">delegationMetadata_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegationMetadata -&gt; Maybe DelegationStatus)
+-&gt; (DelegationMetadata
+    -&gt; Maybe DelegationStatus -&gt; DelegationMetadata)
+-&gt; Lens
+     DelegationMetadata
+     DelegationMetadata
+     (Maybe DelegationStatus)
+     (Maybe DelegationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292246"><span class="annot"><span class="annottext">Maybe DelegationStatus
+status :: Maybe DelegationStatus
+$sel:status:DelegationMetadata' :: DelegationMetadata -&gt; Maybe DelegationStatus
+</span><a href="#local-6989586621679292246"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DelegationStatus
+</span><a href="#local-6989586621679292246"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292245"><span class="annot"><span class="annottext">s :: DelegationMetadata
+</span><a href="#local-6989586621679292245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292244"><span class="annot"><span class="annottext">Maybe DelegationStatus
+</span><a href="#local-6989586621679292244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationMetadata
+</span><a href="#local-6989586621679292245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DelegationMetadata' :: Maybe DelegationStatus
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3Astatus%3ADelegationMetadata%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DelegationStatus
+</span><a href="#local-6989586621679292244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Specifies the name of the control set delegated for review.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_controlSetName"><span class="hs-identifier hs-type">delegationMetadata_controlSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="delegationMetadata_controlSetName"><span class="annot"><span class="annottext">delegationMetadata_controlSetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DelegationMetadata -&gt; f DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_controlSetName"><span class="hs-identifier hs-var hs-var">delegationMetadata_controlSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegationMetadata -&gt; Maybe Text)
+-&gt; (DelegationMetadata -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Lens
+     DelegationMetadata DelegationMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292242"><span class="annot"><span class="annottext">Maybe Text
+controlSetName :: Maybe Text
+$sel:controlSetName:DelegationMetadata' :: DelegationMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292242"><span class="hs-identifier hs-var hs-var">controlSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292242"><span class="hs-identifier hs-var">controlSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292241"><span class="annot"><span class="annottext">s :: DelegationMetadata
+</span><a href="#local-6989586621679292241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292240"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationMetadata
+</span><a href="#local-6989586621679292241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlSetName:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AcontrolSetName%3ADelegationMetadata%27"><span class="hs-identifier hs-var">controlSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The unique identifier for the delegation.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_id"><span class="hs-identifier hs-type">delegationMetadata_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="delegationMetadata_id"><span class="annot"><span class="annottext">delegationMetadata_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DelegationMetadata -&gt; f DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_id"><span class="hs-identifier hs-var hs-var">delegationMetadata_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegationMetadata -&gt; Maybe Text)
+-&gt; (DelegationMetadata -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Lens
+     DelegationMetadata DelegationMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292238"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:DelegationMetadata' :: DelegationMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292238"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292238"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292237"><span class="annot"><span class="annottext">s :: DelegationMetadata
+</span><a href="#local-6989586621679292237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292236"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationMetadata
+</span><a href="#local-6989586621679292237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3Aid%3ADelegationMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The unique identifier for the specified assessment.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_assessmentId"><span class="hs-identifier hs-type">delegationMetadata_assessmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="delegationMetadata_assessmentId"><span class="annot"><span class="annottext">delegationMetadata_assessmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DelegationMetadata -&gt; f DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_assessmentId"><span class="hs-identifier hs-var hs-var">delegationMetadata_assessmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegationMetadata -&gt; Maybe Text)
+-&gt; (DelegationMetadata -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Lens
+     DelegationMetadata DelegationMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292234"><span class="annot"><span class="annottext">Maybe Text
+assessmentId :: Maybe Text
+$sel:assessmentId:DelegationMetadata' :: DelegationMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292234"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292234"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292233"><span class="annot"><span class="annottext">s :: DelegationMetadata
+</span><a href="#local-6989586621679292233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292232"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationMetadata
+</span><a href="#local-6989586621679292233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentId:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AassessmentId%3ADelegationMetadata%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_roleArn"><span class="hs-identifier hs-type">delegationMetadata_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="delegationMetadata_roleArn"><span class="annot"><span class="annottext">delegationMetadata_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DelegationMetadata -&gt; f DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_roleArn"><span class="hs-identifier hs-var hs-var">delegationMetadata_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegationMetadata -&gt; Maybe Text)
+-&gt; (DelegationMetadata -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Lens
+     DelegationMetadata DelegationMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292230"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:DelegationMetadata' :: DelegationMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292230"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292230"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292229"><span class="annot"><span class="annottext">s :: DelegationMetadata
+</span><a href="#local-6989586621679292229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationMetadata
+</span><a href="#local-6989586621679292229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AroleArn%3ADelegationMetadata%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the associated assessment.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_assessmentName"><span class="hs-identifier hs-type">delegationMetadata_assessmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="delegationMetadata_assessmentName"><span class="annot"><span class="annottext">delegationMetadata_assessmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DelegationMetadata -&gt; f DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#delegationMetadata_assessmentName"><span class="hs-identifier hs-var hs-var">delegationMetadata_assessmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegationMetadata -&gt; Maybe Text)
+-&gt; (DelegationMetadata -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Lens
+     DelegationMetadata DelegationMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292226"><span class="annot"><span class="annottext">Maybe Text
+assessmentName :: Maybe Text
+$sel:assessmentName:DelegationMetadata' :: DelegationMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292226"><span class="hs-identifier hs-var hs-var">assessmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292226"><span class="hs-identifier hs-var">assessmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292225"><span class="annot"><span class="annottext">s :: DelegationMetadata
+</span><a href="#local-6989586621679292225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-type">DelegationMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationMetadata
+</span><a href="#local-6989586621679292225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentName:DelegationMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#%24sel%3AassessmentName%3ADelegationMetadata%27"><span class="hs-identifier hs-var">assessmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292221"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679292219"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DelegationMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DelegationMetadata)
+-&gt; Value
+-&gt; Parser DelegationMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DelegationMetadata&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292216"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe DelegationStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DelegationMetadata
+</span><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata%27"><span class="hs-identifier hs-var">DelegationMetadata'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe DelegationStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; DelegationMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe DelegationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DelegationMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DelegationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DelegationMetadata)
+-&gt; Parser (Maybe DelegationStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DelegationMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DelegationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DelegationMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DelegationMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlSetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DelegationMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DelegationMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DelegationMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; DelegationMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DelegationMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser DelegationMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292210"><span id="local-6989586621679292212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.DelegationMetadata.html#DelegationMetadata"><span class="hs-identifier hs-type">DelegationMetadata</span></a></span></span><span>
+</span><span id="line-128"></span></pre></body></html>

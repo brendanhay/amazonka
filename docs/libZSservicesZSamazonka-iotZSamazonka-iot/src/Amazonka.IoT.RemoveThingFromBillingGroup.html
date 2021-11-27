@@ -1,0 +1,539 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.RemoveThingFromBillingGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes the given thing from the billing group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RemoveThingFromBillingGroup&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.RemoveThingFromBillingGroup</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroup"><span class="hs-identifier">newRemoveThingFromBillingGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingArn"><span class="hs-identifier">removeThingFromBillingGroup_thingArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier">removeThingFromBillingGroup_billingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier">removeThingFromBillingGroup_thingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupName"><span class="hs-identifier">removeThingFromBillingGroup_billingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier">RemoveThingFromBillingGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroupResponse"><span class="hs-identifier">newRemoveThingFromBillingGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroupResponse_httpStatus"><span class="hs-identifier">removeThingFromBillingGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newRemoveThingFromBillingGroup' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679814321"><span id="local-6989586621679814322"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveThingFromBillingGroup"><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-var">RemoveThingFromBillingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveThingFromBillingGroup%27"><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroup'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the thing to be removed from the billing group.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AthingArn%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ARN of the billing group.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">billingGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the thing to be removed from the billing group.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the billing group.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AbillingGroupName%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">billingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814312"><span id="local-6989586621679814314"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
+(RemoveThingFromBillingGroup
+ -&gt; RemoveThingFromBillingGroup -&gt; Bool)
+-&gt; (RemoveThingFromBillingGroup
+    -&gt; RemoveThingFromBillingGroup -&gt; Bool)
+-&gt; Eq RemoveThingFromBillingGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
+$c/= :: RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
+== :: RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
+$c== :: RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814303"><span id="local-6989586621679814305"><span id="local-6989586621679814307"><span id="local-6989586621679814309"><span class="annot"><span class="annottext">ReadPrec [RemoveThingFromBillingGroup]
+ReadPrec RemoveThingFromBillingGroup
+Int -&gt; ReadS RemoveThingFromBillingGroup
+ReadS [RemoveThingFromBillingGroup]
+(Int -&gt; ReadS RemoveThingFromBillingGroup)
+-&gt; ReadS [RemoveThingFromBillingGroup]
+-&gt; ReadPrec RemoveThingFromBillingGroup
+-&gt; ReadPrec [RemoveThingFromBillingGroup]
+-&gt; Read RemoveThingFromBillingGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveThingFromBillingGroup]
+$creadListPrec :: ReadPrec [RemoveThingFromBillingGroup]
+readPrec :: ReadPrec RemoveThingFromBillingGroup
+$creadPrec :: ReadPrec RemoveThingFromBillingGroup
+readList :: ReadS [RemoveThingFromBillingGroup]
+$creadList :: ReadS [RemoveThingFromBillingGroup]
+readsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroup
+$creadsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814296"><span id="local-6989586621679814298"><span id="local-6989586621679814300"><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroup -&gt; ShowS
+[RemoveThingFromBillingGroup] -&gt; ShowS
+RemoveThingFromBillingGroup -&gt; String
+(Int -&gt; RemoveThingFromBillingGroup -&gt; ShowS)
+-&gt; (RemoveThingFromBillingGroup -&gt; String)
+-&gt; ([RemoveThingFromBillingGroup] -&gt; ShowS)
+-&gt; Show RemoveThingFromBillingGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveThingFromBillingGroup] -&gt; ShowS
+$cshowList :: [RemoveThingFromBillingGroup] -&gt; ShowS
+show :: RemoveThingFromBillingGroup -&gt; String
+$cshow :: RemoveThingFromBillingGroup -&gt; String
+showsPrec :: Int -&gt; RemoveThingFromBillingGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveThingFromBillingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveThingFromBillingGroup -&gt; Rep RemoveThingFromBillingGroup x)
+-&gt; (forall x.
+    Rep RemoveThingFromBillingGroup x -&gt; RemoveThingFromBillingGroup)
+-&gt; Generic RemoveThingFromBillingGroup
+forall x.
+Rep RemoveThingFromBillingGroup x -&gt; RemoveThingFromBillingGroup
+forall x.
+RemoveThingFromBillingGroup -&gt; Rep RemoveThingFromBillingGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveThingFromBillingGroup x -&gt; RemoveThingFromBillingGroup
+$cfrom :: forall x.
+RemoveThingFromBillingGroup -&gt; Rep RemoveThingFromBillingGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'RemoveThingFromBillingGroup' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'thingArn', 'removeThingFromBillingGroup_thingArn' - The ARN of the thing to be removed from the billing group.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'billingGroupArn', 'removeThingFromBillingGroup_billingGroupArn' - The ARN of the billing group.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'thingName', 'removeThingFromBillingGroup_thingName' - The name of the thing to be removed from the billing group.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'billingGroupName', 'removeThingFromBillingGroup_billingGroupName' - The name of the billing group.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroup"><span class="hs-identifier hs-type">newRemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span>
+</span><span id="line-85"></span><span id="newRemoveThingFromBillingGroup"><span class="annot"><span class="annottext">newRemoveThingFromBillingGroup :: RemoveThingFromBillingGroup
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroup"><span class="hs-identifier hs-var hs-var">newRemoveThingFromBillingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RemoveThingFromBillingGroup
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingArn:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingGroupArn:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingGroupName:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ARN of the thing to be removed from the billing group.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingArn"><span class="hs-identifier hs-type">removeThingFromBillingGroup_thingArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="removeThingFromBillingGroup_thingArn"><span class="annot"><span class="annottext">removeThingFromBillingGroup_thingArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveThingFromBillingGroup -&gt; f RemoveThingFromBillingGroup
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingArn"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroup_thingArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroup -&gt; Maybe Text)
+-&gt; (RemoveThingFromBillingGroup
+    -&gt; Maybe Text -&gt; RemoveThingFromBillingGroup)
+-&gt; Lens
+     RemoveThingFromBillingGroup
+     RemoveThingFromBillingGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814289"><span class="annot"><span class="annottext">Maybe Text
+thingArn :: Maybe Text
+$sel:thingArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679814289"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814289"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814288"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingArn:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ARN of the billing group.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier hs-type">removeThingFromBillingGroup_billingGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="removeThingFromBillingGroup_billingGroupArn"><span class="annot"><span class="annottext">removeThingFromBillingGroup_billingGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveThingFromBillingGroup -&gt; f RemoveThingFromBillingGroup
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroup_billingGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroup -&gt; Maybe Text)
+-&gt; (RemoveThingFromBillingGroup
+    -&gt; Maybe Text -&gt; RemoveThingFromBillingGroup)
+-&gt; Lens
+     RemoveThingFromBillingGroup
+     RemoveThingFromBillingGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814286"><span class="annot"><span class="annottext">Maybe Text
+billingGroupArn :: Maybe Text
+$sel:billingGroupArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679814286"><span class="hs-identifier hs-var hs-var">billingGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814286"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814285"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814284"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupArn:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the thing to be removed from the billing group.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier hs-type">removeThingFromBillingGroup_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="removeThingFromBillingGroup_thingName"><span class="annot"><span class="annottext">removeThingFromBillingGroup_thingName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveThingFromBillingGroup -&gt; f RemoveThingFromBillingGroup
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroup_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroup -&gt; Maybe Text)
+-&gt; (RemoveThingFromBillingGroup
+    -&gt; Maybe Text -&gt; RemoveThingFromBillingGroup)
+-&gt; Lens
+     RemoveThingFromBillingGroup
+     RemoveThingFromBillingGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814283"><span class="annot"><span class="annottext">Maybe Text
+thingName :: Maybe Text
+$sel:thingName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679814283"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814283"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814282"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the billing group.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupName"><span class="hs-identifier hs-type">removeThingFromBillingGroup_billingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="removeThingFromBillingGroup_billingGroupName"><span class="annot"><span class="annottext">removeThingFromBillingGroup_billingGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveThingFromBillingGroup -&gt; f RemoveThingFromBillingGroup
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupName"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroup_billingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroup -&gt; Maybe Text)
+-&gt; (RemoveThingFromBillingGroup
+    -&gt; Maybe Text -&gt; RemoveThingFromBillingGroup)
+-&gt; Lens
+     RemoveThingFromBillingGroup
+     RemoveThingFromBillingGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814280"><span class="annot"><span class="annottext">Maybe Text
+billingGroupName :: Maybe Text
+$sel:billingGroupName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679814280"><span class="hs-identifier hs-var hs-var">billingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814280"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814279"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814278"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupName:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679814274"><span class="annot"><span class="annottext">request :: RemoveThingFromBillingGroup -&gt; Request RemoveThingFromBillingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RemoveThingFromBillingGroup
+-&gt; Request RemoveThingFromBillingGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679814270"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RemoveThingFromBillingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveThingFromBillingGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse RemoveThingFromBillingGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RemoveThingFromBillingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveThingFromBillingGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814267"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679814266"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679814266"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679814265"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679814265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroupResponse
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveThingFromBillingGroupResponse)
+-&gt; Either String Int
+-&gt; Either String RemoveThingFromBillingGroupResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814267"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814258"><span id="local-6989586621679814260"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679814251"><span class="annot"><span class="annottext">toHeaders :: RemoveThingFromBillingGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveThingFromBillingGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814242"><span id="local-6989586621679814244"><span id="local-6989586621679814246"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679814240"><span class="annot"><span class="annottext">toJSON :: RemoveThingFromBillingGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814235"><span id="local-6989586621679814236"><span id="local-6989586621679814237"><span id="local-6989586621679814238"><span class="annot"><span class="annottext">Maybe Text
+billingGroupName :: Maybe Text
+thingName :: Maybe Text
+billingGroupArn :: Maybe Text
+thingArn :: Maybe Text
+$sel:billingGroupName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+$sel:thingName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+$sel:billingGroupArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+$sel:thingArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679814235"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814238"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;billingGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814237"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814236"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;billingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814235"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679814229"><span class="annot"><span class="annottext">toPath :: RemoveThingFromBillingGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveThingFromBillingGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/billing-groups/removeThingFromBillingGroup&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679814225"><span class="annot"><span class="annottext">toQuery :: RemoveThingFromBillingGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveThingFromBillingGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newRemoveThingFromBillingGroupResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679814222"><span id="local-6989586621679814223"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveThingFromBillingGroupResponse"><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveThingFromBillingGroupResponse%27"><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse -&gt; Int
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814217"><span id="local-6989586621679814219"><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse
+-&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
+(RemoveThingFromBillingGroupResponse
+ -&gt; RemoveThingFromBillingGroupResponse -&gt; Bool)
+-&gt; (RemoveThingFromBillingGroupResponse
+    -&gt; RemoveThingFromBillingGroupResponse -&gt; Bool)
+-&gt; Eq RemoveThingFromBillingGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveThingFromBillingGroupResponse
+-&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
+$c/= :: RemoveThingFromBillingGroupResponse
+-&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
+== :: RemoveThingFromBillingGroupResponse
+-&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
+$c== :: RemoveThingFromBillingGroupResponse
+-&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814209"><span id="local-6989586621679814211"><span id="local-6989586621679814213"><span id="local-6989586621679814215"><span class="annot"><span class="annottext">ReadPrec [RemoveThingFromBillingGroupResponse]
+ReadPrec RemoveThingFromBillingGroupResponse
+Int -&gt; ReadS RemoveThingFromBillingGroupResponse
+ReadS [RemoveThingFromBillingGroupResponse]
+(Int -&gt; ReadS RemoveThingFromBillingGroupResponse)
+-&gt; ReadS [RemoveThingFromBillingGroupResponse]
+-&gt; ReadPrec RemoveThingFromBillingGroupResponse
+-&gt; ReadPrec [RemoveThingFromBillingGroupResponse]
+-&gt; Read RemoveThingFromBillingGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveThingFromBillingGroupResponse]
+$creadListPrec :: ReadPrec [RemoveThingFromBillingGroupResponse]
+readPrec :: ReadPrec RemoveThingFromBillingGroupResponse
+$creadPrec :: ReadPrec RemoveThingFromBillingGroupResponse
+readList :: ReadS [RemoveThingFromBillingGroupResponse]
+$creadList :: ReadS [RemoveThingFromBillingGroupResponse]
+readsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroupResponse
+$creadsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814203"><span id="local-6989586621679814205"><span id="local-6989586621679814207"><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroupResponse -&gt; ShowS
+[RemoveThingFromBillingGroupResponse] -&gt; ShowS
+RemoveThingFromBillingGroupResponse -&gt; String
+(Int -&gt; RemoveThingFromBillingGroupResponse -&gt; ShowS)
+-&gt; (RemoveThingFromBillingGroupResponse -&gt; String)
+-&gt; ([RemoveThingFromBillingGroupResponse] -&gt; ShowS)
+-&gt; Show RemoveThingFromBillingGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveThingFromBillingGroupResponse] -&gt; ShowS
+$cshowList :: [RemoveThingFromBillingGroupResponse] -&gt; ShowS
+show :: RemoveThingFromBillingGroupResponse -&gt; String
+$cshow :: RemoveThingFromBillingGroupResponse -&gt; String
+showsPrec :: Int -&gt; RemoveThingFromBillingGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveThingFromBillingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveThingFromBillingGroupResponse
+ -&gt; Rep RemoveThingFromBillingGroupResponse x)
+-&gt; (forall x.
+    Rep RemoveThingFromBillingGroupResponse x
+    -&gt; RemoveThingFromBillingGroupResponse)
+-&gt; Generic RemoveThingFromBillingGroupResponse
+forall x.
+Rep RemoveThingFromBillingGroupResponse x
+-&gt; RemoveThingFromBillingGroupResponse
+forall x.
+RemoveThingFromBillingGroupResponse
+-&gt; Rep RemoveThingFromBillingGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveThingFromBillingGroupResponse x
+-&gt; RemoveThingFromBillingGroupResponse
+$cfrom :: forall x.
+RemoveThingFromBillingGroupResponse
+-&gt; Rep RemoveThingFromBillingGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'RemoveThingFromBillingGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'removeThingFromBillingGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">newRemoveThingFromBillingGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span>
+</span><span id="line-170"></span><span id="newRemoveThingFromBillingGroupResponse"><span class="annot"><span class="annottext">newRemoveThingFromBillingGroupResponse :: Int -&gt; RemoveThingFromBillingGroupResponse
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-var hs-var">newRemoveThingFromBillingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679814200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse' :: Int -&gt; RemoveThingFromBillingGroupResponse
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveThingFromBillingGroupResponse' :: Int
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroupResponse_httpStatus"><span class="hs-identifier hs-type">removeThingFromBillingGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span id="removeThingFromBillingGroupResponse_httpStatus"><span class="annot"><span class="annottext">removeThingFromBillingGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RemoveThingFromBillingGroupResponse
+-&gt; f RemoveThingFromBillingGroupResponse
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroupResponse -&gt; Int)
+-&gt; (RemoveThingFromBillingGroupResponse
+    -&gt; Int -&gt; RemoveThingFromBillingGroupResponse)
+-&gt; Lens
+     RemoveThingFromBillingGroupResponse
+     RemoveThingFromBillingGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814199"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RemoveThingFromBillingGroupResponse' :: RemoveThingFromBillingGroupResponse -&gt; Int
+</span><a href="#local-6989586621679814199"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814199"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814198"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroupResponse
+</span><a href="#local-6989586621679814198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse
+</span><a href="#local-6989586621679814198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveThingFromBillingGroupResponse' :: Int
+</span><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679814195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.Grafana.Types.AccountAccessType
+module Amazonka.Grafana.Types.AccountAccessType
 newtype AccountAccessType
 AccountAccessType' :: Text -> AccountAccessType
 [fromAccountAccessType] :: AccountAccessType -> Text
 pattern AccountAccessType_CURRENT_ACCOUNT :: AccountAccessType
 pattern AccountAccessType_ORGANIZATION :: AccountAccessType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance GHC.Read.Read Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
-instance GHC.Show.Show Network.AWS.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance GHC.Generics.Generic Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance GHC.Classes.Ord Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance GHC.Classes.Eq Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance GHC.Read.Read Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
+instance GHC.Show.Show Amazonka.Grafana.Types.AccountAccessType.AccountAccessType
 
 
-module Network.AWS.Grafana.Types.AssertionAttributes
+module Amazonka.Grafana.Types.AssertionAttributes
 
 -- | A structure that defines which attributes in the IdP assertion are to
 --   be used to define information about the users authenticated by the IdP
@@ -124,44 +124,44 @@ assertionAttributes_name :: Lens' AssertionAttributes (Maybe Text)
 -- | The name of the attribute within the SAML assertion to use as the
 --   login names for SAML users.
 assertionAttributes_login :: Lens' AssertionAttributes (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
-instance GHC.Show.Show Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
-instance GHC.Read.Read Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance GHC.Generics.Generic Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance GHC.Show.Show Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance GHC.Read.Read Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance GHC.Classes.Eq Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.AssertionAttributes.AssertionAttributes
 
 
-module Network.AWS.Grafana.Types.AuthenticationProviderTypes
+module Amazonka.Grafana.Types.AuthenticationProviderTypes
 newtype AuthenticationProviderTypes
 AuthenticationProviderTypes' :: Text -> AuthenticationProviderTypes
 [fromAuthenticationProviderTypes] :: AuthenticationProviderTypes -> Text
 pattern AuthenticationProviderTypes_AWS_SSO :: AuthenticationProviderTypes
 pattern AuthenticationProviderTypes_SAML :: AuthenticationProviderTypes
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance GHC.Read.Read Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
-instance GHC.Show.Show Network.AWS.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance GHC.Generics.Generic Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance GHC.Classes.Ord Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance GHC.Classes.Eq Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance GHC.Read.Read Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
+instance GHC.Show.Show Amazonka.Grafana.Types.AuthenticationProviderTypes.AuthenticationProviderTypes
 
 
-module Network.AWS.Grafana.Types.AwsSsoAuthentication
+module Amazonka.Grafana.Types.AwsSsoAuthentication
 
 -- | A structure containing information about how this workspace works with
 --   Amazon Web Services SSO.
@@ -192,16 +192,16 @@ newAwsSsoAuthentication :: AwsSsoAuthentication
 -- | The ID of the Amazon Web Services SSO-managed application that is
 --   created by Amazon Managed Grafana.
 awsSsoAuthentication_ssoClientId :: Lens' AwsSsoAuthentication (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
-instance GHC.Show.Show Network.AWS.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
-instance GHC.Read.Read Network.AWS.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
+instance GHC.Generics.Generic Amazonka.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
+instance GHC.Show.Show Amazonka.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
+instance GHC.Read.Read Amazonka.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
+instance GHC.Classes.Eq Amazonka.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.AwsSsoAuthentication.AwsSsoAuthentication
 
 
-module Network.AWS.Grafana.Types.DataSourceType
+module Amazonka.Grafana.Types.DataSourceType
 newtype DataSourceType
 DataSourceType' :: Text -> DataSourceType
 [fromDataSourceType] :: DataSourceType -> Text
@@ -211,28 +211,28 @@ pattern DataSourceType_PROMETHEUS :: DataSourceType
 pattern DataSourceType_SITEWISE :: DataSourceType
 pattern DataSourceType_TIMESTREAM :: DataSourceType
 pattern DataSourceType_XRAY :: DataSourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance GHC.Read.Read Network.AWS.Grafana.Types.DataSourceType.DataSourceType
-instance GHC.Show.Show Network.AWS.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance GHC.Generics.Generic Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance GHC.Classes.Ord Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance GHC.Classes.Eq Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance GHC.Read.Read Amazonka.Grafana.Types.DataSourceType.DataSourceType
+instance GHC.Show.Show Amazonka.Grafana.Types.DataSourceType.DataSourceType
 
 
-module Network.AWS.Grafana.Types.IdpMetadata
+module Amazonka.Grafana.Types.IdpMetadata
 
 -- | A structure containing the identity provider (IdP) metadata used to
 --   integrate the identity provider with this workspace. You can specify
@@ -270,124 +270,124 @@ idpMetadata_url :: Lens' IdpMetadata (Maybe Text)
 
 -- | The actual full metadata file, in XML format.
 idpMetadata_xml :: Lens' IdpMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
-instance GHC.Show.Show Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
-instance GHC.Read.Read Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.IdpMetadata.IdpMetadata
+instance GHC.Generics.Generic Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
+instance GHC.Show.Show Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
+instance GHC.Read.Read Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
+instance GHC.Classes.Eq Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.IdpMetadata.IdpMetadata
 
 
-module Network.AWS.Grafana.Types.LicenseType
+module Amazonka.Grafana.Types.LicenseType
 newtype LicenseType
 LicenseType' :: Text -> LicenseType
 [fromLicenseType] :: LicenseType -> Text
 pattern LicenseType_ENTERPRISE :: LicenseType
 pattern LicenseType_ENTERPRISE_FREE_TRIAL :: LicenseType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance GHC.Read.Read Network.AWS.Grafana.Types.LicenseType.LicenseType
-instance GHC.Show.Show Network.AWS.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.LicenseType.LicenseType
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.LicenseType.LicenseType
+instance GHC.Generics.Generic Amazonka.Grafana.Types.LicenseType.LicenseType
+instance GHC.Classes.Ord Amazonka.Grafana.Types.LicenseType.LicenseType
+instance GHC.Classes.Eq Amazonka.Grafana.Types.LicenseType.LicenseType
+instance GHC.Read.Read Amazonka.Grafana.Types.LicenseType.LicenseType
+instance GHC.Show.Show Amazonka.Grafana.Types.LicenseType.LicenseType
 
 
-module Network.AWS.Grafana.Types.NotificationDestinationType
+module Amazonka.Grafana.Types.NotificationDestinationType
 newtype NotificationDestinationType
 NotificationDestinationType' :: Text -> NotificationDestinationType
 [fromNotificationDestinationType] :: NotificationDestinationType -> Text
 pattern NotificationDestinationType_SNS :: NotificationDestinationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance GHC.Read.Read Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
-instance GHC.Show.Show Network.AWS.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance GHC.Generics.Generic Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance GHC.Classes.Ord Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance GHC.Classes.Eq Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance GHC.Read.Read Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
+instance GHC.Show.Show Amazonka.Grafana.Types.NotificationDestinationType.NotificationDestinationType
 
 
-module Network.AWS.Grafana.Types.PermissionType
+module Amazonka.Grafana.Types.PermissionType
 newtype PermissionType
 PermissionType' :: Text -> PermissionType
 [fromPermissionType] :: PermissionType -> Text
 pattern PermissionType_CUSTOMER_MANAGED :: PermissionType
 pattern PermissionType_SERVICE_MANAGED :: PermissionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance GHC.Read.Read Network.AWS.Grafana.Types.PermissionType.PermissionType
-instance GHC.Show.Show Network.AWS.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.PermissionType.PermissionType
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.PermissionType.PermissionType
+instance GHC.Generics.Generic Amazonka.Grafana.Types.PermissionType.PermissionType
+instance GHC.Classes.Ord Amazonka.Grafana.Types.PermissionType.PermissionType
+instance GHC.Classes.Eq Amazonka.Grafana.Types.PermissionType.PermissionType
+instance GHC.Read.Read Amazonka.Grafana.Types.PermissionType.PermissionType
+instance GHC.Show.Show Amazonka.Grafana.Types.PermissionType.PermissionType
 
 
-module Network.AWS.Grafana.Types.Role
+module Amazonka.Grafana.Types.Role
 newtype Role
 Role' :: Text -> Role
 [fromRole] :: Role -> Text
 pattern Role_ADMIN :: Role
 pattern Role_EDITOR :: Role
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.Role.Role
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.Role.Role
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.Role.Role
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.Role.Role
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.Role.Role
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.Role.Role
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.Role.Role
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.Role.Role
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.Role.Role
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.Role.Role
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.Role.Role
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.Role.Role
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.Role.Role
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.Role.Role
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.Role.Role
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.Role.Role
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.Role.Role
-instance GHC.Read.Read Network.AWS.Grafana.Types.Role.Role
-instance GHC.Show.Show Network.AWS.Grafana.Types.Role.Role
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.Role.Role
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.Role.Role
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.Role.Role
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.Role.Role
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.Role.Role
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.Role.Role
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.Role.Role
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.Role.Role
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.Role.Role
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.Role.Role
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.Role.Role
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.Role.Role
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.Role.Role
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.Role.Role
+instance GHC.Generics.Generic Amazonka.Grafana.Types.Role.Role
+instance GHC.Classes.Ord Amazonka.Grafana.Types.Role.Role
+instance GHC.Classes.Eq Amazonka.Grafana.Types.Role.Role
+instance GHC.Read.Read Amazonka.Grafana.Types.Role.Role
+instance GHC.Show.Show Amazonka.Grafana.Types.Role.Role
 
 
-module Network.AWS.Grafana.Types.RoleValues
+module Amazonka.Grafana.Types.RoleValues
 
 -- | This structure defines which groups defined in the SAML assertion
 --   attribute are to be mapped to the Grafana <tt>Admin</tt> and
@@ -429,17 +429,17 @@ roleValues_admin :: Lens' RoleValues (Maybe [Text])
 -- | A list of groups from the SAML assertion attribute to grant the
 --   Grafana <tt>Editor</tt> role to.
 roleValues_editor :: Lens' RoleValues (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.RoleValues.RoleValues
-instance GHC.Show.Show Network.AWS.Grafana.Types.RoleValues.RoleValues
-instance GHC.Read.Read Network.AWS.Grafana.Types.RoleValues.RoleValues
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.RoleValues.RoleValues
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.RoleValues.RoleValues
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.RoleValues.RoleValues
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.RoleValues.RoleValues
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.RoleValues.RoleValues
+instance GHC.Generics.Generic Amazonka.Grafana.Types.RoleValues.RoleValues
+instance GHC.Show.Show Amazonka.Grafana.Types.RoleValues.RoleValues
+instance GHC.Read.Read Amazonka.Grafana.Types.RoleValues.RoleValues
+instance GHC.Classes.Eq Amazonka.Grafana.Types.RoleValues.RoleValues
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.RoleValues.RoleValues
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.RoleValues.RoleValues
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.RoleValues.RoleValues
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.RoleValues.RoleValues
 
 
-module Network.AWS.Grafana.Types.SamlConfiguration
+module Amazonka.Grafana.Types.SamlConfiguration
 
 -- | A structure containing information about how this workspace works with
 --   SAML.
@@ -529,44 +529,44 @@ samlConfiguration_roleValues :: Lens' SamlConfiguration (Maybe RoleValues)
 -- | A structure containing the identity provider (IdP) metadata used to
 --   integrate the identity provider with this workspace.
 samlConfiguration_idpMetadata :: Lens' SamlConfiguration IdpMetadata
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
-instance GHC.Show.Show Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
-instance GHC.Read.Read Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance GHC.Generics.Generic Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance GHC.Show.Show Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance GHC.Read.Read Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance GHC.Classes.Eq Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.SamlConfiguration.SamlConfiguration
 
 
-module Network.AWS.Grafana.Types.SamlConfigurationStatus
+module Amazonka.Grafana.Types.SamlConfigurationStatus
 newtype SamlConfigurationStatus
 SamlConfigurationStatus' :: Text -> SamlConfigurationStatus
 [fromSamlConfigurationStatus] :: SamlConfigurationStatus -> Text
 pattern SamlConfigurationStatus_CONFIGURED :: SamlConfigurationStatus
 pattern SamlConfigurationStatus_NOT_CONFIGURED :: SamlConfigurationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance GHC.Read.Read Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
-instance GHC.Show.Show Network.AWS.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance GHC.Generics.Generic Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance GHC.Classes.Ord Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance GHC.Classes.Eq Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance GHC.Read.Read Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
+instance GHC.Show.Show Amazonka.Grafana.Types.SamlConfigurationStatus.SamlConfigurationStatus
 
 
-module Network.AWS.Grafana.Types.SamlAuthentication
+module Amazonka.Grafana.Types.SamlAuthentication
 
 -- | A structure containing information about how this workspace works with
 --   SAML.
@@ -606,16 +606,16 @@ samlAuthentication_configuration :: Lens' SamlAuthentication (Maybe SamlConfigur
 
 -- | Specifies whether the workspace's SAML configuration is complete.
 samlAuthentication_status :: Lens' SamlAuthentication SamlConfigurationStatus
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.SamlAuthentication.SamlAuthentication
-instance GHC.Show.Show Network.AWS.Grafana.Types.SamlAuthentication.SamlAuthentication
-instance GHC.Read.Read Network.AWS.Grafana.Types.SamlAuthentication.SamlAuthentication
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.SamlAuthentication.SamlAuthentication
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.SamlAuthentication.SamlAuthentication
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.SamlAuthentication.SamlAuthentication
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.SamlAuthentication.SamlAuthentication
+instance GHC.Generics.Generic Amazonka.Grafana.Types.SamlAuthentication.SamlAuthentication
+instance GHC.Show.Show Amazonka.Grafana.Types.SamlAuthentication.SamlAuthentication
+instance GHC.Read.Read Amazonka.Grafana.Types.SamlAuthentication.SamlAuthentication
+instance GHC.Classes.Eq Amazonka.Grafana.Types.SamlAuthentication.SamlAuthentication
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.SamlAuthentication.SamlAuthentication
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.SamlAuthentication.SamlAuthentication
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.SamlAuthentication.SamlAuthentication
 
 
-module Network.AWS.Grafana.Types.AuthenticationDescription
+module Amazonka.Grafana.Types.AuthenticationDescription
 
 -- | A structure containing information about the user authentication
 --   methods used by the workspace.
@@ -678,16 +678,16 @@ authenticationDescription_saml :: Lens' AuthenticationDescription (Maybe SamlAut
 --   or both methods to authenticate users to use the Grafana console in
 --   the Amazon Managed Grafana workspace.
 authenticationDescription_providers :: Lens' AuthenticationDescription [AuthenticationProviderTypes]
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.AuthenticationDescription.AuthenticationDescription
-instance GHC.Show.Show Network.AWS.Grafana.Types.AuthenticationDescription.AuthenticationDescription
-instance GHC.Read.Read Network.AWS.Grafana.Types.AuthenticationDescription.AuthenticationDescription
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.AuthenticationDescription.AuthenticationDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.AuthenticationDescription.AuthenticationDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.AuthenticationDescription.AuthenticationDescription
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.AuthenticationDescription.AuthenticationDescription
+instance GHC.Generics.Generic Amazonka.Grafana.Types.AuthenticationDescription.AuthenticationDescription
+instance GHC.Show.Show Amazonka.Grafana.Types.AuthenticationDescription.AuthenticationDescription
+instance GHC.Read.Read Amazonka.Grafana.Types.AuthenticationDescription.AuthenticationDescription
+instance GHC.Classes.Eq Amazonka.Grafana.Types.AuthenticationDescription.AuthenticationDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.AuthenticationDescription.AuthenticationDescription
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.AuthenticationDescription.AuthenticationDescription
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.AuthenticationDescription.AuthenticationDescription
 
 
-module Network.AWS.Grafana.Types.AuthenticationSummary
+module Amazonka.Grafana.Types.AuthenticationSummary
 
 -- | A structure that describes whether the workspace uses SAML, Amazon Web
 --   Services SSO, or both methods for user authentication, and whether
@@ -732,70 +732,70 @@ authenticationSummary_samlConfigurationStatus :: Lens' AuthenticationSummary (Ma
 -- | Specifies whether the workspace uses SAML, Amazon Web Services SSO, or
 --   both methods for user authentication.
 authenticationSummary_providers :: Lens' AuthenticationSummary [AuthenticationProviderTypes]
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.AuthenticationSummary.AuthenticationSummary
-instance GHC.Show.Show Network.AWS.Grafana.Types.AuthenticationSummary.AuthenticationSummary
-instance GHC.Read.Read Network.AWS.Grafana.Types.AuthenticationSummary.AuthenticationSummary
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.AuthenticationSummary.AuthenticationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.AuthenticationSummary.AuthenticationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.AuthenticationSummary.AuthenticationSummary
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.AuthenticationSummary.AuthenticationSummary
+instance GHC.Generics.Generic Amazonka.Grafana.Types.AuthenticationSummary.AuthenticationSummary
+instance GHC.Show.Show Amazonka.Grafana.Types.AuthenticationSummary.AuthenticationSummary
+instance GHC.Read.Read Amazonka.Grafana.Types.AuthenticationSummary.AuthenticationSummary
+instance GHC.Classes.Eq Amazonka.Grafana.Types.AuthenticationSummary.AuthenticationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.AuthenticationSummary.AuthenticationSummary
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.AuthenticationSummary.AuthenticationSummary
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.AuthenticationSummary.AuthenticationSummary
 
 
-module Network.AWS.Grafana.Types.UpdateAction
+module Amazonka.Grafana.Types.UpdateAction
 newtype UpdateAction
 UpdateAction' :: Text -> UpdateAction
 [fromUpdateAction] :: UpdateAction -> Text
 pattern UpdateAction_ADD :: UpdateAction
 pattern UpdateAction_REVOKE :: UpdateAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance GHC.Read.Read Network.AWS.Grafana.Types.UpdateAction.UpdateAction
-instance GHC.Show.Show Network.AWS.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance GHC.Generics.Generic Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance GHC.Classes.Ord Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance GHC.Classes.Eq Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance GHC.Read.Read Amazonka.Grafana.Types.UpdateAction.UpdateAction
+instance GHC.Show.Show Amazonka.Grafana.Types.UpdateAction.UpdateAction
 
 
-module Network.AWS.Grafana.Types.UserType
+module Amazonka.Grafana.Types.UserType
 newtype UserType
 UserType' :: Text -> UserType
 [fromUserType] :: UserType -> Text
 pattern UserType_SSO_GROUP :: UserType
 pattern UserType_SSO_USER :: UserType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.UserType.UserType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.UserType.UserType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.UserType.UserType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.UserType.UserType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.UserType.UserType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.UserType.UserType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.UserType.UserType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.UserType.UserType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.UserType.UserType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.UserType.UserType
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.UserType.UserType
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.UserType.UserType
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.UserType.UserType
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.UserType.UserType
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.UserType.UserType
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.UserType.UserType
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.UserType.UserType
-instance GHC.Read.Read Network.AWS.Grafana.Types.UserType.UserType
-instance GHC.Show.Show Network.AWS.Grafana.Types.UserType.UserType
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.UserType.UserType
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.UserType.UserType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.UserType.UserType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.UserType.UserType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.UserType.UserType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.UserType.UserType
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.UserType.UserType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.UserType.UserType
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.UserType.UserType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.UserType.UserType
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.UserType.UserType
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.UserType.UserType
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.UserType.UserType
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.UserType.UserType
+instance GHC.Generics.Generic Amazonka.Grafana.Types.UserType.UserType
+instance GHC.Classes.Ord Amazonka.Grafana.Types.UserType.UserType
+instance GHC.Classes.Eq Amazonka.Grafana.Types.UserType.UserType
+instance GHC.Read.Read Amazonka.Grafana.Types.UserType.UserType
+instance GHC.Show.Show Amazonka.Grafana.Types.UserType.UserType
 
 
-module Network.AWS.Grafana.Types.User
+module Amazonka.Grafana.Types.User
 
 -- | A structure that specifies one user or group in the workspace.
 --   
@@ -828,17 +828,17 @@ user_id :: Lens' User Text
 
 -- | Specifies whether this is a single user or a group.
 user_type :: Lens' User UserType
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.User.User
-instance GHC.Show.Show Network.AWS.Grafana.Types.User.User
-instance GHC.Read.Read Network.AWS.Grafana.Types.User.User
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.User.User
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.User.User
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.User.User
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.User.User
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.User.User
+instance GHC.Generics.Generic Amazonka.Grafana.Types.User.User
+instance GHC.Show.Show Amazonka.Grafana.Types.User.User
+instance GHC.Read.Read Amazonka.Grafana.Types.User.User
+instance GHC.Classes.Eq Amazonka.Grafana.Types.User.User
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.User.User
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.User.User
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.User.User
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.User.User
 
 
-module Network.AWS.Grafana.Types.UpdateInstruction
+module Amazonka.Grafana.Types.UpdateInstruction
 
 -- | Contains the instructions for one Grafana role permission update in a
 --   <a>UpdatePermissions</a> operation.
@@ -889,17 +889,17 @@ updateInstruction_role :: Lens' UpdateInstruction Role
 -- | A structure that specifies the user or group to add or revoke the role
 --   for.
 updateInstruction_users :: Lens' UpdateInstruction [User]
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
-instance GHC.Show.Show Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
-instance GHC.Read.Read Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance GHC.Generics.Generic Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance GHC.Show.Show Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance GHC.Read.Read Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance GHC.Classes.Eq Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.UpdateInstruction.UpdateInstruction
 
 
-module Network.AWS.Grafana.Types.UpdateError
+module Amazonka.Grafana.Types.UpdateError
 
 -- | A structure containing information about one error encountered while
 --   performing an <a>UpdatePermissions</a> operation.
@@ -943,16 +943,16 @@ updateError_code :: Lens' UpdateError Natural
 
 -- | The message for this error.
 updateError_message :: Lens' UpdateError Text
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.UpdateError.UpdateError
-instance GHC.Show.Show Network.AWS.Grafana.Types.UpdateError.UpdateError
-instance GHC.Read.Read Network.AWS.Grafana.Types.UpdateError.UpdateError
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.UpdateError.UpdateError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.UpdateError.UpdateError
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.UpdateError.UpdateError
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.UpdateError.UpdateError
+instance GHC.Generics.Generic Amazonka.Grafana.Types.UpdateError.UpdateError
+instance GHC.Show.Show Amazonka.Grafana.Types.UpdateError.UpdateError
+instance GHC.Read.Read Amazonka.Grafana.Types.UpdateError.UpdateError
+instance GHC.Classes.Eq Amazonka.Grafana.Types.UpdateError.UpdateError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.UpdateError.UpdateError
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.UpdateError.UpdateError
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.UpdateError.UpdateError
 
 
-module Network.AWS.Grafana.Types.PermissionEntry
+module Amazonka.Grafana.Types.PermissionEntry
 
 -- | A structure containing the identity of one user or group and the
 --   <tt>Admin</tt> or <tt>Editor</tt> role that they have.
@@ -991,16 +991,16 @@ permissionEntry_role :: Lens' PermissionEntry Role
 
 -- | A structure with the ID of the user or group with this role.
 permissionEntry_user :: Lens' PermissionEntry User
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.PermissionEntry.PermissionEntry
-instance GHC.Show.Show Network.AWS.Grafana.Types.PermissionEntry.PermissionEntry
-instance GHC.Read.Read Network.AWS.Grafana.Types.PermissionEntry.PermissionEntry
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.PermissionEntry.PermissionEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.PermissionEntry.PermissionEntry
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.PermissionEntry.PermissionEntry
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.PermissionEntry.PermissionEntry
+instance GHC.Generics.Generic Amazonka.Grafana.Types.PermissionEntry.PermissionEntry
+instance GHC.Show.Show Amazonka.Grafana.Types.PermissionEntry.PermissionEntry
+instance GHC.Read.Read Amazonka.Grafana.Types.PermissionEntry.PermissionEntry
+instance GHC.Classes.Eq Amazonka.Grafana.Types.PermissionEntry.PermissionEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.PermissionEntry.PermissionEntry
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.PermissionEntry.PermissionEntry
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.PermissionEntry.PermissionEntry
 
 
-module Network.AWS.Grafana.Types.WorkspaceStatus
+module Amazonka.Grafana.Types.WorkspaceStatus
 newtype WorkspaceStatus
 WorkspaceStatus' :: Text -> WorkspaceStatus
 [fromWorkspaceStatus] :: WorkspaceStatus -> Text
@@ -1015,28 +1015,28 @@ pattern WorkspaceStatus_UPDATE_FAILED :: WorkspaceStatus
 pattern WorkspaceStatus_UPDATING :: WorkspaceStatus
 pattern WorkspaceStatus_UPGRADE_FAILED :: WorkspaceStatus
 pattern WorkspaceStatus_UPGRADING :: WorkspaceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Classes.Ord Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Read.Read Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
-instance GHC.Show.Show Network.AWS.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.Text.ToText Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Amazonka.Data.Text.FromText Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Generics.Generic Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Classes.Ord Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Classes.Eq Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Read.Read Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
+instance GHC.Show.Show Amazonka.Grafana.Types.WorkspaceStatus.WorkspaceStatus
 
 
-module Network.AWS.Grafana.Types.WorkspaceDescription
+module Amazonka.Grafana.Types.WorkspaceDescription
 
 -- | A structure containing information about an Amazon Managed Grafana
 --   workspace in your account.
@@ -1363,15 +1363,15 @@ workspaceDescription_modified :: Lens' WorkspaceDescription UTCTime
 
 -- | The current status of the workspace.
 workspaceDescription_status :: Lens' WorkspaceDescription WorkspaceStatus
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.WorkspaceDescription.WorkspaceDescription
-instance GHC.Show.Show Network.AWS.Grafana.Types.WorkspaceDescription.WorkspaceDescription
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.WorkspaceDescription.WorkspaceDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.WorkspaceDescription.WorkspaceDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.WorkspaceDescription.WorkspaceDescription
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.WorkspaceDescription.WorkspaceDescription
+instance GHC.Generics.Generic Amazonka.Grafana.Types.WorkspaceDescription.WorkspaceDescription
+instance GHC.Show.Show Amazonka.Grafana.Types.WorkspaceDescription.WorkspaceDescription
+instance GHC.Classes.Eq Amazonka.Grafana.Types.WorkspaceDescription.WorkspaceDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.WorkspaceDescription.WorkspaceDescription
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.WorkspaceDescription.WorkspaceDescription
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.WorkspaceDescription.WorkspaceDescription
 
 
-module Network.AWS.Grafana.Types.WorkspaceSummary
+module Amazonka.Grafana.Types.WorkspaceSummary
 
 -- | A structure that contains some information about one workspace in the
 --   account.
@@ -1495,15 +1495,15 @@ workspaceSummary_modified :: Lens' WorkspaceSummary UTCTime
 
 -- | The current status of the workspace.
 workspaceSummary_status :: Lens' WorkspaceSummary WorkspaceStatus
-instance GHC.Generics.Generic Network.AWS.Grafana.Types.WorkspaceSummary.WorkspaceSummary
-instance GHC.Show.Show Network.AWS.Grafana.Types.WorkspaceSummary.WorkspaceSummary
-instance GHC.Classes.Eq Network.AWS.Grafana.Types.WorkspaceSummary.WorkspaceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Grafana.Types.WorkspaceSummary.WorkspaceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.Types.WorkspaceSummary.WorkspaceSummary
-instance Control.DeepSeq.NFData Network.AWS.Grafana.Types.WorkspaceSummary.WorkspaceSummary
+instance GHC.Generics.Generic Amazonka.Grafana.Types.WorkspaceSummary.WorkspaceSummary
+instance GHC.Show.Show Amazonka.Grafana.Types.WorkspaceSummary.WorkspaceSummary
+instance GHC.Classes.Eq Amazonka.Grafana.Types.WorkspaceSummary.WorkspaceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Grafana.Types.WorkspaceSummary.WorkspaceSummary
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.Types.WorkspaceSummary.WorkspaceSummary
+instance Control.DeepSeq.NFData Amazonka.Grafana.Types.WorkspaceSummary.WorkspaceSummary
 
 
-module Network.AWS.Grafana.Types
+module Amazonka.Grafana.Types
 
 -- | API version <tt>2020-08-18</tt> of the Amazon Managed Grafana SDK
 --   configuration.
@@ -2650,7 +2650,7 @@ workspaceSummary_status :: Lens' WorkspaceSummary WorkspaceStatus
 --   information about one workspace, use <a>DescribeWorkspace</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Grafana.ListWorkspaces
+module Amazonka.Grafana.ListWorkspaces
 
 -- | <i>See:</i> <a>newListWorkspaces</a> smart constructor.
 data ListWorkspaces
@@ -2733,21 +2733,21 @@ listWorkspacesResponse_httpStatus :: Lens' ListWorkspacesResponse Int
 -- | An array of structures that contain some information about the
 --   workspaces in the account.
 listWorkspacesResponse_workspaces :: Lens' ListWorkspacesResponse [WorkspaceSummary]
-instance GHC.Generics.Generic Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance GHC.Show.Show Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance GHC.Read.Read Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance GHC.Classes.Eq Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance GHC.Generics.Generic Network.AWS.Grafana.ListWorkspaces.ListWorkspacesResponse
-instance GHC.Show.Show Network.AWS.Grafana.ListWorkspaces.ListWorkspacesResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.ListWorkspaces.ListWorkspacesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance Control.DeepSeq.NFData Network.AWS.Grafana.ListWorkspaces.ListWorkspacesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance Control.DeepSeq.NFData Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.ListWorkspaces.ListWorkspaces
+instance GHC.Generics.Generic Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance GHC.Show.Show Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance GHC.Read.Read Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance GHC.Classes.Eq Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance GHC.Generics.Generic Amazonka.Grafana.ListWorkspaces.ListWorkspacesResponse
+instance GHC.Show.Show Amazonka.Grafana.ListWorkspaces.ListWorkspacesResponse
+instance GHC.Classes.Eq Amazonka.Grafana.ListWorkspaces.ListWorkspacesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance Control.DeepSeq.NFData Amazonka.Grafana.ListWorkspaces.ListWorkspacesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance Control.DeepSeq.NFData Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.ListWorkspaces.ListWorkspaces
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.ListWorkspaces.ListWorkspaces
 
 
 -- | Lists the users and groups who have the Grafana <tt>Admin</tt> and
@@ -2759,7 +2759,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.ListWorkspaces.ListW
 --   <tt>userId</tt> or one <tt>groupId</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Grafana.ListPermissions
+module Amazonka.Grafana.ListPermissions
 
 -- | <i>See:</i> <a>newListPermissions</a> smart constructor.
 data ListPermissions
@@ -2892,26 +2892,26 @@ listPermissionsResponse_httpStatus :: Lens' ListPermissionsResponse Int
 
 -- | The permissions returned by the operation.
 listPermissionsResponse_permissions :: Lens' ListPermissionsResponse [PermissionEntry]
-instance GHC.Generics.Generic Network.AWS.Grafana.ListPermissions.ListPermissions
-instance GHC.Show.Show Network.AWS.Grafana.ListPermissions.ListPermissions
-instance GHC.Read.Read Network.AWS.Grafana.ListPermissions.ListPermissions
-instance GHC.Classes.Eq Network.AWS.Grafana.ListPermissions.ListPermissions
-instance GHC.Generics.Generic Network.AWS.Grafana.ListPermissions.ListPermissionsResponse
-instance GHC.Show.Show Network.AWS.Grafana.ListPermissions.ListPermissionsResponse
-instance GHC.Read.Read Network.AWS.Grafana.ListPermissions.ListPermissionsResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.ListPermissions.ListPermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.ListPermissions.ListPermissions
-instance Control.DeepSeq.NFData Network.AWS.Grafana.ListPermissions.ListPermissionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Grafana.ListPermissions.ListPermissions
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.ListPermissions.ListPermissions
-instance Control.DeepSeq.NFData Network.AWS.Grafana.ListPermissions.ListPermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.ListPermissions.ListPermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.ListPermissions.ListPermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.ListPermissions.ListPermissions
+instance GHC.Generics.Generic Amazonka.Grafana.ListPermissions.ListPermissions
+instance GHC.Show.Show Amazonka.Grafana.ListPermissions.ListPermissions
+instance GHC.Read.Read Amazonka.Grafana.ListPermissions.ListPermissions
+instance GHC.Classes.Eq Amazonka.Grafana.ListPermissions.ListPermissions
+instance GHC.Generics.Generic Amazonka.Grafana.ListPermissions.ListPermissionsResponse
+instance GHC.Show.Show Amazonka.Grafana.ListPermissions.ListPermissionsResponse
+instance GHC.Read.Read Amazonka.Grafana.ListPermissions.ListPermissionsResponse
+instance GHC.Classes.Eq Amazonka.Grafana.ListPermissions.ListPermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.ListPermissions.ListPermissions
+instance Control.DeepSeq.NFData Amazonka.Grafana.ListPermissions.ListPermissionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Grafana.ListPermissions.ListPermissions
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.ListPermissions.ListPermissions
+instance Control.DeepSeq.NFData Amazonka.Grafana.ListPermissions.ListPermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.ListPermissions.ListPermissions
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.ListPermissions.ListPermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.ListPermissions.ListPermissions
 
 
 -- | Removes the Grafana Enterprise license from a workspace.
-module Network.AWS.Grafana.DisassociateLicense
+module Amazonka.Grafana.DisassociateLicense
 
 -- | <i>See:</i> <a>newDisassociateLicense</a> smart constructor.
 data DisassociateLicense
@@ -2980,25 +2980,25 @@ disassociateLicenseResponse_httpStatus :: Lens' DisassociateLicenseResponse Int
 
 -- | A structure containing information about the workspace.
 disassociateLicenseResponse_workspace :: Lens' DisassociateLicenseResponse WorkspaceDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance GHC.Show.Show Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance GHC.Read.Read Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance GHC.Classes.Eq Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance GHC.Generics.Generic Network.AWS.Grafana.DisassociateLicense.DisassociateLicenseResponse
-instance GHC.Show.Show Network.AWS.Grafana.DisassociateLicense.DisassociateLicenseResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.DisassociateLicense.DisassociateLicenseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DisassociateLicense.DisassociateLicenseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.DisassociateLicense.DisassociateLicense
+instance GHC.Generics.Generic Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance GHC.Show.Show Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance GHC.Read.Read Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance GHC.Classes.Eq Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance GHC.Generics.Generic Amazonka.Grafana.DisassociateLicense.DisassociateLicenseResponse
+instance GHC.Show.Show Amazonka.Grafana.DisassociateLicense.DisassociateLicenseResponse
+instance GHC.Classes.Eq Amazonka.Grafana.DisassociateLicense.DisassociateLicenseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance Control.DeepSeq.NFData Amazonka.Grafana.DisassociateLicense.DisassociateLicenseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance Control.DeepSeq.NFData Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.DisassociateLicense.DisassociateLicense
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.DisassociateLicense.DisassociateLicense
 
 
 -- | Displays information about the authentication methods used in one
 --   Amazon Managed Grafana workspace.
-module Network.AWS.Grafana.DescribeWorkspaceAuthentication
+module Amazonka.Grafana.DescribeWorkspaceAuthentication
 
 -- | <i>See:</i> <a>newDescribeWorkspaceAuthentication</a> smart
 --   constructor.
@@ -3062,25 +3062,25 @@ describeWorkspaceAuthenticationResponse_httpStatus :: Lens' DescribeWorkspaceAut
 -- | A structure containing information about the authentication methods
 --   used in the workspace.
 describeWorkspaceAuthenticationResponse_authentication :: Lens' DescribeWorkspaceAuthenticationResponse AuthenticationDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance GHC.Show.Show Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance GHC.Read.Read Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance GHC.Classes.Eq Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance GHC.Generics.Generic Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
-instance GHC.Show.Show Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
-instance GHC.Read.Read Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance GHC.Generics.Generic Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance GHC.Show.Show Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance GHC.Read.Read Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance GHC.Classes.Eq Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance GHC.Generics.Generic Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
+instance GHC.Show.Show Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
+instance GHC.Read.Read Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
+instance GHC.Classes.Eq Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance Control.DeepSeq.NFData Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthenticationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance Control.DeepSeq.NFData Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.DescribeWorkspaceAuthentication.DescribeWorkspaceAuthentication
 
 
 -- | Displays information about one Amazon Managed Grafana workspace.
-module Network.AWS.Grafana.DescribeWorkspace
+module Amazonka.Grafana.DescribeWorkspace
 
 -- | <i>See:</i> <a>newDescribeWorkspace</a> smart constructor.
 data DescribeWorkspace
@@ -3139,24 +3139,24 @@ describeWorkspaceResponse_httpStatus :: Lens' DescribeWorkspaceResponse Int
 
 -- | A structure containing information about the workspace.
 describeWorkspaceResponse_workspace :: Lens' DescribeWorkspaceResponse WorkspaceDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance GHC.Show.Show Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance GHC.Read.Read Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance GHC.Classes.Eq Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance GHC.Generics.Generic Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
-instance GHC.Show.Show Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.DescribeWorkspace.DescribeWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance GHC.Show.Show Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance GHC.Read.Read Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance GHC.Classes.Eq Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
+instance GHC.Show.Show Amazonka.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
+instance GHC.Classes.Eq Amazonka.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.DescribeWorkspace.DescribeWorkspaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.DescribeWorkspace.DescribeWorkspace
 
 
 -- | Deletes an Amazon Managed Grafana workspace.
-module Network.AWS.Grafana.DeleteWorkspace
+module Amazonka.Grafana.DeleteWorkspace
 
 -- | <i>See:</i> <a>newDeleteWorkspace</a> smart constructor.
 data DeleteWorkspace
@@ -3217,20 +3217,20 @@ deleteWorkspaceResponse_httpStatus :: Lens' DeleteWorkspaceResponse Int
 -- | A structure containing information about the workspace that was
 --   deleted.
 deleteWorkspaceResponse_workspace :: Lens' DeleteWorkspaceResponse WorkspaceDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance GHC.Show.Show Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance GHC.Read.Read Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance GHC.Classes.Eq Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance GHC.Generics.Generic Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
-instance GHC.Show.Show Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.DeleteWorkspace.DeleteWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance GHC.Show.Show Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance GHC.Read.Read Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance GHC.Classes.Eq Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
+instance GHC.Show.Show Amazonka.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
+instance GHC.Classes.Eq Amazonka.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.DeleteWorkspace.DeleteWorkspaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.DeleteWorkspace.DeleteWorkspace
 
 
 -- | Creates a <i>workspace</i>. In a workspace, you can create Grafana
@@ -3240,7 +3240,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.DeleteWorkspace.Dele
 --   
 --   Don't use <tt>CreateWorkspace</tt> to modify an existing workspace.
 --   Instead, use <a>UpdateWorkspace</a>.
-module Network.AWS.Grafana.CreateWorkspace
+module Amazonka.Grafana.CreateWorkspace
 
 -- | <i>See:</i> <a>newCreateWorkspace</a> smart constructor.
 data CreateWorkspace
@@ -3542,26 +3542,26 @@ createWorkspaceResponse_httpStatus :: Lens' CreateWorkspaceResponse Int
 
 -- | A structure containing data about the workspace that was created.
 createWorkspaceResponse_workspace :: Lens' CreateWorkspaceResponse WorkspaceDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance GHC.Show.Show Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance GHC.Classes.Eq Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance GHC.Generics.Generic Network.AWS.Grafana.CreateWorkspace.CreateWorkspaceResponse
-instance GHC.Show.Show Network.AWS.Grafana.CreateWorkspace.CreateWorkspaceResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.CreateWorkspace.CreateWorkspaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.CreateWorkspace.CreateWorkspaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.CreateWorkspace.CreateWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance GHC.Show.Show Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance GHC.Classes.Eq Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.CreateWorkspace.CreateWorkspaceResponse
+instance GHC.Show.Show Amazonka.Grafana.CreateWorkspace.CreateWorkspaceResponse
+instance GHC.Classes.Eq Amazonka.Grafana.CreateWorkspace.CreateWorkspaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.CreateWorkspace.CreateWorkspaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.CreateWorkspace.CreateWorkspace
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.CreateWorkspace.CreateWorkspace
 
 
 -- | Assigns a Grafana Enterprise license to a workspace. Upgrading to
 --   Grafana Enterprise incurs additional fees. For more information, see
 --   <a>Upgrade a workspace to Grafana Enterprise</a>.
-module Network.AWS.Grafana.AssociateLicense
+module Amazonka.Grafana.AssociateLicense
 
 -- | <i>See:</i> <a>newAssociateLicense</a> smart constructor.
 data AssociateLicense
@@ -3630,26 +3630,26 @@ associateLicenseResponse_httpStatus :: Lens' AssociateLicenseResponse Int
 
 -- | A structure containing data about the workspace.
 associateLicenseResponse_workspace :: Lens' AssociateLicenseResponse WorkspaceDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance GHC.Show.Show Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance GHC.Read.Read Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance GHC.Classes.Eq Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance GHC.Generics.Generic Network.AWS.Grafana.AssociateLicense.AssociateLicenseResponse
-instance GHC.Show.Show Network.AWS.Grafana.AssociateLicense.AssociateLicenseResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.AssociateLicense.AssociateLicenseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance Control.DeepSeq.NFData Network.AWS.Grafana.AssociateLicense.AssociateLicenseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance Control.DeepSeq.NFData Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.AssociateLicense.AssociateLicense
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.AssociateLicense.AssociateLicense
+instance GHC.Generics.Generic Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance GHC.Show.Show Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance GHC.Read.Read Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance GHC.Classes.Eq Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance GHC.Generics.Generic Amazonka.Grafana.AssociateLicense.AssociateLicenseResponse
+instance GHC.Show.Show Amazonka.Grafana.AssociateLicense.AssociateLicenseResponse
+instance GHC.Classes.Eq Amazonka.Grafana.AssociateLicense.AssociateLicenseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance Control.DeepSeq.NFData Amazonka.Grafana.AssociateLicense.AssociateLicenseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance Control.DeepSeq.NFData Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.AssociateLicense.AssociateLicense
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.AssociateLicense.AssociateLicense
 
 
 -- | Updates which users in a workspace have the Grafana <tt>Admin</tt> or
 --   <tt>Editor</tt> roles.
-module Network.AWS.Grafana.UpdatePermissions
+module Amazonka.Grafana.UpdatePermissions
 
 -- | <i>See:</i> <a>newUpdatePermissions</a> smart constructor.
 data UpdatePermissions
@@ -3720,22 +3720,22 @@ updatePermissionsResponse_httpStatus :: Lens' UpdatePermissionsResponse Int
 -- | An array of structures that contain the errors from the operation, if
 --   any.
 updatePermissionsResponse_errors :: Lens' UpdatePermissionsResponse [UpdateError]
-instance GHC.Generics.Generic Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance GHC.Show.Show Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance GHC.Read.Read Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance GHC.Classes.Eq Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance GHC.Generics.Generic Network.AWS.Grafana.UpdatePermissions.UpdatePermissionsResponse
-instance GHC.Show.Show Network.AWS.Grafana.UpdatePermissions.UpdatePermissionsResponse
-instance GHC.Read.Read Network.AWS.Grafana.UpdatePermissions.UpdatePermissionsResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.UpdatePermissions.UpdatePermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance Control.DeepSeq.NFData Network.AWS.Grafana.UpdatePermissions.UpdatePermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance Control.DeepSeq.NFData Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.UpdatePermissions.UpdatePermissions
+instance GHC.Generics.Generic Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance GHC.Show.Show Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance GHC.Read.Read Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance GHC.Classes.Eq Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance GHC.Generics.Generic Amazonka.Grafana.UpdatePermissions.UpdatePermissionsResponse
+instance GHC.Show.Show Amazonka.Grafana.UpdatePermissions.UpdatePermissionsResponse
+instance GHC.Read.Read Amazonka.Grafana.UpdatePermissions.UpdatePermissionsResponse
+instance GHC.Classes.Eq Amazonka.Grafana.UpdatePermissions.UpdatePermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance Control.DeepSeq.NFData Amazonka.Grafana.UpdatePermissions.UpdatePermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance Control.DeepSeq.NFData Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.UpdatePermissions.UpdatePermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.UpdatePermissions.UpdatePermissions
 
 
 -- | Modifies an existing Amazon Managed Grafana workspace. If you use this
@@ -3748,7 +3748,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.UpdatePermissions.Up
 --   
 --   To modify which users in the workspace have the <tt>Admin</tt> and
 --   <tt>Editor</tt> Grafana roles, use <a>UpdatePermissions</a>.
-module Network.AWS.Grafana.UpdateWorkspace
+module Amazonka.Grafana.UpdateWorkspace
 
 -- | <i>See:</i> <a>newUpdateWorkspace</a> smart constructor.
 data UpdateWorkspace
@@ -4025,20 +4025,20 @@ updateWorkspaceResponse_httpStatus :: Lens' UpdateWorkspaceResponse Int
 
 -- | A structure containing data about the workspace that was created.
 updateWorkspaceResponse_workspace :: Lens' UpdateWorkspaceResponse WorkspaceDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance GHC.Show.Show Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance GHC.Classes.Eq Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance GHC.Generics.Generic Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
-instance GHC.Show.Show Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance Control.DeepSeq.NFData Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.UpdateWorkspace.UpdateWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance GHC.Show.Show Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance GHC.Classes.Eq Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance GHC.Generics.Generic Amazonka.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
+instance GHC.Show.Show Amazonka.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
+instance GHC.Classes.Eq Amazonka.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.UpdateWorkspace.UpdateWorkspaceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance Control.DeepSeq.NFData Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.UpdateWorkspace.UpdateWorkspace
 
 
 -- | Use this operation to define the identity provider (IdP) that this
@@ -4046,7 +4046,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.UpdateWorkspace.Upda
 --   assertion attributes to workspace user information and define which
 --   groups in the assertion attribute are to have the <tt>Admin</tt> and
 --   <tt>Editor</tt> roles in the workspace.
-module Network.AWS.Grafana.UpdateWorkspaceAuthentication
+module Amazonka.Grafana.UpdateWorkspaceAuthentication
 
 -- | <i>See:</i> <a>newUpdateWorkspaceAuthentication</a> smart constructor.
 data UpdateWorkspaceAuthentication
@@ -4147,25 +4147,25 @@ updateWorkspaceAuthenticationResponse_httpStatus :: Lens' UpdateWorkspaceAuthent
 -- | A structure that describes the user authentication for this workspace
 --   after the update is made.
 updateWorkspaceAuthenticationResponse_authentication :: Lens' UpdateWorkspaceAuthenticationResponse AuthenticationDescription
-instance GHC.Generics.Generic Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance GHC.Show.Show Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance GHC.Read.Read Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance GHC.Classes.Eq Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance GHC.Generics.Generic Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
-instance GHC.Show.Show Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
-instance GHC.Read.Read Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
-instance GHC.Classes.Eq Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance Control.DeepSeq.NFData Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance Control.DeepSeq.NFData Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance Network.AWS.Data.Path.ToPath Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance GHC.Generics.Generic Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance GHC.Show.Show Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance GHC.Read.Read Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance GHC.Classes.Eq Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance GHC.Generics.Generic Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
+instance GHC.Show.Show Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
+instance GHC.Read.Read Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
+instance GHC.Classes.Eq Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance Control.DeepSeq.NFData Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthenticationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance Control.DeepSeq.NFData Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance Amazonka.Data.Path.ToPath Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
+instance Amazonka.Data.Query.ToQuery Amazonka.Grafana.UpdateWorkspaceAuthentication.UpdateWorkspaceAuthentication
 
 
-module Network.AWS.Grafana.Lens
+module Amazonka.Grafana.Lens
 
 -- | The token for the next set of workspaces to return. (You receive this
 --   token from a previous <tt>ListWorkspaces</tt> operation.)
@@ -4733,7 +4733,7 @@ workspaceSummary_modified :: Lens' WorkspaceSummary UTCTime
 workspaceSummary_status :: Lens' WorkspaceSummary WorkspaceStatus
 
 
-module Network.AWS.Grafana.Waiters
+module Amazonka.Grafana.Waiters
 
 
 -- | Derived from API version <tt>2020-08-18</tt> of the AWS service
@@ -4751,7 +4751,7 @@ module Network.AWS.Grafana.Waiters
 --   Grafana dashboards and visualizations to analyze your metrics, logs,
 --   and traces without having to build, package, or deploy any hardware to
 --   run Grafana servers.
-module Network.AWS.Grafana
+module Amazonka.Grafana
 
 -- | API version <tt>2020-08-18</tt> of the Amazon Managed Grafana SDK
 --   configuration.

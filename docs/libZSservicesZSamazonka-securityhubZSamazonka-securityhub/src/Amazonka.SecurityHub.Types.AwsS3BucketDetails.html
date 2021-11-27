@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsS3BucketDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsS3BucketDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfiguration.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfiguration</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The details of an Amazon S3 bucket.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newAwsS3BucketDetails' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679973244"><span id="local-6989586621679973245"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsS3BucketDetails"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-var">AwsS3BucketDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsS3BucketDetails%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-var">AwsS3BucketDetails'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates when the S3 bucket was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AcreatedAt%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account identifier of the account that owns the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- S3 bucket.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AownerAccountId%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerAccountId%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">ownerAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The logging configuration for the S3 bucket.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AbucketLoggingConfiguration%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe AwsS3BucketLoggingConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketLoggingConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">bucketLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration.html#AwsS3BucketLoggingConfiguration"><span class="hs-identifier hs-type">AwsS3BucketLoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The display name of the owner of the S3 bucket.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AownerName%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerName%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">ownerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The access control list for the S3 bucket.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AaccessControlList%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AaccessControlList%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">accessControlList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The canonical user ID of the owner of the S3 bucket.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AownerId%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerId%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Provides information about the Amazon S3 Public Access Block</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- configuration for the S3 bucket.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3ApublicAccessBlockConfiguration%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3ApublicAccessBlockConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">publicAccessBlockConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails.html#AwsS3AccountPublicAccessBlockDetails"><span class="hs-identifier hs-type">AwsS3AccountPublicAccessBlockDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The website configuration parameters for the S3 bucket.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AbucketWebsiteConfiguration%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketWebsiteConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">bucketWebsiteConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfiguration.html#AwsS3BucketWebsiteConfiguration"><span class="hs-identifier hs-type">AwsS3BucketWebsiteConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The lifecycle configuration for objects in the S3 bucket.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AbucketLifecycleConfiguration%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails
+-&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketLifecycleConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">bucketLifecycleConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails.html#AwsS3BucketBucketLifecycleConfigurationDetails"><span class="hs-identifier hs-type">AwsS3BucketBucketLifecycleConfigurationDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The notification configuration for the S3 bucket.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AbucketNotificationConfiguration%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; Maybe AwsS3BucketNotificationConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketNotificationConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">bucketNotificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration.html#AwsS3BucketNotificationConfiguration"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The encryption rules that are applied to the S3 bucket.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AserverSideEncryptionConfiguration%3AAwsS3BucketDetails%27"><span class="annot"><span class="annottext">AwsS3BucketDetails
+-&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AserverSideEncryptionConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration.html#AwsS3BucketServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">AwsS3BucketServerSideEncryptionConfiguration</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679973228"><span id="local-6989586621679973230"><span class="annot"><span class="annottext">AwsS3BucketDetails -&gt; AwsS3BucketDetails -&gt; Bool
+(AwsS3BucketDetails -&gt; AwsS3BucketDetails -&gt; Bool)
+-&gt; (AwsS3BucketDetails -&gt; AwsS3BucketDetails -&gt; Bool)
+-&gt; Eq AwsS3BucketDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsS3BucketDetails -&gt; AwsS3BucketDetails -&gt; Bool
+$c/= :: AwsS3BucketDetails -&gt; AwsS3BucketDetails -&gt; Bool
+== :: AwsS3BucketDetails -&gt; AwsS3BucketDetails -&gt; Bool
+$c== :: AwsS3BucketDetails -&gt; AwsS3BucketDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679973219"><span id="local-6989586621679973221"><span id="local-6989586621679973223"><span id="local-6989586621679973225"><span class="annot"><span class="annottext">ReadPrec [AwsS3BucketDetails]
+ReadPrec AwsS3BucketDetails
+Int -&gt; ReadS AwsS3BucketDetails
+ReadS [AwsS3BucketDetails]
+(Int -&gt; ReadS AwsS3BucketDetails)
+-&gt; ReadS [AwsS3BucketDetails]
+-&gt; ReadPrec AwsS3BucketDetails
+-&gt; ReadPrec [AwsS3BucketDetails]
+-&gt; Read AwsS3BucketDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsS3BucketDetails]
+$creadListPrec :: ReadPrec [AwsS3BucketDetails]
+readPrec :: ReadPrec AwsS3BucketDetails
+$creadPrec :: ReadPrec AwsS3BucketDetails
+readList :: ReadS [AwsS3BucketDetails]
+$creadList :: ReadS [AwsS3BucketDetails]
+readsPrec :: Int -&gt; ReadS AwsS3BucketDetails
+$creadsPrec :: Int -&gt; ReadS AwsS3BucketDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679973212"><span id="local-6989586621679973214"><span id="local-6989586621679973216"><span class="annot"><span class="annottext">Int -&gt; AwsS3BucketDetails -&gt; ShowS
+[AwsS3BucketDetails] -&gt; ShowS
+AwsS3BucketDetails -&gt; String
+(Int -&gt; AwsS3BucketDetails -&gt; ShowS)
+-&gt; (AwsS3BucketDetails -&gt; String)
+-&gt; ([AwsS3BucketDetails] -&gt; ShowS)
+-&gt; Show AwsS3BucketDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsS3BucketDetails] -&gt; ShowS
+$cshowList :: [AwsS3BucketDetails] -&gt; ShowS
+show :: AwsS3BucketDetails -&gt; String
+$cshow :: AwsS3BucketDetails -&gt; String
+showsPrec :: Int -&gt; AwsS3BucketDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsS3BucketDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AwsS3BucketDetails -&gt; Rep AwsS3BucketDetails x)
+-&gt; (forall x. Rep AwsS3BucketDetails x -&gt; AwsS3BucketDetails)
+-&gt; Generic AwsS3BucketDetails
+forall x. Rep AwsS3BucketDetails x -&gt; AwsS3BucketDetails
+forall x. AwsS3BucketDetails -&gt; Rep AwsS3BucketDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsS3BucketDetails x -&gt; AwsS3BucketDetails
+$cfrom :: forall x. AwsS3BucketDetails -&gt; Rep AwsS3BucketDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'AwsS3BucketDetails' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'createdAt', 'awsS3BucketDetails_createdAt' - Indicates when the S3 bucket was created.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'ownerAccountId', 'awsS3BucketDetails_ownerAccountId' - The Amazon Web Services account identifier of the account that owns the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- S3 bucket.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'bucketLoggingConfiguration', 'awsS3BucketDetails_bucketLoggingConfiguration' - The logging configuration for the S3 bucket.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'ownerName', 'awsS3BucketDetails_ownerName' - The display name of the owner of the S3 bucket.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'accessControlList', 'awsS3BucketDetails_accessControlList' - The access control list for the S3 bucket.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'ownerId', 'awsS3BucketDetails_ownerId' - The canonical user ID of the owner of the S3 bucket.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'publicAccessBlockConfiguration', 'awsS3BucketDetails_publicAccessBlockConfiguration' - Provides information about the Amazon S3 Public Access Block</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- configuration for the S3 bucket.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'bucketWebsiteConfiguration', 'awsS3BucketDetails_bucketWebsiteConfiguration' - The website configuration parameters for the S3 bucket.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'bucketLifecycleConfiguration', 'awsS3BucketDetails_bucketLifecycleConfiguration' - The lifecycle configuration for objects in the S3 bucket.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'bucketNotificationConfiguration', 'awsS3BucketDetails_bucketNotificationConfiguration' - The notification configuration for the S3 bucket.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'serverSideEncryptionConfiguration', 'awsS3BucketDetails_serverSideEncryptionConfiguration' - The encryption rules that are applied to the S3 bucket.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#newAwsS3BucketDetails"><span class="hs-identifier hs-type">newAwsS3BucketDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span>
+</span><span id="line-106"></span><span id="newAwsS3BucketDetails"><span class="annot"><span class="annottext">newAwsS3BucketDetails :: AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#newAwsS3BucketDetails"><span class="hs-identifier hs-var hs-var">newAwsS3BucketDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">AwsS3BucketDetails' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsS3BucketLoggingConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+-&gt; Maybe AwsS3BucketWebsiteConfiguration
+-&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+-&gt; Maybe AwsS3BucketNotificationConfiguration
+-&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+-&gt; AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAt:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AcreatedAt%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccountId:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerAccountId%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketLoggingConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketLoggingConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketLoggingConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketLoggingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerName:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerName%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">ownerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessControlList:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AaccessControlList%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">accessControlList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerId%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicAccessBlockConfiguration:AwsS3BucketDetails' :: Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3ApublicAccessBlockConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">publicAccessBlockConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3AccountPublicAccessBlockDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketWebsiteConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketWebsiteConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketWebsiteConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketWebsiteConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketLifecycleConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketLifecycleConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketLifecycleConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketNotificationConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketNotificationConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketNotificationConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketNotificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketNotificationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AserverSideEncryptionConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketServerSideEncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Indicates when the S3 bucket was created.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_createdAt"><span class="hs-identifier hs-type">awsS3BucketDetails_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="awsS3BucketDetails_createdAt"><span class="annot"><span class="annottext">awsS3BucketDetails_createdAt :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_createdAt"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe Text)
+-&gt; (AwsS3BucketDetails -&gt; Maybe Text -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails AwsS3BucketDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973203"><span class="annot"><span class="annottext">Maybe Text
+createdAt :: Maybe Text
+$sel:createdAt:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679973203"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973203"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973202"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AcreatedAt%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Web Services account identifier of the account that owns the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- S3 bucket.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_ownerAccountId"><span class="hs-identifier hs-type">awsS3BucketDetails_ownerAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="awsS3BucketDetails_ownerAccountId"><span class="annot"><span class="annottext">awsS3BucketDetails_ownerAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_ownerAccountId"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_ownerAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe Text)
+-&gt; (AwsS3BucketDetails -&gt; Maybe Text -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails AwsS3BucketDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973199"><span class="annot"><span class="annottext">Maybe Text
+ownerAccountId :: Maybe Text
+$sel:ownerAccountId:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679973199"><span class="hs-identifier hs-var hs-var">ownerAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973199"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973198"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973197"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccountId:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerAccountId%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The logging configuration for the S3 bucket.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketLoggingConfiguration"><span class="hs-identifier hs-type">awsS3BucketDetails_bucketLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration.html#AwsS3BucketLoggingConfiguration"><span class="hs-identifier hs-type">AwsS3BucketLoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="awsS3BucketDetails_bucketLoggingConfiguration"><span class="annot"><span class="annottext">awsS3BucketDetails_bucketLoggingConfiguration :: (Maybe AwsS3BucketLoggingConfiguration
+ -&gt; f (Maybe AwsS3BucketLoggingConfiguration))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketLoggingConfiguration"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_bucketLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe AwsS3BucketLoggingConfiguration)
+-&gt; (AwsS3BucketDetails
+    -&gt; Maybe AwsS3BucketLoggingConfiguration -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails
+     AwsS3BucketDetails
+     (Maybe AwsS3BucketLoggingConfiguration)
+     (Maybe AwsS3BucketLoggingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973195"><span class="annot"><span class="annottext">Maybe AwsS3BucketLoggingConfiguration
+bucketLoggingConfiguration :: Maybe AwsS3BucketLoggingConfiguration
+$sel:bucketLoggingConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3BucketLoggingConfiguration
+</span><a href="#local-6989586621679973195"><span class="hs-identifier hs-var hs-var">bucketLoggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketLoggingConfiguration
+</span><a href="#local-6989586621679973195"><span class="hs-identifier hs-var">bucketLoggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973194"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973193"><span class="annot"><span class="annottext">Maybe AwsS3BucketLoggingConfiguration
+</span><a href="#local-6989586621679973193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketLoggingConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketLoggingConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketLoggingConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketLoggingConfiguration
+</span><a href="#local-6989586621679973193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The display name of the owner of the S3 bucket.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_ownerName"><span class="hs-identifier hs-type">awsS3BucketDetails_ownerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="awsS3BucketDetails_ownerName"><span class="annot"><span class="annottext">awsS3BucketDetails_ownerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_ownerName"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_ownerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe Text)
+-&gt; (AwsS3BucketDetails -&gt; Maybe Text -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails AwsS3BucketDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973191"><span class="annot"><span class="annottext">Maybe Text
+ownerName :: Maybe Text
+$sel:ownerName:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679973191"><span class="hs-identifier hs-var hs-var">ownerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973191"><span class="hs-identifier hs-var">ownerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973190"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerName:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerName%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">ownerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The access control list for the S3 bucket.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_accessControlList"><span class="hs-identifier hs-type">awsS3BucketDetails_accessControlList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="awsS3BucketDetails_accessControlList"><span class="annot"><span class="annottext">awsS3BucketDetails_accessControlList :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_accessControlList"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_accessControlList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe Text)
+-&gt; (AwsS3BucketDetails -&gt; Maybe Text -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails AwsS3BucketDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973187"><span class="annot"><span class="annottext">Maybe Text
+accessControlList :: Maybe Text
+$sel:accessControlList:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679973187"><span class="hs-identifier hs-var hs-var">accessControlList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973187"><span class="hs-identifier hs-var">accessControlList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973186"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973185"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessControlList:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AaccessControlList%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">accessControlList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The canonical user ID of the owner of the S3 bucket.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_ownerId"><span class="hs-identifier hs-type">awsS3BucketDetails_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="awsS3BucketDetails_ownerId"><span class="annot"><span class="annottext">awsS3BucketDetails_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_ownerId"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe Text)
+-&gt; (AwsS3BucketDetails -&gt; Maybe Text -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails AwsS3BucketDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973183"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679973183"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973183"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973182"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:AwsS3BucketDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AownerId%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Provides information about the Amazon S3 Public Access Block</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- configuration for the S3 bucket.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_publicAccessBlockConfiguration"><span class="hs-identifier hs-type">awsS3BucketDetails_publicAccessBlockConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails.html#AwsS3AccountPublicAccessBlockDetails"><span class="hs-identifier hs-type">AwsS3AccountPublicAccessBlockDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="awsS3BucketDetails_publicAccessBlockConfiguration"><span class="annot"><span class="annottext">awsS3BucketDetails_publicAccessBlockConfiguration :: (Maybe AwsS3AccountPublicAccessBlockDetails
+ -&gt; f (Maybe AwsS3AccountPublicAccessBlockDetails))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_publicAccessBlockConfiguration"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_publicAccessBlockConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe AwsS3AccountPublicAccessBlockDetails)
+-&gt; (AwsS3BucketDetails
+    -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+    -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails
+     AwsS3BucketDetails
+     (Maybe AwsS3AccountPublicAccessBlockDetails)
+     (Maybe AwsS3AccountPublicAccessBlockDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973179"><span class="annot"><span class="annottext">Maybe AwsS3AccountPublicAccessBlockDetails
+publicAccessBlockConfiguration :: Maybe AwsS3AccountPublicAccessBlockDetails
+$sel:publicAccessBlockConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="#local-6989586621679973179"><span class="hs-identifier hs-var hs-var">publicAccessBlockConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="#local-6989586621679973179"><span class="hs-identifier hs-var">publicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973178"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973177"><span class="annot"><span class="annottext">Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="#local-6989586621679973177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicAccessBlockConfiguration:AwsS3BucketDetails' :: Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3ApublicAccessBlockConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">publicAccessBlockConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="#local-6989586621679973177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The website configuration parameters for the S3 bucket.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketWebsiteConfiguration"><span class="hs-identifier hs-type">awsS3BucketDetails_bucketWebsiteConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfiguration.html#AwsS3BucketWebsiteConfiguration"><span class="hs-identifier hs-type">AwsS3BucketWebsiteConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="awsS3BucketDetails_bucketWebsiteConfiguration"><span class="annot"><span class="annottext">awsS3BucketDetails_bucketWebsiteConfiguration :: (Maybe AwsS3BucketWebsiteConfiguration
+ -&gt; f (Maybe AwsS3BucketWebsiteConfiguration))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketWebsiteConfiguration"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_bucketWebsiteConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe AwsS3BucketWebsiteConfiguration)
+-&gt; (AwsS3BucketDetails
+    -&gt; Maybe AwsS3BucketWebsiteConfiguration -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails
+     AwsS3BucketDetails
+     (Maybe AwsS3BucketWebsiteConfiguration)
+     (Maybe AwsS3BucketWebsiteConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973175"><span class="annot"><span class="annottext">Maybe AwsS3BucketWebsiteConfiguration
+bucketWebsiteConfiguration :: Maybe AwsS3BucketWebsiteConfiguration
+$sel:bucketWebsiteConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="#local-6989586621679973175"><span class="hs-identifier hs-var hs-var">bucketWebsiteConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="#local-6989586621679973175"><span class="hs-identifier hs-var">bucketWebsiteConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973174"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973173"><span class="annot"><span class="annottext">Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="#local-6989586621679973173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketWebsiteConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketWebsiteConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketWebsiteConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="#local-6989586621679973173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The lifecycle configuration for objects in the S3 bucket.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketLifecycleConfiguration"><span class="hs-identifier hs-type">awsS3BucketDetails_bucketLifecycleConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails.html#AwsS3BucketBucketLifecycleConfigurationDetails"><span class="hs-identifier hs-type">AwsS3BucketBucketLifecycleConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="awsS3BucketDetails_bucketLifecycleConfiguration"><span class="annot"><span class="annottext">awsS3BucketDetails_bucketLifecycleConfiguration :: (Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+ -&gt; f (Maybe AwsS3BucketBucketLifecycleConfigurationDetails))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketLifecycleConfiguration"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_bucketLifecycleConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails
+ -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails)
+-&gt; (AwsS3BucketDetails
+    -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+    -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails
+     AwsS3BucketDetails
+     (Maybe AwsS3BucketBucketLifecycleConfigurationDetails)
+     (Maybe AwsS3BucketBucketLifecycleConfigurationDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973171"><span class="annot"><span class="annottext">Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+bucketLifecycleConfiguration :: Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+$sel:bucketLifecycleConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails
+-&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="#local-6989586621679973171"><span class="hs-identifier hs-var hs-var">bucketLifecycleConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="#local-6989586621679973171"><span class="hs-identifier hs-var">bucketLifecycleConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973170"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973169"><span class="annot"><span class="annottext">Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="#local-6989586621679973169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketLifecycleConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketLifecycleConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketLifecycleConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="#local-6989586621679973169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The notification configuration for the S3 bucket.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketNotificationConfiguration"><span class="hs-identifier hs-type">awsS3BucketDetails_bucketNotificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration.html#AwsS3BucketNotificationConfiguration"><span class="hs-identifier hs-type">AwsS3BucketNotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="awsS3BucketDetails_bucketNotificationConfiguration"><span class="annot"><span class="annottext">awsS3BucketDetails_bucketNotificationConfiguration :: (Maybe AwsS3BucketNotificationConfiguration
+ -&gt; f (Maybe AwsS3BucketNotificationConfiguration))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_bucketNotificationConfiguration"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_bucketNotificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails -&gt; Maybe AwsS3BucketNotificationConfiguration)
+-&gt; (AwsS3BucketDetails
+    -&gt; Maybe AwsS3BucketNotificationConfiguration
+    -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails
+     AwsS3BucketDetails
+     (Maybe AwsS3BucketNotificationConfiguration)
+     (Maybe AwsS3BucketNotificationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973167"><span class="annot"><span class="annottext">Maybe AwsS3BucketNotificationConfiguration
+bucketNotificationConfiguration :: Maybe AwsS3BucketNotificationConfiguration
+$sel:bucketNotificationConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3BucketNotificationConfiguration
+</span><a href="#local-6989586621679973167"><span class="hs-identifier hs-var hs-var">bucketNotificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketNotificationConfiguration
+</span><a href="#local-6989586621679973167"><span class="hs-identifier hs-var">bucketNotificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973166"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973165"><span class="annot"><span class="annottext">Maybe AwsS3BucketNotificationConfiguration
+</span><a href="#local-6989586621679973165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketNotificationConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketNotificationConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AbucketNotificationConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">bucketNotificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketNotificationConfiguration
+</span><a href="#local-6989586621679973165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The encryption rules that are applied to the S3 bucket.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_serverSideEncryptionConfiguration"><span class="hs-identifier hs-type">awsS3BucketDetails_serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration.html#AwsS3BucketServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">AwsS3BucketServerSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="awsS3BucketDetails_serverSideEncryptionConfiguration"><span class="annot"><span class="annottext">awsS3BucketDetails_serverSideEncryptionConfiguration :: (Maybe AwsS3BucketServerSideEncryptionConfiguration
+ -&gt; f (Maybe AwsS3BucketServerSideEncryptionConfiguration))
+-&gt; AwsS3BucketDetails -&gt; f AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#awsS3BucketDetails_serverSideEncryptionConfiguration"><span class="hs-identifier hs-var hs-var">awsS3BucketDetails_serverSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsS3BucketDetails
+ -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration)
+-&gt; (AwsS3BucketDetails
+    -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+    -&gt; AwsS3BucketDetails)
+-&gt; Lens
+     AwsS3BucketDetails
+     AwsS3BucketDetails
+     (Maybe AwsS3BucketServerSideEncryptionConfiguration)
+     (Maybe AwsS3BucketServerSideEncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973163"><span class="annot"><span class="annottext">Maybe AwsS3BucketServerSideEncryptionConfiguration
+serverSideEncryptionConfiguration :: Maybe AwsS3BucketServerSideEncryptionConfiguration
+$sel:serverSideEncryptionConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails
+-&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679973163"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679973163"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679973162"><span class="annot"><span class="annottext">s :: AwsS3BucketDetails
+</span><a href="#local-6989586621679973162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679973161"><span class="annot"><span class="annottext">Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679973161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsS3BucketDetails
+</span><a href="#local-6989586621679973162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:AwsS3BucketDetails' :: Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#%24sel%3AserverSideEncryptionConfiguration%3AAwsS3BucketDetails%27"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679973161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679973158"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679973156"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsS3BucketDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsS3BucketDetails)
+-&gt; Value
+-&gt; Parser AwsS3BucketDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsS3BucketDetails&quot;</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679973153"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsS3BucketLoggingConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+-&gt; Maybe AwsS3BucketWebsiteConfiguration
+-&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+-&gt; Maybe AwsS3BucketNotificationConfiguration
+-&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+-&gt; AwsS3BucketDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-var">AwsS3BucketDetails'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AwsS3BucketLoggingConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+ -&gt; Maybe AwsS3BucketWebsiteConfiguration
+ -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+ -&gt; Maybe AwsS3BucketNotificationConfiguration
+ -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+ -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AwsS3BucketLoggingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+      -&gt; Maybe AwsS3BucketWebsiteConfiguration
+      -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AwsS3BucketLoggingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+   -&gt; Maybe AwsS3BucketWebsiteConfiguration
+   -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AwsS3BucketLoggingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+      -&gt; Maybe AwsS3BucketWebsiteConfiguration
+      -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsS3BucketLoggingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+   -&gt; Maybe AwsS3BucketWebsiteConfiguration
+   -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe AwsS3BucketLoggingConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+      -&gt; Maybe AwsS3BucketWebsiteConfiguration
+      -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsS3BucketLoggingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketLoggingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+   -&gt; Maybe AwsS3BucketWebsiteConfiguration
+   -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+      -&gt; Maybe AwsS3BucketWebsiteConfiguration
+      -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+   -&gt; Maybe AwsS3BucketWebsiteConfiguration
+   -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+      -&gt; Maybe AwsS3BucketWebsiteConfiguration
+      -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessControlList&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+   -&gt; Maybe AwsS3BucketWebsiteConfiguration
+   -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AwsS3AccountPublicAccessBlockDetails
+      -&gt; Maybe AwsS3BucketWebsiteConfiguration
+      -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsS3AccountPublicAccessBlockDetails
+   -&gt; Maybe AwsS3BucketWebsiteConfiguration
+   -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe AwsS3AccountPublicAccessBlockDetails)
+-&gt; Parser
+     (Maybe AwsS3BucketWebsiteConfiguration
+      -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe AwsS3AccountPublicAccessBlockDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PublicAccessBlockConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsS3BucketWebsiteConfiguration
+   -&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe AwsS3BucketWebsiteConfiguration)
+-&gt; Parser
+     (Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+      -&gt; Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsS3BucketWebsiteConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketWebsiteConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+   -&gt; Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe AwsS3BucketBucketLifecycleConfigurationDetails)
+-&gt; Parser
+     (Maybe AwsS3BucketNotificationConfiguration
+      -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsS3BucketBucketLifecycleConfigurationDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketLifecycleConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsS3BucketNotificationConfiguration
+   -&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe AwsS3BucketNotificationConfiguration)
+-&gt; Parser
+     (Maybe AwsS3BucketServerSideEncryptionConfiguration
+      -&gt; AwsS3BucketDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe AwsS3BucketNotificationConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketNotificationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsS3BucketServerSideEncryptionConfiguration
+   -&gt; AwsS3BucketDetails)
+-&gt; Parser (Maybe AwsS3BucketServerSideEncryptionConfiguration)
+-&gt; Parser AwsS3BucketDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679973153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsS3BucketServerSideEncryptionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerSideEncryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679973147"><span id="local-6989586621679973149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679973144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679973136"><span id="local-6989586621679973138"><span id="local-6989586621679973140"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails"><span class="hs-identifier hs-type">AwsS3BucketDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679973134"><span class="annot"><span class="annottext">toJSON :: AwsS3BucketDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsS3BucketDetails.html#AwsS3BucketDetails%27"><span class="hs-identifier hs-type">AwsS3BucketDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679973122"><span id="local-6989586621679973123"><span id="local-6989586621679973124"><span id="local-6989586621679973125"><span id="local-6989586621679973126"><span id="local-6989586621679973127"><span id="local-6989586621679973128"><span id="local-6989586621679973129"><span id="local-6989586621679973130"><span id="local-6989586621679973131"><span id="local-6989586621679973132"><span class="annot"><span class="annottext">Maybe Text
+Maybe AwsS3AccountPublicAccessBlockDetails
+Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+Maybe AwsS3BucketLoggingConfiguration
+Maybe AwsS3BucketNotificationConfiguration
+Maybe AwsS3BucketServerSideEncryptionConfiguration
+Maybe AwsS3BucketWebsiteConfiguration
+serverSideEncryptionConfiguration :: Maybe AwsS3BucketServerSideEncryptionConfiguration
+bucketNotificationConfiguration :: Maybe AwsS3BucketNotificationConfiguration
+bucketLifecycleConfiguration :: Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+bucketWebsiteConfiguration :: Maybe AwsS3BucketWebsiteConfiguration
+publicAccessBlockConfiguration :: Maybe AwsS3AccountPublicAccessBlockDetails
+ownerId :: Maybe Text
+accessControlList :: Maybe Text
+ownerName :: Maybe Text
+bucketLoggingConfiguration :: Maybe AwsS3BucketLoggingConfiguration
+ownerAccountId :: Maybe Text
+createdAt :: Maybe Text
+$sel:serverSideEncryptionConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails
+-&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration
+$sel:bucketNotificationConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3BucketNotificationConfiguration
+$sel:bucketLifecycleConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails
+-&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+$sel:bucketWebsiteConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3BucketWebsiteConfiguration
+$sel:publicAccessBlockConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3AccountPublicAccessBlockDetails
+$sel:ownerId:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+$sel:accessControlList:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+$sel:ownerName:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+$sel:bucketLoggingConfiguration:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe AwsS3BucketLoggingConfiguration
+$sel:ownerAccountId:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+$sel:createdAt:AwsS3BucketDetails' :: AwsS3BucketDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679973122"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973132"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerAccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973131"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketLoggingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsS3BucketLoggingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(AwsS3BucketLoggingConfiguration -&gt; Pair)
+-&gt; Maybe AwsS3BucketLoggingConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketLoggingConfiguration
+</span><a href="#local-6989586621679973130"><span class="hs-identifier hs-var">bucketLoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973129"><span class="hs-identifier hs-var">ownerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessControlList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973128"><span class="hs-identifier hs-var">accessControlList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679973127"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PublicAccessBlockConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsS3AccountPublicAccessBlockDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(AwsS3AccountPublicAccessBlockDetails -&gt; Pair)
+-&gt; Maybe AwsS3AccountPublicAccessBlockDetails -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3AccountPublicAccessBlockDetails
+</span><a href="#local-6989586621679973126"><span class="hs-identifier hs-var">publicAccessBlockConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketWebsiteConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsS3BucketWebsiteConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(AwsS3BucketWebsiteConfiguration -&gt; Pair)
+-&gt; Maybe AwsS3BucketWebsiteConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketWebsiteConfiguration
+</span><a href="#local-6989586621679973125"><span class="hs-identifier hs-var">bucketWebsiteConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketLifecycleConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsS3BucketBucketLifecycleConfigurationDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(AwsS3BucketBucketLifecycleConfigurationDetails -&gt; Pair)
+-&gt; Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketBucketLifecycleConfigurationDetails
+</span><a href="#local-6989586621679973124"><span class="hs-identifier hs-var">bucketLifecycleConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketNotificationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsS3BucketNotificationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(AwsS3BucketNotificationConfiguration -&gt; Pair)
+-&gt; Maybe AwsS3BucketNotificationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketNotificationConfiguration
+</span><a href="#local-6989586621679973123"><span class="hs-identifier hs-var">bucketNotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerSideEncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsS3BucketServerSideEncryptionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(AwsS3BucketServerSideEncryptionConfiguration -&gt; Pair)
+-&gt; Maybe AwsS3BucketServerSideEncryptionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsS3BucketServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679973122"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span>
+</span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span></pre></body></html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.DescribeAccountOverview</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- For the time range passed in, returns the number of open reactive</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- insight that were created, the number of open proactive insights that</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- were created, and the Mean Time to Recover (MTTR) for all closed</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- reactive insights.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.DescribeAccountOverview</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier">DescribeAccountOverview</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#newDescribeAccountOverview"><span class="hs-identifier">newDescribeAccountOverview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverview_toTime"><span class="hs-identifier">describeAccountOverview_toTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverview_fromTime"><span class="hs-identifier">describeAccountOverview_fromTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier">DescribeAccountOverviewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#newDescribeAccountOverviewResponse"><span class="hs-identifier">newDescribeAccountOverviewResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_httpStatus"><span class="hs-identifier">describeAccountOverviewResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_reactiveInsights"><span class="hs-identifier">describeAccountOverviewResponse_reactiveInsights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_proactiveInsights"><span class="hs-identifier">describeAccountOverviewResponse_proactiveInsights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds"><span class="hs-identifier">describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountOverview' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679243696"><span id="local-6989586621679243697"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountOverview"><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-var">DescribeAccountOverview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountOverview%27"><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview%27"><span class="hs-identifier hs-var">DescribeAccountOverview'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The end of the time range passed in. The start time granularity is at</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the day level. The floor of the start time is used. Returned information</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- occurred before this day. If this is not specified, then the current day</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- is used.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtoTime%3ADescribeAccountOverview%27"><span class="annot"><span class="annottext">DescribeAccountOverview -&gt; Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AtoTime%3ADescribeAccountOverview%27"><span class="hs-identifier hs-var hs-var">toTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The start of the time range passed in. The start time granularity is at</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the day level. The floor of the start time is used. Returned information</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- occurred after this day.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AfromTime%3ADescribeAccountOverview%27"><span class="annot"><span class="annottext">DescribeAccountOverview -&gt; POSIX
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AfromTime%3ADescribeAccountOverview%27"><span class="hs-identifier hs-var hs-var">fromTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243689"><span id="local-6989586621679243691"><span class="annot"><span class="annottext">DescribeAccountOverview -&gt; DescribeAccountOverview -&gt; Bool
+(DescribeAccountOverview -&gt; DescribeAccountOverview -&gt; Bool)
+-&gt; (DescribeAccountOverview -&gt; DescribeAccountOverview -&gt; Bool)
+-&gt; Eq DescribeAccountOverview
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAccountOverview -&gt; DescribeAccountOverview -&gt; Bool
+$c/= :: DescribeAccountOverview -&gt; DescribeAccountOverview -&gt; Bool
+== :: DescribeAccountOverview -&gt; DescribeAccountOverview -&gt; Bool
+$c== :: DescribeAccountOverview -&gt; DescribeAccountOverview -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243680"><span id="local-6989586621679243682"><span id="local-6989586621679243684"><span id="local-6989586621679243686"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountOverview]
+ReadPrec DescribeAccountOverview
+Int -&gt; ReadS DescribeAccountOverview
+ReadS [DescribeAccountOverview]
+(Int -&gt; ReadS DescribeAccountOverview)
+-&gt; ReadS [DescribeAccountOverview]
+-&gt; ReadPrec DescribeAccountOverview
+-&gt; ReadPrec [DescribeAccountOverview]
+-&gt; Read DescribeAccountOverview
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAccountOverview]
+$creadListPrec :: ReadPrec [DescribeAccountOverview]
+readPrec :: ReadPrec DescribeAccountOverview
+$creadPrec :: ReadPrec DescribeAccountOverview
+readList :: ReadS [DescribeAccountOverview]
+$creadList :: ReadS [DescribeAccountOverview]
+readsPrec :: Int -&gt; ReadS DescribeAccountOverview
+$creadsPrec :: Int -&gt; ReadS DescribeAccountOverview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243673"><span id="local-6989586621679243675"><span id="local-6989586621679243677"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountOverview -&gt; ShowS
+[DescribeAccountOverview] -&gt; ShowS
+DescribeAccountOverview -&gt; String
+(Int -&gt; DescribeAccountOverview -&gt; ShowS)
+-&gt; (DescribeAccountOverview -&gt; String)
+-&gt; ([DescribeAccountOverview] -&gt; ShowS)
+-&gt; Show DescribeAccountOverview
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAccountOverview] -&gt; ShowS
+$cshowList :: [DescribeAccountOverview] -&gt; ShowS
+show :: DescribeAccountOverview -&gt; String
+$cshow :: DescribeAccountOverview -&gt; String
+showsPrec :: Int -&gt; DescribeAccountOverview -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAccountOverview -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAccountOverview -&gt; Rep DescribeAccountOverview x)
+-&gt; (forall x.
+    Rep DescribeAccountOverview x -&gt; DescribeAccountOverview)
+-&gt; Generic DescribeAccountOverview
+forall x. Rep DescribeAccountOverview x -&gt; DescribeAccountOverview
+forall x. DescribeAccountOverview -&gt; Rep DescribeAccountOverview x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeAccountOverview x -&gt; DescribeAccountOverview
+$cfrom :: forall x. DescribeAccountOverview -&gt; Rep DescribeAccountOverview x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DescribeAccountOverview' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'toTime', 'describeAccountOverview_toTime' - The end of the time range passed in. The start time granularity is at</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the day level. The floor of the start time is used. Returned information</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- occurred before this day. If this is not specified, then the current day</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- is used.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'fromTime', 'describeAccountOverview_fromTime' - The start of the time range passed in. The start time granularity is at</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- the day level. The floor of the start time is used. Returned information</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- occurred after this day.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#newDescribeAccountOverview"><span class="hs-identifier hs-type">newDescribeAccountOverview</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'fromTime'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span>
+</span><span id="line-89"></span><span id="newDescribeAccountOverview"><span class="annot"><span class="annottext">newDescribeAccountOverview :: UTCTime -&gt; DescribeAccountOverview
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#newDescribeAccountOverview"><span class="hs-identifier hs-var hs-var">newDescribeAccountOverview</span></a></span></span><span> </span><span id="local-6989586621679243668"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679243668"><span class="hs-identifier hs-var">pFromTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountOverview' :: Maybe POSIX -&gt; POSIX -&gt; DescribeAccountOverview
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview%27"><span class="hs-identifier hs-type">DescribeAccountOverview'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:toTime:DescribeAccountOverview' :: Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AtoTime%3ADescribeAccountOverview%27"><span class="hs-identifier hs-var">toTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:fromTime:DescribeAccountOverview' :: POSIX
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AfromTime%3ADescribeAccountOverview%27"><span class="hs-identifier hs-var">fromTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679243668"><span class="hs-identifier hs-var">pFromTime_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The end of the time range passed in. The start time granularity is at</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the day level. The floor of the start time is used. Returned information</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- occurred before this day. If this is not specified, then the current day</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- is used.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverview_toTime"><span class="hs-identifier hs-type">describeAccountOverview_toTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="describeAccountOverview_toTime"><span class="annot"><span class="annottext">describeAccountOverview_toTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeAccountOverview -&gt; f DescribeAccountOverview
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverview_toTime"><span class="hs-identifier hs-var hs-var">describeAccountOverview_toTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountOverview -&gt; Maybe POSIX)
+-&gt; (DescribeAccountOverview
+    -&gt; Maybe POSIX -&gt; DescribeAccountOverview)
+-&gt; Lens
+     DescribeAccountOverview
+     DescribeAccountOverview
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview%27"><span class="hs-identifier hs-type">DescribeAccountOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243663"><span class="annot"><span class="annottext">Maybe POSIX
+toTime :: Maybe POSIX
+$sel:toTime:DescribeAccountOverview' :: DescribeAccountOverview -&gt; Maybe POSIX
+</span><a href="#local-6989586621679243663"><span class="hs-identifier hs-var hs-var">toTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679243663"><span class="hs-identifier hs-var">toTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243662"><span class="annot"><span class="annottext">s :: DescribeAccountOverview
+</span><a href="#local-6989586621679243662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview%27"><span class="hs-identifier hs-type">DescribeAccountOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243661"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679243661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountOverview
+</span><a href="#local-6989586621679243662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toTime:DescribeAccountOverview' :: Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AtoTime%3ADescribeAccountOverview%27"><span class="hs-identifier hs-var">toTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679243661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeAccountOverview -&gt; f DescribeAccountOverview)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeAccountOverview
+-&gt; f DescribeAccountOverview
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The start of the time range passed in. The start time granularity is at</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the day level. The floor of the start time is used. Returned information</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- occurred after this day.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverview_fromTime"><span class="hs-identifier hs-type">describeAccountOverview_fromTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-106"></span><span id="describeAccountOverview_fromTime"><span class="annot"><span class="annottext">describeAccountOverview_fromTime :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribeAccountOverview -&gt; f DescribeAccountOverview
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverview_fromTime"><span class="hs-identifier hs-var hs-var">describeAccountOverview_fromTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountOverview -&gt; POSIX)
+-&gt; (DescribeAccountOverview -&gt; POSIX -&gt; DescribeAccountOverview)
+-&gt; Lens DescribeAccountOverview DescribeAccountOverview POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview%27"><span class="hs-identifier hs-type">DescribeAccountOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243658"><span class="annot"><span class="annottext">POSIX
+fromTime :: POSIX
+$sel:fromTime:DescribeAccountOverview' :: DescribeAccountOverview -&gt; POSIX
+</span><a href="#local-6989586621679243658"><span class="hs-identifier hs-var hs-var">fromTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679243658"><span class="hs-identifier hs-var">fromTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243657"><span class="annot"><span class="annottext">s :: DescribeAccountOverview
+</span><a href="#local-6989586621679243657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview%27"><span class="hs-identifier hs-type">DescribeAccountOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243656"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679243656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountOverview
+</span><a href="#local-6989586621679243657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromTime:DescribeAccountOverview' :: POSIX
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AfromTime%3ADescribeAccountOverview%27"><span class="hs-identifier hs-var">fromTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679243656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribeAccountOverview -&gt; f DescribeAccountOverview)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribeAccountOverview
+-&gt; f DescribeAccountOverview
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679243652"><span class="annot"><span class="annottext">request :: DescribeAccountOverview -&gt; Request DescribeAccountOverview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAccountOverview -&gt; Request DescribeAccountOverview
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DevOpsGuru.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679243648"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAccountOverview
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAccountOverview)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAccountOverview))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAccountOverview
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAccountOverview)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243645"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243645"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243644"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679243644"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243643"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243643"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int -&gt; Integer -&gt; DescribeAccountOverviewResponse
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">DescribeAccountOverviewResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Int -&gt; Int -&gt; Integer -&gt; DescribeAccountOverviewResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Int -&gt; Int -&gt; Integer -&gt; DescribeAccountOverviewResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243645"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; Int -&gt; Integer -&gt; DescribeAccountOverviewResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Int -&gt; Integer -&gt; DescribeAccountOverviewResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String Int
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;ReactiveInsights&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; Integer -&gt; DescribeAccountOverviewResponse)
+-&gt; Either String Int
+-&gt; Either String (Integer -&gt; DescribeAccountOverviewResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String Int
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;ProactiveInsights&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Integer -&gt; DescribeAccountOverviewResponse)
+-&gt; Either String Integer
+-&gt; Either String DescribeAccountOverviewResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String Integer
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;MeanTimeToRecoverInMilliseconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243635"><span id="local-6989586621679243637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679243628"><span class="annot"><span class="annottext">toHeaders :: DescribeAccountOverview -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAccountOverview -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243618"><span id="local-6989586621679243620"><span id="local-6989586621679243622"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679243616"><span class="annot"><span class="annottext">toJSON :: DescribeAccountOverview -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview%27"><span class="hs-identifier hs-type">DescribeAccountOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243613"><span id="local-6989586621679243614"><span class="annot"><span class="annottext">Maybe POSIX
+POSIX
+fromTime :: POSIX
+toTime :: Maybe POSIX
+$sel:fromTime:DescribeAccountOverview' :: DescribeAccountOverview -&gt; POSIX
+$sel:toTime:DescribeAccountOverview' :: DescribeAccountOverview -&gt; Maybe POSIX
+</span><a href="#local-6989586621679243613"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;ToTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679243614"><span class="hs-identifier hs-var">toTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;FromTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679243613"><span class="hs-identifier hs-var">fromTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679243607"><span class="annot"><span class="annottext">toPath :: DescribeAccountOverview -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAccountOverview -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/overview&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverview"><span class="hs-identifier hs-type">DescribeAccountOverview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679243603"><span class="annot"><span class="annottext">toQuery :: DescribeAccountOverview -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAccountOverview -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountOverviewResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621679243600"><span id="local-6989586621679243601"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountOverviewResponse"><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-var">DescribeAccountOverviewResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountOverviewResponse%27"><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">DescribeAccountOverviewResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAccountOverviewResponse%27"><span class="annot"><span class="annottext">DescribeAccountOverviewResponse -&gt; Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AhttpStatus%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | An integer that specifies the number of open reactive insights in your</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- AWS account that were created during the time range passed in.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AreactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="annot"><span class="annottext">DescribeAccountOverviewResponse -&gt; Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AreactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var hs-var">reactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | An integer that specifies the number of open proactive insights in your</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- AWS account that were created during the time range passed in.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AproactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="annot"><span class="annottext">DescribeAccountOverviewResponse -&gt; Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AproactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var hs-var">proactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The Mean Time to Recover (MTTR) for all closed insights that were</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- created during the time range passed in.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AmeanTimeToRecoverInMilliseconds%3ADescribeAccountOverviewResponse%27"><span class="annot"><span class="annottext">DescribeAccountOverviewResponse -&gt; Integer
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AmeanTimeToRecoverInMilliseconds%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var hs-var">meanTimeToRecoverInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243592"><span id="local-6989586621679243594"><span class="annot"><span class="annottext">DescribeAccountOverviewResponse
+-&gt; DescribeAccountOverviewResponse -&gt; Bool
+(DescribeAccountOverviewResponse
+ -&gt; DescribeAccountOverviewResponse -&gt; Bool)
+-&gt; (DescribeAccountOverviewResponse
+    -&gt; DescribeAccountOverviewResponse -&gt; Bool)
+-&gt; Eq DescribeAccountOverviewResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAccountOverviewResponse
+-&gt; DescribeAccountOverviewResponse -&gt; Bool
+$c/= :: DescribeAccountOverviewResponse
+-&gt; DescribeAccountOverviewResponse -&gt; Bool
+== :: DescribeAccountOverviewResponse
+-&gt; DescribeAccountOverviewResponse -&gt; Bool
+$c== :: DescribeAccountOverviewResponse
+-&gt; DescribeAccountOverviewResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243584"><span id="local-6989586621679243586"><span id="local-6989586621679243588"><span id="local-6989586621679243590"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountOverviewResponse]
+ReadPrec DescribeAccountOverviewResponse
+Int -&gt; ReadS DescribeAccountOverviewResponse
+ReadS [DescribeAccountOverviewResponse]
+(Int -&gt; ReadS DescribeAccountOverviewResponse)
+-&gt; ReadS [DescribeAccountOverviewResponse]
+-&gt; ReadPrec DescribeAccountOverviewResponse
+-&gt; ReadPrec [DescribeAccountOverviewResponse]
+-&gt; Read DescribeAccountOverviewResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAccountOverviewResponse]
+$creadListPrec :: ReadPrec [DescribeAccountOverviewResponse]
+readPrec :: ReadPrec DescribeAccountOverviewResponse
+$creadPrec :: ReadPrec DescribeAccountOverviewResponse
+readList :: ReadS [DescribeAccountOverviewResponse]
+$creadList :: ReadS [DescribeAccountOverviewResponse]
+readsPrec :: Int -&gt; ReadS DescribeAccountOverviewResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAccountOverviewResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243578"><span id="local-6989586621679243580"><span id="local-6989586621679243582"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountOverviewResponse -&gt; ShowS
+[DescribeAccountOverviewResponse] -&gt; ShowS
+DescribeAccountOverviewResponse -&gt; String
+(Int -&gt; DescribeAccountOverviewResponse -&gt; ShowS)
+-&gt; (DescribeAccountOverviewResponse -&gt; String)
+-&gt; ([DescribeAccountOverviewResponse] -&gt; ShowS)
+-&gt; Show DescribeAccountOverviewResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAccountOverviewResponse] -&gt; ShowS
+$cshowList :: [DescribeAccountOverviewResponse] -&gt; ShowS
+show :: DescribeAccountOverviewResponse -&gt; String
+$cshow :: DescribeAccountOverviewResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAccountOverviewResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAccountOverviewResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAccountOverviewResponse
+ -&gt; Rep DescribeAccountOverviewResponse x)
+-&gt; (forall x.
+    Rep DescribeAccountOverviewResponse x
+    -&gt; DescribeAccountOverviewResponse)
+-&gt; Generic DescribeAccountOverviewResponse
+forall x.
+Rep DescribeAccountOverviewResponse x
+-&gt; DescribeAccountOverviewResponse
+forall x.
+DescribeAccountOverviewResponse
+-&gt; Rep DescribeAccountOverviewResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAccountOverviewResponse x
+-&gt; DescribeAccountOverviewResponse
+$cfrom :: forall x.
+DescribeAccountOverviewResponse
+-&gt; Rep DescribeAccountOverviewResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Create a value of 'DescribeAccountOverviewResponse' with all optional fields omitted.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'httpStatus', 'describeAccountOverviewResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'reactiveInsights', 'describeAccountOverviewResponse_reactiveInsights' - An integer that specifies the number of open reactive insights in your</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- AWS account that were created during the time range passed in.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'proactiveInsights', 'describeAccountOverviewResponse_proactiveInsights' - An integer that specifies the number of open proactive insights in your</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- AWS account that were created during the time range passed in.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'meanTimeToRecoverInMilliseconds', 'describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds' - The Mean Time to Recover (MTTR) for all closed insights that were</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- created during the time range passed in.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#newDescribeAccountOverviewResponse"><span class="hs-identifier hs-type">newDescribeAccountOverviewResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'reactiveInsights'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'proactiveInsights'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'meanTimeToRecoverInMilliseconds'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newDescribeAccountOverviewResponse"><span class="annot"><span class="annottext">newDescribeAccountOverviewResponse :: Int -&gt; Int -&gt; Int -&gt; Integer -&gt; DescribeAccountOverviewResponse
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#newDescribeAccountOverviewResponse"><span class="hs-identifier hs-var hs-var">newDescribeAccountOverviewResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679243575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679243574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243574"><span class="hs-identifier hs-var">pReactiveInsights_</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679243573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243573"><span class="hs-identifier hs-var">pProactiveInsights_</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679243572"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679243572"><span class="hs-identifier hs-var">pMeanTimeToRecoverInMilliseconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">DescribeAccountOverviewResponse' :: Int -&gt; Int -&gt; Int -&gt; Integer -&gt; DescribeAccountOverviewResponse
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountOverviewResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AhttpStatus%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:reactiveInsights:DescribeAccountOverviewResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AreactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">reactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243574"><span class="hs-identifier hs-var">pReactiveInsights_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:proactiveInsights:DescribeAccountOverviewResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AproactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">proactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243573"><span class="hs-identifier hs-var">pProactiveInsights_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:meanTimeToRecoverInMilliseconds:DescribeAccountOverviewResponse' :: Integer
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AmeanTimeToRecoverInMilliseconds%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">meanTimeToRecoverInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679243572"><span class="hs-identifier hs-var">pMeanTimeToRecoverInMilliseconds_</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_httpStatus"><span class="hs-identifier hs-type">describeAccountOverviewResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span id="describeAccountOverviewResponse_httpStatus"><span class="annot"><span class="annottext">describeAccountOverviewResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAccountOverviewResponse
+-&gt; f DescribeAccountOverviewResponse
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAccountOverviewResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountOverviewResponse -&gt; Int)
+-&gt; (DescribeAccountOverviewResponse
+    -&gt; Int -&gt; DescribeAccountOverviewResponse)
+-&gt; Lens
+     DescribeAccountOverviewResponse
+     DescribeAccountOverviewResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243571"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAccountOverviewResponse' :: DescribeAccountOverviewResponse -&gt; Int
+</span><a href="#local-6989586621679243571"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243571"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243570"><span class="annot"><span class="annottext">s :: DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243569"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountOverviewResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AhttpStatus%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | An integer that specifies the number of open reactive insights in your</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- AWS account that were created during the time range passed in.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_reactiveInsights"><span class="hs-identifier hs-type">describeAccountOverviewResponse_reactiveInsights</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="describeAccountOverviewResponse_reactiveInsights"><span class="annot"><span class="annottext">describeAccountOverviewResponse_reactiveInsights :: (Int -&gt; f Int)
+-&gt; DescribeAccountOverviewResponse
+-&gt; f DescribeAccountOverviewResponse
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_reactiveInsights"><span class="hs-identifier hs-var hs-var">describeAccountOverviewResponse_reactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountOverviewResponse -&gt; Int)
+-&gt; (DescribeAccountOverviewResponse
+    -&gt; Int -&gt; DescribeAccountOverviewResponse)
+-&gt; Lens
+     DescribeAccountOverviewResponse
+     DescribeAccountOverviewResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243568"><span class="annot"><span class="annottext">Int
+reactiveInsights :: Int
+$sel:reactiveInsights:DescribeAccountOverviewResponse' :: DescribeAccountOverviewResponse -&gt; Int
+</span><a href="#local-6989586621679243568"><span class="hs-identifier hs-var hs-var">reactiveInsights</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243568"><span class="hs-identifier hs-var">reactiveInsights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243567"><span class="annot"><span class="annottext">s :: DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243566"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reactiveInsights:DescribeAccountOverviewResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AreactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">reactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | An integer that specifies the number of open proactive insights in your</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- AWS account that were created during the time range passed in.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_proactiveInsights"><span class="hs-identifier hs-type">describeAccountOverviewResponse_proactiveInsights</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="describeAccountOverviewResponse_proactiveInsights"><span class="annot"><span class="annottext">describeAccountOverviewResponse_proactiveInsights :: (Int -&gt; f Int)
+-&gt; DescribeAccountOverviewResponse
+-&gt; f DescribeAccountOverviewResponse
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_proactiveInsights"><span class="hs-identifier hs-var hs-var">describeAccountOverviewResponse_proactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountOverviewResponse -&gt; Int)
+-&gt; (DescribeAccountOverviewResponse
+    -&gt; Int -&gt; DescribeAccountOverviewResponse)
+-&gt; Lens
+     DescribeAccountOverviewResponse
+     DescribeAccountOverviewResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243565"><span class="annot"><span class="annottext">Int
+proactiveInsights :: Int
+$sel:proactiveInsights:DescribeAccountOverviewResponse' :: DescribeAccountOverviewResponse -&gt; Int
+</span><a href="#local-6989586621679243565"><span class="hs-identifier hs-var hs-var">proactiveInsights</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243565"><span class="hs-identifier hs-var">proactiveInsights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243564"><span class="annot"><span class="annottext">s :: DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243563"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proactiveInsights:DescribeAccountOverviewResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AproactiveInsights%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">proactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The Mean Time to Recover (MTTR) for all closed insights that were</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- created during the time range passed in.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds"><span class="hs-identifier hs-type">describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-228"></span><span id="describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds"><span class="annot"><span class="annottext">describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds :: (Integer -&gt; f Integer)
+-&gt; DescribeAccountOverviewResponse
+-&gt; f DescribeAccountOverviewResponse
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds"><span class="hs-identifier hs-var hs-var">describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountOverviewResponse -&gt; Integer)
+-&gt; (DescribeAccountOverviewResponse
+    -&gt; Integer -&gt; DescribeAccountOverviewResponse)
+-&gt; Lens
+     DescribeAccountOverviewResponse
+     DescribeAccountOverviewResponse
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243562"><span class="annot"><span class="annottext">Integer
+meanTimeToRecoverInMilliseconds :: Integer
+$sel:meanTimeToRecoverInMilliseconds:DescribeAccountOverviewResponse' :: DescribeAccountOverviewResponse -&gt; Integer
+</span><a href="#local-6989586621679243562"><span class="hs-identifier hs-var hs-var">meanTimeToRecoverInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679243562"><span class="hs-identifier hs-var">meanTimeToRecoverInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243561"><span class="annot"><span class="annottext">s :: DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse%27"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243560"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679243560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountOverviewResponse
+</span><a href="#local-6989586621679243561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meanTimeToRecoverInMilliseconds:DescribeAccountOverviewResponse' :: Integer
+</span><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#%24sel%3AmeanTimeToRecoverInMilliseconds%3ADescribeAccountOverviewResponse%27"><span class="hs-identifier hs-var">meanTimeToRecoverInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679243560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679243558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.DescribeAccountOverview.html#DescribeAccountOverviewResponse"><span class="hs-identifier hs-type">DescribeAccountOverviewResponse</span></a></span></span><span>
+</span><span id="line-233"></span></pre></body></html>

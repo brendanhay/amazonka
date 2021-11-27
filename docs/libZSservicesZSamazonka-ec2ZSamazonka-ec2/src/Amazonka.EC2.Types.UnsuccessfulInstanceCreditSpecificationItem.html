@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError.html"><span class="hs-identifier">Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the burstable performance instance whose credit option for CPU</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- usage was not modified.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUnsuccessfulInstanceCreditSpecificationItem' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681176419"><span id="local-6989586621681176420"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnsuccessfulInstanceCreditSpecificationItem"><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-var">UnsuccessfulInstanceCreditSpecificationItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnsuccessfulInstanceCreditSpecificationItem%27"><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var">UnsuccessfulInstanceCreditSpecificationItem'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AinstanceId%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="annot"><span class="annottext">UnsuccessfulInstanceCreditSpecificationItem -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#%24sel%3AinstanceId%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The applicable error for the burstable performance instance whose credit</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- option for CPU usage was not modified.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aerror%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="annot"><span class="annottext">UnsuccessfulInstanceCreditSpecificationItem
+-&gt; Maybe UnsuccessfulInstanceCreditSpecificationItemError
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#%24sel%3Aerror%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError.html#UnsuccessfulInstanceCreditSpecificationItemError"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItemError</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681176412"><span id="local-6989586621681176414"><span class="annot"><span class="annottext">UnsuccessfulInstanceCreditSpecificationItem
+-&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; Bool
+(UnsuccessfulInstanceCreditSpecificationItem
+ -&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; Bool)
+-&gt; (UnsuccessfulInstanceCreditSpecificationItem
+    -&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; Bool)
+-&gt; Eq UnsuccessfulInstanceCreditSpecificationItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnsuccessfulInstanceCreditSpecificationItem
+-&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; Bool
+$c/= :: UnsuccessfulInstanceCreditSpecificationItem
+-&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; Bool
+== :: UnsuccessfulInstanceCreditSpecificationItem
+-&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; Bool
+$c== :: UnsuccessfulInstanceCreditSpecificationItem
+-&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176403"><span id="local-6989586621681176405"><span id="local-6989586621681176407"><span id="local-6989586621681176409"><span class="annot"><span class="annottext">ReadPrec [UnsuccessfulInstanceCreditSpecificationItem]
+ReadPrec UnsuccessfulInstanceCreditSpecificationItem
+Int -&gt; ReadS UnsuccessfulInstanceCreditSpecificationItem
+ReadS [UnsuccessfulInstanceCreditSpecificationItem]
+(Int -&gt; ReadS UnsuccessfulInstanceCreditSpecificationItem)
+-&gt; ReadS [UnsuccessfulInstanceCreditSpecificationItem]
+-&gt; ReadPrec UnsuccessfulInstanceCreditSpecificationItem
+-&gt; ReadPrec [UnsuccessfulInstanceCreditSpecificationItem]
+-&gt; Read UnsuccessfulInstanceCreditSpecificationItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnsuccessfulInstanceCreditSpecificationItem]
+$creadListPrec :: ReadPrec [UnsuccessfulInstanceCreditSpecificationItem]
+readPrec :: ReadPrec UnsuccessfulInstanceCreditSpecificationItem
+$creadPrec :: ReadPrec UnsuccessfulInstanceCreditSpecificationItem
+readList :: ReadS [UnsuccessfulInstanceCreditSpecificationItem]
+$creadList :: ReadS [UnsuccessfulInstanceCreditSpecificationItem]
+readsPrec :: Int -&gt; ReadS UnsuccessfulInstanceCreditSpecificationItem
+$creadsPrec :: Int -&gt; ReadS UnsuccessfulInstanceCreditSpecificationItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176396"><span id="local-6989586621681176398"><span id="local-6989586621681176400"><span class="annot"><span class="annottext">Int -&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; ShowS
+[UnsuccessfulInstanceCreditSpecificationItem] -&gt; ShowS
+UnsuccessfulInstanceCreditSpecificationItem -&gt; String
+(Int -&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; ShowS)
+-&gt; (UnsuccessfulInstanceCreditSpecificationItem -&gt; String)
+-&gt; ([UnsuccessfulInstanceCreditSpecificationItem] -&gt; ShowS)
+-&gt; Show UnsuccessfulInstanceCreditSpecificationItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnsuccessfulInstanceCreditSpecificationItem] -&gt; ShowS
+$cshowList :: [UnsuccessfulInstanceCreditSpecificationItem] -&gt; ShowS
+show :: UnsuccessfulInstanceCreditSpecificationItem -&gt; String
+$cshow :: UnsuccessfulInstanceCreditSpecificationItem -&gt; String
+showsPrec :: Int -&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnsuccessfulInstanceCreditSpecificationItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UnsuccessfulInstanceCreditSpecificationItem
+ -&gt; Rep UnsuccessfulInstanceCreditSpecificationItem x)
+-&gt; (forall x.
+    Rep UnsuccessfulInstanceCreditSpecificationItem x
+    -&gt; UnsuccessfulInstanceCreditSpecificationItem)
+-&gt; Generic UnsuccessfulInstanceCreditSpecificationItem
+forall x.
+Rep UnsuccessfulInstanceCreditSpecificationItem x
+-&gt; UnsuccessfulInstanceCreditSpecificationItem
+forall x.
+UnsuccessfulInstanceCreditSpecificationItem
+-&gt; Rep UnsuccessfulInstanceCreditSpecificationItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UnsuccessfulInstanceCreditSpecificationItem x
+-&gt; UnsuccessfulInstanceCreditSpecificationItem
+$cfrom :: forall x.
+UnsuccessfulInstanceCreditSpecificationItem
+-&gt; Rep UnsuccessfulInstanceCreditSpecificationItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'UnsuccessfulInstanceCreditSpecificationItem' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'instanceId', 'unsuccessfulInstanceCreditSpecificationItem_instanceId' - The ID of the instance.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'error', 'unsuccessfulInstanceCreditSpecificationItem_error' - The applicable error for the burstable performance instance whose credit</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- option for CPU usage was not modified.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#newUnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">newUnsuccessfulInstanceCreditSpecificationItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span>
+</span><span id="line-55"></span><span id="newUnsuccessfulInstanceCreditSpecificationItem"><span class="annot"><span class="annottext">newUnsuccessfulInstanceCreditSpecificationItem :: UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#newUnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-var hs-var">newUnsuccessfulInstanceCreditSpecificationItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">UnsuccessfulInstanceCreditSpecificationItem' :: Maybe Text
+-&gt; Maybe UnsuccessfulInstanceCreditSpecificationItemError
+-&gt; UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:UnsuccessfulInstanceCreditSpecificationItem' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#%24sel%3AinstanceId%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:UnsuccessfulInstanceCreditSpecificationItem' :: Maybe UnsuccessfulInstanceCreditSpecificationItemError
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#%24sel%3Aerror%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UnsuccessfulInstanceCreditSpecificationItemError
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#unsuccessfulInstanceCreditSpecificationItem_instanceId"><span class="hs-identifier hs-type">unsuccessfulInstanceCreditSpecificationItem_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="unsuccessfulInstanceCreditSpecificationItem_instanceId"><span class="annot"><span class="annottext">unsuccessfulInstanceCreditSpecificationItem_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UnsuccessfulInstanceCreditSpecificationItem
+-&gt; f UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#unsuccessfulInstanceCreditSpecificationItem_instanceId"><span class="hs-identifier hs-var hs-var">unsuccessfulInstanceCreditSpecificationItem_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnsuccessfulInstanceCreditSpecificationItem -&gt; Maybe Text)
+-&gt; (UnsuccessfulInstanceCreditSpecificationItem
+    -&gt; Maybe Text -&gt; UnsuccessfulInstanceCreditSpecificationItem)
+-&gt; Lens
+     UnsuccessfulInstanceCreditSpecificationItem
+     UnsuccessfulInstanceCreditSpecificationItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176387"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:UnsuccessfulInstanceCreditSpecificationItem' :: UnsuccessfulInstanceCreditSpecificationItem -&gt; Maybe Text
+</span><a href="#local-6989586621681176387"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176387"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176386"><span class="annot"><span class="annottext">s :: UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="#local-6989586621681176386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176385"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="#local-6989586621681176386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UnsuccessfulInstanceCreditSpecificationItem' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#%24sel%3AinstanceId%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The applicable error for the burstable performance instance whose credit</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- option for CPU usage was not modified.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#unsuccessfulInstanceCreditSpecificationItem_error"><span class="hs-identifier hs-type">unsuccessfulInstanceCreditSpecificationItem_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError.html#UnsuccessfulInstanceCreditSpecificationItemError"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItemError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="unsuccessfulInstanceCreditSpecificationItem_error"><span class="annot"><span class="annottext">unsuccessfulInstanceCreditSpecificationItem_error :: (Maybe UnsuccessfulInstanceCreditSpecificationItemError
+ -&gt; f (Maybe UnsuccessfulInstanceCreditSpecificationItemError))
+-&gt; UnsuccessfulInstanceCreditSpecificationItem
+-&gt; f UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#unsuccessfulInstanceCreditSpecificationItem_error"><span class="hs-identifier hs-var hs-var">unsuccessfulInstanceCreditSpecificationItem_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnsuccessfulInstanceCreditSpecificationItem
+ -&gt; Maybe UnsuccessfulInstanceCreditSpecificationItemError)
+-&gt; (UnsuccessfulInstanceCreditSpecificationItem
+    -&gt; Maybe UnsuccessfulInstanceCreditSpecificationItemError
+    -&gt; UnsuccessfulInstanceCreditSpecificationItem)
+-&gt; Lens
+     UnsuccessfulInstanceCreditSpecificationItem
+     UnsuccessfulInstanceCreditSpecificationItem
+     (Maybe UnsuccessfulInstanceCreditSpecificationItemError)
+     (Maybe UnsuccessfulInstanceCreditSpecificationItemError)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176383"><span class="annot"><span class="annottext">Maybe UnsuccessfulInstanceCreditSpecificationItemError
+error :: Maybe UnsuccessfulInstanceCreditSpecificationItemError
+$sel:error:UnsuccessfulInstanceCreditSpecificationItem' :: UnsuccessfulInstanceCreditSpecificationItem
+-&gt; Maybe UnsuccessfulInstanceCreditSpecificationItemError
+</span><a href="#local-6989586621681176383"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UnsuccessfulInstanceCreditSpecificationItemError
+</span><a href="#local-6989586621681176383"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176382"><span class="annot"><span class="annottext">s :: UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="#local-6989586621681176382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176381"><span class="annot"><span class="annottext">Maybe UnsuccessfulInstanceCreditSpecificationItemError
+</span><a href="#local-6989586621681176381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="#local-6989586621681176382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:UnsuccessfulInstanceCreditSpecificationItem' :: Maybe UnsuccessfulInstanceCreditSpecificationItemError
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#%24sel%3Aerror%3AUnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UnsuccessfulInstanceCreditSpecificationItemError
+</span><a href="#local-6989586621681176381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621681176378"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UnsuccessfulInstanceCreditSpecificationItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681176376"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681176376"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe UnsuccessfulInstanceCreditSpecificationItemError
+-&gt; UnsuccessfulInstanceCreditSpecificationItem
+</span><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem%27"><span class="hs-identifier hs-var">UnsuccessfulInstanceCreditSpecificationItem'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe UnsuccessfulInstanceCreditSpecificationItemError
+ -&gt; UnsuccessfulInstanceCreditSpecificationItem)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe UnsuccessfulInstanceCreditSpecificationItemError
+      -&gt; UnsuccessfulInstanceCreditSpecificationItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681176376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe UnsuccessfulInstanceCreditSpecificationItemError
+   -&gt; UnsuccessfulInstanceCreditSpecificationItem)
+-&gt; Either
+     String (Maybe UnsuccessfulInstanceCreditSpecificationItemError)
+-&gt; Either String UnsuccessfulInstanceCreditSpecificationItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681176376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text
+-&gt; Either
+     String (Maybe UnsuccessfulInstanceCreditSpecificationItemError)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621681176370"><span id="local-6989586621681176372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621681176367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

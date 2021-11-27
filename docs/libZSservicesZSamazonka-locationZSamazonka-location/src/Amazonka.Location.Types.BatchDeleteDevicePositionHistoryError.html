@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.BatchItemError.html"><span class="hs-identifier">Amazonka.Location.Types.BatchItemError</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains the tracker resource details.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchDeleteDevicePositionHistoryError' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679258583"><span id="local-6989586621679258584"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteDevicePositionHistoryError"><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-var">BatchDeleteDevicePositionHistoryError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteDevicePositionHistoryError%27"><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var">BatchDeleteDevicePositionHistoryError'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the device for this position.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeviceId%3ABatchDeleteDevicePositionHistoryError%27"><span class="annot"><span class="annottext">BatchDeleteDevicePositionHistoryError -&gt; Text
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#%24sel%3AdeviceId%3ABatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aerror%3ABatchDeleteDevicePositionHistoryError%27"><span class="annot"><span class="annottext">BatchDeleteDevicePositionHistoryError -&gt; BatchItemError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#%24sel%3Aerror%3ABatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258576"><span id="local-6989586621679258578"><span class="annot"><span class="annottext">BatchDeleteDevicePositionHistoryError
+-&gt; BatchDeleteDevicePositionHistoryError -&gt; Bool
+(BatchDeleteDevicePositionHistoryError
+ -&gt; BatchDeleteDevicePositionHistoryError -&gt; Bool)
+-&gt; (BatchDeleteDevicePositionHistoryError
+    -&gt; BatchDeleteDevicePositionHistoryError -&gt; Bool)
+-&gt; Eq BatchDeleteDevicePositionHistoryError
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDeleteDevicePositionHistoryError
+-&gt; BatchDeleteDevicePositionHistoryError -&gt; Bool
+$c/= :: BatchDeleteDevicePositionHistoryError
+-&gt; BatchDeleteDevicePositionHistoryError -&gt; Bool
+== :: BatchDeleteDevicePositionHistoryError
+-&gt; BatchDeleteDevicePositionHistoryError -&gt; Bool
+$c== :: BatchDeleteDevicePositionHistoryError
+-&gt; BatchDeleteDevicePositionHistoryError -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258567"><span id="local-6989586621679258569"><span id="local-6989586621679258571"><span id="local-6989586621679258573"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteDevicePositionHistoryError]
+ReadPrec BatchDeleteDevicePositionHistoryError
+Int -&gt; ReadS BatchDeleteDevicePositionHistoryError
+ReadS [BatchDeleteDevicePositionHistoryError]
+(Int -&gt; ReadS BatchDeleteDevicePositionHistoryError)
+-&gt; ReadS [BatchDeleteDevicePositionHistoryError]
+-&gt; ReadPrec BatchDeleteDevicePositionHistoryError
+-&gt; ReadPrec [BatchDeleteDevicePositionHistoryError]
+-&gt; Read BatchDeleteDevicePositionHistoryError
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchDeleteDevicePositionHistoryError]
+$creadListPrec :: ReadPrec [BatchDeleteDevicePositionHistoryError]
+readPrec :: ReadPrec BatchDeleteDevicePositionHistoryError
+$creadPrec :: ReadPrec BatchDeleteDevicePositionHistoryError
+readList :: ReadS [BatchDeleteDevicePositionHistoryError]
+$creadList :: ReadS [BatchDeleteDevicePositionHistoryError]
+readsPrec :: Int -&gt; ReadS BatchDeleteDevicePositionHistoryError
+$creadsPrec :: Int -&gt; ReadS BatchDeleteDevicePositionHistoryError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258560"><span id="local-6989586621679258562"><span id="local-6989586621679258564"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteDevicePositionHistoryError -&gt; ShowS
+[BatchDeleteDevicePositionHistoryError] -&gt; ShowS
+BatchDeleteDevicePositionHistoryError -&gt; String
+(Int -&gt; BatchDeleteDevicePositionHistoryError -&gt; ShowS)
+-&gt; (BatchDeleteDevicePositionHistoryError -&gt; String)
+-&gt; ([BatchDeleteDevicePositionHistoryError] -&gt; ShowS)
+-&gt; Show BatchDeleteDevicePositionHistoryError
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDeleteDevicePositionHistoryError] -&gt; ShowS
+$cshowList :: [BatchDeleteDevicePositionHistoryError] -&gt; ShowS
+show :: BatchDeleteDevicePositionHistoryError -&gt; String
+$cshow :: BatchDeleteDevicePositionHistoryError -&gt; String
+showsPrec :: Int -&gt; BatchDeleteDevicePositionHistoryError -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDeleteDevicePositionHistoryError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchDeleteDevicePositionHistoryError
+ -&gt; Rep BatchDeleteDevicePositionHistoryError x)
+-&gt; (forall x.
+    Rep BatchDeleteDevicePositionHistoryError x
+    -&gt; BatchDeleteDevicePositionHistoryError)
+-&gt; Generic BatchDeleteDevicePositionHistoryError
+forall x.
+Rep BatchDeleteDevicePositionHistoryError x
+-&gt; BatchDeleteDevicePositionHistoryError
+forall x.
+BatchDeleteDevicePositionHistoryError
+-&gt; Rep BatchDeleteDevicePositionHistoryError x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchDeleteDevicePositionHistoryError x
+-&gt; BatchDeleteDevicePositionHistoryError
+$cfrom :: forall x.
+BatchDeleteDevicePositionHistoryError
+-&gt; Rep BatchDeleteDevicePositionHistoryError x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'BatchDeleteDevicePositionHistoryError' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'deviceId', 'batchDeleteDevicePositionHistoryError_deviceId' - The ID of the device for this position.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'error', 'batchDeleteDevicePositionHistoryError_error' - Undocumented member.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#newBatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">newBatchDeleteDevicePositionHistoryError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-comment">-- | 'error'</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.Location.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span><span>
+</span><span id="line-54"></span><span id="newBatchDeleteDevicePositionHistoryError"><span class="annot"><span class="annottext">newBatchDeleteDevicePositionHistoryError :: Text -&gt; BatchItemError -&gt; BatchDeleteDevicePositionHistoryError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#newBatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-var hs-var">newBatchDeleteDevicePositionHistoryError</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679258554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258554"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679258553"><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679258553"><span class="hs-identifier hs-var">pError_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">BatchDeleteDevicePositionHistoryError' :: Text -&gt; BatchItemError -&gt; BatchDeleteDevicePositionHistoryError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError'</span></a></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceId:BatchDeleteDevicePositionHistoryError' :: Text
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#%24sel%3AdeviceId%3ABatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258554"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">$sel:error:BatchDeleteDevicePositionHistoryError' :: BatchItemError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#%24sel%3Aerror%3ABatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679258553"><span class="hs-identifier hs-var">pError_</span></a></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The ID of the device for this position.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#batchDeleteDevicePositionHistoryError_deviceId"><span class="hs-identifier hs-type">batchDeleteDevicePositionHistoryError_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span id="batchDeleteDevicePositionHistoryError_deviceId"><span class="annot"><span class="annottext">batchDeleteDevicePositionHistoryError_deviceId :: (Text -&gt; f Text)
+-&gt; BatchDeleteDevicePositionHistoryError
+-&gt; f BatchDeleteDevicePositionHistoryError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#batchDeleteDevicePositionHistoryError_deviceId"><span class="hs-identifier hs-var hs-var">batchDeleteDevicePositionHistoryError_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteDevicePositionHistoryError -&gt; Text)
+-&gt; (BatchDeleteDevicePositionHistoryError
+    -&gt; Text -&gt; BatchDeleteDevicePositionHistoryError)
+-&gt; Lens
+     BatchDeleteDevicePositionHistoryError
+     BatchDeleteDevicePositionHistoryError
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258549"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:BatchDeleteDevicePositionHistoryError' :: BatchDeleteDevicePositionHistoryError -&gt; Text
+</span><a href="#local-6989586621679258549"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258549"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258548"><span class="annot"><span class="annottext">s :: BatchDeleteDevicePositionHistoryError
+</span><a href="#local-6989586621679258548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258547"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteDevicePositionHistoryError
+</span><a href="#local-6989586621679258548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:BatchDeleteDevicePositionHistoryError' :: Text
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#%24sel%3AdeviceId%3ABatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#batchDeleteDevicePositionHistoryError_error"><span class="hs-identifier hs-type">batchDeleteDevicePositionHistoryError_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span>
+</span><span id="line-69"></span><span id="batchDeleteDevicePositionHistoryError_error"><span class="annot"><span class="annottext">batchDeleteDevicePositionHistoryError_error :: (BatchItemError -&gt; f BatchItemError)
+-&gt; BatchDeleteDevicePositionHistoryError
+-&gt; f BatchDeleteDevicePositionHistoryError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#batchDeleteDevicePositionHistoryError_error"><span class="hs-identifier hs-var hs-var">batchDeleteDevicePositionHistoryError_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteDevicePositionHistoryError -&gt; BatchItemError)
+-&gt; (BatchDeleteDevicePositionHistoryError
+    -&gt; BatchItemError -&gt; BatchDeleteDevicePositionHistoryError)
+-&gt; Lens
+     BatchDeleteDevicePositionHistoryError
+     BatchDeleteDevicePositionHistoryError
+     BatchItemError
+     BatchItemError
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258545"><span class="annot"><span class="annottext">BatchItemError
+error :: BatchItemError
+$sel:error:BatchDeleteDevicePositionHistoryError' :: BatchDeleteDevicePositionHistoryError -&gt; BatchItemError
+</span><a href="#local-6989586621679258545"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679258545"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258544"><span class="annot"><span class="annottext">s :: BatchDeleteDevicePositionHistoryError
+</span><a href="#local-6989586621679258544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258543"><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679258543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteDevicePositionHistoryError
+</span><a href="#local-6989586621679258544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:BatchDeleteDevicePositionHistoryError' :: BatchItemError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#%24sel%3Aerror%3ABatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679258543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679258540"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679258538"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchDeleteDevicePositionHistoryError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchDeleteDevicePositionHistoryError)
+-&gt; Value
+-&gt; Parser BatchDeleteDevicePositionHistoryError
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchDeleteDevicePositionHistoryError&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258535"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; BatchItemError -&gt; BatchDeleteDevicePositionHistoryError
+</span><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError%27"><span class="hs-identifier hs-var">BatchDeleteDevicePositionHistoryError'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; BatchItemError -&gt; BatchDeleteDevicePositionHistoryError)
+-&gt; Parser Text
+-&gt; Parser (BatchItemError -&gt; BatchDeleteDevicePositionHistoryError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (BatchItemError -&gt; BatchDeleteDevicePositionHistoryError)
+-&gt; Parser BatchItemError
+-&gt; Parser BatchDeleteDevicePositionHistoryError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser BatchItemError
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679258529"><span id="local-6989586621679258531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679258526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier hs-type">BatchDeleteDevicePositionHistoryError</span></a></span></span><span>
+</span><span id="line-91"></span></pre></body></html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RAM.Types.ResourceShareAssociation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RAM.Types.ResourceShareAssociation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html"><span class="hs-identifier">Amazonka.RAM.Types.ResourceShareAssociationStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationType.html"><span class="hs-identifier">Amazonka.RAM.Types.ResourceShareAssociationType</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes an association with a resource share.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceShareAssociation' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679201656"><span id="local-6989586621679201657"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceShareAssociation"><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-var">ResourceShareAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceShareAssociation%27"><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-var">ResourceShareAssociation'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the association was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe POSIX
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AcreationTime%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of the association.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe ResourceShareAssociationStatus
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3Astatus%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-type">ResourceShareAssociationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource share.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AresourceShareArn%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AresourceShareArn%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">resourceShareArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time when the association was last updated.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe POSIX
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AlastUpdatedTime%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Indicates whether the principal belongs to the same organization in</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Organizations as the Amazon Web Services account that owns the resource</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- share.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aexternal%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe Bool
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3Aexternal%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">external</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the resource share.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AresourceShareName%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AresourceShareName%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">resourceShareName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The associated entity. For resource associations, this is the Amazon</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN) of the resource. For principal associations, this is</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- one of the following:</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   An Amazon Web Services account ID</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   An ARN of an organization in Organizations</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   An ARN of an organizational unit (OU) in Organizations</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   An ARN of an IAM role</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   An ARN of an IAM user</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AassociatedEntity%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AassociatedEntity%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">associatedEntity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The association type.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AassociationType%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe ResourceShareAssociationType
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AassociationType%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">associationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationType.html#ResourceShareAssociationType"><span class="hs-identifier hs-type">ResourceShareAssociationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A message about the status of the association.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstatusMessage%3AResourceShareAssociation%27"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AstatusMessage%3AResourceShareAssociation%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201642"><span id="local-6989586621679201644"><span class="annot"><span class="annottext">ResourceShareAssociation -&gt; ResourceShareAssociation -&gt; Bool
+(ResourceShareAssociation -&gt; ResourceShareAssociation -&gt; Bool)
+-&gt; (ResourceShareAssociation -&gt; ResourceShareAssociation -&gt; Bool)
+-&gt; Eq ResourceShareAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceShareAssociation -&gt; ResourceShareAssociation -&gt; Bool
+$c/= :: ResourceShareAssociation -&gt; ResourceShareAssociation -&gt; Bool
+== :: ResourceShareAssociation -&gt; ResourceShareAssociation -&gt; Bool
+$c== :: ResourceShareAssociation -&gt; ResourceShareAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201633"><span id="local-6989586621679201635"><span id="local-6989586621679201637"><span id="local-6989586621679201639"><span class="annot"><span class="annottext">ReadPrec [ResourceShareAssociation]
+ReadPrec ResourceShareAssociation
+Int -&gt; ReadS ResourceShareAssociation
+ReadS [ResourceShareAssociation]
+(Int -&gt; ReadS ResourceShareAssociation)
+-&gt; ReadS [ResourceShareAssociation]
+-&gt; ReadPrec ResourceShareAssociation
+-&gt; ReadPrec [ResourceShareAssociation]
+-&gt; Read ResourceShareAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceShareAssociation]
+$creadListPrec :: ReadPrec [ResourceShareAssociation]
+readPrec :: ReadPrec ResourceShareAssociation
+$creadPrec :: ReadPrec ResourceShareAssociation
+readList :: ReadS [ResourceShareAssociation]
+$creadList :: ReadS [ResourceShareAssociation]
+readsPrec :: Int -&gt; ReadS ResourceShareAssociation
+$creadsPrec :: Int -&gt; ReadS ResourceShareAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201626"><span id="local-6989586621679201628"><span id="local-6989586621679201630"><span class="annot"><span class="annottext">Int -&gt; ResourceShareAssociation -&gt; ShowS
+[ResourceShareAssociation] -&gt; ShowS
+ResourceShareAssociation -&gt; String
+(Int -&gt; ResourceShareAssociation -&gt; ShowS)
+-&gt; (ResourceShareAssociation -&gt; String)
+-&gt; ([ResourceShareAssociation] -&gt; ShowS)
+-&gt; Show ResourceShareAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceShareAssociation] -&gt; ShowS
+$cshowList :: [ResourceShareAssociation] -&gt; ShowS
+show :: ResourceShareAssociation -&gt; String
+$cshow :: ResourceShareAssociation -&gt; String
+showsPrec :: Int -&gt; ResourceShareAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceShareAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResourceShareAssociation -&gt; Rep ResourceShareAssociation x)
+-&gt; (forall x.
+    Rep ResourceShareAssociation x -&gt; ResourceShareAssociation)
+-&gt; Generic ResourceShareAssociation
+forall x.
+Rep ResourceShareAssociation x -&gt; ResourceShareAssociation
+forall x.
+ResourceShareAssociation -&gt; Rep ResourceShareAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResourceShareAssociation x -&gt; ResourceShareAssociation
+$cfrom :: forall x.
+ResourceShareAssociation -&gt; Rep ResourceShareAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'ResourceShareAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'creationTime', 'resourceShareAssociation_creationTime' - The time when the association was created.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'status', 'resourceShareAssociation_status' - The status of the association.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'resourceShareArn', 'resourceShareAssociation_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'lastUpdatedTime', 'resourceShareAssociation_lastUpdatedTime' - The time when the association was last updated.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'external', 'resourceShareAssociation_external' - Indicates whether the principal belongs to the same organization in</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Organizations as the Amazon Web Services account that owns the resource</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- share.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'resourceShareName', 'resourceShareAssociation_resourceShareName' - The name of the resource share.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'associatedEntity', 'resourceShareAssociation_associatedEntity' - The associated entity. For resource associations, this is the Amazon</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Resource Name (ARN) of the resource. For principal associations, this is</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- one of the following:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   An Amazon Web Services account ID</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   An ARN of an organization in Organizations</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   An ARN of an organizational unit (OU) in Organizations</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   An ARN of an IAM role</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   An ARN of an IAM user</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'associationType', 'resourceShareAssociation_associationType' - The association type.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'statusMessage', 'resourceShareAssociation_statusMessage' - A message about the status of the association.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#newResourceShareAssociation"><span class="hs-identifier hs-type">newResourceShareAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span>
+</span><span id="line-108"></span><span id="newResourceShareAssociation"><span class="annot"><span class="annottext">newResourceShareAssociation :: ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#newResourceShareAssociation"><span class="hs-identifier hs-var hs-var">newResourceShareAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ResourceShareAssociation' :: Maybe POSIX
+-&gt; Maybe ResourceShareAssociationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceShareAssociationType
+-&gt; Maybe Text
+-&gt; ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ResourceShareAssociation' :: Maybe POSIX
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AcreationTime%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ResourceShareAssociation' :: Maybe ResourceShareAssociationStatus
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3Astatus%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareAssociationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceShareArn:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AresourceShareArn%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">resourceShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ResourceShareAssociation' :: Maybe POSIX
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AlastUpdatedTime%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:external:ResourceShareAssociation' :: Maybe Bool
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3Aexternal%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">external</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceShareName:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AresourceShareName%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">resourceShareName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedEntity:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AassociatedEntity%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">associatedEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationType:ResourceShareAssociation' :: Maybe ResourceShareAssociationType
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AassociationType%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">associationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareAssociationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AstatusMessage%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The time when the association was created.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_creationTime"><span class="hs-identifier hs-type">resourceShareAssociation_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="resourceShareAssociation_creationTime"><span class="annot"><span class="annottext">resourceShareAssociation_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_creationTime"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe POSIX)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe POSIX -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201617"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679201617"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201617"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201616"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201615"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ResourceShareAssociation' :: Maybe POSIX
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AcreationTime%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceShareAssociation
+-&gt; f ResourceShareAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The status of the association.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_status"><span class="hs-identifier hs-type">resourceShareAssociation_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationStatus.html#ResourceShareAssociationStatus"><span class="hs-identifier hs-type">ResourceShareAssociationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="resourceShareAssociation_status"><span class="annot"><span class="annottext">resourceShareAssociation_status :: (Maybe ResourceShareAssociationStatus
+ -&gt; f (Maybe ResourceShareAssociationStatus))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_status"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe ResourceShareAssociationStatus)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe ResourceShareAssociationStatus
+    -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe ResourceShareAssociationStatus)
+     (Maybe ResourceShareAssociationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201610"><span class="annot"><span class="annottext">Maybe ResourceShareAssociationStatus
+status :: Maybe ResourceShareAssociationStatus
+$sel:status:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe ResourceShareAssociationStatus
+</span><a href="#local-6989586621679201610"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareAssociationStatus
+</span><a href="#local-6989586621679201610"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201609"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201608"><span class="annot"><span class="annottext">Maybe ResourceShareAssociationStatus
+</span><a href="#local-6989586621679201608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ResourceShareAssociation' :: Maybe ResourceShareAssociationStatus
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3Astatus%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareAssociationStatus
+</span><a href="#local-6989586621679201608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource share.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_resourceShareArn"><span class="hs-identifier hs-type">resourceShareAssociation_resourceShareArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="resourceShareAssociation_resourceShareArn"><span class="annot"><span class="annottext">resourceShareAssociation_resourceShareArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_resourceShareArn"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_resourceShareArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe Text)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe Text -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201606"><span class="annot"><span class="annottext">Maybe Text
+resourceShareArn :: Maybe Text
+$sel:resourceShareArn:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679201606"><span class="hs-identifier hs-var hs-var">resourceShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201606"><span class="hs-identifier hs-var">resourceShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201605"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareArn:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AresourceShareArn%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">resourceShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The time when the association was last updated.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_lastUpdatedTime"><span class="hs-identifier hs-type">resourceShareAssociation_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="resourceShareAssociation_lastUpdatedTime"><span class="annot"><span class="annottext">resourceShareAssociation_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe POSIX)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe POSIX -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201602"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679201602"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201602"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201601"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201600"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ResourceShareAssociation' :: Maybe POSIX
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AlastUpdatedTime%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceShareAssociation
+-&gt; f ResourceShareAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Indicates whether the principal belongs to the same organization in</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Organizations as the Amazon Web Services account that owns the resource</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- share.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_external"><span class="hs-identifier hs-type">resourceShareAssociation_external</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="resourceShareAssociation_external"><span class="annot"><span class="annottext">resourceShareAssociation_external :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_external"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_external</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe Bool)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe Bool -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201598"><span class="annot"><span class="annottext">Maybe Bool
+external :: Maybe Bool
+$sel:external:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe Bool
+</span><a href="#local-6989586621679201598"><span class="hs-identifier hs-var hs-var">external</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679201598"><span class="hs-identifier hs-var">external</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201597"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201596"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679201596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:external:ResourceShareAssociation' :: Maybe Bool
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3Aexternal%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">external</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679201596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The name of the resource share.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_resourceShareName"><span class="hs-identifier hs-type">resourceShareAssociation_resourceShareName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="resourceShareAssociation_resourceShareName"><span class="annot"><span class="annottext">resourceShareAssociation_resourceShareName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_resourceShareName"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_resourceShareName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe Text)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe Text -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201594"><span class="annot"><span class="annottext">Maybe Text
+resourceShareName :: Maybe Text
+$sel:resourceShareName:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679201594"><span class="hs-identifier hs-var hs-var">resourceShareName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201594"><span class="hs-identifier hs-var">resourceShareName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201593"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareName:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AresourceShareName%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">resourceShareName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The associated entity. For resource associations, this is the Amazon</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Resource Name (ARN) of the resource. For principal associations, this is</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- one of the following:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   An Amazon Web Services account ID</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   An ARN of an organization in Organizations</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   An ARN of an organizational unit (OU) in Organizations</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   An ARN of an IAM role</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   An ARN of an IAM user</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_associatedEntity"><span class="hs-identifier hs-type">resourceShareAssociation_associatedEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="resourceShareAssociation_associatedEntity"><span class="annot"><span class="annottext">resourceShareAssociation_associatedEntity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_associatedEntity"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_associatedEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe Text)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe Text -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201590"><span class="annot"><span class="annottext">Maybe Text
+associatedEntity :: Maybe Text
+$sel:associatedEntity:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679201590"><span class="hs-identifier hs-var hs-var">associatedEntity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201590"><span class="hs-identifier hs-var">associatedEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201589"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201588"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedEntity:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AassociatedEntity%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">associatedEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The association type.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_associationType"><span class="hs-identifier hs-type">resourceShareAssociation_associationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociationType.html#ResourceShareAssociationType"><span class="hs-identifier hs-type">ResourceShareAssociationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="resourceShareAssociation_associationType"><span class="annot"><span class="annottext">resourceShareAssociation_associationType :: (Maybe ResourceShareAssociationType
+ -&gt; f (Maybe ResourceShareAssociationType))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_associationType"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_associationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe ResourceShareAssociationType)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe ResourceShareAssociationType -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe ResourceShareAssociationType)
+     (Maybe ResourceShareAssociationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201586"><span class="annot"><span class="annottext">Maybe ResourceShareAssociationType
+associationType :: Maybe ResourceShareAssociationType
+$sel:associationType:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe ResourceShareAssociationType
+</span><a href="#local-6989586621679201586"><span class="hs-identifier hs-var hs-var">associationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareAssociationType
+</span><a href="#local-6989586621679201586"><span class="hs-identifier hs-var">associationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201585"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201584"><span class="annot"><span class="annottext">Maybe ResourceShareAssociationType
+</span><a href="#local-6989586621679201584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationType:ResourceShareAssociation' :: Maybe ResourceShareAssociationType
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AassociationType%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">associationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareAssociationType
+</span><a href="#local-6989586621679201584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | A message about the status of the association.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_statusMessage"><span class="hs-identifier hs-type">resourceShareAssociation_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="resourceShareAssociation_statusMessage"><span class="annot"><span class="annottext">resourceShareAssociation_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceShareAssociation -&gt; f ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#resourceShareAssociation_statusMessage"><span class="hs-identifier hs-var hs-var">resourceShareAssociation_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceShareAssociation -&gt; Maybe Text)
+-&gt; (ResourceShareAssociation
+    -&gt; Maybe Text -&gt; ResourceShareAssociation)
+-&gt; Lens
+     ResourceShareAssociation
+     ResourceShareAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201582"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:ResourceShareAssociation' :: ResourceShareAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679201582"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201582"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201581"><span class="annot"><span class="annottext">s :: ResourceShareAssociation
+</span><a href="#local-6989586621679201581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-type">ResourceShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceShareAssociation
+</span><a href="#local-6989586621679201581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ResourceShareAssociation' :: Maybe Text
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#%24sel%3AstatusMessage%3AResourceShareAssociation%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201577"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679201575"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceShareAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceShareAssociation)
+-&gt; Value
+-&gt; Parser ResourceShareAssociation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceShareAssociation&quot;</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201572"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ResourceShareAssociationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceShareAssociationType
+-&gt; Maybe Text
+-&gt; ResourceShareAssociation
+</span><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation%27"><span class="hs-identifier hs-var">ResourceShareAssociation'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ResourceShareAssociationStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ResourceShareAssociationType
+ -&gt; Maybe Text
+ -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ResourceShareAssociationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceShareAssociationType
+      -&gt; Maybe Text
+      -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceShareAssociationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceShareAssociationType
+   -&gt; Maybe Text
+   -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe ResourceShareAssociationStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceShareAssociationType
+      -&gt; Maybe Text
+      -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceShareAssociationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceShareAssociationType
+   -&gt; Maybe Text
+   -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceShareAssociationType
+      -&gt; Maybe Text
+      -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShareArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceShareAssociationType
+   -&gt; Maybe Text
+   -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceShareAssociationType
+      -&gt; Maybe Text
+      -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceShareAssociationType
+   -&gt; Maybe Text
+   -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ResourceShareAssociationType
+      -&gt; Maybe Text
+      -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;external&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ResourceShareAssociationType
+   -&gt; Maybe Text
+   -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ResourceShareAssociationType
+      -&gt; Maybe Text
+      -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShareName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ResourceShareAssociationType
+   -&gt; Maybe Text
+   -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ResourceShareAssociationType
+      -&gt; Maybe Text -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associatedEntity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceShareAssociationType
+   -&gt; Maybe Text -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe ResourceShareAssociationType)
+-&gt; Parser (Maybe Text -&gt; ResourceShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceShareAssociationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResourceShareAssociation)
+-&gt; Parser (Maybe Text) -&gt; Parser ResourceShareAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201566"><span id="local-6989586621679201568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

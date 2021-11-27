@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EKS.Types.Update</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EKS.Types.Update</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.ErrorDetail.html"><span class="hs-identifier">Amazonka.EKS.Types.ErrorDetail</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.UpdateParam.html"><span class="hs-identifier">Amazonka.EKS.Types.UpdateParam</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.UpdateStatus.html"><span class="hs-identifier">Amazonka.EKS.Types.UpdateStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.UpdateType.html"><span class="hs-identifier">Amazonka.EKS.Types.UpdateType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An object representing an asynchronous update.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUpdate' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679270361"><span id="local-6989586621679270362"></span></span><span class="hs-keyword">data</span><span> </span><span id="Update"><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-var">Update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Update%27"><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-var">Update'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the update.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe UpdateStatus
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Astatus%3AUpdate%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.UpdateStatus.html#UpdateStatus"><span class="hs-identifier hs-type">UpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the update was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreatedAt%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe POSIX
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3AcreatedAt%3AUpdate%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A key-value map that contains the parameters associated with the update.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aparams%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe [UpdateParam]
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aparams%3AUpdate%27"><span class="hs-identifier hs-var hs-var">params</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A UUID that is used to track the update.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aid%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe Text
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of the update.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe UpdateType
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-type">UpdateType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Any errors associated with a @Failed@ update.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aerrors%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe [ErrorDetail]
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270350"><span id="local-6989586621679270352"><span class="annot"><span class="annottext">Update -&gt; Update -&gt; Bool
+(Update -&gt; Update -&gt; Bool)
+-&gt; (Update -&gt; Update -&gt; Bool) -&gt; Eq Update
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Update -&gt; Update -&gt; Bool
+$c/= :: Update -&gt; Update -&gt; Bool
+== :: Update -&gt; Update -&gt; Bool
+$c== :: Update -&gt; Update -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270341"><span id="local-6989586621679270343"><span id="local-6989586621679270345"><span id="local-6989586621679270347"><span class="annot"><span class="annottext">ReadPrec [Update]
+ReadPrec Update
+Int -&gt; ReadS Update
+ReadS [Update]
+(Int -&gt; ReadS Update)
+-&gt; ReadS [Update]
+-&gt; ReadPrec Update
+-&gt; ReadPrec [Update]
+-&gt; Read Update
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Update]
+$creadListPrec :: ReadPrec [Update]
+readPrec :: ReadPrec Update
+$creadPrec :: ReadPrec Update
+readList :: ReadS [Update]
+$creadList :: ReadS [Update]
+readsPrec :: Int -&gt; ReadS Update
+$creadsPrec :: Int -&gt; ReadS Update
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270334"><span id="local-6989586621679270336"><span id="local-6989586621679270338"><span class="annot"><span class="annottext">Int -&gt; Update -&gt; ShowS
+[Update] -&gt; ShowS
+Update -&gt; String
+(Int -&gt; Update -&gt; ShowS)
+-&gt; (Update -&gt; String) -&gt; ([Update] -&gt; ShowS) -&gt; Show Update
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Update] -&gt; ShowS
+$cshowList :: [Update] -&gt; ShowS
+show :: Update -&gt; String
+$cshow :: Update -&gt; String
+showsPrec :: Int -&gt; Update -&gt; ShowS
+$cshowsPrec :: Int -&gt; Update -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Update -&gt; Rep Update x)
+-&gt; (forall x. Rep Update x -&gt; Update) -&gt; Generic Update
+forall x. Rep Update x -&gt; Update
+forall x. Update -&gt; Rep Update x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Update x -&gt; Update
+$cfrom :: forall x. Update -&gt; Rep Update x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'Update' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'status', 'update_status' - The current status of the update.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'createdAt', 'update_createdAt' - The Unix epoch timestamp in seconds for when the update was created.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'params', 'update_params' - A key-value map that contains the parameters associated with the update.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'id', 'update_id' - A UUID that is used to track the update.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'type'', 'update_type' - The type of the update.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'errors', 'update_errors' - Any errors associated with a @Failed@ update.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#newUpdate"><span class="hs-identifier hs-type">newUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span>
+</span><span id="line-70"></span><span id="newUpdate"><span class="annot"><span class="annottext">newUpdate :: Update
+</span><a href="Amazonka.EKS.Types.Update.html#newUpdate"><span class="hs-identifier hs-var hs-var">newUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">Update' :: Maybe UpdateStatus
+-&gt; Maybe POSIX
+-&gt; Maybe [UpdateParam]
+-&gt; Maybe Text
+-&gt; Maybe UpdateType
+-&gt; Maybe [ErrorDetail]
+-&gt; Update
+</span><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Update' :: Maybe UpdateStatus
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Astatus%3AUpdate%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Update' :: Maybe POSIX
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3AcreatedAt%3AUpdate%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:params:Update' :: Maybe [UpdateParam]
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aparams%3AUpdate%27"><span class="hs-identifier hs-var">params</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Update' :: Maybe Text
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Update' :: Maybe UpdateType
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:Update' :: Maybe [ErrorDetail]
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The current status of the update.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#update_status"><span class="hs-identifier hs-type">update_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.UpdateStatus.html#UpdateStatus"><span class="hs-identifier hs-type">UpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="update_status"><span class="annot"><span class="annottext">update_status :: (Maybe UpdateStatus -&gt; f (Maybe UpdateStatus))
+-&gt; Update -&gt; f Update
+</span><a href="Amazonka.EKS.Types.Update.html#update_status"><span class="hs-identifier hs-var hs-var">update_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe UpdateStatus)
+-&gt; (Update -&gt; Maybe UpdateStatus -&gt; Update)
+-&gt; Lens Update Update (Maybe UpdateStatus) (Maybe UpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270325"><span class="annot"><span class="annottext">Maybe UpdateStatus
+status :: Maybe UpdateStatus
+$sel:status:Update' :: Update -&gt; Maybe UpdateStatus
+</span><a href="#local-6989586621679270325"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateStatus
+</span><a href="#local-6989586621679270325"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270324"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270323"><span class="annot"><span class="annottext">Maybe UpdateStatus
+</span><a href="#local-6989586621679270323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Update' :: Maybe UpdateStatus
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Astatus%3AUpdate%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateStatus
+</span><a href="#local-6989586621679270323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the update was created.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#update_createdAt"><span class="hs-identifier hs-type">update_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="update_createdAt"><span class="annot"><span class="annottext">update_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Update -&gt; f Update
+</span><a href="Amazonka.EKS.Types.Update.html#update_createdAt"><span class="hs-identifier hs-var hs-var">update_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe POSIX)
+-&gt; (Update -&gt; Maybe POSIX -&gt; Update)
+-&gt; Lens Update Update (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270321"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Update' :: Update -&gt; Maybe POSIX
+</span><a href="#local-6989586621679270321"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679270321"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270320"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270319"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679270319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Update' :: Maybe POSIX
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3AcreatedAt%3AUpdate%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679270319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Update -&gt; f Update)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Update
+-&gt; f Update
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A key-value map that contains the parameters associated with the update.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#update_params"><span class="hs-identifier hs-type">update_params</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="update_params"><span class="annot"><span class="annottext">update_params :: (Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
+-&gt; Update -&gt; f Update
+</span><a href="Amazonka.EKS.Types.Update.html#update_params"><span class="hs-identifier hs-var hs-var">update_params</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe [UpdateParam])
+-&gt; (Update -&gt; Maybe [UpdateParam] -&gt; Update)
+-&gt; Lens Update Update (Maybe [UpdateParam]) (Maybe [UpdateParam])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270314"><span class="annot"><span class="annottext">Maybe [UpdateParam]
+params :: Maybe [UpdateParam]
+$sel:params:Update' :: Update -&gt; Maybe [UpdateParam]
+</span><a href="#local-6989586621679270314"><span class="hs-identifier hs-var hs-var">params</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
+</span><a href="#local-6989586621679270314"><span class="hs-identifier hs-var">params</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270313"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270312"><span class="annot"><span class="annottext">Maybe [UpdateParam]
+</span><a href="#local-6989586621679270312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:params:Update' :: Maybe [UpdateParam]
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aparams%3AUpdate%27"><span class="hs-identifier hs-var">params</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
+</span><a href="#local-6989586621679270312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
+ -&gt; Update -&gt; f Update)
+-&gt; ((Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
+    -&gt; Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
+-&gt; (Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
+-&gt; Update
+-&gt; f Update
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UpdateParam] [UpdateParam] [UpdateParam] [UpdateParam]
+-&gt; Iso
+     (Maybe [UpdateParam])
+     (Maybe [UpdateParam])
+     (Maybe [UpdateParam])
+     (Maybe [UpdateParam])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UpdateParam] [UpdateParam] [UpdateParam] [UpdateParam]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A UUID that is used to track the update.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#update_id"><span class="hs-identifier hs-type">update_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="update_id"><span class="annot"><span class="annottext">update_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Update -&gt; f Update
+</span><a href="Amazonka.EKS.Types.Update.html#update_id"><span class="hs-identifier hs-var hs-var">update_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe Text)
+-&gt; (Update -&gt; Maybe Text -&gt; Update)
+-&gt; Lens Update Update (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270309"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Update' :: Update -&gt; Maybe Text
+</span><a href="#local-6989586621679270309"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270309"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270308"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Update' :: Maybe Text
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The type of the update.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#update_type"><span class="hs-identifier hs-type">update_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-type">UpdateType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="update_type"><span class="annot"><span class="annottext">update_type :: (Maybe UpdateType -&gt; f (Maybe UpdateType)) -&gt; Update -&gt; f Update
+</span><a href="Amazonka.EKS.Types.Update.html#update_type"><span class="hs-identifier hs-var hs-var">update_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe UpdateType)
+-&gt; (Update -&gt; Maybe UpdateType -&gt; Update)
+-&gt; Lens Update Update (Maybe UpdateType) (Maybe UpdateType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270305"><span class="annot"><span class="annottext">Maybe UpdateType
+type' :: Maybe UpdateType
+$sel:type':Update' :: Update -&gt; Maybe UpdateType
+</span><a href="#local-6989586621679270305"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
+</span><a href="#local-6989586621679270305"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270304"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270303"><span class="annot"><span class="annottext">Maybe UpdateType
+</span><a href="#local-6989586621679270303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Update' :: Maybe UpdateType
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
+</span><a href="#local-6989586621679270303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Any errors associated with a @Failed@ update.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#update_errors"><span class="hs-identifier hs-type">update_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="update_errors"><span class="annot"><span class="annottext">update_errors :: (Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+-&gt; Update -&gt; f Update
+</span><a href="Amazonka.EKS.Types.Update.html#update_errors"><span class="hs-identifier hs-var hs-var">update_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe [ErrorDetail])
+-&gt; (Update -&gt; Maybe [ErrorDetail] -&gt; Update)
+-&gt; Lens Update Update (Maybe [ErrorDetail]) (Maybe [ErrorDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270301"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+errors :: Maybe [ErrorDetail]
+$sel:errors:Update' :: Update -&gt; Maybe [ErrorDetail]
+</span><a href="#local-6989586621679270301"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679270301"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270300"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270299"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679270299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:Update' :: Maybe [ErrorDetail]
+</span><a href="Amazonka.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679270299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+ -&gt; Update -&gt; f Update)
+-&gt; ((Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+    -&gt; Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+-&gt; (Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+-&gt; Update
+-&gt; f Update
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ErrorDetail] [ErrorDetail] [ErrorDetail] [ErrorDetail]
+-&gt; Iso
+     (Maybe [ErrorDetail])
+     (Maybe [ErrorDetail])
+     (Maybe [ErrorDetail])
+     (Maybe [ErrorDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ErrorDetail] [ErrorDetail] [ErrorDetail] [ErrorDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270296"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679270294"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Update
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Update) -&gt; Value -&gt; Parser Update
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Update&quot;</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270291"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe UpdateStatus
+-&gt; Maybe POSIX
+-&gt; Maybe [UpdateParam]
+-&gt; Maybe Text
+-&gt; Maybe UpdateType
+-&gt; Maybe [ErrorDetail]
+-&gt; Update
+</span><a href="Amazonka.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-var">Update'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe UpdateStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe [UpdateParam]
+ -&gt; Maybe Text
+ -&gt; Maybe UpdateType
+ -&gt; Maybe [ErrorDetail]
+ -&gt; Update)
+-&gt; Parser (Maybe UpdateStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe [UpdateParam]
+      -&gt; Maybe Text
+      -&gt; Maybe UpdateType
+      -&gt; Maybe [ErrorDetail]
+      -&gt; Update)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe [UpdateParam]
+   -&gt; Maybe Text
+   -&gt; Maybe UpdateType
+   -&gt; Maybe [ErrorDetail]
+   -&gt; Update)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe [UpdateParam]
+      -&gt; Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [UpdateParam]
+   -&gt; Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+-&gt; Parser (Maybe [UpdateParam])
+-&gt; Parser
+     (Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UpdateParam]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;params&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UpdateParam]))
+-&gt; Maybe [UpdateParam] -&gt; Parser (Maybe [UpdateParam])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+-&gt; Parser (Maybe UpdateType)
+-&gt; Parser (Maybe [ErrorDetail] -&gt; Update)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [ErrorDetail] -&gt; Update)
+-&gt; Parser (Maybe [ErrorDetail]) -&gt; Parser Update
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ErrorDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ErrorDetail]))
+-&gt; Maybe [ErrorDetail] -&gt; Parser (Maybe [ErrorDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270284"><span id="local-6989586621679270286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span><span>
+</span><span id="line-121"></span></pre></body></html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTEventsData.BatchAcknowledgeAlarm</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Acknowledges one or more alarms. The alarms change to the @ACKNOWLEDGED@</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- state after you acknowledge them.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEventsData.BatchAcknowledgeAlarm</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier">BatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#newBatchAcknowledgeAlarm"><span class="hs-identifier">newBatchAcknowledgeAlarm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarm_acknowledgeActionRequests"><span class="hs-identifier">batchAcknowledgeAlarm_acknowledgeActionRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier">BatchAcknowledgeAlarmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#newBatchAcknowledgeAlarmResponse"><span class="hs-identifier">newBatchAcknowledgeAlarmResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarmResponse_errorEntries"><span class="hs-identifier">batchAcknowledgeAlarmResponse_errorEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarmResponse_httpStatus"><span class="hs-identifier">batchAcknowledgeAlarmResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchAcknowledgeAlarm' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679187589"><span id="local-6989586621679187590"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAcknowledgeAlarm"><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-var">BatchAcknowledgeAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAcknowledgeAlarm%27"><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm%27"><span class="hs-identifier hs-var">BatchAcknowledgeAlarm'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of acknowledge action requests. You can specify up to 10</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- requests per operation.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AacknowledgeActionRequests%3ABatchAcknowledgeAlarm%27"><span class="annot"><span class="annottext">BatchAcknowledgeAlarm -&gt; NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AacknowledgeActionRequests%3ABatchAcknowledgeAlarm%27"><span class="hs-identifier hs-var hs-var">acknowledgeActionRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#AcknowledgeAlarmActionRequest"><span class="hs-identifier hs-type">AcknowledgeAlarmActionRequest</span></a></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187583"><span id="local-6989586621679187585"><span class="annot"><span class="annottext">BatchAcknowledgeAlarm -&gt; BatchAcknowledgeAlarm -&gt; Bool
+(BatchAcknowledgeAlarm -&gt; BatchAcknowledgeAlarm -&gt; Bool)
+-&gt; (BatchAcknowledgeAlarm -&gt; BatchAcknowledgeAlarm -&gt; Bool)
+-&gt; Eq BatchAcknowledgeAlarm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchAcknowledgeAlarm -&gt; BatchAcknowledgeAlarm -&gt; Bool
+$c/= :: BatchAcknowledgeAlarm -&gt; BatchAcknowledgeAlarm -&gt; Bool
+== :: BatchAcknowledgeAlarm -&gt; BatchAcknowledgeAlarm -&gt; Bool
+$c== :: BatchAcknowledgeAlarm -&gt; BatchAcknowledgeAlarm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187574"><span id="local-6989586621679187576"><span id="local-6989586621679187578"><span id="local-6989586621679187580"><span class="annot"><span class="annottext">ReadPrec [BatchAcknowledgeAlarm]
+ReadPrec BatchAcknowledgeAlarm
+Int -&gt; ReadS BatchAcknowledgeAlarm
+ReadS [BatchAcknowledgeAlarm]
+(Int -&gt; ReadS BatchAcknowledgeAlarm)
+-&gt; ReadS [BatchAcknowledgeAlarm]
+-&gt; ReadPrec BatchAcknowledgeAlarm
+-&gt; ReadPrec [BatchAcknowledgeAlarm]
+-&gt; Read BatchAcknowledgeAlarm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchAcknowledgeAlarm]
+$creadListPrec :: ReadPrec [BatchAcknowledgeAlarm]
+readPrec :: ReadPrec BatchAcknowledgeAlarm
+$creadPrec :: ReadPrec BatchAcknowledgeAlarm
+readList :: ReadS [BatchAcknowledgeAlarm]
+$creadList :: ReadS [BatchAcknowledgeAlarm]
+readsPrec :: Int -&gt; ReadS BatchAcknowledgeAlarm
+$creadsPrec :: Int -&gt; ReadS BatchAcknowledgeAlarm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187567"><span id="local-6989586621679187569"><span id="local-6989586621679187571"><span class="annot"><span class="annottext">Int -&gt; BatchAcknowledgeAlarm -&gt; ShowS
+[BatchAcknowledgeAlarm] -&gt; ShowS
+BatchAcknowledgeAlarm -&gt; String
+(Int -&gt; BatchAcknowledgeAlarm -&gt; ShowS)
+-&gt; (BatchAcknowledgeAlarm -&gt; String)
+-&gt; ([BatchAcknowledgeAlarm] -&gt; ShowS)
+-&gt; Show BatchAcknowledgeAlarm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchAcknowledgeAlarm] -&gt; ShowS
+$cshowList :: [BatchAcknowledgeAlarm] -&gt; ShowS
+show :: BatchAcknowledgeAlarm -&gt; String
+$cshow :: BatchAcknowledgeAlarm -&gt; String
+showsPrec :: Int -&gt; BatchAcknowledgeAlarm -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchAcknowledgeAlarm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchAcknowledgeAlarm -&gt; Rep BatchAcknowledgeAlarm x)
+-&gt; (forall x. Rep BatchAcknowledgeAlarm x -&gt; BatchAcknowledgeAlarm)
+-&gt; Generic BatchAcknowledgeAlarm
+forall x. Rep BatchAcknowledgeAlarm x -&gt; BatchAcknowledgeAlarm
+forall x. BatchAcknowledgeAlarm -&gt; Rep BatchAcknowledgeAlarm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchAcknowledgeAlarm x -&gt; BatchAcknowledgeAlarm
+$cfrom :: forall x. BatchAcknowledgeAlarm -&gt; Rep BatchAcknowledgeAlarm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'BatchAcknowledgeAlarm' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'acknowledgeActionRequests', 'batchAcknowledgeAlarm_acknowledgeActionRequests' - The list of acknowledge action requests. You can specify up to 10</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- requests per operation.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#newBatchAcknowledgeAlarm"><span class="hs-identifier hs-type">newBatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'acknowledgeActionRequests'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#AcknowledgeAlarmActionRequest"><span class="hs-identifier hs-type">AcknowledgeAlarmActionRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span>
+</span><span id="line-72"></span><span id="newBatchAcknowledgeAlarm"><span class="annot"><span class="annottext">newBatchAcknowledgeAlarm :: NonEmpty AcknowledgeAlarmActionRequest -&gt; BatchAcknowledgeAlarm
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#newBatchAcknowledgeAlarm"><span class="hs-identifier hs-var hs-var">newBatchAcknowledgeAlarm</span></a></span></span><span> </span><span id="local-6989586621679187562"><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187562"><span class="hs-identifier hs-var">pAcknowledgeActionRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">BatchAcknowledgeAlarm' :: NonEmpty AcknowledgeAlarmActionRequest -&gt; BatchAcknowledgeAlarm
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acknowledgeActionRequests:BatchAcknowledgeAlarm' :: NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AacknowledgeActionRequests%3ABatchAcknowledgeAlarm%27"><span class="hs-identifier hs-var">acknowledgeActionRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty AcknowledgeAlarmActionRequest)
+  (Identity (NonEmpty AcknowledgeAlarmActionRequest))
+-&gt; Tagged
+     (NonEmpty AcknowledgeAlarmActionRequest)
+     (Identity (NonEmpty AcknowledgeAlarmActionRequest))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty AcknowledgeAlarmActionRequest)
+   (Identity (NonEmpty AcknowledgeAlarmActionRequest))
+ -&gt; Tagged
+      (NonEmpty AcknowledgeAlarmActionRequest)
+      (Identity (NonEmpty AcknowledgeAlarmActionRequest)))
+-&gt; NonEmpty AcknowledgeAlarmActionRequest
+-&gt; NonEmpty AcknowledgeAlarmActionRequest
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187562"><span class="hs-identifier hs-var">pAcknowledgeActionRequests_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The list of acknowledge action requests. You can specify up to 10</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- requests per operation.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarm_acknowledgeActionRequests"><span class="hs-identifier hs-type">batchAcknowledgeAlarm_acknowledgeActionRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#AcknowledgeAlarmActionRequest"><span class="hs-identifier hs-type">AcknowledgeAlarmActionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="batchAcknowledgeAlarm_acknowledgeActionRequests"><span class="annot"><span class="annottext">batchAcknowledgeAlarm_acknowledgeActionRequests :: (NonEmpty AcknowledgeAlarmActionRequest
+ -&gt; f (NonEmpty AcknowledgeAlarmActionRequest))
+-&gt; BatchAcknowledgeAlarm -&gt; f BatchAcknowledgeAlarm
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarm_acknowledgeActionRequests"><span class="hs-identifier hs-var hs-var">batchAcknowledgeAlarm_acknowledgeActionRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAcknowledgeAlarm -&gt; NonEmpty AcknowledgeAlarmActionRequest)
+-&gt; (BatchAcknowledgeAlarm
+    -&gt; NonEmpty AcknowledgeAlarmActionRequest -&gt; BatchAcknowledgeAlarm)
+-&gt; Lens
+     BatchAcknowledgeAlarm
+     BatchAcknowledgeAlarm
+     (NonEmpty AcknowledgeAlarmActionRequest)
+     (NonEmpty AcknowledgeAlarmActionRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187557"><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+acknowledgeActionRequests :: NonEmpty AcknowledgeAlarmActionRequest
+$sel:acknowledgeActionRequests:BatchAcknowledgeAlarm' :: BatchAcknowledgeAlarm -&gt; NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187557"><span class="hs-identifier hs-var hs-var">acknowledgeActionRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187557"><span class="hs-identifier hs-var">acknowledgeActionRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187556"><span class="annot"><span class="annottext">s :: BatchAcknowledgeAlarm
+</span><a href="#local-6989586621679187556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187555"><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAcknowledgeAlarm
+</span><a href="#local-6989586621679187556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acknowledgeActionRequests:BatchAcknowledgeAlarm' :: NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AacknowledgeActionRequests%3ABatchAcknowledgeAlarm%27"><span class="hs-identifier hs-var">acknowledgeActionRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AcknowledgeAlarmActionRequest
+  -&gt; f (NonEmpty AcknowledgeAlarmActionRequest))
+ -&gt; BatchAcknowledgeAlarm -&gt; f BatchAcknowledgeAlarm)
+-&gt; ((NonEmpty AcknowledgeAlarmActionRequest
+     -&gt; f (NonEmpty AcknowledgeAlarmActionRequest))
+    -&gt; NonEmpty AcknowledgeAlarmActionRequest
+    -&gt; f (NonEmpty AcknowledgeAlarmActionRequest))
+-&gt; (NonEmpty AcknowledgeAlarmActionRequest
+    -&gt; f (NonEmpty AcknowledgeAlarmActionRequest))
+-&gt; BatchAcknowledgeAlarm
+-&gt; f BatchAcknowledgeAlarm
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty AcknowledgeAlarmActionRequest
+ -&gt; f (NonEmpty AcknowledgeAlarmActionRequest))
+-&gt; NonEmpty AcknowledgeAlarmActionRequest
+-&gt; f (NonEmpty AcknowledgeAlarmActionRequest)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679187550"><span class="annot"><span class="annottext">request :: BatchAcknowledgeAlarm -&gt; Request BatchAcknowledgeAlarm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchAcknowledgeAlarm -&gt; Request BatchAcknowledgeAlarm
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679187546"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchAcknowledgeAlarm
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchAcknowledgeAlarm)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchAcknowledgeAlarm))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchAcknowledgeAlarm
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchAcknowledgeAlarm)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187543"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187543"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679187542"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679187542"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679187541"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BatchAlarmActionErrorEntry]
+-&gt; Int -&gt; BatchAcknowledgeAlarmResponse
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var">BatchAcknowledgeAlarmResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BatchAlarmActionErrorEntry]
+ -&gt; Int -&gt; BatchAcknowledgeAlarmResponse)
+-&gt; Either String (Maybe [BatchAlarmActionErrorEntry])
+-&gt; Either String (Int -&gt; BatchAcknowledgeAlarmResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key
+-&gt; Either String (Maybe (Maybe [BatchAlarmActionErrorEntry]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;errorEntries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BatchAlarmActionErrorEntry]))
+-&gt; Maybe [BatchAlarmActionErrorEntry]
+-&gt; Either String (Maybe [BatchAlarmActionErrorEntry])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BatchAlarmActionErrorEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchAcknowledgeAlarmResponse)
+-&gt; Either String Int -&gt; Either String BatchAcknowledgeAlarmResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187543"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187532"><span id="local-6989586621679187534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679187525"><span class="annot"><span class="annottext">toHeaders :: BatchAcknowledgeAlarm -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchAcknowledgeAlarm -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187516"><span id="local-6989586621679187518"><span id="local-6989586621679187520"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679187514"><span class="annot"><span class="annottext">toJSON :: BatchAcknowledgeAlarm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187512"><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+acknowledgeActionRequests :: NonEmpty AcknowledgeAlarmActionRequest
+$sel:acknowledgeActionRequests:BatchAcknowledgeAlarm' :: BatchAcknowledgeAlarm -&gt; NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187512"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;acknowledgeActionRequests&quot;</span></span><span>
+</span><span id="line-109"></span><span>                  </span><span class="annot"><span class="annottext">Key -&gt; NonEmpty AcknowledgeAlarmActionRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AcknowledgeAlarmActionRequest
+</span><a href="#local-6989586621679187512"><span class="hs-identifier hs-var">acknowledgeActionRequests</span></a></span><span>
+</span><span id="line-110"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679187506"><span class="annot"><span class="annottext">toPath :: BatchAcknowledgeAlarm -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchAcknowledgeAlarm -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/alarms/acknowledge&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarm"><span class="hs-identifier hs-type">BatchAcknowledgeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679187502"><span class="annot"><span class="annottext">toQuery :: BatchAcknowledgeAlarm -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchAcknowledgeAlarm -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newBatchAcknowledgeAlarmResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679187499"><span id="local-6989586621679187500"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAcknowledgeAlarmResponse"><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-var">BatchAcknowledgeAlarmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAcknowledgeAlarmResponse%27"><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var">BatchAcknowledgeAlarmResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of errors associated with the request, or @null@ if there are no</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- errors. Each error entry contains an entry ID that helps you identify</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- the entry that failed.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AerrorEntries%3ABatchAcknowledgeAlarmResponse%27"><span class="annot"><span class="annottext">BatchAcknowledgeAlarmResponse -&gt; Maybe [BatchAlarmActionErrorEntry]
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AerrorEntries%3ABatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var hs-var">errorEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html#BatchAlarmActionErrorEntry"><span class="hs-identifier hs-type">BatchAlarmActionErrorEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchAcknowledgeAlarmResponse%27"><span class="annot"><span class="annottext">BatchAcknowledgeAlarmResponse -&gt; Int
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AhttpStatus%3ABatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187493"><span id="local-6989586621679187495"><span class="annot"><span class="annottext">BatchAcknowledgeAlarmResponse
+-&gt; BatchAcknowledgeAlarmResponse -&gt; Bool
+(BatchAcknowledgeAlarmResponse
+ -&gt; BatchAcknowledgeAlarmResponse -&gt; Bool)
+-&gt; (BatchAcknowledgeAlarmResponse
+    -&gt; BatchAcknowledgeAlarmResponse -&gt; Bool)
+-&gt; Eq BatchAcknowledgeAlarmResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchAcknowledgeAlarmResponse
+-&gt; BatchAcknowledgeAlarmResponse -&gt; Bool
+$c/= :: BatchAcknowledgeAlarmResponse
+-&gt; BatchAcknowledgeAlarmResponse -&gt; Bool
+== :: BatchAcknowledgeAlarmResponse
+-&gt; BatchAcknowledgeAlarmResponse -&gt; Bool
+$c== :: BatchAcknowledgeAlarmResponse
+-&gt; BatchAcknowledgeAlarmResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187485"><span id="local-6989586621679187487"><span id="local-6989586621679187489"><span id="local-6989586621679187491"><span class="annot"><span class="annottext">ReadPrec [BatchAcknowledgeAlarmResponse]
+ReadPrec BatchAcknowledgeAlarmResponse
+Int -&gt; ReadS BatchAcknowledgeAlarmResponse
+ReadS [BatchAcknowledgeAlarmResponse]
+(Int -&gt; ReadS BatchAcknowledgeAlarmResponse)
+-&gt; ReadS [BatchAcknowledgeAlarmResponse]
+-&gt; ReadPrec BatchAcknowledgeAlarmResponse
+-&gt; ReadPrec [BatchAcknowledgeAlarmResponse]
+-&gt; Read BatchAcknowledgeAlarmResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchAcknowledgeAlarmResponse]
+$creadListPrec :: ReadPrec [BatchAcknowledgeAlarmResponse]
+readPrec :: ReadPrec BatchAcknowledgeAlarmResponse
+$creadPrec :: ReadPrec BatchAcknowledgeAlarmResponse
+readList :: ReadS [BatchAcknowledgeAlarmResponse]
+$creadList :: ReadS [BatchAcknowledgeAlarmResponse]
+readsPrec :: Int -&gt; ReadS BatchAcknowledgeAlarmResponse
+$creadsPrec :: Int -&gt; ReadS BatchAcknowledgeAlarmResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187479"><span id="local-6989586621679187481"><span id="local-6989586621679187483"><span class="annot"><span class="annottext">Int -&gt; BatchAcknowledgeAlarmResponse -&gt; ShowS
+[BatchAcknowledgeAlarmResponse] -&gt; ShowS
+BatchAcknowledgeAlarmResponse -&gt; String
+(Int -&gt; BatchAcknowledgeAlarmResponse -&gt; ShowS)
+-&gt; (BatchAcknowledgeAlarmResponse -&gt; String)
+-&gt; ([BatchAcknowledgeAlarmResponse] -&gt; ShowS)
+-&gt; Show BatchAcknowledgeAlarmResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchAcknowledgeAlarmResponse] -&gt; ShowS
+$cshowList :: [BatchAcknowledgeAlarmResponse] -&gt; ShowS
+show :: BatchAcknowledgeAlarmResponse -&gt; String
+$cshow :: BatchAcknowledgeAlarmResponse -&gt; String
+showsPrec :: Int -&gt; BatchAcknowledgeAlarmResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchAcknowledgeAlarmResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchAcknowledgeAlarmResponse
+ -&gt; Rep BatchAcknowledgeAlarmResponse x)
+-&gt; (forall x.
+    Rep BatchAcknowledgeAlarmResponse x
+    -&gt; BatchAcknowledgeAlarmResponse)
+-&gt; Generic BatchAcknowledgeAlarmResponse
+forall x.
+Rep BatchAcknowledgeAlarmResponse x
+-&gt; BatchAcknowledgeAlarmResponse
+forall x.
+BatchAcknowledgeAlarmResponse
+-&gt; Rep BatchAcknowledgeAlarmResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchAcknowledgeAlarmResponse x
+-&gt; BatchAcknowledgeAlarmResponse
+$cfrom :: forall x.
+BatchAcknowledgeAlarmResponse
+-&gt; Rep BatchAcknowledgeAlarmResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'BatchAcknowledgeAlarmResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'errorEntries', 'batchAcknowledgeAlarmResponse_errorEntries' - A list of errors associated with the request, or @null@ if there are no</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- errors. Each error entry contains an entry ID that helps you identify</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- the entry that failed.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'httpStatus', 'batchAcknowledgeAlarmResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#newBatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">newBatchAcknowledgeAlarmResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse</span></a></span><span>
+</span><span id="line-148"></span><span id="newBatchAcknowledgeAlarmResponse"><span class="annot"><span class="annottext">newBatchAcknowledgeAlarmResponse :: Int -&gt; BatchAcknowledgeAlarmResponse
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#newBatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-var hs-var">newBatchAcknowledgeAlarmResponse</span></a></span></span><span> </span><span id="local-6989586621679187476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">BatchAcknowledgeAlarmResponse' :: Maybe [BatchAlarmActionErrorEntry]
+-&gt; Int -&gt; BatchAcknowledgeAlarmResponse
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorEntries:BatchAcknowledgeAlarmResponse' :: Maybe [BatchAlarmActionErrorEntry]
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AerrorEntries%3ABatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var">errorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BatchAlarmActionErrorEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchAcknowledgeAlarmResponse' :: Int
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AhttpStatus%3ABatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | A list of errors associated with the request, or @null@ if there are no</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- errors. Each error entry contains an entry ID that helps you identify</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- the entry that failed.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarmResponse_errorEntries"><span class="hs-identifier hs-type">batchAcknowledgeAlarmResponse_errorEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html#BatchAlarmActionErrorEntry"><span class="hs-identifier hs-type">BatchAlarmActionErrorEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="batchAcknowledgeAlarmResponse_errorEntries"><span class="annot"><span class="annottext">batchAcknowledgeAlarmResponse_errorEntries :: (Maybe [BatchAlarmActionErrorEntry]
+ -&gt; f (Maybe [BatchAlarmActionErrorEntry]))
+-&gt; BatchAcknowledgeAlarmResponse -&gt; f BatchAcknowledgeAlarmResponse
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarmResponse_errorEntries"><span class="hs-identifier hs-var hs-var">batchAcknowledgeAlarmResponse_errorEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAcknowledgeAlarmResponse
+ -&gt; Maybe [BatchAlarmActionErrorEntry])
+-&gt; (BatchAcknowledgeAlarmResponse
+    -&gt; Maybe [BatchAlarmActionErrorEntry]
+    -&gt; BatchAcknowledgeAlarmResponse)
+-&gt; Lens
+     BatchAcknowledgeAlarmResponse
+     BatchAcknowledgeAlarmResponse
+     (Maybe [BatchAlarmActionErrorEntry])
+     (Maybe [BatchAlarmActionErrorEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187475"><span class="annot"><span class="annottext">Maybe [BatchAlarmActionErrorEntry]
+errorEntries :: Maybe [BatchAlarmActionErrorEntry]
+$sel:errorEntries:BatchAcknowledgeAlarmResponse' :: BatchAcknowledgeAlarmResponse -&gt; Maybe [BatchAlarmActionErrorEntry]
+</span><a href="#local-6989586621679187475"><span class="hs-identifier hs-var hs-var">errorEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchAlarmActionErrorEntry]
+</span><a href="#local-6989586621679187475"><span class="hs-identifier hs-var">errorEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187474"><span class="annot"><span class="annottext">s :: BatchAcknowledgeAlarmResponse
+</span><a href="#local-6989586621679187474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187473"><span class="annot"><span class="annottext">Maybe [BatchAlarmActionErrorEntry]
+</span><a href="#local-6989586621679187473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAcknowledgeAlarmResponse
+</span><a href="#local-6989586621679187474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorEntries:BatchAcknowledgeAlarmResponse' :: Maybe [BatchAlarmActionErrorEntry]
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AerrorEntries%3ABatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var">errorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchAlarmActionErrorEntry]
+</span><a href="#local-6989586621679187473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchAlarmActionErrorEntry]
+  -&gt; f (Maybe [BatchAlarmActionErrorEntry]))
+ -&gt; BatchAcknowledgeAlarmResponse
+ -&gt; f BatchAcknowledgeAlarmResponse)
+-&gt; ((Maybe [BatchAlarmActionErrorEntry]
+     -&gt; f (Maybe [BatchAlarmActionErrorEntry]))
+    -&gt; Maybe [BatchAlarmActionErrorEntry]
+    -&gt; f (Maybe [BatchAlarmActionErrorEntry]))
+-&gt; (Maybe [BatchAlarmActionErrorEntry]
+    -&gt; f (Maybe [BatchAlarmActionErrorEntry]))
+-&gt; BatchAcknowledgeAlarmResponse
+-&gt; f BatchAcknowledgeAlarmResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchAlarmActionErrorEntry]
+  [BatchAlarmActionErrorEntry]
+  [BatchAlarmActionErrorEntry]
+  [BatchAlarmActionErrorEntry]
+-&gt; Iso
+     (Maybe [BatchAlarmActionErrorEntry])
+     (Maybe [BatchAlarmActionErrorEntry])
+     (Maybe [BatchAlarmActionErrorEntry])
+     (Maybe [BatchAlarmActionErrorEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchAlarmActionErrorEntry]
+  [BatchAlarmActionErrorEntry]
+  [BatchAlarmActionErrorEntry]
+  [BatchAlarmActionErrorEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarmResponse_httpStatus"><span class="hs-identifier hs-type">batchAcknowledgeAlarmResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="batchAcknowledgeAlarmResponse_httpStatus"><span class="annot"><span class="annottext">batchAcknowledgeAlarmResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchAcknowledgeAlarmResponse -&gt; f BatchAcknowledgeAlarmResponse
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#batchAcknowledgeAlarmResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchAcknowledgeAlarmResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAcknowledgeAlarmResponse -&gt; Int)
+-&gt; (BatchAcknowledgeAlarmResponse
+    -&gt; Int -&gt; BatchAcknowledgeAlarmResponse)
+-&gt; Lens
+     BatchAcknowledgeAlarmResponse BatchAcknowledgeAlarmResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187471"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchAcknowledgeAlarmResponse' :: BatchAcknowledgeAlarmResponse -&gt; Int
+</span><a href="#local-6989586621679187471"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187471"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187470"><span class="annot"><span class="annottext">s :: BatchAcknowledgeAlarmResponse
+</span><a href="#local-6989586621679187470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAcknowledgeAlarmResponse
+</span><a href="#local-6989586621679187470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchAcknowledgeAlarmResponse' :: Int
+</span><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#%24sel%3AhttpStatus%3ABatchAcknowledgeAlarmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchAcknowledgeAlarm.html#BatchAcknowledgeAlarmResponse"><span class="hs-identifier hs-type">BatchAcknowledgeAlarmResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

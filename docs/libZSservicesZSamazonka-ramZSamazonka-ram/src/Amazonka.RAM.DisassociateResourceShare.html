@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RAM.DisassociateResourceShare</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates the specified principals or resources from the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- resource share.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RAM.DisassociateResourceShare</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier">DisassociateResourceShare</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#newDisassociateResourceShare"><span class="hs-identifier">newDisassociateResourceShare</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_clientToken"><span class="hs-identifier">disassociateResourceShare_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_principals"><span class="hs-identifier">disassociateResourceShare_principals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_resourceArns"><span class="hs-identifier">disassociateResourceShare_resourceArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_resourceShareArn"><span class="hs-identifier">disassociateResourceShare_resourceShareArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier">DisassociateResourceShareResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#newDisassociateResourceShareResponse"><span class="hs-identifier">newDisassociateResourceShareResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_clientToken"><span class="hs-identifier">disassociateResourceShareResponse_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_resourceShareAssociations"><span class="hs-identifier">disassociateResourceShareResponse_resourceShareAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_httpStatus"><span class="hs-identifier">disassociateResourceShareResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.html"><span class="hs-identifier">Amazonka.RAM.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDisassociateResourceShare' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679208129"><span id="local-6989586621679208130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateResourceShare"><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-var">DisassociateResourceShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateResourceShare%27"><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-var">DisassociateResourceShare'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AclientToken%3ADisassociateResourceShare%27"><span class="annot"><span class="annottext">DisassociateResourceShare -&gt; Maybe Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AclientToken%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The principals.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aprincipals%3ADisassociateResourceShare%27"><span class="annot"><span class="annottext">DisassociateResourceShare -&gt; Maybe [Text]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3Aprincipals%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceArns%3ADisassociateResourceShare%27"><span class="annot"><span class="annottext">DisassociateResourceShare -&gt; Maybe [Text]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceArns%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource share.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AresourceShareArn%3ADisassociateResourceShare%27"><span class="annot"><span class="annottext">DisassociateResourceShare -&gt; Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceShareArn%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var hs-var">resourceShareArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208120"><span id="local-6989586621679208122"><span class="annot"><span class="annottext">DisassociateResourceShare -&gt; DisassociateResourceShare -&gt; Bool
+(DisassociateResourceShare -&gt; DisassociateResourceShare -&gt; Bool)
+-&gt; (DisassociateResourceShare -&gt; DisassociateResourceShare -&gt; Bool)
+-&gt; Eq DisassociateResourceShare
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateResourceShare -&gt; DisassociateResourceShare -&gt; Bool
+$c/= :: DisassociateResourceShare -&gt; DisassociateResourceShare -&gt; Bool
+== :: DisassociateResourceShare -&gt; DisassociateResourceShare -&gt; Bool
+$c== :: DisassociateResourceShare -&gt; DisassociateResourceShare -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208111"><span id="local-6989586621679208113"><span id="local-6989586621679208115"><span id="local-6989586621679208117"><span class="annot"><span class="annottext">ReadPrec [DisassociateResourceShare]
+ReadPrec DisassociateResourceShare
+Int -&gt; ReadS DisassociateResourceShare
+ReadS [DisassociateResourceShare]
+(Int -&gt; ReadS DisassociateResourceShare)
+-&gt; ReadS [DisassociateResourceShare]
+-&gt; ReadPrec DisassociateResourceShare
+-&gt; ReadPrec [DisassociateResourceShare]
+-&gt; Read DisassociateResourceShare
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateResourceShare]
+$creadListPrec :: ReadPrec [DisassociateResourceShare]
+readPrec :: ReadPrec DisassociateResourceShare
+$creadPrec :: ReadPrec DisassociateResourceShare
+readList :: ReadS [DisassociateResourceShare]
+$creadList :: ReadS [DisassociateResourceShare]
+readsPrec :: Int -&gt; ReadS DisassociateResourceShare
+$creadsPrec :: Int -&gt; ReadS DisassociateResourceShare
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208104"><span id="local-6989586621679208106"><span id="local-6989586621679208108"><span class="annot"><span class="annottext">Int -&gt; DisassociateResourceShare -&gt; ShowS
+[DisassociateResourceShare] -&gt; ShowS
+DisassociateResourceShare -&gt; String
+(Int -&gt; DisassociateResourceShare -&gt; ShowS)
+-&gt; (DisassociateResourceShare -&gt; String)
+-&gt; ([DisassociateResourceShare] -&gt; ShowS)
+-&gt; Show DisassociateResourceShare
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateResourceShare] -&gt; ShowS
+$cshowList :: [DisassociateResourceShare] -&gt; ShowS
+show :: DisassociateResourceShare -&gt; String
+$cshow :: DisassociateResourceShare -&gt; String
+showsPrec :: Int -&gt; DisassociateResourceShare -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateResourceShare -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateResourceShare -&gt; Rep DisassociateResourceShare x)
+-&gt; (forall x.
+    Rep DisassociateResourceShare x -&gt; DisassociateResourceShare)
+-&gt; Generic DisassociateResourceShare
+forall x.
+Rep DisassociateResourceShare x -&gt; DisassociateResourceShare
+forall x.
+DisassociateResourceShare -&gt; Rep DisassociateResourceShare x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateResourceShare x -&gt; DisassociateResourceShare
+$cfrom :: forall x.
+DisassociateResourceShare -&gt; Rep DisassociateResourceShare x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DisassociateResourceShare' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'clientToken', 'disassociateResourceShare_clientToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'principals', 'disassociateResourceShare_principals' - The principals.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'resourceArns', 'disassociateResourceShare_resourceArns' - The Amazon Resource Names (ARNs) of the resources.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'resourceShareArn', 'disassociateResourceShare_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#newDisassociateResourceShare"><span class="hs-identifier hs-type">newDisassociateResourceShare</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'resourceShareArn'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span>
+</span><span id="line-88"></span><span id="newDisassociateResourceShare"><span class="annot"><span class="annottext">newDisassociateResourceShare :: Text -&gt; DisassociateResourceShare
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#newDisassociateResourceShare"><span class="hs-identifier hs-var hs-var">newDisassociateResourceShare</span></a></span></span><span> </span><span id="local-6989586621679208099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208099"><span class="hs-identifier hs-var">pResourceShareArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DisassociateResourceShare' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; DisassociateResourceShare
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:DisassociateResourceShare' :: Maybe Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AclientToken%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:principals:DisassociateResourceShare' :: Maybe [Text]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3Aprincipals%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArns:DisassociateResourceShare' :: Maybe [Text]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceArns%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceShareArn:DisassociateResourceShare' :: Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceShareArn%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">resourceShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208099"><span class="hs-identifier hs-var">pResourceShareArn_</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_clientToken"><span class="hs-identifier hs-type">disassociateResourceShare_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="disassociateResourceShare_clientToken"><span class="annot"><span class="annottext">disassociateResourceShare_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DisassociateResourceShare -&gt; f DisassociateResourceShare
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_clientToken"><span class="hs-identifier hs-var hs-var">disassociateResourceShare_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateResourceShare -&gt; Maybe Text)
+-&gt; (DisassociateResourceShare
+    -&gt; Maybe Text -&gt; DisassociateResourceShare)
+-&gt; Lens
+     DisassociateResourceShare
+     DisassociateResourceShare
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208096"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Maybe Text
+</span><a href="#local-6989586621679208096"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208096"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208095"><span class="annot"><span class="annottext">s :: DisassociateResourceShare
+</span><a href="#local-6989586621679208095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208094"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateResourceShare
+</span><a href="#local-6989586621679208095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:DisassociateResourceShare' :: Maybe Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AclientToken%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The principals.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_principals"><span class="hs-identifier hs-type">disassociateResourceShare_principals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="disassociateResourceShare_principals"><span class="annot"><span class="annottext">disassociateResourceShare_principals :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DisassociateResourceShare -&gt; f DisassociateResourceShare
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_principals"><span class="hs-identifier hs-var hs-var">disassociateResourceShare_principals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateResourceShare -&gt; Maybe [Text])
+-&gt; (DisassociateResourceShare
+    -&gt; Maybe [Text] -&gt; DisassociateResourceShare)
+-&gt; Lens
+     DisassociateResourceShare
+     DisassociateResourceShare
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208093"><span class="annot"><span class="annottext">Maybe [Text]
+principals :: Maybe [Text]
+$sel:principals:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Maybe [Text]
+</span><a href="#local-6989586621679208093"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208093"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208092"><span class="annot"><span class="annottext">s :: DisassociateResourceShare
+</span><a href="#local-6989586621679208092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208091"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateResourceShare
+</span><a href="#local-6989586621679208092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principals:DisassociateResourceShare' :: Maybe [Text]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3Aprincipals%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DisassociateResourceShare -&gt; f DisassociateResourceShare)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DisassociateResourceShare
+-&gt; f DisassociateResourceShare
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_resourceArns"><span class="hs-identifier hs-type">disassociateResourceShare_resourceArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="disassociateResourceShare_resourceArns"><span class="annot"><span class="annottext">disassociateResourceShare_resourceArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DisassociateResourceShare -&gt; f DisassociateResourceShare
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_resourceArns"><span class="hs-identifier hs-var hs-var">disassociateResourceShare_resourceArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateResourceShare -&gt; Maybe [Text])
+-&gt; (DisassociateResourceShare
+    -&gt; Maybe [Text] -&gt; DisassociateResourceShare)
+-&gt; Lens
+     DisassociateResourceShare
+     DisassociateResourceShare
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208087"><span class="annot"><span class="annottext">Maybe [Text]
+resourceArns :: Maybe [Text]
+$sel:resourceArns:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Maybe [Text]
+</span><a href="#local-6989586621679208087"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208087"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208086"><span class="annot"><span class="annottext">s :: DisassociateResourceShare
+</span><a href="#local-6989586621679208086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208085"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateResourceShare
+</span><a href="#local-6989586621679208086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArns:DisassociateResourceShare' :: Maybe [Text]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceArns%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DisassociateResourceShare -&gt; f DisassociateResourceShare)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DisassociateResourceShare
+-&gt; f DisassociateResourceShare
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource share.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_resourceShareArn"><span class="hs-identifier hs-type">disassociateResourceShare_resourceShareArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="disassociateResourceShare_resourceShareArn"><span class="annot"><span class="annottext">disassociateResourceShare_resourceShareArn :: (Text -&gt; f Text)
+-&gt; DisassociateResourceShare -&gt; f DisassociateResourceShare
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShare_resourceShareArn"><span class="hs-identifier hs-var hs-var">disassociateResourceShare_resourceShareArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateResourceShare -&gt; Text)
+-&gt; (DisassociateResourceShare -&gt; Text -&gt; DisassociateResourceShare)
+-&gt; Lens
+     DisassociateResourceShare DisassociateResourceShare Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208084"><span class="annot"><span class="annottext">Text
+resourceShareArn :: Text
+$sel:resourceShareArn:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Text
+</span><a href="#local-6989586621679208084"><span class="hs-identifier hs-var hs-var">resourceShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208084"><span class="hs-identifier hs-var">resourceShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208083"><span class="annot"><span class="annottext">s :: DisassociateResourceShare
+</span><a href="#local-6989586621679208083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208082"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateResourceShare
+</span><a href="#local-6989586621679208083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareArn:DisassociateResourceShare' :: Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceShareArn%3ADisassociateResourceShare%27"><span class="hs-identifier hs-var">resourceShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679208078"><span class="annot"><span class="annottext">request :: DisassociateResourceShare -&gt; Request DisassociateResourceShare
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociateResourceShare -&gt; Request DisassociateResourceShare
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679208074"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateResourceShare
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateResourceShare)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DisassociateResourceShare))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateResourceShare
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateResourceShare)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208071"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679208070"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679208070"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679208069"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208069"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ResourceShareAssociation]
+-&gt; Int
+-&gt; DisassociateResourceShareResponse
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">DisassociateResourceShareResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ResourceShareAssociation]
+ -&gt; Int
+ -&gt; DisassociateResourceShareResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ResourceShareAssociation]
+      -&gt; Int -&gt; DisassociateResourceShareResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ResourceShareAssociation]
+   -&gt; Int -&gt; DisassociateResourceShareResponse)
+-&gt; Either String (Maybe [ResourceShareAssociation])
+-&gt; Either String (Int -&gt; DisassociateResourceShareResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ResourceShareAssociation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShareAssociations&quot;</span></span><span>
+</span><span id="line-125"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceShareAssociation]))
+-&gt; Maybe [ResourceShareAssociation]
+-&gt; Either String (Maybe [ResourceShareAssociation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceShareAssociation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DisassociateResourceShareResponse)
+-&gt; Either String Int
+-&gt; Either String DisassociateResourceShareResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208071"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208060"><span id="local-6989586621679208062"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679208053"><span class="annot"><span class="annottext">toHeaders :: DisassociateResourceShare -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisassociateResourceShare -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-141"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208043"><span id="local-6989586621679208045"><span id="local-6989586621679208047"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679208041"><span class="annot"><span class="annottext">toJSON :: DisassociateResourceShare -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare%27"><span class="hs-identifier hs-type">DisassociateResourceShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208036"><span id="local-6989586621679208037"><span id="local-6989586621679208038"><span id="local-6989586621679208039"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Text
+resourceShareArn :: Text
+resourceArns :: Maybe [Text]
+principals :: Maybe [Text]
+clientToken :: Maybe Text
+$sel:resourceShareArn:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Text
+$sel:resourceArns:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Maybe [Text]
+$sel:principals:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Maybe [Text]
+$sel:clientToken:DisassociateResourceShare' :: DisassociateResourceShare -&gt; Maybe Text
+</span><a href="#local-6989586621679208036"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208039"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;principals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208038"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679208037"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShareArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208036"><span class="hs-identifier hs-var">resourceShareArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679208030"><span class="annot"><span class="annottext">toPath :: DisassociateResourceShare -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisassociateResourceShare -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/disassociateresourceshare&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShare"><span class="hs-identifier hs-type">DisassociateResourceShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679208026"><span class="annot"><span class="annottext">toQuery :: DisassociateResourceShare -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateResourceShare -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newDisassociateResourceShareResponse' smart constructor.</span><span>
+</span><span id="line-164"></span><span id="local-6989586621679208023"><span id="local-6989586621679208024"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateResourceShareResponse"><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-var">DisassociateResourceShareResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateResourceShareResponse%27"><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">DisassociateResourceShareResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AclientToken%3ADisassociateResourceShareResponse%27"><span class="annot"><span class="annottext">DisassociateResourceShareResponse -&gt; Maybe Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AclientToken%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | Information about the associations.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AresourceShareAssociations%3ADisassociateResourceShareResponse%27"><span class="annot"><span class="annottext">DisassociateResourceShareResponse
+-&gt; Maybe [ResourceShareAssociation]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceShareAssociations%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var hs-var">resourceShareAssociations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateResourceShareResponse%27"><span class="annot"><span class="annottext">DisassociateResourceShareResponse -&gt; Int
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AhttpStatus%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208016"><span id="local-6989586621679208018"><span class="annot"><span class="annottext">DisassociateResourceShareResponse
+-&gt; DisassociateResourceShareResponse -&gt; Bool
+(DisassociateResourceShareResponse
+ -&gt; DisassociateResourceShareResponse -&gt; Bool)
+-&gt; (DisassociateResourceShareResponse
+    -&gt; DisassociateResourceShareResponse -&gt; Bool)
+-&gt; Eq DisassociateResourceShareResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateResourceShareResponse
+-&gt; DisassociateResourceShareResponse -&gt; Bool
+$c/= :: DisassociateResourceShareResponse
+-&gt; DisassociateResourceShareResponse -&gt; Bool
+== :: DisassociateResourceShareResponse
+-&gt; DisassociateResourceShareResponse -&gt; Bool
+$c== :: DisassociateResourceShareResponse
+-&gt; DisassociateResourceShareResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208008"><span id="local-6989586621679208010"><span id="local-6989586621679208012"><span id="local-6989586621679208014"><span class="annot"><span class="annottext">ReadPrec [DisassociateResourceShareResponse]
+ReadPrec DisassociateResourceShareResponse
+Int -&gt; ReadS DisassociateResourceShareResponse
+ReadS [DisassociateResourceShareResponse]
+(Int -&gt; ReadS DisassociateResourceShareResponse)
+-&gt; ReadS [DisassociateResourceShareResponse]
+-&gt; ReadPrec DisassociateResourceShareResponse
+-&gt; ReadPrec [DisassociateResourceShareResponse]
+-&gt; Read DisassociateResourceShareResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateResourceShareResponse]
+$creadListPrec :: ReadPrec [DisassociateResourceShareResponse]
+readPrec :: ReadPrec DisassociateResourceShareResponse
+$creadPrec :: ReadPrec DisassociateResourceShareResponse
+readList :: ReadS [DisassociateResourceShareResponse]
+$creadList :: ReadS [DisassociateResourceShareResponse]
+readsPrec :: Int -&gt; ReadS DisassociateResourceShareResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateResourceShareResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208002"><span id="local-6989586621679208004"><span id="local-6989586621679208006"><span class="annot"><span class="annottext">Int -&gt; DisassociateResourceShareResponse -&gt; ShowS
+[DisassociateResourceShareResponse] -&gt; ShowS
+DisassociateResourceShareResponse -&gt; String
+(Int -&gt; DisassociateResourceShareResponse -&gt; ShowS)
+-&gt; (DisassociateResourceShareResponse -&gt; String)
+-&gt; ([DisassociateResourceShareResponse] -&gt; ShowS)
+-&gt; Show DisassociateResourceShareResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateResourceShareResponse] -&gt; ShowS
+$cshowList :: [DisassociateResourceShareResponse] -&gt; ShowS
+show :: DisassociateResourceShareResponse -&gt; String
+$cshow :: DisassociateResourceShareResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateResourceShareResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateResourceShareResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateResourceShareResponse
+ -&gt; Rep DisassociateResourceShareResponse x)
+-&gt; (forall x.
+    Rep DisassociateResourceShareResponse x
+    -&gt; DisassociateResourceShareResponse)
+-&gt; Generic DisassociateResourceShareResponse
+forall x.
+Rep DisassociateResourceShareResponse x
+-&gt; DisassociateResourceShareResponse
+forall x.
+DisassociateResourceShareResponse
+-&gt; Rep DisassociateResourceShareResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateResourceShareResponse x
+-&gt; DisassociateResourceShareResponse
+$cfrom :: forall x.
+DisassociateResourceShareResponse
+-&gt; Rep DisassociateResourceShareResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'DisassociateResourceShareResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'clientToken', 'disassociateResourceShareResponse_clientToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'resourceShareAssociations', 'disassociateResourceShareResponse_resourceShareAssociations' - Information about the associations.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'disassociateResourceShareResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#newDisassociateResourceShareResponse"><span class="hs-identifier hs-type">newDisassociateResourceShareResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newDisassociateResourceShareResponse"><span class="annot"><span class="annottext">newDisassociateResourceShareResponse :: Int -&gt; DisassociateResourceShareResponse
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#newDisassociateResourceShareResponse"><span class="hs-identifier hs-var hs-var">newDisassociateResourceShareResponse</span></a></span></span><span> </span><span id="local-6989586621679207999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">DisassociateResourceShareResponse' :: Maybe Text
+-&gt; Maybe [ResourceShareAssociation]
+-&gt; Int
+-&gt; DisassociateResourceShareResponse
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-type">DisassociateResourceShareResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:DisassociateResourceShareResponse' :: Maybe Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AclientToken%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceShareAssociations:DisassociateResourceShareResponse' :: Maybe [ResourceShareAssociation]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceShareAssociations%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">resourceShareAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ResourceShareAssociation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateResourceShareResponse' :: Int
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AhttpStatus%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_clientToken"><span class="hs-identifier hs-type">disassociateResourceShareResponse_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="disassociateResourceShareResponse_clientToken"><span class="annot"><span class="annottext">disassociateResourceShareResponse_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DisassociateResourceShareResponse
+-&gt; f DisassociateResourceShareResponse
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_clientToken"><span class="hs-identifier hs-var hs-var">disassociateResourceShareResponse_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateResourceShareResponse -&gt; Maybe Text)
+-&gt; (DisassociateResourceShareResponse
+    -&gt; Maybe Text -&gt; DisassociateResourceShareResponse)
+-&gt; Lens
+     DisassociateResourceShareResponse
+     DisassociateResourceShareResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-type">DisassociateResourceShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207998"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:DisassociateResourceShareResponse' :: DisassociateResourceShareResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679207998"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207998"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207997"><span class="annot"><span class="annottext">s :: DisassociateResourceShareResponse
+</span><a href="#local-6989586621679207997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-type">DisassociateResourceShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateResourceShareResponse
+</span><a href="#local-6989586621679207997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:DisassociateResourceShareResponse' :: Maybe Text
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AclientToken%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Information about the associations.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_resourceShareAssociations"><span class="hs-identifier hs-type">disassociateResourceShareResponse_resourceShareAssociations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareAssociation.html#ResourceShareAssociation"><span class="hs-identifier hs-type">ResourceShareAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="disassociateResourceShareResponse_resourceShareAssociations"><span class="annot"><span class="annottext">disassociateResourceShareResponse_resourceShareAssociations :: (Maybe [ResourceShareAssociation]
+ -&gt; f (Maybe [ResourceShareAssociation]))
+-&gt; DisassociateResourceShareResponse
+-&gt; f DisassociateResourceShareResponse
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_resourceShareAssociations"><span class="hs-identifier hs-var hs-var">disassociateResourceShareResponse_resourceShareAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateResourceShareResponse
+ -&gt; Maybe [ResourceShareAssociation])
+-&gt; (DisassociateResourceShareResponse
+    -&gt; Maybe [ResourceShareAssociation]
+    -&gt; DisassociateResourceShareResponse)
+-&gt; Lens
+     DisassociateResourceShareResponse
+     DisassociateResourceShareResponse
+     (Maybe [ResourceShareAssociation])
+     (Maybe [ResourceShareAssociation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-type">DisassociateResourceShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207995"><span class="annot"><span class="annottext">Maybe [ResourceShareAssociation]
+resourceShareAssociations :: Maybe [ResourceShareAssociation]
+$sel:resourceShareAssociations:DisassociateResourceShareResponse' :: DisassociateResourceShareResponse
+-&gt; Maybe [ResourceShareAssociation]
+</span><a href="#local-6989586621679207995"><span class="hs-identifier hs-var hs-var">resourceShareAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceShareAssociation]
+</span><a href="#local-6989586621679207995"><span class="hs-identifier hs-var">resourceShareAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207994"><span class="annot"><span class="annottext">s :: DisassociateResourceShareResponse
+</span><a href="#local-6989586621679207994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-type">DisassociateResourceShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207993"><span class="annot"><span class="annottext">Maybe [ResourceShareAssociation]
+</span><a href="#local-6989586621679207993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateResourceShareResponse
+</span><a href="#local-6989586621679207994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareAssociations:DisassociateResourceShareResponse' :: Maybe [ResourceShareAssociation]
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AresourceShareAssociations%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">resourceShareAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceShareAssociation]
+</span><a href="#local-6989586621679207993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceShareAssociation]
+  -&gt; f (Maybe [ResourceShareAssociation]))
+ -&gt; DisassociateResourceShareResponse
+ -&gt; f DisassociateResourceShareResponse)
+-&gt; ((Maybe [ResourceShareAssociation]
+     -&gt; f (Maybe [ResourceShareAssociation]))
+    -&gt; Maybe [ResourceShareAssociation]
+    -&gt; f (Maybe [ResourceShareAssociation]))
+-&gt; (Maybe [ResourceShareAssociation]
+    -&gt; f (Maybe [ResourceShareAssociation]))
+-&gt; DisassociateResourceShareResponse
+-&gt; f DisassociateResourceShareResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceShareAssociation]
+  [ResourceShareAssociation]
+  [ResourceShareAssociation]
+  [ResourceShareAssociation]
+-&gt; Iso
+     (Maybe [ResourceShareAssociation])
+     (Maybe [ResourceShareAssociation])
+     (Maybe [ResourceShareAssociation])
+     (Maybe [ResourceShareAssociation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceShareAssociation]
+  [ResourceShareAssociation]
+  [ResourceShareAssociation]
+  [ResourceShareAssociation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_httpStatus"><span class="hs-identifier hs-type">disassociateResourceShareResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span id="disassociateResourceShareResponse_httpStatus"><span class="annot"><span class="annottext">disassociateResourceShareResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociateResourceShareResponse
+-&gt; f DisassociateResourceShareResponse
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#disassociateResourceShareResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociateResourceShareResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateResourceShareResponse -&gt; Int)
+-&gt; (DisassociateResourceShareResponse
+    -&gt; Int -&gt; DisassociateResourceShareResponse)
+-&gt; Lens
+     DisassociateResourceShareResponse
+     DisassociateResourceShareResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-type">DisassociateResourceShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207992"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociateResourceShareResponse' :: DisassociateResourceShareResponse -&gt; Int
+</span><a href="#local-6989586621679207992"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207992"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207991"><span class="annot"><span class="annottext">s :: DisassociateResourceShareResponse
+</span><a href="#local-6989586621679207991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse%27"><span class="hs-identifier hs-type">DisassociateResourceShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207990"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateResourceShareResponse
+</span><a href="#local-6989586621679207991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateResourceShareResponse' :: Int
+</span><a href="Amazonka.RAM.DisassociateResourceShare.html#%24sel%3AhttpStatus%3ADisassociateResourceShareResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679207988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.DisassociateResourceShare.html#DisassociateResourceShareResponse"><span class="hs-identifier hs-type">DisassociateResourceShareResponse</span></a></span></span><span>
+</span><span id="line-218"></span></pre></body></html>

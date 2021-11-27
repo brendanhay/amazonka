@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ApplicationInsights.Types.ApplicationInfo
+module Amazonka.ApplicationInsights.Types.ApplicationInfo
 
 -- | Describes the status of the application.
 --   
@@ -110,16 +110,16 @@ applicationInfo_opsCenterEnabled :: Lens' ApplicationInfo (Maybe Bool)
 --   <li>“Configuring application, detected 1 Unconfigured Components”</li>
 --   </ul>
 applicationInfo_remarks :: Lens' ApplicationInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.ApplicationInfo.ApplicationInfo
 
 
-module Network.AWS.ApplicationInsights.Types.CloudWatchEventSource
+module Amazonka.ApplicationInsights.Types.CloudWatchEventSource
 newtype CloudWatchEventSource
 CloudWatchEventSource' :: Text -> CloudWatchEventSource
 [fromCloudWatchEventSource] :: CloudWatchEventSource -> Text
@@ -127,28 +127,28 @@ pattern CloudWatchEventSource_CODE_DEPLOY :: CloudWatchEventSource
 pattern CloudWatchEventSource_EC2 :: CloudWatchEventSource
 pattern CloudWatchEventSource_HEALTH :: CloudWatchEventSource
 pattern CloudWatchEventSource_RDS :: CloudWatchEventSource
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.CloudWatchEventSource.CloudWatchEventSource
 
 
-module Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType
+module Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
 newtype ConfigurationEventResourceType
 ConfigurationEventResourceType' :: Text -> ConfigurationEventResourceType
 [fromConfigurationEventResourceType] :: ConfigurationEventResourceType -> Text
@@ -156,56 +156,56 @@ pattern ConfigurationEventResourceType_CLOUDFORMATION :: ConfigurationEventResou
 pattern ConfigurationEventResourceType_CLOUDWATCH_ALARM :: ConfigurationEventResourceType
 pattern ConfigurationEventResourceType_CLOUDWATCH_LOG :: ConfigurationEventResourceType
 pattern ConfigurationEventResourceType_SSM_ASSOCIATION :: ConfigurationEventResourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType.ConfigurationEventResourceType
 
 
-module Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus
+module Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
 newtype ConfigurationEventStatus
 ConfigurationEventStatus' :: Text -> ConfigurationEventStatus
 [fromConfigurationEventStatus] :: ConfigurationEventStatus -> Text
 pattern ConfigurationEventStatus_ERROR :: ConfigurationEventStatus
 pattern ConfigurationEventStatus_INFO :: ConfigurationEventStatus
 pattern ConfigurationEventStatus_WARN :: ConfigurationEventStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.ConfigurationEventStatus.ConfigurationEventStatus
 
 
-module Network.AWS.ApplicationInsights.Types.ConfigurationEvent
+module Amazonka.ApplicationInsights.Types.ConfigurationEvent
 
 -- | The event information.
 --   
@@ -287,98 +287,98 @@ configurationEvent_eventDetail :: Lens' ConfigurationEvent (Maybe Text)
 -- | The resource type that Application Insights attempted to configure,
 --   for example, CLOUDWATCH_ALARM.
 configurationEvent_eventResourceType :: Lens' ConfigurationEvent (Maybe ConfigurationEventResourceType)
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.ConfigurationEvent.ConfigurationEvent
 
 
-module Network.AWS.ApplicationInsights.Types.FeedbackKey
+module Amazonka.ApplicationInsights.Types.FeedbackKey
 newtype FeedbackKey
 FeedbackKey' :: Text -> FeedbackKey
 [fromFeedbackKey] :: FeedbackKey -> Text
 pattern FeedbackKey_INSIGHTS_FEEDBACK :: FeedbackKey
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.FeedbackKey.FeedbackKey
 
 
-module Network.AWS.ApplicationInsights.Types.FeedbackValue
+module Amazonka.ApplicationInsights.Types.FeedbackValue
 newtype FeedbackValue
 FeedbackValue' :: Text -> FeedbackValue
 [fromFeedbackValue] :: FeedbackValue -> Text
 pattern FeedbackValue_NOT_SPECIFIED :: FeedbackValue
 pattern FeedbackValue_NOT_USEFUL :: FeedbackValue
 pattern FeedbackValue_USEFUL :: FeedbackValue
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.FeedbackValue.FeedbackValue
 
 
-module Network.AWS.ApplicationInsights.Types.LogFilter
+module Amazonka.ApplicationInsights.Types.LogFilter
 newtype LogFilter
 LogFilter' :: Text -> LogFilter
 [fromLogFilter] :: LogFilter -> Text
 pattern LogFilter_ERROR :: LogFilter
 pattern LogFilter_INFO :: LogFilter
 pattern LogFilter_WARN :: LogFilter
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.LogFilter.LogFilter
 
 
-module Network.AWS.ApplicationInsights.Types.LogPattern
+module Amazonka.ApplicationInsights.Types.LogPattern
 
 -- | An object that defines the log patterns that belongs to a
 --   <tt>LogPatternSet</tt>.
@@ -488,16 +488,16 @@ logPattern_patternSetName :: Lens' LogPattern (Maybe Text)
 --   <tt>250,000</tt> rank. Rank values less than <tt>1</tt> or greater
 --   than <tt>1,000,000</tt> are reserved for AWS-provided patterns.
 logPattern_rank :: Lens' LogPattern (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.LogPattern.LogPattern
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.LogPattern.LogPattern
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.LogPattern.LogPattern
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.LogPattern.LogPattern
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.LogPattern.LogPattern
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.LogPattern.LogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.LogPattern.LogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.LogPattern.LogPattern
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.LogPattern.LogPattern
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.LogPattern.LogPattern
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.LogPattern.LogPattern
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.LogPattern.LogPattern
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.LogPattern.LogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.LogPattern.LogPattern
 
 
-module Network.AWS.ApplicationInsights.Types.Observation
+module Amazonka.ApplicationInsights.Types.Observation
 
 -- | Describes an anomaly or error with the application.
 --   
@@ -967,43 +967,43 @@ observation_xRayThrottlePercent :: Lens' Observation (Maybe Int)
 
 -- | The service to which the AWS Health Event belongs, such as EC2.
 observation_healthService :: Lens' Observation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.Observation.Observation
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.Observation.Observation
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.Observation.Observation
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.Observation.Observation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.Observation.Observation
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.Observation.Observation
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.Observation.Observation
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.Observation.Observation
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.Observation.Observation
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.Observation.Observation
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.Observation.Observation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.Observation.Observation
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.Observation.Observation
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.Observation.Observation
 
 
-module Network.AWS.ApplicationInsights.Types.OsType
+module Amazonka.ApplicationInsights.Types.OsType
 newtype OsType
 OsType' :: Text -> OsType
 [fromOsType] :: OsType -> Text
 pattern OsType_LINUX :: OsType
 pattern OsType_WINDOWS :: OsType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.OsType.OsType
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.OsType.OsType
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.OsType.OsType
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.OsType.OsType
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.OsType.OsType
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.OsType.OsType
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.OsType.OsType
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.OsType.OsType
 
 
-module Network.AWS.ApplicationInsights.Types.RelatedObservations
+module Amazonka.ApplicationInsights.Types.RelatedObservations
 
 -- | Describes observations related to the problem.
 --   
@@ -1030,72 +1030,72 @@ newRelatedObservations :: RelatedObservations
 
 -- | The list of observations related to the problem.
 relatedObservations_observationList :: Lens' RelatedObservations (Maybe [Observation])
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.RelatedObservations.RelatedObservations
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.RelatedObservations.RelatedObservations
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.RelatedObservations.RelatedObservations
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.RelatedObservations.RelatedObservations
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.RelatedObservations.RelatedObservations
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.RelatedObservations.RelatedObservations
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.RelatedObservations.RelatedObservations
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.RelatedObservations.RelatedObservations
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.RelatedObservations.RelatedObservations
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.RelatedObservations.RelatedObservations
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.RelatedObservations.RelatedObservations
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.RelatedObservations.RelatedObservations
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.RelatedObservations.RelatedObservations
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.RelatedObservations.RelatedObservations
 
 
-module Network.AWS.ApplicationInsights.Types.SeverityLevel
+module Amazonka.ApplicationInsights.Types.SeverityLevel
 newtype SeverityLevel
 SeverityLevel' :: Text -> SeverityLevel
 [fromSeverityLevel] :: SeverityLevel -> Text
 pattern SeverityLevel_High :: SeverityLevel
 pattern SeverityLevel_Low :: SeverityLevel
 pattern SeverityLevel_Medium :: SeverityLevel
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.SeverityLevel.SeverityLevel
 
 
-module Network.AWS.ApplicationInsights.Types.Status
+module Amazonka.ApplicationInsights.Types.Status
 newtype Status
 Status' :: Text -> Status
 [fromStatus] :: Status -> Text
 pattern Status_IGNORE :: Status
 pattern Status_PENDING :: Status
 pattern Status_RESOLVED :: Status
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.Status.Status
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.Status.Status
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.Status.Status
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.Status.Status
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.Status.Status
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.Status.Status
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.Status.Status
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.Status.Status
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.Status.Status
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.Status.Status
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.Status.Status
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.Status.Status
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.Status.Status
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.Status.Status
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.Status.Status
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.Status.Status
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.Status.Status
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.Status.Status
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.Status.Status
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.Status.Status
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.Status.Status
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.Status.Status
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.Status.Status
 
 
-module Network.AWS.ApplicationInsights.Types.Problem
+module Amazonka.ApplicationInsights.Types.Problem
 
 -- | Describes a problem that is detected by correlating observations.
 --   
@@ -1201,16 +1201,16 @@ problem_affectedResource :: Lens' Problem (Maybe Text)
 
 -- | Feedback provided by the user about the problem.
 problem_feedback :: Lens' Problem (Maybe (HashMap FeedbackKey FeedbackValue))
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.Problem.Problem
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.Problem.Problem
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.Problem.Problem
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.Problem.Problem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.Problem.Problem
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.Problem.Problem
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.Problem.Problem
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.Problem.Problem
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.Problem.Problem
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.Problem.Problem
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.Problem.Problem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.Problem.Problem
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.Problem.Problem
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.Problem.Problem
 
 
-module Network.AWS.ApplicationInsights.Types.Tag
+module Amazonka.ApplicationInsights.Types.Tag
 
 -- | An object that defines the tags associated with an application. A
 --   <i>tag</i> is a label that you optionally define and associate with an
@@ -1278,17 +1278,17 @@ tag_key :: Lens' Tag Text
 --   characters. If you don't want an application to have a specific tag
 --   value, don't specify a value for this parameter.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.Tag.Tag
 
 
-module Network.AWS.ApplicationInsights.Types.Tier
+module Amazonka.ApplicationInsights.Types.Tier
 newtype Tier
 Tier' :: Text -> Tier
 [fromTier] :: Tier -> Text
@@ -1304,28 +1304,28 @@ pattern Tier_ORACLE :: Tier
 pattern Tier_POSTGRESQL :: Tier
 pattern Tier_SQL_SERVER :: Tier
 pattern Tier_SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP :: Tier
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance GHC.Classes.Ord Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.Tier.Tier
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.Tier.Tier
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.Tier.Tier
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.Tier.Tier
+instance GHC.Classes.Ord Amazonka.ApplicationInsights.Types.Tier.Tier
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.Tier.Tier
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.Tier.Tier
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.Tier.Tier
 
 
-module Network.AWS.ApplicationInsights.Types.ApplicationComponent
+module Amazonka.ApplicationInsights.Types.ApplicationComponent
 
 -- | Describes a standalone resource or similarly grouped resources that
 --   the application is made up of.
@@ -1418,16 +1418,16 @@ applicationComponent_componentName :: Lens' ApplicationComponent (Maybe Text)
 -- | If logging is supported for the resource type, indicates whether the
 --   component has configured logs to be monitored.
 applicationComponent_componentRemarks :: Lens' ApplicationComponent (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
-instance GHC.Show.Show Network.AWS.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
-instance GHC.Read.Read Network.AWS.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
+instance GHC.Show.Show Amazonka.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
+instance GHC.Read.Read Amazonka.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.Types.ApplicationComponent.ApplicationComponent
 
 
-module Network.AWS.ApplicationInsights.Types
+module Amazonka.ApplicationInsights.Types
 
 -- | API version <tt>2018-11-25</tt> of the Amazon CloudWatch Application
 --   Insights SDK configuration.
@@ -2592,7 +2592,7 @@ tag_value :: Lens' Tag Text
 --   <i>tag value</i>, both of which you define. A tag key is a general
 --   label that acts as a category for more specific tag values. A tag
 --   value acts as a descriptor within a tag key.
-module Network.AWS.ApplicationInsights.TagResource
+module Amazonka.ApplicationInsights.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2660,22 +2660,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.ApplicationInsights.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.ApplicationInsights.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.TagResource.TagResource
+instance GHC.Show.Show Amazonka.ApplicationInsights.TagResource.TagResource
+instance GHC.Read.Read Amazonka.ApplicationInsights.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.TagResource.TagResource
 
 
 -- | Retrieve a list of the tags (keys and values) that are associated with
@@ -2684,7 +2684,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.TagResou
 --   required <i>tag key</i> and an optional associated <i>tag value</i>. A
 --   tag key is a general label that acts as a category for more specific
 --   tag values. A tag value acts as a descriptor within a tag key.
-module Network.AWS.ApplicationInsights.ListTagsForResource
+module Amazonka.ApplicationInsights.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2752,26 +2752,26 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the problems with your application.
-module Network.AWS.ApplicationInsights.ListProblems
+module Amazonka.ApplicationInsights.ListProblems
 
 -- | <i>See:</i> <a>newListProblems</a> smart constructor.
 data ListProblems
@@ -2893,26 +2893,26 @@ listProblemsResponse_problemList :: Lens' ListProblemsResponse (Maybe [Problem])
 
 -- | The response's http status code.
 listProblemsResponse_httpStatus :: Lens' ListProblemsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListProblems.ListProblemsResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListProblems.ListProblemsResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListProblems.ListProblemsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListProblems.ListProblemsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListProblems.ListProblemsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.ListProblems.ListProblems
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListProblems.ListProblems
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListProblems.ListProblemsResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListProblems.ListProblemsResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListProblems.ListProblemsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListProblems.ListProblemsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListProblems.ListProblemsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.ListProblems.ListProblems
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.ListProblems.ListProblems
 
 
 -- | Lists the log patterns in the specific log <tt>LogPatternSet</tt>.
-module Network.AWS.ApplicationInsights.ListLogPatterns
+module Amazonka.ApplicationInsights.ListLogPatterns
 
 -- | <i>See:</i> <a>newListLogPatterns</a> smart constructor.
 data ListLogPatterns
@@ -3028,26 +3028,26 @@ listLogPatternsResponse_logPatterns :: Lens' ListLogPatternsResponse (Maybe [Log
 
 -- | The response's http status code.
 listLogPatternsResponse_httpStatus :: Lens' ListLogPatternsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatternsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.ListLogPatterns.ListLogPatterns
 
 
 -- | Lists the log pattern sets in the specific application.
-module Network.AWS.ApplicationInsights.ListLogPatternSets
+module Amazonka.ApplicationInsights.ListLogPatternSets
 
 -- | <i>See:</i> <a>newListLogPatternSets</a> smart constructor.
 data ListLogPatternSets
@@ -3154,22 +3154,22 @@ listLogPatternSetsResponse_logPatternSets :: Lens' ListLogPatternSetsResponse (M
 
 -- | The response's http status code.
 listLogPatternSetsResponse_httpStatus :: Lens' ListLogPatternSetsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.ListLogPatternSets.ListLogPatternSets
 
 
 -- | Lists the INFO, WARN, and ERROR events for periodic configuration
@@ -3183,7 +3183,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListLogP
 --   <li>ERROR: alarm not created due to permission errors or exceeding
 --   quotas.</li>
 --   </ul>
-module Network.AWS.ApplicationInsights.ListConfigurationHistory
+module Amazonka.ApplicationInsights.ListConfigurationHistory
 
 -- | <i>See:</i> <a>newListConfigurationHistory</a> smart constructor.
 data ListConfigurationHistory
@@ -3353,27 +3353,27 @@ listConfigurationHistoryResponse_eventList :: Lens' ListConfigurationHistoryResp
 
 -- | The response's http status code.
 listConfigurationHistoryResponse_httpStatus :: Lens' ListConfigurationHistoryResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistoryResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.ListConfigurationHistory.ListConfigurationHistory
 
 
 -- | Lists the auto-grouped, standalone, and custom components of the
 --   application.
-module Network.AWS.ApplicationInsights.ListComponents
+module Amazonka.ApplicationInsights.ListComponents
 
 -- | <i>See:</i> <a>newListComponents</a> smart constructor.
 data ListComponents
@@ -3466,26 +3466,26 @@ listComponentsResponse_nextToken :: Lens' ListComponentsResponse (Maybe Text)
 
 -- | The response's http status code.
 listComponentsResponse_httpStatus :: Lens' ListComponentsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListComponents.ListComponentsResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListComponents.ListComponentsResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListComponents.ListComponentsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListComponents.ListComponentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListComponents.ListComponentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.ListComponents.ListComponents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListComponents.ListComponents
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListComponents.ListComponentsResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListComponents.ListComponentsResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListComponents.ListComponentsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListComponents.ListComponentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListComponents.ListComponentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.ListComponents.ListComponents
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.ListComponents.ListComponents
 
 
 -- | Lists the IDs of the applications that you are monitoring.
-module Network.AWS.ApplicationInsights.ListApplications
+module Amazonka.ApplicationInsights.ListApplications
 
 -- | <i>See:</i> <a>newListApplications</a> smart constructor.
 data ListApplications
@@ -3572,26 +3572,26 @@ listApplicationsResponse_applicationInfoList :: Lens' ListApplicationsResponse (
 
 -- | The response's http status code.
 listApplicationsResponse_httpStatus :: Lens' ListApplicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.ListApplications.ListApplicationsResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.ListApplications.ListApplicationsResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.ListApplications.ListApplicationsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.ListApplications.ListApplicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListApplications.ListApplicationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.ListApplications.ListApplications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.ListApplications.ListApplicationsResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.ListApplications.ListApplicationsResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.ListApplications.ListApplicationsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.ListApplications.ListApplicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListApplications.ListApplicationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.ListApplications.ListApplications
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.ListApplications.ListApplications
 
 
 -- | Describes the anomalies or errors associated with the problem.
-module Network.AWS.ApplicationInsights.DescribeProblemObservations
+module Amazonka.ApplicationInsights.DescribeProblemObservations
 
 -- | <i>See:</i> <a>newDescribeProblemObservations</a> smart constructor.
 data DescribeProblemObservations
@@ -3650,26 +3650,26 @@ describeProblemObservationsResponse_relatedObservations :: Lens' DescribeProblem
 
 -- | The response's http status code.
 describeProblemObservationsResponse_httpStatus :: Lens' DescribeProblemObservationsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeProblemObservations.DescribeProblemObservations
 
 
 -- | Describes an application problem.
-module Network.AWS.ApplicationInsights.DescribeProblem
+module Amazonka.ApplicationInsights.DescribeProblem
 
 -- | <i>See:</i> <a>newDescribeProblem</a> smart constructor.
 data DescribeProblem
@@ -3727,26 +3727,26 @@ describeProblemResponse_problem :: Lens' DescribeProblemResponse (Maybe Problem)
 
 -- | The response's http status code.
 describeProblemResponse_httpStatus :: Lens' DescribeProblemResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblemResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblemResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblemResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblemResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblemResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeProblem.DescribeProblem
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeProblem.DescribeProblemResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeProblem.DescribeProblemResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeProblem.DescribeProblemResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeProblem.DescribeProblemResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeProblem.DescribeProblemResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeProblem.DescribeProblem
 
 
 -- | Describes an anomaly or error with the application.
-module Network.AWS.ApplicationInsights.DescribeObservation
+module Amazonka.ApplicationInsights.DescribeObservation
 
 -- | <i>See:</i> <a>newDescribeObservation</a> smart constructor.
 data DescribeObservation
@@ -3804,26 +3804,26 @@ describeObservationResponse_observation :: Lens' DescribeObservationResponse (Ma
 
 -- | The response's http status code.
 describeObservationResponse_httpStatus :: Lens' DescribeObservationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeObservation.DescribeObservation
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeObservation.DescribeObservationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeObservation.DescribeObservationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeObservation.DescribeObservationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeObservation.DescribeObservationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeObservation.DescribeObservationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeObservation.DescribeObservation
 
 
 -- | Describe a specific log pattern from a <tt>LogPatternSet</tt>.
-module Network.AWS.ApplicationInsights.DescribeLogPattern
+module Amazonka.ApplicationInsights.DescribeLogPattern
 
 -- | <i>See:</i> <a>newDescribeLogPattern</a> smart constructor.
 data DescribeLogPattern
@@ -3911,26 +3911,26 @@ describeLogPatternResponse_resourceGroupName :: Lens' DescribeLogPatternResponse
 
 -- | The response's http status code.
 describeLogPatternResponse_httpStatus :: Lens' DescribeLogPatternResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPatternResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeLogPattern.DescribeLogPattern
 
 
 -- | Describes the recommended monitoring configuration of the component.
-module Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation
+module Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation
 
 -- | <i>See:</i> <a>newDescribeComponentConfigurationRecommendation</a>
 --   smart constructor.
@@ -4026,26 +4026,26 @@ describeComponentConfigurationRecommendationResponse_componentConfiguration :: L
 
 -- | The response's http status code.
 describeComponentConfigurationRecommendationResponse_httpStatus :: Lens' DescribeComponentConfigurationRecommendationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation.DescribeComponentConfigurationRecommendation
 
 
 -- | Describes the monitoring configuration of the component.
-module Network.AWS.ApplicationInsights.DescribeComponentConfiguration
+module Amazonka.ApplicationInsights.DescribeComponentConfiguration
 
 -- | <i>See:</i> <a>newDescribeComponentConfiguration</a> smart
 --   constructor.
@@ -4146,27 +4146,27 @@ describeComponentConfigurationResponse_tier :: Lens' DescribeComponentConfigurat
 
 -- | The response's http status code.
 describeComponentConfigurationResponse_httpStatus :: Lens' DescribeComponentConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeComponentConfiguration.DescribeComponentConfiguration
 
 
 -- | Describes a component and lists the resources that are grouped
 --   together in a component.
-module Network.AWS.ApplicationInsights.DescribeComponent
+module Amazonka.ApplicationInsights.DescribeComponent
 
 -- | <i>See:</i> <a>newDescribeComponent</a> smart constructor.
 data DescribeComponent
@@ -4242,26 +4242,26 @@ describeComponentResponse_resourceList :: Lens' DescribeComponentResponse (Maybe
 
 -- | The response's http status code.
 describeComponentResponse_httpStatus :: Lens' DescribeComponentResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponentResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponentResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponentResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeComponent.DescribeComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeComponent.DescribeComponentResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeComponent.DescribeComponentResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeComponent.DescribeComponentResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeComponent.DescribeComponentResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeComponent.DescribeComponentResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeComponent.DescribeComponent
 
 
 -- | Describes the application.
-module Network.AWS.ApplicationInsights.DescribeApplication
+module Amazonka.ApplicationInsights.DescribeApplication
 
 -- | <i>See:</i> <a>newDescribeApplication</a> smart constructor.
 data DescribeApplication
@@ -4320,26 +4320,26 @@ describeApplicationResponse_applicationInfo :: Lens' DescribeApplicationResponse
 
 -- | The response's http status code.
 describeApplicationResponse_httpStatus :: Lens' DescribeApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DescribeApplication.DescribeApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeApplication.DescribeApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DescribeApplication.DescribeApplication
 
 
 -- | Removes the specified log pattern from a <tt>LogPatternSet</tt>.
-module Network.AWS.ApplicationInsights.DeleteLogPattern
+module Amazonka.ApplicationInsights.DeleteLogPattern
 
 -- | <i>See:</i> <a>newDeleteLogPattern</a> smart constructor.
 data DeleteLogPattern
@@ -4407,28 +4407,28 @@ newDeleteLogPatternResponse :: Int -> DeleteLogPatternResponse
 
 -- | The response's http status code.
 deleteLogPatternResponse_httpStatus :: Lens' DeleteLogPatternResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance GHC.Show.Show Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance GHC.Read.Read Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPatternResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DeleteLogPattern.DeleteLogPattern
 
 
 -- | Ungroups a custom component. When you ungroup custom components, all
 --   applicable monitors that are set up for the component are removed and
 --   the instances revert to their standalone status.
-module Network.AWS.ApplicationInsights.DeleteComponent
+module Amazonka.ApplicationInsights.DeleteComponent
 
 -- | <i>See:</i> <a>newDeleteComponent</a> smart constructor.
 data DeleteComponent
@@ -4486,27 +4486,27 @@ newDeleteComponentResponse :: Int -> DeleteComponentResponse
 
 -- | The response's http status code.
 deleteComponentResponse_httpStatus :: Lens' DeleteComponentResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponentResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponentResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponentResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DeleteComponent.DeleteComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance GHC.Show.Show Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance GHC.Read.Read Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DeleteComponent.DeleteComponentResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DeleteComponent.DeleteComponentResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DeleteComponent.DeleteComponentResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DeleteComponent.DeleteComponentResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DeleteComponent.DeleteComponentResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DeleteComponent.DeleteComponent
 
 
 -- | Removes the specified application from monitoring. Does not delete the
 --   application.
-module Network.AWS.ApplicationInsights.DeleteApplication
+module Amazonka.ApplicationInsights.DeleteApplication
 
 -- | <i>See:</i> <a>newDeleteApplication</a> smart constructor.
 data DeleteApplication
@@ -4555,26 +4555,26 @@ newDeleteApplicationResponse :: Int -> DeleteApplicationResponse
 
 -- | The response's http status code.
 deleteApplicationResponse_httpStatus :: Lens' DeleteApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance GHC.Show.Show Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance GHC.Read.Read Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DeleteApplication.DeleteApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.DeleteApplication.DeleteApplication
 
 
 -- | Adds an log pattern to a <tt>LogPatternSet</tt>.
-module Network.AWS.ApplicationInsights.CreateLogPattern
+module Amazonka.ApplicationInsights.CreateLogPattern
 
 -- | <i>See:</i> <a>newCreateLogPattern</a> smart constructor.
 data CreateLogPattern
@@ -4716,27 +4716,27 @@ createLogPatternResponse_resourceGroupName :: Lens' CreateLogPatternResponse (Ma
 
 -- | The response's http status code.
 createLogPatternResponse_httpStatus :: Lens' CreateLogPatternResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance GHC.Show.Show Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance GHC.Read.Read Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance GHC.Show.Show Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance GHC.Read.Read Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPatternResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.CreateLogPattern.CreateLogPattern
 
 
 -- | Creates a custom component by grouping similar standalone instances to
 --   monitor.
-module Network.AWS.ApplicationInsights.CreateComponent
+module Amazonka.ApplicationInsights.CreateComponent
 
 -- | <i>See:</i> <a>newCreateComponent</a> smart constructor.
 data CreateComponent
@@ -4804,26 +4804,26 @@ newCreateComponentResponse :: Int -> CreateComponentResponse
 
 -- | The response's http status code.
 createComponentResponse_httpStatus :: Lens' CreateComponentResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance GHC.Show.Show Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance GHC.Read.Read Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.CreateComponent.CreateComponentResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.CreateComponent.CreateComponentResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.CreateComponent.CreateComponentResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.CreateComponent.CreateComponentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.CreateComponent.CreateComponentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.CreateComponent.CreateComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance GHC.Show.Show Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance GHC.Read.Read Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.CreateComponent.CreateComponentResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.CreateComponent.CreateComponentResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.CreateComponent.CreateComponentResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.CreateComponent.CreateComponentResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.CreateComponent.CreateComponentResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.CreateComponent.CreateComponent
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.CreateComponent.CreateComponent
 
 
 -- | Adds an application that is created from a resource group.
-module Network.AWS.ApplicationInsights.CreateApplication
+module Amazonka.ApplicationInsights.CreateApplication
 
 -- | <i>See:</i> <a>newCreateApplication</a> smart constructor.
 data CreateApplication
@@ -4943,27 +4943,27 @@ createApplicationResponse_applicationInfo :: Lens' CreateApplicationResponse (Ma
 
 -- | The response's http status code.
 createApplicationResponse_httpStatus :: Lens' CreateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance GHC.Show.Show Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance GHC.Read.Read Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.CreateApplication.CreateApplicationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.CreateApplication.CreateApplicationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.CreateApplication.CreateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.CreateApplication.CreateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.CreateApplication.CreateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance GHC.Show.Show Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance GHC.Read.Read Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.CreateApplication.CreateApplicationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.CreateApplication.CreateApplicationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.CreateApplication.CreateApplicationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.CreateApplication.CreateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.CreateApplication.CreateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.CreateApplication.CreateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.CreateApplication.CreateApplication
 
 
 -- | Remove one or more tags (keys and values) from a specified
 --   application.
-module Network.AWS.ApplicationInsights.UntagResource
+module Amazonka.ApplicationInsights.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -5041,26 +5041,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.UntagResource.UntagResource
 
 
 -- | Updates the application.
-module Network.AWS.ApplicationInsights.UpdateApplication
+module Amazonka.ApplicationInsights.UpdateApplication
 
 -- | <i>See:</i> <a>newUpdateApplication</a> smart constructor.
 data UpdateApplication
@@ -5174,27 +5174,27 @@ updateApplicationResponse_applicationInfo :: Lens' UpdateApplicationResponse (Ma
 
 -- | The response's http status code.
 updateApplicationResponse_httpStatus :: Lens' UpdateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateApplication.UpdateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.UpdateApplication.UpdateApplication
 
 
 -- | Updates the custom component name and/or the list of resources that
 --   make up the component.
-module Network.AWS.ApplicationInsights.UpdateComponent
+module Amazonka.ApplicationInsights.UpdateComponent
 
 -- | <i>See:</i> <a>newUpdateComponent</a> smart constructor.
 data UpdateComponent
@@ -5272,29 +5272,29 @@ newUpdateComponentResponse :: Int -> UpdateComponentResponse
 
 -- | The response's http status code.
 updateComponentResponse_httpStatus :: Lens' UpdateComponentResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponentResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponentResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponentResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.UpdateComponent.UpdateComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateComponent.UpdateComponentResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateComponent.UpdateComponentResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateComponent.UpdateComponentResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateComponent.UpdateComponentResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateComponent.UpdateComponentResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.UpdateComponent.UpdateComponent
 
 
 -- | Updates the monitoring configurations for the component. The
 --   configuration input parameter is an escaped JSON of the configuration
 --   and should match the schema of what is returned by
 --   <tt>DescribeComponentConfigurationRecommendation</tt>.
-module Network.AWS.ApplicationInsights.UpdateComponentConfiguration
+module Amazonka.ApplicationInsights.UpdateComponentConfiguration
 
 -- | <i>See:</i> <a>newUpdateComponentConfiguration</a> smart constructor.
 data UpdateComponentConfiguration
@@ -5405,26 +5405,26 @@ newUpdateComponentConfigurationResponse :: Int -> UpdateComponentConfigurationRe
 
 -- | The response's http status code.
 updateComponentConfigurationResponse_httpStatus :: Lens' UpdateComponentConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.UpdateComponentConfiguration.UpdateComponentConfiguration
 
 
 -- | Adds a log pattern to a <tt>LogPatternSet</tt>.
-module Network.AWS.ApplicationInsights.UpdateLogPattern
+module Amazonka.ApplicationInsights.UpdateLogPattern
 
 -- | <i>See:</i> <a>newUpdateLogPattern</a> smart constructor.
 data UpdateLogPattern
@@ -5566,25 +5566,25 @@ updateLogPatternResponse_resourceGroupName :: Lens' UpdateLogPatternResponse (Ma
 
 -- | The response's http status code.
 updateLogPatternResponse_httpStatus :: Lens' UpdateLogPatternResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance GHC.Generics.Generic Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
-instance GHC.Show.Show Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
-instance GHC.Read.Read Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance Control.DeepSeq.NFData Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance GHC.Generics.Generic Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
+instance GHC.Show.Show Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
+instance GHC.Read.Read Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
+instance GHC.Classes.Eq Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPatternResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance Control.DeepSeq.NFData Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationInsights.UpdateLogPattern.UpdateLogPattern
 
 
-module Network.AWS.ApplicationInsights.Lens
+module Amazonka.ApplicationInsights.Lens
 
 -- | The name of the resource group.
 describeApplication_resourceGroupName :: Lens' DescribeApplication Text
@@ -6398,7 +6398,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.ApplicationInsights.Waiters
+module Amazonka.ApplicationInsights.Waiters
 
 
 -- | Derived from API version <tt>2018-11-25</tt> of the AWS service
@@ -6421,7 +6421,7 @@ module Network.AWS.ApplicationInsights.Waiters
 --   informs you that a memory pressure problem with your SQL Server
 --   database is occurring. It bases this analysis on impactful metrics and
 --   log errors.
-module Network.AWS.ApplicationInsights
+module Amazonka.ApplicationInsights
 
 -- | API version <tt>2018-11-25</tt> of the Amazon CloudWatch Application
 --   Insights SDK configuration.

@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Transcribe.ListMedicalVocabularies</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of vocabularies that match the specified criteria. If you</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- don\'t enter a value in any of the request parameters, returns the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- entire list of vocabularies.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transcribe.ListMedicalVocabularies</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#newListMedicalVocabularies"><span class="hs-identifier">newListMedicalVocabularies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_nameContains"><span class="hs-identifier">listMedicalVocabularies_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_nextToken"><span class="hs-identifier">listMedicalVocabularies_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_stateEquals"><span class="hs-identifier">listMedicalVocabularies_stateEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_maxResults"><span class="hs-identifier">listMedicalVocabularies_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier">ListMedicalVocabulariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#newListMedicalVocabulariesResponse"><span class="hs-identifier">newListMedicalVocabulariesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_vocabularies"><span class="hs-identifier">listMedicalVocabulariesResponse_vocabularies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_status"><span class="hs-identifier">listMedicalVocabulariesResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_nextToken"><span class="hs-identifier">listMedicalVocabulariesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_httpStatus"><span class="hs-identifier">listMedicalVocabulariesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.html"><span class="hs-identifier">Amazonka.Transcribe.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListMedicalVocabularies' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679281383"><span id="local-6989586621679281384"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMedicalVocabularies"><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-var">ListMedicalVocabularies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMedicalVocabularies%27"><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-var">ListMedicalVocabularies'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns vocabularies whose names contain the specified string. The</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- search is not case sensitive. @ListMedicalVocabularies@ returns both</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- \&quot;@vocabularyname@\&quot; and \&quot;@VocabularyName@\&quot;.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnameContains%3AListMedicalVocabularies%27"><span class="annot"><span class="annottext">ListMedicalVocabularies -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnameContains%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | If the result of your previous request to @ListMedicalVocabularies@ was</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- vocabularies.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListMedicalVocabularies%27"><span class="annot"><span class="annottext">ListMedicalVocabularies -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnextToken%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | When specified, returns only vocabularies with the @VocabularyState@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- equal to the specified vocabulary state. Use this field to see which</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- vocabularies are ready for your medical transcription jobs.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AstateEquals%3AListMedicalVocabularies%27"><span class="annot"><span class="annottext">ListMedicalVocabularies -&gt; Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AstateEquals%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var hs-var">stateEquals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The maximum number of vocabularies to return in each page of results. If</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxResults%3AListMedicalVocabularies%27"><span class="annot"><span class="annottext">ListMedicalVocabularies -&gt; Maybe Natural
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AmaxResults%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281374"><span id="local-6989586621679281376"><span class="annot"><span class="annottext">ListMedicalVocabularies -&gt; ListMedicalVocabularies -&gt; Bool
+(ListMedicalVocabularies -&gt; ListMedicalVocabularies -&gt; Bool)
+-&gt; (ListMedicalVocabularies -&gt; ListMedicalVocabularies -&gt; Bool)
+-&gt; Eq ListMedicalVocabularies
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListMedicalVocabularies -&gt; ListMedicalVocabularies -&gt; Bool
+$c/= :: ListMedicalVocabularies -&gt; ListMedicalVocabularies -&gt; Bool
+== :: ListMedicalVocabularies -&gt; ListMedicalVocabularies -&gt; Bool
+$c== :: ListMedicalVocabularies -&gt; ListMedicalVocabularies -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281365"><span id="local-6989586621679281367"><span id="local-6989586621679281369"><span id="local-6989586621679281371"><span class="annot"><span class="annottext">ReadPrec [ListMedicalVocabularies]
+ReadPrec ListMedicalVocabularies
+Int -&gt; ReadS ListMedicalVocabularies
+ReadS [ListMedicalVocabularies]
+(Int -&gt; ReadS ListMedicalVocabularies)
+-&gt; ReadS [ListMedicalVocabularies]
+-&gt; ReadPrec ListMedicalVocabularies
+-&gt; ReadPrec [ListMedicalVocabularies]
+-&gt; Read ListMedicalVocabularies
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListMedicalVocabularies]
+$creadListPrec :: ReadPrec [ListMedicalVocabularies]
+readPrec :: ReadPrec ListMedicalVocabularies
+$creadPrec :: ReadPrec ListMedicalVocabularies
+readList :: ReadS [ListMedicalVocabularies]
+$creadList :: ReadS [ListMedicalVocabularies]
+readsPrec :: Int -&gt; ReadS ListMedicalVocabularies
+$creadsPrec :: Int -&gt; ReadS ListMedicalVocabularies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281358"><span id="local-6989586621679281360"><span id="local-6989586621679281362"><span class="annot"><span class="annottext">Int -&gt; ListMedicalVocabularies -&gt; ShowS
+[ListMedicalVocabularies] -&gt; ShowS
+ListMedicalVocabularies -&gt; String
+(Int -&gt; ListMedicalVocabularies -&gt; ShowS)
+-&gt; (ListMedicalVocabularies -&gt; String)
+-&gt; ([ListMedicalVocabularies] -&gt; ShowS)
+-&gt; Show ListMedicalVocabularies
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListMedicalVocabularies] -&gt; ShowS
+$cshowList :: [ListMedicalVocabularies] -&gt; ShowS
+show :: ListMedicalVocabularies -&gt; String
+$cshow :: ListMedicalVocabularies -&gt; String
+showsPrec :: Int -&gt; ListMedicalVocabularies -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListMedicalVocabularies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListMedicalVocabularies -&gt; Rep ListMedicalVocabularies x)
+-&gt; (forall x.
+    Rep ListMedicalVocabularies x -&gt; ListMedicalVocabularies)
+-&gt; Generic ListMedicalVocabularies
+forall x. Rep ListMedicalVocabularies x -&gt; ListMedicalVocabularies
+forall x. ListMedicalVocabularies -&gt; Rep ListMedicalVocabularies x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListMedicalVocabularies x -&gt; ListMedicalVocabularies
+$cfrom :: forall x. ListMedicalVocabularies -&gt; Rep ListMedicalVocabularies x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'ListMedicalVocabularies' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'nameContains', 'listMedicalVocabularies_nameContains' - Returns vocabularies whose names contain the specified string. The</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- search is not case sensitive. @ListMedicalVocabularies@ returns both</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- \&quot;@vocabularyname@\&quot; and \&quot;@VocabularyName@\&quot;.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'nextToken', 'listMedicalVocabularies_nextToken' - If the result of your previous request to @ListMedicalVocabularies@ was</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- vocabularies.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'stateEquals', 'listMedicalVocabularies_stateEquals' - When specified, returns only vocabularies with the @VocabularyState@</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- equal to the specified vocabulary state. Use this field to see which</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- vocabularies are ready for your medical transcription jobs.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'listMedicalVocabularies_maxResults' - The maximum number of vocabularies to return in each page of results. If</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#newListMedicalVocabularies"><span class="hs-identifier hs-type">newListMedicalVocabularies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span>
+</span><span id="line-104"></span><span id="newListMedicalVocabularies"><span class="annot"><span class="annottext">newListMedicalVocabularies :: ListMedicalVocabularies
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#newListMedicalVocabularies"><span class="hs-identifier hs-var hs-var">newListMedicalVocabularies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ListMedicalVocabularies' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe VocabularyState
+-&gt; Maybe Natural
+-&gt; ListMedicalVocabularies
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nameContains:ListMedicalVocabularies' :: Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnameContains%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListMedicalVocabularies' :: Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnextToken%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateEquals:ListMedicalVocabularies' :: Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AstateEquals%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">stateEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListMedicalVocabularies' :: Maybe Natural
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AmaxResults%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Returns vocabularies whose names contain the specified string. The</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- search is not case sensitive. @ListMedicalVocabularies@ returns both</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- \&quot;@vocabularyname@\&quot; and \&quot;@VocabularyName@\&quot;.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_nameContains"><span class="hs-identifier hs-type">listMedicalVocabularies_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="listMedicalVocabularies_nameContains"><span class="annot"><span class="annottext">listMedicalVocabularies_nameContains :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListMedicalVocabularies -&gt; f ListMedicalVocabularies
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_nameContains"><span class="hs-identifier hs-var hs-var">listMedicalVocabularies_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabularies -&gt; Maybe Text)
+-&gt; (ListMedicalVocabularies
+    -&gt; Maybe Text -&gt; ListMedicalVocabularies)
+-&gt; Lens
+     ListMedicalVocabularies
+     ListMedicalVocabularies
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281351"><span class="annot"><span class="annottext">Maybe Text
+nameContains :: Maybe Text
+$sel:nameContains:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe Text
+</span><a href="#local-6989586621679281351"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281351"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281350"><span class="annot"><span class="annottext">s :: ListMedicalVocabularies
+</span><a href="#local-6989586621679281350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281349"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabularies
+</span><a href="#local-6989586621679281350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListMedicalVocabularies' :: Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnameContains%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | If the result of your previous request to @ListMedicalVocabularies@ was</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- vocabularies.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_nextToken"><span class="hs-identifier hs-type">listMedicalVocabularies_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="listMedicalVocabularies_nextToken"><span class="annot"><span class="annottext">listMedicalVocabularies_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListMedicalVocabularies -&gt; f ListMedicalVocabularies
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_nextToken"><span class="hs-identifier hs-var hs-var">listMedicalVocabularies_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabularies -&gt; Maybe Text)
+-&gt; (ListMedicalVocabularies
+    -&gt; Maybe Text -&gt; ListMedicalVocabularies)
+-&gt; Lens
+     ListMedicalVocabularies
+     ListMedicalVocabularies
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281348"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe Text
+</span><a href="#local-6989586621679281348"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281348"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281347"><span class="annot"><span class="annottext">s :: ListMedicalVocabularies
+</span><a href="#local-6989586621679281347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabularies
+</span><a href="#local-6989586621679281347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMedicalVocabularies' :: Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnextToken%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | When specified, returns only vocabularies with the @VocabularyState@</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- equal to the specified vocabulary state. Use this field to see which</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- vocabularies are ready for your medical transcription jobs.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_stateEquals"><span class="hs-identifier hs-type">listMedicalVocabularies_stateEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listMedicalVocabularies_stateEquals"><span class="annot"><span class="annottext">listMedicalVocabularies_stateEquals :: (Maybe VocabularyState -&gt; f (Maybe VocabularyState))
+-&gt; ListMedicalVocabularies -&gt; f ListMedicalVocabularies
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_stateEquals"><span class="hs-identifier hs-var hs-var">listMedicalVocabularies_stateEquals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabularies -&gt; Maybe VocabularyState)
+-&gt; (ListMedicalVocabularies
+    -&gt; Maybe VocabularyState -&gt; ListMedicalVocabularies)
+-&gt; Lens
+     ListMedicalVocabularies
+     ListMedicalVocabularies
+     (Maybe VocabularyState)
+     (Maybe VocabularyState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281345"><span class="annot"><span class="annottext">Maybe VocabularyState
+stateEquals :: Maybe VocabularyState
+$sel:stateEquals:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe VocabularyState
+</span><a href="#local-6989586621679281345"><span class="hs-identifier hs-var hs-var">stateEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679281345"><span class="hs-identifier hs-var">stateEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281344"><span class="annot"><span class="annottext">s :: ListMedicalVocabularies
+</span><a href="#local-6989586621679281344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281343"><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679281343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabularies
+</span><a href="#local-6989586621679281344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateEquals:ListMedicalVocabularies' :: Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AstateEquals%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">stateEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679281343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of vocabularies to return in each page of results. If</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_maxResults"><span class="hs-identifier hs-type">listMedicalVocabularies_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listMedicalVocabularies_maxResults"><span class="annot"><span class="annottext">listMedicalVocabularies_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListMedicalVocabularies -&gt; f ListMedicalVocabularies
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabularies_maxResults"><span class="hs-identifier hs-var hs-var">listMedicalVocabularies_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabularies -&gt; Maybe Natural)
+-&gt; (ListMedicalVocabularies
+    -&gt; Maybe Natural -&gt; ListMedicalVocabularies)
+-&gt; Lens
+     ListMedicalVocabularies
+     ListMedicalVocabularies
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281342"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe Natural
+</span><a href="#local-6989586621679281342"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281342"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281341"><span class="annot"><span class="annottext">s :: ListMedicalVocabularies
+</span><a href="#local-6989586621679281341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281340"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabularies
+</span><a href="#local-6989586621679281341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListMedicalVocabularies' :: Maybe Natural
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AmaxResults%3AListMedicalVocabularies%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679281336"><span class="annot"><span class="annottext">request :: ListMedicalVocabularies -&gt; Request ListMedicalVocabularies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListMedicalVocabularies -&gt; Request ListMedicalVocabularies
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679281332"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListMedicalVocabularies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListMedicalVocabularies)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListMedicalVocabularies))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListMedicalVocabularies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListMedicalVocabularies)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281329"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281329"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281328"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679281328"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281327"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VocabularyInfo]
+-&gt; Maybe VocabularyState
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListMedicalVocabulariesResponse
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">ListMedicalVocabulariesResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [VocabularyInfo]
+ -&gt; Maybe VocabularyState
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListMedicalVocabulariesResponse)
+-&gt; Either String (Maybe [VocabularyInfo])
+-&gt; Either
+     String
+     (Maybe VocabularyState
+      -&gt; Maybe Text -&gt; Int -&gt; ListMedicalVocabulariesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VocabularyInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Vocabularies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [VocabularyInfo]))
+-&gt; Maybe [VocabularyInfo] -&gt; Either String (Maybe [VocabularyInfo])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VocabularyInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe VocabularyState
+   -&gt; Maybe Text -&gt; Int -&gt; ListMedicalVocabulariesResponse)
+-&gt; Either String (Maybe VocabularyState)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListMedicalVocabulariesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VocabularyState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListMedicalVocabulariesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListMedicalVocabulariesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListMedicalVocabulariesResponse)
+-&gt; Either String Int
+-&gt; Either String ListMedicalVocabulariesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281329"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281318"><span id="local-6989586621679281320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679281311"><span class="annot"><span class="annottext">toHeaders :: ListMedicalVocabularies -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListMedicalVocabularies -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.ListMedicalVocabularies&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281301"><span id="local-6989586621679281303"><span id="local-6989586621679281305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679281299"><span class="annot"><span class="annottext">toJSON :: ListMedicalVocabularies -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies%27"><span class="hs-identifier hs-type">ListMedicalVocabularies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281294"><span id="local-6989586621679281295"><span id="local-6989586621679281296"><span id="local-6989586621679281297"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe VocabularyState
+maxResults :: Maybe Natural
+stateEquals :: Maybe VocabularyState
+nextToken :: Maybe Text
+nameContains :: Maybe Text
+$sel:maxResults:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe Natural
+$sel:stateEquals:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe VocabularyState
+$sel:nextToken:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe Text
+$sel:nameContains:ListMedicalVocabularies' :: ListMedicalVocabularies -&gt; Maybe Text
+</span><a href="#local-6989586621679281294"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281297"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281296"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StateEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VocabularyState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VocabularyState -&gt; Pair) -&gt; Maybe VocabularyState -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679281295"><span class="hs-identifier hs-var">stateEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281294"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679281288"><span class="annot"><span class="annottext">toPath :: ListMedicalVocabularies -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListMedicalVocabularies -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabularies"><span class="hs-identifier hs-type">ListMedicalVocabularies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679281284"><span class="annot"><span class="annottext">toQuery :: ListMedicalVocabularies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListMedicalVocabularies -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newListMedicalVocabulariesResponse' smart constructor.</span><span>
+</span><span id="line-190"></span><span id="local-6989586621679281281"><span id="local-6989586621679281282"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMedicalVocabulariesResponse"><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-var">ListMedicalVocabulariesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMedicalVocabulariesResponse%27"><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">ListMedicalVocabulariesResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of objects that describe the vocabularies that match your search</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- criteria.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3Avocabularies%3AListMedicalVocabulariesResponse%27"><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse -&gt; Maybe [VocabularyInfo]
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3Avocabularies%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var hs-var">vocabularies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyInfo.html#VocabularyInfo"><span class="hs-identifier hs-type">VocabularyInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The requested vocabulary state.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3Astatus%3AListMedicalVocabulariesResponse%27"><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse -&gt; Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3Astatus%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The @ListMedicalVocabularies@ operation returns a page of vocabularies</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- at a time. You set the maximum number of vocabularies to return on a</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- page with the @MaxResults@ parameter. If there are more jobs in the list</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- will fit on a page, Amazon Transcribe Medical returns the @NextPage@</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- token. To return the next page of vocabularies, include the token in the</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- next request to the @ListMedicalVocabularies@ operation .</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AnextToken%3AListMedicalVocabulariesResponse%27"><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnextToken%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListMedicalVocabulariesResponse%27"><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse -&gt; Int
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AhttpStatus%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281273"><span id="local-6989586621679281275"><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse
+-&gt; ListMedicalVocabulariesResponse -&gt; Bool
+(ListMedicalVocabulariesResponse
+ -&gt; ListMedicalVocabulariesResponse -&gt; Bool)
+-&gt; (ListMedicalVocabulariesResponse
+    -&gt; ListMedicalVocabulariesResponse -&gt; Bool)
+-&gt; Eq ListMedicalVocabulariesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListMedicalVocabulariesResponse
+-&gt; ListMedicalVocabulariesResponse -&gt; Bool
+$c/= :: ListMedicalVocabulariesResponse
+-&gt; ListMedicalVocabulariesResponse -&gt; Bool
+== :: ListMedicalVocabulariesResponse
+-&gt; ListMedicalVocabulariesResponse -&gt; Bool
+$c== :: ListMedicalVocabulariesResponse
+-&gt; ListMedicalVocabulariesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281265"><span id="local-6989586621679281267"><span id="local-6989586621679281269"><span id="local-6989586621679281271"><span class="annot"><span class="annottext">ReadPrec [ListMedicalVocabulariesResponse]
+ReadPrec ListMedicalVocabulariesResponse
+Int -&gt; ReadS ListMedicalVocabulariesResponse
+ReadS [ListMedicalVocabulariesResponse]
+(Int -&gt; ReadS ListMedicalVocabulariesResponse)
+-&gt; ReadS [ListMedicalVocabulariesResponse]
+-&gt; ReadPrec ListMedicalVocabulariesResponse
+-&gt; ReadPrec [ListMedicalVocabulariesResponse]
+-&gt; Read ListMedicalVocabulariesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListMedicalVocabulariesResponse]
+$creadListPrec :: ReadPrec [ListMedicalVocabulariesResponse]
+readPrec :: ReadPrec ListMedicalVocabulariesResponse
+$creadPrec :: ReadPrec ListMedicalVocabulariesResponse
+readList :: ReadS [ListMedicalVocabulariesResponse]
+$creadList :: ReadS [ListMedicalVocabulariesResponse]
+readsPrec :: Int -&gt; ReadS ListMedicalVocabulariesResponse
+$creadsPrec :: Int -&gt; ReadS ListMedicalVocabulariesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281259"><span id="local-6989586621679281261"><span id="local-6989586621679281263"><span class="annot"><span class="annottext">Int -&gt; ListMedicalVocabulariesResponse -&gt; ShowS
+[ListMedicalVocabulariesResponse] -&gt; ShowS
+ListMedicalVocabulariesResponse -&gt; String
+(Int -&gt; ListMedicalVocabulariesResponse -&gt; ShowS)
+-&gt; (ListMedicalVocabulariesResponse -&gt; String)
+-&gt; ([ListMedicalVocabulariesResponse] -&gt; ShowS)
+-&gt; Show ListMedicalVocabulariesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListMedicalVocabulariesResponse] -&gt; ShowS
+$cshowList :: [ListMedicalVocabulariesResponse] -&gt; ShowS
+show :: ListMedicalVocabulariesResponse -&gt; String
+$cshow :: ListMedicalVocabulariesResponse -&gt; String
+showsPrec :: Int -&gt; ListMedicalVocabulariesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListMedicalVocabulariesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListMedicalVocabulariesResponse
+ -&gt; Rep ListMedicalVocabulariesResponse x)
+-&gt; (forall x.
+    Rep ListMedicalVocabulariesResponse x
+    -&gt; ListMedicalVocabulariesResponse)
+-&gt; Generic ListMedicalVocabulariesResponse
+forall x.
+Rep ListMedicalVocabulariesResponse x
+-&gt; ListMedicalVocabulariesResponse
+forall x.
+ListMedicalVocabulariesResponse
+-&gt; Rep ListMedicalVocabulariesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListMedicalVocabulariesResponse x
+-&gt; ListMedicalVocabulariesResponse
+$cfrom :: forall x.
+ListMedicalVocabulariesResponse
+-&gt; Rep ListMedicalVocabulariesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Create a value of 'ListMedicalVocabulariesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'vocabularies', 'listMedicalVocabulariesResponse_vocabularies' - A list of objects that describe the vocabularies that match your search</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- criteria.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'status', 'listMedicalVocabulariesResponse_status' - The requested vocabulary state.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'nextToken', 'listMedicalVocabulariesResponse_nextToken' - The @ListMedicalVocabularies@ operation returns a page of vocabularies</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- at a time. You set the maximum number of vocabularies to return on a</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- page with the @MaxResults@ parameter. If there are more jobs in the list</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- will fit on a page, Amazon Transcribe Medical returns the @NextPage@</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- token. To return the next page of vocabularies, include the token in the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- next request to the @ListMedicalVocabularies@ operation .</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'listMedicalVocabulariesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#newListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">newListMedicalVocabulariesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newListMedicalVocabulariesResponse"><span class="annot"><span class="annottext">newListMedicalVocabulariesResponse :: Int -&gt; ListMedicalVocabulariesResponse
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#newListMedicalVocabulariesResponse"><span class="hs-identifier hs-var hs-var">newListMedicalVocabulariesResponse</span></a></span></span><span> </span><span id="local-6989586621679281256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse' :: Maybe [VocabularyInfo]
+-&gt; Maybe VocabularyState
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListMedicalVocabulariesResponse
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vocabularies:ListMedicalVocabulariesResponse' :: Maybe [VocabularyInfo]
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3Avocabularies%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">vocabularies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe [VocabularyInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ListMedicalVocabulariesResponse' :: Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3Astatus%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListMedicalVocabulariesResponse' :: Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnextToken%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListMedicalVocabulariesResponse' :: Int
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AhttpStatus%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | A list of objects that describe the vocabularies that match your search</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- criteria.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_vocabularies"><span class="hs-identifier hs-type">listMedicalVocabulariesResponse_vocabularies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyInfo.html#VocabularyInfo"><span class="hs-identifier hs-type">VocabularyInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="listMedicalVocabulariesResponse_vocabularies"><span class="annot"><span class="annottext">listMedicalVocabulariesResponse_vocabularies :: (Maybe [VocabularyInfo] -&gt; f (Maybe [VocabularyInfo]))
+-&gt; ListMedicalVocabulariesResponse
+-&gt; f ListMedicalVocabulariesResponse
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_vocabularies"><span class="hs-identifier hs-var hs-var">listMedicalVocabulariesResponse_vocabularies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabulariesResponse -&gt; Maybe [VocabularyInfo])
+-&gt; (ListMedicalVocabulariesResponse
+    -&gt; Maybe [VocabularyInfo] -&gt; ListMedicalVocabulariesResponse)
+-&gt; Lens
+     ListMedicalVocabulariesResponse
+     ListMedicalVocabulariesResponse
+     (Maybe [VocabularyInfo])
+     (Maybe [VocabularyInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281255"><span class="annot"><span class="annottext">Maybe [VocabularyInfo]
+vocabularies :: Maybe [VocabularyInfo]
+$sel:vocabularies:ListMedicalVocabulariesResponse' :: ListMedicalVocabulariesResponse -&gt; Maybe [VocabularyInfo]
+</span><a href="#local-6989586621679281255"><span class="hs-identifier hs-var hs-var">vocabularies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VocabularyInfo]
+</span><a href="#local-6989586621679281255"><span class="hs-identifier hs-var">vocabularies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281254"><span class="annot"><span class="annottext">s :: ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281253"><span class="annot"><span class="annottext">Maybe [VocabularyInfo]
+</span><a href="#local-6989586621679281253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularies:ListMedicalVocabulariesResponse' :: Maybe [VocabularyInfo]
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3Avocabularies%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">vocabularies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VocabularyInfo]
+</span><a href="#local-6989586621679281253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VocabularyInfo] -&gt; f (Maybe [VocabularyInfo]))
+ -&gt; ListMedicalVocabulariesResponse
+ -&gt; f ListMedicalVocabulariesResponse)
+-&gt; ((Maybe [VocabularyInfo] -&gt; f (Maybe [VocabularyInfo]))
+    -&gt; Maybe [VocabularyInfo] -&gt; f (Maybe [VocabularyInfo]))
+-&gt; (Maybe [VocabularyInfo] -&gt; f (Maybe [VocabularyInfo]))
+-&gt; ListMedicalVocabulariesResponse
+-&gt; f ListMedicalVocabulariesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VocabularyInfo] [VocabularyInfo] [VocabularyInfo] [VocabularyInfo]
+-&gt; Iso
+     (Maybe [VocabularyInfo])
+     (Maybe [VocabularyInfo])
+     (Maybe [VocabularyInfo])
+     (Maybe [VocabularyInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VocabularyInfo] [VocabularyInfo] [VocabularyInfo] [VocabularyInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The requested vocabulary state.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_status"><span class="hs-identifier hs-type">listMedicalVocabulariesResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="listMedicalVocabulariesResponse_status"><span class="annot"><span class="annottext">listMedicalVocabulariesResponse_status :: (Maybe VocabularyState -&gt; f (Maybe VocabularyState))
+-&gt; ListMedicalVocabulariesResponse
+-&gt; f ListMedicalVocabulariesResponse
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_status"><span class="hs-identifier hs-var hs-var">listMedicalVocabulariesResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabulariesResponse -&gt; Maybe VocabularyState)
+-&gt; (ListMedicalVocabulariesResponse
+    -&gt; Maybe VocabularyState -&gt; ListMedicalVocabulariesResponse)
+-&gt; Lens
+     ListMedicalVocabulariesResponse
+     ListMedicalVocabulariesResponse
+     (Maybe VocabularyState)
+     (Maybe VocabularyState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281249"><span class="annot"><span class="annottext">Maybe VocabularyState
+status :: Maybe VocabularyState
+$sel:status:ListMedicalVocabulariesResponse' :: ListMedicalVocabulariesResponse -&gt; Maybe VocabularyState
+</span><a href="#local-6989586621679281249"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679281249"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281248"><span class="annot"><span class="annottext">s :: ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281247"><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679281247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListMedicalVocabulariesResponse' :: Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3Astatus%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679281247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The @ListMedicalVocabularies@ operation returns a page of vocabularies</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- at a time. You set the maximum number of vocabularies to return on a</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- page with the @MaxResults@ parameter. If there are more jobs in the list</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- will fit on a page, Amazon Transcribe Medical returns the @NextPage@</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- token. To return the next page of vocabularies, include the token in the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- next request to the @ListMedicalVocabularies@ operation .</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_nextToken"><span class="hs-identifier hs-type">listMedicalVocabulariesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="listMedicalVocabulariesResponse_nextToken"><span class="annot"><span class="annottext">listMedicalVocabulariesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListMedicalVocabulariesResponse
+-&gt; f ListMedicalVocabulariesResponse
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listMedicalVocabulariesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabulariesResponse -&gt; Maybe Text)
+-&gt; (ListMedicalVocabulariesResponse
+    -&gt; Maybe Text -&gt; ListMedicalVocabulariesResponse)
+-&gt; Lens
+     ListMedicalVocabulariesResponse
+     ListMedicalVocabulariesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281246"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListMedicalVocabulariesResponse' :: ListMedicalVocabulariesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679281246"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281246"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281245"><span class="annot"><span class="annottext">s :: ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMedicalVocabulariesResponse' :: Maybe Text
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AnextToken%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_httpStatus"><span class="hs-identifier hs-type">listMedicalVocabulariesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="listMedicalVocabulariesResponse_httpStatus"><span class="annot"><span class="annottext">listMedicalVocabulariesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListMedicalVocabulariesResponse
+-&gt; f ListMedicalVocabulariesResponse
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#listMedicalVocabulariesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listMedicalVocabulariesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMedicalVocabulariesResponse -&gt; Int)
+-&gt; (ListMedicalVocabulariesResponse
+    -&gt; Int -&gt; ListMedicalVocabulariesResponse)
+-&gt; Lens
+     ListMedicalVocabulariesResponse
+     ListMedicalVocabulariesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281243"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListMedicalVocabulariesResponse' :: ListMedicalVocabulariesResponse -&gt; Int
+</span><a href="#local-6989586621679281243"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281243"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281242"><span class="annot"><span class="annottext">s :: ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281241"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMedicalVocabulariesResponse
+</span><a href="#local-6989586621679281242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMedicalVocabulariesResponse' :: Int
+</span><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#%24sel%3AhttpStatus%3AListMedicalVocabulariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679281239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.ListMedicalVocabularies.html#ListMedicalVocabulariesResponse"><span class="hs-identifier hs-type">ListMedicalVocabulariesResponse</span></a></span></span><span>
+</span><span id="line-267"></span></pre></body></html>

@@ -1,0 +1,968 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints.html"><span class="hs-identifier">Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html"><span class="hs-identifier">Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions.html"><span class="hs-identifier">Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html"><span class="hs-identifier">Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html"><span class="hs-identifier">Amazonka.Firehose.Types.CloudWatchLoggingOptions</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html"><span class="hs-identifier">Amazonka.Firehose.Types.ProcessingConfiguration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html"><span class="hs-identifier">Amazonka.Firehose.Types.S3DestinationDescription</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.VpcConfigurationDescription.html"><span class="hs-identifier">Amazonka.Firehose.Types.VpcConfigurationDescription</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | /See:/ 'newAmazonopensearchserviceDestinationDescription' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679280472"><span id="local-6989586621679280473"></span></span><span class="hs-keyword">data</span><span> </span><span id="AmazonopensearchserviceDestinationDescription"><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-var">AmazonopensearchserviceDestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AmazonopensearchserviceDestinationDescription%27"><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">AmazonopensearchserviceDestinationDescription'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AindexRotationPeriod%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceIndexRotationPeriod
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AindexRotationPeriod%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">indexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtypeName%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AtypeName%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3As3BackupMode%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceS3BackupMode
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3As3BackupMode%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdomainARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AdomainARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">domainARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AvpcConfigurationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe VpcConfigurationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AvpcConfigurationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3As3DestinationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3As3DestinationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">s3DestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AbufferingHints%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceBufferingHints
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AbufferingHints%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints.html#AmazonopensearchserviceBufferingHints"><span class="hs-identifier hs-type">AmazonopensearchserviceBufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AretryOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceRetryOptions
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AretryOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions.html#AmazonopensearchserviceRetryOptions"><span class="hs-identifier hs-type">AmazonopensearchserviceRetryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AprocessingConfiguration%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AroleARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AroleARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AclusterEndpoint%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AclusterEndpoint%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">clusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AindexName%3AAmazonopensearchserviceDestinationDescription%27"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AindexName%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280454"><span id="local-6989586621679280456"><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+-&gt; AmazonopensearchserviceDestinationDescription -&gt; Bool
+(AmazonopensearchserviceDestinationDescription
+ -&gt; AmazonopensearchserviceDestinationDescription -&gt; Bool)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; AmazonopensearchserviceDestinationDescription -&gt; Bool)
+-&gt; Eq AmazonopensearchserviceDestinationDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AmazonopensearchserviceDestinationDescription
+-&gt; AmazonopensearchserviceDestinationDescription -&gt; Bool
+$c/= :: AmazonopensearchserviceDestinationDescription
+-&gt; AmazonopensearchserviceDestinationDescription -&gt; Bool
+== :: AmazonopensearchserviceDestinationDescription
+-&gt; AmazonopensearchserviceDestinationDescription -&gt; Bool
+$c== :: AmazonopensearchserviceDestinationDescription
+-&gt; AmazonopensearchserviceDestinationDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280445"><span id="local-6989586621679280447"><span id="local-6989586621679280449"><span id="local-6989586621679280451"><span class="annot"><span class="annottext">ReadPrec [AmazonopensearchserviceDestinationDescription]
+ReadPrec AmazonopensearchserviceDestinationDescription
+Int -&gt; ReadS AmazonopensearchserviceDestinationDescription
+ReadS [AmazonopensearchserviceDestinationDescription]
+(Int -&gt; ReadS AmazonopensearchserviceDestinationDescription)
+-&gt; ReadS [AmazonopensearchserviceDestinationDescription]
+-&gt; ReadPrec AmazonopensearchserviceDestinationDescription
+-&gt; ReadPrec [AmazonopensearchserviceDestinationDescription]
+-&gt; Read AmazonopensearchserviceDestinationDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AmazonopensearchserviceDestinationDescription]
+$creadListPrec :: ReadPrec [AmazonopensearchserviceDestinationDescription]
+readPrec :: ReadPrec AmazonopensearchserviceDestinationDescription
+$creadPrec :: ReadPrec AmazonopensearchserviceDestinationDescription
+readList :: ReadS [AmazonopensearchserviceDestinationDescription]
+$creadList :: ReadS [AmazonopensearchserviceDestinationDescription]
+readsPrec :: Int -&gt; ReadS AmazonopensearchserviceDestinationDescription
+$creadsPrec :: Int -&gt; ReadS AmazonopensearchserviceDestinationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280438"><span id="local-6989586621679280440"><span id="local-6989586621679280442"><span class="annot"><span class="annottext">Int -&gt; AmazonopensearchserviceDestinationDescription -&gt; ShowS
+[AmazonopensearchserviceDestinationDescription] -&gt; ShowS
+AmazonopensearchserviceDestinationDescription -&gt; String
+(Int -&gt; AmazonopensearchserviceDestinationDescription -&gt; ShowS)
+-&gt; (AmazonopensearchserviceDestinationDescription -&gt; String)
+-&gt; ([AmazonopensearchserviceDestinationDescription] -&gt; ShowS)
+-&gt; Show AmazonopensearchserviceDestinationDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AmazonopensearchserviceDestinationDescription] -&gt; ShowS
+$cshowList :: [AmazonopensearchserviceDestinationDescription] -&gt; ShowS
+show :: AmazonopensearchserviceDestinationDescription -&gt; String
+$cshow :: AmazonopensearchserviceDestinationDescription -&gt; String
+showsPrec :: Int -&gt; AmazonopensearchserviceDestinationDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; AmazonopensearchserviceDestinationDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AmazonopensearchserviceDestinationDescription
+ -&gt; Rep AmazonopensearchserviceDestinationDescription x)
+-&gt; (forall x.
+    Rep AmazonopensearchserviceDestinationDescription x
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Generic AmazonopensearchserviceDestinationDescription
+forall x.
+Rep AmazonopensearchserviceDestinationDescription x
+-&gt; AmazonopensearchserviceDestinationDescription
+forall x.
+AmazonopensearchserviceDestinationDescription
+-&gt; Rep AmazonopensearchserviceDestinationDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AmazonopensearchserviceDestinationDescription x
+-&gt; AmazonopensearchserviceDestinationDescription
+$cfrom :: forall x.
+AmazonopensearchserviceDestinationDescription
+-&gt; Rep AmazonopensearchserviceDestinationDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'AmazonopensearchserviceDestinationDescription' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'indexRotationPeriod', 'amazonopensearchserviceDestinationDescription_indexRotationPeriod' - Undocumented member.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'typeName', 'amazonopensearchserviceDestinationDescription_typeName' - Undocumented member.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 's3BackupMode', 'amazonopensearchserviceDestinationDescription_s3BackupMode' - Undocumented member.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'domainARN', 'amazonopensearchserviceDestinationDescription_domainARN' - Undocumented member.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'vpcConfigurationDescription', 'amazonopensearchserviceDestinationDescription_vpcConfigurationDescription' - Undocumented member.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions' - Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 's3DestinationDescription', 'amazonopensearchserviceDestinationDescription_s3DestinationDescription' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'bufferingHints', 'amazonopensearchserviceDestinationDescription_bufferingHints' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'retryOptions', 'amazonopensearchserviceDestinationDescription_retryOptions' - Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'processingConfiguration', 'amazonopensearchserviceDestinationDescription_processingConfiguration' - Undocumented member.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'roleARN', 'amazonopensearchserviceDestinationDescription_roleARN' - Undocumented member.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'clusterEndpoint', 'amazonopensearchserviceDestinationDescription_clusterEndpoint' - Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'indexName', 'amazonopensearchserviceDestinationDescription_indexName' - Undocumented member.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#newAmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">newAmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span>
+</span><span id="line-87"></span><span id="newAmazonopensearchserviceDestinationDescription"><span class="annot"><span class="annottext">newAmazonopensearchserviceDestinationDescription :: AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#newAmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-var hs-var">newAmazonopensearchserviceDestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceIndexRotationPeriod
+-&gt; Maybe Text
+-&gt; Maybe AmazonopensearchserviceS3BackupMode
+-&gt; Maybe Text
+-&gt; Maybe VpcConfigurationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe S3DestinationDescription
+-&gt; Maybe AmazonopensearchserviceBufferingHints
+-&gt; Maybe AmazonopensearchserviceRetryOptions
+-&gt; Maybe ProcessingConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexRotationPeriod:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceIndexRotationPeriod
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AindexRotationPeriod%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceIndexRotationPeriod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AtypeName%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BackupMode:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceS3BackupMode
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3As3BackupMode%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceS3BackupMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainARN:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AdomainARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">domainARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfigurationDescription:AmazonopensearchserviceDestinationDescription' :: Maybe VpcConfigurationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AvpcConfigurationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">vpcConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:AmazonopensearchserviceDestinationDescription' :: Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3DestinationDescription:AmazonopensearchserviceDestinationDescription' :: Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3As3DestinationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:bufferingHints:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceBufferingHints
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AbufferingHints%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceBufferingHints
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryOptions:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceRetryOptions
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AretryOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceRetryOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingConfiguration:AmazonopensearchserviceDestinationDescription' :: Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AprocessingConfiguration%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AroleARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterEndpoint:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AclusterEndpoint%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexName:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AindexName%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_indexRotationPeriod"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="amazonopensearchserviceDestinationDescription_indexRotationPeriod"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_indexRotationPeriod :: (Maybe AmazonopensearchserviceIndexRotationPeriod
+ -&gt; f (Maybe AmazonopensearchserviceIndexRotationPeriod))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_indexRotationPeriod"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_indexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe AmazonopensearchserviceIndexRotationPeriod)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe AmazonopensearchserviceIndexRotationPeriod)
+     (Maybe AmazonopensearchserviceIndexRotationPeriod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280429"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceIndexRotationPeriod
+indexRotationPeriod :: Maybe AmazonopensearchserviceIndexRotationPeriod
+$sel:indexRotationPeriod:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceIndexRotationPeriod
+</span><a href="#local-6989586621679280429"><span class="hs-identifier hs-var hs-var">indexRotationPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceIndexRotationPeriod
+</span><a href="#local-6989586621679280429"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280428"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280427"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceIndexRotationPeriod
+</span><a href="#local-6989586621679280427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexRotationPeriod:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceIndexRotationPeriod
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AindexRotationPeriod%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceIndexRotationPeriod
+</span><a href="#local-6989586621679280427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_typeName"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="amazonopensearchserviceDestinationDescription_typeName"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_typeName"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription -&gt; Maybe Text)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280425"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280425"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280425"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280424"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280423"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AtypeName%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_s3BackupMode"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="amazonopensearchserviceDestinationDescription_s3BackupMode"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_s3BackupMode :: (Maybe AmazonopensearchserviceS3BackupMode
+ -&gt; f (Maybe AmazonopensearchserviceS3BackupMode))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_s3BackupMode"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe AmazonopensearchserviceS3BackupMode)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe AmazonopensearchserviceS3BackupMode)
+     (Maybe AmazonopensearchserviceS3BackupMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280421"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceS3BackupMode
+s3BackupMode :: Maybe AmazonopensearchserviceS3BackupMode
+$sel:s3BackupMode:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceS3BackupMode
+</span><a href="#local-6989586621679280421"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceS3BackupMode
+</span><a href="#local-6989586621679280421"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280420"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280419"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceS3BackupMode
+</span><a href="#local-6989586621679280419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceS3BackupMode
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3As3BackupMode%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceS3BackupMode
+</span><a href="#local-6989586621679280419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_domainARN"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_domainARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="amazonopensearchserviceDestinationDescription_domainARN"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_domainARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_domainARN"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_domainARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription -&gt; Maybe Text)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280417"><span class="annot"><span class="annottext">Maybe Text
+domainARN :: Maybe Text
+$sel:domainARN:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280417"><span class="hs-identifier hs-var hs-var">domainARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280417"><span class="hs-identifier hs-var">domainARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280416"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280415"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainARN:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AdomainARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">domainARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_vpcConfigurationDescription"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_vpcConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="amazonopensearchserviceDestinationDescription_vpcConfigurationDescription"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_vpcConfigurationDescription :: (Maybe VpcConfigurationDescription
+ -&gt; f (Maybe VpcConfigurationDescription))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_vpcConfigurationDescription"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_vpcConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe VpcConfigurationDescription)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe VpcConfigurationDescription
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe VpcConfigurationDescription)
+     (Maybe VpcConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280413"><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+vpcConfigurationDescription :: Maybe VpcConfigurationDescription
+$sel:vpcConfigurationDescription:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280413"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280413"><span class="hs-identifier hs-var">vpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280412"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280411"><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfigurationDescription:AmazonopensearchserviceDestinationDescription' :: Maybe VpcConfigurationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AvpcConfigurationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">vpcConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+ -&gt; f (Maybe CloudWatchLoggingOptions))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe CloudWatchLoggingOptions)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe CloudWatchLoggingOptions
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe CloudWatchLoggingOptions)
+     (Maybe CloudWatchLoggingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280409"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+$sel:cloudWatchLoggingOptions:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280409"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280409"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280408"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280407"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:AmazonopensearchserviceDestinationDescription' :: Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_s3DestinationDescription"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="amazonopensearchserviceDestinationDescription_s3DestinationDescription"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_s3DestinationDescription :: (Maybe S3DestinationDescription
+ -&gt; f (Maybe S3DestinationDescription))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_s3DestinationDescription"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_s3DestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe S3DestinationDescription)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe S3DestinationDescription
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe S3DestinationDescription)
+     (Maybe S3DestinationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280405"><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+s3DestinationDescription :: Maybe S3DestinationDescription
+$sel:s3DestinationDescription:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280405"><span class="hs-identifier hs-var hs-var">s3DestinationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280405"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280404"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280403"><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DestinationDescription:AmazonopensearchserviceDestinationDescription' :: Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3As3DestinationDescription%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_bufferingHints"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_bufferingHints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints.html#AmazonopensearchserviceBufferingHints"><span class="hs-identifier hs-type">AmazonopensearchserviceBufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="amazonopensearchserviceDestinationDescription_bufferingHints"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_bufferingHints :: (Maybe AmazonopensearchserviceBufferingHints
+ -&gt; f (Maybe AmazonopensearchserviceBufferingHints))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_bufferingHints"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe AmazonopensearchserviceBufferingHints)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe AmazonopensearchserviceBufferingHints
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe AmazonopensearchserviceBufferingHints)
+     (Maybe AmazonopensearchserviceBufferingHints)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280401"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceBufferingHints
+bufferingHints :: Maybe AmazonopensearchserviceBufferingHints
+$sel:bufferingHints:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceBufferingHints
+</span><a href="#local-6989586621679280401"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceBufferingHints
+</span><a href="#local-6989586621679280401"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280400"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280399"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceBufferingHints
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferingHints:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceBufferingHints
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AbufferingHints%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceBufferingHints
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_retryOptions"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions.html#AmazonopensearchserviceRetryOptions"><span class="hs-identifier hs-type">AmazonopensearchserviceRetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="amazonopensearchserviceDestinationDescription_retryOptions"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_retryOptions :: (Maybe AmazonopensearchserviceRetryOptions
+ -&gt; f (Maybe AmazonopensearchserviceRetryOptions))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_retryOptions"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe AmazonopensearchserviceRetryOptions)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe AmazonopensearchserviceRetryOptions
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe AmazonopensearchserviceRetryOptions)
+     (Maybe AmazonopensearchserviceRetryOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280397"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceRetryOptions
+retryOptions :: Maybe AmazonopensearchserviceRetryOptions
+$sel:retryOptions:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe AmazonopensearchserviceRetryOptions
+</span><a href="#local-6989586621679280397"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceRetryOptions
+</span><a href="#local-6989586621679280397"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280396"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280395"><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceRetryOptions
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:AmazonopensearchserviceDestinationDescription' :: Maybe AmazonopensearchserviceRetryOptions
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AretryOptions%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceRetryOptions
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_processingConfiguration"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="amazonopensearchserviceDestinationDescription_processingConfiguration"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_processingConfiguration :: (Maybe ProcessingConfiguration
+ -&gt; f (Maybe ProcessingConfiguration))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_processingConfiguration"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription
+ -&gt; Maybe ProcessingConfiguration)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe ProcessingConfiguration
+    -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe ProcessingConfiguration)
+     (Maybe ProcessingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280393"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
+$sel:processingConfiguration:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription
+-&gt; Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280393"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280393"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280392"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280391"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:AmazonopensearchserviceDestinationDescription' :: Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AprocessingConfiguration%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_roleARN"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="amazonopensearchserviceDestinationDescription_roleARN"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_roleARN"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription -&gt; Maybe Text)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280389"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280389"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280389"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280388"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280387"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AroleARN%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_clusterEndpoint"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="amazonopensearchserviceDestinationDescription_clusterEndpoint"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_clusterEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_clusterEndpoint"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_clusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription -&gt; Maybe Text)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280385"><span class="annot"><span class="annottext">Maybe Text
+clusterEndpoint :: Maybe Text
+$sel:clusterEndpoint:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280385"><span class="hs-identifier hs-var hs-var">clusterEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280385"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280384"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterEndpoint:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AclusterEndpoint%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_indexName"><span class="hs-identifier hs-type">amazonopensearchserviceDestinationDescription_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="amazonopensearchserviceDestinationDescription_indexName"><span class="annot"><span class="annottext">amazonopensearchserviceDestinationDescription_indexName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AmazonopensearchserviceDestinationDescription
+-&gt; f AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#amazonopensearchserviceDestinationDescription_indexName"><span class="hs-identifier hs-var hs-var">amazonopensearchserviceDestinationDescription_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AmazonopensearchserviceDestinationDescription -&gt; Maybe Text)
+-&gt; (AmazonopensearchserviceDestinationDescription
+    -&gt; Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Lens
+     AmazonopensearchserviceDestinationDescription
+     AmazonopensearchserviceDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280381"><span class="annot"><span class="annottext">Maybe Text
+indexName :: Maybe Text
+$sel:indexName:AmazonopensearchserviceDestinationDescription' :: AmazonopensearchserviceDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280381"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280381"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280380"><span class="annot"><span class="annottext">s :: AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280379"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AmazonopensearchserviceDestinationDescription
+</span><a href="#local-6989586621679280380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:AmazonopensearchserviceDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#%24sel%3AindexName%3AAmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679280376"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679280374"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AmazonopensearchserviceDestinationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AmazonopensearchserviceDestinationDescription)
+-&gt; Value
+-&gt; Parser AmazonopensearchserviceDestinationDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AmazonopensearchserviceDestinationDescription&quot;</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280371"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe AmazonopensearchserviceIndexRotationPeriod
+-&gt; Maybe Text
+-&gt; Maybe AmazonopensearchserviceS3BackupMode
+-&gt; Maybe Text
+-&gt; Maybe VpcConfigurationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe S3DestinationDescription
+-&gt; Maybe AmazonopensearchserviceBufferingHints
+-&gt; Maybe AmazonopensearchserviceRetryOptions
+-&gt; Maybe ProcessingConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AmazonopensearchserviceDestinationDescription
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription%27"><span class="hs-identifier hs-var">AmazonopensearchserviceDestinationDescription'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AmazonopensearchserviceIndexRotationPeriod
+ -&gt; Maybe Text
+ -&gt; Maybe AmazonopensearchserviceS3BackupMode
+ -&gt; Maybe Text
+ -&gt; Maybe VpcConfigurationDescription
+ -&gt; Maybe CloudWatchLoggingOptions
+ -&gt; Maybe S3DestinationDescription
+ -&gt; Maybe AmazonopensearchserviceBufferingHints
+ -&gt; Maybe AmazonopensearchserviceRetryOptions
+ -&gt; Maybe ProcessingConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe AmazonopensearchserviceIndexRotationPeriod)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AmazonopensearchserviceS3BackupMode
+      -&gt; Maybe Text
+      -&gt; Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe AmazonopensearchserviceBufferingHints
+      -&gt; Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AmazonopensearchserviceIndexRotationPeriod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexRotationPeriod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AmazonopensearchserviceS3BackupMode
+   -&gt; Maybe Text
+   -&gt; Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe AmazonopensearchserviceBufferingHints
+   -&gt; Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AmazonopensearchserviceS3BackupMode
+      -&gt; Maybe Text
+      -&gt; Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe AmazonopensearchserviceBufferingHints
+      -&gt; Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe AmazonopensearchserviceS3BackupMode
+   -&gt; Maybe Text
+   -&gt; Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe AmazonopensearchserviceBufferingHints
+   -&gt; Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe AmazonopensearchserviceS3BackupMode)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe AmazonopensearchserviceBufferingHints
+      -&gt; Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe AmazonopensearchserviceS3BackupMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BackupMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe AmazonopensearchserviceBufferingHints
+   -&gt; Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe AmazonopensearchserviceBufferingHints
+      -&gt; Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe AmazonopensearchserviceBufferingHints
+   -&gt; Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe VpcConfigurationDescription)
+-&gt; Parser
+     (Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe AmazonopensearchserviceBufferingHints
+      -&gt; Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfigurationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe AmazonopensearchserviceBufferingHints
+   -&gt; Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe CloudWatchLoggingOptions)
+-&gt; Parser
+     (Maybe S3DestinationDescription
+      -&gt; Maybe AmazonopensearchserviceBufferingHints
+      -&gt; Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLoggingOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3DestinationDescription
+   -&gt; Maybe AmazonopensearchserviceBufferingHints
+   -&gt; Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe S3DestinationDescription)
+-&gt; Parser
+     (Maybe AmazonopensearchserviceBufferingHints
+      -&gt; Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DestinationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DestinationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe AmazonopensearchserviceBufferingHints
+   -&gt; Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe AmazonopensearchserviceBufferingHints)
+-&gt; Parser
+     (Maybe AmazonopensearchserviceRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe AmazonopensearchserviceBufferingHints)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe AmazonopensearchserviceRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe AmazonopensearchserviceRetryOptions)
+-&gt; Parser
+     (Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe AmazonopensearchserviceRetryOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe ProcessingConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; AmazonopensearchserviceDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser AmazonopensearchserviceDestinationDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679280365"><span id="local-6989586621679280367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679280362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription.html#AmazonopensearchserviceDestinationDescription"><span class="hs-identifier hs-type">AmazonopensearchserviceDestinationDescription</span></a></span></span><span>
+</span><span id="line-196"></span></pre></body></html>

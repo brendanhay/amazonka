@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.Cvss</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.Cvss</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Adjustment.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.Adjustment</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | CVSS scores from the advisory related to the vulnerability.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCvss' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679976712"><span id="local-6989586621679976713"></span></span><span class="hs-keyword">data</span><span> </span><span id="Cvss"><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-var">Cvss</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Cvss%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-var">Cvss'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Adjustments to the CVSS metrics.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aadjustments%3ACvss%27"><span class="annot"><span class="annottext">Cvss -&gt; Maybe [Adjustment]
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Aadjustments%3ACvss%27"><span class="hs-identifier hs-var hs-var">adjustments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Adjustment.html#Adjustment"><span class="hs-identifier hs-type">Adjustment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The base scoring vector for the CVSS score.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbaseVector%3ACvss%27"><span class="annot"><span class="annottext">Cvss -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3AbaseVector%3ACvss%27"><span class="hs-identifier hs-var hs-var">baseVector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The version of CVSS for the CVSS score.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aversion%3ACvss%27"><span class="annot"><span class="annottext">Cvss -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Aversion%3ACvss%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The origin of the original CVSS score and vector.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Asource%3ACvss%27"><span class="annot"><span class="annottext">Cvss -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Asource%3ACvss%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The base CVSS score.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AbaseScore%3ACvss%27"><span class="annot"><span class="annottext">Cvss -&gt; Maybe Double
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3AbaseScore%3ACvss%27"><span class="hs-identifier hs-var hs-var">baseScore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679976702"><span id="local-6989586621679976704"><span class="annot"><span class="annottext">Cvss -&gt; Cvss -&gt; Bool
+(Cvss -&gt; Cvss -&gt; Bool) -&gt; (Cvss -&gt; Cvss -&gt; Bool) -&gt; Eq Cvss
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Cvss -&gt; Cvss -&gt; Bool
+$c/= :: Cvss -&gt; Cvss -&gt; Bool
+== :: Cvss -&gt; Cvss -&gt; Bool
+$c== :: Cvss -&gt; Cvss -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679976693"><span id="local-6989586621679976695"><span id="local-6989586621679976697"><span id="local-6989586621679976699"><span class="annot"><span class="annottext">ReadPrec [Cvss]
+ReadPrec Cvss
+Int -&gt; ReadS Cvss
+ReadS [Cvss]
+(Int -&gt; ReadS Cvss)
+-&gt; ReadS [Cvss] -&gt; ReadPrec Cvss -&gt; ReadPrec [Cvss] -&gt; Read Cvss
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Cvss]
+$creadListPrec :: ReadPrec [Cvss]
+readPrec :: ReadPrec Cvss
+$creadPrec :: ReadPrec Cvss
+readList :: ReadS [Cvss]
+$creadList :: ReadS [Cvss]
+readsPrec :: Int -&gt; ReadS Cvss
+$creadsPrec :: Int -&gt; ReadS Cvss
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679976686"><span id="local-6989586621679976688"><span id="local-6989586621679976690"><span class="annot"><span class="annottext">Int -&gt; Cvss -&gt; ShowS
+[Cvss] -&gt; ShowS
+Cvss -&gt; String
+(Int -&gt; Cvss -&gt; ShowS)
+-&gt; (Cvss -&gt; String) -&gt; ([Cvss] -&gt; ShowS) -&gt; Show Cvss
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Cvss] -&gt; ShowS
+$cshowList :: [Cvss] -&gt; ShowS
+show :: Cvss -&gt; String
+$cshow :: Cvss -&gt; String
+showsPrec :: Int -&gt; Cvss -&gt; ShowS
+$cshowsPrec :: Int -&gt; Cvss -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Cvss -&gt; Rep Cvss x)
+-&gt; (forall x. Rep Cvss x -&gt; Cvss) -&gt; Generic Cvss
+forall x. Rep Cvss x -&gt; Cvss
+forall x. Cvss -&gt; Rep Cvss x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Cvss x -&gt; Cvss
+$cfrom :: forall x. Cvss -&gt; Rep Cvss x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'Cvss' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'adjustments', 'cvss_adjustments' - Adjustments to the CVSS metrics.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'baseVector', 'cvss_baseVector' - The base scoring vector for the CVSS score.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'version', 'cvss_version' - The version of CVSS for the CVSS score.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'source', 'cvss_source' - The origin of the original CVSS score and vector.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'baseScore', 'cvss_baseScore' - The base CVSS score.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#newCvss"><span class="hs-identifier hs-type">newCvss</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span>
+</span><span id="line-63"></span><span id="newCvss"><span class="annot"><span class="annottext">newCvss :: Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#newCvss"><span class="hs-identifier hs-var hs-var">newCvss</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">Cvss' :: Maybe [Adjustment]
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:adjustments:Cvss' :: Maybe [Adjustment]
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Aadjustments%3ACvss%27"><span class="hs-identifier hs-var">adjustments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Adjustment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseVector:Cvss' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3AbaseVector%3ACvss%27"><span class="hs-identifier hs-var">baseVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:Cvss' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Aversion%3ACvss%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:Cvss' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Asource%3ACvss%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseScore:Cvss' :: Maybe Double
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3AbaseScore%3ACvss%27"><span class="hs-identifier hs-var">baseScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Adjustments to the CVSS metrics.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_adjustments"><span class="hs-identifier hs-type">cvss_adjustments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Adjustment.html#Adjustment"><span class="hs-identifier hs-type">Adjustment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="cvss_adjustments"><span class="annot"><span class="annottext">cvss_adjustments :: (Maybe [Adjustment] -&gt; f (Maybe [Adjustment])) -&gt; Cvss -&gt; f Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_adjustments"><span class="hs-identifier hs-var hs-var">cvss_adjustments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cvss -&gt; Maybe [Adjustment])
+-&gt; (Cvss -&gt; Maybe [Adjustment] -&gt; Cvss)
+-&gt; Lens Cvss Cvss (Maybe [Adjustment]) (Maybe [Adjustment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976677"><span class="annot"><span class="annottext">Maybe [Adjustment]
+adjustments :: Maybe [Adjustment]
+$sel:adjustments:Cvss' :: Cvss -&gt; Maybe [Adjustment]
+</span><a href="#local-6989586621679976677"><span class="hs-identifier hs-var hs-var">adjustments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Adjustment]
+</span><a href="#local-6989586621679976677"><span class="hs-identifier hs-var">adjustments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976676"><span class="annot"><span class="annottext">s :: Cvss
+</span><a href="#local-6989586621679976676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976675"><span class="annot"><span class="annottext">Maybe [Adjustment]
+</span><a href="#local-6989586621679976675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cvss
+</span><a href="#local-6989586621679976676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adjustments:Cvss' :: Maybe [Adjustment]
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Aadjustments%3ACvss%27"><span class="hs-identifier hs-var">adjustments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Adjustment]
+</span><a href="#local-6989586621679976675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Adjustment] -&gt; f (Maybe [Adjustment])) -&gt; Cvss -&gt; f Cvss)
+-&gt; ((Maybe [Adjustment] -&gt; f (Maybe [Adjustment]))
+    -&gt; Maybe [Adjustment] -&gt; f (Maybe [Adjustment]))
+-&gt; (Maybe [Adjustment] -&gt; f (Maybe [Adjustment]))
+-&gt; Cvss
+-&gt; f Cvss
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Adjustment] [Adjustment] [Adjustment] [Adjustment]
+-&gt; Iso
+     (Maybe [Adjustment])
+     (Maybe [Adjustment])
+     (Maybe [Adjustment])
+     (Maybe [Adjustment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Adjustment] [Adjustment] [Adjustment] [Adjustment]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The base scoring vector for the CVSS score.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_baseVector"><span class="hs-identifier hs-type">cvss_baseVector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="cvss_baseVector"><span class="annot"><span class="annottext">cvss_baseVector :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cvss -&gt; f Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_baseVector"><span class="hs-identifier hs-var hs-var">cvss_baseVector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cvss -&gt; Maybe Text)
+-&gt; (Cvss -&gt; Maybe Text -&gt; Cvss)
+-&gt; Lens Cvss Cvss (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976670"><span class="annot"><span class="annottext">Maybe Text
+baseVector :: Maybe Text
+$sel:baseVector:Cvss' :: Cvss -&gt; Maybe Text
+</span><a href="#local-6989586621679976670"><span class="hs-identifier hs-var hs-var">baseVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976670"><span class="hs-identifier hs-var">baseVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976669"><span class="annot"><span class="annottext">s :: Cvss
+</span><a href="#local-6989586621679976669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cvss
+</span><a href="#local-6989586621679976669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseVector:Cvss' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3AbaseVector%3ACvss%27"><span class="hs-identifier hs-var">baseVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The version of CVSS for the CVSS score.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_version"><span class="hs-identifier hs-type">cvss_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="cvss_version"><span class="annot"><span class="annottext">cvss_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cvss -&gt; f Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_version"><span class="hs-identifier hs-var hs-var">cvss_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cvss -&gt; Maybe Text)
+-&gt; (Cvss -&gt; Maybe Text -&gt; Cvss)
+-&gt; Lens Cvss Cvss (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976666"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:Cvss' :: Cvss -&gt; Maybe Text
+</span><a href="#local-6989586621679976666"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976666"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976665"><span class="annot"><span class="annottext">s :: Cvss
+</span><a href="#local-6989586621679976665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976664"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cvss
+</span><a href="#local-6989586621679976665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Cvss' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Aversion%3ACvss%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The origin of the original CVSS score and vector.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_source"><span class="hs-identifier hs-type">cvss_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="cvss_source"><span class="annot"><span class="annottext">cvss_source :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cvss -&gt; f Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_source"><span class="hs-identifier hs-var hs-var">cvss_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cvss -&gt; Maybe Text)
+-&gt; (Cvss -&gt; Maybe Text -&gt; Cvss)
+-&gt; Lens Cvss Cvss (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976662"><span class="annot"><span class="annottext">Maybe Text
+source :: Maybe Text
+$sel:source:Cvss' :: Cvss -&gt; Maybe Text
+</span><a href="#local-6989586621679976662"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976662"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976661"><span class="annot"><span class="annottext">s :: Cvss
+</span><a href="#local-6989586621679976661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cvss
+</span><a href="#local-6989586621679976661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Cvss' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3Asource%3ACvss%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The base CVSS score.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_baseScore"><span class="hs-identifier hs-type">cvss_baseScore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="cvss_baseScore"><span class="annot"><span class="annottext">cvss_baseScore :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Cvss -&gt; f Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#cvss_baseScore"><span class="hs-identifier hs-var hs-var">cvss_baseScore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cvss -&gt; Maybe Double)
+-&gt; (Cvss -&gt; Maybe Double -&gt; Cvss)
+-&gt; Lens Cvss Cvss (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976658"><span class="annot"><span class="annottext">Maybe Double
+baseScore :: Maybe Double
+$sel:baseScore:Cvss' :: Cvss -&gt; Maybe Double
+</span><a href="#local-6989586621679976658"><span class="hs-identifier hs-var hs-var">baseScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679976658"><span class="hs-identifier hs-var">baseScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976657"><span class="annot"><span class="annottext">s :: Cvss
+</span><a href="#local-6989586621679976657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976656"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679976656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cvss
+</span><a href="#local-6989586621679976657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseScore:Cvss' :: Maybe Double
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#%24sel%3AbaseScore%3ACvss%27"><span class="hs-identifier hs-var">baseScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679976656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976653"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679976651"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Cvss
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Cvss) -&gt; Value -&gt; Parser Cvss
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Cvss&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679976648"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679976648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Adjustment]
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; Cvss
+</span><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-var">Cvss'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Adjustment]
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; Cvss)
+-&gt; Parser (Maybe [Adjustment])
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; Cvss)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679976648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Adjustment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Adjustments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Adjustment]))
+-&gt; Maybe [Adjustment] -&gt; Parser (Maybe [Adjustment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Adjustment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; Cvss)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; Cvss)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679976648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseVector&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; Cvss)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Double -&gt; Cvss)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679976648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Double -&gt; Cvss)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Double -&gt; Cvss)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679976648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Cvss)
+-&gt; Parser (Maybe Double) -&gt; Parser Cvss
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679976648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseScore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976641"><span id="local-6989586621679976643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976630"><span id="local-6989586621679976632"><span id="local-6989586621679976634"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss"><span class="hs-identifier hs-type">Cvss</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679976628"><span class="annot"><span class="annottext">toJSON :: Cvss -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cvss.html#Cvss%27"><span class="hs-identifier hs-type">Cvss'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976622"><span id="local-6989586621679976623"><span id="local-6989586621679976624"><span id="local-6989586621679976625"><span id="local-6989586621679976626"><span class="annot"><span class="annottext">Maybe Double
+Maybe [Adjustment]
+Maybe Text
+baseScore :: Maybe Double
+source :: Maybe Text
+version :: Maybe Text
+baseVector :: Maybe Text
+adjustments :: Maybe [Adjustment]
+$sel:baseScore:Cvss' :: Cvss -&gt; Maybe Double
+$sel:source:Cvss' :: Cvss -&gt; Maybe Text
+$sel:version:Cvss' :: Cvss -&gt; Maybe Text
+$sel:baseVector:Cvss' :: Cvss -&gt; Maybe Text
+$sel:adjustments:Cvss' :: Cvss -&gt; Maybe [Adjustment]
+</span><a href="#local-6989586621679976622"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Adjustments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Adjustment] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Adjustment] -&gt; Pair) -&gt; Maybe [Adjustment] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Adjustment]
+</span><a href="#local-6989586621679976626"><span class="hs-identifier hs-var">adjustments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseVector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976625"><span class="hs-identifier hs-var">baseVector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976624"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679976623"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseScore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679976622"><span class="hs-identifier hs-var">baseScore</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationAutoScaling.Types.ScalableDimension</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationAutoScaling.Types.ScalableDimension</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier">ScalableDimension</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Appstream_fleet_DesiredCapacity"><span class="hs-identifier">ScalableDimension_Appstream_fleet_DesiredCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Cassandra_table_ReadCapacityUnits"><span class="hs-identifier">ScalableDimension_Cassandra_table_ReadCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Cassandra_table_WriteCapacityUnits"><span class="hs-identifier">ScalableDimension_Cassandra_table_WriteCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits"><span class="hs-identifier">ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits"><span class="hs-identifier">ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Custom_resource_ResourceType_Property"><span class="hs-identifier">ScalableDimension_Custom_resource_ResourceType_Property</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_index_ReadCapacityUnits"><span class="hs-identifier">ScalableDimension_Dynamodb_index_ReadCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_index_WriteCapacityUnits"><span class="hs-identifier">ScalableDimension_Dynamodb_index_WriteCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_table_ReadCapacityUnits"><span class="hs-identifier">ScalableDimension_Dynamodb_table_ReadCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_table_WriteCapacityUnits"><span class="hs-identifier">ScalableDimension_Dynamodb_table_WriteCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Ec2_spot_fleet_request_TargetCapacity"><span class="hs-identifier">ScalableDimension_Ec2_spot_fleet_request_TargetCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Ecs_service_DesiredCount"><span class="hs-identifier">ScalableDimension_Ecs_service_DesiredCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticache_replication_group_NodeGroups"><span class="hs-identifier">ScalableDimension_Elasticache_replication_group_NodeGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticache_replication_group_Replicas"><span class="hs-identifier">ScalableDimension_Elasticache_replication_group_Replicas</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount"><span class="hs-identifier">ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Kafka_broker_storage_VolumeSize"><span class="hs-identifier">ScalableDimension_Kafka_broker_storage_VolumeSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Lambda_function_ProvisionedConcurrency"><span class="hs-identifier">ScalableDimension_Lambda_function_ProvisionedConcurrency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Neptune_cluster_ReadReplicaCount"><span class="hs-identifier">ScalableDimension_Neptune_cluster_ReadReplicaCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Rds_cluster_ReadReplicaCount"><span class="hs-identifier">ScalableDimension_Rds_cluster_ReadReplicaCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Sagemaker_variant_DesiredInstanceCount"><span class="hs-identifier">ScalableDimension_Sagemaker_variant_DesiredInstanceCount</span></a></span><span>
+</span><span id="line-43"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679184433"><span id="local-6989586621679184434"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalableDimension"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-var">ScalableDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalableDimension%27"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-var">ScalableDimension'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalableDimension"><span class="annot"><span class="annottext">ScalableDimension -&gt; Text
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#fromScalableDimension"><span class="hs-identifier hs-var hs-var">fromScalableDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184425"><span id="local-6989586621679184427"><span id="local-6989586621679184429"><span class="annot"><span class="annottext">Int -&gt; ScalableDimension -&gt; ShowS
+[ScalableDimension] -&gt; ShowS
+ScalableDimension -&gt; String
+(Int -&gt; ScalableDimension -&gt; ShowS)
+-&gt; (ScalableDimension -&gt; String)
+-&gt; ([ScalableDimension] -&gt; ShowS)
+-&gt; Show ScalableDimension
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScalableDimension] -&gt; ShowS
+$cshowList :: [ScalableDimension] -&gt; ShowS
+show :: ScalableDimension -&gt; String
+$cshow :: ScalableDimension -&gt; String
+showsPrec :: Int -&gt; ScalableDimension -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScalableDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679184416"><span id="local-6989586621679184418"><span id="local-6989586621679184420"><span id="local-6989586621679184422"><span class="annot"><span class="annottext">ReadPrec [ScalableDimension]
+ReadPrec ScalableDimension
+Int -&gt; ReadS ScalableDimension
+ReadS [ScalableDimension]
+(Int -&gt; ReadS ScalableDimension)
+-&gt; ReadS [ScalableDimension]
+-&gt; ReadPrec ScalableDimension
+-&gt; ReadPrec [ScalableDimension]
+-&gt; Read ScalableDimension
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScalableDimension]
+$creadListPrec :: ReadPrec [ScalableDimension]
+readPrec :: ReadPrec ScalableDimension
+$creadPrec :: ReadPrec ScalableDimension
+readList :: ReadS [ScalableDimension]
+$creadList :: ReadS [ScalableDimension]
+readsPrec :: Int -&gt; ReadS ScalableDimension
+$creadsPrec :: Int -&gt; ReadS ScalableDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679184411"><span id="local-6989586621679184413"><span class="annot"><span class="annottext">ScalableDimension -&gt; ScalableDimension -&gt; Bool
+(ScalableDimension -&gt; ScalableDimension -&gt; Bool)
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
+-&gt; Eq ScalableDimension
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+$c/= :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+== :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+$c== :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679184395"><span id="local-6989586621679184397"><span id="local-6989586621679184399"><span id="local-6989586621679184401"><span id="local-6989586621679184403"><span id="local-6989586621679184405"><span id="local-6989586621679184407"><span class="annot"><span class="annottext">Eq ScalableDimension
+Eq ScalableDimension
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Ordering)
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; ScalableDimension)
+-&gt; (ScalableDimension -&gt; ScalableDimension -&gt; ScalableDimension)
+-&gt; Ord ScalableDimension
+ScalableDimension -&gt; ScalableDimension -&gt; Bool
+ScalableDimension -&gt; ScalableDimension -&gt; Ordering
+ScalableDimension -&gt; ScalableDimension -&gt; ScalableDimension
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScalableDimension -&gt; ScalableDimension -&gt; ScalableDimension
+$cmin :: ScalableDimension -&gt; ScalableDimension -&gt; ScalableDimension
+max :: ScalableDimension -&gt; ScalableDimension -&gt; ScalableDimension
+$cmax :: ScalableDimension -&gt; ScalableDimension -&gt; ScalableDimension
+&gt;= :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+$c&gt;= :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+&gt; :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+$c&gt; :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+&lt;= :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+$c&lt;= :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+&lt; :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+$c&lt; :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
+compare :: ScalableDimension -&gt; ScalableDimension -&gt; Ordering
+$ccompare :: ScalableDimension -&gt; ScalableDimension -&gt; Ordering
+$cp1Ord :: Eq ScalableDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ScalableDimension -&gt; Rep ScalableDimension x)
+-&gt; (forall x. Rep ScalableDimension x -&gt; ScalableDimension)
+-&gt; Generic ScalableDimension
+forall x. Rep ScalableDimension x -&gt; ScalableDimension
+forall x. ScalableDimension -&gt; Rep ScalableDimension x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScalableDimension x -&gt; ScalableDimension
+$cfrom :: forall x. ScalableDimension -&gt; Rep ScalableDimension x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184387"><span id="local-6989586621679184389"><span class="annot"><span class="annottext">Int -&gt; ScalableDimension -&gt; Int
+ScalableDimension -&gt; Int
+(Int -&gt; ScalableDimension -&gt; Int)
+-&gt; (ScalableDimension -&gt; Int) -&gt; Hashable ScalableDimension
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScalableDimension -&gt; Int
+$chash :: ScalableDimension -&gt; Int
+hashWithSalt :: Int -&gt; ScalableDimension -&gt; Int
+$chashWithSalt :: Int -&gt; ScalableDimension -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679184384"><span class="annot"><span class="annottext">ScalableDimension -&gt; ()
+(ScalableDimension -&gt; ()) -&gt; NFData ScalableDimension
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScalableDimension -&gt; ()
+$crnf :: ScalableDimension -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679184381"><span class="annot"><span class="annottext">Text -&gt; Either String ScalableDimension
+(Text -&gt; Either String ScalableDimension)
+-&gt; FromText ScalableDimension
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScalableDimension
+$cfromText :: Text -&gt; Either String ScalableDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679184378"><span class="annot"><span class="annottext">ScalableDimension -&gt; Text
+(ScalableDimension -&gt; Text) -&gt; ToText ScalableDimension
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScalableDimension -&gt; Text
+$ctoText :: ScalableDimension -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679184375"><span class="annot"><span class="annottext">ScalableDimension -&gt; ByteString
+(ScalableDimension -&gt; ByteString) -&gt; ToByteString ScalableDimension
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScalableDimension -&gt; ByteString
+$ctoBS :: ScalableDimension -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679184372"><span class="annot"><span class="annottext">ScalableDimension -&gt; ByteStringBuilder
+(ScalableDimension -&gt; ByteStringBuilder) -&gt; ToLog ScalableDimension
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScalableDimension -&gt; ByteStringBuilder
+$cbuild :: ScalableDimension -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679184369"><span class="annot"><span class="annottext">HeaderName -&gt; ScalableDimension -&gt; [Header]
+(HeaderName -&gt; ScalableDimension -&gt; [Header])
+-&gt; ToHeader ScalableDimension
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScalableDimension -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScalableDimension -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679184366"><span class="annot"><span class="annottext">ScalableDimension -&gt; QueryString
+(ScalableDimension -&gt; QueryString) -&gt; ToQuery ScalableDimension
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScalableDimension -&gt; QueryString
+$ctoQuery :: ScalableDimension -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679184361"><span id="local-6989586621679184363"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalableDimension]
+Value -&gt; Parser ScalableDimension
+(Value -&gt; Parser ScalableDimension)
+-&gt; (Value -&gt; Parser [ScalableDimension])
+-&gt; FromJSON ScalableDimension
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScalableDimension]
+$cparseJSONList :: Value -&gt; Parser [ScalableDimension]
+parseJSON :: Value -&gt; Parser ScalableDimension
+$cparseJSON :: Value -&gt; Parser ScalableDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679184356"><span id="local-6989586621679184358"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalableDimension]
+FromJSONKeyFunction ScalableDimension
+FromJSONKeyFunction ScalableDimension
+-&gt; FromJSONKeyFunction [ScalableDimension]
+-&gt; FromJSONKey ScalableDimension
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScalableDimension]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScalableDimension]
+fromJSONKey :: FromJSONKeyFunction ScalableDimension
+$cfromJSONKey :: FromJSONKeyFunction ScalableDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679184347"><span id="local-6989586621679184349"><span id="local-6989586621679184351"><span id="local-6989586621679184353"><span class="annot"><span class="annottext">[ScalableDimension] -&gt; Encoding
+[ScalableDimension] -&gt; Value
+ScalableDimension -&gt; Encoding
+ScalableDimension -&gt; Value
+(ScalableDimension -&gt; Value)
+-&gt; (ScalableDimension -&gt; Encoding)
+-&gt; ([ScalableDimension] -&gt; Value)
+-&gt; ([ScalableDimension] -&gt; Encoding)
+-&gt; ToJSON ScalableDimension
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScalableDimension] -&gt; Encoding
+$ctoEncodingList :: [ScalableDimension] -&gt; Encoding
+toJSONList :: [ScalableDimension] -&gt; Value
+$ctoJSONList :: [ScalableDimension] -&gt; Value
+toEncoding :: ScalableDimension -&gt; Encoding
+$ctoEncoding :: ScalableDimension -&gt; Encoding
+toJSON :: ScalableDimension -&gt; Value
+$ctoJSON :: ScalableDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679184342"><span id="local-6989586621679184344"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalableDimension]
+ToJSONKeyFunction ScalableDimension
+ToJSONKeyFunction ScalableDimension
+-&gt; ToJSONKeyFunction [ScalableDimension]
+-&gt; ToJSONKey ScalableDimension
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScalableDimension]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScalableDimension]
+toJSONKey :: ToJSONKeyFunction ScalableDimension
+$ctoJSONKey :: ToJSONKeyFunction ScalableDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679184339"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalableDimension
+([Node] -&gt; Either String ScalableDimension)
+-&gt; FromXML ScalableDimension
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScalableDimension
+$cparseXML :: [Node] -&gt; Either String ScalableDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679184336"><span class="annot"><span class="annottext">ScalableDimension -&gt; XML
+(ScalableDimension -&gt; XML) -&gt; ToXML ScalableDimension
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScalableDimension -&gt; XML
+$ctoXML :: ScalableDimension -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Appstream_fleet_DesiredCapacity"><span class="hs-identifier hs-type">ScalableDimension_Appstream_fleet_DesiredCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Appstream_fleet_DesiredCapacity"><span id="%24mScalableDimension_Appstream_fleet_DesiredCapacity"><span id="ScalableDimension_Appstream_fleet_DesiredCapacity"><span class="annot"><span class="annottext">$bScalableDimension_Appstream_fleet_DesiredCapacity :: ScalableDimension
+$mScalableDimension_Appstream_fleet_DesiredCapacity :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Appstream_fleet_DesiredCapacity"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Appstream_fleet_DesiredCapacity</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;appstream:fleet:DesiredCapacity&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Cassandra_table_ReadCapacityUnits"><span class="hs-identifier hs-type">ScalableDimension_Cassandra_table_ReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Cassandra_table_ReadCapacityUnits"><span id="%24mScalableDimension_Cassandra_table_ReadCapacityUnits"><span id="ScalableDimension_Cassandra_table_ReadCapacityUnits"><span class="annot"><span class="annottext">$bScalableDimension_Cassandra_table_ReadCapacityUnits :: ScalableDimension
+$mScalableDimension_Cassandra_table_ReadCapacityUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Cassandra_table_ReadCapacityUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Cassandra_table_ReadCapacityUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cassandra:table:ReadCapacityUnits&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Cassandra_table_WriteCapacityUnits"><span class="hs-identifier hs-type">ScalableDimension_Cassandra_table_WriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Cassandra_table_WriteCapacityUnits"><span id="%24mScalableDimension_Cassandra_table_WriteCapacityUnits"><span id="ScalableDimension_Cassandra_table_WriteCapacityUnits"><span class="annot"><span class="annottext">$bScalableDimension_Cassandra_table_WriteCapacityUnits :: ScalableDimension
+$mScalableDimension_Cassandra_table_WriteCapacityUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Cassandra_table_WriteCapacityUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Cassandra_table_WriteCapacityUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cassandra:table:WriteCapacityUnits&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits"><span class="hs-identifier hs-type">ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits"><span id="%24mScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits"><span id="ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits"><span class="annot"><span class="annottext">$bScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits :: ScalableDimension
+$mScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;comprehend:document-classifier-endpoint:DesiredInferenceUnits&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits"><span class="hs-identifier hs-type">ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits"><span id="%24mScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits"><span id="ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits"><span class="annot"><span class="annottext">$bScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits :: ScalableDimension
+$mScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;comprehend:entity-recognizer-endpoint:DesiredInferenceUnits&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Custom_resource_ResourceType_Property"><span class="hs-identifier hs-type">ScalableDimension_Custom_resource_ResourceType_Property</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Custom_resource_ResourceType_Property"><span id="%24mScalableDimension_Custom_resource_ResourceType_Property"><span id="ScalableDimension_Custom_resource_ResourceType_Property"><span class="annot"><span class="annottext">$bScalableDimension_Custom_resource_ResourceType_Property :: ScalableDimension
+$mScalableDimension_Custom_resource_ResourceType_Property :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Custom_resource_ResourceType_Property"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Custom_resource_ResourceType_Property</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;custom-resource:ResourceType:Property&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_index_ReadCapacityUnits"><span class="hs-identifier hs-type">ScalableDimension_Dynamodb_index_ReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Dynamodb_index_ReadCapacityUnits"><span id="%24mScalableDimension_Dynamodb_index_ReadCapacityUnits"><span id="ScalableDimension_Dynamodb_index_ReadCapacityUnits"><span class="annot"><span class="annottext">$bScalableDimension_Dynamodb_index_ReadCapacityUnits :: ScalableDimension
+$mScalableDimension_Dynamodb_index_ReadCapacityUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Dynamodb_index_ReadCapacityUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Dynamodb_index_ReadCapacityUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;dynamodb:index:ReadCapacityUnits&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_index_WriteCapacityUnits"><span class="hs-identifier hs-type">ScalableDimension_Dynamodb_index_WriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Dynamodb_index_WriteCapacityUnits"><span id="%24mScalableDimension_Dynamodb_index_WriteCapacityUnits"><span id="ScalableDimension_Dynamodb_index_WriteCapacityUnits"><span class="annot"><span class="annottext">$bScalableDimension_Dynamodb_index_WriteCapacityUnits :: ScalableDimension
+$mScalableDimension_Dynamodb_index_WriteCapacityUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Dynamodb_index_WriteCapacityUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Dynamodb_index_WriteCapacityUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;dynamodb:index:WriteCapacityUnits&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_table_ReadCapacityUnits"><span class="hs-identifier hs-type">ScalableDimension_Dynamodb_table_ReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Dynamodb_table_ReadCapacityUnits"><span id="%24mScalableDimension_Dynamodb_table_ReadCapacityUnits"><span id="ScalableDimension_Dynamodb_table_ReadCapacityUnits"><span class="annot"><span class="annottext">$bScalableDimension_Dynamodb_table_ReadCapacityUnits :: ScalableDimension
+$mScalableDimension_Dynamodb_table_ReadCapacityUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Dynamodb_table_ReadCapacityUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Dynamodb_table_ReadCapacityUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;dynamodb:table:ReadCapacityUnits&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_table_WriteCapacityUnits"><span class="hs-identifier hs-type">ScalableDimension_Dynamodb_table_WriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Dynamodb_table_WriteCapacityUnits"><span id="%24mScalableDimension_Dynamodb_table_WriteCapacityUnits"><span id="ScalableDimension_Dynamodb_table_WriteCapacityUnits"><span class="annot"><span class="annottext">$bScalableDimension_Dynamodb_table_WriteCapacityUnits :: ScalableDimension
+$mScalableDimension_Dynamodb_table_WriteCapacityUnits :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Dynamodb_table_WriteCapacityUnits"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Dynamodb_table_WriteCapacityUnits</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;dynamodb:table:WriteCapacityUnits&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Ec2_spot_fleet_request_TargetCapacity"><span class="hs-identifier hs-type">ScalableDimension_Ec2_spot_fleet_request_TargetCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Ec2_spot_fleet_request_TargetCapacity"><span id="%24mScalableDimension_Ec2_spot_fleet_request_TargetCapacity"><span id="ScalableDimension_Ec2_spot_fleet_request_TargetCapacity"><span class="annot"><span class="annottext">$bScalableDimension_Ec2_spot_fleet_request_TargetCapacity :: ScalableDimension
+$mScalableDimension_Ec2_spot_fleet_request_TargetCapacity :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Ec2_spot_fleet_request_TargetCapacity"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Ec2_spot_fleet_request_TargetCapacity</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ec2:spot-fleet-request:TargetCapacity&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Ecs_service_DesiredCount"><span class="hs-identifier hs-type">ScalableDimension_Ecs_service_DesiredCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Ecs_service_DesiredCount"><span id="%24mScalableDimension_Ecs_service_DesiredCount"><span id="ScalableDimension_Ecs_service_DesiredCount"><span class="annot"><span class="annottext">$bScalableDimension_Ecs_service_DesiredCount :: ScalableDimension
+$mScalableDimension_Ecs_service_DesiredCount :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Ecs_service_DesiredCount"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Ecs_service_DesiredCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ecs:service:DesiredCount&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticache_replication_group_NodeGroups"><span class="hs-identifier hs-type">ScalableDimension_Elasticache_replication_group_NodeGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Elasticache_replication_group_NodeGroups"><span id="%24mScalableDimension_Elasticache_replication_group_NodeGroups"><span id="ScalableDimension_Elasticache_replication_group_NodeGroups"><span class="annot"><span class="annottext">$bScalableDimension_Elasticache_replication_group_NodeGroups :: ScalableDimension
+$mScalableDimension_Elasticache_replication_group_NodeGroups :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Elasticache_replication_group_NodeGroups"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Elasticache_replication_group_NodeGroups</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;elasticache:replication-group:NodeGroups&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticache_replication_group_Replicas"><span class="hs-identifier hs-type">ScalableDimension_Elasticache_replication_group_Replicas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Elasticache_replication_group_Replicas"><span id="%24mScalableDimension_Elasticache_replication_group_Replicas"><span id="ScalableDimension_Elasticache_replication_group_Replicas"><span class="annot"><span class="annottext">$bScalableDimension_Elasticache_replication_group_Replicas :: ScalableDimension
+$mScalableDimension_Elasticache_replication_group_Replicas :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Elasticache_replication_group_Replicas"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Elasticache_replication_group_Replicas</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;elasticache:replication-group:Replicas&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount"><span class="hs-identifier hs-type">ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Elasticmapreduce_instancegroup_InstanceCount"><span id="%24mScalableDimension_Elasticmapreduce_instancegroup_InstanceCount"><span id="ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount"><span class="annot"><span class="annottext">$bScalableDimension_Elasticmapreduce_instancegroup_InstanceCount :: ScalableDimension
+$mScalableDimension_Elasticmapreduce_instancegroup_InstanceCount :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Elasticmapreduce_instancegroup_InstanceCount"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;elasticmapreduce:instancegroup:InstanceCount&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Kafka_broker_storage_VolumeSize"><span class="hs-identifier hs-type">ScalableDimension_Kafka_broker_storage_VolumeSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Kafka_broker_storage_VolumeSize"><span id="%24mScalableDimension_Kafka_broker_storage_VolumeSize"><span id="ScalableDimension_Kafka_broker_storage_VolumeSize"><span class="annot"><span class="annottext">$bScalableDimension_Kafka_broker_storage_VolumeSize :: ScalableDimension
+$mScalableDimension_Kafka_broker_storage_VolumeSize :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Kafka_broker_storage_VolumeSize"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Kafka_broker_storage_VolumeSize</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;kafka:broker-storage:VolumeSize&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Lambda_function_ProvisionedConcurrency"><span class="hs-identifier hs-type">ScalableDimension_Lambda_function_ProvisionedConcurrency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Lambda_function_ProvisionedConcurrency"><span id="%24mScalableDimension_Lambda_function_ProvisionedConcurrency"><span id="ScalableDimension_Lambda_function_ProvisionedConcurrency"><span class="annot"><span class="annottext">$bScalableDimension_Lambda_function_ProvisionedConcurrency :: ScalableDimension
+$mScalableDimension_Lambda_function_ProvisionedConcurrency :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Lambda_function_ProvisionedConcurrency"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Lambda_function_ProvisionedConcurrency</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;lambda:function:ProvisionedConcurrency&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Neptune_cluster_ReadReplicaCount"><span class="hs-identifier hs-type">ScalableDimension_Neptune_cluster_ReadReplicaCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Neptune_cluster_ReadReplicaCount"><span id="%24mScalableDimension_Neptune_cluster_ReadReplicaCount"><span id="ScalableDimension_Neptune_cluster_ReadReplicaCount"><span class="annot"><span class="annottext">$bScalableDimension_Neptune_cluster_ReadReplicaCount :: ScalableDimension
+$mScalableDimension_Neptune_cluster_ReadReplicaCount :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Neptune_cluster_ReadReplicaCount"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Neptune_cluster_ReadReplicaCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;neptune:cluster:ReadReplicaCount&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Rds_cluster_ReadReplicaCount"><span class="hs-identifier hs-type">ScalableDimension_Rds_cluster_ReadReplicaCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Rds_cluster_ReadReplicaCount"><span id="%24mScalableDimension_Rds_cluster_ReadReplicaCount"><span id="ScalableDimension_Rds_cluster_ReadReplicaCount"><span class="annot"><span class="annottext">$bScalableDimension_Rds_cluster_ReadReplicaCount :: ScalableDimension
+$mScalableDimension_Rds_cluster_ReadReplicaCount :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Rds_cluster_ReadReplicaCount"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Rds_cluster_ReadReplicaCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rds:cluster:ReadReplicaCount&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Sagemaker_variant_DesiredInstanceCount"><span class="hs-identifier hs-type">ScalableDimension_Sagemaker_variant_DesiredInstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalableDimension_Sagemaker_variant_DesiredInstanceCount"><span id="%24mScalableDimension_Sagemaker_variant_DesiredInstanceCount"><span id="ScalableDimension_Sagemaker_variant_DesiredInstanceCount"><span class="annot"><span class="annottext">$bScalableDimension_Sagemaker_variant_DesiredInstanceCount :: ScalableDimension
+$mScalableDimension_Sagemaker_variant_DesiredInstanceCount :: forall r. ScalableDimension -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#%24bScalableDimension_Sagemaker_variant_DesiredInstanceCount"><span class="hs-identifier hs-var hs-var hs-var">ScalableDimension_Sagemaker_variant_DesiredInstanceCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-type">ScalableDimension'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;sagemaker:variant:DesiredInstanceCount&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Appstream_fleet_DesiredCapacity"><span class="hs-pragma hs-type">ScalableDimension_Appstream_fleet_DesiredCapacity</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Cassandra_table_ReadCapacityUnits"><span class="hs-pragma hs-type">ScalableDimension_Cassandra_table_ReadCapacityUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Cassandra_table_WriteCapacityUnits"><span class="hs-pragma hs-type">ScalableDimension_Cassandra_table_WriteCapacityUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits"><span class="hs-pragma hs-type">ScalableDimension_Comprehend_document_classifier_endpoint_DesiredInferenceUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits"><span class="hs-pragma hs-type">ScalableDimension_Comprehend_entity_recognizer_endpoint_DesiredInferenceUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Custom_resource_ResourceType_Property"><span class="hs-pragma hs-type">ScalableDimension_Custom_resource_ResourceType_Property</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_index_ReadCapacityUnits"><span class="hs-pragma hs-type">ScalableDimension_Dynamodb_index_ReadCapacityUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_index_WriteCapacityUnits"><span class="hs-pragma hs-type">ScalableDimension_Dynamodb_index_WriteCapacityUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_table_ReadCapacityUnits"><span class="hs-pragma hs-type">ScalableDimension_Dynamodb_table_ReadCapacityUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Dynamodb_table_WriteCapacityUnits"><span class="hs-pragma hs-type">ScalableDimension_Dynamodb_table_WriteCapacityUnits</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Ec2_spot_fleet_request_TargetCapacity"><span class="hs-pragma hs-type">ScalableDimension_Ec2_spot_fleet_request_TargetCapacity</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Ecs_service_DesiredCount"><span class="hs-pragma hs-type">ScalableDimension_Ecs_service_DesiredCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticache_replication_group_NodeGroups"><span class="hs-pragma hs-type">ScalableDimension_Elasticache_replication_group_NodeGroups</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticache_replication_group_Replicas"><span class="hs-pragma hs-type">ScalableDimension_Elasticache_replication_group_Replicas</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount"><span class="hs-pragma hs-type">ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Kafka_broker_storage_VolumeSize"><span class="hs-pragma hs-type">ScalableDimension_Kafka_broker_storage_VolumeSize</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Lambda_function_ProvisionedConcurrency"><span class="hs-pragma hs-type">ScalableDimension_Lambda_function_ProvisionedConcurrency</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Neptune_cluster_ReadReplicaCount"><span class="hs-pragma hs-type">ScalableDimension_Neptune_cluster_ReadReplicaCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Rds_cluster_ReadReplicaCount"><span class="hs-pragma hs-type">ScalableDimension_Rds_cluster_ReadReplicaCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension_Sagemaker_variant_DesiredInstanceCount"><span class="hs-pragma hs-type">ScalableDimension_Sagemaker_variant_DesiredInstanceCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-pragma hs-type">ScalableDimension'</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-161"></span></pre></body></html>

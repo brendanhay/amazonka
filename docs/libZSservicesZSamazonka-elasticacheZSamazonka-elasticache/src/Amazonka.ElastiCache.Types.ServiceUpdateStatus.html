@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.Types.ServiceUpdateStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.Types.ServiceUpdateStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier">ServiceUpdateStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Available"><span class="hs-identifier">ServiceUpdateStatus_Available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Cancelled"><span class="hs-identifier">ServiceUpdateStatus_Cancelled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Expired"><span class="hs-identifier">ServiceUpdateStatus_Expired</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679405026"><span id="local-6989586621679405027"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceUpdateStatus"><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-var">ServiceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceUpdateStatus%27"><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus%27"><span class="hs-identifier hs-var">ServiceUpdateStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceUpdateStatus"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; Text
+</span><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#fromServiceUpdateStatus"><span class="hs-identifier hs-var hs-var">fromServiceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405018"><span id="local-6989586621679405020"><span id="local-6989586621679405022"><span class="annot"><span class="annottext">Int -&gt; ServiceUpdateStatus -&gt; ShowS
+[ServiceUpdateStatus] -&gt; ShowS
+ServiceUpdateStatus -&gt; String
+(Int -&gt; ServiceUpdateStatus -&gt; ShowS)
+-&gt; (ServiceUpdateStatus -&gt; String)
+-&gt; ([ServiceUpdateStatus] -&gt; ShowS)
+-&gt; Show ServiceUpdateStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceUpdateStatus] -&gt; ShowS
+$cshowList :: [ServiceUpdateStatus] -&gt; ShowS
+show :: ServiceUpdateStatus -&gt; String
+$cshow :: ServiceUpdateStatus -&gt; String
+showsPrec :: Int -&gt; ServiceUpdateStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceUpdateStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679405009"><span id="local-6989586621679405011"><span id="local-6989586621679405013"><span id="local-6989586621679405015"><span class="annot"><span class="annottext">ReadPrec [ServiceUpdateStatus]
+ReadPrec ServiceUpdateStatus
+Int -&gt; ReadS ServiceUpdateStatus
+ReadS [ServiceUpdateStatus]
+(Int -&gt; ReadS ServiceUpdateStatus)
+-&gt; ReadS [ServiceUpdateStatus]
+-&gt; ReadPrec ServiceUpdateStatus
+-&gt; ReadPrec [ServiceUpdateStatus]
+-&gt; Read ServiceUpdateStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceUpdateStatus]
+$creadListPrec :: ReadPrec [ServiceUpdateStatus]
+readPrec :: ReadPrec ServiceUpdateStatus
+$creadPrec :: ReadPrec ServiceUpdateStatus
+readList :: ReadS [ServiceUpdateStatus]
+$creadList :: ReadS [ServiceUpdateStatus]
+readsPrec :: Int -&gt; ReadS ServiceUpdateStatus
+$creadsPrec :: Int -&gt; ReadS ServiceUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679405004"><span id="local-6989586621679405006"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+(ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
+-&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
+-&gt; Eq ServiceUpdateStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+$c/= :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+== :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+$c== :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679404988"><span id="local-6989586621679404990"><span id="local-6989586621679404992"><span id="local-6989586621679404994"><span id="local-6989586621679404996"><span id="local-6989586621679404998"><span id="local-6989586621679405000"><span class="annot"><span class="annottext">Eq ServiceUpdateStatus
+Eq ServiceUpdateStatus
+-&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Ordering)
+-&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
+-&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
+-&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
+-&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
+-&gt; (ServiceUpdateStatus
+    -&gt; ServiceUpdateStatus -&gt; ServiceUpdateStatus)
+-&gt; (ServiceUpdateStatus
+    -&gt; ServiceUpdateStatus -&gt; ServiceUpdateStatus)
+-&gt; Ord ServiceUpdateStatus
+ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Ordering
+ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; ServiceUpdateStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; ServiceUpdateStatus
+$cmin :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; ServiceUpdateStatus
+max :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; ServiceUpdateStatus
+$cmax :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; ServiceUpdateStatus
+&gt;= :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+$c&gt;= :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+&gt; :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+$c&gt; :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+&lt;= :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+$c&lt;= :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+&lt; :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+$c&lt; :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+compare :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Ordering
+$ccompare :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Ordering
+$cp1Ord :: Eq ServiceUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ServiceUpdateStatus -&gt; Rep ServiceUpdateStatus x)
+-&gt; (forall x. Rep ServiceUpdateStatus x -&gt; ServiceUpdateStatus)
+-&gt; Generic ServiceUpdateStatus
+forall x. Rep ServiceUpdateStatus x -&gt; ServiceUpdateStatus
+forall x. ServiceUpdateStatus -&gt; Rep ServiceUpdateStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServiceUpdateStatus x -&gt; ServiceUpdateStatus
+$cfrom :: forall x. ServiceUpdateStatus -&gt; Rep ServiceUpdateStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404980"><span id="local-6989586621679404982"><span class="annot"><span class="annottext">Int -&gt; ServiceUpdateStatus -&gt; Int
+ServiceUpdateStatus -&gt; Int
+(Int -&gt; ServiceUpdateStatus -&gt; Int)
+-&gt; (ServiceUpdateStatus -&gt; Int) -&gt; Hashable ServiceUpdateStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServiceUpdateStatus -&gt; Int
+$chash :: ServiceUpdateStatus -&gt; Int
+hashWithSalt :: Int -&gt; ServiceUpdateStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ServiceUpdateStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679404977"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ()
+(ServiceUpdateStatus -&gt; ()) -&gt; NFData ServiceUpdateStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServiceUpdateStatus -&gt; ()
+$crnf :: ServiceUpdateStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679404974"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceUpdateStatus
+(Text -&gt; Either String ServiceUpdateStatus)
+-&gt; FromText ServiceUpdateStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServiceUpdateStatus
+$cfromText :: Text -&gt; Either String ServiceUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679404971"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; Text
+(ServiceUpdateStatus -&gt; Text) -&gt; ToText ServiceUpdateStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServiceUpdateStatus -&gt; Text
+$ctoText :: ServiceUpdateStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679404968"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ByteString
+(ServiceUpdateStatus -&gt; ByteString)
+-&gt; ToByteString ServiceUpdateStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServiceUpdateStatus -&gt; ByteString
+$ctoBS :: ServiceUpdateStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679404965"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ByteStringBuilder
+(ServiceUpdateStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ServiceUpdateStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServiceUpdateStatus -&gt; ByteStringBuilder
+$cbuild :: ServiceUpdateStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679404962"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceUpdateStatus -&gt; [Header]
+(HeaderName -&gt; ServiceUpdateStatus -&gt; [Header])
+-&gt; ToHeader ServiceUpdateStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServiceUpdateStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServiceUpdateStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679404959"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; QueryString
+(ServiceUpdateStatus -&gt; QueryString) -&gt; ToQuery ServiceUpdateStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServiceUpdateStatus -&gt; QueryString
+$ctoQuery :: ServiceUpdateStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679404954"><span id="local-6989586621679404956"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceUpdateStatus]
+Value -&gt; Parser ServiceUpdateStatus
+(Value -&gt; Parser ServiceUpdateStatus)
+-&gt; (Value -&gt; Parser [ServiceUpdateStatus])
+-&gt; FromJSON ServiceUpdateStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServiceUpdateStatus]
+$cparseJSONList :: Value -&gt; Parser [ServiceUpdateStatus]
+parseJSON :: Value -&gt; Parser ServiceUpdateStatus
+$cparseJSON :: Value -&gt; Parser ServiceUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679404949"><span id="local-6989586621679404951"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceUpdateStatus]
+FromJSONKeyFunction ServiceUpdateStatus
+FromJSONKeyFunction ServiceUpdateStatus
+-&gt; FromJSONKeyFunction [ServiceUpdateStatus]
+-&gt; FromJSONKey ServiceUpdateStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServiceUpdateStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServiceUpdateStatus]
+fromJSONKey :: FromJSONKeyFunction ServiceUpdateStatus
+$cfromJSONKey :: FromJSONKeyFunction ServiceUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679404940"><span id="local-6989586621679404942"><span id="local-6989586621679404944"><span id="local-6989586621679404946"><span class="annot"><span class="annottext">[ServiceUpdateStatus] -&gt; Encoding
+[ServiceUpdateStatus] -&gt; Value
+ServiceUpdateStatus -&gt; Encoding
+ServiceUpdateStatus -&gt; Value
+(ServiceUpdateStatus -&gt; Value)
+-&gt; (ServiceUpdateStatus -&gt; Encoding)
+-&gt; ([ServiceUpdateStatus] -&gt; Value)
+-&gt; ([ServiceUpdateStatus] -&gt; Encoding)
+-&gt; ToJSON ServiceUpdateStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServiceUpdateStatus] -&gt; Encoding
+$ctoEncodingList :: [ServiceUpdateStatus] -&gt; Encoding
+toJSONList :: [ServiceUpdateStatus] -&gt; Value
+$ctoJSONList :: [ServiceUpdateStatus] -&gt; Value
+toEncoding :: ServiceUpdateStatus -&gt; Encoding
+$ctoEncoding :: ServiceUpdateStatus -&gt; Encoding
+toJSON :: ServiceUpdateStatus -&gt; Value
+$ctoJSON :: ServiceUpdateStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679404935"><span id="local-6989586621679404937"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceUpdateStatus]
+ToJSONKeyFunction ServiceUpdateStatus
+ToJSONKeyFunction ServiceUpdateStatus
+-&gt; ToJSONKeyFunction [ServiceUpdateStatus]
+-&gt; ToJSONKey ServiceUpdateStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServiceUpdateStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServiceUpdateStatus]
+toJSONKey :: ToJSONKeyFunction ServiceUpdateStatus
+$ctoJSONKey :: ToJSONKeyFunction ServiceUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679404932"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceUpdateStatus
+([Node] -&gt; Either String ServiceUpdateStatus)
+-&gt; FromXML ServiceUpdateStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServiceUpdateStatus
+$cparseXML :: [Node] -&gt; Either String ServiceUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679404929"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; XML
+(ServiceUpdateStatus -&gt; XML) -&gt; ToXML ServiceUpdateStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServiceUpdateStatus -&gt; XML
+$ctoXML :: ServiceUpdateStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Available"><span class="hs-identifier hs-type">ServiceUpdateStatus_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-type">ServiceUpdateStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceUpdateStatus_Available"><span id="%24mServiceUpdateStatus_Available"><span id="ServiceUpdateStatus_Available"><span class="annot"><span class="annottext">$bServiceUpdateStatus_Available :: ServiceUpdateStatus
+$mServiceUpdateStatus_Available :: forall r. ServiceUpdateStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#%24bServiceUpdateStatus_Available"><span class="hs-identifier hs-var hs-var hs-var">ServiceUpdateStatus_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus%27"><span class="hs-identifier hs-type">ServiceUpdateStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;available&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Cancelled"><span class="hs-identifier hs-type">ServiceUpdateStatus_Cancelled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-type">ServiceUpdateStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceUpdateStatus_Cancelled"><span id="%24mServiceUpdateStatus_Cancelled"><span id="ServiceUpdateStatus_Cancelled"><span class="annot"><span class="annottext">$bServiceUpdateStatus_Cancelled :: ServiceUpdateStatus
+$mServiceUpdateStatus_Cancelled :: forall r. ServiceUpdateStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#%24bServiceUpdateStatus_Cancelled"><span class="hs-identifier hs-var hs-var hs-var">ServiceUpdateStatus_Cancelled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus%27"><span class="hs-identifier hs-type">ServiceUpdateStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cancelled&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Expired"><span class="hs-identifier hs-type">ServiceUpdateStatus_Expired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-type">ServiceUpdateStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceUpdateStatus_Expired"><span id="%24mServiceUpdateStatus_Expired"><span id="ServiceUpdateStatus_Expired"><span class="annot"><span class="annottext">$bServiceUpdateStatus_Expired :: ServiceUpdateStatus
+$mServiceUpdateStatus_Expired :: forall r. ServiceUpdateStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#%24bServiceUpdateStatus_Expired"><span class="hs-identifier hs-var hs-var hs-var">ServiceUpdateStatus_Expired</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus%27"><span class="hs-identifier hs-type">ServiceUpdateStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;expired&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Available"><span class="hs-pragma hs-type">ServiceUpdateStatus_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Cancelled"><span class="hs-pragma hs-type">ServiceUpdateStatus_Cancelled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus_Expired"><span class="hs-pragma hs-type">ServiceUpdateStatus_Expired</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus%27"><span class="hs-pragma hs-type">ServiceUpdateStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

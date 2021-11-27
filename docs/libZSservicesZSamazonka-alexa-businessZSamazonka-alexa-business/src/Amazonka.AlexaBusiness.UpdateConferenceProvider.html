@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.UpdateConferenceProvider</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing conference provider\'s settings.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.UpdateConferenceProvider</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#newUpdateConferenceProvider"><span class="hs-identifier">newUpdateConferenceProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_pSTNDialIn"><span class="hs-identifier">updateConferenceProvider_pSTNDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_iPDialIn"><span class="hs-identifier">updateConferenceProvider_iPDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_conferenceProviderArn"><span class="hs-identifier">updateConferenceProvider_conferenceProviderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_conferenceProviderType"><span class="hs-identifier">updateConferenceProvider_conferenceProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_meetingSetting"><span class="hs-identifier">updateConferenceProvider_meetingSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse"><span class="hs-identifier">UpdateConferenceProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#newUpdateConferenceProviderResponse"><span class="hs-identifier">newUpdateConferenceProviderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProviderResponse_httpStatus"><span class="hs-identifier">updateConferenceProviderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateConferenceProvider' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679395078"><span id="local-6989586621679395079"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConferenceProvider"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-var">UpdateConferenceProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConferenceProvider%27"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-var">UpdateConferenceProvider'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information for PSTN conferencing.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApSTNDialIn%3AUpdateConferenceProvider%27"><span class="annot"><span class="annottext">UpdateConferenceProvider -&gt; Maybe PSTNDialIn
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3ApSTNDialIn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">pSTNDialIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.PSTNDialIn.html#PSTNDialIn"><span class="hs-identifier hs-type">PSTNDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The IP endpoint and protocol for calling.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AiPDialIn%3AUpdateConferenceProvider%27"><span class="annot"><span class="annottext">UpdateConferenceProvider -&gt; Maybe IPDialIn
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AiPDialIn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">iPDialIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.IPDialIn.html#IPDialIn"><span class="hs-identifier hs-type">IPDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ARN of the conference provider.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AconferenceProviderArn%3AUpdateConferenceProvider%27"><span class="annot"><span class="annottext">UpdateConferenceProvider -&gt; Text
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AconferenceProviderArn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">conferenceProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The type of the conference provider.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AconferenceProviderType%3AUpdateConferenceProvider%27"><span class="annot"><span class="annottext">UpdateConferenceProvider -&gt; ConferenceProviderType
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AconferenceProviderType%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">conferenceProviderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The meeting settings for the conference provider.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmeetingSetting%3AUpdateConferenceProvider%27"><span class="annot"><span class="annottext">UpdateConferenceProvider -&gt; MeetingSetting
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AmeetingSetting%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">meetingSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395068"><span id="local-6989586621679395070"><span class="annot"><span class="annottext">UpdateConferenceProvider -&gt; UpdateConferenceProvider -&gt; Bool
+(UpdateConferenceProvider -&gt; UpdateConferenceProvider -&gt; Bool)
+-&gt; (UpdateConferenceProvider -&gt; UpdateConferenceProvider -&gt; Bool)
+-&gt; Eq UpdateConferenceProvider
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateConferenceProvider -&gt; UpdateConferenceProvider -&gt; Bool
+$c/= :: UpdateConferenceProvider -&gt; UpdateConferenceProvider -&gt; Bool
+== :: UpdateConferenceProvider -&gt; UpdateConferenceProvider -&gt; Bool
+$c== :: UpdateConferenceProvider -&gt; UpdateConferenceProvider -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395059"><span id="local-6989586621679395061"><span id="local-6989586621679395063"><span id="local-6989586621679395065"><span class="annot"><span class="annottext">ReadPrec [UpdateConferenceProvider]
+ReadPrec UpdateConferenceProvider
+Int -&gt; ReadS UpdateConferenceProvider
+ReadS [UpdateConferenceProvider]
+(Int -&gt; ReadS UpdateConferenceProvider)
+-&gt; ReadS [UpdateConferenceProvider]
+-&gt; ReadPrec UpdateConferenceProvider
+-&gt; ReadPrec [UpdateConferenceProvider]
+-&gt; Read UpdateConferenceProvider
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateConferenceProvider]
+$creadListPrec :: ReadPrec [UpdateConferenceProvider]
+readPrec :: ReadPrec UpdateConferenceProvider
+$creadPrec :: ReadPrec UpdateConferenceProvider
+readList :: ReadS [UpdateConferenceProvider]
+$creadList :: ReadS [UpdateConferenceProvider]
+readsPrec :: Int -&gt; ReadS UpdateConferenceProvider
+$creadsPrec :: Int -&gt; ReadS UpdateConferenceProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395052"><span id="local-6989586621679395054"><span id="local-6989586621679395056"><span class="annot"><span class="annottext">Int -&gt; UpdateConferenceProvider -&gt; ShowS
+[UpdateConferenceProvider] -&gt; ShowS
+UpdateConferenceProvider -&gt; String
+(Int -&gt; UpdateConferenceProvider -&gt; ShowS)
+-&gt; (UpdateConferenceProvider -&gt; String)
+-&gt; ([UpdateConferenceProvider] -&gt; ShowS)
+-&gt; Show UpdateConferenceProvider
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateConferenceProvider] -&gt; ShowS
+$cshowList :: [UpdateConferenceProvider] -&gt; ShowS
+show :: UpdateConferenceProvider -&gt; String
+$cshow :: UpdateConferenceProvider -&gt; String
+showsPrec :: Int -&gt; UpdateConferenceProvider -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateConferenceProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateConferenceProvider -&gt; Rep UpdateConferenceProvider x)
+-&gt; (forall x.
+    Rep UpdateConferenceProvider x -&gt; UpdateConferenceProvider)
+-&gt; Generic UpdateConferenceProvider
+forall x.
+Rep UpdateConferenceProvider x -&gt; UpdateConferenceProvider
+forall x.
+UpdateConferenceProvider -&gt; Rep UpdateConferenceProvider x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateConferenceProvider x -&gt; UpdateConferenceProvider
+$cfrom :: forall x.
+UpdateConferenceProvider -&gt; Rep UpdateConferenceProvider x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateConferenceProvider' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'pSTNDialIn', 'updateConferenceProvider_pSTNDialIn' - The information for PSTN conferencing.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'iPDialIn', 'updateConferenceProvider_iPDialIn' - The IP endpoint and protocol for calling.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'conferenceProviderArn', 'updateConferenceProvider_conferenceProviderArn' - The ARN of the conference provider.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'conferenceProviderType', 'updateConferenceProvider_conferenceProviderType' - The type of the conference provider.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'meetingSetting', 'updateConferenceProvider_meetingSetting' - The meeting settings for the conference provider.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#newUpdateConferenceProvider"><span class="hs-identifier hs-type">newUpdateConferenceProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'conferenceProviderArn'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'conferenceProviderType'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'meetingSetting'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span>
+</span><span id="line-92"></span><span id="newUpdateConferenceProvider"><span class="annot"><span class="annottext">newUpdateConferenceProvider :: Text
+-&gt; ConferenceProviderType
+-&gt; MeetingSetting
+-&gt; UpdateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#newUpdateConferenceProvider"><span class="hs-identifier hs-var hs-var">newUpdateConferenceProvider</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679395047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395047"><span class="hs-identifier hs-var">pConferenceProviderArn_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679395046"><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679395046"><span class="hs-identifier hs-var">pConferenceProviderType_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679395045"><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679395045"><span class="hs-identifier hs-var">pMeetingSetting_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">UpdateConferenceProvider' :: Maybe PSTNDialIn
+-&gt; Maybe IPDialIn
+-&gt; Text
+-&gt; ConferenceProviderType
+-&gt; MeetingSetting
+-&gt; UpdateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pSTNDialIn:UpdateConferenceProvider' :: Maybe PSTNDialIn
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3ApSTNDialIn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:iPDialIn:UpdateConferenceProvider' :: Maybe IPDialIn
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AiPDialIn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:conferenceProviderArn:UpdateConferenceProvider' :: Text
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AconferenceProviderArn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395047"><span class="hs-identifier hs-var">pConferenceProviderArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:conferenceProviderType:UpdateConferenceProvider' :: ConferenceProviderType
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AconferenceProviderType%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679395046"><span class="hs-identifier hs-var">pConferenceProviderType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:meetingSetting:UpdateConferenceProvider' :: MeetingSetting
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AmeetingSetting%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679395045"><span class="hs-identifier hs-var">pMeetingSetting_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The information for PSTN conferencing.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_pSTNDialIn"><span class="hs-identifier hs-type">updateConferenceProvider_pSTNDialIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.PSTNDialIn.html#PSTNDialIn"><span class="hs-identifier hs-type">PSTNDialIn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="updateConferenceProvider_pSTNDialIn"><span class="annot"><span class="annottext">updateConferenceProvider_pSTNDialIn :: (Maybe PSTNDialIn -&gt; f (Maybe PSTNDialIn))
+-&gt; UpdateConferenceProvider -&gt; f UpdateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_pSTNDialIn"><span class="hs-identifier hs-var hs-var">updateConferenceProvider_pSTNDialIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConferenceProvider -&gt; Maybe PSTNDialIn)
+-&gt; (UpdateConferenceProvider
+    -&gt; Maybe PSTNDialIn -&gt; UpdateConferenceProvider)
+-&gt; Lens
+     UpdateConferenceProvider
+     UpdateConferenceProvider
+     (Maybe PSTNDialIn)
+     (Maybe PSTNDialIn)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395042"><span class="annot"><span class="annottext">Maybe PSTNDialIn
+pSTNDialIn :: Maybe PSTNDialIn
+$sel:pSTNDialIn:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; Maybe PSTNDialIn
+</span><a href="#local-6989586621679395042"><span class="hs-identifier hs-var hs-var">pSTNDialIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679395042"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395041"><span class="annot"><span class="annottext">s :: UpdateConferenceProvider
+</span><a href="#local-6989586621679395041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395040"><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679395040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConferenceProvider
+</span><a href="#local-6989586621679395041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pSTNDialIn:UpdateConferenceProvider' :: Maybe PSTNDialIn
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3ApSTNDialIn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679395040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The IP endpoint and protocol for calling.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_iPDialIn"><span class="hs-identifier hs-type">updateConferenceProvider_iPDialIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.IPDialIn.html#IPDialIn"><span class="hs-identifier hs-type">IPDialIn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="updateConferenceProvider_iPDialIn"><span class="annot"><span class="annottext">updateConferenceProvider_iPDialIn :: (Maybe IPDialIn -&gt; f (Maybe IPDialIn))
+-&gt; UpdateConferenceProvider -&gt; f UpdateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_iPDialIn"><span class="hs-identifier hs-var hs-var">updateConferenceProvider_iPDialIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConferenceProvider -&gt; Maybe IPDialIn)
+-&gt; (UpdateConferenceProvider
+    -&gt; Maybe IPDialIn -&gt; UpdateConferenceProvider)
+-&gt; Lens
+     UpdateConferenceProvider
+     UpdateConferenceProvider
+     (Maybe IPDialIn)
+     (Maybe IPDialIn)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395039"><span class="annot"><span class="annottext">Maybe IPDialIn
+iPDialIn :: Maybe IPDialIn
+$sel:iPDialIn:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; Maybe IPDialIn
+</span><a href="#local-6989586621679395039"><span class="hs-identifier hs-var hs-var">iPDialIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679395039"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395038"><span class="annot"><span class="annottext">s :: UpdateConferenceProvider
+</span><a href="#local-6989586621679395038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395037"><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679395037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConferenceProvider
+</span><a href="#local-6989586621679395038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPDialIn:UpdateConferenceProvider' :: Maybe IPDialIn
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AiPDialIn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679395037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The ARN of the conference provider.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_conferenceProviderArn"><span class="hs-identifier hs-type">updateConferenceProvider_conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="updateConferenceProvider_conferenceProviderArn"><span class="annot"><span class="annottext">updateConferenceProvider_conferenceProviderArn :: (Text -&gt; f Text)
+-&gt; UpdateConferenceProvider -&gt; f UpdateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_conferenceProviderArn"><span class="hs-identifier hs-var hs-var">updateConferenceProvider_conferenceProviderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConferenceProvider -&gt; Text)
+-&gt; (UpdateConferenceProvider -&gt; Text -&gt; UpdateConferenceProvider)
+-&gt; Lens UpdateConferenceProvider UpdateConferenceProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395036"><span class="annot"><span class="annottext">Text
+conferenceProviderArn :: Text
+$sel:conferenceProviderArn:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; Text
+</span><a href="#local-6989586621679395036"><span class="hs-identifier hs-var hs-var">conferenceProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395036"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395035"><span class="annot"><span class="annottext">s :: UpdateConferenceProvider
+</span><a href="#local-6989586621679395035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConferenceProvider
+</span><a href="#local-6989586621679395035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conferenceProviderArn:UpdateConferenceProvider' :: Text
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AconferenceProviderArn%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The type of the conference provider.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_conferenceProviderType"><span class="hs-identifier hs-type">updateConferenceProvider_conferenceProviderType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-119"></span><span id="updateConferenceProvider_conferenceProviderType"><span class="annot"><span class="annottext">updateConferenceProvider_conferenceProviderType :: (ConferenceProviderType -&gt; f ConferenceProviderType)
+-&gt; UpdateConferenceProvider -&gt; f UpdateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_conferenceProviderType"><span class="hs-identifier hs-var hs-var">updateConferenceProvider_conferenceProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConferenceProvider -&gt; ConferenceProviderType)
+-&gt; (UpdateConferenceProvider
+    -&gt; ConferenceProviderType -&gt; UpdateConferenceProvider)
+-&gt; Lens
+     UpdateConferenceProvider
+     UpdateConferenceProvider
+     ConferenceProviderType
+     ConferenceProviderType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395033"><span class="annot"><span class="annottext">ConferenceProviderType
+conferenceProviderType :: ConferenceProviderType
+$sel:conferenceProviderType:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; ConferenceProviderType
+</span><a href="#local-6989586621679395033"><span class="hs-identifier hs-var hs-var">conferenceProviderType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679395033"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395032"><span class="annot"><span class="annottext">s :: UpdateConferenceProvider
+</span><a href="#local-6989586621679395032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395031"><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679395031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConferenceProvider
+</span><a href="#local-6989586621679395032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conferenceProviderType:UpdateConferenceProvider' :: ConferenceProviderType
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AconferenceProviderType%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679395031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The meeting settings for the conference provider.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_meetingSetting"><span class="hs-identifier hs-type">updateConferenceProvider_meetingSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span>
+</span><span id="line-123"></span><span id="updateConferenceProvider_meetingSetting"><span class="annot"><span class="annottext">updateConferenceProvider_meetingSetting :: (MeetingSetting -&gt; f MeetingSetting)
+-&gt; UpdateConferenceProvider -&gt; f UpdateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProvider_meetingSetting"><span class="hs-identifier hs-var hs-var">updateConferenceProvider_meetingSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConferenceProvider -&gt; MeetingSetting)
+-&gt; (UpdateConferenceProvider
+    -&gt; MeetingSetting -&gt; UpdateConferenceProvider)
+-&gt; Lens
+     UpdateConferenceProvider
+     UpdateConferenceProvider
+     MeetingSetting
+     MeetingSetting
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395030"><span class="annot"><span class="annottext">MeetingSetting
+meetingSetting :: MeetingSetting
+$sel:meetingSetting:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; MeetingSetting
+</span><a href="#local-6989586621679395030"><span class="hs-identifier hs-var hs-var">meetingSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679395030"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395029"><span class="annot"><span class="annottext">s :: UpdateConferenceProvider
+</span><a href="#local-6989586621679395029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395028"><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679395028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConferenceProvider
+</span><a href="#local-6989586621679395029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meetingSetting:UpdateConferenceProvider' :: MeetingSetting
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AmeetingSetting%3AUpdateConferenceProvider%27"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679395028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679395024"><span class="annot"><span class="annottext">request :: UpdateConferenceProvider -&gt; Request UpdateConferenceProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateConferenceProvider -&gt; Request UpdateConferenceProvider
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679395020"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateConferenceProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateConferenceProvider)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateConferenceProvider))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateConferenceProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateConferenceProvider)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395017"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395017"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395016"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679395016"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395015"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679395015"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse%27"><span class="hs-identifier hs-var">UpdateConferenceProviderResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateConferenceProviderResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateConferenceProviderResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395017"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395008"><span id="local-6989586621679395010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679395001"><span class="annot"><span class="annottext">toHeaders :: UpdateConferenceProvider -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateConferenceProvider -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.UpdateConferenceProvider&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394991"><span id="local-6989586621679394993"><span id="local-6989586621679394995"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679394989"><span class="annot"><span class="annottext">toJSON :: UpdateConferenceProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider%27"><span class="hs-identifier hs-type">UpdateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394983"><span id="local-6989586621679394984"><span id="local-6989586621679394985"><span id="local-6989586621679394986"><span id="local-6989586621679394987"><span class="annot"><span class="annottext">Maybe IPDialIn
+Maybe PSTNDialIn
+Text
+ConferenceProviderType
+MeetingSetting
+meetingSetting :: MeetingSetting
+conferenceProviderType :: ConferenceProviderType
+conferenceProviderArn :: Text
+iPDialIn :: Maybe IPDialIn
+pSTNDialIn :: Maybe PSTNDialIn
+$sel:meetingSetting:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; MeetingSetting
+$sel:conferenceProviderType:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; ConferenceProviderType
+$sel:conferenceProviderArn:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; Text
+$sel:iPDialIn:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; Maybe IPDialIn
+$sel:pSTNDialIn:UpdateConferenceProvider' :: UpdateConferenceProvider -&gt; Maybe PSTNDialIn
+</span><a href="#local-6989586621679394983"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PSTNDialIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PSTNDialIn -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PSTNDialIn -&gt; Pair) -&gt; Maybe PSTNDialIn -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679394987"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IPDialIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IPDialIn -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IPDialIn -&gt; Pair) -&gt; Maybe IPDialIn -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679394986"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-163"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConferenceProviderArn&quot;</span></span><span>
+</span><span id="line-164"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394985"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span>
+</span><span id="line-165"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConferenceProviderType&quot;</span></span><span>
+</span><span id="line-168"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ConferenceProviderType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679394984"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span>
+</span><span id="line-169"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MeetingSetting&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MeetingSetting -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679394983"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679394977"><span class="annot"><span class="annottext">toPath :: UpdateConferenceProvider -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateConferenceProvider -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProvider"><span class="hs-identifier hs-type">UpdateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679394973"><span class="annot"><span class="annottext">toQuery :: UpdateConferenceProvider -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateConferenceProvider -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newUpdateConferenceProviderResponse' smart constructor.</span><span>
+</span><span id="line-182"></span><span id="local-6989586621679394970"><span id="local-6989586621679394971"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConferenceProviderResponse"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse"><span class="hs-identifier hs-var">UpdateConferenceProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConferenceProviderResponse%27"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse%27"><span class="hs-identifier hs-var">UpdateConferenceProviderResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateConferenceProviderResponse%27"><span class="annot"><span class="annottext">UpdateConferenceProviderResponse -&gt; Int
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AhttpStatus%3AUpdateConferenceProviderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394965"><span id="local-6989586621679394967"><span class="annot"><span class="annottext">UpdateConferenceProviderResponse
+-&gt; UpdateConferenceProviderResponse -&gt; Bool
+(UpdateConferenceProviderResponse
+ -&gt; UpdateConferenceProviderResponse -&gt; Bool)
+-&gt; (UpdateConferenceProviderResponse
+    -&gt; UpdateConferenceProviderResponse -&gt; Bool)
+-&gt; Eq UpdateConferenceProviderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateConferenceProviderResponse
+-&gt; UpdateConferenceProviderResponse -&gt; Bool
+$c/= :: UpdateConferenceProviderResponse
+-&gt; UpdateConferenceProviderResponse -&gt; Bool
+== :: UpdateConferenceProviderResponse
+-&gt; UpdateConferenceProviderResponse -&gt; Bool
+$c== :: UpdateConferenceProviderResponse
+-&gt; UpdateConferenceProviderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394957"><span id="local-6989586621679394959"><span id="local-6989586621679394961"><span id="local-6989586621679394963"><span class="annot"><span class="annottext">ReadPrec [UpdateConferenceProviderResponse]
+ReadPrec UpdateConferenceProviderResponse
+Int -&gt; ReadS UpdateConferenceProviderResponse
+ReadS [UpdateConferenceProviderResponse]
+(Int -&gt; ReadS UpdateConferenceProviderResponse)
+-&gt; ReadS [UpdateConferenceProviderResponse]
+-&gt; ReadPrec UpdateConferenceProviderResponse
+-&gt; ReadPrec [UpdateConferenceProviderResponse]
+-&gt; Read UpdateConferenceProviderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateConferenceProviderResponse]
+$creadListPrec :: ReadPrec [UpdateConferenceProviderResponse]
+readPrec :: ReadPrec UpdateConferenceProviderResponse
+$creadPrec :: ReadPrec UpdateConferenceProviderResponse
+readList :: ReadS [UpdateConferenceProviderResponse]
+$creadList :: ReadS [UpdateConferenceProviderResponse]
+readsPrec :: Int -&gt; ReadS UpdateConferenceProviderResponse
+$creadsPrec :: Int -&gt; ReadS UpdateConferenceProviderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394951"><span id="local-6989586621679394953"><span id="local-6989586621679394955"><span class="annot"><span class="annottext">Int -&gt; UpdateConferenceProviderResponse -&gt; ShowS
+[UpdateConferenceProviderResponse] -&gt; ShowS
+UpdateConferenceProviderResponse -&gt; String
+(Int -&gt; UpdateConferenceProviderResponse -&gt; ShowS)
+-&gt; (UpdateConferenceProviderResponse -&gt; String)
+-&gt; ([UpdateConferenceProviderResponse] -&gt; ShowS)
+-&gt; Show UpdateConferenceProviderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateConferenceProviderResponse] -&gt; ShowS
+$cshowList :: [UpdateConferenceProviderResponse] -&gt; ShowS
+show :: UpdateConferenceProviderResponse -&gt; String
+$cshow :: UpdateConferenceProviderResponse -&gt; String
+showsPrec :: Int -&gt; UpdateConferenceProviderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateConferenceProviderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateConferenceProviderResponse
+ -&gt; Rep UpdateConferenceProviderResponse x)
+-&gt; (forall x.
+    Rep UpdateConferenceProviderResponse x
+    -&gt; UpdateConferenceProviderResponse)
+-&gt; Generic UpdateConferenceProviderResponse
+forall x.
+Rep UpdateConferenceProviderResponse x
+-&gt; UpdateConferenceProviderResponse
+forall x.
+UpdateConferenceProviderResponse
+-&gt; Rep UpdateConferenceProviderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateConferenceProviderResponse x
+-&gt; UpdateConferenceProviderResponse
+$cfrom :: forall x.
+UpdateConferenceProviderResponse
+-&gt; Rep UpdateConferenceProviderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Create a value of 'UpdateConferenceProviderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'httpStatus', 'updateConferenceProviderResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#newUpdateConferenceProviderResponse"><span class="hs-identifier hs-type">newUpdateConferenceProviderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newUpdateConferenceProviderResponse"><span class="annot"><span class="annottext">newUpdateConferenceProviderResponse :: Int -&gt; UpdateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#newUpdateConferenceProviderResponse"><span class="hs-identifier hs-var hs-var">newUpdateConferenceProviderResponse</span></a></span></span><span> </span><span id="local-6989586621679394948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">UpdateConferenceProviderResponse' :: Int -&gt; UpdateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse%27"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConferenceProviderResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AhttpStatus%3AUpdateConferenceProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProviderResponse_httpStatus"><span class="hs-identifier hs-type">updateConferenceProviderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span id="updateConferenceProviderResponse_httpStatus"><span class="annot"><span class="annottext">updateConferenceProviderResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateConferenceProviderResponse
+-&gt; f UpdateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#updateConferenceProviderResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateConferenceProviderResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConferenceProviderResponse -&gt; Int)
+-&gt; (UpdateConferenceProviderResponse
+    -&gt; Int -&gt; UpdateConferenceProviderResponse)
+-&gt; Lens
+     UpdateConferenceProviderResponse
+     UpdateConferenceProviderResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse%27"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394947"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateConferenceProviderResponse' :: UpdateConferenceProviderResponse -&gt; Int
+</span><a href="#local-6989586621679394947"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394947"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394946"><span class="annot"><span class="annottext">s :: UpdateConferenceProviderResponse
+</span><a href="#local-6989586621679394946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse%27"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConferenceProviderResponse
+</span><a href="#local-6989586621679394946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConferenceProviderResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#%24sel%3AhttpStatus%3AUpdateConferenceProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679394943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateConferenceProvider.html#UpdateConferenceProviderResponse"><span class="hs-identifier hs-type">UpdateConferenceProviderResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

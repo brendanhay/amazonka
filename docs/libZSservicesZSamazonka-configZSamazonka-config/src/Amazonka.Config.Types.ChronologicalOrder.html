@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.ChronologicalOrder</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.ChronologicalOrder</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder"><span class="hs-identifier">ChronologicalOrder</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder_Forward"><span class="hs-identifier">ChronologicalOrder_Forward</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder_Reverse"><span class="hs-identifier">ChronologicalOrder_Reverse</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679395278"><span id="local-6989586621679395279"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChronologicalOrder"><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder"><span class="hs-identifier hs-var">ChronologicalOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChronologicalOrder%27"><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder%27"><span class="hs-identifier hs-var">ChronologicalOrder'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChronologicalOrder"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; Text
+</span><a href="Amazonka.Config.Types.ChronologicalOrder.html#fromChronologicalOrder"><span class="hs-identifier hs-var hs-var">fromChronologicalOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395270"><span id="local-6989586621679395272"><span id="local-6989586621679395274"><span class="annot"><span class="annottext">Int -&gt; ChronologicalOrder -&gt; ShowS
+[ChronologicalOrder] -&gt; ShowS
+ChronologicalOrder -&gt; String
+(Int -&gt; ChronologicalOrder -&gt; ShowS)
+-&gt; (ChronologicalOrder -&gt; String)
+-&gt; ([ChronologicalOrder] -&gt; ShowS)
+-&gt; Show ChronologicalOrder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChronologicalOrder] -&gt; ShowS
+$cshowList :: [ChronologicalOrder] -&gt; ShowS
+show :: ChronologicalOrder -&gt; String
+$cshow :: ChronologicalOrder -&gt; String
+showsPrec :: Int -&gt; ChronologicalOrder -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChronologicalOrder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679395261"><span id="local-6989586621679395263"><span id="local-6989586621679395265"><span id="local-6989586621679395267"><span class="annot"><span class="annottext">ReadPrec [ChronologicalOrder]
+ReadPrec ChronologicalOrder
+Int -&gt; ReadS ChronologicalOrder
+ReadS [ChronologicalOrder]
+(Int -&gt; ReadS ChronologicalOrder)
+-&gt; ReadS [ChronologicalOrder]
+-&gt; ReadPrec ChronologicalOrder
+-&gt; ReadPrec [ChronologicalOrder]
+-&gt; Read ChronologicalOrder
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChronologicalOrder]
+$creadListPrec :: ReadPrec [ChronologicalOrder]
+readPrec :: ReadPrec ChronologicalOrder
+$creadPrec :: ReadPrec ChronologicalOrder
+readList :: ReadS [ChronologicalOrder]
+$creadList :: ReadS [ChronologicalOrder]
+readsPrec :: Int -&gt; ReadS ChronologicalOrder
+$creadsPrec :: Int -&gt; ReadS ChronologicalOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679395256"><span id="local-6989586621679395258"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+(ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool)
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool)
+-&gt; Eq ChronologicalOrder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+$c/= :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+== :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+$c== :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679395240"><span id="local-6989586621679395242"><span id="local-6989586621679395244"><span id="local-6989586621679395246"><span id="local-6989586621679395248"><span id="local-6989586621679395250"><span id="local-6989586621679395252"><span class="annot"><span class="annottext">Eq ChronologicalOrder
+Eq ChronologicalOrder
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; Ordering)
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool)
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool)
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool)
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool)
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; ChronologicalOrder)
+-&gt; (ChronologicalOrder -&gt; ChronologicalOrder -&gt; ChronologicalOrder)
+-&gt; Ord ChronologicalOrder
+ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+ChronologicalOrder -&gt; ChronologicalOrder -&gt; Ordering
+ChronologicalOrder -&gt; ChronologicalOrder -&gt; ChronologicalOrder
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; ChronologicalOrder
+$cmin :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; ChronologicalOrder
+max :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; ChronologicalOrder
+$cmax :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; ChronologicalOrder
+&gt;= :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+$c&gt;= :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+&gt; :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+$c&gt; :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+&lt;= :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+$c&lt;= :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+&lt; :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+$c&lt; :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Bool
+compare :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Ordering
+$ccompare :: ChronologicalOrder -&gt; ChronologicalOrder -&gt; Ordering
+$cp1Ord :: Eq ChronologicalOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChronologicalOrder -&gt; Rep ChronologicalOrder x)
+-&gt; (forall x. Rep ChronologicalOrder x -&gt; ChronologicalOrder)
+-&gt; Generic ChronologicalOrder
+forall x. Rep ChronologicalOrder x -&gt; ChronologicalOrder
+forall x. ChronologicalOrder -&gt; Rep ChronologicalOrder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChronologicalOrder x -&gt; ChronologicalOrder
+$cfrom :: forall x. ChronologicalOrder -&gt; Rep ChronologicalOrder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395232"><span id="local-6989586621679395234"><span class="annot"><span class="annottext">Int -&gt; ChronologicalOrder -&gt; Int
+ChronologicalOrder -&gt; Int
+(Int -&gt; ChronologicalOrder -&gt; Int)
+-&gt; (ChronologicalOrder -&gt; Int) -&gt; Hashable ChronologicalOrder
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChronologicalOrder -&gt; Int
+$chash :: ChronologicalOrder -&gt; Int
+hashWithSalt :: Int -&gt; ChronologicalOrder -&gt; Int
+$chashWithSalt :: Int -&gt; ChronologicalOrder -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679395229"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; ()
+(ChronologicalOrder -&gt; ()) -&gt; NFData ChronologicalOrder
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChronologicalOrder -&gt; ()
+$crnf :: ChronologicalOrder -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679395226"><span class="annot"><span class="annottext">Text -&gt; Either String ChronologicalOrder
+(Text -&gt; Either String ChronologicalOrder)
+-&gt; FromText ChronologicalOrder
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChronologicalOrder
+$cfromText :: Text -&gt; Either String ChronologicalOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679395223"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; Text
+(ChronologicalOrder -&gt; Text) -&gt; ToText ChronologicalOrder
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChronologicalOrder -&gt; Text
+$ctoText :: ChronologicalOrder -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679395220"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; ByteString
+(ChronologicalOrder -&gt; ByteString)
+-&gt; ToByteString ChronologicalOrder
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChronologicalOrder -&gt; ByteString
+$ctoBS :: ChronologicalOrder -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679395217"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; ByteStringBuilder
+(ChronologicalOrder -&gt; ByteStringBuilder)
+-&gt; ToLog ChronologicalOrder
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChronologicalOrder -&gt; ByteStringBuilder
+$cbuild :: ChronologicalOrder -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395214"><span class="annot"><span class="annottext">HeaderName -&gt; ChronologicalOrder -&gt; [Header]
+(HeaderName -&gt; ChronologicalOrder -&gt; [Header])
+-&gt; ToHeader ChronologicalOrder
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChronologicalOrder -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChronologicalOrder -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395211"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; QueryString
+(ChronologicalOrder -&gt; QueryString) -&gt; ToQuery ChronologicalOrder
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChronologicalOrder -&gt; QueryString
+$ctoQuery :: ChronologicalOrder -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395206"><span id="local-6989586621679395208"><span class="annot"><span class="annottext">Value -&gt; Parser [ChronologicalOrder]
+Value -&gt; Parser ChronologicalOrder
+(Value -&gt; Parser ChronologicalOrder)
+-&gt; (Value -&gt; Parser [ChronologicalOrder])
+-&gt; FromJSON ChronologicalOrder
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChronologicalOrder]
+$cparseJSONList :: Value -&gt; Parser [ChronologicalOrder]
+parseJSON :: Value -&gt; Parser ChronologicalOrder
+$cparseJSON :: Value -&gt; Parser ChronologicalOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395201"><span id="local-6989586621679395203"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChronologicalOrder]
+FromJSONKeyFunction ChronologicalOrder
+FromJSONKeyFunction ChronologicalOrder
+-&gt; FromJSONKeyFunction [ChronologicalOrder]
+-&gt; FromJSONKey ChronologicalOrder
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChronologicalOrder]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChronologicalOrder]
+fromJSONKey :: FromJSONKeyFunction ChronologicalOrder
+$cfromJSONKey :: FromJSONKeyFunction ChronologicalOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679395192"><span id="local-6989586621679395194"><span id="local-6989586621679395196"><span id="local-6989586621679395198"><span class="annot"><span class="annottext">[ChronologicalOrder] -&gt; Encoding
+[ChronologicalOrder] -&gt; Value
+ChronologicalOrder -&gt; Encoding
+ChronologicalOrder -&gt; Value
+(ChronologicalOrder -&gt; Value)
+-&gt; (ChronologicalOrder -&gt; Encoding)
+-&gt; ([ChronologicalOrder] -&gt; Value)
+-&gt; ([ChronologicalOrder] -&gt; Encoding)
+-&gt; ToJSON ChronologicalOrder
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChronologicalOrder] -&gt; Encoding
+$ctoEncodingList :: [ChronologicalOrder] -&gt; Encoding
+toJSONList :: [ChronologicalOrder] -&gt; Value
+$ctoJSONList :: [ChronologicalOrder] -&gt; Value
+toEncoding :: ChronologicalOrder -&gt; Encoding
+$ctoEncoding :: ChronologicalOrder -&gt; Encoding
+toJSON :: ChronologicalOrder -&gt; Value
+$ctoJSON :: ChronologicalOrder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679395187"><span id="local-6989586621679395189"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChronologicalOrder]
+ToJSONKeyFunction ChronologicalOrder
+ToJSONKeyFunction ChronologicalOrder
+-&gt; ToJSONKeyFunction [ChronologicalOrder]
+-&gt; ToJSONKey ChronologicalOrder
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChronologicalOrder]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChronologicalOrder]
+toJSONKey :: ToJSONKeyFunction ChronologicalOrder
+$ctoJSONKey :: ToJSONKeyFunction ChronologicalOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679395184"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChronologicalOrder
+([Node] -&gt; Either String ChronologicalOrder)
+-&gt; FromXML ChronologicalOrder
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChronologicalOrder
+$cparseXML :: [Node] -&gt; Either String ChronologicalOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395181"><span class="annot"><span class="annottext">ChronologicalOrder -&gt; XML
+(ChronologicalOrder -&gt; XML) -&gt; ToXML ChronologicalOrder
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChronologicalOrder -&gt; XML
+$ctoXML :: ChronologicalOrder -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder_Forward"><span class="hs-identifier hs-type">ChronologicalOrder_Forward</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder"><span class="hs-identifier hs-type">ChronologicalOrder</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChronologicalOrder_Forward"><span id="%24mChronologicalOrder_Forward"><span id="ChronologicalOrder_Forward"><span class="annot"><span class="annottext">$bChronologicalOrder_Forward :: ChronologicalOrder
+$mChronologicalOrder_Forward :: forall r. ChronologicalOrder -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Config.Types.ChronologicalOrder.html#%24bChronologicalOrder_Forward"><span class="hs-identifier hs-var hs-var hs-var">ChronologicalOrder_Forward</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder%27"><span class="hs-identifier hs-type">ChronologicalOrder'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Forward&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder_Reverse"><span class="hs-identifier hs-type">ChronologicalOrder_Reverse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder"><span class="hs-identifier hs-type">ChronologicalOrder</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChronologicalOrder_Reverse"><span id="%24mChronologicalOrder_Reverse"><span id="ChronologicalOrder_Reverse"><span class="annot"><span class="annottext">$bChronologicalOrder_Reverse :: ChronologicalOrder
+$mChronologicalOrder_Reverse :: forall r. ChronologicalOrder -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Config.Types.ChronologicalOrder.html#%24bChronologicalOrder_Reverse"><span class="hs-identifier hs-var hs-var hs-var">ChronologicalOrder_Reverse</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder%27"><span class="hs-identifier hs-type">ChronologicalOrder'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Reverse&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder_Forward"><span class="hs-pragma hs-type">ChronologicalOrder_Forward</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder_Reverse"><span class="hs-pragma hs-type">ChronologicalOrder_Reverse</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ChronologicalOrder.html#ChronologicalOrder%27"><span class="hs-pragma hs-type">ChronologicalOrder'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

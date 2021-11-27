@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroups.Types.GroupConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroups.Types.GroupConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationItem.html"><span class="hs-identifier">Amazonka.ResourceGroups.Types.GroupConfigurationItem</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationStatus.html"><span class="hs-identifier">Amazonka.ResourceGroups.Types.GroupConfigurationStatus</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A service configuration associated with a resource group. The</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- configuration options are determined by the AWS service that defines the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @Type@, and specifies which resources can be included in the group. You</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- can add a service configuration when you create the group by using</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- CreateGroup, or later by using the PutGroupConfiguration operation. For</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- details about group service configuration syntax, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newGroupConfiguration' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679175531"><span id="local-6989586621679175532"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupConfiguration"><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-var">GroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupConfiguration%27"><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-var">GroupConfiguration'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of an attempt to update the group configuration.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astatus%3AGroupConfiguration%27"><span class="annot"><span class="annottext">GroupConfiguration -&gt; Maybe GroupConfigurationStatus
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3Astatus%3AGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationStatus.html#GroupConfigurationStatus"><span class="hs-identifier hs-type">GroupConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | If present, the reason why a request to update the group configuration</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfailureReason%3AGroupConfiguration%27"><span class="annot"><span class="annottext">GroupConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3AfailureReason%3AGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | If present, the new configuration that is in the process of being</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- applied to the group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AproposedConfiguration%3AGroupConfiguration%27"><span class="annot"><span class="annottext">GroupConfiguration -&gt; Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3AproposedConfiguration%3AGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">proposedConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationItem.html#GroupConfigurationItem"><span class="hs-identifier hs-type">GroupConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The configuration currently associated with the group and in effect.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aconfiguration%3AGroupConfiguration%27"><span class="annot"><span class="annottext">GroupConfiguration -&gt; Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3Aconfiguration%3AGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationItem.html#GroupConfigurationItem"><span class="hs-identifier hs-type">GroupConfigurationItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175522"><span id="local-6989586621679175524"><span class="annot"><span class="annottext">GroupConfiguration -&gt; GroupConfiguration -&gt; Bool
+(GroupConfiguration -&gt; GroupConfiguration -&gt; Bool)
+-&gt; (GroupConfiguration -&gt; GroupConfiguration -&gt; Bool)
+-&gt; Eq GroupConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GroupConfiguration -&gt; GroupConfiguration -&gt; Bool
+$c/= :: GroupConfiguration -&gt; GroupConfiguration -&gt; Bool
+== :: GroupConfiguration -&gt; GroupConfiguration -&gt; Bool
+$c== :: GroupConfiguration -&gt; GroupConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175513"><span id="local-6989586621679175515"><span id="local-6989586621679175517"><span id="local-6989586621679175519"><span class="annot"><span class="annottext">ReadPrec [GroupConfiguration]
+ReadPrec GroupConfiguration
+Int -&gt; ReadS GroupConfiguration
+ReadS [GroupConfiguration]
+(Int -&gt; ReadS GroupConfiguration)
+-&gt; ReadS [GroupConfiguration]
+-&gt; ReadPrec GroupConfiguration
+-&gt; ReadPrec [GroupConfiguration]
+-&gt; Read GroupConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GroupConfiguration]
+$creadListPrec :: ReadPrec [GroupConfiguration]
+readPrec :: ReadPrec GroupConfiguration
+$creadPrec :: ReadPrec GroupConfiguration
+readList :: ReadS [GroupConfiguration]
+$creadList :: ReadS [GroupConfiguration]
+readsPrec :: Int -&gt; ReadS GroupConfiguration
+$creadsPrec :: Int -&gt; ReadS GroupConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175506"><span id="local-6989586621679175508"><span id="local-6989586621679175510"><span class="annot"><span class="annottext">Int -&gt; GroupConfiguration -&gt; ShowS
+[GroupConfiguration] -&gt; ShowS
+GroupConfiguration -&gt; String
+(Int -&gt; GroupConfiguration -&gt; ShowS)
+-&gt; (GroupConfiguration -&gt; String)
+-&gt; ([GroupConfiguration] -&gt; ShowS)
+-&gt; Show GroupConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GroupConfiguration] -&gt; ShowS
+$cshowList :: [GroupConfiguration] -&gt; ShowS
+show :: GroupConfiguration -&gt; String
+$cshow :: GroupConfiguration -&gt; String
+showsPrec :: Int -&gt; GroupConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GroupConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GroupConfiguration -&gt; Rep GroupConfiguration x)
+-&gt; (forall x. Rep GroupConfiguration x -&gt; GroupConfiguration)
+-&gt; Generic GroupConfiguration
+forall x. Rep GroupConfiguration x -&gt; GroupConfiguration
+forall x. GroupConfiguration -&gt; Rep GroupConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GroupConfiguration x -&gt; GroupConfiguration
+$cfrom :: forall x. GroupConfiguration -&gt; Rep GroupConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'GroupConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'status', 'groupConfiguration_status' - The current status of an attempt to update the group configuration.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'failureReason', 'groupConfiguration_failureReason' - If present, the reason why a request to update the group configuration</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'proposedConfiguration', 'groupConfiguration_proposedConfiguration' - If present, the new configuration that is in the process of being</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- applied to the group.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'configuration', 'groupConfiguration_configuration' - The configuration currently associated with the group and in effect.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#newGroupConfiguration"><span class="hs-identifier hs-type">newGroupConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span>
+</span><span id="line-70"></span><span id="newGroupConfiguration"><span class="annot"><span class="annottext">newGroupConfiguration :: GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#newGroupConfiguration"><span class="hs-identifier hs-var hs-var">newGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GroupConfiguration' :: Maybe GroupConfigurationStatus
+-&gt; Maybe Text
+-&gt; Maybe [GroupConfigurationItem]
+-&gt; Maybe [GroupConfigurationItem]
+-&gt; GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GroupConfiguration' :: Maybe GroupConfigurationStatus
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3Astatus%3AGroupConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfigurationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:GroupConfiguration' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3AfailureReason%3AGroupConfiguration%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:proposedConfiguration:GroupConfiguration' :: Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3AproposedConfiguration%3AGroupConfiguration%27"><span class="hs-identifier hs-var">proposedConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:GroupConfiguration' :: Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3Aconfiguration%3AGroupConfiguration%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The current status of an attempt to update the group configuration.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_status"><span class="hs-identifier hs-type">groupConfiguration_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationStatus.html#GroupConfigurationStatus"><span class="hs-identifier hs-type">GroupConfigurationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="groupConfiguration_status"><span class="annot"><span class="annottext">groupConfiguration_status :: (Maybe GroupConfigurationStatus
+ -&gt; f (Maybe GroupConfigurationStatus))
+-&gt; GroupConfiguration -&gt; f GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_status"><span class="hs-identifier hs-var hs-var">groupConfiguration_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupConfiguration -&gt; Maybe GroupConfigurationStatus)
+-&gt; (GroupConfiguration
+    -&gt; Maybe GroupConfigurationStatus -&gt; GroupConfiguration)
+-&gt; Lens
+     GroupConfiguration
+     GroupConfiguration
+     (Maybe GroupConfigurationStatus)
+     (Maybe GroupConfigurationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175497"><span class="annot"><span class="annottext">Maybe GroupConfigurationStatus
+status :: Maybe GroupConfigurationStatus
+$sel:status:GroupConfiguration' :: GroupConfiguration -&gt; Maybe GroupConfigurationStatus
+</span><a href="#local-6989586621679175497"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfigurationStatus
+</span><a href="#local-6989586621679175497"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175496"><span class="annot"><span class="annottext">s :: GroupConfiguration
+</span><a href="#local-6989586621679175496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175495"><span class="annot"><span class="annottext">Maybe GroupConfigurationStatus
+</span><a href="#local-6989586621679175495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupConfiguration
+</span><a href="#local-6989586621679175496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GroupConfiguration' :: Maybe GroupConfigurationStatus
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3Astatus%3AGroupConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfigurationStatus
+</span><a href="#local-6989586621679175495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | If present, the reason why a request to update the group configuration</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_failureReason"><span class="hs-identifier hs-type">groupConfiguration_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="groupConfiguration_failureReason"><span class="annot"><span class="annottext">groupConfiguration_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GroupConfiguration -&gt; f GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_failureReason"><span class="hs-identifier hs-var hs-var">groupConfiguration_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupConfiguration -&gt; Maybe Text)
+-&gt; (GroupConfiguration -&gt; Maybe Text -&gt; GroupConfiguration)
+-&gt; Lens
+     GroupConfiguration GroupConfiguration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175493"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:GroupConfiguration' :: GroupConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679175493"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175493"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175492"><span class="annot"><span class="annottext">s :: GroupConfiguration
+</span><a href="#local-6989586621679175492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupConfiguration
+</span><a href="#local-6989586621679175492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:GroupConfiguration' :: Maybe Text
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3AfailureReason%3AGroupConfiguration%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | If present, the new configuration that is in the process of being</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- applied to the group.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_proposedConfiguration"><span class="hs-identifier hs-type">groupConfiguration_proposedConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationItem.html#GroupConfigurationItem"><span class="hs-identifier hs-type">GroupConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="groupConfiguration_proposedConfiguration"><span class="annot"><span class="annottext">groupConfiguration_proposedConfiguration :: (Maybe [GroupConfigurationItem]
+ -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; GroupConfiguration -&gt; f GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_proposedConfiguration"><span class="hs-identifier hs-var hs-var">groupConfiguration_proposedConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupConfiguration -&gt; Maybe [GroupConfigurationItem])
+-&gt; (GroupConfiguration
+    -&gt; Maybe [GroupConfigurationItem] -&gt; GroupConfiguration)
+-&gt; Lens
+     GroupConfiguration
+     GroupConfiguration
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175489"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+proposedConfiguration :: Maybe [GroupConfigurationItem]
+$sel:proposedConfiguration:GroupConfiguration' :: GroupConfiguration -&gt; Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175489"><span class="hs-identifier hs-var hs-var">proposedConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175489"><span class="hs-identifier hs-var">proposedConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175488"><span class="annot"><span class="annottext">s :: GroupConfiguration
+</span><a href="#local-6989586621679175488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175487"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupConfiguration
+</span><a href="#local-6989586621679175488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proposedConfiguration:GroupConfiguration' :: Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3AproposedConfiguration%3AGroupConfiguration%27"><span class="hs-identifier hs-var">proposedConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupConfigurationItem]
+  -&gt; f (Maybe [GroupConfigurationItem]))
+ -&gt; GroupConfiguration -&gt; f GroupConfiguration)
+-&gt; ((Maybe [GroupConfigurationItem]
+     -&gt; f (Maybe [GroupConfigurationItem]))
+    -&gt; Maybe [GroupConfigurationItem]
+    -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; (Maybe [GroupConfigurationItem]
+    -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; GroupConfiguration
+-&gt; f GroupConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+-&gt; Iso
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The configuration currently associated with the group and in effect.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_configuration"><span class="hs-identifier hs-type">groupConfiguration_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfigurationItem.html#GroupConfigurationItem"><span class="hs-identifier hs-type">GroupConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="groupConfiguration_configuration"><span class="annot"><span class="annottext">groupConfiguration_configuration :: (Maybe [GroupConfigurationItem]
+ -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; GroupConfiguration -&gt; f GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#groupConfiguration_configuration"><span class="hs-identifier hs-var hs-var">groupConfiguration_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupConfiguration -&gt; Maybe [GroupConfigurationItem])
+-&gt; (GroupConfiguration
+    -&gt; Maybe [GroupConfigurationItem] -&gt; GroupConfiguration)
+-&gt; Lens
+     GroupConfiguration
+     GroupConfiguration
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175482"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+configuration :: Maybe [GroupConfigurationItem]
+$sel:configuration:GroupConfiguration' :: GroupConfiguration -&gt; Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175482"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175482"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175481"><span class="annot"><span class="annottext">s :: GroupConfiguration
+</span><a href="#local-6989586621679175481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-type">GroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175480"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupConfiguration
+</span><a href="#local-6989586621679175481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:GroupConfiguration' :: Maybe [GroupConfigurationItem]
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#%24sel%3Aconfiguration%3AGroupConfiguration%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679175480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupConfigurationItem]
+  -&gt; f (Maybe [GroupConfigurationItem]))
+ -&gt; GroupConfiguration -&gt; f GroupConfiguration)
+-&gt; ((Maybe [GroupConfigurationItem]
+     -&gt; f (Maybe [GroupConfigurationItem]))
+    -&gt; Maybe [GroupConfigurationItem]
+    -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; (Maybe [GroupConfigurationItem]
+    -&gt; f (Maybe [GroupConfigurationItem]))
+-&gt; GroupConfiguration
+-&gt; f GroupConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+-&gt; Iso
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+     (Maybe [GroupConfigurationItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+  [GroupConfigurationItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175477"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679175475"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GroupConfiguration)
+-&gt; Value
+-&gt; Parser GroupConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GroupConfiguration&quot;</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175472"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175472"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe GroupConfigurationStatus
+-&gt; Maybe Text
+-&gt; Maybe [GroupConfigurationItem]
+-&gt; Maybe [GroupConfigurationItem]
+-&gt; GroupConfiguration
+</span><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration%27"><span class="hs-identifier hs-var">GroupConfiguration'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GroupConfigurationStatus
+ -&gt; Maybe Text
+ -&gt; Maybe [GroupConfigurationItem]
+ -&gt; Maybe [GroupConfigurationItem]
+ -&gt; GroupConfiguration)
+-&gt; Parser (Maybe GroupConfigurationStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [GroupConfigurationItem]
+      -&gt; Maybe [GroupConfigurationItem]
+      -&gt; GroupConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GroupConfigurationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [GroupConfigurationItem]
+   -&gt; Maybe [GroupConfigurationItem]
+   -&gt; GroupConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [GroupConfigurationItem]
+      -&gt; Maybe [GroupConfigurationItem] -&gt; GroupConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [GroupConfigurationItem]
+   -&gt; Maybe [GroupConfigurationItem] -&gt; GroupConfiguration)
+-&gt; Parser (Maybe [GroupConfigurationItem])
+-&gt; Parser (Maybe [GroupConfigurationItem] -&gt; GroupConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GroupConfigurationItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProposedConfiguration&quot;</span></span><span>
+</span><span id="line-105"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [GroupConfigurationItem]))
+-&gt; Maybe [GroupConfigurationItem]
+-&gt; Parser (Maybe [GroupConfigurationItem])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-106"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [GroupConfigurationItem] -&gt; GroupConfiguration)
+-&gt; Parser (Maybe [GroupConfigurationItem])
+-&gt; Parser GroupConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GroupConfigurationItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [GroupConfigurationItem]))
+-&gt; Maybe [GroupConfigurationItem]
+-&gt; Parser (Maybe [GroupConfigurationItem])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175465"><span id="local-6989586621679175467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupConfiguration.html#GroupConfiguration"><span class="hs-identifier hs-type">GroupConfiguration</span></a></span></span><span>
+</span><span id="line-113"></span></pre></body></html>

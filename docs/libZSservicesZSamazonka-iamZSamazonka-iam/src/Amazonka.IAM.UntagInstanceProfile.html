@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.UntagInstanceProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes the specified tags from the IAM instance profile. For more</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information about tagging, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.UntagInstanceProfile</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier">UntagInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#newUntagInstanceProfile"><span class="hs-identifier">newUntagInstanceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#untagInstanceProfile_instanceProfileName"><span class="hs-identifier">untagInstanceProfile_instanceProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#untagInstanceProfile_tagKeys"><span class="hs-identifier">untagInstanceProfile_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier">UntagInstanceProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#newUntagInstanceProfileResponse"><span class="hs-identifier">newUntagInstanceProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUntagInstanceProfile' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679461583"><span id="local-6989586621679461584"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagInstanceProfile"><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-var">UntagInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagInstanceProfile%27"><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-var">UntagInstanceProfile'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM instance profile from which you want to remove tags.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceProfileName%3AUntagInstanceProfile%27"><span class="annot"><span class="annottext">UntagInstanceProfile -&gt; Text
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#%24sel%3AinstanceProfileName%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A list of key names as a simple array of strings. The tags with matching</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- keys are removed from the specified instance profile.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="annot"><span class="annottext">UntagInstanceProfile -&gt; [Text]
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461576"><span id="local-6989586621679461578"><span class="annot"><span class="annottext">UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
+(UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool)
+-&gt; (UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool)
+-&gt; Eq UntagInstanceProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
+$c/= :: UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
+== :: UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
+$c== :: UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461567"><span id="local-6989586621679461569"><span id="local-6989586621679461571"><span id="local-6989586621679461573"><span class="annot"><span class="annottext">ReadPrec [UntagInstanceProfile]
+ReadPrec UntagInstanceProfile
+Int -&gt; ReadS UntagInstanceProfile
+ReadS [UntagInstanceProfile]
+(Int -&gt; ReadS UntagInstanceProfile)
+-&gt; ReadS [UntagInstanceProfile]
+-&gt; ReadPrec UntagInstanceProfile
+-&gt; ReadPrec [UntagInstanceProfile]
+-&gt; Read UntagInstanceProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UntagInstanceProfile]
+$creadListPrec :: ReadPrec [UntagInstanceProfile]
+readPrec :: ReadPrec UntagInstanceProfile
+$creadPrec :: ReadPrec UntagInstanceProfile
+readList :: ReadS [UntagInstanceProfile]
+$creadList :: ReadS [UntagInstanceProfile]
+readsPrec :: Int -&gt; ReadS UntagInstanceProfile
+$creadsPrec :: Int -&gt; ReadS UntagInstanceProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461560"><span id="local-6989586621679461562"><span id="local-6989586621679461564"><span class="annot"><span class="annottext">Int -&gt; UntagInstanceProfile -&gt; ShowS
+[UntagInstanceProfile] -&gt; ShowS
+UntagInstanceProfile -&gt; String
+(Int -&gt; UntagInstanceProfile -&gt; ShowS)
+-&gt; (UntagInstanceProfile -&gt; String)
+-&gt; ([UntagInstanceProfile] -&gt; ShowS)
+-&gt; Show UntagInstanceProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UntagInstanceProfile] -&gt; ShowS
+$cshowList :: [UntagInstanceProfile] -&gt; ShowS
+show :: UntagInstanceProfile -&gt; String
+$cshow :: UntagInstanceProfile -&gt; String
+showsPrec :: Int -&gt; UntagInstanceProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; UntagInstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UntagInstanceProfile -&gt; Rep UntagInstanceProfile x)
+-&gt; (forall x. Rep UntagInstanceProfile x -&gt; UntagInstanceProfile)
+-&gt; Generic UntagInstanceProfile
+forall x. Rep UntagInstanceProfile x -&gt; UntagInstanceProfile
+forall x. UntagInstanceProfile -&gt; Rep UntagInstanceProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UntagInstanceProfile x -&gt; UntagInstanceProfile
+$cfrom :: forall x. UntagInstanceProfile -&gt; Rep UntagInstanceProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'UntagInstanceProfile' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'instanceProfileName', 'untagInstanceProfile_instanceProfileName' - The name of the IAM instance profile from which you want to remove tags.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'tagKeys', 'untagInstanceProfile_tagKeys' - A list of key names as a simple array of strings. The tags with matching</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- keys are removed from the specified instance profile.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#newUntagInstanceProfile"><span class="hs-identifier hs-type">newUntagInstanceProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'instanceProfileName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span>
+</span><span id="line-85"></span><span id="newUntagInstanceProfile"><span class="annot"><span class="annottext">newUntagInstanceProfile :: Text -&gt; UntagInstanceProfile
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#newUntagInstanceProfile"><span class="hs-identifier hs-var hs-var">newUntagInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679461555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461555"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UntagInstanceProfile' :: Text -&gt; [Text] -&gt; UntagInstanceProfile
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceProfileName:UntagInstanceProfile' :: Text
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#%24sel%3AinstanceProfileName%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461555"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagInstanceProfile' :: [Text]
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the IAM instance profile from which you want to remove tags.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#untagInstanceProfile_instanceProfileName"><span class="hs-identifier hs-type">untagInstanceProfile_instanceProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="untagInstanceProfile_instanceProfileName"><span class="annot"><span class="annottext">untagInstanceProfile_instanceProfileName :: (Text -&gt; f Text) -&gt; UntagInstanceProfile -&gt; f UntagInstanceProfile
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#untagInstanceProfile_instanceProfileName"><span class="hs-identifier hs-var hs-var">untagInstanceProfile_instanceProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UntagInstanceProfile -&gt; Text)
+-&gt; (UntagInstanceProfile -&gt; Text -&gt; UntagInstanceProfile)
+-&gt; Lens UntagInstanceProfile UntagInstanceProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461552"><span class="annot"><span class="annottext">Text
+instanceProfileName :: Text
+$sel:instanceProfileName:UntagInstanceProfile' :: UntagInstanceProfile -&gt; Text
+</span><a href="#local-6989586621679461552"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461552"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461551"><span class="annot"><span class="annottext">s :: UntagInstanceProfile
+</span><a href="#local-6989586621679461551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagInstanceProfile
+</span><a href="#local-6989586621679461551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:UntagInstanceProfile' :: Text
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#%24sel%3AinstanceProfileName%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | A list of key names as a simple array of strings. The tags with matching</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- keys are removed from the specified instance profile.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#untagInstanceProfile_tagKeys"><span class="hs-identifier hs-type">untagInstanceProfile_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span id="untagInstanceProfile_tagKeys"><span class="annot"><span class="annottext">untagInstanceProfile_tagKeys :: ([Text] -&gt; f [Text])
+-&gt; UntagInstanceProfile -&gt; f UntagInstanceProfile
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#untagInstanceProfile_tagKeys"><span class="hs-identifier hs-var hs-var">untagInstanceProfile_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UntagInstanceProfile -&gt; [Text])
+-&gt; (UntagInstanceProfile -&gt; [Text] -&gt; UntagInstanceProfile)
+-&gt; Lens UntagInstanceProfile UntagInstanceProfile [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461549"><span class="annot"><span class="annottext">[Text]
+tagKeys :: [Text]
+$sel:tagKeys:UntagInstanceProfile' :: UntagInstanceProfile -&gt; [Text]
+</span><a href="#local-6989586621679461549"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679461549"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461548"><span class="annot"><span class="annottext">s :: UntagInstanceProfile
+</span><a href="#local-6989586621679461548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461547"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679461547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagInstanceProfile
+</span><a href="#local-6989586621679461548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagInstanceProfile' :: [Text]
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679461547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; UntagInstanceProfile -&gt; f UntagInstanceProfile)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; UntagInstanceProfile
+-&gt; f UntagInstanceProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-type">UntagInstanceProfileResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679461541"><span class="annot"><span class="annottext">request :: UntagInstanceProfile -&gt; Request UntagInstanceProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagInstanceProfile -&gt; Request UntagInstanceProfile
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679461537"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UntagInstanceProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UntagInstanceProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UntagInstanceProfile
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UntagInstanceProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UntagInstanceProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UntagInstanceProfile
+UntagInstanceProfileResponse
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse%27"><span class="hs-identifier hs-var">UntagInstanceProfileResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461530"><span id="local-6989586621679461532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679461523"><span class="annot"><span class="annottext">toHeaders :: UntagInstanceProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UntagInstanceProfile -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679461518"><span class="annot"><span class="annottext">toPath :: UntagInstanceProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagInstanceProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679461514"><span class="annot"><span class="annottext">toQuery :: UntagInstanceProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461511"><span id="local-6989586621679461512"><span class="annot"><span class="annottext">[Text]
+Text
+tagKeys :: [Text]
+instanceProfileName :: Text
+$sel:tagKeys:UntagInstanceProfile' :: UntagInstanceProfile -&gt; [Text]
+$sel:instanceProfileName:UntagInstanceProfile' :: UntagInstanceProfile -&gt; Text
+</span><a href="#local-6989586621679461511"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UntagInstanceProfile&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceProfileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461512"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679461511"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newUntagInstanceProfileResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679461507"><span id="local-6989586621679461508"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagInstanceProfileResponse"><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-var">UntagInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagInstanceProfileResponse%27"><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse%27"><span class="hs-identifier hs-var">UntagInstanceProfileResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461503"><span id="local-6989586621679461505"><span class="annot"><span class="annottext">UntagInstanceProfileResponse
+-&gt; UntagInstanceProfileResponse -&gt; Bool
+(UntagInstanceProfileResponse
+ -&gt; UntagInstanceProfileResponse -&gt; Bool)
+-&gt; (UntagInstanceProfileResponse
+    -&gt; UntagInstanceProfileResponse -&gt; Bool)
+-&gt; Eq UntagInstanceProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UntagInstanceProfileResponse
+-&gt; UntagInstanceProfileResponse -&gt; Bool
+$c/= :: UntagInstanceProfileResponse
+-&gt; UntagInstanceProfileResponse -&gt; Bool
+== :: UntagInstanceProfileResponse
+-&gt; UntagInstanceProfileResponse -&gt; Bool
+$c== :: UntagInstanceProfileResponse
+-&gt; UntagInstanceProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461495"><span id="local-6989586621679461497"><span id="local-6989586621679461499"><span id="local-6989586621679461501"><span class="annot"><span class="annottext">ReadPrec [UntagInstanceProfileResponse]
+ReadPrec UntagInstanceProfileResponse
+Int -&gt; ReadS UntagInstanceProfileResponse
+ReadS [UntagInstanceProfileResponse]
+(Int -&gt; ReadS UntagInstanceProfileResponse)
+-&gt; ReadS [UntagInstanceProfileResponse]
+-&gt; ReadPrec UntagInstanceProfileResponse
+-&gt; ReadPrec [UntagInstanceProfileResponse]
+-&gt; Read UntagInstanceProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UntagInstanceProfileResponse]
+$creadListPrec :: ReadPrec [UntagInstanceProfileResponse]
+readPrec :: ReadPrec UntagInstanceProfileResponse
+$creadPrec :: ReadPrec UntagInstanceProfileResponse
+readList :: ReadS [UntagInstanceProfileResponse]
+$creadList :: ReadS [UntagInstanceProfileResponse]
+readsPrec :: Int -&gt; ReadS UntagInstanceProfileResponse
+$creadsPrec :: Int -&gt; ReadS UntagInstanceProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461489"><span id="local-6989586621679461491"><span id="local-6989586621679461493"><span class="annot"><span class="annottext">Int -&gt; UntagInstanceProfileResponse -&gt; ShowS
+[UntagInstanceProfileResponse] -&gt; ShowS
+UntagInstanceProfileResponse -&gt; String
+(Int -&gt; UntagInstanceProfileResponse -&gt; ShowS)
+-&gt; (UntagInstanceProfileResponse -&gt; String)
+-&gt; ([UntagInstanceProfileResponse] -&gt; ShowS)
+-&gt; Show UntagInstanceProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UntagInstanceProfileResponse] -&gt; ShowS
+$cshowList :: [UntagInstanceProfileResponse] -&gt; ShowS
+show :: UntagInstanceProfileResponse -&gt; String
+$cshow :: UntagInstanceProfileResponse -&gt; String
+showsPrec :: Int -&gt; UntagInstanceProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UntagInstanceProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UntagInstanceProfileResponse -&gt; Rep UntagInstanceProfileResponse x)
+-&gt; (forall x.
+    Rep UntagInstanceProfileResponse x -&gt; UntagInstanceProfileResponse)
+-&gt; Generic UntagInstanceProfileResponse
+forall x.
+Rep UntagInstanceProfileResponse x -&gt; UntagInstanceProfileResponse
+forall x.
+UntagInstanceProfileResponse -&gt; Rep UntagInstanceProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UntagInstanceProfileResponse x -&gt; UntagInstanceProfileResponse
+$cfrom :: forall x.
+UntagInstanceProfileResponse -&gt; Rep UntagInstanceProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'UntagInstanceProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#newUntagInstanceProfileResponse"><span class="hs-identifier hs-type">newUntagInstanceProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-type">UntagInstanceProfileResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newUntagInstanceProfileResponse"><span class="annot"><span class="annottext">newUntagInstanceProfileResponse :: UntagInstanceProfileResponse
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#newUntagInstanceProfileResponse"><span class="hs-identifier hs-var hs-var">newUntagInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">UntagInstanceProfileResponse
+</span><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse%27"><span class="hs-identifier hs-var">UntagInstanceProfileResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-type">UntagInstanceProfileResponse</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

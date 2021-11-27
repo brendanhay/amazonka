@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.Route53AutoNaming.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53AutoNaming.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceLimitExceeded"><span class="hs-identifier">_ResourceLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_InvalidInput"><span class="hs-identifier">_InvalidInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_NamespaceAlreadyExists"><span class="hs-identifier">_NamespaceAlreadyExists</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_NamespaceNotFound"><span class="hs-identifier">_NamespaceNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ServiceAlreadyExists"><span class="hs-identifier">_ServiceAlreadyExists</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceInUse"><span class="hs-identifier">_ResourceInUse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_TooManyTagsException"><span class="hs-identifier">_TooManyTagsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_CustomHealthNotFound"><span class="hs-identifier">_CustomHealthNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_RequestLimitExceeded"><span class="hs-identifier">_RequestLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_InstanceNotFound"><span class="hs-identifier">_InstanceNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_DuplicateRequest"><span class="hs-identifier">_DuplicateRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ServiceNotFound"><span class="hs-identifier">_ServiceNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_OperationNotFound"><span class="hs-identifier">_OperationNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomHealthStatus</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus"><span class="hs-identifier">CustomHealthStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FilterCondition</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.FilterCondition.html#FilterCondition"><span class="hs-identifier">FilterCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HealthCheckType</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier">HealthCheckType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HealthStatus</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthStatus.html#HealthStatus"><span class="hs-identifier">HealthStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HealthStatusFilter</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthStatusFilter.html#HealthStatusFilter"><span class="hs-identifier">HealthStatusFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NamespaceFilterName</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilterName.html#NamespaceFilterName"><span class="hs-identifier">NamespaceFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NamespaceType</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceType.html#NamespaceType"><span class="hs-identifier">NamespaceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OperationFilterName</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilterName.html#OperationFilterName"><span class="hs-identifier">OperationFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OperationStatus</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier">OperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OperationTargetType</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationTargetType.html#OperationTargetType"><span class="hs-identifier">OperationTargetType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OperationType</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationType.html#OperationType"><span class="hs-identifier">OperationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RecordType</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.RecordType.html#RecordType"><span class="hs-identifier">RecordType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RoutingPolicy</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.RoutingPolicy.html#RoutingPolicy"><span class="hs-identifier">RoutingPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceFilterName</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilterName.html#ServiceFilterName"><span class="hs-identifier">ServiceFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceType</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceType.html#ServiceType"><span class="hs-identifier">ServiceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceTypeOption</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceTypeOption.html#ServiceTypeOption"><span class="hs-identifier">ServiceTypeOption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DnsConfig</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfig.html#DnsConfig"><span class="hs-identifier">DnsConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfig.html#newDnsConfig"><span class="hs-identifier">newDnsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfig.html#dnsConfig_routingPolicy"><span class="hs-identifier">dnsConfig_routingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfig.html#dnsConfig_namespaceId"><span class="hs-identifier">dnsConfig_namespaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfig.html#dnsConfig_dnsRecords"><span class="hs-identifier">dnsConfig_dnsRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DnsConfigChange</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier">DnsConfigChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfigChange.html#newDnsConfigChange"><span class="hs-identifier">newDnsConfigChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfigChange.html#dnsConfigChange_dnsRecords"><span class="hs-identifier">dnsConfigChange_dnsRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DnsProperties</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier">DnsProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsProperties.html#newDnsProperties"><span class="hs-identifier">newDnsProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsProperties.html#dnsProperties_hostedZoneId"><span class="hs-identifier">dnsProperties_hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsProperties.html#dnsProperties_soa"><span class="hs-identifier">dnsProperties_soa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DnsRecord</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier">DnsRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsRecord.html#newDnsRecord"><span class="hs-identifier">newDnsRecord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsRecord.html#dnsRecord_type"><span class="hs-identifier">dnsRecord_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsRecord.html#dnsRecord_ttl"><span class="hs-identifier">dnsRecord_ttl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HealthCheckConfig</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier">HealthCheckConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckConfig.html#newHealthCheckConfig"><span class="hs-identifier">newHealthCheckConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckConfig.html#healthCheckConfig_failureThreshold"><span class="hs-identifier">healthCheckConfig_failureThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckConfig.html#healthCheckConfig_resourcePath"><span class="hs-identifier">healthCheckConfig_resourcePath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckConfig.html#healthCheckConfig_type"><span class="hs-identifier">healthCheckConfig_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HealthCheckCustomConfig</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig.html#HealthCheckCustomConfig"><span class="hs-identifier">HealthCheckCustomConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig.html#newHealthCheckCustomConfig"><span class="hs-identifier">newHealthCheckCustomConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig.html#healthCheckCustomConfig_failureThreshold"><span class="hs-identifier">healthCheckCustomConfig_failureThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HttpInstanceSummary</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier">HttpInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html#newHttpInstanceSummary"><span class="hs-identifier">newHttpInstanceSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_instanceId"><span class="hs-identifier">httpInstanceSummary_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_namespaceName"><span class="hs-identifier">httpInstanceSummary_namespaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_attributes"><span class="hs-identifier">httpInstanceSummary_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_serviceName"><span class="hs-identifier">httpInstanceSummary_serviceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_healthStatus"><span class="hs-identifier">httpInstanceSummary_healthStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HttpNamespaceChange</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier">HttpNamespaceChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#newHttpNamespaceChange"><span class="hs-identifier">newHttpNamespaceChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#httpNamespaceChange_description"><span class="hs-identifier">httpNamespaceChange_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HttpProperties</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier">HttpProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpProperties.html#newHttpProperties"><span class="hs-identifier">newHttpProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpProperties.html#httpProperties_httpName"><span class="hs-identifier">httpProperties_httpName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Instance</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Instance.html#newInstance"><span class="hs-identifier">newInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Instance.html#instance_creatorRequestId"><span class="hs-identifier">instance_creatorRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Instance.html#instance_attributes"><span class="hs-identifier">instance_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Instance.html#instance_id"><span class="hs-identifier">instance_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InstanceSummary</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.InstanceSummary.html#InstanceSummary"><span class="hs-identifier">InstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.InstanceSummary.html#newInstanceSummary"><span class="hs-identifier">newInstanceSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.InstanceSummary.html#instanceSummary_attributes"><span class="hs-identifier">instanceSummary_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.InstanceSummary.html#instanceSummary_id"><span class="hs-identifier">instanceSummary_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Namespace</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#Namespace"><span class="hs-identifier">Namespace</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#newNamespace"><span class="hs-identifier">newNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_arn"><span class="hs-identifier">namespace_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_creatorRequestId"><span class="hs-identifier">namespace_creatorRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_createDate"><span class="hs-identifier">namespace_createDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_serviceCount"><span class="hs-identifier">namespace_serviceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_name"><span class="hs-identifier">namespace_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_id"><span class="hs-identifier">namespace_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_type"><span class="hs-identifier">namespace_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_description"><span class="hs-identifier">namespace_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html#namespace_properties"><span class="hs-identifier">namespace_properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NamespaceFilter</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier">NamespaceFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilter.html#newNamespaceFilter"><span class="hs-identifier">newNamespaceFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilter.html#namespaceFilter_condition"><span class="hs-identifier">namespaceFilter_condition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilter.html#namespaceFilter_name"><span class="hs-identifier">namespaceFilter_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilter.html#namespaceFilter_values"><span class="hs-identifier">namespaceFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NamespaceProperties</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier">NamespaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceProperties.html#newNamespaceProperties"><span class="hs-identifier">newNamespaceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_dnsProperties"><span class="hs-identifier">namespaceProperties_dnsProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_httpProperties"><span class="hs-identifier">namespaceProperties_httpProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NamespaceSummary</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#NamespaceSummary"><span class="hs-identifier">NamespaceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#newNamespaceSummary"><span class="hs-identifier">newNamespaceSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_arn"><span class="hs-identifier">namespaceSummary_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_createDate"><span class="hs-identifier">namespaceSummary_createDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_serviceCount"><span class="hs-identifier">namespaceSummary_serviceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_name"><span class="hs-identifier">namespaceSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_id"><span class="hs-identifier">namespaceSummary_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_type"><span class="hs-identifier">namespaceSummary_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_description"><span class="hs-identifier">namespaceSummary_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html#namespaceSummary_properties"><span class="hs-identifier">namespaceSummary_properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operation</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#Operation"><span class="hs-identifier">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#newOperation"><span class="hs-identifier">newOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_status"><span class="hs-identifier">operation_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_updateDate"><span class="hs-identifier">operation_updateDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_createDate"><span class="hs-identifier">operation_createDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_targets"><span class="hs-identifier">operation_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_errorCode"><span class="hs-identifier">operation_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_id"><span class="hs-identifier">operation_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_type"><span class="hs-identifier">operation_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html#operation_errorMessage"><span class="hs-identifier">operation_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OperationFilter</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilter.html#OperationFilter"><span class="hs-identifier">OperationFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilter.html#newOperationFilter"><span class="hs-identifier">newOperationFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilter.html#operationFilter_condition"><span class="hs-identifier">operationFilter_condition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilter.html#operationFilter_name"><span class="hs-identifier">operationFilter_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilter.html#operationFilter_values"><span class="hs-identifier">operationFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OperationSummary</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier">OperationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationSummary.html#newOperationSummary"><span class="hs-identifier">newOperationSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationSummary.html#operationSummary_status"><span class="hs-identifier">operationSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationSummary.html#operationSummary_id"><span class="hs-identifier">operationSummary_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrivateDnsNamespaceChange</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html#PrivateDnsNamespaceChange"><span class="hs-identifier">PrivateDnsNamespaceChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html#newPrivateDnsNamespaceChange"><span class="hs-identifier">newPrivateDnsNamespaceChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html#privateDnsNamespaceChange_description"><span class="hs-identifier">privateDnsNamespaceChange_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html#privateDnsNamespaceChange_properties"><span class="hs-identifier">privateDnsNamespaceChange_properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrivateDnsNamespaceProperties</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties.html#PrivateDnsNamespaceProperties"><span class="hs-identifier">PrivateDnsNamespaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties.html#newPrivateDnsNamespaceProperties"><span class="hs-identifier">newPrivateDnsNamespaceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties.html#privateDnsNamespaceProperties_dnsProperties"><span class="hs-identifier">privateDnsNamespaceProperties_dnsProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrivateDnsNamespacePropertiesChange</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier">PrivateDnsNamespacePropertiesChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#newPrivateDnsNamespacePropertiesChange"><span class="hs-identifier">newPrivateDnsNamespacePropertiesChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#privateDnsNamespacePropertiesChange_dnsProperties"><span class="hs-identifier">privateDnsNamespacePropertiesChange_dnsProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrivateDnsPropertiesMutable</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable.html#PrivateDnsPropertiesMutable"><span class="hs-identifier">PrivateDnsPropertiesMutable</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable.html#newPrivateDnsPropertiesMutable"><span class="hs-identifier">newPrivateDnsPropertiesMutable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable.html#privateDnsPropertiesMutable_soa"><span class="hs-identifier">privateDnsPropertiesMutable_soa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrivateDnsPropertiesMutableChange</span></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange.html#PrivateDnsPropertiesMutableChange"><span class="hs-identifier">PrivateDnsPropertiesMutableChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange.html#newPrivateDnsPropertiesMutableChange"><span class="hs-identifier">newPrivateDnsPropertiesMutableChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange.html#privateDnsPropertiesMutableChange_soa"><span class="hs-identifier">privateDnsPropertiesMutableChange_soa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PublicDnsNamespaceChange</span></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange.html#PublicDnsNamespaceChange"><span class="hs-identifier">PublicDnsNamespaceChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange.html#newPublicDnsNamespaceChange"><span class="hs-identifier">newPublicDnsNamespaceChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange.html#publicDnsNamespaceChange_description"><span class="hs-identifier">publicDnsNamespaceChange_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange.html#publicDnsNamespaceChange_properties"><span class="hs-identifier">publicDnsNamespaceChange_properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PublicDnsNamespaceProperties</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html#PublicDnsNamespaceProperties"><span class="hs-identifier">PublicDnsNamespaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html#newPublicDnsNamespaceProperties"><span class="hs-identifier">newPublicDnsNamespaceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html#publicDnsNamespaceProperties_dnsProperties"><span class="hs-identifier">publicDnsNamespaceProperties_dnsProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PublicDnsNamespacePropertiesChange</span></span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier">PublicDnsNamespacePropertiesChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#newPublicDnsNamespacePropertiesChange"><span class="hs-identifier">newPublicDnsNamespacePropertiesChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#publicDnsNamespacePropertiesChange_dnsProperties"><span class="hs-identifier">publicDnsNamespacePropertiesChange_dnsProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PublicDnsPropertiesMutable</span></span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable.html#PublicDnsPropertiesMutable"><span class="hs-identifier">PublicDnsPropertiesMutable</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable.html#newPublicDnsPropertiesMutable"><span class="hs-identifier">newPublicDnsPropertiesMutable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable.html#publicDnsPropertiesMutable_soa"><span class="hs-identifier">publicDnsPropertiesMutable_soa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PublicDnsPropertiesMutableChange</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange.html#PublicDnsPropertiesMutableChange"><span class="hs-identifier">PublicDnsPropertiesMutableChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange.html#newPublicDnsPropertiesMutableChange"><span class="hs-identifier">newPublicDnsPropertiesMutableChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange.html#publicDnsPropertiesMutableChange_soa"><span class="hs-identifier">publicDnsPropertiesMutableChange_soa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SOA</span></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier">SOA</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOA.html#newSOA"><span class="hs-identifier">newSOA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOA.html#soa_ttl"><span class="hs-identifier">soa_ttl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SOAChange</span></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier">SOAChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOAChange.html#newSOAChange"><span class="hs-identifier">newSOAChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOAChange.html#sOAChange_ttl"><span class="hs-identifier">sOAChange_ttl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceChange</span></span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#ServiceChange"><span class="hs-identifier">ServiceChange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#newServiceChange"><span class="hs-identifier">newServiceChange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#serviceChange_healthCheckConfig"><span class="hs-identifier">serviceChange_healthCheckConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#serviceChange_dnsConfig"><span class="hs-identifier">serviceChange_dnsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#serviceChange_description"><span class="hs-identifier">serviceChange_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceFilter</span></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier">ServiceFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilter.html#newServiceFilter"><span class="hs-identifier">newServiceFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilter.html#serviceFilter_condition"><span class="hs-identifier">serviceFilter_condition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilter.html#serviceFilter_name"><span class="hs-identifier">serviceFilter_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilter.html#serviceFilter_values"><span class="hs-identifier">serviceFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceInfo</span></span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#ServiceInfo"><span class="hs-identifier">ServiceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#newServiceInfo"><span class="hs-identifier">newServiceInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_instanceCount"><span class="hs-identifier">serviceInfo_instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_arn"><span class="hs-identifier">serviceInfo_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_healthCheckConfig"><span class="hs-identifier">serviceInfo_healthCheckConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_creatorRequestId"><span class="hs-identifier">serviceInfo_creatorRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_createDate"><span class="hs-identifier">serviceInfo_createDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_healthCheckCustomConfig"><span class="hs-identifier">serviceInfo_healthCheckCustomConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_namespaceId"><span class="hs-identifier">serviceInfo_namespaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_name"><span class="hs-identifier">serviceInfo_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_id"><span class="hs-identifier">serviceInfo_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_type"><span class="hs-identifier">serviceInfo_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_dnsConfig"><span class="hs-identifier">serviceInfo_dnsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html#serviceInfo_description"><span class="hs-identifier">serviceInfo_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceSummary</span></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#newServiceSummary"><span class="hs-identifier">newServiceSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_instanceCount"><span class="hs-identifier">serviceSummary_instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_arn"><span class="hs-identifier">serviceSummary_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_healthCheckConfig"><span class="hs-identifier">serviceSummary_healthCheckConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_createDate"><span class="hs-identifier">serviceSummary_createDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_healthCheckCustomConfig"><span class="hs-identifier">serviceSummary_healthCheckCustomConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_name"><span class="hs-identifier">serviceSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_id"><span class="hs-identifier">serviceSummary_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_type"><span class="hs-identifier">serviceSummary_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_dnsConfig"><span class="hs-identifier">serviceSummary_dnsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html#serviceSummary_description"><span class="hs-identifier">serviceSummary_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.CustomHealthStatus.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.CustomHealthStatus</span></a></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfig.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.DnsConfig</span></a></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsConfigChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.DnsConfigChange</span></a></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsProperties.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.DnsProperties</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.DnsRecord.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.DnsRecord</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.FilterCondition.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.FilterCondition</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckConfig.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HealthCheckConfig</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthCheckType.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HealthCheckType</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthStatus.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HealthStatus</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HealthStatusFilter.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HealthStatusFilter</span></a></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpInstanceSummary.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HttpInstanceSummary</span></a></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HttpNamespaceChange</span></a></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpProperties.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HttpProperties</span></a></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Instance.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.Instance</span></a></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.InstanceSummary.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.InstanceSummary</span></a></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Namespace.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.Namespace</span></a></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilter.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.NamespaceFilter</span></a></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceFilterName.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.NamespaceFilterName</span></a></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceProperties.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.NamespaceProperties</span></a></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceSummary.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.NamespaceSummary</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.NamespaceType.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.NamespaceType</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Operation.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.Operation</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilter.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.OperationFilter</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationFilterName.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.OperationFilterName</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationStatus.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.OperationStatus</span></a></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationSummary.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.OperationSummary</span></a></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationTargetType.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.OperationTargetType</span></a></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.OperationType.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.OperationType</span></a></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange</span></a></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties</span></a></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange</span></a></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable</span></a></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange</span></a></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange</span></a></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties</span></a></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange</span></a></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable</span></a></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange</span></a></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.RecordType.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.RecordType</span></a></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.RoutingPolicy.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.RoutingPolicy</span></a></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOA.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.SOA</span></a></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.SOAChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.SOAChange</span></a></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.ServiceChange</span></a></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilter.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.ServiceFilter</span></a></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceFilterName.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.ServiceFilterName</span></a></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceInfo.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.ServiceInfo</span></a></span><span>
+</span><span id="line-378"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceSummary.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.ServiceSummary</span></a></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceType.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.ServiceType</span></a></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceTypeOption.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.ServiceTypeOption</span></a></span><span>
+</span><span id="line-381"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.Tag.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.Tag</span></a></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- | API version @2017-03-14@ of the Amazon Cloud Map SDK configuration.</span><span>
+</span><span id="line-385"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-386"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-387"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-388"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-389"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Route53AutoNaming&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;servicediscovery&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;servicediscovery&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2017-03-14&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-395"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-399"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Route53AutoNaming&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679225556"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-401"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-402"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-403"></span><span>    </span><span id="local-6989586621679225556"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679225556"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-404"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-405"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679225550"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-409"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-410"></span><span>    </span><span id="local-6989586621679225550"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679225550"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679225549"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-411"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-412"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-413"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-414"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-417"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-418"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-419"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-420"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-421"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-422"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-424"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-425"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-426"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-427"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-428"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-429"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-431"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-432"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-433"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-434"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-435"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-437"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-438"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-439"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-440"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-441"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-442"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-443"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-445"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-446"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-447"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-448"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-449"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-450"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-451"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-452"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679225549"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-453"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-454"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-455"></span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- | The resource can\'t be created because you\'ve reached the quota on the</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- number of resources.</span><span>
+</span><span id="line-458"></span><span id="local-6989586621679225544"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceLimitExceeded"><span class="hs-identifier hs-type">_ResourceLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225544"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225544"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-459"></span><span id="_ResourceLimitExceeded"><span class="annot"><span class="annottext">_ResourceLimitExceeded :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceLimitExceeded"><span class="hs-identifier hs-var hs-var">_ResourceLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-460"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceLimitExceeded&quot;</span></span><span>
+</span><span id="line-463"></span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- | One or more specified values aren\'t valid. For example, a required</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- value might be missing, a numeric value might be outside the allowed</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- range, or a string value might exceed length constraints.</span><span>
+</span><span id="line-467"></span><span id="local-6989586621679225542"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_InvalidInput"><span class="hs-identifier hs-type">_InvalidInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225542"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225542"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-468"></span><span id="_InvalidInput"><span class="annot"><span class="annottext">_InvalidInput :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_InvalidInput"><span class="hs-identifier hs-var hs-var">_InvalidInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-469"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-470"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-471"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidInput&quot;</span></span><span>
+</span><span id="line-472"></span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- | The namespace that you\'re trying to create already exists.</span><span>
+</span><span id="line-474"></span><span id="local-6989586621679225541"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_NamespaceAlreadyExists"><span class="hs-identifier hs-type">_NamespaceAlreadyExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225541"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225541"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-475"></span><span id="_NamespaceAlreadyExists"><span class="annot"><span class="annottext">_NamespaceAlreadyExists :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_NamespaceAlreadyExists"><span class="hs-identifier hs-var hs-var">_NamespaceAlreadyExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-476"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-477"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;NamespaceAlreadyExists&quot;</span></span><span>
+</span><span id="line-479"></span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- | No namespace exists with the specified ID.</span><span>
+</span><span id="line-481"></span><span id="local-6989586621679225540"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_NamespaceNotFound"><span class="hs-identifier hs-type">_NamespaceNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225540"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225540"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-482"></span><span id="_NamespaceNotFound"><span class="annot"><span class="annottext">_NamespaceNotFound :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_NamespaceNotFound"><span class="hs-identifier hs-var hs-var">_NamespaceNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-483"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;NamespaceNotFound&quot;</span></span><span>
+</span><span id="line-486"></span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- | The service can\'t be created because a service with the same name</span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- already exists.</span><span>
+</span><span id="line-489"></span><span id="local-6989586621679225539"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ServiceAlreadyExists"><span class="hs-identifier hs-type">_ServiceAlreadyExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225539"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225539"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-490"></span><span id="_ServiceAlreadyExists"><span class="annot"><span class="annottext">_ServiceAlreadyExists :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_ServiceAlreadyExists"><span class="hs-identifier hs-var hs-var">_ServiceAlreadyExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-491"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-492"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-493"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceAlreadyExists&quot;</span></span><span>
+</span><span id="line-494"></span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- | The specified resource can\'t be deleted because it contains other</span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- resources. For example, you can\'t delete a service that contains any</span><span>
+</span><span id="line-497"></span><span class="hs-comment">-- instances.</span><span>
+</span><span id="line-498"></span><span id="local-6989586621679225538"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceInUse"><span class="hs-identifier hs-type">_ResourceInUse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225538"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225538"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-499"></span><span id="_ResourceInUse"><span class="annot"><span class="annottext">_ResourceInUse :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceInUse"><span class="hs-identifier hs-var hs-var">_ResourceInUse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-500"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-501"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-502"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceInUse&quot;</span></span><span>
+</span><span id="line-503"></span><span>
+</span><span id="line-504"></span><span class="hs-comment">-- | The list of tags on the resource is over the quota. The maximum number</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- of tags that can be applied to a resource is 50.</span><span>
+</span><span id="line-506"></span><span id="local-6989586621679225537"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_TooManyTagsException"><span class="hs-identifier hs-type">_TooManyTagsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225537"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225537"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-507"></span><span id="_TooManyTagsException"><span class="annot"><span class="annottext">_TooManyTagsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_TooManyTagsException"><span class="hs-identifier hs-var hs-var">_TooManyTagsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-508"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-509"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-510"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TooManyTagsException&quot;</span></span><span>
+</span><span id="line-511"></span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- | The health check for the instance that\'s specified by @ServiceId@ and</span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- @InstanceId@ isn\'t a custom health check.</span><span>
+</span><span id="line-514"></span><span id="local-6989586621679225536"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_CustomHealthNotFound"><span class="hs-identifier hs-type">_CustomHealthNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225536"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225536"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-515"></span><span id="_CustomHealthNotFound"><span class="annot"><span class="annottext">_CustomHealthNotFound :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_CustomHealthNotFound"><span class="hs-identifier hs-var hs-var">_CustomHealthNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-516"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-517"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-518"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;CustomHealthNotFound&quot;</span></span><span>
+</span><span id="line-519"></span><span>
+</span><span id="line-520"></span><span class="hs-comment">-- | The operation can\'t be completed because you\'ve reached the quota for</span><span>
+</span><span id="line-521"></span><span class="hs-comment">-- the number of requests. For more information, see</span><span>
+</span><span id="line-522"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html Cloud Map API request throttling quota&gt;</span><span>
+</span><span id="line-523"></span><span class="hs-comment">-- in the /Cloud Map Developer Guide/.</span><span>
+</span><span id="line-524"></span><span id="local-6989586621679225535"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_RequestLimitExceeded"><span class="hs-identifier hs-type">_RequestLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225535"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225535"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-525"></span><span id="_RequestLimitExceeded"><span class="annot"><span class="annottext">_RequestLimitExceeded :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_RequestLimitExceeded"><span class="hs-identifier hs-var hs-var">_RequestLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-526"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-527"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-528"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestLimitExceeded&quot;</span></span><span>
+</span><span id="line-529"></span><span>
+</span><span id="line-530"></span><span class="hs-comment">-- | No instance exists with the specified ID, or the instance was recently</span><span>
+</span><span id="line-531"></span><span class="hs-comment">-- registered, and information about the instance hasn\'t propagated yet.</span><span>
+</span><span id="line-532"></span><span id="local-6989586621679225534"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_InstanceNotFound"><span class="hs-identifier hs-type">_InstanceNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225534"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225534"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-533"></span><span id="_InstanceNotFound"><span class="annot"><span class="annottext">_InstanceNotFound :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_InstanceNotFound"><span class="hs-identifier hs-var hs-var">_InstanceNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-534"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-535"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-536"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InstanceNotFound&quot;</span></span><span>
+</span><span id="line-537"></span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- | The operation is already in progress.</span><span>
+</span><span id="line-539"></span><span id="local-6989586621679225533"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_DuplicateRequest"><span class="hs-identifier hs-type">_DuplicateRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225533"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225533"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-540"></span><span id="_DuplicateRequest"><span class="annot"><span class="annottext">_DuplicateRequest :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_DuplicateRequest"><span class="hs-identifier hs-var hs-var">_DuplicateRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-541"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-542"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-543"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;DuplicateRequest&quot;</span></span><span>
+</span><span id="line-544"></span><span>
+</span><span id="line-545"></span><span class="hs-comment">-- | No service exists with the specified ID.</span><span>
+</span><span id="line-546"></span><span id="local-6989586621679225532"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ServiceNotFound"><span class="hs-identifier hs-type">_ServiceNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225532"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225532"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-547"></span><span id="_ServiceNotFound"><span class="annot"><span class="annottext">_ServiceNotFound :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_ServiceNotFound"><span class="hs-identifier hs-var hs-var">_ServiceNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-548"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-549"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-550"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceNotFound&quot;</span></span><span>
+</span><span id="line-551"></span><span>
+</span><span id="line-552"></span><span class="hs-comment">-- | No operation exists with the specified ID.</span><span>
+</span><span id="line-553"></span><span id="local-6989586621679225531"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_OperationNotFound"><span class="hs-identifier hs-type">_OperationNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225531"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225531"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-554"></span><span id="_OperationNotFound"><span class="annot"><span class="annottext">_OperationNotFound :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_OperationNotFound"><span class="hs-identifier hs-var hs-var">_OperationNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-555"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-556"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-557"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;OperationNotFound&quot;</span></span><span>
+</span><span id="line-558"></span><span>
+</span><span id="line-559"></span><span class="hs-comment">-- | The operation can\'t be completed because the resource was not found.</span><span>
+</span><span id="line-560"></span><span id="local-6989586621679225530"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679225530"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679225530"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-561"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Route53AutoNaming.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-562"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-563"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-564"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-565"></span></pre></body></html>

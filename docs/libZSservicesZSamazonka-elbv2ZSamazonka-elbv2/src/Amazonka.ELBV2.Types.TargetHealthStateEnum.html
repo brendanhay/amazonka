@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ELBV2.Types.TargetHealthStateEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELBV2.Types.TargetHealthStateEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier">TargetHealthStateEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Draining"><span class="hs-identifier">TargetHealthStateEnum_Draining</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Healthy"><span class="hs-identifier">TargetHealthStateEnum_Healthy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Initial"><span class="hs-identifier">TargetHealthStateEnum_Initial</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unavailable"><span class="hs-identifier">TargetHealthStateEnum_Unavailable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unhealthy"><span class="hs-identifier">TargetHealthStateEnum_Unhealthy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unused"><span class="hs-identifier">TargetHealthStateEnum_Unused</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679254488"><span id="local-6989586621679254489"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetHealthStateEnum"><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier hs-var">TargetHealthStateEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetHealthStateEnum%27"><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-identifier hs-var">TargetHealthStateEnum'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetHealthStateEnum"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; Text
+</span><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#fromTargetHealthStateEnum"><span class="hs-identifier hs-var hs-var">fromTargetHealthStateEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254480"><span id="local-6989586621679254482"><span id="local-6989586621679254484"><span class="annot"><span class="annottext">Int -&gt; TargetHealthStateEnum -&gt; ShowS
+[TargetHealthStateEnum] -&gt; ShowS
+TargetHealthStateEnum -&gt; String
+(Int -&gt; TargetHealthStateEnum -&gt; ShowS)
+-&gt; (TargetHealthStateEnum -&gt; String)
+-&gt; ([TargetHealthStateEnum] -&gt; ShowS)
+-&gt; Show TargetHealthStateEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TargetHealthStateEnum] -&gt; ShowS
+$cshowList :: [TargetHealthStateEnum] -&gt; ShowS
+show :: TargetHealthStateEnum -&gt; String
+$cshow :: TargetHealthStateEnum -&gt; String
+showsPrec :: Int -&gt; TargetHealthStateEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; TargetHealthStateEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679254471"><span id="local-6989586621679254473"><span id="local-6989586621679254475"><span id="local-6989586621679254477"><span class="annot"><span class="annottext">ReadPrec [TargetHealthStateEnum]
+ReadPrec TargetHealthStateEnum
+Int -&gt; ReadS TargetHealthStateEnum
+ReadS [TargetHealthStateEnum]
+(Int -&gt; ReadS TargetHealthStateEnum)
+-&gt; ReadS [TargetHealthStateEnum]
+-&gt; ReadPrec TargetHealthStateEnum
+-&gt; ReadPrec [TargetHealthStateEnum]
+-&gt; Read TargetHealthStateEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TargetHealthStateEnum]
+$creadListPrec :: ReadPrec [TargetHealthStateEnum]
+readPrec :: ReadPrec TargetHealthStateEnum
+$creadPrec :: ReadPrec TargetHealthStateEnum
+readList :: ReadS [TargetHealthStateEnum]
+$creadList :: ReadS [TargetHealthStateEnum]
+readsPrec :: Int -&gt; ReadS TargetHealthStateEnum
+$creadsPrec :: Int -&gt; ReadS TargetHealthStateEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679254466"><span id="local-6989586621679254468"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+(TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool)
+-&gt; (TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool)
+-&gt; Eq TargetHealthStateEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+$c/= :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+== :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+$c== :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679254450"><span id="local-6989586621679254452"><span id="local-6989586621679254454"><span id="local-6989586621679254456"><span id="local-6989586621679254458"><span id="local-6989586621679254460"><span id="local-6989586621679254462"><span class="annot"><span class="annottext">Eq TargetHealthStateEnum
+Eq TargetHealthStateEnum
+-&gt; (TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Ordering)
+-&gt; (TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool)
+-&gt; (TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool)
+-&gt; (TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool)
+-&gt; (TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool)
+-&gt; (TargetHealthStateEnum
+    -&gt; TargetHealthStateEnum -&gt; TargetHealthStateEnum)
+-&gt; (TargetHealthStateEnum
+    -&gt; TargetHealthStateEnum -&gt; TargetHealthStateEnum)
+-&gt; Ord TargetHealthStateEnum
+TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Ordering
+TargetHealthStateEnum
+-&gt; TargetHealthStateEnum -&gt; TargetHealthStateEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TargetHealthStateEnum
+-&gt; TargetHealthStateEnum -&gt; TargetHealthStateEnum
+$cmin :: TargetHealthStateEnum
+-&gt; TargetHealthStateEnum -&gt; TargetHealthStateEnum
+max :: TargetHealthStateEnum
+-&gt; TargetHealthStateEnum -&gt; TargetHealthStateEnum
+$cmax :: TargetHealthStateEnum
+-&gt; TargetHealthStateEnum -&gt; TargetHealthStateEnum
+&gt;= :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+$c&gt;= :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+&gt; :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+$c&gt; :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+&lt;= :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+$c&lt;= :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+&lt; :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+$c&lt; :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Bool
+compare :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Ordering
+$ccompare :: TargetHealthStateEnum -&gt; TargetHealthStateEnum -&gt; Ordering
+$cp1Ord :: Eq TargetHealthStateEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TargetHealthStateEnum -&gt; Rep TargetHealthStateEnum x)
+-&gt; (forall x. Rep TargetHealthStateEnum x -&gt; TargetHealthStateEnum)
+-&gt; Generic TargetHealthStateEnum
+forall x. Rep TargetHealthStateEnum x -&gt; TargetHealthStateEnum
+forall x. TargetHealthStateEnum -&gt; Rep TargetHealthStateEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TargetHealthStateEnum x -&gt; TargetHealthStateEnum
+$cfrom :: forall x. TargetHealthStateEnum -&gt; Rep TargetHealthStateEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254442"><span id="local-6989586621679254444"><span class="annot"><span class="annottext">Int -&gt; TargetHealthStateEnum -&gt; Int
+TargetHealthStateEnum -&gt; Int
+(Int -&gt; TargetHealthStateEnum -&gt; Int)
+-&gt; (TargetHealthStateEnum -&gt; Int) -&gt; Hashable TargetHealthStateEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TargetHealthStateEnum -&gt; Int
+$chash :: TargetHealthStateEnum -&gt; Int
+hashWithSalt :: Int -&gt; TargetHealthStateEnum -&gt; Int
+$chashWithSalt :: Int -&gt; TargetHealthStateEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254439"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; ()
+(TargetHealthStateEnum -&gt; ()) -&gt; NFData TargetHealthStateEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TargetHealthStateEnum -&gt; ()
+$crnf :: TargetHealthStateEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254436"><span class="annot"><span class="annottext">Text -&gt; Either String TargetHealthStateEnum
+(Text -&gt; Either String TargetHealthStateEnum)
+-&gt; FromText TargetHealthStateEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TargetHealthStateEnum
+$cfromText :: Text -&gt; Either String TargetHealthStateEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679254433"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; Text
+(TargetHealthStateEnum -&gt; Text) -&gt; ToText TargetHealthStateEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TargetHealthStateEnum -&gt; Text
+$ctoText :: TargetHealthStateEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679254430"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; ByteString
+(TargetHealthStateEnum -&gt; ByteString)
+-&gt; ToByteString TargetHealthStateEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TargetHealthStateEnum -&gt; ByteString
+$ctoBS :: TargetHealthStateEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679254427"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; ByteStringBuilder
+(TargetHealthStateEnum -&gt; ByteStringBuilder)
+-&gt; ToLog TargetHealthStateEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TargetHealthStateEnum -&gt; ByteStringBuilder
+$cbuild :: TargetHealthStateEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679254424"><span class="annot"><span class="annottext">HeaderName -&gt; TargetHealthStateEnum -&gt; [Header]
+(HeaderName -&gt; TargetHealthStateEnum -&gt; [Header])
+-&gt; ToHeader TargetHealthStateEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TargetHealthStateEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TargetHealthStateEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254421"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; QueryString
+(TargetHealthStateEnum -&gt; QueryString)
+-&gt; ToQuery TargetHealthStateEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TargetHealthStateEnum -&gt; QueryString
+$ctoQuery :: TargetHealthStateEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254416"><span id="local-6989586621679254418"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetHealthStateEnum]
+Value -&gt; Parser TargetHealthStateEnum
+(Value -&gt; Parser TargetHealthStateEnum)
+-&gt; (Value -&gt; Parser [TargetHealthStateEnum])
+-&gt; FromJSON TargetHealthStateEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TargetHealthStateEnum]
+$cparseJSONList :: Value -&gt; Parser [TargetHealthStateEnum]
+parseJSON :: Value -&gt; Parser TargetHealthStateEnum
+$cparseJSON :: Value -&gt; Parser TargetHealthStateEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254411"><span id="local-6989586621679254413"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetHealthStateEnum]
+FromJSONKeyFunction TargetHealthStateEnum
+FromJSONKeyFunction TargetHealthStateEnum
+-&gt; FromJSONKeyFunction [TargetHealthStateEnum]
+-&gt; FromJSONKey TargetHealthStateEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TargetHealthStateEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [TargetHealthStateEnum]
+fromJSONKey :: FromJSONKeyFunction TargetHealthStateEnum
+$cfromJSONKey :: FromJSONKeyFunction TargetHealthStateEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679254402"><span id="local-6989586621679254404"><span id="local-6989586621679254406"><span id="local-6989586621679254408"><span class="annot"><span class="annottext">[TargetHealthStateEnum] -&gt; Encoding
+[TargetHealthStateEnum] -&gt; Value
+TargetHealthStateEnum -&gt; Encoding
+TargetHealthStateEnum -&gt; Value
+(TargetHealthStateEnum -&gt; Value)
+-&gt; (TargetHealthStateEnum -&gt; Encoding)
+-&gt; ([TargetHealthStateEnum] -&gt; Value)
+-&gt; ([TargetHealthStateEnum] -&gt; Encoding)
+-&gt; ToJSON TargetHealthStateEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TargetHealthStateEnum] -&gt; Encoding
+$ctoEncodingList :: [TargetHealthStateEnum] -&gt; Encoding
+toJSONList :: [TargetHealthStateEnum] -&gt; Value
+$ctoJSONList :: [TargetHealthStateEnum] -&gt; Value
+toEncoding :: TargetHealthStateEnum -&gt; Encoding
+$ctoEncoding :: TargetHealthStateEnum -&gt; Encoding
+toJSON :: TargetHealthStateEnum -&gt; Value
+$ctoJSON :: TargetHealthStateEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679254397"><span id="local-6989586621679254399"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetHealthStateEnum]
+ToJSONKeyFunction TargetHealthStateEnum
+ToJSONKeyFunction TargetHealthStateEnum
+-&gt; ToJSONKeyFunction [TargetHealthStateEnum]
+-&gt; ToJSONKey TargetHealthStateEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TargetHealthStateEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [TargetHealthStateEnum]
+toJSONKey :: ToJSONKeyFunction TargetHealthStateEnum
+$ctoJSONKey :: ToJSONKeyFunction TargetHealthStateEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679254394"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetHealthStateEnum
+([Node] -&gt; Either String TargetHealthStateEnum)
+-&gt; FromXML TargetHealthStateEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TargetHealthStateEnum
+$cparseXML :: [Node] -&gt; Either String TargetHealthStateEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679254391"><span class="annot"><span class="annottext">TargetHealthStateEnum -&gt; XML
+(TargetHealthStateEnum -&gt; XML) -&gt; ToXML TargetHealthStateEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TargetHealthStateEnum -&gt; XML
+$ctoXML :: TargetHealthStateEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Draining"><span class="hs-identifier hs-type">TargetHealthStateEnum_Draining</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier hs-type">TargetHealthStateEnum</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthStateEnum_Draining"><span id="%24mTargetHealthStateEnum_Draining"><span id="TargetHealthStateEnum_Draining"><span class="annot"><span class="annottext">$bTargetHealthStateEnum_Draining :: TargetHealthStateEnum
+$mTargetHealthStateEnum_Draining :: forall r.
+TargetHealthStateEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#%24bTargetHealthStateEnum_Draining"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthStateEnum_Draining</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-identifier hs-type">TargetHealthStateEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;draining&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Healthy"><span class="hs-identifier hs-type">TargetHealthStateEnum_Healthy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier hs-type">TargetHealthStateEnum</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthStateEnum_Healthy"><span id="%24mTargetHealthStateEnum_Healthy"><span id="TargetHealthStateEnum_Healthy"><span class="annot"><span class="annottext">$bTargetHealthStateEnum_Healthy :: TargetHealthStateEnum
+$mTargetHealthStateEnum_Healthy :: forall r.
+TargetHealthStateEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#%24bTargetHealthStateEnum_Healthy"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthStateEnum_Healthy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-identifier hs-type">TargetHealthStateEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;healthy&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Initial"><span class="hs-identifier hs-type">TargetHealthStateEnum_Initial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier hs-type">TargetHealthStateEnum</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthStateEnum_Initial"><span id="%24mTargetHealthStateEnum_Initial"><span id="TargetHealthStateEnum_Initial"><span class="annot"><span class="annottext">$bTargetHealthStateEnum_Initial :: TargetHealthStateEnum
+$mTargetHealthStateEnum_Initial :: forall r.
+TargetHealthStateEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#%24bTargetHealthStateEnum_Initial"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthStateEnum_Initial</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-identifier hs-type">TargetHealthStateEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;initial&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unavailable"><span class="hs-identifier hs-type">TargetHealthStateEnum_Unavailable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier hs-type">TargetHealthStateEnum</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthStateEnum_Unavailable"><span id="%24mTargetHealthStateEnum_Unavailable"><span id="TargetHealthStateEnum_Unavailable"><span class="annot"><span class="annottext">$bTargetHealthStateEnum_Unavailable :: TargetHealthStateEnum
+$mTargetHealthStateEnum_Unavailable :: forall r.
+TargetHealthStateEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#%24bTargetHealthStateEnum_Unavailable"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthStateEnum_Unavailable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-identifier hs-type">TargetHealthStateEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unavailable&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unhealthy"><span class="hs-identifier hs-type">TargetHealthStateEnum_Unhealthy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier hs-type">TargetHealthStateEnum</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthStateEnum_Unhealthy"><span id="%24mTargetHealthStateEnum_Unhealthy"><span id="TargetHealthStateEnum_Unhealthy"><span class="annot"><span class="annottext">$bTargetHealthStateEnum_Unhealthy :: TargetHealthStateEnum
+$mTargetHealthStateEnum_Unhealthy :: forall r.
+TargetHealthStateEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#%24bTargetHealthStateEnum_Unhealthy"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthStateEnum_Unhealthy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-identifier hs-type">TargetHealthStateEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unhealthy&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unused"><span class="hs-identifier hs-type">TargetHealthStateEnum_Unused</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum"><span class="hs-identifier hs-type">TargetHealthStateEnum</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthStateEnum_Unused"><span id="%24mTargetHealthStateEnum_Unused"><span id="TargetHealthStateEnum_Unused"><span class="annot"><span class="annottext">$bTargetHealthStateEnum_Unused :: TargetHealthStateEnum
+$mTargetHealthStateEnum_Unused :: forall r.
+TargetHealthStateEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#%24bTargetHealthStateEnum_Unused"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthStateEnum_Unused</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-identifier hs-type">TargetHealthStateEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unused&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Draining"><span class="hs-pragma hs-type">TargetHealthStateEnum_Draining</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Healthy"><span class="hs-pragma hs-type">TargetHealthStateEnum_Healthy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Initial"><span class="hs-pragma hs-type">TargetHealthStateEnum_Initial</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unavailable"><span class="hs-pragma hs-type">TargetHealthStateEnum_Unavailable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unhealthy"><span class="hs-pragma hs-type">TargetHealthStateEnum_Unhealthy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum_Unused"><span class="hs-pragma hs-type">TargetHealthStateEnum_Unused</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.TargetHealthStateEnum.html#TargetHealthStateEnum%27"><span class="hs-pragma hs-type">TargetHealthStateEnum'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

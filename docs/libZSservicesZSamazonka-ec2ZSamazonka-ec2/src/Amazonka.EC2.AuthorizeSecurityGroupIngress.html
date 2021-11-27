@@ -1,0 +1,1210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.AuthorizeSecurityGroupIngress</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds the specified inbound (ingress) rules to a security group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- An inbound rule permits instances to receive traffic from the specified</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- IPv4 or IPv6 CIDR address range, or from the instances that are</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- associated with the specified destination security groups.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You specify a protocol for each rule (for example, TCP). For TCP and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- UDP, you must also specify the destination port or port range. For</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- ICMP\/ICMPv6, you must also specify the ICMP\/ICMPv6 type and code. You</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- can use -1 to mean all types or all codes.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Rule changes are propagated to instances within the security group as</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- quickly as possible. However, a small delay might occur.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- For more information about VPC security group quotas, see</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC quotas&gt;.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.AuthorizeSecurityGroupIngress</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#newAuthorizeSecurityGroupIngress"><span class="hs-identifier">newAuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_fromPort"><span class="hs-identifier">authorizeSecurityGroupIngress_fromPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_ipPermissions"><span class="hs-identifier">authorizeSecurityGroupIngress_ipPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_tagSpecifications"><span class="hs-identifier">authorizeSecurityGroupIngress_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_ipProtocol"><span class="hs-identifier">authorizeSecurityGroupIngress_ipProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_groupId"><span class="hs-identifier">authorizeSecurityGroupIngress_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_toPort"><span class="hs-identifier">authorizeSecurityGroupIngress_toPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_cidrIp"><span class="hs-identifier">authorizeSecurityGroupIngress_cidrIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId"><span class="hs-identifier">authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_groupName"><span class="hs-identifier">authorizeSecurityGroupIngress_groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_sourceSecurityGroupName"><span class="hs-identifier">authorizeSecurityGroupIngress_sourceSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_dryRun"><span class="hs-identifier">authorizeSecurityGroupIngress_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier">AuthorizeSecurityGroupIngressResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#newAuthorizeSecurityGroupIngressResponse"><span class="hs-identifier">newAuthorizeSecurityGroupIngressResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_return"><span class="hs-identifier">authorizeSecurityGroupIngressResponse_return</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_securityGroupRules"><span class="hs-identifier">authorizeSecurityGroupIngressResponse_securityGroupRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_httpStatus"><span class="hs-identifier">authorizeSecurityGroupIngressResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newAuthorizeSecurityGroupIngress' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621681303270"><span id="local-6989586621681303271"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeSecurityGroupIngress"><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-var">AuthorizeSecurityGroupIngress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeSecurityGroupIngress%27"><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">AuthorizeSecurityGroupIngress'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start of port range for the TCP and UDP protocols, or an ICMP type</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- number. For the ICMP type number, use @-1@ to specify all types. If you</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- specify all ICMP types, you must specify all codes.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AfromPort%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AfromPort%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The sets of IP permissions.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AipPermissions%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe [IpPermission]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AipPermissions%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">ipPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | [VPC Only] The tags applied to the security group rule.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AtagSpecifications%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AtagSpecifications%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- &lt;http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers&gt;).</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- To specify @icmpv6@, use a set of IP permissions.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- [VPC only] Use @-1@ to specify all protocols. If you specify @-1@ or a</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- protocol other than @tcp@, @udp@, or @icmp@, traffic on all ports is</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- allowed, regardless of any ports you specify.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AipProtocol%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AipProtocol%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">ipProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The ID of the security group. You must specify either the security group</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- ID or the security group name in the request. For security groups in a</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- nondefault VPC, you must specify the security group ID.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AgroupId%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AgroupId%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The end of port range for the TCP and UDP protocols, or an ICMP code</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- number. For the ICMP code number, use @-1@ to specify all codes. If you</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- specify all ICMP types, you must specify all codes.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AtoPort%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AtoPort%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The IPv4 address range, in CIDR format. You can\'t specify this</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- parameter when specifying a source security group. To specify an IPv6</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- address range, use a set of IP permissions.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AcidrIp%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AcidrIp%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">cidrIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | [nondefault VPC] The Amazon Web Services account ID for the source</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- security group, if the source security group is in a different account.</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- You can\'t specify this parameter in combination with the following</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- parameters: the CIDR IP address range, the IP protocol, the start of the</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- port range, and the end of the port range. Creates rules that grant full</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- and port range, use a set of IP permissions instead.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AsourceSecurityGroupOwnerId%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsourceSecurityGroupOwnerId%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">sourceSecurityGroupOwnerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | [EC2-Classic, default VPC] The name of the security group. You must</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- specify either the security group ID or the security group name in the</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AgroupName%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AgroupName%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | [EC2-Classic, default VPC] The name of the source security group. You</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- can\'t specify this parameter in combination with the following</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- parameters: the CIDR IP address range, the start of the port range, the</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- IP protocol, and the end of the port range. Creates rules that grant</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- full ICMP, UDP, and TCP access. To create a rule with a specific IP</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- protocol and port range, use a set of IP permissions instead. For</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- EC2-VPC, the source security group must be in the same VPC.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AsourceSecurityGroupName%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsourceSecurityGroupName%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">sourceSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AdryRun%3AAuthorizeSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AdryRun%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681303254"><span id="local-6989586621681303256"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+-&gt; AuthorizeSecurityGroupIngress -&gt; Bool
+(AuthorizeSecurityGroupIngress
+ -&gt; AuthorizeSecurityGroupIngress -&gt; Bool)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; AuthorizeSecurityGroupIngress -&gt; Bool)
+-&gt; Eq AuthorizeSecurityGroupIngress
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthorizeSecurityGroupIngress
+-&gt; AuthorizeSecurityGroupIngress -&gt; Bool
+$c/= :: AuthorizeSecurityGroupIngress
+-&gt; AuthorizeSecurityGroupIngress -&gt; Bool
+== :: AuthorizeSecurityGroupIngress
+-&gt; AuthorizeSecurityGroupIngress -&gt; Bool
+$c== :: AuthorizeSecurityGroupIngress
+-&gt; AuthorizeSecurityGroupIngress -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681303245"><span id="local-6989586621681303247"><span id="local-6989586621681303249"><span id="local-6989586621681303251"><span class="annot"><span class="annottext">ReadPrec [AuthorizeSecurityGroupIngress]
+ReadPrec AuthorizeSecurityGroupIngress
+Int -&gt; ReadS AuthorizeSecurityGroupIngress
+ReadS [AuthorizeSecurityGroupIngress]
+(Int -&gt; ReadS AuthorizeSecurityGroupIngress)
+-&gt; ReadS [AuthorizeSecurityGroupIngress]
+-&gt; ReadPrec AuthorizeSecurityGroupIngress
+-&gt; ReadPrec [AuthorizeSecurityGroupIngress]
+-&gt; Read AuthorizeSecurityGroupIngress
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthorizeSecurityGroupIngress]
+$creadListPrec :: ReadPrec [AuthorizeSecurityGroupIngress]
+readPrec :: ReadPrec AuthorizeSecurityGroupIngress
+$creadPrec :: ReadPrec AuthorizeSecurityGroupIngress
+readList :: ReadS [AuthorizeSecurityGroupIngress]
+$creadList :: ReadS [AuthorizeSecurityGroupIngress]
+readsPrec :: Int -&gt; ReadS AuthorizeSecurityGroupIngress
+$creadsPrec :: Int -&gt; ReadS AuthorizeSecurityGroupIngress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681303238"><span id="local-6989586621681303240"><span id="local-6989586621681303242"><span class="annot"><span class="annottext">Int -&gt; AuthorizeSecurityGroupIngress -&gt; ShowS
+[AuthorizeSecurityGroupIngress] -&gt; ShowS
+AuthorizeSecurityGroupIngress -&gt; String
+(Int -&gt; AuthorizeSecurityGroupIngress -&gt; ShowS)
+-&gt; (AuthorizeSecurityGroupIngress -&gt; String)
+-&gt; ([AuthorizeSecurityGroupIngress] -&gt; ShowS)
+-&gt; Show AuthorizeSecurityGroupIngress
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthorizeSecurityGroupIngress] -&gt; ShowS
+$cshowList :: [AuthorizeSecurityGroupIngress] -&gt; ShowS
+show :: AuthorizeSecurityGroupIngress -&gt; String
+$cshow :: AuthorizeSecurityGroupIngress -&gt; String
+showsPrec :: Int -&gt; AuthorizeSecurityGroupIngress -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthorizeSecurityGroupIngress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AuthorizeSecurityGroupIngress
+ -&gt; Rep AuthorizeSecurityGroupIngress x)
+-&gt; (forall x.
+    Rep AuthorizeSecurityGroupIngress x
+    -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Generic AuthorizeSecurityGroupIngress
+forall x.
+Rep AuthorizeSecurityGroupIngress x
+-&gt; AuthorizeSecurityGroupIngress
+forall x.
+AuthorizeSecurityGroupIngress
+-&gt; Rep AuthorizeSecurityGroupIngress x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AuthorizeSecurityGroupIngress x
+-&gt; AuthorizeSecurityGroupIngress
+$cfrom :: forall x.
+AuthorizeSecurityGroupIngress
+-&gt; Rep AuthorizeSecurityGroupIngress x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'AuthorizeSecurityGroupIngress' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'fromPort', 'authorizeSecurityGroupIngress_fromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- number. For the ICMP type number, use @-1@ to specify all types. If you</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- specify all ICMP types, you must specify all codes.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'ipPermissions', 'authorizeSecurityGroupIngress_ipPermissions' - The sets of IP permissions.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'tagSpecifications', 'authorizeSecurityGroupIngress_tagSpecifications' - [VPC Only] The tags applied to the security group rule.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'ipProtocol', 'authorizeSecurityGroupIngress_ipProtocol' - The IP protocol name (@tcp@, @udp@, @icmp@) or number (see</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- &lt;http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers&gt;).</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- To specify @icmpv6@, use a set of IP permissions.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- [VPC only] Use @-1@ to specify all protocols. If you specify @-1@ or a</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- protocol other than @tcp@, @udp@, or @icmp@, traffic on all ports is</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- allowed, regardless of any ports you specify.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'groupId', 'authorizeSecurityGroupIngress_groupId' - The ID of the security group. You must specify either the security group</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- ID or the security group name in the request. For security groups in a</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- nondefault VPC, you must specify the security group ID.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'toPort', 'authorizeSecurityGroupIngress_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- number. For the ICMP code number, use @-1@ to specify all codes. If you</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- specify all ICMP types, you must specify all codes.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'cidrIp', 'authorizeSecurityGroupIngress_cidrIp' - The IPv4 address range, in CIDR format. You can\'t specify this</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- parameter when specifying a source security group. To specify an IPv6</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- address range, use a set of IP permissions.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'sourceSecurityGroupOwnerId', 'authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId' - [nondefault VPC] The Amazon Web Services account ID for the source</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- security group, if the source security group is in a different account.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- You can\'t specify this parameter in combination with the following</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- parameters: the CIDR IP address range, the IP protocol, the start of the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- port range, and the end of the port range. Creates rules that grant full</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- and port range, use a set of IP permissions instead.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'groupName', 'authorizeSecurityGroupIngress_groupName' - [EC2-Classic, default VPC] The name of the security group. You must</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- specify either the security group ID or the security group name in the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'sourceSecurityGroupName', 'authorizeSecurityGroupIngress_sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- can\'t specify this parameter in combination with the following</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- parameters: the CIDR IP address range, the start of the port range, the</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- IP protocol, and the end of the port range. Creates rules that grant</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- full ICMP, UDP, and TCP access. To create a rule with a specific IP</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- protocol and port range, use a set of IP permissions instead. For</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- EC2-VPC, the source security group must be in the same VPC.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'dryRun', 'authorizeSecurityGroupIngress_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#newAuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">newAuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span>
+</span><span id="line-219"></span><span id="newAuthorizeSecurityGroupIngress"><span class="annot"><span class="annottext">newAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#newAuthorizeSecurityGroupIngress"><span class="hs-identifier hs-var hs-var">newAuthorizeSecurityGroupIngress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress' :: Maybe Int
+-&gt; Maybe [IpPermission]
+-&gt; Maybe [TagSpecification]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fromPort:AuthorizeSecurityGroupIngress' :: Maybe Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AfromPort%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">fromPort</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipPermissions:AuthorizeSecurityGroupIngress' :: Maybe [IpPermission]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AipPermissions%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">ipPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagSpecifications:AuthorizeSecurityGroupIngress' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AtagSpecifications%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipProtocol:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AipProtocol%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AgroupId%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:toPort:AuthorizeSecurityGroupIngress' :: Maybe Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AtoPort%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrIp:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AcidrIp%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">cidrIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceSecurityGroupOwnerId:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsourceSecurityGroupOwnerId%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">sourceSecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AgroupName%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceSecurityGroupName:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsourceSecurityGroupName%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">sourceSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:AuthorizeSecurityGroupIngress' :: Maybe Bool
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AdryRun%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The start of port range for the TCP and UDP protocols, or an ICMP type</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- number. For the ICMP type number, use @-1@ to specify all types. If you</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- specify all ICMP types, you must specify all codes.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_fromPort"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_fromPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="authorizeSecurityGroupIngress_fromPort"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_fromPort :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_fromPort"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_fromPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Int)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Int -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303231"><span class="annot"><span class="annottext">Maybe Int
+fromPort :: Maybe Int
+$sel:fromPort:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Int
+</span><a href="#local-6989586621681303231"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303231"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303230"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303229"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromPort:AuthorizeSecurityGroupIngress' :: Maybe Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AfromPort%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">fromPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The sets of IP permissions.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_ipPermissions"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_ipPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="authorizeSecurityGroupIngress_ipPermissions"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_ipPermissions :: (Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_ipPermissions"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_ipPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe [IpPermission])
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe [IpPermission] -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303228"><span class="annot"><span class="annottext">Maybe [IpPermission]
+ipPermissions :: Maybe [IpPermission]
+$sel:ipPermissions:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe [IpPermission]
+</span><a href="#local-6989586621681303228"><span class="hs-identifier hs-var hs-var">ipPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681303228"><span class="hs-identifier hs-var">ipPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303227"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303226"><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681303226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipPermissions:AuthorizeSecurityGroupIngress' :: Maybe [IpPermission]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AipPermissions%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">ipPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681303226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+ -&gt; AuthorizeSecurityGroupIngress
+ -&gt; f AuthorizeSecurityGroupIngress)
+-&gt; ((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+    -&gt; Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+-&gt; (Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+-&gt; AuthorizeSecurityGroupIngress
+-&gt; f AuthorizeSecurityGroupIngress
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IpPermission] [IpPermission] [IpPermission] [IpPermission]
+-&gt; Iso
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IpPermission] [IpPermission] [IpPermission] [IpPermission]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | [VPC Only] The tags applied to the security group rule.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_tagSpecifications"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="authorizeSecurityGroupIngress_tagSpecifications"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_tagSpecifications"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe [TagSpecification])
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe [TagSpecification] -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303222"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+tagSpecifications :: Maybe [TagSpecification]
+$sel:tagSpecifications:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe [TagSpecification]
+</span><a href="#local-6989586621681303222"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681303222"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303221"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303220"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681303220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:AuthorizeSecurityGroupIngress' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AtagSpecifications%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681303220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+ -&gt; AuthorizeSecurityGroupIngress
+ -&gt; f AuthorizeSecurityGroupIngress)
+-&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+    -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; AuthorizeSecurityGroupIngress
+-&gt; f AuthorizeSecurityGroupIngress
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+-&gt; Iso
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- &lt;http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers&gt;).</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- To specify @icmpv6@, use a set of IP permissions.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- [VPC only] Use @-1@ to specify all protocols. If you specify @-1@ or a</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- protocol other than @tcp@, @udp@, or @icmp@, traffic on all ports is</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- allowed, regardless of any ports you specify.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_ipProtocol"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_ipProtocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="authorizeSecurityGroupIngress_ipProtocol"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_ipProtocol :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_ipProtocol"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_ipProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303219"><span class="annot"><span class="annottext">Maybe Text
+ipProtocol :: Maybe Text
+$sel:ipProtocol:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621681303219"><span class="hs-identifier hs-var hs-var">ipProtocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303219"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303218"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303217"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipProtocol:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AipProtocol%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The ID of the security group. You must specify either the security group</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- ID or the security group name in the request. For security groups in a</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- nondefault VPC, you must specify the security group ID.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_groupId"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="authorizeSecurityGroupIngress_groupId"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_groupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_groupId"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303216"><span class="annot"><span class="annottext">Maybe Text
+groupId :: Maybe Text
+$sel:groupId:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621681303216"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303216"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303215"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303214"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AgroupId%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The end of port range for the TCP and UDP protocols, or an ICMP code</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- number. For the ICMP code number, use @-1@ to specify all codes. If you</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- specify all ICMP types, you must specify all codes.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_toPort"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_toPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="authorizeSecurityGroupIngress_toPort"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_toPort :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_toPort"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_toPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Int)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Int -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303213"><span class="annot"><span class="annottext">Maybe Int
+toPort :: Maybe Int
+$sel:toPort:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Int
+</span><a href="#local-6989586621681303213"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303213"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303212"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303211"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toPort:AuthorizeSecurityGroupIngress' :: Maybe Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AtoPort%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The IPv4 address range, in CIDR format. You can\'t specify this</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- parameter when specifying a source security group. To specify an IPv6</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- address range, use a set of IP permissions.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- Alternatively, use a set of IP permissions to specify multiple rules and</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- a description for the rule.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_cidrIp"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_cidrIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="authorizeSecurityGroupIngress_cidrIp"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_cidrIp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_cidrIp"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_cidrIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303210"><span class="annot"><span class="annottext">Maybe Text
+cidrIp :: Maybe Text
+$sel:cidrIp:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621681303210"><span class="hs-identifier hs-var hs-var">cidrIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303210"><span class="hs-identifier hs-var">cidrIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303209"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303208"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrIp:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AcidrIp%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">cidrIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | [nondefault VPC] The Amazon Web Services account ID for the source</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- security group, if the source security group is in a different account.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- You can\'t specify this parameter in combination with the following</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- parameters: the CIDR IP address range, the IP protocol, the start of the</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- port range, and the end of the port range. Creates rules that grant full</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- and port range, use a set of IP permissions instead.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303207"><span class="annot"><span class="annottext">Maybe Text
+sourceSecurityGroupOwnerId :: Maybe Text
+$sel:sourceSecurityGroupOwnerId:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621681303207"><span class="hs-identifier hs-var hs-var">sourceSecurityGroupOwnerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303207"><span class="hs-identifier hs-var">sourceSecurityGroupOwnerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303206"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303205"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSecurityGroupOwnerId:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsourceSecurityGroupOwnerId%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">sourceSecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | [EC2-Classic, default VPC] The name of the security group. You must</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- specify either the security group ID or the security group name in the</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_groupName"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="authorizeSecurityGroupIngress_groupName"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_groupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_groupName"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303204"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621681303204"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303204"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303203"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303202"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AgroupName%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | [EC2-Classic, default VPC] The name of the source security group. You</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- can\'t specify this parameter in combination with the following</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- parameters: the CIDR IP address range, the start of the port range, the</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- IP protocol, and the end of the port range. Creates rules that grant</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- full ICMP, UDP, and TCP access. To create a rule with a specific IP</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- protocol and port range, use a set of IP permissions instead. For</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- EC2-VPC, the source security group must be in the same VPC.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_sourceSecurityGroupName"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_sourceSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="authorizeSecurityGroupIngress_sourceSecurityGroupName"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_sourceSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_sourceSecurityGroupName"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_sourceSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303201"><span class="annot"><span class="annottext">Maybe Text
+sourceSecurityGroupName :: Maybe Text
+$sel:sourceSecurityGroupName:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621681303201"><span class="hs-identifier hs-var hs-var">sourceSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303201"><span class="hs-identifier hs-var">sourceSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303200"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSecurityGroupName:AuthorizeSecurityGroupIngress' :: Maybe Text
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsourceSecurityGroupName%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">sourceSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_dryRun"><span class="hs-identifier hs-type">authorizeSecurityGroupIngress_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span id="authorizeSecurityGroupIngress_dryRun"><span class="annot"><span class="annottext">authorizeSecurityGroupIngress_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AuthorizeSecurityGroupIngress -&gt; f AuthorizeSecurityGroupIngress
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngress_dryRun"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngress_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngress -&gt; Maybe Bool)
+-&gt; (AuthorizeSecurityGroupIngress
+    -&gt; Maybe Bool -&gt; AuthorizeSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeSecurityGroupIngress
+     AuthorizeSecurityGroupIngress
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303198"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Bool
+</span><a href="#local-6989586621681303198"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681303198"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303197"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303196"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681303196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngress
+</span><a href="#local-6989586621681303197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AuthorizeSecurityGroupIngress' :: Maybe Bool
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AdryRun%3AAuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681303196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span>
+</span><span id="line-325"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-326"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-327"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span>
+</span><span id="line-329"></span><span>  </span><span id="local-6989586621681303192"><span class="annot"><span class="annottext">request :: AuthorizeSecurityGroupIngress
+-&gt; Request AuthorizeSecurityGroupIngress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AuthorizeSecurityGroupIngress
+-&gt; Request AuthorizeSecurityGroupIngress
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621681303188"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AuthorizeSecurityGroupIngress
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AuthorizeSecurityGroupIngress)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse AuthorizeSecurityGroupIngress))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AuthorizeSecurityGroupIngress
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AuthorizeSecurityGroupIngress)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-332"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681303185"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681303185"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681303184"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681303184"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681303183"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681303183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-333"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe [SecurityGroupRule]
+-&gt; Int
+-&gt; AuthorizeSecurityGroupIngressResponse
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">AuthorizeSecurityGroupIngressResponse'</span></a></span><span>
+</span><span id="line-334"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe [SecurityGroupRule]
+ -&gt; Int
+ -&gt; AuthorizeSecurityGroupIngressResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe [SecurityGroupRule]
+      -&gt; Int -&gt; AuthorizeSecurityGroupIngressResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681303183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;return&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [SecurityGroupRule]
+   -&gt; Int -&gt; AuthorizeSecurityGroupIngressResponse)
+-&gt; Either String (Maybe [SecurityGroupRule])
+-&gt; Either String (Int -&gt; AuthorizeSecurityGroupIngressResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681303183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroupRuleSet&quot;</span></span><span>
+</span><span id="line-336"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-337"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [SecurityGroupRule]))
+-&gt; Either String (Maybe [SecurityGroupRule])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [SecurityGroupRule])
+-&gt; [Node] -&gt; Either String (Maybe [SecurityGroupRule])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [SecurityGroupRule]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AuthorizeSecurityGroupIngressResponse)
+-&gt; Either String Int
+-&gt; Either String AuthorizeSecurityGroupIngressResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681303185"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-343"></span><span>  </span><span id="local-6989586621681303172"><span id="local-6989586621681303174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span></span></span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681303169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span></span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621681303165"><span class="annot"><span class="annottext">toHeaders :: AuthorizeSecurityGroupIngress -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AuthorizeSecurityGroupIngress -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621681303160"><span class="annot"><span class="annottext">toPath :: AuthorizeSecurityGroupIngress -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AuthorizeSecurityGroupIngress -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-355"></span><span>  </span><span id="local-6989586621681303156"><span class="annot"><span class="annottext">toQuery :: AuthorizeSecurityGroupIngress -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303144"><span id="local-6989586621681303145"><span id="local-6989586621681303146"><span id="local-6989586621681303147"><span id="local-6989586621681303148"><span id="local-6989586621681303149"><span id="local-6989586621681303150"><span id="local-6989586621681303151"><span id="local-6989586621681303152"><span id="local-6989586621681303153"><span id="local-6989586621681303154"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [TagSpecification]
+Maybe [IpPermission]
+Maybe Text
+dryRun :: Maybe Bool
+sourceSecurityGroupName :: Maybe Text
+groupName :: Maybe Text
+sourceSecurityGroupOwnerId :: Maybe Text
+cidrIp :: Maybe Text
+toPort :: Maybe Int
+groupId :: Maybe Text
+ipProtocol :: Maybe Text
+tagSpecifications :: Maybe [TagSpecification]
+ipPermissions :: Maybe [IpPermission]
+fromPort :: Maybe Int
+$sel:dryRun:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Bool
+$sel:sourceSecurityGroupName:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+$sel:groupName:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+$sel:sourceSecurityGroupOwnerId:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+$sel:cidrIp:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+$sel:toPort:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Int
+$sel:groupId:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+$sel:ipProtocol:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Text
+$sel:tagSpecifications:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe [TagSpecification]
+$sel:ipPermissions:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe [IpPermission]
+$sel:fromPort:AuthorizeSecurityGroupIngress' :: AuthorizeSecurityGroupIngress -&gt; Maybe Int
+</span><a href="#local-6989586621681303144"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-357"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-358"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AuthorizeSecurityGroupIngress&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-359"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-360"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-362"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FromPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303154"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-365"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [IpPermission] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IpPermissions&quot;</span></span><span>
+</span><span id="line-366"></span><span>              </span><span class="annot"><span class="annottext">([IpPermission] -&gt; QueryString)
+-&gt; Maybe [IpPermission] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681303153"><span class="hs-identifier hs-var">ipPermissions</span></a></span><span>
+</span><span id="line-367"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-369"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TagSpecification] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagSpecification&quot;</span></span><span>
+</span><span id="line-370"></span><span>              </span><span class="annot"><span class="annottext">([TagSpecification] -&gt; QueryString)
+-&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681303152"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><span id="line-371"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IpProtocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303151"><span class="hs-identifier hs-var">ipProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303150"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ToPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681303149"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CidrIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303148"><span class="hs-identifier hs-var">cidrIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceSecurityGroupOwnerId&quot;</span></span><span>
+</span><span id="line-377"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303147"><span class="hs-identifier hs-var">sourceSecurityGroupOwnerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303146"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceSecurityGroupName&quot;</span></span><span>
+</span><span id="line-380"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681303145"><span class="hs-identifier hs-var">sourceSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681303144"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><span id="line-382"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- | /See:/ 'newAuthorizeSecurityGroupIngressResponse' smart constructor.</span><span>
+</span><span id="line-385"></span><span id="local-6989586621681303140"><span id="local-6989586621681303141"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeSecurityGroupIngressResponse"><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-var">AuthorizeSecurityGroupIngressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeSecurityGroupIngressResponse%27"><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">AuthorizeSecurityGroupIngressResponse'</span></a></span></span><span>
+</span><span id="line-386"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, returns an error.</span><span>
+</span><span id="line-387"></span><span>    </span><span id="%24sel%3Areturn%27%3AAuthorizeSecurityGroupIngressResponse%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3Areturn%27%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var hs-var">return'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>    </span><span class="hs-comment">-- | Information about the inbound (ingress) security group rules that were</span><span>
+</span><span id="line-389"></span><span>    </span><span class="hs-comment">-- added.</span><span>
+</span><span id="line-390"></span><span>    </span><span id="%24sel%3AsecurityGroupRules%3AAuthorizeSecurityGroupIngressResponse%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse -&gt; Maybe [SecurityGroupRule]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsecurityGroupRules%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var hs-var">securityGroupRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.SecurityGroupRule.html#SecurityGroupRule"><span class="hs-identifier hs-type">SecurityGroupRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-392"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAuthorizeSecurityGroupIngressResponse%27"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse -&gt; Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AhttpStatus%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-393"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-394"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681303133"><span id="local-6989586621681303135"><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse
+-&gt; AuthorizeSecurityGroupIngressResponse -&gt; Bool
+(AuthorizeSecurityGroupIngressResponse
+ -&gt; AuthorizeSecurityGroupIngressResponse -&gt; Bool)
+-&gt; (AuthorizeSecurityGroupIngressResponse
+    -&gt; AuthorizeSecurityGroupIngressResponse -&gt; Bool)
+-&gt; Eq AuthorizeSecurityGroupIngressResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthorizeSecurityGroupIngressResponse
+-&gt; AuthorizeSecurityGroupIngressResponse -&gt; Bool
+$c/= :: AuthorizeSecurityGroupIngressResponse
+-&gt; AuthorizeSecurityGroupIngressResponse -&gt; Bool
+== :: AuthorizeSecurityGroupIngressResponse
+-&gt; AuthorizeSecurityGroupIngressResponse -&gt; Bool
+$c== :: AuthorizeSecurityGroupIngressResponse
+-&gt; AuthorizeSecurityGroupIngressResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681303125"><span id="local-6989586621681303127"><span id="local-6989586621681303129"><span id="local-6989586621681303131"><span class="annot"><span class="annottext">ReadPrec [AuthorizeSecurityGroupIngressResponse]
+ReadPrec AuthorizeSecurityGroupIngressResponse
+Int -&gt; ReadS AuthorizeSecurityGroupIngressResponse
+ReadS [AuthorizeSecurityGroupIngressResponse]
+(Int -&gt; ReadS AuthorizeSecurityGroupIngressResponse)
+-&gt; ReadS [AuthorizeSecurityGroupIngressResponse]
+-&gt; ReadPrec AuthorizeSecurityGroupIngressResponse
+-&gt; ReadPrec [AuthorizeSecurityGroupIngressResponse]
+-&gt; Read AuthorizeSecurityGroupIngressResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthorizeSecurityGroupIngressResponse]
+$creadListPrec :: ReadPrec [AuthorizeSecurityGroupIngressResponse]
+readPrec :: ReadPrec AuthorizeSecurityGroupIngressResponse
+$creadPrec :: ReadPrec AuthorizeSecurityGroupIngressResponse
+readList :: ReadS [AuthorizeSecurityGroupIngressResponse]
+$creadList :: ReadS [AuthorizeSecurityGroupIngressResponse]
+readsPrec :: Int -&gt; ReadS AuthorizeSecurityGroupIngressResponse
+$creadsPrec :: Int -&gt; ReadS AuthorizeSecurityGroupIngressResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681303119"><span id="local-6989586621681303121"><span id="local-6989586621681303123"><span class="annot"><span class="annottext">Int -&gt; AuthorizeSecurityGroupIngressResponse -&gt; ShowS
+[AuthorizeSecurityGroupIngressResponse] -&gt; ShowS
+AuthorizeSecurityGroupIngressResponse -&gt; String
+(Int -&gt; AuthorizeSecurityGroupIngressResponse -&gt; ShowS)
+-&gt; (AuthorizeSecurityGroupIngressResponse -&gt; String)
+-&gt; ([AuthorizeSecurityGroupIngressResponse] -&gt; ShowS)
+-&gt; Show AuthorizeSecurityGroupIngressResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthorizeSecurityGroupIngressResponse] -&gt; ShowS
+$cshowList :: [AuthorizeSecurityGroupIngressResponse] -&gt; ShowS
+show :: AuthorizeSecurityGroupIngressResponse -&gt; String
+$cshow :: AuthorizeSecurityGroupIngressResponse -&gt; String
+showsPrec :: Int -&gt; AuthorizeSecurityGroupIngressResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthorizeSecurityGroupIngressResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AuthorizeSecurityGroupIngressResponse
+ -&gt; Rep AuthorizeSecurityGroupIngressResponse x)
+-&gt; (forall x.
+    Rep AuthorizeSecurityGroupIngressResponse x
+    -&gt; AuthorizeSecurityGroupIngressResponse)
+-&gt; Generic AuthorizeSecurityGroupIngressResponse
+forall x.
+Rep AuthorizeSecurityGroupIngressResponse x
+-&gt; AuthorizeSecurityGroupIngressResponse
+forall x.
+AuthorizeSecurityGroupIngressResponse
+-&gt; Rep AuthorizeSecurityGroupIngressResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AuthorizeSecurityGroupIngressResponse x
+-&gt; AuthorizeSecurityGroupIngressResponse
+$cfrom :: forall x.
+AuthorizeSecurityGroupIngressResponse
+-&gt; Rep AuthorizeSecurityGroupIngressResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- Create a value of 'AuthorizeSecurityGroupIngressResponse' with all optional fields omitted.</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- 'return'', 'authorizeSecurityGroupIngressResponse_return' - Returns @true@ if the request succeeds; otherwise, returns an error.</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- 'securityGroupRules', 'authorizeSecurityGroupIngressResponse_securityGroupRules' - Information about the inbound (ingress) security group rules that were</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- added.</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- 'httpStatus', 'authorizeSecurityGroupIngressResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-410"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#newAuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">newAuthorizeSecurityGroupIngressResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-411"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-412"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-413"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span>
+</span><span id="line-414"></span><span id="newAuthorizeSecurityGroupIngressResponse"><span class="annot"><span class="annottext">newAuthorizeSecurityGroupIngressResponse :: Int -&gt; AuthorizeSecurityGroupIngressResponse
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#newAuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-var hs-var">newAuthorizeSecurityGroupIngressResponse</span></a></span></span><span> </span><span id="local-6989586621681303116"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681303116"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-415"></span><span>  </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse' :: Maybe Bool
+-&gt; Maybe [SecurityGroupRule]
+-&gt; Int
+-&gt; AuthorizeSecurityGroupIngressResponse
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse'</span></a></span><span>
+</span><span id="line-416"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:return':AuthorizeSecurityGroupIngressResponse' :: Maybe Bool
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3Areturn%27%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">return'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-417"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroupRules:AuthorizeSecurityGroupIngressResponse' :: Maybe [SecurityGroupRule]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsecurityGroupRules%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">securityGroupRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroupRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeSecurityGroupIngressResponse' :: Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AhttpStatus%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681303116"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-420"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, returns an error.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_return"><span class="hs-identifier hs-type">authorizeSecurityGroupIngressResponse_return</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-424"></span><span id="authorizeSecurityGroupIngressResponse_return"><span class="annot"><span class="annottext">authorizeSecurityGroupIngressResponse_return :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AuthorizeSecurityGroupIngressResponse
+-&gt; f AuthorizeSecurityGroupIngressResponse
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_return"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngressResponse_return</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngressResponse -&gt; Maybe Bool)
+-&gt; (AuthorizeSecurityGroupIngressResponse
+    -&gt; Maybe Bool -&gt; AuthorizeSecurityGroupIngressResponse)
+-&gt; Lens
+     AuthorizeSecurityGroupIngressResponse
+     AuthorizeSecurityGroupIngressResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303115"><span class="annot"><span class="annottext">Maybe Bool
+return' :: Maybe Bool
+$sel:return':AuthorizeSecurityGroupIngressResponse' :: AuthorizeSecurityGroupIngressResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621681303115"><span class="hs-identifier hs-var hs-var">return'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681303115"><span class="hs-identifier hs-var">return'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303114"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngressResponse
+</span><a href="#local-6989586621681303114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303113"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681303113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse
+</span><a href="#local-6989586621681303114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:return':AuthorizeSecurityGroupIngressResponse' :: Maybe Bool
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3Areturn%27%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">return'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681303113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- | Information about the inbound (ingress) security group rules that were</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- added.</span><span>
+</span><span id="line-428"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_securityGroupRules"><span class="hs-identifier hs-type">authorizeSecurityGroupIngressResponse_securityGroupRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.SecurityGroupRule.html#SecurityGroupRule"><span class="hs-identifier hs-type">SecurityGroupRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-429"></span><span id="authorizeSecurityGroupIngressResponse_securityGroupRules"><span class="annot"><span class="annottext">authorizeSecurityGroupIngressResponse_securityGroupRules :: (Maybe [SecurityGroupRule] -&gt; f (Maybe [SecurityGroupRule]))
+-&gt; AuthorizeSecurityGroupIngressResponse
+-&gt; f AuthorizeSecurityGroupIngressResponse
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_securityGroupRules"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngressResponse_securityGroupRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngressResponse
+ -&gt; Maybe [SecurityGroupRule])
+-&gt; (AuthorizeSecurityGroupIngressResponse
+    -&gt; Maybe [SecurityGroupRule]
+    -&gt; AuthorizeSecurityGroupIngressResponse)
+-&gt; Lens
+     AuthorizeSecurityGroupIngressResponse
+     AuthorizeSecurityGroupIngressResponse
+     (Maybe [SecurityGroupRule])
+     (Maybe [SecurityGroupRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303112"><span class="annot"><span class="annottext">Maybe [SecurityGroupRule]
+securityGroupRules :: Maybe [SecurityGroupRule]
+$sel:securityGroupRules:AuthorizeSecurityGroupIngressResponse' :: AuthorizeSecurityGroupIngressResponse -&gt; Maybe [SecurityGroupRule]
+</span><a href="#local-6989586621681303112"><span class="hs-identifier hs-var hs-var">securityGroupRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroupRule]
+</span><a href="#local-6989586621681303112"><span class="hs-identifier hs-var">securityGroupRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303111"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngressResponse
+</span><a href="#local-6989586621681303111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303110"><span class="annot"><span class="annottext">Maybe [SecurityGroupRule]
+</span><a href="#local-6989586621681303110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse
+</span><a href="#local-6989586621681303111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupRules:AuthorizeSecurityGroupIngressResponse' :: Maybe [SecurityGroupRule]
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AsecurityGroupRules%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">securityGroupRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroupRule]
+</span><a href="#local-6989586621681303110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SecurityGroupRule] -&gt; f (Maybe [SecurityGroupRule]))
+ -&gt; AuthorizeSecurityGroupIngressResponse
+ -&gt; f AuthorizeSecurityGroupIngressResponse)
+-&gt; ((Maybe [SecurityGroupRule] -&gt; f (Maybe [SecurityGroupRule]))
+    -&gt; Maybe [SecurityGroupRule] -&gt; f (Maybe [SecurityGroupRule]))
+-&gt; (Maybe [SecurityGroupRule] -&gt; f (Maybe [SecurityGroupRule]))
+-&gt; AuthorizeSecurityGroupIngressResponse
+-&gt; f AuthorizeSecurityGroupIngressResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SecurityGroupRule]
+  [SecurityGroupRule]
+  [SecurityGroupRule]
+  [SecurityGroupRule]
+-&gt; Iso
+     (Maybe [SecurityGroupRule])
+     (Maybe [SecurityGroupRule])
+     (Maybe [SecurityGroupRule])
+     (Maybe [SecurityGroupRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SecurityGroupRule]
+  [SecurityGroupRule]
+  [SecurityGroupRule]
+  [SecurityGroupRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-430"></span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-432"></span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_httpStatus"><span class="hs-identifier hs-type">authorizeSecurityGroupIngressResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-433"></span><span id="authorizeSecurityGroupIngressResponse_httpStatus"><span class="annot"><span class="annottext">authorizeSecurityGroupIngressResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AuthorizeSecurityGroupIngressResponse
+-&gt; f AuthorizeSecurityGroupIngressResponse
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#authorizeSecurityGroupIngressResponse_httpStatus"><span class="hs-identifier hs-var hs-var">authorizeSecurityGroupIngressResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeSecurityGroupIngressResponse -&gt; Int)
+-&gt; (AuthorizeSecurityGroupIngressResponse
+    -&gt; Int -&gt; AuthorizeSecurityGroupIngressResponse)
+-&gt; Lens
+     AuthorizeSecurityGroupIngressResponse
+     AuthorizeSecurityGroupIngressResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681303109"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AuthorizeSecurityGroupIngressResponse' :: AuthorizeSecurityGroupIngressResponse -&gt; Int
+</span><a href="#local-6989586621681303109"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681303109"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681303108"><span class="annot"><span class="annottext">s :: AuthorizeSecurityGroupIngressResponse
+</span><a href="#local-6989586621681303108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681303107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681303107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeSecurityGroupIngressResponse
+</span><a href="#local-6989586621681303108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeSecurityGroupIngressResponse' :: Int
+</span><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#%24sel%3AhttpStatus%3AAuthorizeSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681303107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-436"></span><span>  </span><span id="local-6989586621681303105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-437"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AuthorizeSecurityGroupIngress.html#AuthorizeSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeSecurityGroupIngressResponse</span></a></span></span><span>
+</span><span id="line-438"></span></pre></body></html>

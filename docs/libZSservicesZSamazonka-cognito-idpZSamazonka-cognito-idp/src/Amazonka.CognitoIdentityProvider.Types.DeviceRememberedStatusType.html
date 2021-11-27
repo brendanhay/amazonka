@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType"><span class="hs-identifier">DeviceRememberedStatusType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType_Not_remembered"><span class="hs-identifier">DeviceRememberedStatusType_Not_remembered</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType_Remembered"><span class="hs-identifier">DeviceRememberedStatusType_Remembered</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679427113"><span id="local-6989586621679427114"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceRememberedStatusType"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType"><span class="hs-identifier hs-var">DeviceRememberedStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceRememberedStatusType%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType%27"><span class="hs-identifier hs-var">DeviceRememberedStatusType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceRememberedStatusType"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#fromDeviceRememberedStatusType"><span class="hs-identifier hs-var hs-var">fromDeviceRememberedStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427105"><span id="local-6989586621679427107"><span id="local-6989586621679427109"><span class="annot"><span class="annottext">Int -&gt; DeviceRememberedStatusType -&gt; ShowS
+[DeviceRememberedStatusType] -&gt; ShowS
+DeviceRememberedStatusType -&gt; String
+(Int -&gt; DeviceRememberedStatusType -&gt; ShowS)
+-&gt; (DeviceRememberedStatusType -&gt; String)
+-&gt; ([DeviceRememberedStatusType] -&gt; ShowS)
+-&gt; Show DeviceRememberedStatusType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeviceRememberedStatusType] -&gt; ShowS
+$cshowList :: [DeviceRememberedStatusType] -&gt; ShowS
+show :: DeviceRememberedStatusType -&gt; String
+$cshow :: DeviceRememberedStatusType -&gt; String
+showsPrec :: Int -&gt; DeviceRememberedStatusType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeviceRememberedStatusType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679427096"><span id="local-6989586621679427098"><span id="local-6989586621679427100"><span id="local-6989586621679427102"><span class="annot"><span class="annottext">ReadPrec [DeviceRememberedStatusType]
+ReadPrec DeviceRememberedStatusType
+Int -&gt; ReadS DeviceRememberedStatusType
+ReadS [DeviceRememberedStatusType]
+(Int -&gt; ReadS DeviceRememberedStatusType)
+-&gt; ReadS [DeviceRememberedStatusType]
+-&gt; ReadPrec DeviceRememberedStatusType
+-&gt; ReadPrec [DeviceRememberedStatusType]
+-&gt; Read DeviceRememberedStatusType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeviceRememberedStatusType]
+$creadListPrec :: ReadPrec [DeviceRememberedStatusType]
+readPrec :: ReadPrec DeviceRememberedStatusType
+$creadPrec :: ReadPrec DeviceRememberedStatusType
+readList :: ReadS [DeviceRememberedStatusType]
+$creadList :: ReadS [DeviceRememberedStatusType]
+readsPrec :: Int -&gt; ReadS DeviceRememberedStatusType
+$creadsPrec :: Int -&gt; ReadS DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427091"><span id="local-6989586621679427093"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+(DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool)
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; Bool)
+-&gt; Eq DeviceRememberedStatusType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+$c/= :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+== :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+$c== :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427075"><span id="local-6989586621679427077"><span id="local-6989586621679427079"><span id="local-6989586621679427081"><span id="local-6989586621679427083"><span id="local-6989586621679427085"><span id="local-6989586621679427087"><span class="annot"><span class="annottext">Eq DeviceRememberedStatusType
+Eq DeviceRememberedStatusType
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; Ordering)
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; Bool)
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; Bool)
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; Bool)
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; Bool)
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; DeviceRememberedStatusType)
+-&gt; (DeviceRememberedStatusType
+    -&gt; DeviceRememberedStatusType -&gt; DeviceRememberedStatusType)
+-&gt; Ord DeviceRememberedStatusType
+DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; Ordering
+DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; DeviceRememberedStatusType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; DeviceRememberedStatusType
+$cmin :: DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; DeviceRememberedStatusType
+max :: DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; DeviceRememberedStatusType
+$cmax :: DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; DeviceRememberedStatusType
+&gt;= :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+$c&gt;= :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+&gt; :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+$c&gt; :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+&lt;= :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+$c&lt;= :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+&lt; :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+$c&lt; :: DeviceRememberedStatusType -&gt; DeviceRememberedStatusType -&gt; Bool
+compare :: DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; Ordering
+$ccompare :: DeviceRememberedStatusType
+-&gt; DeviceRememberedStatusType -&gt; Ordering
+$cp1Ord :: Eq DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DeviceRememberedStatusType -&gt; Rep DeviceRememberedStatusType x)
+-&gt; (forall x.
+    Rep DeviceRememberedStatusType x -&gt; DeviceRememberedStatusType)
+-&gt; Generic DeviceRememberedStatusType
+forall x.
+Rep DeviceRememberedStatusType x -&gt; DeviceRememberedStatusType
+forall x.
+DeviceRememberedStatusType -&gt; Rep DeviceRememberedStatusType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeviceRememberedStatusType x -&gt; DeviceRememberedStatusType
+$cfrom :: forall x.
+DeviceRememberedStatusType -&gt; Rep DeviceRememberedStatusType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427067"><span id="local-6989586621679427069"><span class="annot"><span class="annottext">Int -&gt; DeviceRememberedStatusType -&gt; Int
+DeviceRememberedStatusType -&gt; Int
+(Int -&gt; DeviceRememberedStatusType -&gt; Int)
+-&gt; (DeviceRememberedStatusType -&gt; Int)
+-&gt; Hashable DeviceRememberedStatusType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeviceRememberedStatusType -&gt; Int
+$chash :: DeviceRememberedStatusType -&gt; Int
+hashWithSalt :: Int -&gt; DeviceRememberedStatusType -&gt; Int
+$chashWithSalt :: Int -&gt; DeviceRememberedStatusType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679427064"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; ()
+(DeviceRememberedStatusType -&gt; ())
+-&gt; NFData DeviceRememberedStatusType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeviceRememberedStatusType -&gt; ()
+$crnf :: DeviceRememberedStatusType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427061"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceRememberedStatusType
+(Text -&gt; Either String DeviceRememberedStatusType)
+-&gt; FromText DeviceRememberedStatusType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeviceRememberedStatusType
+$cfromText :: Text -&gt; Either String DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427058"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; Text
+(DeviceRememberedStatusType -&gt; Text)
+-&gt; ToText DeviceRememberedStatusType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeviceRememberedStatusType -&gt; Text
+$ctoText :: DeviceRememberedStatusType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427055"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; ByteString
+(DeviceRememberedStatusType -&gt; ByteString)
+-&gt; ToByteString DeviceRememberedStatusType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeviceRememberedStatusType -&gt; ByteString
+$ctoBS :: DeviceRememberedStatusType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427052"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; ByteStringBuilder
+(DeviceRememberedStatusType -&gt; ByteStringBuilder)
+-&gt; ToLog DeviceRememberedStatusType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeviceRememberedStatusType -&gt; ByteStringBuilder
+$cbuild :: DeviceRememberedStatusType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427049"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceRememberedStatusType -&gt; [Header]
+(HeaderName -&gt; DeviceRememberedStatusType -&gt; [Header])
+-&gt; ToHeader DeviceRememberedStatusType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeviceRememberedStatusType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeviceRememberedStatusType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427046"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; QueryString
+(DeviceRememberedStatusType -&gt; QueryString)
+-&gt; ToQuery DeviceRememberedStatusType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeviceRememberedStatusType -&gt; QueryString
+$ctoQuery :: DeviceRememberedStatusType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427041"><span id="local-6989586621679427043"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceRememberedStatusType]
+Value -&gt; Parser DeviceRememberedStatusType
+(Value -&gt; Parser DeviceRememberedStatusType)
+-&gt; (Value -&gt; Parser [DeviceRememberedStatusType])
+-&gt; FromJSON DeviceRememberedStatusType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeviceRememberedStatusType]
+$cparseJSONList :: Value -&gt; Parser [DeviceRememberedStatusType]
+parseJSON :: Value -&gt; Parser DeviceRememberedStatusType
+$cparseJSON :: Value -&gt; Parser DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427036"><span id="local-6989586621679427038"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceRememberedStatusType]
+FromJSONKeyFunction DeviceRememberedStatusType
+FromJSONKeyFunction DeviceRememberedStatusType
+-&gt; FromJSONKeyFunction [DeviceRememberedStatusType]
+-&gt; FromJSONKey DeviceRememberedStatusType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeviceRememberedStatusType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeviceRememberedStatusType]
+fromJSONKey :: FromJSONKeyFunction DeviceRememberedStatusType
+$cfromJSONKey :: FromJSONKeyFunction DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427027"><span id="local-6989586621679427029"><span id="local-6989586621679427031"><span id="local-6989586621679427033"><span class="annot"><span class="annottext">[DeviceRememberedStatusType] -&gt; Encoding
+[DeviceRememberedStatusType] -&gt; Value
+DeviceRememberedStatusType -&gt; Encoding
+DeviceRememberedStatusType -&gt; Value
+(DeviceRememberedStatusType -&gt; Value)
+-&gt; (DeviceRememberedStatusType -&gt; Encoding)
+-&gt; ([DeviceRememberedStatusType] -&gt; Value)
+-&gt; ([DeviceRememberedStatusType] -&gt; Encoding)
+-&gt; ToJSON DeviceRememberedStatusType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeviceRememberedStatusType] -&gt; Encoding
+$ctoEncodingList :: [DeviceRememberedStatusType] -&gt; Encoding
+toJSONList :: [DeviceRememberedStatusType] -&gt; Value
+$ctoJSONList :: [DeviceRememberedStatusType] -&gt; Value
+toEncoding :: DeviceRememberedStatusType -&gt; Encoding
+$ctoEncoding :: DeviceRememberedStatusType -&gt; Encoding
+toJSON :: DeviceRememberedStatusType -&gt; Value
+$ctoJSON :: DeviceRememberedStatusType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427022"><span id="local-6989586621679427024"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceRememberedStatusType]
+ToJSONKeyFunction DeviceRememberedStatusType
+ToJSONKeyFunction DeviceRememberedStatusType
+-&gt; ToJSONKeyFunction [DeviceRememberedStatusType]
+-&gt; ToJSONKey DeviceRememberedStatusType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeviceRememberedStatusType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeviceRememberedStatusType]
+toJSONKey :: ToJSONKeyFunction DeviceRememberedStatusType
+$ctoJSONKey :: ToJSONKeyFunction DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427019"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceRememberedStatusType
+([Node] -&gt; Either String DeviceRememberedStatusType)
+-&gt; FromXML DeviceRememberedStatusType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeviceRememberedStatusType
+$cparseXML :: [Node] -&gt; Either String DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427016"><span class="annot"><span class="annottext">DeviceRememberedStatusType -&gt; XML
+(DeviceRememberedStatusType -&gt; XML)
+-&gt; ToXML DeviceRememberedStatusType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeviceRememberedStatusType -&gt; XML
+$ctoXML :: DeviceRememberedStatusType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType_Not_remembered"><span class="hs-identifier hs-type">DeviceRememberedStatusType_Not_remembered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType"><span class="hs-identifier hs-type">DeviceRememberedStatusType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceRememberedStatusType_Not_remembered"><span id="%24mDeviceRememberedStatusType_Not_remembered"><span id="DeviceRememberedStatusType_Not_remembered"><span class="annot"><span class="annottext">$bDeviceRememberedStatusType_Not_remembered :: DeviceRememberedStatusType
+$mDeviceRememberedStatusType_Not_remembered :: forall r.
+DeviceRememberedStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#%24bDeviceRememberedStatusType_Not_remembered"><span class="hs-identifier hs-var hs-var hs-var">DeviceRememberedStatusType_Not_remembered</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType%27"><span class="hs-identifier hs-type">DeviceRememberedStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;not_remembered&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType_Remembered"><span class="hs-identifier hs-type">DeviceRememberedStatusType_Remembered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType"><span class="hs-identifier hs-type">DeviceRememberedStatusType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceRememberedStatusType_Remembered"><span id="%24mDeviceRememberedStatusType_Remembered"><span id="DeviceRememberedStatusType_Remembered"><span class="annot"><span class="annottext">$bDeviceRememberedStatusType_Remembered :: DeviceRememberedStatusType
+$mDeviceRememberedStatusType_Remembered :: forall r.
+DeviceRememberedStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#%24bDeviceRememberedStatusType_Remembered"><span class="hs-identifier hs-var hs-var hs-var">DeviceRememberedStatusType_Remembered</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType%27"><span class="hs-identifier hs-type">DeviceRememberedStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;remembered&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType_Not_remembered"><span class="hs-pragma hs-type">DeviceRememberedStatusType_Not_remembered</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType_Remembered"><span class="hs-pragma hs-type">DeviceRememberedStatusType_Remembered</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType%27"><span class="hs-pragma hs-type">DeviceRememberedStatusType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

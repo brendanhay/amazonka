@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.VideoPreprocessor</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.VideoPreprocessor</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ColorCorrector.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.ColorCorrector</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Deinterlacer.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Deinterlacer</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DolbyVision.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.DolbyVision</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Plus.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Hdr10Plus</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ImageInserter.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.ImageInserter</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.NoiseReducer.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.NoiseReducer</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.PartnerWatermarking.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.PartnerWatermarking</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeBurnin.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.TimecodeBurnin</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Find additional transcoding features under Preprocessors</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- (VideoPreprocessors). Enable the features at each output individually.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- These features are disabled by default.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newVideoPreprocessor' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621680016274"><span id="local-6989586621680016275"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoPreprocessor"><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-var">VideoPreprocessor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoPreprocessor%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-var">VideoPreprocessor'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings for burning the output timecode and specified prefix into the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtimecodeBurnin%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe TimecodeBurnin
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AtimecodeBurnin%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">timecodeBurnin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Enable Dolby Vision feature to produce Dolby Vision compatible video</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdolbyVision%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe DolbyVision
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AdolbyVision%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">dolbyVision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Use these settings to convert the color space or to modify properties</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- such as hue and contrast for this output. For more information, see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/converting-the-color-space.html.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AcolorCorrector%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe ColorCorrector
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AcolorCorrector%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">colorCorrector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Use the deinterlacer to produce smoother motion and a clearer picture.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-scan-type.html.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Adeinterlacer%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe Deinterlacer
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3Adeinterlacer%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">deinterlacer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Enable the Noise reducer (NoiseReducer) feature to remove noise from</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- your video output if necessary. Enable or disable this feature for each</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- output individually. This setting is disabled by default.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnoiseReducer%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe NoiseReducer
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AnoiseReducer%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">noiseReducer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.NoiseReducer.html#NoiseReducer"><span class="hs-identifier hs-type">NoiseReducer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Enable the Image inserter (ImageInserter) feature to include a graphic</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- overlay on your video. Enable or disable this feature for each output</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- individually. This setting is disabled by default.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AimageInserter%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe ImageInserter
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AimageInserter%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">imageInserter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Ahdr10Plus%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe Hdr10Plus
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3Ahdr10Plus%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">hdr10Plus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | If you work with a third party video watermarking partner, use the group</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- of settings that correspond with your watermarking partner to include</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- watermarks in your output.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3ApartnerWatermarking%3AVideoPreprocessor%27"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; Maybe PartnerWatermarking
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3ApartnerWatermarking%3AVideoPreprocessor%27"><span class="hs-identifier hs-var hs-var">partnerWatermarking</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.PartnerWatermarking.html#PartnerWatermarking"><span class="hs-identifier hs-type">PartnerWatermarking</span></a></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680016261"><span id="local-6989586621680016263"><span class="annot"><span class="annottext">VideoPreprocessor -&gt; VideoPreprocessor -&gt; Bool
+(VideoPreprocessor -&gt; VideoPreprocessor -&gt; Bool)
+-&gt; (VideoPreprocessor -&gt; VideoPreprocessor -&gt; Bool)
+-&gt; Eq VideoPreprocessor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VideoPreprocessor -&gt; VideoPreprocessor -&gt; Bool
+$c/= :: VideoPreprocessor -&gt; VideoPreprocessor -&gt; Bool
+== :: VideoPreprocessor -&gt; VideoPreprocessor -&gt; Bool
+$c== :: VideoPreprocessor -&gt; VideoPreprocessor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680016252"><span id="local-6989586621680016254"><span id="local-6989586621680016256"><span id="local-6989586621680016258"><span class="annot"><span class="annottext">ReadPrec [VideoPreprocessor]
+ReadPrec VideoPreprocessor
+Int -&gt; ReadS VideoPreprocessor
+ReadS [VideoPreprocessor]
+(Int -&gt; ReadS VideoPreprocessor)
+-&gt; ReadS [VideoPreprocessor]
+-&gt; ReadPrec VideoPreprocessor
+-&gt; ReadPrec [VideoPreprocessor]
+-&gt; Read VideoPreprocessor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VideoPreprocessor]
+$creadListPrec :: ReadPrec [VideoPreprocessor]
+readPrec :: ReadPrec VideoPreprocessor
+$creadPrec :: ReadPrec VideoPreprocessor
+readList :: ReadS [VideoPreprocessor]
+$creadList :: ReadS [VideoPreprocessor]
+readsPrec :: Int -&gt; ReadS VideoPreprocessor
+$creadsPrec :: Int -&gt; ReadS VideoPreprocessor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680016245"><span id="local-6989586621680016247"><span id="local-6989586621680016249"><span class="annot"><span class="annottext">Int -&gt; VideoPreprocessor -&gt; ShowS
+[VideoPreprocessor] -&gt; ShowS
+VideoPreprocessor -&gt; String
+(Int -&gt; VideoPreprocessor -&gt; ShowS)
+-&gt; (VideoPreprocessor -&gt; String)
+-&gt; ([VideoPreprocessor] -&gt; ShowS)
+-&gt; Show VideoPreprocessor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VideoPreprocessor] -&gt; ShowS
+$cshowList :: [VideoPreprocessor] -&gt; ShowS
+show :: VideoPreprocessor -&gt; String
+$cshow :: VideoPreprocessor -&gt; String
+showsPrec :: Int -&gt; VideoPreprocessor -&gt; ShowS
+$cshowsPrec :: Int -&gt; VideoPreprocessor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VideoPreprocessor -&gt; Rep VideoPreprocessor x)
+-&gt; (forall x. Rep VideoPreprocessor x -&gt; VideoPreprocessor)
+-&gt; Generic VideoPreprocessor
+forall x. Rep VideoPreprocessor x -&gt; VideoPreprocessor
+forall x. VideoPreprocessor -&gt; Rep VideoPreprocessor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VideoPreprocessor x -&gt; VideoPreprocessor
+$cfrom :: forall x. VideoPreprocessor -&gt; Rep VideoPreprocessor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'VideoPreprocessor' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'timecodeBurnin', 'videoPreprocessor_timecodeBurnin' - Settings for burning the output timecode and specified prefix into the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'dolbyVision', 'videoPreprocessor_dolbyVision' - Enable Dolby Vision feature to produce Dolby Vision compatible video</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'colorCorrector', 'videoPreprocessor_colorCorrector' - Use these settings to convert the color space or to modify properties</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- such as hue and contrast for this output. For more information, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/converting-the-color-space.html.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'deinterlacer', 'videoPreprocessor_deinterlacer' - Use the deinterlacer to produce smoother motion and a clearer picture.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-scan-type.html.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'noiseReducer', 'videoPreprocessor_noiseReducer' - Enable the Noise reducer (NoiseReducer) feature to remove noise from</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- your video output if necessary. Enable or disable this feature for each</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- output individually. This setting is disabled by default.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'imageInserter', 'videoPreprocessor_imageInserter' - Enable the Image inserter (ImageInserter) feature to include a graphic</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- overlay on your video. Enable or disable this feature for each output</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- individually. This setting is disabled by default.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'hdr10Plus', 'videoPreprocessor_hdr10Plus' - Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'partnerWatermarking', 'videoPreprocessor_partnerWatermarking' - If you work with a third party video watermarking partner, use the group</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- of settings that correspond with your watermarking partner to include</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- watermarks in your output.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#newVideoPreprocessor"><span class="hs-identifier hs-type">newVideoPreprocessor</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span>
+</span><span id="line-108"></span><span id="newVideoPreprocessor"><span class="annot"><span class="annottext">newVideoPreprocessor :: VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#newVideoPreprocessor"><span class="hs-identifier hs-var hs-var">newVideoPreprocessor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">VideoPreprocessor' :: Maybe TimecodeBurnin
+-&gt; Maybe DolbyVision
+-&gt; Maybe ColorCorrector
+-&gt; Maybe Deinterlacer
+-&gt; Maybe NoiseReducer
+-&gt; Maybe ImageInserter
+-&gt; Maybe Hdr10Plus
+-&gt; Maybe PartnerWatermarking
+-&gt; VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timecodeBurnin:VideoPreprocessor' :: Maybe TimecodeBurnin
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AtimecodeBurnin%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">timecodeBurnin</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe TimecodeBurnin
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:dolbyVision:VideoPreprocessor' :: Maybe DolbyVision
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AdolbyVision%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">dolbyVision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVision
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:colorCorrector:VideoPreprocessor' :: Maybe ColorCorrector
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AcolorCorrector%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">colorCorrector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorCorrector
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:deinterlacer:VideoPreprocessor' :: Maybe Deinterlacer
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3Adeinterlacer%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">deinterlacer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Deinterlacer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:noiseReducer:VideoPreprocessor' :: Maybe NoiseReducer
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AnoiseReducer%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">noiseReducer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NoiseReducer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageInserter:VideoPreprocessor' :: Maybe ImageInserter
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AimageInserter%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">imageInserter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:hdr10Plus:VideoPreprocessor' :: Maybe Hdr10Plus
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3Ahdr10Plus%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">hdr10Plus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Plus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:partnerWatermarking:VideoPreprocessor' :: Maybe PartnerWatermarking
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3ApartnerWatermarking%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">partnerWatermarking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartnerWatermarking
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Settings for burning the output timecode and specified prefix into the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_timecodeBurnin"><span class="hs-identifier hs-type">videoPreprocessor_timecodeBurnin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="videoPreprocessor_timecodeBurnin"><span class="annot"><span class="annottext">videoPreprocessor_timecodeBurnin :: (Maybe TimecodeBurnin -&gt; f (Maybe TimecodeBurnin))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_timecodeBurnin"><span class="hs-identifier hs-var hs-var">videoPreprocessor_timecodeBurnin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe TimecodeBurnin)
+-&gt; (VideoPreprocessor -&gt; Maybe TimecodeBurnin -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe TimecodeBurnin)
+     (Maybe TimecodeBurnin)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016236"><span class="annot"><span class="annottext">Maybe TimecodeBurnin
+timecodeBurnin :: Maybe TimecodeBurnin
+$sel:timecodeBurnin:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe TimecodeBurnin
+</span><a href="#local-6989586621680016236"><span class="hs-identifier hs-var hs-var">timecodeBurnin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurnin
+</span><a href="#local-6989586621680016236"><span class="hs-identifier hs-var">timecodeBurnin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016235"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016234"><span class="annot"><span class="annottext">Maybe TimecodeBurnin
+</span><a href="#local-6989586621680016234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeBurnin:VideoPreprocessor' :: Maybe TimecodeBurnin
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AtimecodeBurnin%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">timecodeBurnin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurnin
+</span><a href="#local-6989586621680016234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Enable Dolby Vision feature to produce Dolby Vision compatible video</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_dolbyVision"><span class="hs-identifier hs-type">videoPreprocessor_dolbyVision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DolbyVision.html#DolbyVision"><span class="hs-identifier hs-type">DolbyVision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="videoPreprocessor_dolbyVision"><span class="annot"><span class="annottext">videoPreprocessor_dolbyVision :: (Maybe DolbyVision -&gt; f (Maybe DolbyVision))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_dolbyVision"><span class="hs-identifier hs-var hs-var">videoPreprocessor_dolbyVision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe DolbyVision)
+-&gt; (VideoPreprocessor -&gt; Maybe DolbyVision -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe DolbyVision)
+     (Maybe DolbyVision)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016232"><span class="annot"><span class="annottext">Maybe DolbyVision
+dolbyVision :: Maybe DolbyVision
+$sel:dolbyVision:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe DolbyVision
+</span><a href="#local-6989586621680016232"><span class="hs-identifier hs-var hs-var">dolbyVision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVision
+</span><a href="#local-6989586621680016232"><span class="hs-identifier hs-var">dolbyVision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016231"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016230"><span class="annot"><span class="annottext">Maybe DolbyVision
+</span><a href="#local-6989586621680016230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dolbyVision:VideoPreprocessor' :: Maybe DolbyVision
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AdolbyVision%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">dolbyVision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVision
+</span><a href="#local-6989586621680016230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Use these settings to convert the color space or to modify properties</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- such as hue and contrast for this output. For more information, see</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/converting-the-color-space.html.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_colorCorrector"><span class="hs-identifier hs-type">videoPreprocessor_colorCorrector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="videoPreprocessor_colorCorrector"><span class="annot"><span class="annottext">videoPreprocessor_colorCorrector :: (Maybe ColorCorrector -&gt; f (Maybe ColorCorrector))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_colorCorrector"><span class="hs-identifier hs-var hs-var">videoPreprocessor_colorCorrector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe ColorCorrector)
+-&gt; (VideoPreprocessor -&gt; Maybe ColorCorrector -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe ColorCorrector)
+     (Maybe ColorCorrector)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016228"><span class="annot"><span class="annottext">Maybe ColorCorrector
+colorCorrector :: Maybe ColorCorrector
+$sel:colorCorrector:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe ColorCorrector
+</span><a href="#local-6989586621680016228"><span class="hs-identifier hs-var hs-var">colorCorrector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorCorrector
+</span><a href="#local-6989586621680016228"><span class="hs-identifier hs-var">colorCorrector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016227"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016226"><span class="annot"><span class="annottext">Maybe ColorCorrector
+</span><a href="#local-6989586621680016226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorCorrector:VideoPreprocessor' :: Maybe ColorCorrector
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AcolorCorrector%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">colorCorrector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorCorrector
+</span><a href="#local-6989586621680016226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Use the deinterlacer to produce smoother motion and a clearer picture.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-scan-type.html.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_deinterlacer"><span class="hs-identifier hs-type">videoPreprocessor_deinterlacer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="videoPreprocessor_deinterlacer"><span class="annot"><span class="annottext">videoPreprocessor_deinterlacer :: (Maybe Deinterlacer -&gt; f (Maybe Deinterlacer))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_deinterlacer"><span class="hs-identifier hs-var hs-var">videoPreprocessor_deinterlacer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe Deinterlacer)
+-&gt; (VideoPreprocessor -&gt; Maybe Deinterlacer -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe Deinterlacer)
+     (Maybe Deinterlacer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016224"><span class="annot"><span class="annottext">Maybe Deinterlacer
+deinterlacer :: Maybe Deinterlacer
+$sel:deinterlacer:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe Deinterlacer
+</span><a href="#local-6989586621680016224"><span class="hs-identifier hs-var hs-var">deinterlacer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Deinterlacer
+</span><a href="#local-6989586621680016224"><span class="hs-identifier hs-var">deinterlacer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016223"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016222"><span class="annot"><span class="annottext">Maybe Deinterlacer
+</span><a href="#local-6989586621680016222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deinterlacer:VideoPreprocessor' :: Maybe Deinterlacer
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3Adeinterlacer%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">deinterlacer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Deinterlacer
+</span><a href="#local-6989586621680016222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Enable the Noise reducer (NoiseReducer) feature to remove noise from</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- your video output if necessary. Enable or disable this feature for each</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- output individually. This setting is disabled by default.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_noiseReducer"><span class="hs-identifier hs-type">videoPreprocessor_noiseReducer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.NoiseReducer.html#NoiseReducer"><span class="hs-identifier hs-type">NoiseReducer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="videoPreprocessor_noiseReducer"><span class="annot"><span class="annottext">videoPreprocessor_noiseReducer :: (Maybe NoiseReducer -&gt; f (Maybe NoiseReducer))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_noiseReducer"><span class="hs-identifier hs-var hs-var">videoPreprocessor_noiseReducer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe NoiseReducer)
+-&gt; (VideoPreprocessor -&gt; Maybe NoiseReducer -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe NoiseReducer)
+     (Maybe NoiseReducer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016220"><span class="annot"><span class="annottext">Maybe NoiseReducer
+noiseReducer :: Maybe NoiseReducer
+$sel:noiseReducer:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe NoiseReducer
+</span><a href="#local-6989586621680016220"><span class="hs-identifier hs-var hs-var">noiseReducer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NoiseReducer
+</span><a href="#local-6989586621680016220"><span class="hs-identifier hs-var">noiseReducer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016219"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016218"><span class="annot"><span class="annottext">Maybe NoiseReducer
+</span><a href="#local-6989586621680016218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noiseReducer:VideoPreprocessor' :: Maybe NoiseReducer
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AnoiseReducer%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">noiseReducer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NoiseReducer
+</span><a href="#local-6989586621680016218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Enable the Image inserter (ImageInserter) feature to include a graphic</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- overlay on your video. Enable or disable this feature for each output</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- individually. This setting is disabled by default.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_imageInserter"><span class="hs-identifier hs-type">videoPreprocessor_imageInserter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="videoPreprocessor_imageInserter"><span class="annot"><span class="annottext">videoPreprocessor_imageInserter :: (Maybe ImageInserter -&gt; f (Maybe ImageInserter))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_imageInserter"><span class="hs-identifier hs-var hs-var">videoPreprocessor_imageInserter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe ImageInserter)
+-&gt; (VideoPreprocessor -&gt; Maybe ImageInserter -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe ImageInserter)
+     (Maybe ImageInserter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016216"><span class="annot"><span class="annottext">Maybe ImageInserter
+imageInserter :: Maybe ImageInserter
+$sel:imageInserter:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe ImageInserter
+</span><a href="#local-6989586621680016216"><span class="hs-identifier hs-var hs-var">imageInserter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
+</span><a href="#local-6989586621680016216"><span class="hs-identifier hs-var">imageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016215"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016214"><span class="annot"><span class="annottext">Maybe ImageInserter
+</span><a href="#local-6989586621680016214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageInserter:VideoPreprocessor' :: Maybe ImageInserter
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3AimageInserter%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">imageInserter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
+</span><a href="#local-6989586621680016214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_hdr10Plus"><span class="hs-identifier hs-type">videoPreprocessor_hdr10Plus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="videoPreprocessor_hdr10Plus"><span class="annot"><span class="annottext">videoPreprocessor_hdr10Plus :: (Maybe Hdr10Plus -&gt; f (Maybe Hdr10Plus))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_hdr10Plus"><span class="hs-identifier hs-var hs-var">videoPreprocessor_hdr10Plus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe Hdr10Plus)
+-&gt; (VideoPreprocessor -&gt; Maybe Hdr10Plus -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe Hdr10Plus)
+     (Maybe Hdr10Plus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016212"><span class="annot"><span class="annottext">Maybe Hdr10Plus
+hdr10Plus :: Maybe Hdr10Plus
+$sel:hdr10Plus:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe Hdr10Plus
+</span><a href="#local-6989586621680016212"><span class="hs-identifier hs-var hs-var">hdr10Plus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Plus
+</span><a href="#local-6989586621680016212"><span class="hs-identifier hs-var">hdr10Plus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016211"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016210"><span class="annot"><span class="annottext">Maybe Hdr10Plus
+</span><a href="#local-6989586621680016210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Plus:VideoPreprocessor' :: Maybe Hdr10Plus
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3Ahdr10Plus%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">hdr10Plus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Plus
+</span><a href="#local-6989586621680016210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | If you work with a third party video watermarking partner, use the group</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- of settings that correspond with your watermarking partner to include</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- watermarks in your output.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_partnerWatermarking"><span class="hs-identifier hs-type">videoPreprocessor_partnerWatermarking</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.PartnerWatermarking.html#PartnerWatermarking"><span class="hs-identifier hs-type">PartnerWatermarking</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="videoPreprocessor_partnerWatermarking"><span class="annot"><span class="annottext">videoPreprocessor_partnerWatermarking :: (Maybe PartnerWatermarking -&gt; f (Maybe PartnerWatermarking))
+-&gt; VideoPreprocessor -&gt; f VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#videoPreprocessor_partnerWatermarking"><span class="hs-identifier hs-var hs-var">videoPreprocessor_partnerWatermarking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoPreprocessor -&gt; Maybe PartnerWatermarking)
+-&gt; (VideoPreprocessor
+    -&gt; Maybe PartnerWatermarking -&gt; VideoPreprocessor)
+-&gt; Lens
+     VideoPreprocessor
+     VideoPreprocessor
+     (Maybe PartnerWatermarking)
+     (Maybe PartnerWatermarking)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016208"><span class="annot"><span class="annottext">Maybe PartnerWatermarking
+partnerWatermarking :: Maybe PartnerWatermarking
+$sel:partnerWatermarking:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe PartnerWatermarking
+</span><a href="#local-6989586621680016208"><span class="hs-identifier hs-var hs-var">partnerWatermarking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PartnerWatermarking
+</span><a href="#local-6989586621680016208"><span class="hs-identifier hs-var">partnerWatermarking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016207"><span class="annot"><span class="annottext">s :: VideoPreprocessor
+</span><a href="#local-6989586621680016207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016206"><span class="annot"><span class="annottext">Maybe PartnerWatermarking
+</span><a href="#local-6989586621680016206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoPreprocessor
+</span><a href="#local-6989586621680016207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerWatermarking:VideoPreprocessor' :: Maybe PartnerWatermarking
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#%24sel%3ApartnerWatermarking%3AVideoPreprocessor%27"><span class="hs-identifier hs-var">partnerWatermarking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartnerWatermarking
+</span><a href="#local-6989586621680016206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016203"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621680016201"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoPreprocessor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VideoPreprocessor)
+-&gt; Value
+-&gt; Parser VideoPreprocessor
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VideoPreprocessor&quot;</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680016198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe TimecodeBurnin
+-&gt; Maybe DolbyVision
+-&gt; Maybe ColorCorrector
+-&gt; Maybe Deinterlacer
+-&gt; Maybe NoiseReducer
+-&gt; Maybe ImageInserter
+-&gt; Maybe Hdr10Plus
+-&gt; Maybe PartnerWatermarking
+-&gt; VideoPreprocessor
+</span><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-var">VideoPreprocessor'</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TimecodeBurnin
+ -&gt; Maybe DolbyVision
+ -&gt; Maybe ColorCorrector
+ -&gt; Maybe Deinterlacer
+ -&gt; Maybe NoiseReducer
+ -&gt; Maybe ImageInserter
+ -&gt; Maybe Hdr10Plus
+ -&gt; Maybe PartnerWatermarking
+ -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe TimecodeBurnin)
+-&gt; Parser
+     (Maybe DolbyVision
+      -&gt; Maybe ColorCorrector
+      -&gt; Maybe Deinterlacer
+      -&gt; Maybe NoiseReducer
+      -&gt; Maybe ImageInserter
+      -&gt; Maybe Hdr10Plus
+      -&gt; Maybe PartnerWatermarking
+      -&gt; VideoPreprocessor)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimecodeBurnin)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeBurnin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DolbyVision
+   -&gt; Maybe ColorCorrector
+   -&gt; Maybe Deinterlacer
+   -&gt; Maybe NoiseReducer
+   -&gt; Maybe ImageInserter
+   -&gt; Maybe Hdr10Plus
+   -&gt; Maybe PartnerWatermarking
+   -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe DolbyVision)
+-&gt; Parser
+     (Maybe ColorCorrector
+      -&gt; Maybe Deinterlacer
+      -&gt; Maybe NoiseReducer
+      -&gt; Maybe ImageInserter
+      -&gt; Maybe Hdr10Plus
+      -&gt; Maybe PartnerWatermarking
+      -&gt; VideoPreprocessor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DolbyVision)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dolbyVision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ColorCorrector
+   -&gt; Maybe Deinterlacer
+   -&gt; Maybe NoiseReducer
+   -&gt; Maybe ImageInserter
+   -&gt; Maybe Hdr10Plus
+   -&gt; Maybe PartnerWatermarking
+   -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe ColorCorrector)
+-&gt; Parser
+     (Maybe Deinterlacer
+      -&gt; Maybe NoiseReducer
+      -&gt; Maybe ImageInserter
+      -&gt; Maybe Hdr10Plus
+      -&gt; Maybe PartnerWatermarking
+      -&gt; VideoPreprocessor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorCorrector)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorCorrector&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Deinterlacer
+   -&gt; Maybe NoiseReducer
+   -&gt; Maybe ImageInserter
+   -&gt; Maybe Hdr10Plus
+   -&gt; Maybe PartnerWatermarking
+   -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe Deinterlacer)
+-&gt; Parser
+     (Maybe NoiseReducer
+      -&gt; Maybe ImageInserter
+      -&gt; Maybe Hdr10Plus
+      -&gt; Maybe PartnerWatermarking
+      -&gt; VideoPreprocessor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Deinterlacer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deinterlacer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NoiseReducer
+   -&gt; Maybe ImageInserter
+   -&gt; Maybe Hdr10Plus
+   -&gt; Maybe PartnerWatermarking
+   -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe NoiseReducer)
+-&gt; Parser
+     (Maybe ImageInserter
+      -&gt; Maybe Hdr10Plus
+      -&gt; Maybe PartnerWatermarking
+      -&gt; VideoPreprocessor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NoiseReducer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;noiseReducer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ImageInserter
+   -&gt; Maybe Hdr10Plus
+   -&gt; Maybe PartnerWatermarking
+   -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe ImageInserter)
+-&gt; Parser
+     (Maybe Hdr10Plus -&gt; Maybe PartnerWatermarking -&gt; VideoPreprocessor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageInserter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageInserter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Hdr10Plus -&gt; Maybe PartnerWatermarking -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe Hdr10Plus)
+-&gt; Parser (Maybe PartnerWatermarking -&gt; VideoPreprocessor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Plus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hdr10Plus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PartnerWatermarking -&gt; VideoPreprocessor)
+-&gt; Parser (Maybe PartnerWatermarking) -&gt; Parser VideoPreprocessor
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PartnerWatermarking)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;partnerWatermarking&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016192"><span id="local-6989586621680016194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016181"><span id="local-6989586621680016183"><span id="local-6989586621680016185"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor"><span class="hs-identifier hs-type">VideoPreprocessor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621680016179"><span class="annot"><span class="annottext">toJSON :: VideoPreprocessor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoPreprocessor.html#VideoPreprocessor%27"><span class="hs-identifier hs-type">VideoPreprocessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016170"><span id="local-6989586621680016171"><span id="local-6989586621680016172"><span id="local-6989586621680016173"><span id="local-6989586621680016174"><span id="local-6989586621680016175"><span id="local-6989586621680016176"><span id="local-6989586621680016177"><span class="annot"><span class="annottext">Maybe Deinterlacer
+Maybe DolbyVision
+Maybe Hdr10Plus
+Maybe ImageInserter
+Maybe NoiseReducer
+Maybe ColorCorrector
+Maybe TimecodeBurnin
+Maybe PartnerWatermarking
+partnerWatermarking :: Maybe PartnerWatermarking
+hdr10Plus :: Maybe Hdr10Plus
+imageInserter :: Maybe ImageInserter
+noiseReducer :: Maybe NoiseReducer
+deinterlacer :: Maybe Deinterlacer
+colorCorrector :: Maybe ColorCorrector
+dolbyVision :: Maybe DolbyVision
+timecodeBurnin :: Maybe TimecodeBurnin
+$sel:partnerWatermarking:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe PartnerWatermarking
+$sel:hdr10Plus:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe Hdr10Plus
+$sel:imageInserter:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe ImageInserter
+$sel:noiseReducer:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe NoiseReducer
+$sel:deinterlacer:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe Deinterlacer
+$sel:colorCorrector:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe ColorCorrector
+$sel:dolbyVision:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe DolbyVision
+$sel:timecodeBurnin:VideoPreprocessor' :: VideoPreprocessor -&gt; Maybe TimecodeBurnin
+</span><a href="#local-6989586621680016170"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeBurnin&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimecodeBurnin -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(TimecodeBurnin -&gt; Pair) -&gt; Maybe TimecodeBurnin -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurnin
+</span><a href="#local-6989586621680016177"><span class="hs-identifier hs-var">timecodeBurnin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dolbyVision&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DolbyVision -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DolbyVision -&gt; Pair) -&gt; Maybe DolbyVision -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DolbyVision
+</span><a href="#local-6989586621680016176"><span class="hs-identifier hs-var">dolbyVision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorCorrector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColorCorrector -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(ColorCorrector -&gt; Pair) -&gt; Maybe ColorCorrector -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColorCorrector
+</span><a href="#local-6989586621680016175"><span class="hs-identifier hs-var">colorCorrector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deinterlacer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Deinterlacer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Deinterlacer -&gt; Pair) -&gt; Maybe Deinterlacer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Deinterlacer
+</span><a href="#local-6989586621680016174"><span class="hs-identifier hs-var">deinterlacer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;noiseReducer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NoiseReducer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NoiseReducer -&gt; Pair) -&gt; Maybe NoiseReducer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NoiseReducer
+</span><a href="#local-6989586621680016173"><span class="hs-identifier hs-var">noiseReducer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageInserter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImageInserter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ImageInserter -&gt; Pair) -&gt; Maybe ImageInserter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
+</span><a href="#local-6989586621680016172"><span class="hs-identifier hs-var">imageInserter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hdr10Plus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Hdr10Plus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Hdr10Plus -&gt; Pair) -&gt; Maybe Hdr10Plus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Plus
+</span><a href="#local-6989586621680016171"><span class="hs-identifier hs-var">hdr10Plus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;partnerWatermarking&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PartnerWatermarking -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(PartnerWatermarking -&gt; Pair)
+-&gt; Maybe PartnerWatermarking -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PartnerWatermarking
+</span><a href="#local-6989586621680016170"><span class="hs-identifier hs-var">partnerWatermarking</span></a></span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span></pre></body></html>

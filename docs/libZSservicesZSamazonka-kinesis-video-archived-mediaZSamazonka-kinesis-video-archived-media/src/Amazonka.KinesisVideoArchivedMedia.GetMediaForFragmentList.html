@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets media for a list of fragments (specified by fragment number) from</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the archived data in an Amazon Kinesis video stream.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You must first call the @GetDataEndpoint@ API to get an endpoint. Then</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- send the @GetMediaForFragmentList@ requests to this endpoint using the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/reference/ --endpoint-url parameter&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For limits, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits&gt;.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- If an error is thrown after invoking a Kinesis Video Streams archived</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- media API, in addition to the HTTP status code and the response body, it</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- includes the following pieces of information:</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   @x-amz-ErrorType@ HTTP header &#8211; contains a more specific error type</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     in addition to what the HTTP status code provides.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   @x-amz-RequestId@ HTTP header &#8211; if you want to report an issue to</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     AWS, the support team can better diagnose the problem if given the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     Request Id.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Both the HTTP status code and the ErrorType header can be utilized to</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- make programmatic decisions about whether errors are retry-able and</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- under what conditions, as well as provide information on what actions</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- the client programmer might need to take in order to successfully try</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- again.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- For more information, see the __Errors__ section at the bottom of this</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- topic, as well as</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html Common Errors&gt;.</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#newGetMediaForFragmentList"><span class="hs-identifier">newGetMediaForFragmentList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_streamARN"><span class="hs-identifier">getMediaForFragmentList_streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_streamName"><span class="hs-identifier">getMediaForFragmentList_streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_fragments"><span class="hs-identifier">getMediaForFragmentList_fragments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier">GetMediaForFragmentListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#newGetMediaForFragmentListResponse"><span class="hs-identifier">newGetMediaForFragmentListResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_contentType"><span class="hs-identifier">getMediaForFragmentListResponse_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_httpStatus"><span class="hs-identifier">getMediaForFragmentListResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_payload"><span class="hs-identifier">getMediaForFragmentListResponse_payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.html"><span class="hs-identifier">Amazonka.KinesisVideoArchivedMedia.Types</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | /See:/ 'newGetMediaForFragmentList' smart constructor.</span><span>
+</span><span id="line-82"></span><span id="local-6989586621679165636"><span id="local-6989586621679165637"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMediaForFragmentList"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-var">GetMediaForFragmentList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMediaForFragmentList%27"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-var">GetMediaForFragmentList'</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream from which to retrieve</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- fragment media. Specify either this parameter or the @StreamName@</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AstreamARN%3AGetMediaForFragmentList%27"><span class="annot"><span class="annottext">GetMediaForFragmentList -&gt; Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AstreamARN%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The name of the stream from which to retrieve fragment media. Specify</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- either this parameter or the @StreamARN@ parameter.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AstreamName%3AGetMediaForFragmentList%27"><span class="annot"><span class="annottext">GetMediaForFragmentList -&gt; Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AstreamName%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | A list of the numbers of fragments for which to retrieve media. You</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- retrieve these values with ListFragments.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Afragments%3AGetMediaForFragmentList%27"><span class="annot"><span class="annottext">GetMediaForFragmentList -&gt; NonEmpty Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3Afragments%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var hs-var">fragments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165628"><span id="local-6989586621679165630"><span class="annot"><span class="annottext">GetMediaForFragmentList -&gt; GetMediaForFragmentList -&gt; Bool
+(GetMediaForFragmentList -&gt; GetMediaForFragmentList -&gt; Bool)
+-&gt; (GetMediaForFragmentList -&gt; GetMediaForFragmentList -&gt; Bool)
+-&gt; Eq GetMediaForFragmentList
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMediaForFragmentList -&gt; GetMediaForFragmentList -&gt; Bool
+$c/= :: GetMediaForFragmentList -&gt; GetMediaForFragmentList -&gt; Bool
+== :: GetMediaForFragmentList -&gt; GetMediaForFragmentList -&gt; Bool
+$c== :: GetMediaForFragmentList -&gt; GetMediaForFragmentList -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165619"><span id="local-6989586621679165621"><span id="local-6989586621679165623"><span id="local-6989586621679165625"><span class="annot"><span class="annottext">ReadPrec [GetMediaForFragmentList]
+ReadPrec GetMediaForFragmentList
+Int -&gt; ReadS GetMediaForFragmentList
+ReadS [GetMediaForFragmentList]
+(Int -&gt; ReadS GetMediaForFragmentList)
+-&gt; ReadS [GetMediaForFragmentList]
+-&gt; ReadPrec GetMediaForFragmentList
+-&gt; ReadPrec [GetMediaForFragmentList]
+-&gt; Read GetMediaForFragmentList
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMediaForFragmentList]
+$creadListPrec :: ReadPrec [GetMediaForFragmentList]
+readPrec :: ReadPrec GetMediaForFragmentList
+$creadPrec :: ReadPrec GetMediaForFragmentList
+readList :: ReadS [GetMediaForFragmentList]
+$creadList :: ReadS [GetMediaForFragmentList]
+readsPrec :: Int -&gt; ReadS GetMediaForFragmentList
+$creadsPrec :: Int -&gt; ReadS GetMediaForFragmentList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165612"><span id="local-6989586621679165614"><span id="local-6989586621679165616"><span class="annot"><span class="annottext">Int -&gt; GetMediaForFragmentList -&gt; ShowS
+[GetMediaForFragmentList] -&gt; ShowS
+GetMediaForFragmentList -&gt; String
+(Int -&gt; GetMediaForFragmentList -&gt; ShowS)
+-&gt; (GetMediaForFragmentList -&gt; String)
+-&gt; ([GetMediaForFragmentList] -&gt; ShowS)
+-&gt; Show GetMediaForFragmentList
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMediaForFragmentList] -&gt; ShowS
+$cshowList :: [GetMediaForFragmentList] -&gt; ShowS
+show :: GetMediaForFragmentList -&gt; String
+$cshow :: GetMediaForFragmentList -&gt; String
+showsPrec :: Int -&gt; GetMediaForFragmentList -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMediaForFragmentList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMediaForFragmentList -&gt; Rep GetMediaForFragmentList x)
+-&gt; (forall x.
+    Rep GetMediaForFragmentList x -&gt; GetMediaForFragmentList)
+-&gt; Generic GetMediaForFragmentList
+forall x. Rep GetMediaForFragmentList x -&gt; GetMediaForFragmentList
+forall x. GetMediaForFragmentList -&gt; Rep GetMediaForFragmentList x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetMediaForFragmentList x -&gt; GetMediaForFragmentList
+$cfrom :: forall x. GetMediaForFragmentList -&gt; Rep GetMediaForFragmentList x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'GetMediaForFragmentList' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'streamARN', 'getMediaForFragmentList_streamARN' - The Amazon Resource Name (ARN) of the stream from which to retrieve</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- fragment media. Specify either this parameter or the @StreamName@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'streamName', 'getMediaForFragmentList_streamName' - The name of the stream from which to retrieve fragment media. Specify</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- either this parameter or the @StreamARN@ parameter.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'fragments', 'getMediaForFragmentList_fragments' - A list of the numbers of fragments for which to retrieve media. You</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- retrieve these values with ListFragments.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#newGetMediaForFragmentList"><span class="hs-identifier hs-type">newGetMediaForFragmentList</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'fragments'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span>
+</span><span id="line-117"></span><span id="newGetMediaForFragmentList"><span class="annot"><span class="annottext">newGetMediaForFragmentList :: NonEmpty Text -&gt; GetMediaForFragmentList
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#newGetMediaForFragmentList"><span class="hs-identifier hs-var hs-var">newGetMediaForFragmentList</span></a></span></span><span> </span><span id="local-6989586621679165607"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679165607"><span class="hs-identifier hs-var">pFragments_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">GetMediaForFragmentList' :: Maybe Text
+-&gt; Maybe Text -&gt; NonEmpty Text -&gt; GetMediaForFragmentList
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamARN:GetMediaForFragmentList' :: Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AstreamARN%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamName:GetMediaForFragmentList' :: Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AstreamName%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:fragments:GetMediaForFragmentList' :: NonEmpty Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3Afragments%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var">fragments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679165607"><span class="hs-identifier hs-var">pFragments_</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream from which to retrieve</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- fragment media. Specify either this parameter or the @StreamName@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_streamARN"><span class="hs-identifier hs-type">getMediaForFragmentList_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="getMediaForFragmentList_streamARN"><span class="annot"><span class="annottext">getMediaForFragmentList_streamARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMediaForFragmentList -&gt; f GetMediaForFragmentList
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_streamARN"><span class="hs-identifier hs-var hs-var">getMediaForFragmentList_streamARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaForFragmentList -&gt; Maybe Text)
+-&gt; (GetMediaForFragmentList
+    -&gt; Maybe Text -&gt; GetMediaForFragmentList)
+-&gt; Lens
+     GetMediaForFragmentList
+     GetMediaForFragmentList
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165602"><span class="annot"><span class="annottext">Maybe Text
+streamARN :: Maybe Text
+$sel:streamARN:GetMediaForFragmentList' :: GetMediaForFragmentList -&gt; Maybe Text
+</span><a href="#local-6989586621679165602"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165602"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165601"><span class="annot"><span class="annottext">s :: GetMediaForFragmentList
+</span><a href="#local-6989586621679165601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaForFragmentList
+</span><a href="#local-6989586621679165601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:GetMediaForFragmentList' :: Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AstreamARN%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The name of the stream from which to retrieve fragment media. Specify</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- either this parameter or the @StreamARN@ parameter.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_streamName"><span class="hs-identifier hs-type">getMediaForFragmentList_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="getMediaForFragmentList_streamName"><span class="annot"><span class="annottext">getMediaForFragmentList_streamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMediaForFragmentList -&gt; f GetMediaForFragmentList
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_streamName"><span class="hs-identifier hs-var hs-var">getMediaForFragmentList_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaForFragmentList -&gt; Maybe Text)
+-&gt; (GetMediaForFragmentList
+    -&gt; Maybe Text -&gt; GetMediaForFragmentList)
+-&gt; Lens
+     GetMediaForFragmentList
+     GetMediaForFragmentList
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165599"><span class="annot"><span class="annottext">Maybe Text
+streamName :: Maybe Text
+$sel:streamName:GetMediaForFragmentList' :: GetMediaForFragmentList -&gt; Maybe Text
+</span><a href="#local-6989586621679165599"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165599"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165598"><span class="annot"><span class="annottext">s :: GetMediaForFragmentList
+</span><a href="#local-6989586621679165598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165597"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaForFragmentList
+</span><a href="#local-6989586621679165598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:GetMediaForFragmentList' :: Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AstreamName%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A list of the numbers of fragments for which to retrieve media. You</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- retrieve these values with ListFragments.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_fragments"><span class="hs-identifier hs-type">getMediaForFragmentList_fragments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="getMediaForFragmentList_fragments"><span class="annot"><span class="annottext">getMediaForFragmentList_fragments :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GetMediaForFragmentList -&gt; f GetMediaForFragmentList
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentList_fragments"><span class="hs-identifier hs-var hs-var">getMediaForFragmentList_fragments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaForFragmentList -&gt; NonEmpty Text)
+-&gt; (GetMediaForFragmentList
+    -&gt; NonEmpty Text -&gt; GetMediaForFragmentList)
+-&gt; Lens
+     GetMediaForFragmentList
+     GetMediaForFragmentList
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165596"><span class="annot"><span class="annottext">NonEmpty Text
+fragments :: NonEmpty Text
+$sel:fragments:GetMediaForFragmentList' :: GetMediaForFragmentList -&gt; NonEmpty Text
+</span><a href="#local-6989586621679165596"><span class="hs-identifier hs-var hs-var">fragments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679165596"><span class="hs-identifier hs-var">fragments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165595"><span class="annot"><span class="annottext">s :: GetMediaForFragmentList
+</span><a href="#local-6989586621679165595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165594"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679165594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaForFragmentList
+</span><a href="#local-6989586621679165595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragments:GetMediaForFragmentList' :: NonEmpty Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3Afragments%3AGetMediaForFragmentList%27"><span class="hs-identifier hs-var">fragments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679165594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; GetMediaForFragmentList -&gt; f GetMediaForFragmentList)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GetMediaForFragmentList
+-&gt; f GetMediaForFragmentList
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679165589"><span class="annot"><span class="annottext">request :: GetMediaForFragmentList -&gt; Request GetMediaForFragmentList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetMediaForFragmentList -&gt; Request GetMediaForFragmentList
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679165585"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetMediaForFragmentList
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMediaForFragmentList)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ResponseBody
+ -&gt; Either String (AWSResponse GetMediaForFragmentList))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetMediaForFragmentList
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMediaForFragmentList)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int
+ -&gt; ResponseHeaders
+ -&gt; ResponseBody
+ -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveBody</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679165582"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165582"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679165581"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679165581"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679165580"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679165580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; ResponseBody -&gt; GetMediaForFragmentListResponse
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">GetMediaForFragmentListResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; ResponseBody -&gt; GetMediaForFragmentListResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; ResponseBody -&gt; GetMediaForFragmentListResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679165581"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; ResponseBody -&gt; GetMediaForFragmentListResponse)
+-&gt; Either String Int
+-&gt; Either String (ResponseBody -&gt; GetMediaForFragmentListResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165582"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResponseBody -&gt; GetMediaForFragmentListResponse)
+-&gt; Either String ResponseBody
+-&gt; Either String GetMediaForFragmentListResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseBody -&gt; Either String ResponseBody
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679165580"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165572"><span id="local-6989586621679165574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679165565"><span class="annot"><span class="annottext">toHeaders :: GetMediaForFragmentList -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMediaForFragmentList -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165556"><span id="local-6989586621679165558"><span id="local-6989586621679165560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679165554"><span class="annot"><span class="annottext">toJSON :: GetMediaForFragmentList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList%27"><span class="hs-identifier hs-type">GetMediaForFragmentList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165550"><span id="local-6989586621679165551"><span id="local-6989586621679165552"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty Text
+fragments :: NonEmpty Text
+streamName :: Maybe Text
+streamARN :: Maybe Text
+$sel:fragments:GetMediaForFragmentList' :: GetMediaForFragmentList -&gt; NonEmpty Text
+$sel:streamName:GetMediaForFragmentList' :: GetMediaForFragmentList -&gt; Maybe Text
+$sel:streamARN:GetMediaForFragmentList' :: GetMediaForFragmentList -&gt; Maybe Text
+</span><a href="#local-6989586621679165550"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165552"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165551"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Fragments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679165550"><span class="hs-identifier hs-var">fragments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679165544"><span class="annot"><span class="annottext">toPath :: GetMediaForFragmentList -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMediaForFragmentList -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/getMediaForFragmentList&quot;</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentList"><span class="hs-identifier hs-type">GetMediaForFragmentList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679165540"><span class="annot"><span class="annottext">toQuery :: GetMediaForFragmentList -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMediaForFragmentList -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newGetMediaForFragmentListResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679165537"><span id="local-6989586621679165538"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMediaForFragmentListResponse"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-var">GetMediaForFragmentListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMediaForFragmentListResponse%27"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">GetMediaForFragmentListResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content type of the requested media.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AcontentType%3AGetMediaForFragmentListResponse%27"><span class="annot"><span class="annottext">GetMediaForFragmentListResponse -&gt; Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AcontentType%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMediaForFragmentListResponse%27"><span class="annot"><span class="annottext">GetMediaForFragmentListResponse -&gt; Int
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AhttpStatus%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The payload that Kinesis Video Streams returns is a sequence of chunks</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- from the specified stream. For information about the chunks, see</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia&gt;.</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- The chunks that Kinesis Video Streams returns in the</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- @GetMediaForFragmentList@ call also include the following additional</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- Matroska (MKV) tags:</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- -   AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">--     chunk.</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- -   AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">--     the fragment.</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- -   AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">--     of the fragment.</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- The following tags will be included if an exception occurs:</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- -   AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">--     threw the exception</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- -   AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">--     exception</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- -   AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">--     exception</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3Apayload%3AGetMediaForFragmentListResponse%27"><span class="annot"><span class="annottext">GetMediaForFragmentListResponse -&gt; ResponseBody
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3Apayload%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165528"><span id="local-6989586621679165530"><span id="local-6989586621679165532"><span class="annot"><span class="annottext">Int -&gt; GetMediaForFragmentListResponse -&gt; ShowS
+[GetMediaForFragmentListResponse] -&gt; ShowS
+GetMediaForFragmentListResponse -&gt; String
+(Int -&gt; GetMediaForFragmentListResponse -&gt; ShowS)
+-&gt; (GetMediaForFragmentListResponse -&gt; String)
+-&gt; ([GetMediaForFragmentListResponse] -&gt; ShowS)
+-&gt; Show GetMediaForFragmentListResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMediaForFragmentListResponse] -&gt; ShowS
+$cshowList :: [GetMediaForFragmentListResponse] -&gt; ShowS
+show :: GetMediaForFragmentListResponse -&gt; String
+$cshow :: GetMediaForFragmentListResponse -&gt; String
+showsPrec :: Int -&gt; GetMediaForFragmentListResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMediaForFragmentListResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMediaForFragmentListResponse
+ -&gt; Rep GetMediaForFragmentListResponse x)
+-&gt; (forall x.
+    Rep GetMediaForFragmentListResponse x
+    -&gt; GetMediaForFragmentListResponse)
+-&gt; Generic GetMediaForFragmentListResponse
+forall x.
+Rep GetMediaForFragmentListResponse x
+-&gt; GetMediaForFragmentListResponse
+forall x.
+GetMediaForFragmentListResponse
+-&gt; Rep GetMediaForFragmentListResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMediaForFragmentListResponse x
+-&gt; GetMediaForFragmentListResponse
+$cfrom :: forall x.
+GetMediaForFragmentListResponse
+-&gt; Rep GetMediaForFragmentListResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Create a value of 'GetMediaForFragmentListResponse' with all optional fields omitted.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'contentType', 'getMediaForFragmentListResponse_contentType' - The content type of the requested media.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'httpStatus', 'getMediaForFragmentListResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'payload', 'getMediaForFragmentListResponse_payload' - The payload that Kinesis Video Streams returns is a sequence of chunks</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- from the specified stream. For information about the chunks, see</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia&gt;.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- The chunks that Kinesis Video Streams returns in the</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- @GetMediaForFragmentList@ call also include the following additional</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Matroska (MKV) tags:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     chunk.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     the fragment.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     of the fragment.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- The following tags will be included if an exception occurs:</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     threw the exception</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     exception</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     exception</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#newGetMediaForFragmentListResponse"><span class="hs-identifier hs-type">newGetMediaForFragmentListResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-comment">-- | 'payload'</span><span>
+</span><span id="line-256"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-257"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span>
+</span><span id="line-258"></span><span id="newGetMediaForFragmentListResponse"><span class="annot"><span class="annottext">newGetMediaForFragmentListResponse :: Int -&gt; ResponseBody -&gt; GetMediaForFragmentListResponse
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#newGetMediaForFragmentListResponse"><span class="hs-identifier hs-var hs-var">newGetMediaForFragmentListResponse</span></a></span></span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679165525"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165525"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679165524"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679165524"><span class="hs-identifier hs-var">pPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><span class="annottext">GetMediaForFragmentListResponse' :: Maybe Text
+-&gt; Int -&gt; ResponseBody -&gt; GetMediaForFragmentListResponse
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse'</span></a></span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentType:GetMediaForFragmentListResponse' :: Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AcontentType%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMediaForFragmentListResponse' :: Int
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AhttpStatus%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165525"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">$sel:payload:GetMediaForFragmentListResponse' :: ResponseBody
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3Apayload%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679165524"><span class="hs-identifier hs-var">pPayload_</span></a></span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The content type of the requested media.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_contentType"><span class="hs-identifier hs-type">getMediaForFragmentListResponse_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="getMediaForFragmentListResponse_contentType"><span class="annot"><span class="annottext">getMediaForFragmentListResponse_contentType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMediaForFragmentListResponse
+-&gt; f GetMediaForFragmentListResponse
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_contentType"><span class="hs-identifier hs-var hs-var">getMediaForFragmentListResponse_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaForFragmentListResponse -&gt; Maybe Text)
+-&gt; (GetMediaForFragmentListResponse
+    -&gt; Maybe Text -&gt; GetMediaForFragmentListResponse)
+-&gt; Lens
+     GetMediaForFragmentListResponse
+     GetMediaForFragmentListResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165523"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:GetMediaForFragmentListResponse' :: GetMediaForFragmentListResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679165523"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165523"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165522"><span class="annot"><span class="annottext">s :: GetMediaForFragmentListResponse
+</span><a href="#local-6989586621679165522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaForFragmentListResponse
+</span><a href="#local-6989586621679165522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetMediaForFragmentListResponse' :: Maybe Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AcontentType%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679165521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_httpStatus"><span class="hs-identifier hs-type">getMediaForFragmentListResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-274"></span><span id="getMediaForFragmentListResponse_httpStatus"><span class="annot"><span class="annottext">getMediaForFragmentListResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetMediaForFragmentListResponse
+-&gt; f GetMediaForFragmentListResponse
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMediaForFragmentListResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaForFragmentListResponse -&gt; Int)
+-&gt; (GetMediaForFragmentListResponse
+    -&gt; Int -&gt; GetMediaForFragmentListResponse)
+-&gt; Lens
+     GetMediaForFragmentListResponse
+     GetMediaForFragmentListResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165520"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetMediaForFragmentListResponse' :: GetMediaForFragmentListResponse -&gt; Int
+</span><a href="#local-6989586621679165520"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165520"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165519"><span class="annot"><span class="annottext">s :: GetMediaForFragmentListResponse
+</span><a href="#local-6989586621679165519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165518"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaForFragmentListResponse
+</span><a href="#local-6989586621679165519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMediaForFragmentListResponse' :: Int
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3AhttpStatus%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The payload that Kinesis Video Streams returns is a sequence of chunks</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- from the specified stream. For information about the chunks, see</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia&gt;.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- The chunks that Kinesis Video Streams returns in the</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- @GetMediaForFragmentList@ call also include the following additional</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- Matroska (MKV) tags:</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     chunk.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     the fragment.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--     of the fragment.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- The following tags will be included if an exception occurs:</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     threw the exception</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--     exception</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- -   AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     exception</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_payload"><span class="hs-identifier hs-type">getMediaForFragmentListResponse_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
+</span><span id="line-303"></span><span id="getMediaForFragmentListResponse_payload"><span class="annot"><span class="annottext">getMediaForFragmentListResponse_payload :: (ResponseBody -&gt; f ResponseBody)
+-&gt; GetMediaForFragmentListResponse
+-&gt; f GetMediaForFragmentListResponse
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#getMediaForFragmentListResponse_payload"><span class="hs-identifier hs-var hs-var">getMediaForFragmentListResponse_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaForFragmentListResponse -&gt; ResponseBody)
+-&gt; (GetMediaForFragmentListResponse
+    -&gt; ResponseBody -&gt; GetMediaForFragmentListResponse)
+-&gt; Lens
+     GetMediaForFragmentListResponse
+     GetMediaForFragmentListResponse
+     ResponseBody
+     ResponseBody
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165517"><span class="annot"><span class="annottext">ResponseBody
+payload :: ResponseBody
+$sel:payload:GetMediaForFragmentListResponse' :: GetMediaForFragmentListResponse -&gt; ResponseBody
+</span><a href="#local-6989586621679165517"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679165517"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165516"><span class="annot"><span class="annottext">s :: GetMediaForFragmentListResponse
+</span><a href="#local-6989586621679165516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse%27"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165515"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679165515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaForFragmentListResponse
+</span><a href="#local-6989586621679165516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:GetMediaForFragmentListResponse' :: ResponseBody
+</span><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#%24sel%3Apayload%3AGetMediaForFragmentListResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679165515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.html#GetMediaForFragmentListResponse"><span class="hs-identifier hs-type">GetMediaForFragmentListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span></pre></body></html>

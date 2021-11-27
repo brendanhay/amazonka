@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Athena.Types.Column
+module Amazonka.Athena.Types.Column
 
 -- | Contains metadata for a column in a table.
 --   
@@ -47,44 +47,44 @@ column_comment :: Lens' Column (Maybe Text)
 
 -- | The name of the column.
 column_name :: Lens' Column Text
-instance GHC.Generics.Generic Network.AWS.Athena.Types.Column.Column
-instance GHC.Show.Show Network.AWS.Athena.Types.Column.Column
-instance GHC.Read.Read Network.AWS.Athena.Types.Column.Column
-instance GHC.Classes.Eq Network.AWS.Athena.Types.Column.Column
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.Column.Column
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.Column.Column
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.Column.Column
+instance GHC.Generics.Generic Amazonka.Athena.Types.Column.Column
+instance GHC.Show.Show Amazonka.Athena.Types.Column.Column
+instance GHC.Read.Read Amazonka.Athena.Types.Column.Column
+instance GHC.Classes.Eq Amazonka.Athena.Types.Column.Column
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.Column.Column
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.Column.Column
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.Column.Column
 
 
-module Network.AWS.Athena.Types.ColumnNullable
+module Amazonka.Athena.Types.ColumnNullable
 newtype ColumnNullable
 ColumnNullable' :: Text -> ColumnNullable
 [fromColumnNullable] :: ColumnNullable -> Text
 pattern ColumnNullable_NOT_NULL :: ColumnNullable
 pattern ColumnNullable_NULLABLE :: ColumnNullable
 pattern ColumnNullable_UNKNOWN :: ColumnNullable
-instance Network.AWS.Data.XML.ToXML Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Network.AWS.Data.XML.FromXML Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Network.AWS.Data.Log.ToLog Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Network.AWS.Data.Text.ToText Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Network.AWS.Data.Text.FromText Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance GHC.Generics.Generic Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance GHC.Classes.Ord Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance GHC.Classes.Eq Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance GHC.Read.Read Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
-instance GHC.Show.Show Network.AWS.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.XML.ToXML Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.XML.FromXML Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.Headers.ToHeader Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.Log.ToLog Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.Text.ToText Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Amazonka.Data.Text.FromText Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance GHC.Generics.Generic Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance GHC.Classes.Ord Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance GHC.Classes.Eq Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance GHC.Read.Read Amazonka.Athena.Types.ColumnNullable.ColumnNullable
+instance GHC.Show.Show Amazonka.Athena.Types.ColumnNullable.ColumnNullable
 
 
-module Network.AWS.Athena.Types.ColumnInfo
+module Amazonka.Athena.Types.ColumnInfo
 
 -- | Information about the columns in a query execution result.
 --   
@@ -196,44 +196,44 @@ columnInfo_name :: Lens' ColumnInfo Text
 
 -- | The data type of the column.
 columnInfo_type :: Lens' ColumnInfo Text
-instance GHC.Generics.Generic Network.AWS.Athena.Types.ColumnInfo.ColumnInfo
-instance GHC.Show.Show Network.AWS.Athena.Types.ColumnInfo.ColumnInfo
-instance GHC.Read.Read Network.AWS.Athena.Types.ColumnInfo.ColumnInfo
-instance GHC.Classes.Eq Network.AWS.Athena.Types.ColumnInfo.ColumnInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.ColumnInfo.ColumnInfo
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.ColumnInfo.ColumnInfo
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.ColumnInfo.ColumnInfo
+instance GHC.Generics.Generic Amazonka.Athena.Types.ColumnInfo.ColumnInfo
+instance GHC.Show.Show Amazonka.Athena.Types.ColumnInfo.ColumnInfo
+instance GHC.Read.Read Amazonka.Athena.Types.ColumnInfo.ColumnInfo
+instance GHC.Classes.Eq Amazonka.Athena.Types.ColumnInfo.ColumnInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.ColumnInfo.ColumnInfo
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.ColumnInfo.ColumnInfo
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.ColumnInfo.ColumnInfo
 
 
-module Network.AWS.Athena.Types.DataCatalogType
+module Amazonka.Athena.Types.DataCatalogType
 newtype DataCatalogType
 DataCatalogType' :: Text -> DataCatalogType
 [fromDataCatalogType] :: DataCatalogType -> Text
 pattern DataCatalogType_GLUE :: DataCatalogType
 pattern DataCatalogType_HIVE :: DataCatalogType
 pattern DataCatalogType_LAMBDA :: DataCatalogType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Network.AWS.Data.Text.ToText Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Network.AWS.Data.Text.FromText Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance GHC.Generics.Generic Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance GHC.Classes.Ord Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance GHC.Classes.Eq Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance GHC.Read.Read Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
-instance GHC.Show.Show Network.AWS.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.XML.ToXML Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.XML.FromXML Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.Log.ToLog Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.Text.ToText Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Amazonka.Data.Text.FromText Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance GHC.Generics.Generic Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance GHC.Classes.Ord Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance GHC.Classes.Eq Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance GHC.Read.Read Amazonka.Athena.Types.DataCatalogType.DataCatalogType
+instance GHC.Show.Show Amazonka.Athena.Types.DataCatalogType.DataCatalogType
 
 
-module Network.AWS.Athena.Types.DataCatalogSummary
+module Amazonka.Athena.Types.DataCatalogSummary
 
 -- | The summary information for the data catalog, which includes its name
 --   and type.
@@ -269,16 +269,16 @@ dataCatalogSummary_catalogName :: Lens' DataCatalogSummary (Maybe Text)
 
 -- | The data catalog type.
 dataCatalogSummary_type :: Lens' DataCatalogSummary (Maybe DataCatalogType)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.DataCatalogSummary.DataCatalogSummary
-instance GHC.Show.Show Network.AWS.Athena.Types.DataCatalogSummary.DataCatalogSummary
-instance GHC.Read.Read Network.AWS.Athena.Types.DataCatalogSummary.DataCatalogSummary
-instance GHC.Classes.Eq Network.AWS.Athena.Types.DataCatalogSummary.DataCatalogSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.DataCatalogSummary.DataCatalogSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.DataCatalogSummary.DataCatalogSummary
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.DataCatalogSummary.DataCatalogSummary
+instance GHC.Generics.Generic Amazonka.Athena.Types.DataCatalogSummary.DataCatalogSummary
+instance GHC.Show.Show Amazonka.Athena.Types.DataCatalogSummary.DataCatalogSummary
+instance GHC.Read.Read Amazonka.Athena.Types.DataCatalogSummary.DataCatalogSummary
+instance GHC.Classes.Eq Amazonka.Athena.Types.DataCatalogSummary.DataCatalogSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.DataCatalogSummary.DataCatalogSummary
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.DataCatalogSummary.DataCatalogSummary
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.DataCatalogSummary.DataCatalogSummary
 
 
-module Network.AWS.Athena.Types.DataCatalog
+module Amazonka.Athena.Types.DataCatalog
 
 -- | Contains information about a data catalog in an Amazon Web Services
 --   account.
@@ -424,16 +424,16 @@ dataCatalog_name :: Lens' DataCatalog Text
 --   catalog, <tt>HIVE</tt> for an external hive metastore, or
 --   <tt>GLUE</tt> for an Glue Data Catalog.
 dataCatalog_type :: Lens' DataCatalog DataCatalogType
-instance GHC.Generics.Generic Network.AWS.Athena.Types.DataCatalog.DataCatalog
-instance GHC.Show.Show Network.AWS.Athena.Types.DataCatalog.DataCatalog
-instance GHC.Read.Read Network.AWS.Athena.Types.DataCatalog.DataCatalog
-instance GHC.Classes.Eq Network.AWS.Athena.Types.DataCatalog.DataCatalog
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.DataCatalog.DataCatalog
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.DataCatalog.DataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.DataCatalog.DataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.Types.DataCatalog.DataCatalog
+instance GHC.Show.Show Amazonka.Athena.Types.DataCatalog.DataCatalog
+instance GHC.Read.Read Amazonka.Athena.Types.DataCatalog.DataCatalog
+instance GHC.Classes.Eq Amazonka.Athena.Types.DataCatalog.DataCatalog
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.DataCatalog.DataCatalog
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.DataCatalog.DataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.DataCatalog.DataCatalog
 
 
-module Network.AWS.Athena.Types.Database
+module Amazonka.Athena.Types.Database
 
 -- | Contains metadata information for a database in a data catalog.
 --   
@@ -476,16 +476,16 @@ database_description :: Lens' Database (Maybe Text)
 
 -- | The name of the database.
 database_name :: Lens' Database Text
-instance GHC.Generics.Generic Network.AWS.Athena.Types.Database.Database
-instance GHC.Show.Show Network.AWS.Athena.Types.Database.Database
-instance GHC.Read.Read Network.AWS.Athena.Types.Database.Database
-instance GHC.Classes.Eq Network.AWS.Athena.Types.Database.Database
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.Database.Database
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.Database.Database
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.Database.Database
+instance GHC.Generics.Generic Amazonka.Athena.Types.Database.Database
+instance GHC.Show.Show Amazonka.Athena.Types.Database.Database
+instance GHC.Read.Read Amazonka.Athena.Types.Database.Database
+instance GHC.Classes.Eq Amazonka.Athena.Types.Database.Database
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.Database.Database
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.Database.Database
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.Database.Database
 
 
-module Network.AWS.Athena.Types.Datum
+module Amazonka.Athena.Types.Datum
 
 -- | A piece of data (a field in the table).
 --   
@@ -510,44 +510,44 @@ newDatum :: Datum
 
 -- | The value of the datum.
 datum_varCharValue :: Lens' Datum (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.Datum.Datum
-instance GHC.Show.Show Network.AWS.Athena.Types.Datum.Datum
-instance GHC.Read.Read Network.AWS.Athena.Types.Datum.Datum
-instance GHC.Classes.Eq Network.AWS.Athena.Types.Datum.Datum
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.Datum.Datum
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.Datum.Datum
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.Datum.Datum
+instance GHC.Generics.Generic Amazonka.Athena.Types.Datum.Datum
+instance GHC.Show.Show Amazonka.Athena.Types.Datum.Datum
+instance GHC.Read.Read Amazonka.Athena.Types.Datum.Datum
+instance GHC.Classes.Eq Amazonka.Athena.Types.Datum.Datum
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.Datum.Datum
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.Datum.Datum
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.Datum.Datum
 
 
-module Network.AWS.Athena.Types.EncryptionOption
+module Amazonka.Athena.Types.EncryptionOption
 newtype EncryptionOption
 EncryptionOption' :: Text -> EncryptionOption
 [fromEncryptionOption] :: EncryptionOption -> Text
 pattern EncryptionOption_CSE_KMS :: EncryptionOption
 pattern EncryptionOption_SSE_KMS :: EncryptionOption
 pattern EncryptionOption_SSE_S3 :: EncryptionOption
-instance Network.AWS.Data.XML.ToXML Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.XML.FromXML Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Log.ToLog Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Text.ToText Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Text.FromText Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance GHC.Generics.Generic Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance GHC.Classes.Ord Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance GHC.Classes.Eq Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance GHC.Read.Read Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
-instance GHC.Show.Show Network.AWS.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.XML.ToXML Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.XML.FromXML Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Headers.ToHeader Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Log.ToLog Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Text.ToText Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Text.FromText Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance GHC.Generics.Generic Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance GHC.Classes.Ord Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance GHC.Classes.Eq Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance GHC.Read.Read Amazonka.Athena.Types.EncryptionOption.EncryptionOption
+instance GHC.Show.Show Amazonka.Athena.Types.EncryptionOption.EncryptionOption
 
 
-module Network.AWS.Athena.Types.EncryptionConfiguration
+module Amazonka.Athena.Types.EncryptionConfiguration
 
 -- | If query results are encrypted in Amazon S3, indicates the encryption
 --   option used (for example, <tt>SSE-KMS</tt> or <tt>CSE-KMS</tt>) and
@@ -612,17 +612,17 @@ encryptionConfiguration_kmsKey :: Lens' EncryptionConfiguration (Maybe Text)
 --   specifies whether query results must be encrypted, for all queries
 --   that run in this workgroup.
 encryptionConfiguration_encryptionOption :: Lens' EncryptionConfiguration EncryptionOption
-instance GHC.Generics.Generic Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
-instance GHC.Show.Show Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
-instance GHC.Read.Read Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
-instance GHC.Classes.Eq Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Generics.Generic Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Show.Show Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Read.Read Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance GHC.Classes.Eq Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.EncryptionConfiguration.EncryptionConfiguration
 
 
-module Network.AWS.Athena.Types.EngineVersion
+module Amazonka.Athena.Types.EngineVersion
 
 -- | The Athena engine version for running queries.
 --   
@@ -682,17 +682,17 @@ engineVersion_effectiveEngineVersion :: Lens' EngineVersion (Maybe Text)
 --   determined by the output of <tt>ListEngineVersions</tt>, including
 --   Auto. The default is Auto.
 engineVersion_selectedEngineVersion :: Lens' EngineVersion (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.EngineVersion.EngineVersion
-instance GHC.Show.Show Network.AWS.Athena.Types.EngineVersion.EngineVersion
-instance GHC.Read.Read Network.AWS.Athena.Types.EngineVersion.EngineVersion
-instance GHC.Classes.Eq Network.AWS.Athena.Types.EngineVersion.EngineVersion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.EngineVersion.EngineVersion
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.EngineVersion.EngineVersion
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.EngineVersion.EngineVersion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.EngineVersion.EngineVersion
+instance GHC.Generics.Generic Amazonka.Athena.Types.EngineVersion.EngineVersion
+instance GHC.Show.Show Amazonka.Athena.Types.EngineVersion.EngineVersion
+instance GHC.Read.Read Amazonka.Athena.Types.EngineVersion.EngineVersion
+instance GHC.Classes.Eq Amazonka.Athena.Types.EngineVersion.EngineVersion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.EngineVersion.EngineVersion
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.EngineVersion.EngineVersion
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.EngineVersion.EngineVersion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.EngineVersion.EngineVersion
 
 
-module Network.AWS.Athena.Types.NamedQuery
+module Amazonka.Athena.Types.NamedQuery
 
 -- | A query, where <tt>QueryString</tt> is the list of SQL query
 --   statements that comprise the query.
@@ -762,16 +762,16 @@ namedQuery_database :: Lens' NamedQuery Text
 
 -- | The SQL query statements that comprise the query.
 namedQuery_queryString :: Lens' NamedQuery Text
-instance GHC.Generics.Generic Network.AWS.Athena.Types.NamedQuery.NamedQuery
-instance GHC.Show.Show Network.AWS.Athena.Types.NamedQuery.NamedQuery
-instance GHC.Read.Read Network.AWS.Athena.Types.NamedQuery.NamedQuery
-instance GHC.Classes.Eq Network.AWS.Athena.Types.NamedQuery.NamedQuery
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.NamedQuery.NamedQuery
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.NamedQuery.NamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.NamedQuery.NamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.Types.NamedQuery.NamedQuery
+instance GHC.Show.Show Amazonka.Athena.Types.NamedQuery.NamedQuery
+instance GHC.Read.Read Amazonka.Athena.Types.NamedQuery.NamedQuery
+instance GHC.Classes.Eq Amazonka.Athena.Types.NamedQuery.NamedQuery
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.NamedQuery.NamedQuery
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.NamedQuery.NamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.NamedQuery.NamedQuery
 
 
-module Network.AWS.Athena.Types.PreparedStatement
+module Amazonka.Athena.Types.PreparedStatement
 
 -- | A prepared SQL statement for use with Athena.
 --   
@@ -838,16 +838,16 @@ preparedStatement_description :: Lens' PreparedStatement (Maybe Text)
 
 -- | The name of the workgroup to which the prepared statement belongs.
 preparedStatement_workGroupName :: Lens' PreparedStatement (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.PreparedStatement.PreparedStatement
-instance GHC.Show.Show Network.AWS.Athena.Types.PreparedStatement.PreparedStatement
-instance GHC.Read.Read Network.AWS.Athena.Types.PreparedStatement.PreparedStatement
-instance GHC.Classes.Eq Network.AWS.Athena.Types.PreparedStatement.PreparedStatement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.PreparedStatement.PreparedStatement
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.PreparedStatement.PreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.PreparedStatement.PreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.Types.PreparedStatement.PreparedStatement
+instance GHC.Show.Show Amazonka.Athena.Types.PreparedStatement.PreparedStatement
+instance GHC.Read.Read Amazonka.Athena.Types.PreparedStatement.PreparedStatement
+instance GHC.Classes.Eq Amazonka.Athena.Types.PreparedStatement.PreparedStatement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.PreparedStatement.PreparedStatement
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.PreparedStatement.PreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.PreparedStatement.PreparedStatement
 
 
-module Network.AWS.Athena.Types.PreparedStatementSummary
+module Amazonka.Athena.Types.PreparedStatementSummary
 
 -- | The name and last modified time of the prepared statement.
 --   
@@ -884,16 +884,16 @@ preparedStatementSummary_lastModifiedTime :: Lens' PreparedStatementSummary (May
 
 -- | The name of the prepared statement.
 preparedStatementSummary_statementName :: Lens' PreparedStatementSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
-instance GHC.Show.Show Network.AWS.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
-instance GHC.Read.Read Network.AWS.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
-instance GHC.Classes.Eq Network.AWS.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
+instance GHC.Generics.Generic Amazonka.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
+instance GHC.Show.Show Amazonka.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
+instance GHC.Read.Read Amazonka.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
+instance GHC.Classes.Eq Amazonka.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.PreparedStatementSummary.PreparedStatementSummary
 
 
-module Network.AWS.Athena.Types.QueryExecutionContext
+module Amazonka.Athena.Types.QueryExecutionContext
 
 -- | The database and data catalog context in which the query execution
 --   occurs.
@@ -933,17 +933,17 @@ queryExecutionContext_database :: Lens' QueryExecutionContext (Maybe Text)
 
 -- | The name of the data catalog used in the query execution.
 queryExecutionContext_catalog :: Lens' QueryExecutionContext (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
-instance GHC.Show.Show Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
-instance GHC.Read.Read Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
-instance GHC.Classes.Eq Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance GHC.Generics.Generic Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance GHC.Show.Show Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance GHC.Read.Read Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance GHC.Classes.Eq Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.QueryExecutionContext.QueryExecutionContext
 
 
-module Network.AWS.Athena.Types.QueryExecutionState
+module Amazonka.Athena.Types.QueryExecutionState
 newtype QueryExecutionState
 QueryExecutionState' :: Text -> QueryExecutionState
 [fromQueryExecutionState] :: QueryExecutionState -> Text
@@ -952,28 +952,28 @@ pattern QueryExecutionState_FAILED :: QueryExecutionState
 pattern QueryExecutionState_QUEUED :: QueryExecutionState
 pattern QueryExecutionState_RUNNING :: QueryExecutionState
 pattern QueryExecutionState_SUCCEEDED :: QueryExecutionState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Network.AWS.Data.Text.ToText Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Network.AWS.Data.Text.FromText Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance GHC.Generics.Generic Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance GHC.Classes.Ord Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance GHC.Classes.Eq Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance GHC.Read.Read Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
-instance GHC.Show.Show Network.AWS.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.XML.ToXML Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.XML.FromXML Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.Log.ToLog Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.Text.ToText Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Amazonka.Data.Text.FromText Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance GHC.Generics.Generic Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance GHC.Classes.Ord Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance GHC.Classes.Eq Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance GHC.Read.Read Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
+instance GHC.Show.Show Amazonka.Athena.Types.QueryExecutionState.QueryExecutionState
 
 
-module Network.AWS.Athena.Types.QueryExecutionStatistics
+module Amazonka.Athena.Types.QueryExecutionStatistics
 
 -- | The amount of data scanned during the query execution and the amount
 --   of time that it took to execute, and the type of statement that was
@@ -1103,16 +1103,16 @@ queryExecutionStatistics_dataManifestLocation :: Lens' QueryExecutionStatistics 
 -- | The number of milliseconds that Athena took to finalize and publish
 --   the query results after the query engine finished running the query.
 queryExecutionStatistics_serviceProcessingTimeInMillis :: Lens' QueryExecutionStatistics (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
-instance GHC.Show.Show Network.AWS.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
-instance GHC.Read.Read Network.AWS.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
-instance GHC.Classes.Eq Network.AWS.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
+instance GHC.Generics.Generic Amazonka.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
+instance GHC.Show.Show Amazonka.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
+instance GHC.Read.Read Amazonka.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
+instance GHC.Classes.Eq Amazonka.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.QueryExecutionStatistics.QueryExecutionStatistics
 
 
-module Network.AWS.Athena.Types.QueryExecutionStatus
+module Amazonka.Athena.Types.QueryExecutionStatus
 
 -- | The completion date, current state, submission time, and state change
 --   reason (if applicable) for the query execution.
@@ -1202,16 +1202,16 @@ queryExecutionStatus_submissionDateTime :: Lens' QueryExecutionStatus (Maybe UTC
 
 -- | The date and time that the query completed.
 queryExecutionStatus_completionDateTime :: Lens' QueryExecutionStatus (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
-instance GHC.Show.Show Network.AWS.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
-instance GHC.Read.Read Network.AWS.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
-instance GHC.Classes.Eq Network.AWS.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
+instance GHC.Generics.Generic Amazonka.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
+instance GHC.Show.Show Amazonka.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
+instance GHC.Read.Read Amazonka.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
+instance GHC.Classes.Eq Amazonka.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.QueryExecutionStatus.QueryExecutionStatus
 
 
-module Network.AWS.Athena.Types.ResultConfiguration
+module Amazonka.Athena.Types.ResultConfiguration
 
 -- | The location in Amazon S3 where query results are stored and the
 --   encryption option, if any, used for query results. These are known as
@@ -1299,17 +1299,17 @@ resultConfiguration_encryptionConfiguration :: Lens' ResultConfiguration (Maybe 
 --   the workgroup. See
 --   WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 resultConfiguration_outputLocation :: Lens' ResultConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
-instance GHC.Show.Show Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
-instance GHC.Read.Read Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
-instance GHC.Classes.Eq Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.ResultConfiguration.ResultConfiguration
+instance GHC.Generics.Generic Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
+instance GHC.Show.Show Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
+instance GHC.Read.Read Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
+instance GHC.Classes.Eq Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.ResultConfiguration.ResultConfiguration
 
 
-module Network.AWS.Athena.Types.ResultConfigurationUpdates
+module Amazonka.Athena.Types.ResultConfigurationUpdates
 
 -- | The information about the updates in the query results, such as output
 --   location and encryption configuration for the query results.
@@ -1442,16 +1442,16 @@ resultConfigurationUpdates_encryptionConfiguration :: Lens' ResultConfigurationU
 --   <tt>WorkGroupConfiguration</tt>. See
 --   WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 resultConfigurationUpdates_outputLocation :: Lens' ResultConfigurationUpdates (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
-instance GHC.Show.Show Network.AWS.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
-instance GHC.Read.Read Network.AWS.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
-instance GHC.Classes.Eq Network.AWS.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
+instance GHC.Generics.Generic Amazonka.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
+instance GHC.Show.Show Amazonka.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
+instance GHC.Read.Read Amazonka.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
+instance GHC.Classes.Eq Amazonka.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.ResultConfigurationUpdates.ResultConfigurationUpdates
 
 
-module Network.AWS.Athena.Types.ResultSetMetadata
+module Amazonka.Athena.Types.ResultSetMetadata
 
 -- | The metadata that describes the column structure and data types of a
 --   table of query results. To return a <tt>ResultSetMetadata</tt> object,
@@ -1480,16 +1480,16 @@ newResultSetMetadata :: ResultSetMetadata
 
 -- | Information about the columns returned in a query result metadata.
 resultSetMetadata_columnInfo :: Lens' ResultSetMetadata (Maybe [ColumnInfo])
-instance GHC.Generics.Generic Network.AWS.Athena.Types.ResultSetMetadata.ResultSetMetadata
-instance GHC.Show.Show Network.AWS.Athena.Types.ResultSetMetadata.ResultSetMetadata
-instance GHC.Read.Read Network.AWS.Athena.Types.ResultSetMetadata.ResultSetMetadata
-instance GHC.Classes.Eq Network.AWS.Athena.Types.ResultSetMetadata.ResultSetMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.ResultSetMetadata.ResultSetMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.ResultSetMetadata.ResultSetMetadata
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.ResultSetMetadata.ResultSetMetadata
+instance GHC.Generics.Generic Amazonka.Athena.Types.ResultSetMetadata.ResultSetMetadata
+instance GHC.Show.Show Amazonka.Athena.Types.ResultSetMetadata.ResultSetMetadata
+instance GHC.Read.Read Amazonka.Athena.Types.ResultSetMetadata.ResultSetMetadata
+instance GHC.Classes.Eq Amazonka.Athena.Types.ResultSetMetadata.ResultSetMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.ResultSetMetadata.ResultSetMetadata
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.ResultSetMetadata.ResultSetMetadata
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.ResultSetMetadata.ResultSetMetadata
 
 
-module Network.AWS.Athena.Types.Row
+module Amazonka.Athena.Types.Row
 
 -- | The rows that comprise a query result table.
 --   
@@ -1514,16 +1514,16 @@ newRow :: Row
 
 -- | The data that populates a row in a query result table.
 row_data :: Lens' Row (Maybe [Datum])
-instance GHC.Generics.Generic Network.AWS.Athena.Types.Row.Row
-instance GHC.Show.Show Network.AWS.Athena.Types.Row.Row
-instance GHC.Read.Read Network.AWS.Athena.Types.Row.Row
-instance GHC.Classes.Eq Network.AWS.Athena.Types.Row.Row
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.Row.Row
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.Row.Row
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.Row.Row
+instance GHC.Generics.Generic Amazonka.Athena.Types.Row.Row
+instance GHC.Show.Show Amazonka.Athena.Types.Row.Row
+instance GHC.Read.Read Amazonka.Athena.Types.Row.Row
+instance GHC.Classes.Eq Amazonka.Athena.Types.Row.Row
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.Row.Row
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.Row.Row
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.Row.Row
 
 
-module Network.AWS.Athena.Types.ResultSet
+module Amazonka.Athena.Types.ResultSet
 
 -- | The metadata and rows that comprise a query result set. The metadata
 --   describes the column structure and data types. To return a
@@ -1562,44 +1562,44 @@ resultSet_rows :: Lens' ResultSet (Maybe [Row])
 -- | The metadata that describes the column structure and data types of a
 --   table of query results.
 resultSet_resultSetMetadata :: Lens' ResultSet (Maybe ResultSetMetadata)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.ResultSet.ResultSet
-instance GHC.Show.Show Network.AWS.Athena.Types.ResultSet.ResultSet
-instance GHC.Read.Read Network.AWS.Athena.Types.ResultSet.ResultSet
-instance GHC.Classes.Eq Network.AWS.Athena.Types.ResultSet.ResultSet
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.ResultSet.ResultSet
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.ResultSet.ResultSet
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.ResultSet.ResultSet
+instance GHC.Generics.Generic Amazonka.Athena.Types.ResultSet.ResultSet
+instance GHC.Show.Show Amazonka.Athena.Types.ResultSet.ResultSet
+instance GHC.Read.Read Amazonka.Athena.Types.ResultSet.ResultSet
+instance GHC.Classes.Eq Amazonka.Athena.Types.ResultSet.ResultSet
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.ResultSet.ResultSet
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.ResultSet.ResultSet
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.ResultSet.ResultSet
 
 
-module Network.AWS.Athena.Types.StatementType
+module Amazonka.Athena.Types.StatementType
 newtype StatementType
 StatementType' :: Text -> StatementType
 [fromStatementType] :: StatementType -> Text
 pattern StatementType_DDL :: StatementType
 pattern StatementType_DML :: StatementType
 pattern StatementType_UTILITY :: StatementType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Athena.Types.StatementType.StatementType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Athena.Types.StatementType.StatementType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Athena.Types.StatementType.StatementType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.StatementType.StatementType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Athena.Types.StatementType.StatementType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.StatementType.StatementType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.Types.StatementType.StatementType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Athena.Types.StatementType.StatementType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Athena.Types.StatementType.StatementType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Athena.Types.StatementType.StatementType
-instance Network.AWS.Data.Text.ToText Network.AWS.Athena.Types.StatementType.StatementType
-instance Network.AWS.Data.Text.FromText Network.AWS.Athena.Types.StatementType.StatementType
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.StatementType.StatementType
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.StatementType.StatementType
-instance GHC.Generics.Generic Network.AWS.Athena.Types.StatementType.StatementType
-instance GHC.Classes.Ord Network.AWS.Athena.Types.StatementType.StatementType
-instance GHC.Classes.Eq Network.AWS.Athena.Types.StatementType.StatementType
-instance GHC.Read.Read Network.AWS.Athena.Types.StatementType.StatementType
-instance GHC.Show.Show Network.AWS.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.XML.ToXML Amazonka.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.XML.FromXML Amazonka.Athena.Types.StatementType.StatementType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Athena.Types.StatementType.StatementType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.StatementType.StatementType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Athena.Types.StatementType.StatementType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.Log.ToLog Amazonka.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.Text.ToText Amazonka.Athena.Types.StatementType.StatementType
+instance Amazonka.Data.Text.FromText Amazonka.Athena.Types.StatementType.StatementType
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.StatementType.StatementType
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.StatementType.StatementType
+instance GHC.Generics.Generic Amazonka.Athena.Types.StatementType.StatementType
+instance GHC.Classes.Ord Amazonka.Athena.Types.StatementType.StatementType
+instance GHC.Classes.Eq Amazonka.Athena.Types.StatementType.StatementType
+instance GHC.Read.Read Amazonka.Athena.Types.StatementType.StatementType
+instance GHC.Show.Show Amazonka.Athena.Types.StatementType.StatementType
 
 
-module Network.AWS.Athena.Types.QueryExecution
+module Amazonka.Athena.Types.QueryExecution
 
 -- | Information about a single instance of a query execution.
 --   
@@ -1735,16 +1735,16 @@ queryExecution_queryExecutionId :: Lens' QueryExecution (Maybe Text)
 
 -- | The name of the workgroup in which the query ran.
 queryExecution_workGroup :: Lens' QueryExecution (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.QueryExecution.QueryExecution
-instance GHC.Show.Show Network.AWS.Athena.Types.QueryExecution.QueryExecution
-instance GHC.Read.Read Network.AWS.Athena.Types.QueryExecution.QueryExecution
-instance GHC.Classes.Eq Network.AWS.Athena.Types.QueryExecution.QueryExecution
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.QueryExecution.QueryExecution
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.QueryExecution.QueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.QueryExecution.QueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.Types.QueryExecution.QueryExecution
+instance GHC.Show.Show Amazonka.Athena.Types.QueryExecution.QueryExecution
+instance GHC.Read.Read Amazonka.Athena.Types.QueryExecution.QueryExecution
+instance GHC.Classes.Eq Amazonka.Athena.Types.QueryExecution.QueryExecution
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.QueryExecution.QueryExecution
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.QueryExecution.QueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.QueryExecution.QueryExecution
 
 
-module Network.AWS.Athena.Types.TableMetadata
+module Amazonka.Athena.Types.TableMetadata
 
 -- | Contains metadata for a table.
 --   
@@ -1829,16 +1829,16 @@ tableMetadata_createTime :: Lens' TableMetadata (Maybe UTCTime)
 
 -- | The name of the table.
 tableMetadata_name :: Lens' TableMetadata Text
-instance GHC.Generics.Generic Network.AWS.Athena.Types.TableMetadata.TableMetadata
-instance GHC.Show.Show Network.AWS.Athena.Types.TableMetadata.TableMetadata
-instance GHC.Read.Read Network.AWS.Athena.Types.TableMetadata.TableMetadata
-instance GHC.Classes.Eq Network.AWS.Athena.Types.TableMetadata.TableMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.TableMetadata.TableMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.TableMetadata.TableMetadata
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.TableMetadata.TableMetadata
+instance GHC.Generics.Generic Amazonka.Athena.Types.TableMetadata.TableMetadata
+instance GHC.Show.Show Amazonka.Athena.Types.TableMetadata.TableMetadata
+instance GHC.Read.Read Amazonka.Athena.Types.TableMetadata.TableMetadata
+instance GHC.Classes.Eq Amazonka.Athena.Types.TableMetadata.TableMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.TableMetadata.TableMetadata
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.TableMetadata.TableMetadata
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.TableMetadata.TableMetadata
 
 
-module Network.AWS.Athena.Types.Tag
+module Amazonka.Athena.Types.Tag
 
 -- | A label that you assign to a resource. In Athena, a resource can be a
 --   workgroup or data catalog. Each tag consists of a key and an optional
@@ -1899,17 +1899,17 @@ tag_value :: Lens' Tag (Maybe Text)
 --   following characters: + - = . _ : / @. Tag keys are case-sensitive and
 --   must be unique per resource.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.Athena.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.Athena.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.Athena.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.Athena.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.Athena.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.Athena.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.Athena.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.Tag.Tag
 
 
-module Network.AWS.Athena.Types.UnprocessedNamedQueryId
+module Amazonka.Athena.Types.UnprocessedNamedQueryId
 
 -- | Information about a named query ID that could not be processed.
 --   
@@ -1961,16 +1961,16 @@ unprocessedNamedQueryId_errorCode :: Lens' UnprocessedNamedQueryId (Maybe Text)
 -- | The error message returned when the processing request for the named
 --   query failed, if applicable.
 unprocessedNamedQueryId_errorMessage :: Lens' UnprocessedNamedQueryId (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
-instance GHC.Show.Show Network.AWS.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
-instance GHC.Read.Read Network.AWS.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
-instance GHC.Classes.Eq Network.AWS.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
+instance GHC.Generics.Generic Amazonka.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
+instance GHC.Show.Show Amazonka.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
+instance GHC.Read.Read Amazonka.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
+instance GHC.Classes.Eq Amazonka.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.UnprocessedNamedQueryId.UnprocessedNamedQueryId
 
 
-module Network.AWS.Athena.Types.UnprocessedQueryExecutionId
+module Amazonka.Athena.Types.UnprocessedQueryExecutionId
 
 -- | Describes a query execution that failed to process.
 --   
@@ -2021,16 +2021,16 @@ unprocessedQueryExecutionId_queryExecutionId :: Lens' UnprocessedQueryExecutionI
 -- | The error message returned when the query execution failed to process,
 --   if applicable.
 unprocessedQueryExecutionId_errorMessage :: Lens' UnprocessedQueryExecutionId (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
-instance GHC.Show.Show Network.AWS.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
-instance GHC.Read.Read Network.AWS.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
-instance GHC.Classes.Eq Network.AWS.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
+instance GHC.Generics.Generic Amazonka.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
+instance GHC.Show.Show Amazonka.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
+instance GHC.Read.Read Amazonka.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
+instance GHC.Classes.Eq Amazonka.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.UnprocessedQueryExecutionId.UnprocessedQueryExecutionId
 
 
-module Network.AWS.Athena.Types.WorkGroupConfiguration
+module Amazonka.Athena.Types.WorkGroupConfiguration
 
 -- | The configuration of the workgroup, which includes the location in
 --   Amazon S3 where query results are stored, the encryption option, if
@@ -2177,17 +2177,17 @@ workGroupConfiguration_enforceWorkGroupConfiguration :: Lens' WorkGroupConfigura
 -- | Indicates that the Amazon CloudWatch metrics are enabled for the
 --   workgroup.
 workGroupConfiguration_publishCloudWatchMetricsEnabled :: Lens' WorkGroupConfiguration (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
-instance GHC.Show.Show Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
-instance GHC.Read.Read Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
-instance GHC.Classes.Eq Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance GHC.Generics.Generic Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance GHC.Show.Show Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance GHC.Read.Read Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance GHC.Classes.Eq Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.WorkGroupConfiguration.WorkGroupConfiguration
 
 
-module Network.AWS.Athena.Types.WorkGroupConfigurationUpdates
+module Amazonka.Athena.Types.WorkGroupConfigurationUpdates
 
 -- | The configuration information that will be updated for this workgroup,
 --   which includes the location in Amazon S3 where query results are
@@ -2339,43 +2339,43 @@ workGroupConfigurationUpdates_enforceWorkGroupConfiguration :: Lens' WorkGroupCo
 -- | Indicates whether this workgroup enables publishing metrics to Amazon
 --   CloudWatch.
 workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled :: Lens' WorkGroupConfigurationUpdates (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
-instance GHC.Show.Show Network.AWS.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
-instance GHC.Read.Read Network.AWS.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
-instance GHC.Classes.Eq Network.AWS.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
+instance GHC.Generics.Generic Amazonka.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
+instance GHC.Show.Show Amazonka.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
+instance GHC.Read.Read Amazonka.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
+instance GHC.Classes.Eq Amazonka.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.WorkGroupConfigurationUpdates.WorkGroupConfigurationUpdates
 
 
-module Network.AWS.Athena.Types.WorkGroupState
+module Amazonka.Athena.Types.WorkGroupState
 newtype WorkGroupState
 WorkGroupState' :: Text -> WorkGroupState
 [fromWorkGroupState] :: WorkGroupState -> Text
 pattern WorkGroupState_DISABLED :: WorkGroupState
 pattern WorkGroupState_ENABLED :: WorkGroupState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Network.AWS.Data.Text.ToText Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Network.AWS.Data.Text.FromText Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance GHC.Generics.Generic Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance GHC.Classes.Ord Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance GHC.Classes.Eq Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance GHC.Read.Read Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
-instance GHC.Show.Show Network.AWS.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.XML.ToXML Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.XML.FromXML Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.Log.ToLog Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.Text.ToText Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Amazonka.Data.Text.FromText Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance GHC.Generics.Generic Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance GHC.Classes.Ord Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance GHC.Classes.Eq Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance GHC.Read.Read Amazonka.Athena.Types.WorkGroupState.WorkGroupState
+instance GHC.Show.Show Amazonka.Athena.Types.WorkGroupState.WorkGroupState
 
 
-module Network.AWS.Athena.Types.WorkGroup
+module Amazonka.Athena.Types.WorkGroup
 
 -- | A workgroup, which contains a name, description, creation time, state,
 --   and other configuration, listed under WorkGroup$Configuration. Each
@@ -2473,16 +2473,16 @@ workGroup_description :: Lens' WorkGroup (Maybe Text)
 
 -- | The workgroup name.
 workGroup_name :: Lens' WorkGroup Text
-instance GHC.Generics.Generic Network.AWS.Athena.Types.WorkGroup.WorkGroup
-instance GHC.Show.Show Network.AWS.Athena.Types.WorkGroup.WorkGroup
-instance GHC.Read.Read Network.AWS.Athena.Types.WorkGroup.WorkGroup
-instance GHC.Classes.Eq Network.AWS.Athena.Types.WorkGroup.WorkGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.WorkGroup.WorkGroup
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.WorkGroup.WorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.WorkGroup.WorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.Types.WorkGroup.WorkGroup
+instance GHC.Show.Show Amazonka.Athena.Types.WorkGroup.WorkGroup
+instance GHC.Read.Read Amazonka.Athena.Types.WorkGroup.WorkGroup
+instance GHC.Classes.Eq Amazonka.Athena.Types.WorkGroup.WorkGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.WorkGroup.WorkGroup
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.WorkGroup.WorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.WorkGroup.WorkGroup
 
 
-module Network.AWS.Athena.Types.WorkGroupSummary
+module Amazonka.Athena.Types.WorkGroupSummary
 
 -- | The summary information for the workgroup, which includes its name,
 --   state, description, and the date and time it was created.
@@ -2553,16 +2553,16 @@ workGroupSummary_name :: Lens' WorkGroupSummary (Maybe Text)
 
 -- | The workgroup description.
 workGroupSummary_description :: Lens' WorkGroupSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Athena.Types.WorkGroupSummary.WorkGroupSummary
-instance GHC.Show.Show Network.AWS.Athena.Types.WorkGroupSummary.WorkGroupSummary
-instance GHC.Read.Read Network.AWS.Athena.Types.WorkGroupSummary.WorkGroupSummary
-instance GHC.Classes.Eq Network.AWS.Athena.Types.WorkGroupSummary.WorkGroupSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Athena.Types.WorkGroupSummary.WorkGroupSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.Types.WorkGroupSummary.WorkGroupSummary
-instance Control.DeepSeq.NFData Network.AWS.Athena.Types.WorkGroupSummary.WorkGroupSummary
+instance GHC.Generics.Generic Amazonka.Athena.Types.WorkGroupSummary.WorkGroupSummary
+instance GHC.Show.Show Amazonka.Athena.Types.WorkGroupSummary.WorkGroupSummary
+instance GHC.Read.Read Amazonka.Athena.Types.WorkGroupSummary.WorkGroupSummary
+instance GHC.Classes.Eq Amazonka.Athena.Types.WorkGroupSummary.WorkGroupSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Athena.Types.WorkGroupSummary.WorkGroupSummary
+instance Data.Hashable.Class.Hashable Amazonka.Athena.Types.WorkGroupSummary.WorkGroupSummary
+instance Control.DeepSeq.NFData Amazonka.Athena.Types.WorkGroupSummary.WorkGroupSummary
 
 
-module Network.AWS.Athena.Types
+module Amazonka.Athena.Types
 
 -- | API version <tt>2017-05-18</tt> of the Amazon Athena SDK
 --   configuration.
@@ -4743,7 +4743,7 @@ workGroupSummary_description :: Lens' WorkGroupSummary (Maybe Text)
 --   and the following characters: + - = . _ : / @. Tag keys and values are
 --   case-sensitive. Tag keys must be unique per resource. If you specify
 --   more than one tag, separate them by commas.
-module Network.AWS.Athena.TagResource
+module Amazonka.Athena.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4805,22 +4805,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Athena.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Athena.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Athena.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Athena.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Athena.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Athena.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Athena.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Athena.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Athena.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Athena.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Athena.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Athena.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Athena.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Athena.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Athena.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Athena.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Athena.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Athena.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Athena.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.TagResource.TagResource
 
 
 -- | Stops a query execution. Requires you to have access to the workgroup
@@ -4829,7 +4829,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.TagResource.TagResour
 --   For code samples using the Amazon Web Services SDK for Java, see
 --   <a>Examples and Code Samples</a> in the <i>Amazon Athena User
 --   Guide</i>.
-module Network.AWS.Athena.StopQueryExecution
+module Amazonka.Athena.StopQueryExecution
 
 -- | <i>See:</i> <a>newStopQueryExecution</a> smart constructor.
 data StopQueryExecution
@@ -4878,22 +4878,22 @@ newStopQueryExecutionResponse :: Int -> StopQueryExecutionResponse
 
 -- | The response's http status code.
 stopQueryExecutionResponse_httpStatus :: Lens' StopQueryExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance GHC.Show.Show Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance GHC.Read.Read Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance GHC.Classes.Eq Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance GHC.Generics.Generic Network.AWS.Athena.StopQueryExecution.StopQueryExecutionResponse
-instance GHC.Show.Show Network.AWS.Athena.StopQueryExecution.StopQueryExecutionResponse
-instance GHC.Read.Read Network.AWS.Athena.StopQueryExecution.StopQueryExecutionResponse
-instance GHC.Classes.Eq Network.AWS.Athena.StopQueryExecution.StopQueryExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.StopQueryExecution.StopQueryExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.StopQueryExecution.StopQueryExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.StopQueryExecution.StopQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance GHC.Show.Show Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance GHC.Read.Read Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance GHC.Classes.Eq Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.StopQueryExecution.StopQueryExecutionResponse
+instance GHC.Show.Show Amazonka.Athena.StopQueryExecution.StopQueryExecutionResponse
+instance GHC.Read.Read Amazonka.Athena.StopQueryExecution.StopQueryExecutionResponse
+instance GHC.Classes.Eq Amazonka.Athena.StopQueryExecution.StopQueryExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.StopQueryExecution.StopQueryExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.StopQueryExecution.StopQueryExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.StopQueryExecution.StopQueryExecution
 
 
 -- | Runs the SQL query statements contained in the <tt>Query</tt>.
@@ -4902,7 +4902,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.StopQueryExecution.St
 --   permission to the catalog. For code samples using the Amazon Web
 --   Services SDK for Java, see <a>Examples and Code Samples</a> in the
 --   <i>Amazon Athena User Guide</i>.
-module Network.AWS.Athena.StartQueryExecution
+module Amazonka.Athena.StartQueryExecution
 
 -- | <i>See:</i> <a>newStartQueryExecution</a> smart constructor.
 data StartQueryExecution
@@ -5048,26 +5048,26 @@ startQueryExecutionResponse_queryExecutionId :: Lens' StartQueryExecutionRespons
 
 -- | The response's http status code.
 startQueryExecutionResponse_httpStatus :: Lens' StartQueryExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance GHC.Show.Show Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance GHC.Read.Read Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance GHC.Classes.Eq Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance GHC.Generics.Generic Network.AWS.Athena.StartQueryExecution.StartQueryExecutionResponse
-instance GHC.Show.Show Network.AWS.Athena.StartQueryExecution.StartQueryExecutionResponse
-instance GHC.Read.Read Network.AWS.Athena.StartQueryExecution.StartQueryExecutionResponse
-instance GHC.Classes.Eq Network.AWS.Athena.StartQueryExecution.StartQueryExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.StartQueryExecution.StartQueryExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.StartQueryExecution.StartQueryExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.StartQueryExecution.StartQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance GHC.Show.Show Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance GHC.Read.Read Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance GHC.Classes.Eq Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.StartQueryExecution.StartQueryExecutionResponse
+instance GHC.Show.Show Amazonka.Athena.StartQueryExecution.StartQueryExecutionResponse
+instance GHC.Read.Read Amazonka.Athena.StartQueryExecution.StartQueryExecutionResponse
+instance GHC.Classes.Eq Amazonka.Athena.StartQueryExecution.StartQueryExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.StartQueryExecution.StartQueryExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.StartQueryExecution.StartQueryExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.StartQueryExecution.StartQueryExecution
 
 
 -- | Lists available workgroups for the account.
-module Network.AWS.Athena.ListWorkGroups
+module Amazonka.Athena.ListWorkGroups
 
 -- | <i>See:</i> <a>newListWorkGroups</a> smart constructor.
 data ListWorkGroups
@@ -5166,29 +5166,29 @@ listWorkGroupsResponse_workGroups :: Lens' ListWorkGroupsResponse (Maybe [WorkGr
 
 -- | The response's http status code.
 listWorkGroupsResponse_httpStatus :: Lens' ListWorkGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance GHC.Show.Show Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance GHC.Read.Read Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance GHC.Classes.Eq Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance GHC.Generics.Generic Network.AWS.Athena.ListWorkGroups.ListWorkGroupsResponse
-instance GHC.Show.Show Network.AWS.Athena.ListWorkGroups.ListWorkGroupsResponse
-instance GHC.Read.Read Network.AWS.Athena.ListWorkGroups.ListWorkGroupsResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListWorkGroups.ListWorkGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListWorkGroups.ListWorkGroupsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListWorkGroups.ListWorkGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListWorkGroups.ListWorkGroups
+instance GHC.Generics.Generic Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance GHC.Show.Show Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance GHC.Read.Read Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance GHC.Classes.Eq Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance GHC.Generics.Generic Amazonka.Athena.ListWorkGroups.ListWorkGroupsResponse
+instance GHC.Show.Show Amazonka.Athena.ListWorkGroups.ListWorkGroupsResponse
+instance GHC.Read.Read Amazonka.Athena.ListWorkGroups.ListWorkGroupsResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListWorkGroups.ListWorkGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance Control.DeepSeq.NFData Amazonka.Athena.ListWorkGroups.ListWorkGroupsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance Control.DeepSeq.NFData Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListWorkGroups.ListWorkGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListWorkGroups.ListWorkGroups
 
 
 -- | Lists the tags associated with an Athena workgroup or data catalog
 --   resource.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Athena.ListTagsForResource
+module Amazonka.Athena.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -5285,30 +5285,30 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Athena.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Athena.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Athena.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Athena.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Athena.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Athena.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Athena.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Pager.AWSPager Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the metadata for the tables in the specified data catalog
 --   database.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Athena.ListTableMetadata
+module Amazonka.Athena.ListTableMetadata
 
 -- | <i>See:</i> <a>newListTableMetadata</a> smart constructor.
 data ListTableMetadata
@@ -5438,23 +5438,23 @@ listTableMetadataResponse_tableMetadataList :: Lens' ListTableMetadataResponse (
 
 -- | The response's http status code.
 listTableMetadataResponse_httpStatus :: Lens' ListTableMetadataResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance GHC.Show.Show Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance GHC.Read.Read Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance GHC.Classes.Eq Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance GHC.Generics.Generic Network.AWS.Athena.ListTableMetadata.ListTableMetadataResponse
-instance GHC.Show.Show Network.AWS.Athena.ListTableMetadata.ListTableMetadataResponse
-instance GHC.Read.Read Network.AWS.Athena.ListTableMetadata.ListTableMetadataResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListTableMetadata.ListTableMetadataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListTableMetadata.ListTableMetadataResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListTableMetadata.ListTableMetadata
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListTableMetadata.ListTableMetadata
+instance GHC.Generics.Generic Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance GHC.Show.Show Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance GHC.Read.Read Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance GHC.Classes.Eq Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance GHC.Generics.Generic Amazonka.Athena.ListTableMetadata.ListTableMetadataResponse
+instance GHC.Show.Show Amazonka.Athena.ListTableMetadata.ListTableMetadataResponse
+instance GHC.Read.Read Amazonka.Athena.ListTableMetadata.ListTableMetadataResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListTableMetadata.ListTableMetadataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance Control.DeepSeq.NFData Amazonka.Athena.ListTableMetadata.ListTableMetadataResponse
+instance Amazonka.Pager.AWSPager Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance Control.DeepSeq.NFData Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListTableMetadata.ListTableMetadata
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListTableMetadata.ListTableMetadata
 
 
 -- | Provides a list of available query execution IDs for the queries in
@@ -5467,7 +5467,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListTableMetadata.Lis
 --   Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Athena.ListQueryExecutions
+module Amazonka.Athena.ListQueryExecutions
 
 -- | <i>See:</i> <a>newListQueryExecutions</a> smart constructor.
 data ListQueryExecutions
@@ -5570,27 +5570,27 @@ listQueryExecutionsResponse_nextToken :: Lens' ListQueryExecutionsResponse (Mayb
 
 -- | The response's http status code.
 listQueryExecutionsResponse_httpStatus :: Lens' ListQueryExecutionsResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance GHC.Show.Show Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance GHC.Read.Read Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance GHC.Classes.Eq Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance GHC.Generics.Generic Network.AWS.Athena.ListQueryExecutions.ListQueryExecutionsResponse
-instance GHC.Show.Show Network.AWS.Athena.ListQueryExecutions.ListQueryExecutionsResponse
-instance GHC.Read.Read Network.AWS.Athena.ListQueryExecutions.ListQueryExecutionsResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListQueryExecutions.ListQueryExecutionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListQueryExecutions.ListQueryExecutionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListQueryExecutions.ListQueryExecutions
+instance GHC.Generics.Generic Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance GHC.Show.Show Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance GHC.Read.Read Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance GHC.Classes.Eq Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance GHC.Generics.Generic Amazonka.Athena.ListQueryExecutions.ListQueryExecutionsResponse
+instance GHC.Show.Show Amazonka.Athena.ListQueryExecutions.ListQueryExecutionsResponse
+instance GHC.Read.Read Amazonka.Athena.ListQueryExecutions.ListQueryExecutionsResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListQueryExecutions.ListQueryExecutionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance Control.DeepSeq.NFData Amazonka.Athena.ListQueryExecutions.ListQueryExecutionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance Control.DeepSeq.NFData Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListQueryExecutions.ListQueryExecutions
 
 
 -- | Lists the prepared statements in the specfied workgroup.
-module Network.AWS.Athena.ListPreparedStatements
+module Amazonka.Athena.ListPreparedStatements
 
 -- | <i>See:</i> <a>newListPreparedStatements</a> smart constructor.
 data ListPreparedStatements
@@ -5698,22 +5698,22 @@ listPreparedStatementsResponse_nextToken :: Lens' ListPreparedStatementsResponse
 
 -- | The response's http status code.
 listPreparedStatementsResponse_httpStatus :: Lens' ListPreparedStatementsResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance GHC.Show.Show Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance GHC.Read.Read Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance GHC.Classes.Eq Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance GHC.Generics.Generic Network.AWS.Athena.ListPreparedStatements.ListPreparedStatementsResponse
-instance GHC.Show.Show Network.AWS.Athena.ListPreparedStatements.ListPreparedStatementsResponse
-instance GHC.Read.Read Network.AWS.Athena.ListPreparedStatements.ListPreparedStatementsResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListPreparedStatements.ListPreparedStatementsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListPreparedStatements.ListPreparedStatementsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListPreparedStatements.ListPreparedStatements
+instance GHC.Generics.Generic Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance GHC.Show.Show Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance GHC.Read.Read Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance GHC.Classes.Eq Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance GHC.Generics.Generic Amazonka.Athena.ListPreparedStatements.ListPreparedStatementsResponse
+instance GHC.Show.Show Amazonka.Athena.ListPreparedStatements.ListPreparedStatementsResponse
+instance GHC.Read.Read Amazonka.Athena.ListPreparedStatements.ListPreparedStatementsResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListPreparedStatements.ListPreparedStatementsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance Control.DeepSeq.NFData Amazonka.Athena.ListPreparedStatements.ListPreparedStatementsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance Control.DeepSeq.NFData Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListPreparedStatements.ListPreparedStatements
 
 
 -- | Provides a list of available query IDs only for queries saved in the
@@ -5726,7 +5726,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListPreparedStatement
 --   Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Athena.ListNamedQueries
+module Amazonka.Athena.ListNamedQueries
 
 -- | <i>See:</i> <a>newListNamedQueries</a> smart constructor.
 data ListNamedQueries
@@ -5837,28 +5837,28 @@ listNamedQueriesResponse_namedQueryIds :: Lens' ListNamedQueriesResponse (Maybe 
 
 -- | The response's http status code.
 listNamedQueriesResponse_httpStatus :: Lens' ListNamedQueriesResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance GHC.Show.Show Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance GHC.Read.Read Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance GHC.Classes.Eq Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance GHC.Generics.Generic Network.AWS.Athena.ListNamedQueries.ListNamedQueriesResponse
-instance GHC.Show.Show Network.AWS.Athena.ListNamedQueries.ListNamedQueriesResponse
-instance GHC.Read.Read Network.AWS.Athena.ListNamedQueries.ListNamedQueriesResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListNamedQueries.ListNamedQueriesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListNamedQueries.ListNamedQueriesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListNamedQueries.ListNamedQueries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListNamedQueries.ListNamedQueries
+instance GHC.Generics.Generic Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance GHC.Show.Show Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance GHC.Read.Read Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance GHC.Classes.Eq Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance GHC.Generics.Generic Amazonka.Athena.ListNamedQueries.ListNamedQueriesResponse
+instance GHC.Show.Show Amazonka.Athena.ListNamedQueries.ListNamedQueriesResponse
+instance GHC.Read.Read Amazonka.Athena.ListNamedQueries.ListNamedQueriesResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListNamedQueries.ListNamedQueriesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance Control.DeepSeq.NFData Amazonka.Athena.ListNamedQueries.ListNamedQueriesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance Control.DeepSeq.NFData Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListNamedQueries.ListNamedQueries
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListNamedQueries.ListNamedQueries
 
 
 -- | Returns a list of engine versions that are available to choose from,
 --   including the Auto option.
-module Network.AWS.Athena.ListEngineVersions
+module Amazonka.Athena.ListEngineVersions
 
 -- | <i>See:</i> <a>newListEngineVersions</a> smart constructor.
 data ListEngineVersions
@@ -5954,28 +5954,28 @@ listEngineVersionsResponse_engineVersions :: Lens' ListEngineVersionsResponse (M
 
 -- | The response's http status code.
 listEngineVersionsResponse_httpStatus :: Lens' ListEngineVersionsResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance GHC.Show.Show Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance GHC.Read.Read Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance GHC.Classes.Eq Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance GHC.Generics.Generic Network.AWS.Athena.ListEngineVersions.ListEngineVersionsResponse
-instance GHC.Show.Show Network.AWS.Athena.ListEngineVersions.ListEngineVersionsResponse
-instance GHC.Read.Read Network.AWS.Athena.ListEngineVersions.ListEngineVersionsResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListEngineVersions.ListEngineVersionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListEngineVersions.ListEngineVersionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListEngineVersions.ListEngineVersions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListEngineVersions.ListEngineVersions
+instance GHC.Generics.Generic Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance GHC.Show.Show Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance GHC.Read.Read Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance GHC.Classes.Eq Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance GHC.Generics.Generic Amazonka.Athena.ListEngineVersions.ListEngineVersionsResponse
+instance GHC.Show.Show Amazonka.Athena.ListEngineVersions.ListEngineVersionsResponse
+instance GHC.Read.Read Amazonka.Athena.ListEngineVersions.ListEngineVersionsResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListEngineVersions.ListEngineVersionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance Control.DeepSeq.NFData Amazonka.Athena.ListEngineVersions.ListEngineVersionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance Control.DeepSeq.NFData Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListEngineVersions.ListEngineVersions
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListEngineVersions.ListEngineVersions
 
 
 -- | Lists the databases in the specified data catalog.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Athena.ListDatabases
+module Amazonka.Athena.ListDatabases
 
 -- | <i>See:</i> <a>newListDatabases</a> smart constructor.
 data ListDatabases
@@ -6079,29 +6079,29 @@ listDatabasesResponse_nextToken :: Lens' ListDatabasesResponse (Maybe Text)
 
 -- | The response's http status code.
 listDatabasesResponse_httpStatus :: Lens' ListDatabasesResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListDatabases.ListDatabases
-instance GHC.Show.Show Network.AWS.Athena.ListDatabases.ListDatabases
-instance GHC.Read.Read Network.AWS.Athena.ListDatabases.ListDatabases
-instance GHC.Classes.Eq Network.AWS.Athena.ListDatabases.ListDatabases
-instance GHC.Generics.Generic Network.AWS.Athena.ListDatabases.ListDatabasesResponse
-instance GHC.Show.Show Network.AWS.Athena.ListDatabases.ListDatabasesResponse
-instance GHC.Read.Read Network.AWS.Athena.ListDatabases.ListDatabasesResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListDatabases.ListDatabasesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListDatabases.ListDatabases
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListDatabases.ListDatabasesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Athena.ListDatabases.ListDatabases
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListDatabases.ListDatabases
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListDatabases.ListDatabases
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListDatabases.ListDatabases
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListDatabases.ListDatabases
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListDatabases.ListDatabases
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListDatabases.ListDatabases
+instance GHC.Generics.Generic Amazonka.Athena.ListDatabases.ListDatabases
+instance GHC.Show.Show Amazonka.Athena.ListDatabases.ListDatabases
+instance GHC.Read.Read Amazonka.Athena.ListDatabases.ListDatabases
+instance GHC.Classes.Eq Amazonka.Athena.ListDatabases.ListDatabases
+instance GHC.Generics.Generic Amazonka.Athena.ListDatabases.ListDatabasesResponse
+instance GHC.Show.Show Amazonka.Athena.ListDatabases.ListDatabasesResponse
+instance GHC.Read.Read Amazonka.Athena.ListDatabases.ListDatabasesResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListDatabases.ListDatabasesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListDatabases.ListDatabases
+instance Control.DeepSeq.NFData Amazonka.Athena.ListDatabases.ListDatabasesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Athena.ListDatabases.ListDatabases
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListDatabases.ListDatabases
+instance Control.DeepSeq.NFData Amazonka.Athena.ListDatabases.ListDatabases
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListDatabases.ListDatabases
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListDatabases.ListDatabases
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListDatabases.ListDatabases
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListDatabases.ListDatabases
 
 
 -- | Lists the data catalogs in the current Amazon Web Services account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Athena.ListDataCatalogs
+module Amazonka.Athena.ListDataCatalogs
 
 -- | <i>See:</i> <a>newListDataCatalogs</a> smart constructor.
 data ListDataCatalogs
@@ -6196,27 +6196,27 @@ listDataCatalogsResponse_nextToken :: Lens' ListDataCatalogsResponse (Maybe Text
 
 -- | The response's http status code.
 listDataCatalogsResponse_httpStatus :: Lens' ListDataCatalogsResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance GHC.Show.Show Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance GHC.Read.Read Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance GHC.Classes.Eq Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance GHC.Generics.Generic Network.AWS.Athena.ListDataCatalogs.ListDataCatalogsResponse
-instance GHC.Show.Show Network.AWS.Athena.ListDataCatalogs.ListDataCatalogsResponse
-instance GHC.Read.Read Network.AWS.Athena.ListDataCatalogs.ListDataCatalogsResponse
-instance GHC.Classes.Eq Network.AWS.Athena.ListDataCatalogs.ListDataCatalogsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListDataCatalogs.ListDataCatalogsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance Control.DeepSeq.NFData Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.ListDataCatalogs.ListDataCatalogs
+instance GHC.Generics.Generic Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance GHC.Show.Show Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance GHC.Read.Read Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance GHC.Classes.Eq Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance GHC.Generics.Generic Amazonka.Athena.ListDataCatalogs.ListDataCatalogsResponse
+instance GHC.Show.Show Amazonka.Athena.ListDataCatalogs.ListDataCatalogsResponse
+instance GHC.Read.Read Amazonka.Athena.ListDataCatalogs.ListDataCatalogsResponse
+instance GHC.Classes.Eq Amazonka.Athena.ListDataCatalogs.ListDataCatalogsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance Control.DeepSeq.NFData Amazonka.Athena.ListDataCatalogs.ListDataCatalogsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance Data.Hashable.Class.Hashable Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance Control.DeepSeq.NFData Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.ListDataCatalogs.ListDataCatalogs
 
 
 -- | Returns information about the workgroup with the specified name.
-module Network.AWS.Athena.GetWorkGroup
+module Amazonka.Athena.GetWorkGroup
 
 -- | <i>See:</i> <a>newGetWorkGroup</a> smart constructor.
 data GetWorkGroup
@@ -6274,26 +6274,26 @@ getWorkGroupResponse_workGroup :: Lens' GetWorkGroupResponse (Maybe WorkGroup)
 
 -- | The response's http status code.
 getWorkGroupResponse_httpStatus :: Lens' GetWorkGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance GHC.Show.Show Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance GHC.Read.Read Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance GHC.Classes.Eq Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance GHC.Generics.Generic Network.AWS.Athena.GetWorkGroup.GetWorkGroupResponse
-instance GHC.Show.Show Network.AWS.Athena.GetWorkGroup.GetWorkGroupResponse
-instance GHC.Read.Read Network.AWS.Athena.GetWorkGroup.GetWorkGroupResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetWorkGroup.GetWorkGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetWorkGroup.GetWorkGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetWorkGroup.GetWorkGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetWorkGroup.GetWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance GHC.Show.Show Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance GHC.Read.Read Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance GHC.Classes.Eq Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.GetWorkGroup.GetWorkGroupResponse
+instance GHC.Show.Show Amazonka.Athena.GetWorkGroup.GetWorkGroupResponse
+instance GHC.Read.Read Amazonka.Athena.GetWorkGroup.GetWorkGroupResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetWorkGroup.GetWorkGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.GetWorkGroup.GetWorkGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetWorkGroup.GetWorkGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetWorkGroup.GetWorkGroup
 
 
 -- | Returns table metadata for the specified catalog, database, and table.
-module Network.AWS.Athena.GetTableMetadata
+module Amazonka.Athena.GetTableMetadata
 
 -- | <i>See:</i> <a>newGetTableMetadata</a> smart constructor.
 data GetTableMetadata
@@ -6374,22 +6374,22 @@ getTableMetadataResponse_tableMetadata :: Lens' GetTableMetadataResponse (Maybe 
 
 -- | The response's http status code.
 getTableMetadataResponse_httpStatus :: Lens' GetTableMetadataResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance GHC.Show.Show Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance GHC.Read.Read Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance GHC.Classes.Eq Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance GHC.Generics.Generic Network.AWS.Athena.GetTableMetadata.GetTableMetadataResponse
-instance GHC.Show.Show Network.AWS.Athena.GetTableMetadata.GetTableMetadataResponse
-instance GHC.Read.Read Network.AWS.Athena.GetTableMetadata.GetTableMetadataResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetTableMetadata.GetTableMetadataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetTableMetadata.GetTableMetadataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetTableMetadata.GetTableMetadata
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetTableMetadata.GetTableMetadata
+instance GHC.Generics.Generic Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance GHC.Show.Show Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance GHC.Read.Read Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance GHC.Classes.Eq Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance GHC.Generics.Generic Amazonka.Athena.GetTableMetadata.GetTableMetadataResponse
+instance GHC.Show.Show Amazonka.Athena.GetTableMetadata.GetTableMetadataResponse
+instance GHC.Read.Read Amazonka.Athena.GetTableMetadata.GetTableMetadataResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetTableMetadata.GetTableMetadataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance Control.DeepSeq.NFData Amazonka.Athena.GetTableMetadata.GetTableMetadataResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance Control.DeepSeq.NFData Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetTableMetadata.GetTableMetadata
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetTableMetadata.GetTableMetadata
 
 
 -- | Streams the results of a single query execution specified by
@@ -6411,7 +6411,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetTableMetadata.GetT
 --   are denied.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Athena.GetQueryResults
+module Amazonka.Athena.GetQueryResults
 
 -- | <i>See:</i> <a>newGetQueryResults</a> smart constructor.
 data GetQueryResults
@@ -6529,30 +6529,30 @@ getQueryResultsResponse_resultSet :: Lens' GetQueryResultsResponse (Maybe Result
 
 -- | The response's http status code.
 getQueryResultsResponse_httpStatus :: Lens' GetQueryResultsResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance GHC.Show.Show Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance GHC.Read.Read Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance GHC.Classes.Eq Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance GHC.Generics.Generic Network.AWS.Athena.GetQueryResults.GetQueryResultsResponse
-instance GHC.Show.Show Network.AWS.Athena.GetQueryResults.GetQueryResultsResponse
-instance GHC.Read.Read Network.AWS.Athena.GetQueryResults.GetQueryResultsResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetQueryResults.GetQueryResultsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetQueryResults.GetQueryResultsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetQueryResults.GetQueryResults
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetQueryResults.GetQueryResults
+instance GHC.Generics.Generic Amazonka.Athena.GetQueryResults.GetQueryResults
+instance GHC.Show.Show Amazonka.Athena.GetQueryResults.GetQueryResults
+instance GHC.Read.Read Amazonka.Athena.GetQueryResults.GetQueryResults
+instance GHC.Classes.Eq Amazonka.Athena.GetQueryResults.GetQueryResults
+instance GHC.Generics.Generic Amazonka.Athena.GetQueryResults.GetQueryResultsResponse
+instance GHC.Show.Show Amazonka.Athena.GetQueryResults.GetQueryResultsResponse
+instance GHC.Read.Read Amazonka.Athena.GetQueryResults.GetQueryResultsResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetQueryResults.GetQueryResultsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetQueryResults.GetQueryResults
+instance Control.DeepSeq.NFData Amazonka.Athena.GetQueryResults.GetQueryResultsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Athena.GetQueryResults.GetQueryResults
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetQueryResults.GetQueryResults
+instance Control.DeepSeq.NFData Amazonka.Athena.GetQueryResults.GetQueryResults
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetQueryResults.GetQueryResults
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetQueryResults.GetQueryResults
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetQueryResults.GetQueryResults
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetQueryResults.GetQueryResults
 
 
 -- | Returns information about a single execution of a query if you have
 --   access to the workgroup in which the query ran. Each time a query
 --   executes, information about the query execution is saved with a unique
 --   ID.
-module Network.AWS.Athena.GetQueryExecution
+module Amazonka.Athena.GetQueryExecution
 
 -- | <i>See:</i> <a>newGetQueryExecution</a> smart constructor.
 data GetQueryExecution
@@ -6611,27 +6611,27 @@ getQueryExecutionResponse_queryExecution :: Lens' GetQueryExecutionResponse (May
 
 -- | The response's http status code.
 getQueryExecutionResponse_httpStatus :: Lens' GetQueryExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance GHC.Show.Show Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance GHC.Read.Read Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance GHC.Classes.Eq Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance GHC.Generics.Generic Network.AWS.Athena.GetQueryExecution.GetQueryExecutionResponse
-instance GHC.Show.Show Network.AWS.Athena.GetQueryExecution.GetQueryExecutionResponse
-instance GHC.Read.Read Network.AWS.Athena.GetQueryExecution.GetQueryExecutionResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetQueryExecution.GetQueryExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetQueryExecution.GetQueryExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetQueryExecution.GetQueryExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetQueryExecution.GetQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance GHC.Show.Show Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance GHC.Read.Read Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance GHC.Classes.Eq Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.GetQueryExecution.GetQueryExecutionResponse
+instance GHC.Show.Show Amazonka.Athena.GetQueryExecution.GetQueryExecutionResponse
+instance GHC.Read.Read Amazonka.Athena.GetQueryExecution.GetQueryExecutionResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetQueryExecution.GetQueryExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.GetQueryExecution.GetQueryExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetQueryExecution.GetQueryExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetQueryExecution.GetQueryExecution
 
 
 -- | Retrieves the prepared statement with the specified name from the
 --   specified workgroup.
-module Network.AWS.Athena.GetPreparedStatement
+module Amazonka.Athena.GetPreparedStatement
 
 -- | <i>See:</i> <a>newGetPreparedStatement</a> smart constructor.
 data GetPreparedStatement
@@ -6700,27 +6700,27 @@ getPreparedStatementResponse_preparedStatement :: Lens' GetPreparedStatementResp
 
 -- | The response's http status code.
 getPreparedStatementResponse_httpStatus :: Lens' GetPreparedStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance GHC.Show.Show Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance GHC.Read.Read Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance GHC.Classes.Eq Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance GHC.Generics.Generic Network.AWS.Athena.GetPreparedStatement.GetPreparedStatementResponse
-instance GHC.Show.Show Network.AWS.Athena.GetPreparedStatement.GetPreparedStatementResponse
-instance GHC.Read.Read Network.AWS.Athena.GetPreparedStatement.GetPreparedStatementResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetPreparedStatement.GetPreparedStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetPreparedStatement.GetPreparedStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetPreparedStatement.GetPreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance GHC.Show.Show Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance GHC.Read.Read Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance GHC.Classes.Eq Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.GetPreparedStatement.GetPreparedStatementResponse
+instance GHC.Show.Show Amazonka.Athena.GetPreparedStatement.GetPreparedStatementResponse
+instance GHC.Read.Read Amazonka.Athena.GetPreparedStatement.GetPreparedStatementResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetPreparedStatement.GetPreparedStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.GetPreparedStatement.GetPreparedStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetPreparedStatement.GetPreparedStatement
 
 
 -- | Returns information about a single query. Requires that you have
 --   access to the workgroup in which the query was saved.
-module Network.AWS.Athena.GetNamedQuery
+module Amazonka.Athena.GetNamedQuery
 
 -- | <i>See:</i> <a>newGetNamedQuery</a> smart constructor.
 data GetNamedQuery
@@ -6778,26 +6778,26 @@ getNamedQueryResponse_namedQuery :: Lens' GetNamedQueryResponse (Maybe NamedQuer
 
 -- | The response's http status code.
 getNamedQueryResponse_httpStatus :: Lens' GetNamedQueryResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance GHC.Show.Show Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance GHC.Read.Read Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance GHC.Classes.Eq Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance GHC.Generics.Generic Network.AWS.Athena.GetNamedQuery.GetNamedQueryResponse
-instance GHC.Show.Show Network.AWS.Athena.GetNamedQuery.GetNamedQueryResponse
-instance GHC.Read.Read Network.AWS.Athena.GetNamedQuery.GetNamedQueryResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetNamedQuery.GetNamedQueryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetNamedQuery.GetNamedQueryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetNamedQuery.GetNamedQuery
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetNamedQuery.GetNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance GHC.Show.Show Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance GHC.Read.Read Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance GHC.Classes.Eq Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.GetNamedQuery.GetNamedQueryResponse
+instance GHC.Show.Show Amazonka.Athena.GetNamedQuery.GetNamedQueryResponse
+instance GHC.Read.Read Amazonka.Athena.GetNamedQuery.GetNamedQueryResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetNamedQuery.GetNamedQueryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.GetNamedQuery.GetNamedQueryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetNamedQuery.GetNamedQuery
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetNamedQuery.GetNamedQuery
 
 
 -- | Returns a database object for the specified database and data catalog.
-module Network.AWS.Athena.GetDatabase
+module Amazonka.Athena.GetDatabase
 
 -- | <i>See:</i> <a>newGetDatabase</a> smart constructor.
 data GetDatabase
@@ -6862,26 +6862,26 @@ getDatabaseResponse_database :: Lens' GetDatabaseResponse (Maybe Database)
 
 -- | The response's http status code.
 getDatabaseResponse_httpStatus :: Lens' GetDatabaseResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetDatabase.GetDatabase
-instance GHC.Show.Show Network.AWS.Athena.GetDatabase.GetDatabase
-instance GHC.Read.Read Network.AWS.Athena.GetDatabase.GetDatabase
-instance GHC.Classes.Eq Network.AWS.Athena.GetDatabase.GetDatabase
-instance GHC.Generics.Generic Network.AWS.Athena.GetDatabase.GetDatabaseResponse
-instance GHC.Show.Show Network.AWS.Athena.GetDatabase.GetDatabaseResponse
-instance GHC.Read.Read Network.AWS.Athena.GetDatabase.GetDatabaseResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetDatabase.GetDatabaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetDatabase.GetDatabase
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetDatabase.GetDatabaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetDatabase.GetDatabase
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetDatabase.GetDatabase
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetDatabase.GetDatabase
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetDatabase.GetDatabase
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetDatabase.GetDatabase
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetDatabase.GetDatabase
+instance GHC.Generics.Generic Amazonka.Athena.GetDatabase.GetDatabase
+instance GHC.Show.Show Amazonka.Athena.GetDatabase.GetDatabase
+instance GHC.Read.Read Amazonka.Athena.GetDatabase.GetDatabase
+instance GHC.Classes.Eq Amazonka.Athena.GetDatabase.GetDatabase
+instance GHC.Generics.Generic Amazonka.Athena.GetDatabase.GetDatabaseResponse
+instance GHC.Show.Show Amazonka.Athena.GetDatabase.GetDatabaseResponse
+instance GHC.Read.Read Amazonka.Athena.GetDatabase.GetDatabaseResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetDatabase.GetDatabaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetDatabase.GetDatabase
+instance Control.DeepSeq.NFData Amazonka.Athena.GetDatabase.GetDatabaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetDatabase.GetDatabase
+instance Control.DeepSeq.NFData Amazonka.Athena.GetDatabase.GetDatabase
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetDatabase.GetDatabase
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetDatabase.GetDatabase
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetDatabase.GetDatabase
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetDatabase.GetDatabase
 
 
 -- | Returns the specified data catalog.
-module Network.AWS.Athena.GetDataCatalog
+module Amazonka.Athena.GetDataCatalog
 
 -- | <i>See:</i> <a>newGetDataCatalog</a> smart constructor.
 data GetDataCatalog
@@ -6938,27 +6938,27 @@ getDataCatalogResponse_dataCatalog :: Lens' GetDataCatalogResponse (Maybe DataCa
 
 -- | The response's http status code.
 getDataCatalogResponse_httpStatus :: Lens' GetDataCatalogResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance GHC.Show.Show Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance GHC.Read.Read Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance GHC.Classes.Eq Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance GHC.Generics.Generic Network.AWS.Athena.GetDataCatalog.GetDataCatalogResponse
-instance GHC.Show.Show Network.AWS.Athena.GetDataCatalog.GetDataCatalogResponse
-instance GHC.Read.Read Network.AWS.Athena.GetDataCatalog.GetDataCatalogResponse
-instance GHC.Classes.Eq Network.AWS.Athena.GetDataCatalog.GetDataCatalogResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetDataCatalog.GetDataCatalogResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.GetDataCatalog.GetDataCatalog
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.GetDataCatalog.GetDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance GHC.Show.Show Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance GHC.Read.Read Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance GHC.Classes.Eq Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.GetDataCatalog.GetDataCatalogResponse
+instance GHC.Show.Show Amazonka.Athena.GetDataCatalog.GetDataCatalogResponse
+instance GHC.Read.Read Amazonka.Athena.GetDataCatalog.GetDataCatalogResponse
+instance GHC.Classes.Eq Amazonka.Athena.GetDataCatalog.GetDataCatalogResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.GetDataCatalog.GetDataCatalogResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.GetDataCatalog.GetDataCatalog
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.GetDataCatalog.GetDataCatalog
 
 
 -- | Deletes the workgroup with the specified name. The primary workgroup
 --   cannot be deleted.
-module Network.AWS.Athena.DeleteWorkGroup
+module Amazonka.Athena.DeleteWorkGroup
 
 -- | <i>See:</i> <a>newDeleteWorkGroup</a> smart constructor.
 data DeleteWorkGroup
@@ -7020,27 +7020,27 @@ newDeleteWorkGroupResponse :: Int -> DeleteWorkGroupResponse
 
 -- | The response's http status code.
 deleteWorkGroupResponse_httpStatus :: Lens' DeleteWorkGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance GHC.Show.Show Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance GHC.Read.Read Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance GHC.Classes.Eq Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance GHC.Generics.Generic Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
-instance GHC.Show.Show Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
-instance GHC.Read.Read Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
-instance GHC.Classes.Eq Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance GHC.Show.Show Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance GHC.Read.Read Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance GHC.Classes.Eq Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
+instance GHC.Show.Show Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
+instance GHC.Read.Read Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
+instance GHC.Classes.Eq Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.DeleteWorkGroup.DeleteWorkGroup
 
 
 -- | Deletes the prepared statement with the specified name from the
 --   specified workgroup.
-module Network.AWS.Athena.DeletePreparedStatement
+module Amazonka.Athena.DeletePreparedStatement
 
 -- | <i>See:</i> <a>newDeletePreparedStatement</a> smart constructor.
 data DeletePreparedStatement
@@ -7100,22 +7100,22 @@ newDeletePreparedStatementResponse :: Int -> DeletePreparedStatementResponse
 
 -- | The response's http status code.
 deletePreparedStatementResponse_httpStatus :: Lens' DeletePreparedStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance GHC.Show.Show Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance GHC.Read.Read Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance GHC.Classes.Eq Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance GHC.Generics.Generic Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
-instance GHC.Show.Show Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
-instance GHC.Read.Read Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
-instance GHC.Classes.Eq Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance GHC.Show.Show Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance GHC.Read.Read Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance GHC.Classes.Eq Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
+instance GHC.Show.Show Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
+instance GHC.Read.Read Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
+instance GHC.Classes.Eq Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.DeletePreparedStatement.DeletePreparedStatement
 
 
 -- | Deletes the named query if you have access to the workgroup in which
@@ -7124,7 +7124,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.DeletePreparedStateme
 --   For code samples using the Amazon Web Services SDK for Java, see
 --   <a>Examples and Code Samples</a> in the <i>Amazon Athena User
 --   Guide</i>.
-module Network.AWS.Athena.DeleteNamedQuery
+module Amazonka.Athena.DeleteNamedQuery
 
 -- | <i>See:</i> <a>newDeleteNamedQuery</a> smart constructor.
 data DeleteNamedQuery
@@ -7173,26 +7173,26 @@ newDeleteNamedQueryResponse :: Int -> DeleteNamedQueryResponse
 
 -- | The response's http status code.
 deleteNamedQueryResponse_httpStatus :: Lens' DeleteNamedQueryResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance GHC.Show.Show Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance GHC.Read.Read Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance GHC.Classes.Eq Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance GHC.Generics.Generic Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
-instance GHC.Show.Show Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
-instance GHC.Read.Read Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
-instance GHC.Classes.Eq Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance GHC.Show.Show Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance GHC.Read.Read Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance GHC.Classes.Eq Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
+instance GHC.Show.Show Amazonka.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
+instance GHC.Read.Read Amazonka.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
+instance GHC.Classes.Eq Amazonka.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.DeleteNamedQuery.DeleteNamedQueryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.DeleteNamedQuery.DeleteNamedQuery
 
 
 -- | Deletes a data catalog.
-module Network.AWS.Athena.DeleteDataCatalog
+module Amazonka.Athena.DeleteDataCatalog
 
 -- | <i>See:</i> <a>newDeleteDataCatalog</a> smart constructor.
 data DeleteDataCatalog
@@ -7240,26 +7240,26 @@ newDeleteDataCatalogResponse :: Int -> DeleteDataCatalogResponse
 
 -- | The response's http status code.
 deleteDataCatalogResponse_httpStatus :: Lens' DeleteDataCatalogResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance GHC.Show.Show Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance GHC.Read.Read Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance GHC.Classes.Eq Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance GHC.Generics.Generic Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
-instance GHC.Show.Show Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
-instance GHC.Read.Read Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
-instance GHC.Classes.Eq Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance GHC.Show.Show Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance GHC.Read.Read Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance GHC.Classes.Eq Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
+instance GHC.Show.Show Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
+instance GHC.Read.Read Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
+instance GHC.Classes.Eq Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalogResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.DeleteDataCatalog.DeleteDataCatalog
 
 
 -- | Creates a workgroup with the specified name.
-module Network.AWS.Athena.CreateWorkGroup
+module Amazonka.Athena.CreateWorkGroup
 
 -- | <i>See:</i> <a>newCreateWorkGroup</a> smart constructor.
 data CreateWorkGroup
@@ -7360,26 +7360,26 @@ newCreateWorkGroupResponse :: Int -> CreateWorkGroupResponse
 
 -- | The response's http status code.
 createWorkGroupResponse_httpStatus :: Lens' CreateWorkGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance GHC.Show.Show Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance GHC.Read.Read Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance GHC.Classes.Eq Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance GHC.Generics.Generic Network.AWS.Athena.CreateWorkGroup.CreateWorkGroupResponse
-instance GHC.Show.Show Network.AWS.Athena.CreateWorkGroup.CreateWorkGroupResponse
-instance GHC.Read.Read Network.AWS.Athena.CreateWorkGroup.CreateWorkGroupResponse
-instance GHC.Classes.Eq Network.AWS.Athena.CreateWorkGroup.CreateWorkGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreateWorkGroup.CreateWorkGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.CreateWorkGroup.CreateWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance GHC.Show.Show Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance GHC.Read.Read Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance GHC.Classes.Eq Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.CreateWorkGroup.CreateWorkGroupResponse
+instance GHC.Show.Show Amazonka.Athena.CreateWorkGroup.CreateWorkGroupResponse
+instance GHC.Read.Read Amazonka.Athena.CreateWorkGroup.CreateWorkGroupResponse
+instance GHC.Classes.Eq Amazonka.Athena.CreateWorkGroup.CreateWorkGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.CreateWorkGroup.CreateWorkGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.CreateWorkGroup.CreateWorkGroup
 
 
 -- | Creates a prepared statement for use with SQL queries in Athena.
-module Network.AWS.Athena.CreatePreparedStatement
+module Amazonka.Athena.CreatePreparedStatement
 
 -- | <i>See:</i> <a>newCreatePreparedStatement</a> smart constructor.
 data CreatePreparedStatement
@@ -7459,22 +7459,22 @@ newCreatePreparedStatementResponse :: Int -> CreatePreparedStatementResponse
 
 -- | The response's http status code.
 createPreparedStatementResponse_httpStatus :: Lens' CreatePreparedStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance GHC.Show.Show Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance GHC.Read.Read Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance GHC.Classes.Eq Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance GHC.Generics.Generic Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
-instance GHC.Show.Show Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
-instance GHC.Read.Read Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
-instance GHC.Classes.Eq Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance GHC.Show.Show Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance GHC.Read.Read Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance GHC.Classes.Eq Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
+instance GHC.Show.Show Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
+instance GHC.Read.Read Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
+instance GHC.Classes.Eq Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.CreatePreparedStatement.CreatePreparedStatement
 
 
 -- | Creates a named query in the specified workgroup. Requires that you
@@ -7483,7 +7483,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.CreatePreparedStateme
 --   For code samples using the Amazon Web Services SDK for Java, see
 --   <a>Examples and Code Samples</a> in the <i>Amazon Athena User
 --   Guide</i>.
-module Network.AWS.Athena.CreateNamedQuery
+module Amazonka.Athena.CreateNamedQuery
 
 -- | <i>See:</i> <a>newCreateNamedQuery</a> smart constructor.
 data CreateNamedQuery
@@ -7620,28 +7620,28 @@ createNamedQueryResponse_namedQueryId :: Lens' CreateNamedQueryResponse (Maybe T
 
 -- | The response's http status code.
 createNamedQueryResponse_httpStatus :: Lens' CreateNamedQueryResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance GHC.Show.Show Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance GHC.Read.Read Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance GHC.Classes.Eq Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance GHC.Generics.Generic Network.AWS.Athena.CreateNamedQuery.CreateNamedQueryResponse
-instance GHC.Show.Show Network.AWS.Athena.CreateNamedQuery.CreateNamedQueryResponse
-instance GHC.Read.Read Network.AWS.Athena.CreateNamedQuery.CreateNamedQueryResponse
-instance GHC.Classes.Eq Network.AWS.Athena.CreateNamedQuery.CreateNamedQueryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreateNamedQuery.CreateNamedQueryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.CreateNamedQuery.CreateNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance GHC.Show.Show Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance GHC.Read.Read Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance GHC.Classes.Eq Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.CreateNamedQuery.CreateNamedQueryResponse
+instance GHC.Show.Show Amazonka.Athena.CreateNamedQuery.CreateNamedQueryResponse
+instance GHC.Read.Read Amazonka.Athena.CreateNamedQuery.CreateNamedQueryResponse
+instance GHC.Classes.Eq Amazonka.Athena.CreateNamedQuery.CreateNamedQueryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.CreateNamedQuery.CreateNamedQueryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.CreateNamedQuery.CreateNamedQuery
 
 
 -- | Creates (registers) a data catalog with the specified name and
 --   properties. Catalogs created are visible to all users of the same
 --   Amazon Web Services account.
-module Network.AWS.Athena.CreateDataCatalog
+module Amazonka.Athena.CreateDataCatalog
 
 -- | <i>See:</i> <a>newCreateDataCatalog</a> smart constructor.
 data CreateDataCatalog
@@ -7831,22 +7831,22 @@ newCreateDataCatalogResponse :: Int -> CreateDataCatalogResponse
 
 -- | The response's http status code.
 createDataCatalogResponse_httpStatus :: Lens' CreateDataCatalogResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance GHC.Show.Show Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance GHC.Read.Read Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance GHC.Classes.Eq Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance GHC.Generics.Generic Network.AWS.Athena.CreateDataCatalog.CreateDataCatalogResponse
-instance GHC.Show.Show Network.AWS.Athena.CreateDataCatalog.CreateDataCatalogResponse
-instance GHC.Read.Read Network.AWS.Athena.CreateDataCatalog.CreateDataCatalogResponse
-instance GHC.Classes.Eq Network.AWS.Athena.CreateDataCatalog.CreateDataCatalogResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreateDataCatalog.CreateDataCatalogResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.CreateDataCatalog.CreateDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance GHC.Show.Show Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance GHC.Read.Read Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance GHC.Classes.Eq Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.CreateDataCatalog.CreateDataCatalogResponse
+instance GHC.Show.Show Amazonka.Athena.CreateDataCatalog.CreateDataCatalogResponse
+instance GHC.Read.Read Amazonka.Athena.CreateDataCatalog.CreateDataCatalogResponse
+instance GHC.Classes.Eq Amazonka.Athena.CreateDataCatalog.CreateDataCatalogResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.CreateDataCatalog.CreateDataCatalogResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.CreateDataCatalog.CreateDataCatalog
 
 
 -- | Returns the details of a single query execution or a list of up to 50
@@ -7856,7 +7856,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.CreateDataCatalog.Cre
 --   ListQueryExecutionsInput$WorkGroup. Query executions differ from named
 --   (saved) queries. Use BatchGetNamedQueryInput to get details about
 --   named queries.
-module Network.AWS.Athena.BatchGetQueryExecution
+module Amazonka.Athena.BatchGetQueryExecution
 
 -- | <i>See:</i> <a>newBatchGetQueryExecution</a> smart constructor.
 data BatchGetQueryExecution
@@ -7927,22 +7927,22 @@ batchGetQueryExecutionResponse_queryExecutions :: Lens' BatchGetQueryExecutionRe
 
 -- | The response's http status code.
 batchGetQueryExecutionResponse_httpStatus :: Lens' BatchGetQueryExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance GHC.Show.Show Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance GHC.Read.Read Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance GHC.Classes.Eq Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance GHC.Generics.Generic Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
-instance GHC.Show.Show Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
-instance GHC.Read.Read Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
-instance GHC.Classes.Eq Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance Control.DeepSeq.NFData Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance GHC.Show.Show Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance GHC.Read.Read Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance GHC.Classes.Eq Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance GHC.Generics.Generic Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
+instance GHC.Show.Show Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
+instance GHC.Read.Read Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
+instance GHC.Classes.Eq Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance Control.DeepSeq.NFData Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.BatchGetQueryExecution.BatchGetQueryExecution
 
 
 -- | Returns the details of a single named query or a list of up to 50
@@ -7955,7 +7955,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.BatchGetQueryExecutio
 --   queries. Use BatchGetQueryExecutionInput to get details about each
 --   unique query execution, and ListQueryExecutionsInput to get a list of
 --   query execution IDs.
-module Network.AWS.Athena.BatchGetNamedQuery
+module Amazonka.Athena.BatchGetNamedQuery
 
 -- | <i>See:</i> <a>newBatchGetNamedQuery</a> smart constructor.
 data BatchGetNamedQuery
@@ -8023,26 +8023,26 @@ batchGetNamedQueryResponse_unprocessedNamedQueryIds :: Lens' BatchGetNamedQueryR
 
 -- | The response's http status code.
 batchGetNamedQueryResponse_httpStatus :: Lens' BatchGetNamedQueryResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance GHC.Show.Show Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance GHC.Read.Read Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance GHC.Classes.Eq Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance GHC.Generics.Generic Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
-instance GHC.Show.Show Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
-instance GHC.Read.Read Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
-instance GHC.Classes.Eq Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance Control.DeepSeq.NFData Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance GHC.Show.Show Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance GHC.Read.Read Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance GHC.Classes.Eq Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance GHC.Generics.Generic Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
+instance GHC.Show.Show Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
+instance GHC.Read.Read Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
+instance GHC.Classes.Eq Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQueryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance Control.DeepSeq.NFData Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.BatchGetNamedQuery.BatchGetNamedQuery
 
 
 -- | Removes one or more tags from a data catalog or workgroup resource.
-module Network.AWS.Athena.UntagResource
+module Amazonka.Athena.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -8103,26 +8103,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Athena.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Athena.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Athena.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Athena.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Athena.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Athena.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Athena.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Athena.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Athena.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Athena.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Athena.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Athena.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Athena.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Athena.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Athena.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Athena.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Athena.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Athena.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Athena.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.UntagResource.UntagResource
 
 
 -- | Updates the data catalog that has the specified name.
-module Network.AWS.Athena.UpdateDataCatalog
+module Amazonka.Athena.UpdateDataCatalog
 
 -- | <i>See:</i> <a>newUpdateDataCatalog</a> smart constructor.
 data UpdateDataCatalog
@@ -8267,26 +8267,26 @@ newUpdateDataCatalogResponse :: Int -> UpdateDataCatalogResponse
 
 -- | The response's http status code.
 updateDataCatalogResponse_httpStatus :: Lens' UpdateDataCatalogResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance GHC.Show.Show Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance GHC.Read.Read Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance GHC.Classes.Eq Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance GHC.Generics.Generic Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
-instance GHC.Show.Show Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
-instance GHC.Read.Read Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
-instance GHC.Classes.Eq Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance Control.DeepSeq.NFData Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance GHC.Show.Show Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance GHC.Read.Read Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance GHC.Classes.Eq Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance GHC.Generics.Generic Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
+instance GHC.Show.Show Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
+instance GHC.Read.Read Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
+instance GHC.Classes.Eq Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalogResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance Control.DeepSeq.NFData Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.UpdateDataCatalog.UpdateDataCatalog
 
 
 -- | Updates a prepared statement.
-module Network.AWS.Athena.UpdatePreparedStatement
+module Amazonka.Athena.UpdatePreparedStatement
 
 -- | <i>See:</i> <a>newUpdatePreparedStatement</a> smart constructor.
 data UpdatePreparedStatement
@@ -8366,27 +8366,27 @@ newUpdatePreparedStatementResponse :: Int -> UpdatePreparedStatementResponse
 
 -- | The response's http status code.
 updatePreparedStatementResponse_httpStatus :: Lens' UpdatePreparedStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance GHC.Show.Show Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance GHC.Read.Read Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance GHC.Classes.Eq Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance GHC.Generics.Generic Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
-instance GHC.Show.Show Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
-instance GHC.Read.Read Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
-instance GHC.Classes.Eq Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance Control.DeepSeq.NFData Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance GHC.Show.Show Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance GHC.Read.Read Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance GHC.Classes.Eq Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance GHC.Generics.Generic Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
+instance GHC.Show.Show Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
+instance GHC.Read.Read Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
+instance GHC.Classes.Eq Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance Control.DeepSeq.NFData Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.UpdatePreparedStatement.UpdatePreparedStatement
 
 
 -- | Updates the workgroup with the specified name. The workgroup's name
 --   cannot be changed.
-module Network.AWS.Athena.UpdateWorkGroup
+module Amazonka.Athena.UpdateWorkGroup
 
 -- | <i>See:</i> <a>newUpdateWorkGroup</a> smart constructor.
 data UpdateWorkGroup
@@ -8465,25 +8465,25 @@ newUpdateWorkGroupResponse :: Int -> UpdateWorkGroupResponse
 
 -- | The response's http status code.
 updateWorkGroupResponse_httpStatus :: Lens' UpdateWorkGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance GHC.Show.Show Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance GHC.Read.Read Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance GHC.Classes.Eq Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance GHC.Generics.Generic Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
-instance GHC.Show.Show Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
-instance GHC.Read.Read Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
-instance GHC.Classes.Eq Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance Control.DeepSeq.NFData Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance GHC.Show.Show Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance GHC.Read.Read Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance GHC.Classes.Eq Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance GHC.Generics.Generic Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
+instance GHC.Show.Show Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
+instance GHC.Read.Read Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
+instance GHC.Classes.Eq Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance Control.DeepSeq.NFData Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance Amazonka.Data.Path.ToPath Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.Athena.UpdateWorkGroup.UpdateWorkGroup
 
 
-module Network.AWS.Athena.Lens
+module Amazonka.Athena.Lens
 
 -- | A token generated by the Athena service that specifies where to
 --   continue pagination if a previous request was truncated. To obtain the
@@ -9639,7 +9639,7 @@ workGroupSummary_name :: Lens' WorkGroupSummary (Maybe Text)
 workGroupSummary_description :: Lens' WorkGroupSummary (Maybe Text)
 
 
-module Network.AWS.Athena.Waiters
+module Amazonka.Athena.Waiters
 
 
 -- | Derived from API version <tt>2017-05-18</tt> of the AWS service
@@ -9663,7 +9663,7 @@ module Network.AWS.Athena.Waiters
 --   For code samples using the Amazon Web Services SDK for Java, see
 --   <a>Examples and Code Samples</a> in the <i>Amazon Athena User
 --   Guide</i>.
-module Network.AWS.Athena
+module Amazonka.Athena
 
 -- | API version <tt>2017-05-18</tt> of the Amazon Athena SDK
 --   configuration.

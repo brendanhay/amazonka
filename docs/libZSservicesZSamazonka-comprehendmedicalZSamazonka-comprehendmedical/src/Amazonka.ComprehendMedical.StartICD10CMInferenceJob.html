@@ -1,0 +1,765 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ComprehendMedical.StartICD10CMInferenceJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts an asynchronous job to detect medical conditions and link them to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the ICD-10-CM ontology. Use the @DescribeICD10CMInferenceJob@ operation</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- to track the status of a job.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComprehendMedical.StartICD10CMInferenceJob</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#newStartICD10CMInferenceJob"><span class="hs-identifier">newStartICD10CMInferenceJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_kmsKey"><span class="hs-identifier">startICD10CMInferenceJob_kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_jobName"><span class="hs-identifier">startICD10CMInferenceJob_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_clientRequestToken"><span class="hs-identifier">startICD10CMInferenceJob_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_inputDataConfig"><span class="hs-identifier">startICD10CMInferenceJob_inputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_outputDataConfig"><span class="hs-identifier">startICD10CMInferenceJob_outputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_dataAccessRoleArn"><span class="hs-identifier">startICD10CMInferenceJob_dataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_languageCode"><span class="hs-identifier">startICD10CMInferenceJob_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier">StartICD10CMInferenceJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#newStartICD10CMInferenceJobResponse"><span class="hs-identifier">newStartICD10CMInferenceJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJobResponse_jobId"><span class="hs-identifier">startICD10CMInferenceJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJobResponse_httpStatus"><span class="hs-identifier">startICD10CMInferenceJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.html"><span class="hs-identifier">Amazonka.ComprehendMedical.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newStartICD10CMInferenceJob' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679212808"><span id="local-6989586621679212809"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartICD10CMInferenceJob"><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-var">StartICD10CMInferenceJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartICD10CMInferenceJob%27"><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">StartICD10CMInferenceJob'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An AWS Key Management Service key to encrypt your output files. If you</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- do not specify a key, the files are written in plain text.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AkmsKey%3AStartICD10CMInferenceJob%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AkmsKey%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The identifier of the job.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AjobName%3AStartICD10CMInferenceJob%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AjobName%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the request. If you don\'t set the client</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- request token, Amazon Comprehend Medical generates one.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStartICD10CMInferenceJob%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AclientRequestToken%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Specifies the format and location of the input data for the job.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AinputDataConfig%3AStartICD10CMInferenceJob%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; InputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AinputDataConfig%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Specifies where to send the output files.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AoutputDataConfig%3AStartICD10CMInferenceJob%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; OutputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AoutputDataConfig%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- (IAM) role that grants Amazon Comprehend Medical read access to your</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- input data. For more information, see</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations&gt;.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdataAccessRoleArn%3AStartICD10CMInferenceJob%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AdataAccessRoleArn%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The language of the input documents. All documents must be in the same</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AlanguageCode%3AStartICD10CMInferenceJob%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; LanguageCode
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AlanguageCode%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212796"><span id="local-6989586621679212798"><span class="annot"><span class="annottext">StartICD10CMInferenceJob -&gt; StartICD10CMInferenceJob -&gt; Bool
+(StartICD10CMInferenceJob -&gt; StartICD10CMInferenceJob -&gt; Bool)
+-&gt; (StartICD10CMInferenceJob -&gt; StartICD10CMInferenceJob -&gt; Bool)
+-&gt; Eq StartICD10CMInferenceJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartICD10CMInferenceJob -&gt; StartICD10CMInferenceJob -&gt; Bool
+$c/= :: StartICD10CMInferenceJob -&gt; StartICD10CMInferenceJob -&gt; Bool
+== :: StartICD10CMInferenceJob -&gt; StartICD10CMInferenceJob -&gt; Bool
+$c== :: StartICD10CMInferenceJob -&gt; StartICD10CMInferenceJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212787"><span id="local-6989586621679212789"><span id="local-6989586621679212791"><span id="local-6989586621679212793"><span class="annot"><span class="annottext">ReadPrec [StartICD10CMInferenceJob]
+ReadPrec StartICD10CMInferenceJob
+Int -&gt; ReadS StartICD10CMInferenceJob
+ReadS [StartICD10CMInferenceJob]
+(Int -&gt; ReadS StartICD10CMInferenceJob)
+-&gt; ReadS [StartICD10CMInferenceJob]
+-&gt; ReadPrec StartICD10CMInferenceJob
+-&gt; ReadPrec [StartICD10CMInferenceJob]
+-&gt; Read StartICD10CMInferenceJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartICD10CMInferenceJob]
+$creadListPrec :: ReadPrec [StartICD10CMInferenceJob]
+readPrec :: ReadPrec StartICD10CMInferenceJob
+$creadPrec :: ReadPrec StartICD10CMInferenceJob
+readList :: ReadS [StartICD10CMInferenceJob]
+$creadList :: ReadS [StartICD10CMInferenceJob]
+readsPrec :: Int -&gt; ReadS StartICD10CMInferenceJob
+$creadsPrec :: Int -&gt; ReadS StartICD10CMInferenceJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212780"><span id="local-6989586621679212782"><span id="local-6989586621679212784"><span class="annot"><span class="annottext">Int -&gt; StartICD10CMInferenceJob -&gt; ShowS
+[StartICD10CMInferenceJob] -&gt; ShowS
+StartICD10CMInferenceJob -&gt; String
+(Int -&gt; StartICD10CMInferenceJob -&gt; ShowS)
+-&gt; (StartICD10CMInferenceJob -&gt; String)
+-&gt; ([StartICD10CMInferenceJob] -&gt; ShowS)
+-&gt; Show StartICD10CMInferenceJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartICD10CMInferenceJob] -&gt; ShowS
+$cshowList :: [StartICD10CMInferenceJob] -&gt; ShowS
+show :: StartICD10CMInferenceJob -&gt; String
+$cshow :: StartICD10CMInferenceJob -&gt; String
+showsPrec :: Int -&gt; StartICD10CMInferenceJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartICD10CMInferenceJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartICD10CMInferenceJob -&gt; Rep StartICD10CMInferenceJob x)
+-&gt; (forall x.
+    Rep StartICD10CMInferenceJob x -&gt; StartICD10CMInferenceJob)
+-&gt; Generic StartICD10CMInferenceJob
+forall x.
+Rep StartICD10CMInferenceJob x -&gt; StartICD10CMInferenceJob
+forall x.
+StartICD10CMInferenceJob -&gt; Rep StartICD10CMInferenceJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartICD10CMInferenceJob x -&gt; StartICD10CMInferenceJob
+$cfrom :: forall x.
+StartICD10CMInferenceJob -&gt; Rep StartICD10CMInferenceJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'StartICD10CMInferenceJob' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'kmsKey', 'startICD10CMInferenceJob_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- do not specify a key, the files are written in plain text.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'jobName', 'startICD10CMInferenceJob_jobName' - The identifier of the job.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'clientRequestToken', 'startICD10CMInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- request token, Amazon Comprehend Medical generates one.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'inputDataConfig', 'startICD10CMInferenceJob_inputDataConfig' - Specifies the format and location of the input data for the job.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'outputDataConfig', 'startICD10CMInferenceJob_outputDataConfig' - Specifies where to send the output files.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'dataAccessRoleArn', 'startICD10CMInferenceJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- (IAM) role that grants Amazon Comprehend Medical read access to your</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- input data. For more information, see</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations&gt;.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'languageCode', 'startICD10CMInferenceJob_languageCode' - The language of the input documents. All documents must be in the same</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#newStartICD10CMInferenceJob"><span class="hs-identifier hs-type">newStartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'inputDataConfig'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'outputDataConfig'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'dataAccessRoleArn'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span>
+</span><span id="line-119"></span><span id="newStartICD10CMInferenceJob"><span class="annot"><span class="annottext">newStartICD10CMInferenceJob :: InputDataConfig
+-&gt; OutputDataConfig
+-&gt; Text
+-&gt; LanguageCode
+-&gt; StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#newStartICD10CMInferenceJob"><span class="hs-identifier hs-var hs-var">newStartICD10CMInferenceJob</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679212775"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212775"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679212774"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212774"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679212773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212773"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679212772"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212772"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; InputDataConfig
+-&gt; OutputDataConfig
+-&gt; Text
+-&gt; LanguageCode
+-&gt; StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKey:StartICD10CMInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AkmsKey%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobName:StartICD10CMInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AjobName%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartICD10CMInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AclientRequestToken%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartICD10CMInferenceJob' :: InputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AinputDataConfig%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212775"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputDataConfig:StartICD10CMInferenceJob' :: OutputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AoutputDataConfig%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212774"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartICD10CMInferenceJob' :: Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AdataAccessRoleArn%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212773"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:languageCode:StartICD10CMInferenceJob' :: LanguageCode
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AlanguageCode%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212772"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | An AWS Key Management Service key to encrypt your output files. If you</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- do not specify a key, the files are written in plain text.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_kmsKey"><span class="hs-identifier hs-type">startICD10CMInferenceJob_kmsKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="startICD10CMInferenceJob_kmsKey"><span class="annot"><span class="annottext">startICD10CMInferenceJob_kmsKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartICD10CMInferenceJob -&gt; f StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_kmsKey"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJob_kmsKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJob -&gt; Maybe Text)
+-&gt; (StartICD10CMInferenceJob
+    -&gt; Maybe Text -&gt; StartICD10CMInferenceJob)
+-&gt; Lens
+     StartICD10CMInferenceJob
+     StartICD10CMInferenceJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212769"><span class="annot"><span class="annottext">Maybe Text
+kmsKey :: Maybe Text
+$sel:kmsKey:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212769"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212769"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212768"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212767"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKey:StartICD10CMInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AkmsKey%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The identifier of the job.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_jobName"><span class="hs-identifier hs-type">startICD10CMInferenceJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="startICD10CMInferenceJob_jobName"><span class="annot"><span class="annottext">startICD10CMInferenceJob_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartICD10CMInferenceJob -&gt; f StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_jobName"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJob_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJob -&gt; Maybe Text)
+-&gt; (StartICD10CMInferenceJob
+    -&gt; Maybe Text -&gt; StartICD10CMInferenceJob)
+-&gt; Lens
+     StartICD10CMInferenceJob
+     StartICD10CMInferenceJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212766"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212766"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212766"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212765"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212764"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:StartICD10CMInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AjobName%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A unique identifier for the request. If you don\'t set the client</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- request token, Amazon Comprehend Medical generates one.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_clientRequestToken"><span class="hs-identifier hs-type">startICD10CMInferenceJob_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="startICD10CMInferenceJob_clientRequestToken"><span class="annot"><span class="annottext">startICD10CMInferenceJob_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartICD10CMInferenceJob -&gt; f StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_clientRequestToken"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJob_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJob -&gt; Maybe Text)
+-&gt; (StartICD10CMInferenceJob
+    -&gt; Maybe Text -&gt; StartICD10CMInferenceJob)
+-&gt; Lens
+     StartICD10CMInferenceJob
+     StartICD10CMInferenceJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212763"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212763"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212763"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212762"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212761"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartICD10CMInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AclientRequestToken%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Specifies the format and location of the input data for the job.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_inputDataConfig"><span class="hs-identifier hs-type">startICD10CMInferenceJob_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
+</span><span id="line-150"></span><span id="startICD10CMInferenceJob_inputDataConfig"><span class="annot"><span class="annottext">startICD10CMInferenceJob_inputDataConfig :: (InputDataConfig -&gt; f InputDataConfig)
+-&gt; StartICD10CMInferenceJob -&gt; f StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_inputDataConfig"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJob_inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJob -&gt; InputDataConfig)
+-&gt; (StartICD10CMInferenceJob
+    -&gt; InputDataConfig -&gt; StartICD10CMInferenceJob)
+-&gt; Lens
+     StartICD10CMInferenceJob
+     StartICD10CMInferenceJob
+     InputDataConfig
+     InputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212760"><span class="annot"><span class="annottext">InputDataConfig
+inputDataConfig :: InputDataConfig
+$sel:inputDataConfig:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; InputDataConfig
+</span><a href="#local-6989586621679212760"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212760"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212759"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212758"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartICD10CMInferenceJob' :: InputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AinputDataConfig%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Specifies where to send the output files.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_outputDataConfig"><span class="hs-identifier hs-type">startICD10CMInferenceJob_outputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span>
+</span><span id="line-154"></span><span id="startICD10CMInferenceJob_outputDataConfig"><span class="annot"><span class="annottext">startICD10CMInferenceJob_outputDataConfig :: (OutputDataConfig -&gt; f OutputDataConfig)
+-&gt; StartICD10CMInferenceJob -&gt; f StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_outputDataConfig"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJob_outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJob -&gt; OutputDataConfig)
+-&gt; (StartICD10CMInferenceJob
+    -&gt; OutputDataConfig -&gt; StartICD10CMInferenceJob)
+-&gt; Lens
+     StartICD10CMInferenceJob
+     StartICD10CMInferenceJob
+     OutputDataConfig
+     OutputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212757"><span class="annot"><span class="annottext">OutputDataConfig
+outputDataConfig :: OutputDataConfig
+$sel:outputDataConfig:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; OutputDataConfig
+</span><a href="#local-6989586621679212757"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212757"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212756"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212755"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDataConfig:StartICD10CMInferenceJob' :: OutputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AoutputDataConfig%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- (IAM) role that grants Amazon Comprehend Medical read access to your</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- input data. For more information, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations&gt;.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_dataAccessRoleArn"><span class="hs-identifier hs-type">startICD10CMInferenceJob_dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="startICD10CMInferenceJob_dataAccessRoleArn"><span class="annot"><span class="annottext">startICD10CMInferenceJob_dataAccessRoleArn :: (Text -&gt; f Text)
+-&gt; StartICD10CMInferenceJob -&gt; f StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_dataAccessRoleArn"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJob_dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJob -&gt; Text)
+-&gt; (StartICD10CMInferenceJob -&gt; Text -&gt; StartICD10CMInferenceJob)
+-&gt; Lens StartICD10CMInferenceJob StartICD10CMInferenceJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212754"><span class="annot"><span class="annottext">Text
+dataAccessRoleArn :: Text
+$sel:dataAccessRoleArn:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Text
+</span><a href="#local-6989586621679212754"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212754"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212753"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212752"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartICD10CMInferenceJob' :: Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AdataAccessRoleArn%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The language of the input documents. All documents must be in the same</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_languageCode"><span class="hs-identifier hs-type">startICD10CMInferenceJob_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-166"></span><span id="startICD10CMInferenceJob_languageCode"><span class="annot"><span class="annottext">startICD10CMInferenceJob_languageCode :: (LanguageCode -&gt; f LanguageCode)
+-&gt; StartICD10CMInferenceJob -&gt; f StartICD10CMInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJob_languageCode"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJob_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJob -&gt; LanguageCode)
+-&gt; (StartICD10CMInferenceJob
+    -&gt; LanguageCode -&gt; StartICD10CMInferenceJob)
+-&gt; Lens
+     StartICD10CMInferenceJob
+     StartICD10CMInferenceJob
+     LanguageCode
+     LanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212751"><span class="annot"><span class="annottext">LanguageCode
+languageCode :: LanguageCode
+$sel:languageCode:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; LanguageCode
+</span><a href="#local-6989586621679212751"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212751"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212750"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212749"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJob
+</span><a href="#local-6989586621679212750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:StartICD10CMInferenceJob' :: LanguageCode
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AlanguageCode%3AStartICD10CMInferenceJob%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-170"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679212745"><span class="annot"><span class="annottext">request :: StartICD10CMInferenceJob -&gt; Request StartICD10CMInferenceJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartICD10CMInferenceJob -&gt; Request StartICD10CMInferenceJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ComprehendMedical.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679212741"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartICD10CMInferenceJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartICD10CMInferenceJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartICD10CMInferenceJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartICD10CMInferenceJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartICD10CMInferenceJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212738"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212738"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679212737"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679212737"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679212736"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212736"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartICD10CMInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var">StartICD10CMInferenceJobResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartICD10CMInferenceJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartICD10CMInferenceJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartICD10CMInferenceJobResponse)
+-&gt; Either String Int
+-&gt; Either String StartICD10CMInferenceJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212738"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212728"><span id="local-6989586621679212730"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679212721"><span class="annot"><span class="annottext">toHeaders :: StartICD10CMInferenceJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartICD10CMInferenceJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ComprehendMedical_20181030.StartICD10CMInferenceJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-192"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-196"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212711"><span id="local-6989586621679212713"><span id="local-6989586621679212715"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679212709"><span class="annot"><span class="annottext">toJSON :: StartICD10CMInferenceJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212701"><span id="local-6989586621679212702"><span id="local-6989586621679212703"><span id="local-6989586621679212704"><span id="local-6989586621679212705"><span id="local-6989586621679212706"><span id="local-6989586621679212707"><span class="annot"><span class="annottext">Maybe Text
+Text
+InputDataConfig
+LanguageCode
+OutputDataConfig
+languageCode :: LanguageCode
+dataAccessRoleArn :: Text
+outputDataConfig :: OutputDataConfig
+inputDataConfig :: InputDataConfig
+clientRequestToken :: Maybe Text
+jobName :: Maybe Text
+kmsKey :: Maybe Text
+$sel:languageCode:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; LanguageCode
+$sel:dataAccessRoleArn:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Text
+$sel:outputDataConfig:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; OutputDataConfig
+$sel:inputDataConfig:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; InputDataConfig
+$sel:clientRequestToken:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Maybe Text
+$sel:jobName:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Maybe Text
+$sel:kmsKey:StartICD10CMInferenceJob' :: StartICD10CMInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212701"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212707"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212706"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212705"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-209"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212704"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-211"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212703"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212702"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212701"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679212695"><span class="annot"><span class="annottext">toPath :: StartICD10CMInferenceJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartICD10CMInferenceJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJob"><span class="hs-identifier hs-type">StartICD10CMInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679212691"><span class="annot"><span class="annottext">toQuery :: StartICD10CMInferenceJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartICD10CMInferenceJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | /See:/ 'newStartICD10CMInferenceJobResponse' smart constructor.</span><span>
+</span><span id="line-225"></span><span id="local-6989586621679212688"><span id="local-6989586621679212689"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartICD10CMInferenceJobResponse"><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-var">StartICD10CMInferenceJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartICD10CMInferenceJobResponse%27"><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var">StartICD10CMInferenceJobResponse'</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier generated for the job. To get the status of a job, use</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- this identifier with the @StartICD10CMInferenceJob@ operation.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AjobId%3AStartICD10CMInferenceJobResponse%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AjobId%3AStartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartICD10CMInferenceJobResponse%27"><span class="annot"><span class="annottext">StartICD10CMInferenceJobResponse -&gt; Int
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AhttpStatus%3AStartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212682"><span id="local-6989586621679212684"><span class="annot"><span class="annottext">StartICD10CMInferenceJobResponse
+-&gt; StartICD10CMInferenceJobResponse -&gt; Bool
+(StartICD10CMInferenceJobResponse
+ -&gt; StartICD10CMInferenceJobResponse -&gt; Bool)
+-&gt; (StartICD10CMInferenceJobResponse
+    -&gt; StartICD10CMInferenceJobResponse -&gt; Bool)
+-&gt; Eq StartICD10CMInferenceJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartICD10CMInferenceJobResponse
+-&gt; StartICD10CMInferenceJobResponse -&gt; Bool
+$c/= :: StartICD10CMInferenceJobResponse
+-&gt; StartICD10CMInferenceJobResponse -&gt; Bool
+== :: StartICD10CMInferenceJobResponse
+-&gt; StartICD10CMInferenceJobResponse -&gt; Bool
+$c== :: StartICD10CMInferenceJobResponse
+-&gt; StartICD10CMInferenceJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212674"><span id="local-6989586621679212676"><span id="local-6989586621679212678"><span id="local-6989586621679212680"><span class="annot"><span class="annottext">ReadPrec [StartICD10CMInferenceJobResponse]
+ReadPrec StartICD10CMInferenceJobResponse
+Int -&gt; ReadS StartICD10CMInferenceJobResponse
+ReadS [StartICD10CMInferenceJobResponse]
+(Int -&gt; ReadS StartICD10CMInferenceJobResponse)
+-&gt; ReadS [StartICD10CMInferenceJobResponse]
+-&gt; ReadPrec StartICD10CMInferenceJobResponse
+-&gt; ReadPrec [StartICD10CMInferenceJobResponse]
+-&gt; Read StartICD10CMInferenceJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartICD10CMInferenceJobResponse]
+$creadListPrec :: ReadPrec [StartICD10CMInferenceJobResponse]
+readPrec :: ReadPrec StartICD10CMInferenceJobResponse
+$creadPrec :: ReadPrec StartICD10CMInferenceJobResponse
+readList :: ReadS [StartICD10CMInferenceJobResponse]
+$creadList :: ReadS [StartICD10CMInferenceJobResponse]
+readsPrec :: Int -&gt; ReadS StartICD10CMInferenceJobResponse
+$creadsPrec :: Int -&gt; ReadS StartICD10CMInferenceJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212668"><span id="local-6989586621679212670"><span id="local-6989586621679212672"><span class="annot"><span class="annottext">Int -&gt; StartICD10CMInferenceJobResponse -&gt; ShowS
+[StartICD10CMInferenceJobResponse] -&gt; ShowS
+StartICD10CMInferenceJobResponse -&gt; String
+(Int -&gt; StartICD10CMInferenceJobResponse -&gt; ShowS)
+-&gt; (StartICD10CMInferenceJobResponse -&gt; String)
+-&gt; ([StartICD10CMInferenceJobResponse] -&gt; ShowS)
+-&gt; Show StartICD10CMInferenceJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartICD10CMInferenceJobResponse] -&gt; ShowS
+$cshowList :: [StartICD10CMInferenceJobResponse] -&gt; ShowS
+show :: StartICD10CMInferenceJobResponse -&gt; String
+$cshow :: StartICD10CMInferenceJobResponse -&gt; String
+showsPrec :: Int -&gt; StartICD10CMInferenceJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartICD10CMInferenceJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartICD10CMInferenceJobResponse
+ -&gt; Rep StartICD10CMInferenceJobResponse x)
+-&gt; (forall x.
+    Rep StartICD10CMInferenceJobResponse x
+    -&gt; StartICD10CMInferenceJobResponse)
+-&gt; Generic StartICD10CMInferenceJobResponse
+forall x.
+Rep StartICD10CMInferenceJobResponse x
+-&gt; StartICD10CMInferenceJobResponse
+forall x.
+StartICD10CMInferenceJobResponse
+-&gt; Rep StartICD10CMInferenceJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartICD10CMInferenceJobResponse x
+-&gt; StartICD10CMInferenceJobResponse
+$cfrom :: forall x.
+StartICD10CMInferenceJobResponse
+-&gt; Rep StartICD10CMInferenceJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Create a value of 'StartICD10CMInferenceJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'jobId', 'startICD10CMInferenceJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- this identifier with the @StartICD10CMInferenceJob@ operation.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'httpStatus', 'startICD10CMInferenceJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#newStartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">newStartICD10CMInferenceJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse</span></a></span><span>
+</span><span id="line-250"></span><span id="newStartICD10CMInferenceJobResponse"><span class="annot"><span class="annottext">newStartICD10CMInferenceJobResponse :: Int -&gt; StartICD10CMInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#newStartICD10CMInferenceJobResponse"><span class="hs-identifier hs-var hs-var">newStartICD10CMInferenceJobResponse</span></a></span></span><span> </span><span id="local-6989586621679212665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212665"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="annottext">StartICD10CMInferenceJobResponse' :: Maybe Text -&gt; Int -&gt; StartICD10CMInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse'</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StartICD10CMInferenceJobResponse' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AjobId%3AStartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartICD10CMInferenceJobResponse' :: Int
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AhttpStatus%3AStartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212665"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The identifier generated for the job. To get the status of a job, use</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- this identifier with the @StartICD10CMInferenceJob@ operation.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJobResponse_jobId"><span class="hs-identifier hs-type">startICD10CMInferenceJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="startICD10CMInferenceJobResponse_jobId"><span class="annot"><span class="annottext">startICD10CMInferenceJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartICD10CMInferenceJobResponse
+-&gt; f StartICD10CMInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJobResponse_jobId"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJobResponse -&gt; Maybe Text)
+-&gt; (StartICD10CMInferenceJobResponse
+    -&gt; Maybe Text -&gt; StartICD10CMInferenceJobResponse)
+-&gt; Lens
+     StartICD10CMInferenceJobResponse
+     StartICD10CMInferenceJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212664"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:StartICD10CMInferenceJobResponse' :: StartICD10CMInferenceJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679212664"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212664"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212663"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJobResponse
+</span><a href="#local-6989586621679212663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJobResponse
+</span><a href="#local-6989586621679212663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StartICD10CMInferenceJobResponse' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AjobId%3AStartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJobResponse_httpStatus"><span class="hs-identifier hs-type">startICD10CMInferenceJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-264"></span><span id="startICD10CMInferenceJobResponse_httpStatus"><span class="annot"><span class="annottext">startICD10CMInferenceJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartICD10CMInferenceJobResponse
+-&gt; f StartICD10CMInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#startICD10CMInferenceJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startICD10CMInferenceJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartICD10CMInferenceJobResponse -&gt; Int)
+-&gt; (StartICD10CMInferenceJobResponse
+    -&gt; Int -&gt; StartICD10CMInferenceJobResponse)
+-&gt; Lens
+     StartICD10CMInferenceJobResponse
+     StartICD10CMInferenceJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212661"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartICD10CMInferenceJobResponse' :: StartICD10CMInferenceJobResponse -&gt; Int
+</span><a href="#local-6989586621679212661"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212661"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212660"><span class="annot"><span class="annottext">s :: StartICD10CMInferenceJobResponse
+</span><a href="#local-6989586621679212660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartICD10CMInferenceJobResponse
+</span><a href="#local-6989586621679212660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartICD10CMInferenceJobResponse' :: Int
+</span><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#%24sel%3AhttpStatus%3AStartICD10CMInferenceJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679212657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartICD10CMInferenceJob.html#StartICD10CMInferenceJobResponse"><span class="hs-identifier hs-type">StartICD10CMInferenceJobResponse</span></a></span></span><span>
+</span><span id="line-269"></span></pre></body></html>

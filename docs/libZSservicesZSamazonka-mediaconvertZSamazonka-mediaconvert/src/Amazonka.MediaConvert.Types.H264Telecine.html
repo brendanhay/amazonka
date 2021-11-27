@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.H264Telecine</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.H264Telecine</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine"><span class="hs-identifier">H264Telecine</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_HARD"><span class="hs-identifier">H264Telecine_HARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_NONE"><span class="hs-identifier">H264Telecine_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_SOFT"><span class="hs-identifier">H264Telecine_SOFT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | When you do frame rate conversion from 23.976 frames per second (fps) to</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- 29.97 fps, and your output scan type is interlaced, you can optionally</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- enable hard or soft telecine to create a smoother picture. Hard telecine</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- with a 23.976 output that signals to the video player device to do the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- conversion during play back. When you keep the default value, None</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- (NONE), MediaConvert does a standard frame rate conversion to 29.97</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- without doing anything with the field polarity to create a smoother</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- picture.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679970228"><span id="local-6989586621679970229"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264Telecine"><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine"><span class="hs-identifier hs-var">H264Telecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264Telecine%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine%27"><span class="hs-identifier hs-var">H264Telecine'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264Telecine"><span class="annot"><span class="annottext">H264Telecine -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.H264Telecine.html#fromH264Telecine"><span class="hs-identifier hs-var hs-var">fromH264Telecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970220"><span id="local-6989586621679970222"><span id="local-6989586621679970224"><span class="annot"><span class="annottext">Int -&gt; H264Telecine -&gt; ShowS
+[H264Telecine] -&gt; ShowS
+H264Telecine -&gt; String
+(Int -&gt; H264Telecine -&gt; ShowS)
+-&gt; (H264Telecine -&gt; String)
+-&gt; ([H264Telecine] -&gt; ShowS)
+-&gt; Show H264Telecine
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264Telecine] -&gt; ShowS
+$cshowList :: [H264Telecine] -&gt; ShowS
+show :: H264Telecine -&gt; String
+$cshow :: H264Telecine -&gt; String
+showsPrec :: Int -&gt; H264Telecine -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264Telecine -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679970211"><span id="local-6989586621679970213"><span id="local-6989586621679970215"><span id="local-6989586621679970217"><span class="annot"><span class="annottext">ReadPrec [H264Telecine]
+ReadPrec H264Telecine
+Int -&gt; ReadS H264Telecine
+ReadS [H264Telecine]
+(Int -&gt; ReadS H264Telecine)
+-&gt; ReadS [H264Telecine]
+-&gt; ReadPrec H264Telecine
+-&gt; ReadPrec [H264Telecine]
+-&gt; Read H264Telecine
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264Telecine]
+$creadListPrec :: ReadPrec [H264Telecine]
+readPrec :: ReadPrec H264Telecine
+$creadPrec :: ReadPrec H264Telecine
+readList :: ReadS [H264Telecine]
+$creadList :: ReadS [H264Telecine]
+readsPrec :: Int -&gt; ReadS H264Telecine
+$creadsPrec :: Int -&gt; ReadS H264Telecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679970206"><span id="local-6989586621679970208"><span class="annot"><span class="annottext">H264Telecine -&gt; H264Telecine -&gt; Bool
+(H264Telecine -&gt; H264Telecine -&gt; Bool)
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; Bool) -&gt; Eq H264Telecine
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264Telecine -&gt; H264Telecine -&gt; Bool
+$c/= :: H264Telecine -&gt; H264Telecine -&gt; Bool
+== :: H264Telecine -&gt; H264Telecine -&gt; Bool
+$c== :: H264Telecine -&gt; H264Telecine -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679970190"><span id="local-6989586621679970192"><span id="local-6989586621679970194"><span id="local-6989586621679970196"><span id="local-6989586621679970198"><span id="local-6989586621679970200"><span id="local-6989586621679970202"><span class="annot"><span class="annottext">Eq H264Telecine
+Eq H264Telecine
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; Ordering)
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; Bool)
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; Bool)
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; Bool)
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; Bool)
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; H264Telecine)
+-&gt; (H264Telecine -&gt; H264Telecine -&gt; H264Telecine)
+-&gt; Ord H264Telecine
+H264Telecine -&gt; H264Telecine -&gt; Bool
+H264Telecine -&gt; H264Telecine -&gt; Ordering
+H264Telecine -&gt; H264Telecine -&gt; H264Telecine
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264Telecine -&gt; H264Telecine -&gt; H264Telecine
+$cmin :: H264Telecine -&gt; H264Telecine -&gt; H264Telecine
+max :: H264Telecine -&gt; H264Telecine -&gt; H264Telecine
+$cmax :: H264Telecine -&gt; H264Telecine -&gt; H264Telecine
+&gt;= :: H264Telecine -&gt; H264Telecine -&gt; Bool
+$c&gt;= :: H264Telecine -&gt; H264Telecine -&gt; Bool
+&gt; :: H264Telecine -&gt; H264Telecine -&gt; Bool
+$c&gt; :: H264Telecine -&gt; H264Telecine -&gt; Bool
+&lt;= :: H264Telecine -&gt; H264Telecine -&gt; Bool
+$c&lt;= :: H264Telecine -&gt; H264Telecine -&gt; Bool
+&lt; :: H264Telecine -&gt; H264Telecine -&gt; Bool
+$c&lt; :: H264Telecine -&gt; H264Telecine -&gt; Bool
+compare :: H264Telecine -&gt; H264Telecine -&gt; Ordering
+$ccompare :: H264Telecine -&gt; H264Telecine -&gt; Ordering
+$cp1Ord :: Eq H264Telecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H264Telecine -&gt; Rep H264Telecine x)
+-&gt; (forall x. Rep H264Telecine x -&gt; H264Telecine)
+-&gt; Generic H264Telecine
+forall x. Rep H264Telecine x -&gt; H264Telecine
+forall x. H264Telecine -&gt; Rep H264Telecine x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H264Telecine x -&gt; H264Telecine
+$cfrom :: forall x. H264Telecine -&gt; Rep H264Telecine x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970182"><span id="local-6989586621679970184"><span class="annot"><span class="annottext">Int -&gt; H264Telecine -&gt; Int
+H264Telecine -&gt; Int
+(Int -&gt; H264Telecine -&gt; Int)
+-&gt; (H264Telecine -&gt; Int) -&gt; Hashable H264Telecine
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264Telecine -&gt; Int
+$chash :: H264Telecine -&gt; Int
+hashWithSalt :: Int -&gt; H264Telecine -&gt; Int
+$chashWithSalt :: Int -&gt; H264Telecine -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679970179"><span class="annot"><span class="annottext">H264Telecine -&gt; ()
+(H264Telecine -&gt; ()) -&gt; NFData H264Telecine
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264Telecine -&gt; ()
+$crnf :: H264Telecine -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679970176"><span class="annot"><span class="annottext">Text -&gt; Either String H264Telecine
+(Text -&gt; Either String H264Telecine) -&gt; FromText H264Telecine
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264Telecine
+$cfromText :: Text -&gt; Either String H264Telecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679970173"><span class="annot"><span class="annottext">H264Telecine -&gt; Text
+(H264Telecine -&gt; Text) -&gt; ToText H264Telecine
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264Telecine -&gt; Text
+$ctoText :: H264Telecine -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679970170"><span class="annot"><span class="annottext">H264Telecine -&gt; ByteString
+(H264Telecine -&gt; ByteString) -&gt; ToByteString H264Telecine
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264Telecine -&gt; ByteString
+$ctoBS :: H264Telecine -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679970167"><span class="annot"><span class="annottext">H264Telecine -&gt; ByteStringBuilder
+(H264Telecine -&gt; ByteStringBuilder) -&gt; ToLog H264Telecine
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264Telecine -&gt; ByteStringBuilder
+$cbuild :: H264Telecine -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679970164"><span class="annot"><span class="annottext">HeaderName -&gt; H264Telecine -&gt; [Header]
+(HeaderName -&gt; H264Telecine -&gt; [Header]) -&gt; ToHeader H264Telecine
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264Telecine -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264Telecine -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679970161"><span class="annot"><span class="annottext">H264Telecine -&gt; QueryString
+(H264Telecine -&gt; QueryString) -&gt; ToQuery H264Telecine
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264Telecine -&gt; QueryString
+$ctoQuery :: H264Telecine -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679970156"><span id="local-6989586621679970158"><span class="annot"><span class="annottext">Value -&gt; Parser [H264Telecine]
+Value -&gt; Parser H264Telecine
+(Value -&gt; Parser H264Telecine)
+-&gt; (Value -&gt; Parser [H264Telecine]) -&gt; FromJSON H264Telecine
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264Telecine]
+$cparseJSONList :: Value -&gt; Parser [H264Telecine]
+parseJSON :: Value -&gt; Parser H264Telecine
+$cparseJSON :: Value -&gt; Parser H264Telecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679970151"><span id="local-6989586621679970153"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264Telecine]
+FromJSONKeyFunction H264Telecine
+FromJSONKeyFunction H264Telecine
+-&gt; FromJSONKeyFunction [H264Telecine] -&gt; FromJSONKey H264Telecine
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264Telecine]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264Telecine]
+fromJSONKey :: FromJSONKeyFunction H264Telecine
+$cfromJSONKey :: FromJSONKeyFunction H264Telecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679970142"><span id="local-6989586621679970144"><span id="local-6989586621679970146"><span id="local-6989586621679970148"><span class="annot"><span class="annottext">[H264Telecine] -&gt; Encoding
+[H264Telecine] -&gt; Value
+H264Telecine -&gt; Encoding
+H264Telecine -&gt; Value
+(H264Telecine -&gt; Value)
+-&gt; (H264Telecine -&gt; Encoding)
+-&gt; ([H264Telecine] -&gt; Value)
+-&gt; ([H264Telecine] -&gt; Encoding)
+-&gt; ToJSON H264Telecine
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264Telecine] -&gt; Encoding
+$ctoEncodingList :: [H264Telecine] -&gt; Encoding
+toJSONList :: [H264Telecine] -&gt; Value
+$ctoJSONList :: [H264Telecine] -&gt; Value
+toEncoding :: H264Telecine -&gt; Encoding
+$ctoEncoding :: H264Telecine -&gt; Encoding
+toJSON :: H264Telecine -&gt; Value
+$ctoJSON :: H264Telecine -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679970137"><span id="local-6989586621679970139"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264Telecine]
+ToJSONKeyFunction H264Telecine
+ToJSONKeyFunction H264Telecine
+-&gt; ToJSONKeyFunction [H264Telecine] -&gt; ToJSONKey H264Telecine
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264Telecine]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264Telecine]
+toJSONKey :: ToJSONKeyFunction H264Telecine
+$ctoJSONKey :: ToJSONKeyFunction H264Telecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679970134"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264Telecine
+([Node] -&gt; Either String H264Telecine) -&gt; FromXML H264Telecine
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264Telecine
+$cparseXML :: [Node] -&gt; Either String H264Telecine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679970131"><span class="annot"><span class="annottext">H264Telecine -&gt; XML
+(H264Telecine -&gt; XML) -&gt; ToXML H264Telecine
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264Telecine -&gt; XML
+$ctoXML :: H264Telecine -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_HARD"><span class="hs-identifier hs-type">H264Telecine_HARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine"><span class="hs-identifier hs-type">H264Telecine</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Telecine_HARD"><span id="%24mH264Telecine_HARD"><span id="H264Telecine_HARD"><span class="annot"><span class="annottext">$bH264Telecine_HARD :: H264Telecine
+$mH264Telecine_HARD :: forall r. H264Telecine -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H264Telecine.html#%24bH264Telecine_HARD"><span class="hs-identifier hs-var hs-var hs-var">H264Telecine_HARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine%27"><span class="hs-identifier hs-type">H264Telecine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HARD&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_NONE"><span class="hs-identifier hs-type">H264Telecine_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine"><span class="hs-identifier hs-type">H264Telecine</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Telecine_NONE"><span id="%24mH264Telecine_NONE"><span id="H264Telecine_NONE"><span class="annot"><span class="annottext">$bH264Telecine_NONE :: H264Telecine
+$mH264Telecine_NONE :: forall r. H264Telecine -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H264Telecine.html#%24bH264Telecine_NONE"><span class="hs-identifier hs-var hs-var hs-var">H264Telecine_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine%27"><span class="hs-identifier hs-type">H264Telecine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_SOFT"><span class="hs-identifier hs-type">H264Telecine_SOFT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine"><span class="hs-identifier hs-type">H264Telecine</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Telecine_SOFT"><span id="%24mH264Telecine_SOFT"><span id="H264Telecine_SOFT"><span class="annot"><span class="annottext">$bH264Telecine_SOFT :: H264Telecine
+$mH264Telecine_SOFT :: forall r. H264Telecine -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H264Telecine.html#%24bH264Telecine_SOFT"><span class="hs-identifier hs-var hs-var hs-var">H264Telecine_SOFT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine%27"><span class="hs-identifier hs-type">H264Telecine'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SOFT&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_HARD"><span class="hs-pragma hs-type">H264Telecine_HARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_NONE"><span class="hs-pragma hs-type">H264Telecine_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine_SOFT"><span class="hs-pragma hs-type">H264Telecine_SOFT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264Telecine.html#H264Telecine%27"><span class="hs-pragma hs-type">H264Telecine'</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-85"></span></pre></body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.FileSystemAccessMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.FileSystemAccessMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode"><span class="hs-identifier">FileSystemAccessMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode_Ro"><span class="hs-identifier">FileSystemAccessMode_Ro</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode_Rw"><span class="hs-identifier">FileSystemAccessMode_Rw</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680305722"><span id="local-6989586621680305723"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileSystemAccessMode"><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode"><span class="hs-identifier hs-var">FileSystemAccessMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemAccessMode%27"><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode%27"><span class="hs-identifier hs-var">FileSystemAccessMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileSystemAccessMode"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#fromFileSystemAccessMode"><span class="hs-identifier hs-var hs-var">fromFileSystemAccessMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680305714"><span id="local-6989586621680305716"><span id="local-6989586621680305718"><span class="annot"><span class="annottext">Int -&gt; FileSystemAccessMode -&gt; ShowS
+[FileSystemAccessMode] -&gt; ShowS
+FileSystemAccessMode -&gt; String
+(Int -&gt; FileSystemAccessMode -&gt; ShowS)
+-&gt; (FileSystemAccessMode -&gt; String)
+-&gt; ([FileSystemAccessMode] -&gt; ShowS)
+-&gt; Show FileSystemAccessMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileSystemAccessMode] -&gt; ShowS
+$cshowList :: [FileSystemAccessMode] -&gt; ShowS
+show :: FileSystemAccessMode -&gt; String
+$cshow :: FileSystemAccessMode -&gt; String
+showsPrec :: Int -&gt; FileSystemAccessMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileSystemAccessMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680305705"><span id="local-6989586621680305707"><span id="local-6989586621680305709"><span id="local-6989586621680305711"><span class="annot"><span class="annottext">ReadPrec [FileSystemAccessMode]
+ReadPrec FileSystemAccessMode
+Int -&gt; ReadS FileSystemAccessMode
+ReadS [FileSystemAccessMode]
+(Int -&gt; ReadS FileSystemAccessMode)
+-&gt; ReadS [FileSystemAccessMode]
+-&gt; ReadPrec FileSystemAccessMode
+-&gt; ReadPrec [FileSystemAccessMode]
+-&gt; Read FileSystemAccessMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileSystemAccessMode]
+$creadListPrec :: ReadPrec [FileSystemAccessMode]
+readPrec :: ReadPrec FileSystemAccessMode
+$creadPrec :: ReadPrec FileSystemAccessMode
+readList :: ReadS [FileSystemAccessMode]
+$creadList :: ReadS [FileSystemAccessMode]
+readsPrec :: Int -&gt; ReadS FileSystemAccessMode
+$creadsPrec :: Int -&gt; ReadS FileSystemAccessMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680305700"><span id="local-6989586621680305702"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+(FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool)
+-&gt; (FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool)
+-&gt; Eq FileSystemAccessMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+$c/= :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+== :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+$c== :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680305684"><span id="local-6989586621680305686"><span id="local-6989586621680305688"><span id="local-6989586621680305690"><span id="local-6989586621680305692"><span id="local-6989586621680305694"><span id="local-6989586621680305696"><span class="annot"><span class="annottext">Eq FileSystemAccessMode
+Eq FileSystemAccessMode
+-&gt; (FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Ordering)
+-&gt; (FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool)
+-&gt; (FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool)
+-&gt; (FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool)
+-&gt; (FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool)
+-&gt; (FileSystemAccessMode
+    -&gt; FileSystemAccessMode -&gt; FileSystemAccessMode)
+-&gt; (FileSystemAccessMode
+    -&gt; FileSystemAccessMode -&gt; FileSystemAccessMode)
+-&gt; Ord FileSystemAccessMode
+FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Ordering
+FileSystemAccessMode
+-&gt; FileSystemAccessMode -&gt; FileSystemAccessMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FileSystemAccessMode
+-&gt; FileSystemAccessMode -&gt; FileSystemAccessMode
+$cmin :: FileSystemAccessMode
+-&gt; FileSystemAccessMode -&gt; FileSystemAccessMode
+max :: FileSystemAccessMode
+-&gt; FileSystemAccessMode -&gt; FileSystemAccessMode
+$cmax :: FileSystemAccessMode
+-&gt; FileSystemAccessMode -&gt; FileSystemAccessMode
+&gt;= :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+$c&gt;= :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+&gt; :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+$c&gt; :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+&lt;= :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+$c&lt;= :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+&lt; :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+$c&lt; :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Bool
+compare :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Ordering
+$ccompare :: FileSystemAccessMode -&gt; FileSystemAccessMode -&gt; Ordering
+$cp1Ord :: Eq FileSystemAccessMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FileSystemAccessMode -&gt; Rep FileSystemAccessMode x)
+-&gt; (forall x. Rep FileSystemAccessMode x -&gt; FileSystemAccessMode)
+-&gt; Generic FileSystemAccessMode
+forall x. Rep FileSystemAccessMode x -&gt; FileSystemAccessMode
+forall x. FileSystemAccessMode -&gt; Rep FileSystemAccessMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FileSystemAccessMode x -&gt; FileSystemAccessMode
+$cfrom :: forall x. FileSystemAccessMode -&gt; Rep FileSystemAccessMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680305676"><span id="local-6989586621680305678"><span class="annot"><span class="annottext">Int -&gt; FileSystemAccessMode -&gt; Int
+FileSystemAccessMode -&gt; Int
+(Int -&gt; FileSystemAccessMode -&gt; Int)
+-&gt; (FileSystemAccessMode -&gt; Int) -&gt; Hashable FileSystemAccessMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FileSystemAccessMode -&gt; Int
+$chash :: FileSystemAccessMode -&gt; Int
+hashWithSalt :: Int -&gt; FileSystemAccessMode -&gt; Int
+$chashWithSalt :: Int -&gt; FileSystemAccessMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680305673"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; ()
+(FileSystemAccessMode -&gt; ()) -&gt; NFData FileSystemAccessMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FileSystemAccessMode -&gt; ()
+$crnf :: FileSystemAccessMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680305670"><span class="annot"><span class="annottext">Text -&gt; Either String FileSystemAccessMode
+(Text -&gt; Either String FileSystemAccessMode)
+-&gt; FromText FileSystemAccessMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FileSystemAccessMode
+$cfromText :: Text -&gt; Either String FileSystemAccessMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680305667"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; Text
+(FileSystemAccessMode -&gt; Text) -&gt; ToText FileSystemAccessMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FileSystemAccessMode -&gt; Text
+$ctoText :: FileSystemAccessMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680305664"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; ByteString
+(FileSystemAccessMode -&gt; ByteString)
+-&gt; ToByteString FileSystemAccessMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FileSystemAccessMode -&gt; ByteString
+$ctoBS :: FileSystemAccessMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680305661"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; ByteStringBuilder
+(FileSystemAccessMode -&gt; ByteStringBuilder)
+-&gt; ToLog FileSystemAccessMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FileSystemAccessMode -&gt; ByteStringBuilder
+$cbuild :: FileSystemAccessMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680305658"><span class="annot"><span class="annottext">HeaderName -&gt; FileSystemAccessMode -&gt; [Header]
+(HeaderName -&gt; FileSystemAccessMode -&gt; [Header])
+-&gt; ToHeader FileSystemAccessMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FileSystemAccessMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FileSystemAccessMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680305655"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; QueryString
+(FileSystemAccessMode -&gt; QueryString)
+-&gt; ToQuery FileSystemAccessMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FileSystemAccessMode -&gt; QueryString
+$ctoQuery :: FileSystemAccessMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680305650"><span id="local-6989586621680305652"><span class="annot"><span class="annottext">Value -&gt; Parser [FileSystemAccessMode]
+Value -&gt; Parser FileSystemAccessMode
+(Value -&gt; Parser FileSystemAccessMode)
+-&gt; (Value -&gt; Parser [FileSystemAccessMode])
+-&gt; FromJSON FileSystemAccessMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FileSystemAccessMode]
+$cparseJSONList :: Value -&gt; Parser [FileSystemAccessMode]
+parseJSON :: Value -&gt; Parser FileSystemAccessMode
+$cparseJSON :: Value -&gt; Parser FileSystemAccessMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680305645"><span id="local-6989586621680305647"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileSystemAccessMode]
+FromJSONKeyFunction FileSystemAccessMode
+FromJSONKeyFunction FileSystemAccessMode
+-&gt; FromJSONKeyFunction [FileSystemAccessMode]
+-&gt; FromJSONKey FileSystemAccessMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FileSystemAccessMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [FileSystemAccessMode]
+fromJSONKey :: FromJSONKeyFunction FileSystemAccessMode
+$cfromJSONKey :: FromJSONKeyFunction FileSystemAccessMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680305636"><span id="local-6989586621680305638"><span id="local-6989586621680305640"><span id="local-6989586621680305642"><span class="annot"><span class="annottext">[FileSystemAccessMode] -&gt; Encoding
+[FileSystemAccessMode] -&gt; Value
+FileSystemAccessMode -&gt; Encoding
+FileSystemAccessMode -&gt; Value
+(FileSystemAccessMode -&gt; Value)
+-&gt; (FileSystemAccessMode -&gt; Encoding)
+-&gt; ([FileSystemAccessMode] -&gt; Value)
+-&gt; ([FileSystemAccessMode] -&gt; Encoding)
+-&gt; ToJSON FileSystemAccessMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FileSystemAccessMode] -&gt; Encoding
+$ctoEncodingList :: [FileSystemAccessMode] -&gt; Encoding
+toJSONList :: [FileSystemAccessMode] -&gt; Value
+$ctoJSONList :: [FileSystemAccessMode] -&gt; Value
+toEncoding :: FileSystemAccessMode -&gt; Encoding
+$ctoEncoding :: FileSystemAccessMode -&gt; Encoding
+toJSON :: FileSystemAccessMode -&gt; Value
+$ctoJSON :: FileSystemAccessMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680305631"><span id="local-6989586621680305633"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileSystemAccessMode]
+ToJSONKeyFunction FileSystemAccessMode
+ToJSONKeyFunction FileSystemAccessMode
+-&gt; ToJSONKeyFunction [FileSystemAccessMode]
+-&gt; ToJSONKey FileSystemAccessMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FileSystemAccessMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [FileSystemAccessMode]
+toJSONKey :: ToJSONKeyFunction FileSystemAccessMode
+$ctoJSONKey :: ToJSONKeyFunction FileSystemAccessMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680305628"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileSystemAccessMode
+([Node] -&gt; Either String FileSystemAccessMode)
+-&gt; FromXML FileSystemAccessMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FileSystemAccessMode
+$cparseXML :: [Node] -&gt; Either String FileSystemAccessMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680305625"><span class="annot"><span class="annottext">FileSystemAccessMode -&gt; XML
+(FileSystemAccessMode -&gt; XML) -&gt; ToXML FileSystemAccessMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FileSystemAccessMode -&gt; XML
+$ctoXML :: FileSystemAccessMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode_Ro"><span class="hs-identifier hs-type">FileSystemAccessMode_Ro</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode"><span class="hs-identifier hs-type">FileSystemAccessMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileSystemAccessMode_Ro"><span id="%24mFileSystemAccessMode_Ro"><span id="FileSystemAccessMode_Ro"><span class="annot"><span class="annottext">$bFileSystemAccessMode_Ro :: FileSystemAccessMode
+$mFileSystemAccessMode_Ro :: forall r. FileSystemAccessMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#%24bFileSystemAccessMode_Ro"><span class="hs-identifier hs-var hs-var hs-var">FileSystemAccessMode_Ro</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode%27"><span class="hs-identifier hs-type">FileSystemAccessMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ro&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode_Rw"><span class="hs-identifier hs-type">FileSystemAccessMode_Rw</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode"><span class="hs-identifier hs-type">FileSystemAccessMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileSystemAccessMode_Rw"><span id="%24mFileSystemAccessMode_Rw"><span id="FileSystemAccessMode_Rw"><span class="annot"><span class="annottext">$bFileSystemAccessMode_Rw :: FileSystemAccessMode
+$mFileSystemAccessMode_Rw :: forall r. FileSystemAccessMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#%24bFileSystemAccessMode_Rw"><span class="hs-identifier hs-var hs-var hs-var">FileSystemAccessMode_Rw</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode%27"><span class="hs-identifier hs-type">FileSystemAccessMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rw&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode_Ro"><span class="hs-pragma hs-type">FileSystemAccessMode_Ro</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode_Rw"><span class="hs-pragma hs-type">FileSystemAccessMode_Rw</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.FileSystemAccessMode.html#FileSystemAccessMode%27"><span class="hs-pragma hs-type">FileSystemAccessMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

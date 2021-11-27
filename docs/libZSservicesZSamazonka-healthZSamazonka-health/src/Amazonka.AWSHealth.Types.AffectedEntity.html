@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AWSHealth.Types.AffectedEntity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AWSHealth.Types.AffectedEntity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.EntityStatusCode.html"><span class="hs-identifier">Amazonka.AWSHealth.Types.EntityStatusCode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about an entity that is affected by a Health event.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAffectedEntity' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679185949"><span id="local-6989586621679185950"></span></span><span class="hs-keyword">data</span><span> </span><span id="AffectedEntity"><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-var">AffectedEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AffectedEntity%27"><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-var">AffectedEntity'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The most recent time that the entity was updated.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe POSIX
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AlastUpdatedTime%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the affected entity.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AentityValue%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityValue%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">entityValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The URL of the affected entity.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AentityUrl%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityUrl%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">entityUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The 12-digit AWS account number that contains the affected entity.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AawsAccountId%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AawsAccountId%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AeventArn%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AeventArn%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the entity. Format:</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:entity-region:aws-account:entity\/entity-id @. Example:</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:us-east-1:111222333444:entity\/AVh5GGT7ul1arKr1sE1K@</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AentityArn%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityArn%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">entityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A map of entity tags attached to the affected entity.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Currently, the @tags@ property isn\'t supported.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Atags%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3Atags%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The most recent status of the entity affected by the event. The possible</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- values are @IMPAIRED@, @UNIMPAIRED@, and @UNKNOWN@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AstatusCode%3AAffectedEntity%27"><span class="annot"><span class="annottext">AffectedEntity -&gt; Maybe EntityStatusCode
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AstatusCode%3AAffectedEntity%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.EntityStatusCode.html#EntityStatusCode"><span class="hs-identifier hs-type">EntityStatusCode</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185936"><span id="local-6989586621679185938"><span class="annot"><span class="annottext">AffectedEntity -&gt; AffectedEntity -&gt; Bool
+(AffectedEntity -&gt; AffectedEntity -&gt; Bool)
+-&gt; (AffectedEntity -&gt; AffectedEntity -&gt; Bool) -&gt; Eq AffectedEntity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AffectedEntity -&gt; AffectedEntity -&gt; Bool
+$c/= :: AffectedEntity -&gt; AffectedEntity -&gt; Bool
+== :: AffectedEntity -&gt; AffectedEntity -&gt; Bool
+$c== :: AffectedEntity -&gt; AffectedEntity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185927"><span id="local-6989586621679185929"><span id="local-6989586621679185931"><span id="local-6989586621679185933"><span class="annot"><span class="annottext">ReadPrec [AffectedEntity]
+ReadPrec AffectedEntity
+Int -&gt; ReadS AffectedEntity
+ReadS [AffectedEntity]
+(Int -&gt; ReadS AffectedEntity)
+-&gt; ReadS [AffectedEntity]
+-&gt; ReadPrec AffectedEntity
+-&gt; ReadPrec [AffectedEntity]
+-&gt; Read AffectedEntity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AffectedEntity]
+$creadListPrec :: ReadPrec [AffectedEntity]
+readPrec :: ReadPrec AffectedEntity
+$creadPrec :: ReadPrec AffectedEntity
+readList :: ReadS [AffectedEntity]
+$creadList :: ReadS [AffectedEntity]
+readsPrec :: Int -&gt; ReadS AffectedEntity
+$creadsPrec :: Int -&gt; ReadS AffectedEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185920"><span id="local-6989586621679185922"><span id="local-6989586621679185924"><span class="annot"><span class="annottext">Int -&gt; AffectedEntity -&gt; ShowS
+[AffectedEntity] -&gt; ShowS
+AffectedEntity -&gt; String
+(Int -&gt; AffectedEntity -&gt; ShowS)
+-&gt; (AffectedEntity -&gt; String)
+-&gt; ([AffectedEntity] -&gt; ShowS)
+-&gt; Show AffectedEntity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AffectedEntity] -&gt; ShowS
+$cshowList :: [AffectedEntity] -&gt; ShowS
+show :: AffectedEntity -&gt; String
+$cshow :: AffectedEntity -&gt; String
+showsPrec :: Int -&gt; AffectedEntity -&gt; ShowS
+$cshowsPrec :: Int -&gt; AffectedEntity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AffectedEntity -&gt; Rep AffectedEntity x)
+-&gt; (forall x. Rep AffectedEntity x -&gt; AffectedEntity)
+-&gt; Generic AffectedEntity
+forall x. Rep AffectedEntity x -&gt; AffectedEntity
+forall x. AffectedEntity -&gt; Rep AffectedEntity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AffectedEntity x -&gt; AffectedEntity
+$cfrom :: forall x. AffectedEntity -&gt; Rep AffectedEntity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'AffectedEntity' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'lastUpdatedTime', 'affectedEntity_lastUpdatedTime' - The most recent time that the entity was updated.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'entityValue', 'affectedEntity_entityValue' - The ID of the affected entity.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'entityUrl', 'affectedEntity_entityUrl' - The URL of the affected entity.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'awsAccountId', 'affectedEntity_awsAccountId' - The 12-digit AWS account number that contains the affected entity.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'eventArn', 'affectedEntity_eventArn' - The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'entityArn', 'affectedEntity_entityArn' - The unique identifier for the entity. Format:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @arn:aws:health:entity-region:aws-account:entity\/entity-id @. Example:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @arn:aws:health:us-east-1:111222333444:entity\/AVh5GGT7ul1arKr1sE1K@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tags', 'affectedEntity_tags' - A map of entity tags attached to the affected entity.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Currently, the @tags@ property isn\'t supported.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'statusCode', 'affectedEntity_statusCode' - The most recent status of the entity affected by the event. The possible</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- values are @IMPAIRED@, @UNIMPAIRED@, and @UNKNOWN@.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#newAffectedEntity"><span class="hs-identifier hs-type">newAffectedEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span>
+</span><span id="line-97"></span><span id="newAffectedEntity"><span class="annot"><span class="annottext">newAffectedEntity :: AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#newAffectedEntity"><span class="hs-identifier hs-var hs-var">newAffectedEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">AffectedEntity' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe EntityStatusCode
+-&gt; AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:AffectedEntity' :: Maybe POSIX
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AlastUpdatedTime%3AAffectedEntity%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityValue:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityValue%3AAffectedEntity%27"><span class="hs-identifier hs-var">entityValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityUrl:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityUrl%3AAffectedEntity%27"><span class="hs-identifier hs-var">entityUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AawsAccountId%3AAffectedEntity%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventArn:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AeventArn%3AAffectedEntity%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityArn:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityArn%3AAffectedEntity%27"><span class="hs-identifier hs-var">entityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AffectedEntity' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3Atags%3AAffectedEntity%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusCode:AffectedEntity' :: Maybe EntityStatusCode
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AstatusCode%3AAffectedEntity%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityStatusCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The most recent time that the entity was updated.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_lastUpdatedTime"><span class="hs-identifier hs-type">affectedEntity_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="affectedEntity_lastUpdatedTime"><span class="annot"><span class="annottext">affectedEntity_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">affectedEntity_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe POSIX)
+-&gt; (AffectedEntity -&gt; Maybe POSIX -&gt; AffectedEntity)
+-&gt; Lens AffectedEntity AffectedEntity (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185911"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:AffectedEntity' :: AffectedEntity -&gt; Maybe POSIX
+</span><a href="#local-6989586621679185911"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679185911"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185910"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185909"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679185909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:AffectedEntity' :: Maybe POSIX
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AlastUpdatedTime%3AAffectedEntity%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679185909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AffectedEntity -&gt; f AffectedEntity)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AffectedEntity
+-&gt; f AffectedEntity
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The ID of the affected entity.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_entityValue"><span class="hs-identifier hs-type">affectedEntity_entityValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="affectedEntity_entityValue"><span class="annot"><span class="annottext">affectedEntity_entityValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_entityValue"><span class="hs-identifier hs-var hs-var">affectedEntity_entityValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe Text)
+-&gt; (AffectedEntity -&gt; Maybe Text -&gt; AffectedEntity)
+-&gt; Lens AffectedEntity AffectedEntity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185904"><span class="annot"><span class="annottext">Maybe Text
+entityValue :: Maybe Text
+$sel:entityValue:AffectedEntity' :: AffectedEntity -&gt; Maybe Text
+</span><a href="#local-6989586621679185904"><span class="hs-identifier hs-var hs-var">entityValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185904"><span class="hs-identifier hs-var">entityValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185903"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityValue:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityValue%3AAffectedEntity%27"><span class="hs-identifier hs-var">entityValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The URL of the affected entity.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_entityUrl"><span class="hs-identifier hs-type">affectedEntity_entityUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="affectedEntity_entityUrl"><span class="annot"><span class="annottext">affectedEntity_entityUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_entityUrl"><span class="hs-identifier hs-var hs-var">affectedEntity_entityUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe Text)
+-&gt; (AffectedEntity -&gt; Maybe Text -&gt; AffectedEntity)
+-&gt; Lens AffectedEntity AffectedEntity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185900"><span class="annot"><span class="annottext">Maybe Text
+entityUrl :: Maybe Text
+$sel:entityUrl:AffectedEntity' :: AffectedEntity -&gt; Maybe Text
+</span><a href="#local-6989586621679185900"><span class="hs-identifier hs-var hs-var">entityUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185900"><span class="hs-identifier hs-var">entityUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185899"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityUrl:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityUrl%3AAffectedEntity%27"><span class="hs-identifier hs-var">entityUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The 12-digit AWS account number that contains the affected entity.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_awsAccountId"><span class="hs-identifier hs-type">affectedEntity_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="affectedEntity_awsAccountId"><span class="annot"><span class="annottext">affectedEntity_awsAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_awsAccountId"><span class="hs-identifier hs-var hs-var">affectedEntity_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe Text)
+-&gt; (AffectedEntity -&gt; Maybe Text -&gt; AffectedEntity)
+-&gt; Lens AffectedEntity AffectedEntity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185896"><span class="annot"><span class="annottext">Maybe Text
+awsAccountId :: Maybe Text
+$sel:awsAccountId:AffectedEntity' :: AffectedEntity -&gt; Maybe Text
+</span><a href="#local-6989586621679185896"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185896"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185895"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185894"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AawsAccountId%3AAffectedEntity%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_eventArn"><span class="hs-identifier hs-type">affectedEntity_eventArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="affectedEntity_eventArn"><span class="annot"><span class="annottext">affectedEntity_eventArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_eventArn"><span class="hs-identifier hs-var hs-var">affectedEntity_eventArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe Text)
+-&gt; (AffectedEntity -&gt; Maybe Text -&gt; AffectedEntity)
+-&gt; Lens AffectedEntity AffectedEntity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185892"><span class="annot"><span class="annottext">Maybe Text
+eventArn :: Maybe Text
+$sel:eventArn:AffectedEntity' :: AffectedEntity -&gt; Maybe Text
+</span><a href="#local-6989586621679185892"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185892"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185891"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185890"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventArn:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AeventArn%3AAffectedEntity%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The unique identifier for the entity. Format:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @arn:aws:health:entity-region:aws-account:entity\/entity-id @. Example:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @arn:aws:health:us-east-1:111222333444:entity\/AVh5GGT7ul1arKr1sE1K@</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_entityArn"><span class="hs-identifier hs-type">affectedEntity_entityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="affectedEntity_entityArn"><span class="annot"><span class="annottext">affectedEntity_entityArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_entityArn"><span class="hs-identifier hs-var hs-var">affectedEntity_entityArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe Text)
+-&gt; (AffectedEntity -&gt; Maybe Text -&gt; AffectedEntity)
+-&gt; Lens AffectedEntity AffectedEntity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185888"><span class="annot"><span class="annottext">Maybe Text
+entityArn :: Maybe Text
+$sel:entityArn:AffectedEntity' :: AffectedEntity -&gt; Maybe Text
+</span><a href="#local-6989586621679185888"><span class="hs-identifier hs-var hs-var">entityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185888"><span class="hs-identifier hs-var">entityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185887"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185886"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityArn:AffectedEntity' :: Maybe Text
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AentityArn%3AAffectedEntity%27"><span class="hs-identifier hs-var">entityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A map of entity tags attached to the affected entity.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Currently, the @tags@ property isn\'t supported.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_tags"><span class="hs-identifier hs-type">affectedEntity_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="affectedEntity_tags"><span class="annot"><span class="annottext">affectedEntity_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_tags"><span class="hs-identifier hs-var hs-var">affectedEntity_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe (HashMap Text Text))
+-&gt; (AffectedEntity -&gt; Maybe (HashMap Text Text) -&gt; AffectedEntity)
+-&gt; Lens
+     AffectedEntity
+     AffectedEntity
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185884"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:AffectedEntity' :: AffectedEntity -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679185884"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679185884"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185883"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185882"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679185882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AffectedEntity' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3Atags%3AAffectedEntity%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679185882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; AffectedEntity -&gt; f AffectedEntity)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AffectedEntity
+-&gt; f AffectedEntity
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The most recent status of the entity affected by the event. The possible</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- values are @IMPAIRED@, @UNIMPAIRED@, and @UNKNOWN@.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_statusCode"><span class="hs-identifier hs-type">affectedEntity_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.EntityStatusCode.html#EntityStatusCode"><span class="hs-identifier hs-type">EntityStatusCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="affectedEntity_statusCode"><span class="annot"><span class="annottext">affectedEntity_statusCode :: (Maybe EntityStatusCode -&gt; f (Maybe EntityStatusCode))
+-&gt; AffectedEntity -&gt; f AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#affectedEntity_statusCode"><span class="hs-identifier hs-var hs-var">affectedEntity_statusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AffectedEntity -&gt; Maybe EntityStatusCode)
+-&gt; (AffectedEntity -&gt; Maybe EntityStatusCode -&gt; AffectedEntity)
+-&gt; Lens
+     AffectedEntity
+     AffectedEntity
+     (Maybe EntityStatusCode)
+     (Maybe EntityStatusCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185879"><span class="annot"><span class="annottext">Maybe EntityStatusCode
+statusCode :: Maybe EntityStatusCode
+$sel:statusCode:AffectedEntity' :: AffectedEntity -&gt; Maybe EntityStatusCode
+</span><a href="#local-6989586621679185879"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityStatusCode
+</span><a href="#local-6989586621679185879"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185878"><span class="annot"><span class="annottext">s :: AffectedEntity
+</span><a href="#local-6989586621679185878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-type">AffectedEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185877"><span class="annot"><span class="annottext">Maybe EntityStatusCode
+</span><a href="#local-6989586621679185877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AffectedEntity
+</span><a href="#local-6989586621679185878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:AffectedEntity' :: Maybe EntityStatusCode
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#%24sel%3AstatusCode%3AAffectedEntity%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityStatusCode
+</span><a href="#local-6989586621679185877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185874"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679185872"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AffectedEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AffectedEntity)
+-&gt; Value
+-&gt; Parser AffectedEntity
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AffectedEntity&quot;</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185869"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe EntityStatusCode
+-&gt; AffectedEntity
+</span><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity%27"><span class="hs-identifier hs-var">AffectedEntity'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe EntityStatusCode
+ -&gt; AffectedEntity)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe EntityStatusCode
+      -&gt; AffectedEntity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe EntityStatusCode
+   -&gt; AffectedEntity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe EntityStatusCode
+      -&gt; AffectedEntity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entityValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe EntityStatusCode
+   -&gt; AffectedEntity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe EntityStatusCode
+      -&gt; AffectedEntity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entityUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe EntityStatusCode
+   -&gt; AffectedEntity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe EntityStatusCode
+      -&gt; AffectedEntity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe EntityStatusCode
+   -&gt; AffectedEntity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe EntityStatusCode
+      -&gt; AffectedEntity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe EntityStatusCode
+   -&gt; AffectedEntity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe EntityStatusCode -&gt; AffectedEntity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entityArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe EntityStatusCode -&gt; AffectedEntity)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe EntityStatusCode -&gt; AffectedEntity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EntityStatusCode -&gt; AffectedEntity)
+-&gt; Parser (Maybe EntityStatusCode) -&gt; Parser AffectedEntity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityStatusCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185862"><span id="local-6989586621679185864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

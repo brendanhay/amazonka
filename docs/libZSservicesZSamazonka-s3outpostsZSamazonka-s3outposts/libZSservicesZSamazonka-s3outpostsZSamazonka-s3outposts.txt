@@ -5,62 +5,62 @@
 @version 2.0
 
 
-module Network.AWS.S3Outposts.Types.EndpointAccessType
+module Amazonka.S3Outposts.Types.EndpointAccessType
 newtype EndpointAccessType
 EndpointAccessType' :: Text -> EndpointAccessType
 [fromEndpointAccessType] :: EndpointAccessType -> Text
 pattern EndpointAccessType_CustomerOwnedIp :: EndpointAccessType
 pattern EndpointAccessType_Private :: EndpointAccessType
-instance Network.AWS.Data.XML.ToXML Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Network.AWS.Data.XML.FromXML Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Network.AWS.Data.Log.ToLog Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Network.AWS.Data.Text.ToText Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Network.AWS.Data.Text.FromText Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance Data.Hashable.Class.Hashable Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance GHC.Generics.Generic Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance GHC.Classes.Ord Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance GHC.Classes.Eq Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance GHC.Read.Read Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
-instance GHC.Show.Show Network.AWS.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.XML.ToXML Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.XML.FromXML Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.Query.ToQuery Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.Headers.ToHeader Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.Log.ToLog Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.Text.ToText Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Amazonka.Data.Text.FromText Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance Data.Hashable.Class.Hashable Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance GHC.Generics.Generic Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance GHC.Classes.Ord Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance GHC.Classes.Eq Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance GHC.Read.Read Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
+instance GHC.Show.Show Amazonka.S3Outposts.Types.EndpointAccessType.EndpointAccessType
 
 
-module Network.AWS.S3Outposts.Types.EndpointStatus
+module Amazonka.S3Outposts.Types.EndpointStatus
 newtype EndpointStatus
 EndpointStatus' :: Text -> EndpointStatus
 [fromEndpointStatus] :: EndpointStatus -> Text
 pattern EndpointStatus_Available :: EndpointStatus
 pattern EndpointStatus_Deleting :: EndpointStatus
 pattern EndpointStatus_Pending :: EndpointStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance Data.Hashable.Class.Hashable Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance GHC.Generics.Generic Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance GHC.Classes.Ord Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance GHC.Classes.Eq Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance GHC.Read.Read Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
-instance GHC.Show.Show Network.AWS.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.XML.ToXML Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.XML.FromXML Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Log.ToLog Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Text.ToText Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Text.FromText Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance Data.Hashable.Class.Hashable Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance GHC.Generics.Generic Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance GHC.Classes.Ord Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance GHC.Classes.Eq Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance GHC.Read.Read Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
+instance GHC.Show.Show Amazonka.S3Outposts.Types.EndpointStatus.EndpointStatus
 
 
-module Network.AWS.S3Outposts.Types.NetworkInterface
+module Amazonka.S3Outposts.Types.NetworkInterface
 
 -- | The container for the network interface.
 --   
@@ -87,16 +87,16 @@ newNetworkInterface :: NetworkInterface
 
 -- | The ID for the network interface.
 networkInterface_networkInterfaceId :: Lens' NetworkInterface (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.S3Outposts.Types.NetworkInterface.NetworkInterface
-instance GHC.Show.Show Network.AWS.S3Outposts.Types.NetworkInterface.NetworkInterface
-instance GHC.Read.Read Network.AWS.S3Outposts.Types.NetworkInterface.NetworkInterface
-instance GHC.Classes.Eq Network.AWS.S3Outposts.Types.NetworkInterface.NetworkInterface
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.S3Outposts.Types.NetworkInterface.NetworkInterface
-instance Data.Hashable.Class.Hashable Network.AWS.S3Outposts.Types.NetworkInterface.NetworkInterface
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.Types.NetworkInterface.NetworkInterface
+instance GHC.Generics.Generic Amazonka.S3Outposts.Types.NetworkInterface.NetworkInterface
+instance GHC.Show.Show Amazonka.S3Outposts.Types.NetworkInterface.NetworkInterface
+instance GHC.Read.Read Amazonka.S3Outposts.Types.NetworkInterface.NetworkInterface
+instance GHC.Classes.Eq Amazonka.S3Outposts.Types.NetworkInterface.NetworkInterface
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.S3Outposts.Types.NetworkInterface.NetworkInterface
+instance Data.Hashable.Class.Hashable Amazonka.S3Outposts.Types.NetworkInterface.NetworkInterface
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.Types.NetworkInterface.NetworkInterface
 
 
-module Network.AWS.S3Outposts.Types.Endpoint
+module Amazonka.S3Outposts.Types.Endpoint
 
 -- | Amazon S3 on Outposts Access Points simplify managing data access at
 --   scale for shared datasets in S3 on Outposts. S3 on Outposts uses
@@ -213,16 +213,16 @@ endpoint_cidrBlock :: Lens' Endpoint (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
 endpoint_endpointArn :: Lens' Endpoint (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.S3Outposts.Types.Endpoint.Endpoint
-instance GHC.Show.Show Network.AWS.S3Outposts.Types.Endpoint.Endpoint
-instance GHC.Read.Read Network.AWS.S3Outposts.Types.Endpoint.Endpoint
-instance GHC.Classes.Eq Network.AWS.S3Outposts.Types.Endpoint.Endpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.S3Outposts.Types.Endpoint.Endpoint
-instance Data.Hashable.Class.Hashable Network.AWS.S3Outposts.Types.Endpoint.Endpoint
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.Types.Endpoint.Endpoint
+instance GHC.Generics.Generic Amazonka.S3Outposts.Types.Endpoint.Endpoint
+instance GHC.Show.Show Amazonka.S3Outposts.Types.Endpoint.Endpoint
+instance GHC.Read.Read Amazonka.S3Outposts.Types.Endpoint.Endpoint
+instance GHC.Classes.Eq Amazonka.S3Outposts.Types.Endpoint.Endpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.S3Outposts.Types.Endpoint.Endpoint
+instance Data.Hashable.Class.Hashable Amazonka.S3Outposts.Types.Endpoint.Endpoint
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.Types.Endpoint.Endpoint
 
 
-module Network.AWS.S3Outposts.Types
+module Amazonka.S3Outposts.Types
 
 -- | API version <tt>2017-07-25</tt> of the Amazon S3 on Outposts SDK
 --   configuration.
@@ -413,7 +413,7 @@ networkInterface_networkInterfaceId :: Lens' NetworkInterface (Maybe Text)
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.S3Outposts.ListEndpoints
+module Amazonka.S3Outposts.ListEndpoints
 
 -- | <i>See:</i> <a>newListEndpoints</a> smart constructor.
 data ListEndpoints
@@ -490,22 +490,22 @@ listEndpointsResponse_endpoints :: Lens' ListEndpointsResponse (Maybe [Endpoint]
 
 -- | The response's http status code.
 listEndpointsResponse_httpStatus :: Lens' ListEndpointsResponse Int
-instance GHC.Generics.Generic Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance GHC.Show.Show Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance GHC.Read.Read Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance GHC.Classes.Eq Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance GHC.Generics.Generic Network.AWS.S3Outposts.ListEndpoints.ListEndpointsResponse
-instance GHC.Show.Show Network.AWS.S3Outposts.ListEndpoints.ListEndpointsResponse
-instance GHC.Read.Read Network.AWS.S3Outposts.ListEndpoints.ListEndpointsResponse
-instance GHC.Classes.Eq Network.AWS.S3Outposts.ListEndpoints.ListEndpointsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.ListEndpoints.ListEndpointsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance Data.Hashable.Class.Hashable Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance Network.AWS.Data.Path.ToPath Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
-instance Network.AWS.Data.Query.ToQuery Network.AWS.S3Outposts.ListEndpoints.ListEndpoints
+instance GHC.Generics.Generic Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance GHC.Show.Show Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance GHC.Read.Read Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance GHC.Classes.Eq Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance GHC.Generics.Generic Amazonka.S3Outposts.ListEndpoints.ListEndpointsResponse
+instance GHC.Show.Show Amazonka.S3Outposts.ListEndpoints.ListEndpointsResponse
+instance GHC.Read.Read Amazonka.S3Outposts.ListEndpoints.ListEndpointsResponse
+instance GHC.Classes.Eq Amazonka.S3Outposts.ListEndpoints.ListEndpointsResponse
+instance Amazonka.Types.AWSRequest Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.ListEndpoints.ListEndpointsResponse
+instance Amazonka.Pager.AWSPager Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance Data.Hashable.Class.Hashable Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance Amazonka.Data.Headers.ToHeaders Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance Amazonka.Data.Path.ToPath Amazonka.S3Outposts.ListEndpoints.ListEndpoints
+instance Amazonka.Data.Query.ToQuery Amazonka.S3Outposts.ListEndpoints.ListEndpoints
 
 
 -- | Amazon S3 on Outposts Access Points simplify managing data access at
@@ -524,7 +524,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.S3Outposts.ListEndpoints.Lis
 --   <li><a>CreateEndpoint</a></li>
 --   <li><a>ListEndpoints</a></li>
 --   </ul>
-module Network.AWS.S3Outposts.DeleteEndpoint
+module Amazonka.S3Outposts.DeleteEndpoint
 
 -- | <i>See:</i> <a>newDeleteEndpoint</a> smart constructor.
 data DeleteEndpoint
@@ -568,21 +568,21 @@ DeleteEndpointResponse' :: DeleteEndpointResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteEndpointResponse :: DeleteEndpointResponse
-instance GHC.Generics.Generic Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance GHC.Show.Show Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance GHC.Read.Read Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance GHC.Classes.Eq Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance GHC.Generics.Generic Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
-instance GHC.Show.Show Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
-instance GHC.Read.Read Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
-instance GHC.Classes.Eq Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance GHC.Generics.Generic Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance GHC.Show.Show Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance GHC.Read.Read Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance GHC.Classes.Eq Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance GHC.Generics.Generic Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
+instance GHC.Show.Show Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
+instance GHC.Read.Read Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
+instance GHC.Classes.Eq Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.S3Outposts.DeleteEndpoint.DeleteEndpoint
 
 
 -- | Amazon S3 on Outposts Access Points simplify managing data access at
@@ -602,7 +602,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.S3Outposts.DeleteEndpoint.De
 --   <li><a>DeleteEndpoint</a></li>
 --   <li><a>ListEndpoints</a></li>
 --   </ul>
-module Network.AWS.S3Outposts.CreateEndpoint
+module Amazonka.S3Outposts.CreateEndpoint
 
 -- | <i>See:</i> <a>newCreateEndpoint</a> smart constructor.
 data CreateEndpoint
@@ -713,25 +713,25 @@ createEndpointResponse_endpointArn :: Lens' CreateEndpointResponse (Maybe Text)
 
 -- | The response's http status code.
 createEndpointResponse_httpStatus :: Lens' CreateEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance GHC.Show.Show Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance GHC.Read.Read Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance GHC.Classes.Eq Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance GHC.Generics.Generic Network.AWS.S3Outposts.CreateEndpoint.CreateEndpointResponse
-instance GHC.Show.Show Network.AWS.S3Outposts.CreateEndpoint.CreateEndpointResponse
-instance GHC.Read.Read Network.AWS.S3Outposts.CreateEndpoint.CreateEndpointResponse
-instance GHC.Classes.Eq Network.AWS.S3Outposts.CreateEndpoint.CreateEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.CreateEndpoint.CreateEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance Control.DeepSeq.NFData Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.S3Outposts.CreateEndpoint.CreateEndpoint
+instance GHC.Generics.Generic Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance GHC.Show.Show Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance GHC.Read.Read Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance GHC.Classes.Eq Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance GHC.Generics.Generic Amazonka.S3Outposts.CreateEndpoint.CreateEndpointResponse
+instance GHC.Show.Show Amazonka.S3Outposts.CreateEndpoint.CreateEndpointResponse
+instance GHC.Read.Read Amazonka.S3Outposts.CreateEndpoint.CreateEndpointResponse
+instance GHC.Classes.Eq Amazonka.S3Outposts.CreateEndpoint.CreateEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.CreateEndpoint.CreateEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance Control.DeepSeq.NFData Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.S3Outposts.CreateEndpoint.CreateEndpoint
 
 
-module Network.AWS.S3Outposts.Lens
+module Amazonka.S3Outposts.Lens
 
 -- | The type of access for the on-premise network connectivity for the
 --   Outpost endpoint. To access the endpoint from an on-premises network,
@@ -816,14 +816,14 @@ endpoint_endpointArn :: Lens' Endpoint (Maybe Text)
 networkInterface_networkInterfaceId :: Lens' NetworkInterface (Maybe Text)
 
 
-module Network.AWS.S3Outposts.Waiters
+module Amazonka.S3Outposts.Waiters
 
 
 -- | Derived from API version <tt>2017-07-25</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Amazon S3 on Outposts provides access to S3 on Outposts operations.
-module Network.AWS.S3Outposts
+module Amazonka.S3Outposts
 
 -- | API version <tt>2017-07-25</tt> of the Amazon S3 on Outposts SDK
 --   configuration.

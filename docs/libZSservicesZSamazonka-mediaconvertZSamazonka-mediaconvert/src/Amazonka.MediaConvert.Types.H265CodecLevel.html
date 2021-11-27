@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.H265CodecLevel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.H265CodecLevel</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier">H265CodecLevel</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_AUTO"><span class="hs-identifier">H265CodecLevel_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_1"><span class="hs-identifier">H265CodecLevel_LEVEL_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_2"><span class="hs-identifier">H265CodecLevel_LEVEL_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_2_1"><span class="hs-identifier">H265CodecLevel_LEVEL_2_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_3"><span class="hs-identifier">H265CodecLevel_LEVEL_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_3_1"><span class="hs-identifier">H265CodecLevel_LEVEL_3_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_4"><span class="hs-identifier">H265CodecLevel_LEVEL_4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_4_1"><span class="hs-identifier">H265CodecLevel_LEVEL_4_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5"><span class="hs-identifier">H265CodecLevel_LEVEL_5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5_1"><span class="hs-identifier">H265CodecLevel_LEVEL_5_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5_2"><span class="hs-identifier">H265CodecLevel_LEVEL_5_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6"><span class="hs-identifier">H265CodecLevel_LEVEL_6</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6_1"><span class="hs-identifier">H265CodecLevel_LEVEL_6_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6_2"><span class="hs-identifier">H265CodecLevel_LEVEL_6_2</span></a></span><span>
+</span><span id="line-37"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- | H.265 Level.</span><span>
+</span><span id="line-45"></span><span id="local-6989586621679971491"><span id="local-6989586621679971492"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265CodecLevel"><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-var">H265CodecLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265CodecLevel%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-var">H265CodecLevel'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265CodecLevel"><span class="annot"><span class="annottext">H265CodecLevel -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#fromH265CodecLevel"><span class="hs-identifier hs-var hs-var">fromH265CodecLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971483"><span id="local-6989586621679971485"><span id="local-6989586621679971487"><span class="annot"><span class="annottext">Int -&gt; H265CodecLevel -&gt; ShowS
+[H265CodecLevel] -&gt; ShowS
+H265CodecLevel -&gt; String
+(Int -&gt; H265CodecLevel -&gt; ShowS)
+-&gt; (H265CodecLevel -&gt; String)
+-&gt; ([H265CodecLevel] -&gt; ShowS)
+-&gt; Show H265CodecLevel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H265CodecLevel] -&gt; ShowS
+$cshowList :: [H265CodecLevel] -&gt; ShowS
+show :: H265CodecLevel -&gt; String
+$cshow :: H265CodecLevel -&gt; String
+showsPrec :: Int -&gt; H265CodecLevel -&gt; ShowS
+$cshowsPrec :: Int -&gt; H265CodecLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679971474"><span id="local-6989586621679971476"><span id="local-6989586621679971478"><span id="local-6989586621679971480"><span class="annot"><span class="annottext">ReadPrec [H265CodecLevel]
+ReadPrec H265CodecLevel
+Int -&gt; ReadS H265CodecLevel
+ReadS [H265CodecLevel]
+(Int -&gt; ReadS H265CodecLevel)
+-&gt; ReadS [H265CodecLevel]
+-&gt; ReadPrec H265CodecLevel
+-&gt; ReadPrec [H265CodecLevel]
+-&gt; Read H265CodecLevel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H265CodecLevel]
+$creadListPrec :: ReadPrec [H265CodecLevel]
+readPrec :: ReadPrec H265CodecLevel
+$creadPrec :: ReadPrec H265CodecLevel
+readList :: ReadS [H265CodecLevel]
+$creadList :: ReadS [H265CodecLevel]
+readsPrec :: Int -&gt; ReadS H265CodecLevel
+$creadsPrec :: Int -&gt; ReadS H265CodecLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679971469"><span id="local-6989586621679971471"><span class="annot"><span class="annottext">H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+(H265CodecLevel -&gt; H265CodecLevel -&gt; Bool)
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; Bool) -&gt; Eq H265CodecLevel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+$c/= :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+== :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+$c== :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679971453"><span id="local-6989586621679971455"><span id="local-6989586621679971457"><span id="local-6989586621679971459"><span id="local-6989586621679971461"><span id="local-6989586621679971463"><span id="local-6989586621679971465"><span class="annot"><span class="annottext">Eq H265CodecLevel
+Eq H265CodecLevel
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; Ordering)
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; Bool)
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; Bool)
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; Bool)
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; Bool)
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; H265CodecLevel)
+-&gt; (H265CodecLevel -&gt; H265CodecLevel -&gt; H265CodecLevel)
+-&gt; Ord H265CodecLevel
+H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+H265CodecLevel -&gt; H265CodecLevel -&gt; Ordering
+H265CodecLevel -&gt; H265CodecLevel -&gt; H265CodecLevel
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H265CodecLevel -&gt; H265CodecLevel -&gt; H265CodecLevel
+$cmin :: H265CodecLevel -&gt; H265CodecLevel -&gt; H265CodecLevel
+max :: H265CodecLevel -&gt; H265CodecLevel -&gt; H265CodecLevel
+$cmax :: H265CodecLevel -&gt; H265CodecLevel -&gt; H265CodecLevel
+&gt;= :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+$c&gt;= :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+&gt; :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+$c&gt; :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+&lt;= :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+$c&lt;= :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+&lt; :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+$c&lt; :: H265CodecLevel -&gt; H265CodecLevel -&gt; Bool
+compare :: H265CodecLevel -&gt; H265CodecLevel -&gt; Ordering
+$ccompare :: H265CodecLevel -&gt; H265CodecLevel -&gt; Ordering
+$cp1Ord :: Eq H265CodecLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H265CodecLevel -&gt; Rep H265CodecLevel x)
+-&gt; (forall x. Rep H265CodecLevel x -&gt; H265CodecLevel)
+-&gt; Generic H265CodecLevel
+forall x. Rep H265CodecLevel x -&gt; H265CodecLevel
+forall x. H265CodecLevel -&gt; Rep H265CodecLevel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H265CodecLevel x -&gt; H265CodecLevel
+$cfrom :: forall x. H265CodecLevel -&gt; Rep H265CodecLevel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971445"><span id="local-6989586621679971447"><span class="annot"><span class="annottext">Int -&gt; H265CodecLevel -&gt; Int
+H265CodecLevel -&gt; Int
+(Int -&gt; H265CodecLevel -&gt; Int)
+-&gt; (H265CodecLevel -&gt; Int) -&gt; Hashable H265CodecLevel
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H265CodecLevel -&gt; Int
+$chash :: H265CodecLevel -&gt; Int
+hashWithSalt :: Int -&gt; H265CodecLevel -&gt; Int
+$chashWithSalt :: Int -&gt; H265CodecLevel -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679971442"><span class="annot"><span class="annottext">H265CodecLevel -&gt; ()
+(H265CodecLevel -&gt; ()) -&gt; NFData H265CodecLevel
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H265CodecLevel -&gt; ()
+$crnf :: H265CodecLevel -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679971439"><span class="annot"><span class="annottext">Text -&gt; Either String H265CodecLevel
+(Text -&gt; Either String H265CodecLevel) -&gt; FromText H265CodecLevel
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H265CodecLevel
+$cfromText :: Text -&gt; Either String H265CodecLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679971436"><span class="annot"><span class="annottext">H265CodecLevel -&gt; Text
+(H265CodecLevel -&gt; Text) -&gt; ToText H265CodecLevel
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H265CodecLevel -&gt; Text
+$ctoText :: H265CodecLevel -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679971433"><span class="annot"><span class="annottext">H265CodecLevel -&gt; ByteString
+(H265CodecLevel -&gt; ByteString) -&gt; ToByteString H265CodecLevel
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H265CodecLevel -&gt; ByteString
+$ctoBS :: H265CodecLevel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679971430"><span class="annot"><span class="annottext">H265CodecLevel -&gt; ByteStringBuilder
+(H265CodecLevel -&gt; ByteStringBuilder) -&gt; ToLog H265CodecLevel
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H265CodecLevel -&gt; ByteStringBuilder
+$cbuild :: H265CodecLevel -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679971427"><span class="annot"><span class="annottext">HeaderName -&gt; H265CodecLevel -&gt; [Header]
+(HeaderName -&gt; H265CodecLevel -&gt; [Header])
+-&gt; ToHeader H265CodecLevel
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H265CodecLevel -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H265CodecLevel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679971424"><span class="annot"><span class="annottext">H265CodecLevel -&gt; QueryString
+(H265CodecLevel -&gt; QueryString) -&gt; ToQuery H265CodecLevel
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H265CodecLevel -&gt; QueryString
+$ctoQuery :: H265CodecLevel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679971419"><span id="local-6989586621679971421"><span class="annot"><span class="annottext">Value -&gt; Parser [H265CodecLevel]
+Value -&gt; Parser H265CodecLevel
+(Value -&gt; Parser H265CodecLevel)
+-&gt; (Value -&gt; Parser [H265CodecLevel]) -&gt; FromJSON H265CodecLevel
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H265CodecLevel]
+$cparseJSONList :: Value -&gt; Parser [H265CodecLevel]
+parseJSON :: Value -&gt; Parser H265CodecLevel
+$cparseJSON :: Value -&gt; Parser H265CodecLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679971414"><span id="local-6989586621679971416"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265CodecLevel]
+FromJSONKeyFunction H265CodecLevel
+FromJSONKeyFunction H265CodecLevel
+-&gt; FromJSONKeyFunction [H265CodecLevel]
+-&gt; FromJSONKey H265CodecLevel
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H265CodecLevel]
+$cfromJSONKeyList :: FromJSONKeyFunction [H265CodecLevel]
+fromJSONKey :: FromJSONKeyFunction H265CodecLevel
+$cfromJSONKey :: FromJSONKeyFunction H265CodecLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679971405"><span id="local-6989586621679971407"><span id="local-6989586621679971409"><span id="local-6989586621679971411"><span class="annot"><span class="annottext">[H265CodecLevel] -&gt; Encoding
+[H265CodecLevel] -&gt; Value
+H265CodecLevel -&gt; Encoding
+H265CodecLevel -&gt; Value
+(H265CodecLevel -&gt; Value)
+-&gt; (H265CodecLevel -&gt; Encoding)
+-&gt; ([H265CodecLevel] -&gt; Value)
+-&gt; ([H265CodecLevel] -&gt; Encoding)
+-&gt; ToJSON H265CodecLevel
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H265CodecLevel] -&gt; Encoding
+$ctoEncodingList :: [H265CodecLevel] -&gt; Encoding
+toJSONList :: [H265CodecLevel] -&gt; Value
+$ctoJSONList :: [H265CodecLevel] -&gt; Value
+toEncoding :: H265CodecLevel -&gt; Encoding
+$ctoEncoding :: H265CodecLevel -&gt; Encoding
+toJSON :: H265CodecLevel -&gt; Value
+$ctoJSON :: H265CodecLevel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679971400"><span id="local-6989586621679971402"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265CodecLevel]
+ToJSONKeyFunction H265CodecLevel
+ToJSONKeyFunction H265CodecLevel
+-&gt; ToJSONKeyFunction [H265CodecLevel] -&gt; ToJSONKey H265CodecLevel
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H265CodecLevel]
+$ctoJSONKeyList :: ToJSONKeyFunction [H265CodecLevel]
+toJSONKey :: ToJSONKeyFunction H265CodecLevel
+$ctoJSONKey :: ToJSONKeyFunction H265CodecLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679971397"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265CodecLevel
+([Node] -&gt; Either String H265CodecLevel) -&gt; FromXML H265CodecLevel
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H265CodecLevel
+$cparseXML :: [Node] -&gt; Either String H265CodecLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679971394"><span class="annot"><span class="annottext">H265CodecLevel -&gt; XML
+(H265CodecLevel -&gt; XML) -&gt; ToXML H265CodecLevel
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H265CodecLevel -&gt; XML
+$ctoXML :: H265CodecLevel -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_AUTO"><span class="hs-identifier hs-type">H265CodecLevel_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_AUTO"><span id="%24mH265CodecLevel_AUTO"><span id="H265CodecLevel_AUTO"><span class="annot"><span class="annottext">$bH265CodecLevel_AUTO :: H265CodecLevel
+$mH265CodecLevel_AUTO :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_AUTO"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_1"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_1"><span id="%24mH265CodecLevel_LEVEL_1"><span id="H265CodecLevel_LEVEL_1"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_1 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_1 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_1"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_1&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_2"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_2"><span id="%24mH265CodecLevel_LEVEL_2"><span id="H265CodecLevel_LEVEL_2"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_2 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_2 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_2"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_2&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_2_1"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_2_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_2_1"><span id="%24mH265CodecLevel_LEVEL_2_1"><span id="H265CodecLevel_LEVEL_2_1"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_2_1 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_2_1 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_2_1"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_2_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_2_1&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_3"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_3"><span id="%24mH265CodecLevel_LEVEL_3"><span id="H265CodecLevel_LEVEL_3"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_3 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_3 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_3"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_3&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_3_1"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_3_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_3_1"><span id="%24mH265CodecLevel_LEVEL_3_1"><span id="H265CodecLevel_LEVEL_3_1"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_3_1 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_3_1 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_3_1"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_3_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_3_1&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_4"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_4"><span id="%24mH265CodecLevel_LEVEL_4"><span id="H265CodecLevel_LEVEL_4"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_4 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_4 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_4"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_4&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_4_1"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_4_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_4_1"><span id="%24mH265CodecLevel_LEVEL_4_1"><span id="H265CodecLevel_LEVEL_4_1"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_4_1 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_4_1 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_4_1"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_4_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_4_1&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_5"><span id="%24mH265CodecLevel_LEVEL_5"><span id="H265CodecLevel_LEVEL_5"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_5 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_5 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_5"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_5</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_5&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5_1"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_5_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_5_1"><span id="%24mH265CodecLevel_LEVEL_5_1"><span id="H265CodecLevel_LEVEL_5_1"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_5_1 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_5_1 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_5_1"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_5_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_5_1&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5_2"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_5_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_5_2"><span id="%24mH265CodecLevel_LEVEL_5_2"><span id="H265CodecLevel_LEVEL_5_2"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_5_2 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_5_2 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_5_2"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_5_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_5_2&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_6</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_6"><span id="%24mH265CodecLevel_LEVEL_6"><span id="H265CodecLevel_LEVEL_6"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_6 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_6 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_6"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_6</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_6&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6_1"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_6_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_6_1"><span id="%24mH265CodecLevel_LEVEL_6_1"><span id="H265CodecLevel_LEVEL_6_1"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_6_1 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_6_1 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_6_1"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_6_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_6_1&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6_2"><span class="hs-identifier hs-type">H265CodecLevel_LEVEL_6_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel"><span class="hs-identifier hs-type">H265CodecLevel</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265CodecLevel_LEVEL_6_2"><span id="%24mH265CodecLevel_LEVEL_6_2"><span id="H265CodecLevel_LEVEL_6_2"><span class="annot"><span class="annottext">$bH265CodecLevel_LEVEL_6_2 :: H265CodecLevel
+$mH265CodecLevel_LEVEL_6_2 :: forall r. H265CodecLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#%24bH265CodecLevel_LEVEL_6_2"><span class="hs-identifier hs-var hs-var hs-var">H265CodecLevel_LEVEL_6_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-identifier hs-type">H265CodecLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEVEL_6_2&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_AUTO"><span class="hs-pragma hs-type">H265CodecLevel_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_1"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_2"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_2_1"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_2_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_3"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_3_1"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_3_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_4"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_4_1"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_4_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_5</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5_1"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_5_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_5_2"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_5_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_6</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6_1"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_6_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel_LEVEL_6_2"><span class="hs-pragma hs-type">H265CodecLevel_LEVEL_6_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265CodecLevel.html#H265CodecLevel%27"><span class="hs-pragma hs-type">H265CodecLevel'</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-132"></span></pre></body></html>

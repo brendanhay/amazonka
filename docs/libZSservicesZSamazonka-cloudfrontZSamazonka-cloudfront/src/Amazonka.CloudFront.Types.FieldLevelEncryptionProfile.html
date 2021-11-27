@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.FieldLevelEncryptionProfile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.FieldLevelEncryptionProfile</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfileConfig.html"><span class="hs-identifier">Amazonka.CloudFront.Types.FieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A complex data type for field-level encryption profiles.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFieldLevelEncryptionProfile' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679390076"><span id="local-6989586621679390077"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldLevelEncryptionProfile"><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-var">FieldLevelEncryptionProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldLevelEncryptionProfile%27"><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">FieldLevelEncryptionProfile'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for a field-level encryption profile configuration which includes</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- a set of profiles that specify certain selected data fields to be</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- encrypted by specific public keys.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3AFieldLevelEncryptionProfile%27"><span class="annot"><span class="annottext">FieldLevelEncryptionProfile -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3Aid%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The last time the field-level encryption profile was updated.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AFieldLevelEncryptionProfile%27"><span class="annot"><span class="annottext">FieldLevelEncryptionProfile -&gt; ISO8601
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3AlastModifiedTime%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A complex data type that includes the profile name and the encryption</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- entities for the field-level encryption profile.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfieldLevelEncryptionProfileConfig%3AFieldLevelEncryptionProfile%27"><span class="annot"><span class="annottext">FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3AfieldLevelEncryptionProfileConfig%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfileConfig.html#FieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390068"><span id="local-6989586621679390070"><span class="annot"><span class="annottext">FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfile -&gt; Bool
+(FieldLevelEncryptionProfile
+ -&gt; FieldLevelEncryptionProfile -&gt; Bool)
+-&gt; (FieldLevelEncryptionProfile
+    -&gt; FieldLevelEncryptionProfile -&gt; Bool)
+-&gt; Eq FieldLevelEncryptionProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfile -&gt; Bool
+$c/= :: FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfile -&gt; Bool
+== :: FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfile -&gt; Bool
+$c== :: FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390059"><span id="local-6989586621679390061"><span id="local-6989586621679390063"><span id="local-6989586621679390065"><span class="annot"><span class="annottext">ReadPrec [FieldLevelEncryptionProfile]
+ReadPrec FieldLevelEncryptionProfile
+Int -&gt; ReadS FieldLevelEncryptionProfile
+ReadS [FieldLevelEncryptionProfile]
+(Int -&gt; ReadS FieldLevelEncryptionProfile)
+-&gt; ReadS [FieldLevelEncryptionProfile]
+-&gt; ReadPrec FieldLevelEncryptionProfile
+-&gt; ReadPrec [FieldLevelEncryptionProfile]
+-&gt; Read FieldLevelEncryptionProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FieldLevelEncryptionProfile]
+$creadListPrec :: ReadPrec [FieldLevelEncryptionProfile]
+readPrec :: ReadPrec FieldLevelEncryptionProfile
+$creadPrec :: ReadPrec FieldLevelEncryptionProfile
+readList :: ReadS [FieldLevelEncryptionProfile]
+$creadList :: ReadS [FieldLevelEncryptionProfile]
+readsPrec :: Int -&gt; ReadS FieldLevelEncryptionProfile
+$creadsPrec :: Int -&gt; ReadS FieldLevelEncryptionProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390052"><span id="local-6989586621679390054"><span id="local-6989586621679390056"><span class="annot"><span class="annottext">Int -&gt; FieldLevelEncryptionProfile -&gt; ShowS
+[FieldLevelEncryptionProfile] -&gt; ShowS
+FieldLevelEncryptionProfile -&gt; String
+(Int -&gt; FieldLevelEncryptionProfile -&gt; ShowS)
+-&gt; (FieldLevelEncryptionProfile -&gt; String)
+-&gt; ([FieldLevelEncryptionProfile] -&gt; ShowS)
+-&gt; Show FieldLevelEncryptionProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FieldLevelEncryptionProfile] -&gt; ShowS
+$cshowList :: [FieldLevelEncryptionProfile] -&gt; ShowS
+show :: FieldLevelEncryptionProfile -&gt; String
+$cshow :: FieldLevelEncryptionProfile -&gt; String
+showsPrec :: Int -&gt; FieldLevelEncryptionProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; FieldLevelEncryptionProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FieldLevelEncryptionProfile -&gt; Rep FieldLevelEncryptionProfile x)
+-&gt; (forall x.
+    Rep FieldLevelEncryptionProfile x -&gt; FieldLevelEncryptionProfile)
+-&gt; Generic FieldLevelEncryptionProfile
+forall x.
+Rep FieldLevelEncryptionProfile x -&gt; FieldLevelEncryptionProfile
+forall x.
+FieldLevelEncryptionProfile -&gt; Rep FieldLevelEncryptionProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FieldLevelEncryptionProfile x -&gt; FieldLevelEncryptionProfile
+$cfrom :: forall x.
+FieldLevelEncryptionProfile -&gt; Rep FieldLevelEncryptionProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'FieldLevelEncryptionProfile' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'id', 'fieldLevelEncryptionProfile_id' - The ID for a field-level encryption profile configuration which includes</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- a set of profiles that specify certain selected data fields to be</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- encrypted by specific public keys.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'lastModifiedTime', 'fieldLevelEncryptionProfile_lastModifiedTime' - The last time the field-level encryption profile was updated.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'fieldLevelEncryptionProfileConfig', 'fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig' - A complex data type that includes the profile name and the encryption</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- entities for the field-level encryption profile.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#newFieldLevelEncryptionProfile"><span class="hs-identifier hs-type">newFieldLevelEncryptionProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'lastModifiedTime'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'fieldLevelEncryptionProfileConfig'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfileConfig.html#FieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span>
+</span><span id="line-67"></span><span id="newFieldLevelEncryptionProfile"><span class="annot"><span class="annottext">newFieldLevelEncryptionProfile :: Text
+-&gt; UTCTime
+-&gt; FieldLevelEncryptionProfileConfig
+-&gt; FieldLevelEncryptionProfile
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#newFieldLevelEncryptionProfile"><span class="hs-identifier hs-var hs-var">newFieldLevelEncryptionProfile</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679390046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390046"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679390045"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679390045"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679390044"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679390044"><span class="hs-identifier hs-var">pFieldLevelEncryptionProfileConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfile' :: Text
+-&gt; ISO8601
+-&gt; FieldLevelEncryptionProfileConfig
+-&gt; FieldLevelEncryptionProfile
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile'</span></a></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:FieldLevelEncryptionProfile' :: Text
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3Aid%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390046"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:FieldLevelEncryptionProfile' :: ISO8601
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3AlastModifiedTime%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679390045"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:fieldLevelEncryptionProfileConfig:FieldLevelEncryptionProfile' :: FieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3AfieldLevelEncryptionProfileConfig%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">fieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679390044"><span class="hs-identifier hs-var">pFieldLevelEncryptionProfileConfig_</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The ID for a field-level encryption profile configuration which includes</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- a set of profiles that specify certain selected data fields to be</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- encrypted by specific public keys.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#fieldLevelEncryptionProfile_id"><span class="hs-identifier hs-type">fieldLevelEncryptionProfile_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="fieldLevelEncryptionProfile_id"><span class="annot"><span class="annottext">fieldLevelEncryptionProfile_id :: (Text -&gt; f Text)
+-&gt; FieldLevelEncryptionProfile -&gt; f FieldLevelEncryptionProfile
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#fieldLevelEncryptionProfile_id"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfile_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionProfile -&gt; Text)
+-&gt; (FieldLevelEncryptionProfile
+    -&gt; Text -&gt; FieldLevelEncryptionProfile)
+-&gt; Lens
+     FieldLevelEncryptionProfile FieldLevelEncryptionProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390038"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:FieldLevelEncryptionProfile' :: FieldLevelEncryptionProfile -&gt; Text
+</span><a href="#local-6989586621679390038"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390038"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390037"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionProfile
+</span><a href="#local-6989586621679390037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfile
+</span><a href="#local-6989586621679390037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:FieldLevelEncryptionProfile' :: Text
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3Aid%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The last time the field-level encryption profile was updated.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#fieldLevelEncryptionProfile_lastModifiedTime"><span class="hs-identifier hs-type">fieldLevelEncryptionProfile_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-87"></span><span id="fieldLevelEncryptionProfile_lastModifiedTime"><span class="annot"><span class="annottext">fieldLevelEncryptionProfile_lastModifiedTime :: (UTCTime -&gt; f UTCTime)
+-&gt; FieldLevelEncryptionProfile -&gt; f FieldLevelEncryptionProfile
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#fieldLevelEncryptionProfile_lastModifiedTime"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfile_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionProfile -&gt; ISO8601)
+-&gt; (FieldLevelEncryptionProfile
+    -&gt; ISO8601 -&gt; FieldLevelEncryptionProfile)
+-&gt; Lens
+     FieldLevelEncryptionProfile
+     FieldLevelEncryptionProfile
+     ISO8601
+     ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390034"><span class="annot"><span class="annottext">ISO8601
+lastModifiedTime :: ISO8601
+$sel:lastModifiedTime:FieldLevelEncryptionProfile' :: FieldLevelEncryptionProfile -&gt; ISO8601
+</span><a href="#local-6989586621679390034"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679390034"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390033"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionProfile
+</span><a href="#local-6989586621679390033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390032"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679390032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfile
+</span><a href="#local-6989586621679390033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:FieldLevelEncryptionProfile' :: ISO8601
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3AlastModifiedTime%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679390032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
+ -&gt; FieldLevelEncryptionProfile -&gt; f FieldLevelEncryptionProfile)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; FieldLevelEncryptionProfile
+-&gt; f FieldLevelEncryptionProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | A complex data type that includes the profile name and the encryption</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- entities for the field-level encryption profile.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfileConfig.html#FieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-92"></span><span id="fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig"><span class="annot"><span class="annottext">fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig :: (FieldLevelEncryptionProfileConfig
+ -&gt; f FieldLevelEncryptionProfileConfig)
+-&gt; FieldLevelEncryptionProfile -&gt; f FieldLevelEncryptionProfile
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfileConfig)
+-&gt; (FieldLevelEncryptionProfile
+    -&gt; FieldLevelEncryptionProfileConfig
+    -&gt; FieldLevelEncryptionProfile)
+-&gt; Lens
+     FieldLevelEncryptionProfile
+     FieldLevelEncryptionProfile
+     FieldLevelEncryptionProfileConfig
+     FieldLevelEncryptionProfileConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390029"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileConfig
+fieldLevelEncryptionProfileConfig :: FieldLevelEncryptionProfileConfig
+$sel:fieldLevelEncryptionProfileConfig:FieldLevelEncryptionProfile' :: FieldLevelEncryptionProfile -&gt; FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679390029"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679390029"><span class="hs-identifier hs-var">fieldLevelEncryptionProfileConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390028"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionProfile
+</span><a href="#local-6989586621679390028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390027"><span class="annot"><span class="annottext">FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679390027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfile
+</span><a href="#local-6989586621679390028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldLevelEncryptionProfileConfig:FieldLevelEncryptionProfile' :: FieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#%24sel%3AfieldLevelEncryptionProfileConfig%3AFieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">fieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679390027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679390024"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FieldLevelEncryptionProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679390022"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679390022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; ISO8601
+-&gt; FieldLevelEncryptionProfileConfig
+-&gt; FieldLevelEncryptionProfile
+</span><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile%27"><span class="hs-identifier hs-var">FieldLevelEncryptionProfile'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Text
+ -&gt; ISO8601
+ -&gt; FieldLevelEncryptionProfileConfig
+ -&gt; FieldLevelEncryptionProfile)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (ISO8601
+      -&gt; FieldLevelEncryptionProfileConfig
+      -&gt; FieldLevelEncryptionProfile)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679390022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (ISO8601
+   -&gt; FieldLevelEncryptionProfileConfig
+   -&gt; FieldLevelEncryptionProfile)
+-&gt; Either String ISO8601
+-&gt; Either
+     String
+     (FieldLevelEncryptionProfileConfig -&gt; FieldLevelEncryptionProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679390022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (FieldLevelEncryptionProfileConfig -&gt; FieldLevelEncryptionProfile)
+-&gt; Either String FieldLevelEncryptionProfileConfig
+-&gt; Either String FieldLevelEncryptionProfile
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679390022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String FieldLevelEncryptionProfileConfig
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FieldLevelEncryptionProfileConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390016"><span id="local-6989586621679390018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfile.html#FieldLevelEncryptionProfile"><span class="hs-identifier hs-type">FieldLevelEncryptionProfile</span></a></span></span><span>
+</span><span id="line-104"></span></pre></body></html>

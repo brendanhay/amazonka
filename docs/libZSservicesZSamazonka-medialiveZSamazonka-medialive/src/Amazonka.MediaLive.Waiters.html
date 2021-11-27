@@ -1,0 +1,1376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Waiters</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-16"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Waiters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeChannel.html"><span class="hs-identifier">Amazonka.MediaLive.DescribeChannel</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html"><span class="hs-identifier">Amazonka.MediaLive.DescribeInput</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeMultiplex.html"><span class="hs-identifier">Amazonka.MediaLive.DescribeMultiplex</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Lens.html"><span class="hs-identifier">Amazonka.MediaLive.Lens</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.html"><span class="hs-identifier">Amazonka.MediaLive.Types</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.</span><span>
+</span><span id="line-28"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newChannelRunning"><span class="hs-identifier hs-type">newChannelRunning</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span>
+</span><span id="line-29"></span><span id="newChannelRunning"><span class="annot"><span class="annottext">newChannelRunning :: Wait DescribeChannel
+</span><a href="Amazonka.MediaLive.Waiters.html#newChannelRunning"><span class="hs-identifier hs-var hs-var">newChannelRunning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-30"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ChannelRunning&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">120</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeChannel]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-35"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-37"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-38"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-39"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-40"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-42"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;STARTING&quot;</span></span><span>
+</span><span id="line-43"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-44"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-45"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-46"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeChannel
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-48"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newInputAttached"><span class="hs-identifier hs-type">newInputAttached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span>
+</span><span id="line-53"></span><span id="newInputAttached"><span class="annot"><span class="annottext">newInputAttached :: Wait DescribeInput
+</span><a href="Amazonka.MediaLive.Waiters.html#newInputAttached"><span class="hs-identifier hs-var hs-var">newInputAttached</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InputAttached&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeInput]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeInput) (CI Text)
+-&gt; Acceptor DescribeInput
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;ATTACHED&quot;</span></span><span>
+</span><span id="line-61"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-62"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+Lens' DescribeInputResponse (Maybe InputState)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var">describeInputResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe InputState -&gt; f (Maybe InputState))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; f InputState)
+-&gt; Maybe InputState -&gt; f (Maybe InputState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-63"></span><span>                </span><span class="annot"><span class="annottext">((InputState -&gt; f InputState)
+ -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe InputState
+-&gt; f (Maybe InputState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">InputState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-64"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeInput) (CI Text)
+-&gt; Acceptor DescribeInput
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DETACHED&quot;</span></span><span>
+</span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-68"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+Lens' DescribeInputResponse (Maybe InputState)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var">describeInputResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe InputState -&gt; f (Maybe InputState))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; f InputState)
+-&gt; Maybe InputState -&gt; f (Maybe InputState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-69"></span><span>                </span><span class="annot"><span class="annottext">((InputState -&gt; f InputState)
+ -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe InputState
+-&gt; f (Maybe InputState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">InputState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-70"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeInput
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-72"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newMultiplexRunning"><span class="hs-identifier hs-type">newMultiplexRunning</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeMultiplex.html#DescribeMultiplex"><span class="hs-identifier hs-type">DescribeMultiplex</span></a></span><span>
+</span><span id="line-77"></span><span id="newMultiplexRunning"><span class="annot"><span class="annottext">newMultiplexRunning :: Wait DescribeMultiplex
+</span><a href="Amazonka.MediaLive.Waiters.html#newMultiplexRunning"><span class="hs-identifier hs-var hs-var">newMultiplexRunning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MultiplexRunning&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">120</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeMultiplex]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-87"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-88"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;STARTING&quot;</span></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-93"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-94"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeMultiplex
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-96"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newMultiplexDeleted"><span class="hs-identifier hs-type">newMultiplexDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeMultiplex.html#DescribeMultiplex"><span class="hs-identifier hs-type">DescribeMultiplex</span></a></span><span>
+</span><span id="line-101"></span><span id="newMultiplexDeleted"><span class="annot"><span class="annottext">newMultiplexDeleted :: Wait DescribeMultiplex
+</span><a href="Amazonka.MediaLive.Waiters.html#newMultiplexDeleted"><span class="hs-identifier hs-var hs-var">newMultiplexDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MultiplexDeleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeMultiplex]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-111"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-117"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeMultiplex
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newInputDetached"><span class="hs-identifier hs-type">newInputDetached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span>
+</span><span id="line-125"></span><span id="newInputDetached"><span class="annot"><span class="annottext">newInputDetached :: Wait DescribeInput
+</span><a href="Amazonka.MediaLive.Waiters.html#newInputDetached"><span class="hs-identifier hs-var hs-var">newInputDetached</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InputDetached&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">84</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeInput]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeInput) (CI Text)
+-&gt; Acceptor DescribeInput
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DETACHED&quot;</span></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+Lens' DescribeInputResponse (Maybe InputState)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var">describeInputResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe InputState -&gt; f (Maybe InputState))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; f InputState)
+-&gt; Maybe InputState -&gt; f (Maybe InputState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>                </span><span class="annot"><span class="annottext">((InputState -&gt; f InputState)
+ -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe InputState
+-&gt; f (Maybe InputState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">InputState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeInput) (CI Text)
+-&gt; Acceptor DescribeInput
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+Lens' DescribeInputResponse (Maybe InputState)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var">describeInputResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe InputState -&gt; f (Maybe InputState))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; f InputState)
+-&gt; Maybe InputState -&gt; f (Maybe InputState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-141"></span><span>                </span><span class="annot"><span class="annottext">((InputState -&gt; f InputState)
+ -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe InputState
+-&gt; f (Maybe InputState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">InputState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-142"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeInput) (CI Text)
+-&gt; Acceptor DescribeInput
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;ATTACHED&quot;</span></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+Lens' DescribeInputResponse (Maybe InputState)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var">describeInputResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe InputState -&gt; f (Maybe InputState))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; f InputState)
+-&gt; Maybe InputState -&gt; f (Maybe InputState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-147"></span><span>                </span><span class="annot"><span class="annottext">((InputState -&gt; f InputState)
+ -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe InputState
+-&gt; f (Maybe InputState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">InputState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeInput
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-150"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newInputDeleted"><span class="hs-identifier hs-type">newInputDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span>
+</span><span id="line-155"></span><span id="newInputDeleted"><span class="annot"><span class="annottext">newInputDeleted :: Wait DescribeInput
+</span><a href="Amazonka.MediaLive.Waiters.html#newInputDeleted"><span class="hs-identifier hs-var hs-var">newInputDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InputDeleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeInput]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeInput) (CI Text)
+-&gt; Acceptor DescribeInput
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+Lens' DescribeInputResponse (Maybe InputState)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var">describeInputResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe InputState -&gt; f (Maybe InputState))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; f InputState)
+-&gt; Maybe InputState -&gt; f (Maybe InputState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-165"></span><span>                </span><span class="annot"><span class="annottext">((InputState -&gt; f InputState)
+ -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe InputState
+-&gt; f (Maybe InputState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">InputState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeInput) (CI Text)
+-&gt; Acceptor DescribeInput
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+Lens' DescribeInputResponse (Maybe InputState)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var">describeInputResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe InputState -&gt; f (Maybe InputState))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; f InputState)
+-&gt; Maybe InputState -&gt; f (Maybe InputState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-171"></span><span>                </span><span class="annot"><span class="annottext">((InputState -&gt; f InputState)
+ -&gt; Maybe InputState -&gt; f (Maybe InputState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe InputState
+-&gt; f (Maybe InputState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(InputState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; InputState -&gt; f InputState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">InputState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeInput
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-174"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newChannelStopped"><span class="hs-identifier hs-type">newChannelStopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span>
+</span><span id="line-179"></span><span id="newChannelStopped"><span class="annot"><span class="annottext">newChannelStopped :: Wait DescribeChannel
+</span><a href="Amazonka.MediaLive.Waiters.html#newChannelStopped"><span class="hs-identifier hs-var hs-var">newChannelStopped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ChannelStopped&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeChannel]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;IDLE&quot;</span></span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-189"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;STOPPING&quot;</span></span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-195"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeChannel
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-198"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newMultiplexCreated"><span class="hs-identifier hs-type">newMultiplexCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeMultiplex.html#DescribeMultiplex"><span class="hs-identifier hs-type">DescribeMultiplex</span></a></span><span>
+</span><span id="line-203"></span><span id="newMultiplexCreated"><span class="annot"><span class="annottext">newMultiplexCreated :: Wait DescribeMultiplex
+</span><a href="Amazonka.MediaLive.Waiters.html#newMultiplexCreated"><span class="hs-identifier hs-var hs-var">newMultiplexCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MultiplexCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">3</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeMultiplex]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;IDLE&quot;</span></span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-213"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-219"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeMultiplex
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-226"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newChannelCreated"><span class="hs-identifier hs-type">newChannelCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span>
+</span><span id="line-233"></span><span id="newChannelCreated"><span class="annot"><span class="annottext">newChannelCreated :: Wait DescribeChannel
+</span><a href="Amazonka.MediaLive.Waiters.html#newChannelCreated"><span class="hs-identifier hs-var hs-var">newChannelCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ChannelCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">3</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeChannel]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;IDLE&quot;</span></span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-243"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-244"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-249"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-250"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeChannel
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-256"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newChannelDeleted"><span class="hs-identifier hs-type">newChannelDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span>
+</span><span id="line-263"></span><span id="newChannelDeleted"><span class="annot"><span class="annottext">newChannelDeleted :: Wait DescribeChannel
+</span><a href="Amazonka.MediaLive.Waiters.html#newChannelDeleted"><span class="hs-identifier hs-var hs-var">newChannelDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ChannelDeleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">84</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeChannel]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-273"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-274"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeChannel) (CI Text)
+-&gt; Acceptor DescribeChannel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+Lens' DescribeChannelResponse (Maybe ChannelState)
+</span><a href="Amazonka.MediaLive.DescribeChannel.html#describeChannelResponse_state"><span class="hs-identifier hs-var">describeChannelResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe ChannelState -&gt; f (Maybe ChannelState))
+ -&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeChannelResponse
+-&gt; f DescribeChannelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; f ChannelState)
+-&gt; Maybe ChannelState -&gt; f (Maybe ChannelState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-279"></span><span>                </span><span class="annot"><span class="annottext">((ChannelState -&gt; f ChannelState)
+ -&gt; Maybe ChannelState -&gt; f (Maybe ChannelState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ChannelState
+-&gt; f (Maybe ChannelState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ChannelState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ChannelState -&gt; f ChannelState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ChannelState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeChannel
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-282"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 28 failed checks.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.MediaLive.Waiters.html#newMultiplexStopped"><span class="hs-identifier hs-type">newMultiplexStopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeMultiplex.html#DescribeMultiplex"><span class="hs-identifier hs-type">DescribeMultiplex</span></a></span><span>
+</span><span id="line-287"></span><span id="newMultiplexStopped"><span class="annot"><span class="annottext">newMultiplexStopped :: Wait DescribeMultiplex
+</span><a href="Amazonka.MediaLive.Waiters.html#newMultiplexStopped"><span class="hs-identifier hs-var hs-var">newMultiplexStopped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MultiplexStopped&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">28</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeMultiplex]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;IDLE&quot;</span></span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-297"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-298"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeMultiplex) (CI Text)
+-&gt; Acceptor DescribeMultiplex
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;STOPPING&quot;</span></span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse
+Lens' DescribeMultiplexResponse (Maybe MultiplexState)
+</span><a href="Amazonka.MediaLive.DescribeMultiplex.html#describeMultiplexResponse_state"><span class="hs-identifier hs-var">describeMultiplexResponse_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+ -&gt; DescribeMultiplexResponse -&gt; f DescribeMultiplexResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeMultiplexResponse
+-&gt; f DescribeMultiplexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; f MultiplexState)
+-&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-303"></span><span>                </span><span class="annot"><span class="annottext">((MultiplexState -&gt; f MultiplexState)
+ -&gt; Maybe MultiplexState -&gt; f (Maybe MultiplexState))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe MultiplexState
+-&gt; f (Maybe MultiplexState)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(MultiplexState -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; MultiplexState -&gt; f MultiplexState
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">MultiplexState -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-304"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeMultiplex
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-306"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span></pre></body></html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.DeleteCustomDataIdentifier</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Soft deletes a custom data identifier.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.DeleteCustomDataIdentifier</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier">DeleteCustomDataIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#newDeleteCustomDataIdentifier"><span class="hs-identifier">newDeleteCustomDataIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#deleteCustomDataIdentifier_id"><span class="hs-identifier">deleteCustomDataIdentifier_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse"><span class="hs-identifier">DeleteCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#newDeleteCustomDataIdentifierResponse"><span class="hs-identifier">newDeleteCustomDataIdentifierResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#deleteCustomDataIdentifierResponse_httpStatus"><span class="hs-identifier">deleteCustomDataIdentifierResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.html"><span class="hs-identifier">Amazonka.MacieV2.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteCustomDataIdentifier' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679414809"><span id="local-6989586621679414810"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomDataIdentifier"><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-var">DeleteCustomDataIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomDataIdentifier%27"><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier%27"><span class="hs-identifier hs-var">DeleteCustomDataIdentifier'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the Amazon Macie resource or account that the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- request applies to.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3ADeleteCustomDataIdentifier%27"><span class="annot"><span class="annottext">DeleteCustomDataIdentifier -&gt; Text
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#%24sel%3Aid%3ADeleteCustomDataIdentifier%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414803"><span id="local-6989586621679414805"><span class="annot"><span class="annottext">DeleteCustomDataIdentifier -&gt; DeleteCustomDataIdentifier -&gt; Bool
+(DeleteCustomDataIdentifier -&gt; DeleteCustomDataIdentifier -&gt; Bool)
+-&gt; (DeleteCustomDataIdentifier
+    -&gt; DeleteCustomDataIdentifier -&gt; Bool)
+-&gt; Eq DeleteCustomDataIdentifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCustomDataIdentifier -&gt; DeleteCustomDataIdentifier -&gt; Bool
+$c/= :: DeleteCustomDataIdentifier -&gt; DeleteCustomDataIdentifier -&gt; Bool
+== :: DeleteCustomDataIdentifier -&gt; DeleteCustomDataIdentifier -&gt; Bool
+$c== :: DeleteCustomDataIdentifier -&gt; DeleteCustomDataIdentifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414794"><span id="local-6989586621679414796"><span id="local-6989586621679414798"><span id="local-6989586621679414800"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomDataIdentifier]
+ReadPrec DeleteCustomDataIdentifier
+Int -&gt; ReadS DeleteCustomDataIdentifier
+ReadS [DeleteCustomDataIdentifier]
+(Int -&gt; ReadS DeleteCustomDataIdentifier)
+-&gt; ReadS [DeleteCustomDataIdentifier]
+-&gt; ReadPrec DeleteCustomDataIdentifier
+-&gt; ReadPrec [DeleteCustomDataIdentifier]
+-&gt; Read DeleteCustomDataIdentifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCustomDataIdentifier]
+$creadListPrec :: ReadPrec [DeleteCustomDataIdentifier]
+readPrec :: ReadPrec DeleteCustomDataIdentifier
+$creadPrec :: ReadPrec DeleteCustomDataIdentifier
+readList :: ReadS [DeleteCustomDataIdentifier]
+$creadList :: ReadS [DeleteCustomDataIdentifier]
+readsPrec :: Int -&gt; ReadS DeleteCustomDataIdentifier
+$creadsPrec :: Int -&gt; ReadS DeleteCustomDataIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414787"><span id="local-6989586621679414789"><span id="local-6989586621679414791"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomDataIdentifier -&gt; ShowS
+[DeleteCustomDataIdentifier] -&gt; ShowS
+DeleteCustomDataIdentifier -&gt; String
+(Int -&gt; DeleteCustomDataIdentifier -&gt; ShowS)
+-&gt; (DeleteCustomDataIdentifier -&gt; String)
+-&gt; ([DeleteCustomDataIdentifier] -&gt; ShowS)
+-&gt; Show DeleteCustomDataIdentifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCustomDataIdentifier] -&gt; ShowS
+$cshowList :: [DeleteCustomDataIdentifier] -&gt; ShowS
+show :: DeleteCustomDataIdentifier -&gt; String
+$cshow :: DeleteCustomDataIdentifier -&gt; String
+showsPrec :: Int -&gt; DeleteCustomDataIdentifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCustomDataIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCustomDataIdentifier -&gt; Rep DeleteCustomDataIdentifier x)
+-&gt; (forall x.
+    Rep DeleteCustomDataIdentifier x -&gt; DeleteCustomDataIdentifier)
+-&gt; Generic DeleteCustomDataIdentifier
+forall x.
+Rep DeleteCustomDataIdentifier x -&gt; DeleteCustomDataIdentifier
+forall x.
+DeleteCustomDataIdentifier -&gt; Rep DeleteCustomDataIdentifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCustomDataIdentifier x -&gt; DeleteCustomDataIdentifier
+$cfrom :: forall x.
+DeleteCustomDataIdentifier -&gt; Rep DeleteCustomDataIdentifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DeleteCustomDataIdentifier' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'id', 'deleteCustomDataIdentifier_id' - The unique identifier for the Amazon Macie resource or account that the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- request applies to.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#newDeleteCustomDataIdentifier"><span class="hs-identifier hs-type">newDeleteCustomDataIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span>
+</span><span id="line-70"></span><span id="newDeleteCustomDataIdentifier"><span class="annot"><span class="annottext">newDeleteCustomDataIdentifier :: Text -&gt; DeleteCustomDataIdentifier
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#newDeleteCustomDataIdentifier"><span class="hs-identifier hs-var hs-var">newDeleteCustomDataIdentifier</span></a></span></span><span> </span><span id="local-6989586621679414782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414782"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteCustomDataIdentifier' :: Text -&gt; DeleteCustomDataIdentifier
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier%27"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteCustomDataIdentifier' :: Text
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#%24sel%3Aid%3ADeleteCustomDataIdentifier%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414782"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The unique identifier for the Amazon Macie resource or account that the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- request applies to.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#deleteCustomDataIdentifier_id"><span class="hs-identifier hs-type">deleteCustomDataIdentifier_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="deleteCustomDataIdentifier_id"><span class="annot"><span class="annottext">deleteCustomDataIdentifier_id :: (Text -&gt; f Text)
+-&gt; DeleteCustomDataIdentifier -&gt; f DeleteCustomDataIdentifier
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#deleteCustomDataIdentifier_id"><span class="hs-identifier hs-var hs-var">deleteCustomDataIdentifier_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCustomDataIdentifier -&gt; Text)
+-&gt; (DeleteCustomDataIdentifier
+    -&gt; Text -&gt; DeleteCustomDataIdentifier)
+-&gt; Lens
+     DeleteCustomDataIdentifier DeleteCustomDataIdentifier Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier%27"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414779"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeleteCustomDataIdentifier' :: DeleteCustomDataIdentifier -&gt; Text
+</span><a href="#local-6989586621679414779"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414779"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414778"><span class="annot"><span class="annottext">s :: DeleteCustomDataIdentifier
+</span><a href="#local-6989586621679414778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier%27"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomDataIdentifier
+</span><a href="#local-6989586621679414778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteCustomDataIdentifier' :: Text
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#%24sel%3Aid%3ADeleteCustomDataIdentifier%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679414773"><span class="annot"><span class="annottext">request :: DeleteCustomDataIdentifier -&gt; Request DeleteCustomDataIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteCustomDataIdentifier -&gt; Request DeleteCustomDataIdentifier
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MacieV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679414769"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteCustomDataIdentifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCustomDataIdentifier)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteCustomDataIdentifier))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteCustomDataIdentifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCustomDataIdentifier)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414766"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414765"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679414765"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414764"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679414764"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteCustomDataIdentifierResponse
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">DeleteCustomDataIdentifierResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteCustomDataIdentifierResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteCustomDataIdentifierResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414766"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414757"><span id="local-6989586621679414759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679414750"><span class="annot"><span class="annottext">toHeaders :: DeleteCustomDataIdentifier -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCustomDataIdentifier -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679414744"><span class="annot"><span class="annottext">toPath :: DeleteCustomDataIdentifier -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier%27"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414742"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeleteCustomDataIdentifier' :: DeleteCustomDataIdentifier -&gt; Text
+</span><a href="#local-6989586621679414742"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/custom-data-identifiers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414742"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifier"><span class="hs-identifier hs-type">DeleteCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679414738"><span class="annot"><span class="annottext">toQuery :: DeleteCustomDataIdentifier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCustomDataIdentifier -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDeleteCustomDataIdentifierResponse' smart constructor.</span><span>
+</span><span id="line-114"></span><span id="local-6989586621679414735"><span id="local-6989586621679414736"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomDataIdentifierResponse"><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-var">DeleteCustomDataIdentifierResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomDataIdentifierResponse%27"><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">DeleteCustomDataIdentifierResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">DeleteCustomDataIdentifierResponse -&gt; Int
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#%24sel%3AhttpStatus%3ADeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414730"><span id="local-6989586621679414732"><span class="annot"><span class="annottext">DeleteCustomDataIdentifierResponse
+-&gt; DeleteCustomDataIdentifierResponse -&gt; Bool
+(DeleteCustomDataIdentifierResponse
+ -&gt; DeleteCustomDataIdentifierResponse -&gt; Bool)
+-&gt; (DeleteCustomDataIdentifierResponse
+    -&gt; DeleteCustomDataIdentifierResponse -&gt; Bool)
+-&gt; Eq DeleteCustomDataIdentifierResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCustomDataIdentifierResponse
+-&gt; DeleteCustomDataIdentifierResponse -&gt; Bool
+$c/= :: DeleteCustomDataIdentifierResponse
+-&gt; DeleteCustomDataIdentifierResponse -&gt; Bool
+== :: DeleteCustomDataIdentifierResponse
+-&gt; DeleteCustomDataIdentifierResponse -&gt; Bool
+$c== :: DeleteCustomDataIdentifierResponse
+-&gt; DeleteCustomDataIdentifierResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414722"><span id="local-6989586621679414724"><span id="local-6989586621679414726"><span id="local-6989586621679414728"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomDataIdentifierResponse]
+ReadPrec DeleteCustomDataIdentifierResponse
+Int -&gt; ReadS DeleteCustomDataIdentifierResponse
+ReadS [DeleteCustomDataIdentifierResponse]
+(Int -&gt; ReadS DeleteCustomDataIdentifierResponse)
+-&gt; ReadS [DeleteCustomDataIdentifierResponse]
+-&gt; ReadPrec DeleteCustomDataIdentifierResponse
+-&gt; ReadPrec [DeleteCustomDataIdentifierResponse]
+-&gt; Read DeleteCustomDataIdentifierResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCustomDataIdentifierResponse]
+$creadListPrec :: ReadPrec [DeleteCustomDataIdentifierResponse]
+readPrec :: ReadPrec DeleteCustomDataIdentifierResponse
+$creadPrec :: ReadPrec DeleteCustomDataIdentifierResponse
+readList :: ReadS [DeleteCustomDataIdentifierResponse]
+$creadList :: ReadS [DeleteCustomDataIdentifierResponse]
+readsPrec :: Int -&gt; ReadS DeleteCustomDataIdentifierResponse
+$creadsPrec :: Int -&gt; ReadS DeleteCustomDataIdentifierResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414716"><span id="local-6989586621679414718"><span id="local-6989586621679414720"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomDataIdentifierResponse -&gt; ShowS
+[DeleteCustomDataIdentifierResponse] -&gt; ShowS
+DeleteCustomDataIdentifierResponse -&gt; String
+(Int -&gt; DeleteCustomDataIdentifierResponse -&gt; ShowS)
+-&gt; (DeleteCustomDataIdentifierResponse -&gt; String)
+-&gt; ([DeleteCustomDataIdentifierResponse] -&gt; ShowS)
+-&gt; Show DeleteCustomDataIdentifierResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCustomDataIdentifierResponse] -&gt; ShowS
+$cshowList :: [DeleteCustomDataIdentifierResponse] -&gt; ShowS
+show :: DeleteCustomDataIdentifierResponse -&gt; String
+$cshow :: DeleteCustomDataIdentifierResponse -&gt; String
+showsPrec :: Int -&gt; DeleteCustomDataIdentifierResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCustomDataIdentifierResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCustomDataIdentifierResponse
+ -&gt; Rep DeleteCustomDataIdentifierResponse x)
+-&gt; (forall x.
+    Rep DeleteCustomDataIdentifierResponse x
+    -&gt; DeleteCustomDataIdentifierResponse)
+-&gt; Generic DeleteCustomDataIdentifierResponse
+forall x.
+Rep DeleteCustomDataIdentifierResponse x
+-&gt; DeleteCustomDataIdentifierResponse
+forall x.
+DeleteCustomDataIdentifierResponse
+-&gt; Rep DeleteCustomDataIdentifierResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCustomDataIdentifierResponse x
+-&gt; DeleteCustomDataIdentifierResponse
+$cfrom :: forall x.
+DeleteCustomDataIdentifierResponse
+-&gt; Rep DeleteCustomDataIdentifierResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'DeleteCustomDataIdentifierResponse' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'httpStatus', 'deleteCustomDataIdentifierResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#newDeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-type">newDeleteCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse</span></a></span><span>
+</span><span id="line-133"></span><span id="newDeleteCustomDataIdentifierResponse"><span class="annot"><span class="annottext">newDeleteCustomDataIdentifierResponse :: Int -&gt; DeleteCustomDataIdentifierResponse
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#newDeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-var hs-var">newDeleteCustomDataIdentifierResponse</span></a></span></span><span> </span><span id="local-6989586621679414713"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">DeleteCustomDataIdentifierResponse' :: Int -&gt; DeleteCustomDataIdentifierResponse
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomDataIdentifierResponse' :: Int
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#%24sel%3AhttpStatus%3ADeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#deleteCustomDataIdentifierResponse_httpStatus"><span class="hs-identifier hs-type">deleteCustomDataIdentifierResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span id="deleteCustomDataIdentifierResponse_httpStatus"><span class="annot"><span class="annottext">deleteCustomDataIdentifierResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteCustomDataIdentifierResponse
+-&gt; f DeleteCustomDataIdentifierResponse
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#deleteCustomDataIdentifierResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteCustomDataIdentifierResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCustomDataIdentifierResponse -&gt; Int)
+-&gt; (DeleteCustomDataIdentifierResponse
+    -&gt; Int -&gt; DeleteCustomDataIdentifierResponse)
+-&gt; Lens
+     DeleteCustomDataIdentifierResponse
+     DeleteCustomDataIdentifierResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414712"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteCustomDataIdentifierResponse' :: DeleteCustomDataIdentifierResponse -&gt; Int
+</span><a href="#local-6989586621679414712"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414712"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414711"><span class="annot"><span class="annottext">s :: DeleteCustomDataIdentifierResponse
+</span><a href="#local-6989586621679414711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomDataIdentifierResponse
+</span><a href="#local-6989586621679414711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomDataIdentifierResponse' :: Int
+</span><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#%24sel%3AhttpStatus%3ADeleteCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679414708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.DeleteCustomDataIdentifier.html#DeleteCustomDataIdentifierResponse"><span class="hs-identifier hs-type">DeleteCustomDataIdentifierResponse</span></a></span></span><span>
+</span><span id="line-146"></span></pre></body></html>

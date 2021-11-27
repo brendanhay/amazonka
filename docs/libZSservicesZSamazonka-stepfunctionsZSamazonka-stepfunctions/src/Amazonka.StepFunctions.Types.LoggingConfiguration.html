@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StepFunctions.Types.LoggingConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StepFunctions.Types.LoggingConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogDestination.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LogDestination</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogLevel.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.LogLevel</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- options.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLoggingConfiguration' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679225714"><span id="local-6989586621679225715"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingConfiguration"><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-var">LoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingConfiguration%27"><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-var">LoggingConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Determines whether execution data is included in your log. When set to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @false@, data is excluded.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe Bool
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">includeExecutionData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An array of objects that describes where your execution history events</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- set to @OFF@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe [LogDestination]
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogDestination.html#LogDestination"><span class="hs-identifier hs-type">LogDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Defines which category of execution history events are logged.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Alevel%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe LogLevel
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Alevel%3ALoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225706"><span id="local-6989586621679225708"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
+(LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool)
+-&gt; (LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool)
+-&gt; Eq LoggingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
+$c/= :: LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
+== :: LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
+$c== :: LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225697"><span id="local-6989586621679225699"><span id="local-6989586621679225701"><span id="local-6989586621679225703"><span class="annot"><span class="annottext">ReadPrec [LoggingConfiguration]
+ReadPrec LoggingConfiguration
+Int -&gt; ReadS LoggingConfiguration
+ReadS [LoggingConfiguration]
+(Int -&gt; ReadS LoggingConfiguration)
+-&gt; ReadS [LoggingConfiguration]
+-&gt; ReadPrec LoggingConfiguration
+-&gt; ReadPrec [LoggingConfiguration]
+-&gt; Read LoggingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LoggingConfiguration]
+$creadListPrec :: ReadPrec [LoggingConfiguration]
+readPrec :: ReadPrec LoggingConfiguration
+$creadPrec :: ReadPrec LoggingConfiguration
+readList :: ReadS [LoggingConfiguration]
+$creadList :: ReadS [LoggingConfiguration]
+readsPrec :: Int -&gt; ReadS LoggingConfiguration
+$creadsPrec :: Int -&gt; ReadS LoggingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225690"><span id="local-6989586621679225692"><span id="local-6989586621679225694"><span class="annot"><span class="annottext">Int -&gt; LoggingConfiguration -&gt; ShowS
+[LoggingConfiguration] -&gt; ShowS
+LoggingConfiguration -&gt; String
+(Int -&gt; LoggingConfiguration -&gt; ShowS)
+-&gt; (LoggingConfiguration -&gt; String)
+-&gt; ([LoggingConfiguration] -&gt; ShowS)
+-&gt; Show LoggingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LoggingConfiguration] -&gt; ShowS
+$cshowList :: [LoggingConfiguration] -&gt; ShowS
+show :: LoggingConfiguration -&gt; String
+$cshow :: LoggingConfiguration -&gt; String
+showsPrec :: Int -&gt; LoggingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; LoggingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LoggingConfiguration -&gt; Rep LoggingConfiguration x)
+-&gt; (forall x. Rep LoggingConfiguration x -&gt; LoggingConfiguration)
+-&gt; Generic LoggingConfiguration
+forall x. Rep LoggingConfiguration x -&gt; LoggingConfiguration
+forall x. LoggingConfiguration -&gt; Rep LoggingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LoggingConfiguration x -&gt; LoggingConfiguration
+$cfrom :: forall x. LoggingConfiguration -&gt; Rep LoggingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'LoggingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'includeExecutionData', 'loggingConfiguration_includeExecutionData' - Determines whether execution data is included in your log. When set to</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @false@, data is excluded.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'destinations', 'loggingConfiguration_destinations' - An array of objects that describes where your execution history events</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- set to @OFF@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'level', 'loggingConfiguration_level' - Defines which category of execution history events are logged.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#newLoggingConfiguration"><span class="hs-identifier hs-type">newLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span>
+</span><span id="line-63"></span><span id="newLoggingConfiguration"><span class="annot"><span class="annottext">newLoggingConfiguration :: LoggingConfiguration
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#newLoggingConfiguration"><span class="hs-identifier hs-var hs-var">newLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">LoggingConfiguration' :: Maybe Bool
+-&gt; Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeExecutionData:LoggingConfiguration' :: Maybe Bool
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:LoggingConfiguration' :: Maybe [LogDestination]
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:level:LoggingConfiguration' :: Maybe LogLevel
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Alevel%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">level</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Determines whether execution data is included in your log. When set to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @false@, data is excluded.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_includeExecutionData"><span class="hs-identifier hs-type">loggingConfiguration_includeExecutionData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="loggingConfiguration_includeExecutionData"><span class="annot"><span class="annottext">loggingConfiguration_includeExecutionData :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoggingConfiguration -&gt; f LoggingConfiguration
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_includeExecutionData"><span class="hs-identifier hs-var hs-var">loggingConfiguration_includeExecutionData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfiguration -&gt; Maybe Bool)
+-&gt; (LoggingConfiguration -&gt; Maybe Bool -&gt; LoggingConfiguration)
+-&gt; Lens
+     LoggingConfiguration LoggingConfiguration (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225681"><span class="annot"><span class="annottext">Maybe Bool
+includeExecutionData :: Maybe Bool
+$sel:includeExecutionData:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679225681"><span class="hs-identifier hs-var hs-var">includeExecutionData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225681"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225680"><span class="annot"><span class="annottext">s :: LoggingConfiguration
+</span><a href="#local-6989586621679225680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225679"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679225680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeExecutionData:LoggingConfiguration' :: Maybe Bool
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | An array of objects that describes where your execution history events</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- set to @OFF@.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_destinations"><span class="hs-identifier hs-type">loggingConfiguration_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogDestination.html#LogDestination"><span class="hs-identifier hs-type">LogDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="loggingConfiguration_destinations"><span class="annot"><span class="annottext">loggingConfiguration_destinations :: (Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
+-&gt; LoggingConfiguration -&gt; f LoggingConfiguration
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_destinations"><span class="hs-identifier hs-var hs-var">loggingConfiguration_destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfiguration -&gt; Maybe [LogDestination])
+-&gt; (LoggingConfiguration
+    -&gt; Maybe [LogDestination] -&gt; LoggingConfiguration)
+-&gt; Lens
+     LoggingConfiguration
+     LoggingConfiguration
+     (Maybe [LogDestination])
+     (Maybe [LogDestination])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225677"><span class="annot"><span class="annottext">Maybe [LogDestination]
+destinations :: Maybe [LogDestination]
+$sel:destinations:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe [LogDestination]
+</span><a href="#local-6989586621679225677"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><a href="#local-6989586621679225677"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225676"><span class="annot"><span class="annottext">s :: LoggingConfiguration
+</span><a href="#local-6989586621679225676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225675"><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><a href="#local-6989586621679225675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679225676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:LoggingConfiguration' :: Maybe [LogDestination]
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><a href="#local-6989586621679225675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
+ -&gt; LoggingConfiguration -&gt; f LoggingConfiguration)
+-&gt; ((Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
+    -&gt; Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
+-&gt; (Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
+-&gt; LoggingConfiguration
+-&gt; f LoggingConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LogDestination] [LogDestination] [LogDestination] [LogDestination]
+-&gt; Iso
+     (Maybe [LogDestination])
+     (Maybe [LogDestination])
+     (Maybe [LogDestination])
+     (Maybe [LogDestination])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LogDestination] [LogDestination] [LogDestination] [LogDestination]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Defines which category of execution history events are logged.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_level"><span class="hs-identifier hs-type">loggingConfiguration_level</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="loggingConfiguration_level"><span class="annot"><span class="annottext">loggingConfiguration_level :: (Maybe LogLevel -&gt; f (Maybe LogLevel))
+-&gt; LoggingConfiguration -&gt; f LoggingConfiguration
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_level"><span class="hs-identifier hs-var hs-var">loggingConfiguration_level</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfiguration -&gt; Maybe LogLevel)
+-&gt; (LoggingConfiguration -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
+-&gt; Lens
+     LoggingConfiguration
+     LoggingConfiguration
+     (Maybe LogLevel)
+     (Maybe LogLevel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225670"><span class="annot"><span class="annottext">Maybe LogLevel
+level :: Maybe LogLevel
+$sel:level:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe LogLevel
+</span><a href="#local-6989586621679225670"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679225670"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225669"><span class="annot"><span class="annottext">s :: LoggingConfiguration
+</span><a href="#local-6989586621679225669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225668"><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679225668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679225669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:level:LoggingConfiguration' :: Maybe LogLevel
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Alevel%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">level</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679225668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679225663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoggingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LoggingConfiguration)
+-&gt; Value
+-&gt; Parser LoggingConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LoggingConfiguration&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225660"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration
+</span><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-var">LoggingConfiguration'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe [LogDestination]
+ -&gt; Maybe LogLevel
+ -&gt; LoggingConfiguration)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeExecutionData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
+-&gt; Parser (Maybe [LogDestination])
+-&gt; Parser (Maybe LogLevel -&gt; LoggingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LogDestination]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LogDestination]))
+-&gt; Maybe [LogDestination] -&gt; Parser (Maybe [LogDestination])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LogLevel -&gt; LoggingConfiguration)
+-&gt; Parser (Maybe LogLevel) -&gt; Parser LoggingConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogLevel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;level&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225653"><span id="local-6989586621679225655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225642"><span id="local-6989586621679225644"><span id="local-6989586621679225646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679225640"><span class="annot"><span class="annottext">toJSON :: LoggingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225636"><span id="local-6989586621679225637"><span id="local-6989586621679225638"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [LogDestination]
+Maybe LogLevel
+level :: Maybe LogLevel
+destinations :: Maybe [LogDestination]
+includeExecutionData :: Maybe Bool
+$sel:level:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe LogLevel
+$sel:destinations:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe [LogDestination]
+$sel:includeExecutionData:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679225636"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeExecutionData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225638"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LogDestination] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([LogDestination] -&gt; Pair) -&gt; Maybe [LogDestination] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><a href="#local-6989586621679225637"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;level&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogLevel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LogLevel -&gt; Pair) -&gt; Maybe LogLevel -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679225636"><span class="hs-identifier hs-var">level</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span></pre></body></html>

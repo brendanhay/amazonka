@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationAutoScaling.Types.MetricType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationAutoScaling.Types.MetricType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier">MetricType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ALBRequestCountPerTarget"><span class="hs-identifier">MetricType_ALBRequestCountPerTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_AppStreamAverageCapacityUtilization"><span class="hs-identifier">MetricType_AppStreamAverageCapacityUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_CassandraReadCapacityUtilization"><span class="hs-identifier">MetricType_CassandraReadCapacityUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_CassandraWriteCapacityUtilization"><span class="hs-identifier">MetricType_CassandraWriteCapacityUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ComprehendInferenceUtilization"><span class="hs-identifier">MetricType_ComprehendInferenceUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_DynamoDBReadCapacityUtilization"><span class="hs-identifier">MetricType_DynamoDBReadCapacityUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_DynamoDBWriteCapacityUtilization"><span class="hs-identifier">MetricType_DynamoDBWriteCapacityUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-identifier">MetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-identifier">MetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-identifier">MetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ECSServiceAverageCPUUtilization"><span class="hs-identifier">MetricType_ECSServiceAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ECSServiceAverageMemoryUtilization"><span class="hs-identifier">MetricType_ECSServiceAverageMemoryUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"><span class="hs-identifier">MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCachePrimaryEngineCPUUtilization"><span class="hs-identifier">MetricType_ElastiCachePrimaryEngineCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCacheReplicaEngineCPUUtilization"><span class="hs-identifier">MetricType_ElastiCacheReplicaEngineCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_KafkaBrokerStorageUtilization"><span class="hs-identifier">MetricType_KafkaBrokerStorageUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_LambdaProvisionedConcurrencyUtilization"><span class="hs-identifier">MetricType_LambdaProvisionedConcurrencyUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_NeptuneReaderAverageCPUUtilization"><span class="hs-identifier">MetricType_NeptuneReaderAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_RDSReaderAverageCPUUtilization"><span class="hs-identifier">MetricType_RDSReaderAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_RDSReaderAverageDatabaseConnections"><span class="hs-identifier">MetricType_RDSReaderAverageDatabaseConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_SageMakerVariantInvocationsPerInstance"><span class="hs-identifier">MetricType_SageMakerVariantInvocationsPerInstance</span></a></span><span>
+</span><span id="line-44"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679183928"><span id="local-6989586621679183929"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricType"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-var">MetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricType%27"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-var">MetricType'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricType"><span class="annot"><span class="annottext">MetricType -&gt; Text
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#fromMetricType"><span class="hs-identifier hs-var hs-var">fromMetricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183920"><span id="local-6989586621679183922"><span id="local-6989586621679183924"><span class="annot"><span class="annottext">Int -&gt; MetricType -&gt; ShowS
+[MetricType] -&gt; ShowS
+MetricType -&gt; String
+(Int -&gt; MetricType -&gt; ShowS)
+-&gt; (MetricType -&gt; String)
+-&gt; ([MetricType] -&gt; ShowS)
+-&gt; Show MetricType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricType] -&gt; ShowS
+$cshowList :: [MetricType] -&gt; ShowS
+show :: MetricType -&gt; String
+$cshow :: MetricType -&gt; String
+showsPrec :: Int -&gt; MetricType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183911"><span id="local-6989586621679183913"><span id="local-6989586621679183915"><span id="local-6989586621679183917"><span class="annot"><span class="annottext">ReadPrec [MetricType]
+ReadPrec MetricType
+Int -&gt; ReadS MetricType
+ReadS [MetricType]
+(Int -&gt; ReadS MetricType)
+-&gt; ReadS [MetricType]
+-&gt; ReadPrec MetricType
+-&gt; ReadPrec [MetricType]
+-&gt; Read MetricType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricType]
+$creadListPrec :: ReadPrec [MetricType]
+readPrec :: ReadPrec MetricType
+$creadPrec :: ReadPrec MetricType
+readList :: ReadS [MetricType]
+$creadList :: ReadS [MetricType]
+readsPrec :: Int -&gt; ReadS MetricType
+$creadsPrec :: Int -&gt; ReadS MetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183906"><span id="local-6989586621679183908"><span class="annot"><span class="annottext">MetricType -&gt; MetricType -&gt; Bool
+(MetricType -&gt; MetricType -&gt; Bool)
+-&gt; (MetricType -&gt; MetricType -&gt; Bool) -&gt; Eq MetricType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricType -&gt; MetricType -&gt; Bool
+$c/= :: MetricType -&gt; MetricType -&gt; Bool
+== :: MetricType -&gt; MetricType -&gt; Bool
+$c== :: MetricType -&gt; MetricType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679183890"><span id="local-6989586621679183892"><span id="local-6989586621679183894"><span id="local-6989586621679183896"><span id="local-6989586621679183898"><span id="local-6989586621679183900"><span id="local-6989586621679183902"><span class="annot"><span class="annottext">Eq MetricType
+Eq MetricType
+-&gt; (MetricType -&gt; MetricType -&gt; Ordering)
+-&gt; (MetricType -&gt; MetricType -&gt; Bool)
+-&gt; (MetricType -&gt; MetricType -&gt; Bool)
+-&gt; (MetricType -&gt; MetricType -&gt; Bool)
+-&gt; (MetricType -&gt; MetricType -&gt; Bool)
+-&gt; (MetricType -&gt; MetricType -&gt; MetricType)
+-&gt; (MetricType -&gt; MetricType -&gt; MetricType)
+-&gt; Ord MetricType
+MetricType -&gt; MetricType -&gt; Bool
+MetricType -&gt; MetricType -&gt; Ordering
+MetricType -&gt; MetricType -&gt; MetricType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MetricType -&gt; MetricType -&gt; MetricType
+$cmin :: MetricType -&gt; MetricType -&gt; MetricType
+max :: MetricType -&gt; MetricType -&gt; MetricType
+$cmax :: MetricType -&gt; MetricType -&gt; MetricType
+&gt;= :: MetricType -&gt; MetricType -&gt; Bool
+$c&gt;= :: MetricType -&gt; MetricType -&gt; Bool
+&gt; :: MetricType -&gt; MetricType -&gt; Bool
+$c&gt; :: MetricType -&gt; MetricType -&gt; Bool
+&lt;= :: MetricType -&gt; MetricType -&gt; Bool
+$c&lt;= :: MetricType -&gt; MetricType -&gt; Bool
+&lt; :: MetricType -&gt; MetricType -&gt; Bool
+$c&lt; :: MetricType -&gt; MetricType -&gt; Bool
+compare :: MetricType -&gt; MetricType -&gt; Ordering
+$ccompare :: MetricType -&gt; MetricType -&gt; Ordering
+$cp1Ord :: Eq MetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MetricType -&gt; Rep MetricType x)
+-&gt; (forall x. Rep MetricType x -&gt; MetricType) -&gt; Generic MetricType
+forall x. Rep MetricType x -&gt; MetricType
+forall x. MetricType -&gt; Rep MetricType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricType x -&gt; MetricType
+$cfrom :: forall x. MetricType -&gt; Rep MetricType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183882"><span id="local-6989586621679183884"><span class="annot"><span class="annottext">Int -&gt; MetricType -&gt; Int
+MetricType -&gt; Int
+(Int -&gt; MetricType -&gt; Int)
+-&gt; (MetricType -&gt; Int) -&gt; Hashable MetricType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MetricType -&gt; Int
+$chash :: MetricType -&gt; Int
+hashWithSalt :: Int -&gt; MetricType -&gt; Int
+$chashWithSalt :: Int -&gt; MetricType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679183879"><span class="annot"><span class="annottext">MetricType -&gt; ()
+(MetricType -&gt; ()) -&gt; NFData MetricType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MetricType -&gt; ()
+$crnf :: MetricType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679183876"><span class="annot"><span class="annottext">Text -&gt; Either String MetricType
+(Text -&gt; Either String MetricType) -&gt; FromText MetricType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MetricType
+$cfromText :: Text -&gt; Either String MetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679183873"><span class="annot"><span class="annottext">MetricType -&gt; Text
+(MetricType -&gt; Text) -&gt; ToText MetricType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MetricType -&gt; Text
+$ctoText :: MetricType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679183870"><span class="annot"><span class="annottext">MetricType -&gt; ByteString
+(MetricType -&gt; ByteString) -&gt; ToByteString MetricType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MetricType -&gt; ByteString
+$ctoBS :: MetricType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679183867"><span class="annot"><span class="annottext">MetricType -&gt; ByteStringBuilder
+(MetricType -&gt; ByteStringBuilder) -&gt; ToLog MetricType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MetricType -&gt; ByteStringBuilder
+$cbuild :: MetricType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679183864"><span class="annot"><span class="annottext">HeaderName -&gt; MetricType -&gt; [Header]
+(HeaderName -&gt; MetricType -&gt; [Header]) -&gt; ToHeader MetricType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MetricType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MetricType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679183861"><span class="annot"><span class="annottext">MetricType -&gt; QueryString
+(MetricType -&gt; QueryString) -&gt; ToQuery MetricType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MetricType -&gt; QueryString
+$ctoQuery :: MetricType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679183856"><span id="local-6989586621679183858"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricType]
+Value -&gt; Parser MetricType
+(Value -&gt; Parser MetricType)
+-&gt; (Value -&gt; Parser [MetricType]) -&gt; FromJSON MetricType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MetricType]
+$cparseJSONList :: Value -&gt; Parser [MetricType]
+parseJSON :: Value -&gt; Parser MetricType
+$cparseJSON :: Value -&gt; Parser MetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679183851"><span id="local-6989586621679183853"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricType]
+FromJSONKeyFunction MetricType
+FromJSONKeyFunction MetricType
+-&gt; FromJSONKeyFunction [MetricType] -&gt; FromJSONKey MetricType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MetricType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MetricType]
+fromJSONKey :: FromJSONKeyFunction MetricType
+$cfromJSONKey :: FromJSONKeyFunction MetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679183842"><span id="local-6989586621679183844"><span id="local-6989586621679183846"><span id="local-6989586621679183848"><span class="annot"><span class="annottext">[MetricType] -&gt; Encoding
+[MetricType] -&gt; Value
+MetricType -&gt; Encoding
+MetricType -&gt; Value
+(MetricType -&gt; Value)
+-&gt; (MetricType -&gt; Encoding)
+-&gt; ([MetricType] -&gt; Value)
+-&gt; ([MetricType] -&gt; Encoding)
+-&gt; ToJSON MetricType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MetricType] -&gt; Encoding
+$ctoEncodingList :: [MetricType] -&gt; Encoding
+toJSONList :: [MetricType] -&gt; Value
+$ctoJSONList :: [MetricType] -&gt; Value
+toEncoding :: MetricType -&gt; Encoding
+$ctoEncoding :: MetricType -&gt; Encoding
+toJSON :: MetricType -&gt; Value
+$ctoJSON :: MetricType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679183837"><span id="local-6989586621679183839"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricType]
+ToJSONKeyFunction MetricType
+ToJSONKeyFunction MetricType
+-&gt; ToJSONKeyFunction [MetricType] -&gt; ToJSONKey MetricType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MetricType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MetricType]
+toJSONKey :: ToJSONKeyFunction MetricType
+$ctoJSONKey :: ToJSONKeyFunction MetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679183834"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricType
+([Node] -&gt; Either String MetricType) -&gt; FromXML MetricType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MetricType
+$cparseXML :: [Node] -&gt; Either String MetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679183831"><span class="annot"><span class="annottext">MetricType -&gt; XML
+(MetricType -&gt; XML) -&gt; ToXML MetricType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MetricType -&gt; XML
+$ctoXML :: MetricType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ALBRequestCountPerTarget"><span class="hs-identifier hs-type">MetricType_ALBRequestCountPerTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_ALBRequestCountPerTarget"><span id="%24mMetricType_ALBRequestCountPerTarget"><span id="MetricType_ALBRequestCountPerTarget"><span class="annot"><span class="annottext">$bMetricType_ALBRequestCountPerTarget :: MetricType
+$mMetricType_ALBRequestCountPerTarget :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_ALBRequestCountPerTarget"><span class="hs-identifier hs-var hs-var hs-var">MetricType_ALBRequestCountPerTarget</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALBRequestCountPerTarget&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_AppStreamAverageCapacityUtilization"><span class="hs-identifier hs-type">MetricType_AppStreamAverageCapacityUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_AppStreamAverageCapacityUtilization"><span id="%24mMetricType_AppStreamAverageCapacityUtilization"><span id="MetricType_AppStreamAverageCapacityUtilization"><span class="annot"><span class="annottext">$bMetricType_AppStreamAverageCapacityUtilization :: MetricType
+$mMetricType_AppStreamAverageCapacityUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_AppStreamAverageCapacityUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_AppStreamAverageCapacityUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AppStreamAverageCapacityUtilization&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_CassandraReadCapacityUtilization"><span class="hs-identifier hs-type">MetricType_CassandraReadCapacityUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_CassandraReadCapacityUtilization"><span id="%24mMetricType_CassandraReadCapacityUtilization"><span id="MetricType_CassandraReadCapacityUtilization"><span class="annot"><span class="annottext">$bMetricType_CassandraReadCapacityUtilization :: MetricType
+$mMetricType_CassandraReadCapacityUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_CassandraReadCapacityUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_CassandraReadCapacityUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CassandraReadCapacityUtilization&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_CassandraWriteCapacityUtilization"><span class="hs-identifier hs-type">MetricType_CassandraWriteCapacityUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_CassandraWriteCapacityUtilization"><span id="%24mMetricType_CassandraWriteCapacityUtilization"><span id="MetricType_CassandraWriteCapacityUtilization"><span class="annot"><span class="annottext">$bMetricType_CassandraWriteCapacityUtilization :: MetricType
+$mMetricType_CassandraWriteCapacityUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_CassandraWriteCapacityUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_CassandraWriteCapacityUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CassandraWriteCapacityUtilization&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ComprehendInferenceUtilization"><span class="hs-identifier hs-type">MetricType_ComprehendInferenceUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_ComprehendInferenceUtilization"><span id="%24mMetricType_ComprehendInferenceUtilization"><span id="MetricType_ComprehendInferenceUtilization"><span class="annot"><span class="annottext">$bMetricType_ComprehendInferenceUtilization :: MetricType
+$mMetricType_ComprehendInferenceUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_ComprehendInferenceUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_ComprehendInferenceUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ComprehendInferenceUtilization&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_DynamoDBReadCapacityUtilization"><span class="hs-identifier hs-type">MetricType_DynamoDBReadCapacityUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_DynamoDBReadCapacityUtilization"><span id="%24mMetricType_DynamoDBReadCapacityUtilization"><span id="MetricType_DynamoDBReadCapacityUtilization"><span class="annot"><span class="annottext">$bMetricType_DynamoDBReadCapacityUtilization :: MetricType
+$mMetricType_DynamoDBReadCapacityUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_DynamoDBReadCapacityUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_DynamoDBReadCapacityUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DynamoDBReadCapacityUtilization&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_DynamoDBWriteCapacityUtilization"><span class="hs-identifier hs-type">MetricType_DynamoDBWriteCapacityUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_DynamoDBWriteCapacityUtilization"><span id="%24mMetricType_DynamoDBWriteCapacityUtilization"><span id="MetricType_DynamoDBWriteCapacityUtilization"><span class="annot"><span class="annottext">$bMetricType_DynamoDBWriteCapacityUtilization :: MetricType
+$mMetricType_DynamoDBWriteCapacityUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_DynamoDBWriteCapacityUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_DynamoDBWriteCapacityUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DynamoDBWriteCapacityUtilization&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-identifier hs-type">MetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span id="%24mMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span id="MetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="annot"><span class="annottext">$bMetricType_EC2SpotFleetRequestAverageCPUUtilization :: MetricType
+$mMetricType_EC2SpotFleetRequestAverageCPUUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2SpotFleetRequestAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-identifier hs-type">MetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_EC2SpotFleetRequestAverageNetworkIn"><span id="%24mMetricType_EC2SpotFleetRequestAverageNetworkIn"><span id="MetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="annot"><span class="annottext">$bMetricType_EC2SpotFleetRequestAverageNetworkIn :: MetricType
+$mMetricType_EC2SpotFleetRequestAverageNetworkIn :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-identifier hs-var hs-var hs-var">MetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2SpotFleetRequestAverageNetworkIn&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-identifier hs-type">MetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_EC2SpotFleetRequestAverageNetworkOut"><span id="%24mMetricType_EC2SpotFleetRequestAverageNetworkOut"><span id="MetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="annot"><span class="annottext">$bMetricType_EC2SpotFleetRequestAverageNetworkOut :: MetricType
+$mMetricType_EC2SpotFleetRequestAverageNetworkOut :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-identifier hs-var hs-var hs-var">MetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2SpotFleetRequestAverageNetworkOut&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ECSServiceAverageCPUUtilization"><span class="hs-identifier hs-type">MetricType_ECSServiceAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_ECSServiceAverageCPUUtilization"><span id="%24mMetricType_ECSServiceAverageCPUUtilization"><span id="MetricType_ECSServiceAverageCPUUtilization"><span class="annot"><span class="annottext">$bMetricType_ECSServiceAverageCPUUtilization :: MetricType
+$mMetricType_ECSServiceAverageCPUUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_ECSServiceAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_ECSServiceAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECSServiceAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ECSServiceAverageMemoryUtilization"><span class="hs-identifier hs-type">MetricType_ECSServiceAverageMemoryUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_ECSServiceAverageMemoryUtilization"><span id="%24mMetricType_ECSServiceAverageMemoryUtilization"><span id="MetricType_ECSServiceAverageMemoryUtilization"><span class="annot"><span class="annottext">$bMetricType_ECSServiceAverageMemoryUtilization :: MetricType
+$mMetricType_ECSServiceAverageMemoryUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_ECSServiceAverageMemoryUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_ECSServiceAverageMemoryUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECSServiceAverageMemoryUtilization&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"><span class="hs-identifier hs-type">MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"><span id="%24mMetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"><span id="MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"><span class="annot"><span class="annottext">$bMetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage :: MetricType
+$mMetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"><span class="hs-identifier hs-var hs-var hs-var">MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCachePrimaryEngineCPUUtilization"><span class="hs-identifier hs-type">MetricType_ElastiCachePrimaryEngineCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_ElastiCachePrimaryEngineCPUUtilization"><span id="%24mMetricType_ElastiCachePrimaryEngineCPUUtilization"><span id="MetricType_ElastiCachePrimaryEngineCPUUtilization"><span class="annot"><span class="annottext">$bMetricType_ElastiCachePrimaryEngineCPUUtilization :: MetricType
+$mMetricType_ElastiCachePrimaryEngineCPUUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_ElastiCachePrimaryEngineCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_ElastiCachePrimaryEngineCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ElastiCachePrimaryEngineCPUUtilization&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCacheReplicaEngineCPUUtilization"><span class="hs-identifier hs-type">MetricType_ElastiCacheReplicaEngineCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_ElastiCacheReplicaEngineCPUUtilization"><span id="%24mMetricType_ElastiCacheReplicaEngineCPUUtilization"><span id="MetricType_ElastiCacheReplicaEngineCPUUtilization"><span class="annot"><span class="annottext">$bMetricType_ElastiCacheReplicaEngineCPUUtilization :: MetricType
+$mMetricType_ElastiCacheReplicaEngineCPUUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_ElastiCacheReplicaEngineCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_ElastiCacheReplicaEngineCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ElastiCacheReplicaEngineCPUUtilization&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_KafkaBrokerStorageUtilization"><span class="hs-identifier hs-type">MetricType_KafkaBrokerStorageUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_KafkaBrokerStorageUtilization"><span id="%24mMetricType_KafkaBrokerStorageUtilization"><span id="MetricType_KafkaBrokerStorageUtilization"><span class="annot"><span class="annottext">$bMetricType_KafkaBrokerStorageUtilization :: MetricType
+$mMetricType_KafkaBrokerStorageUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_KafkaBrokerStorageUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_KafkaBrokerStorageUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KafkaBrokerStorageUtilization&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_LambdaProvisionedConcurrencyUtilization"><span class="hs-identifier hs-type">MetricType_LambdaProvisionedConcurrencyUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_LambdaProvisionedConcurrencyUtilization"><span id="%24mMetricType_LambdaProvisionedConcurrencyUtilization"><span id="MetricType_LambdaProvisionedConcurrencyUtilization"><span class="annot"><span class="annottext">$bMetricType_LambdaProvisionedConcurrencyUtilization :: MetricType
+$mMetricType_LambdaProvisionedConcurrencyUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_LambdaProvisionedConcurrencyUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_LambdaProvisionedConcurrencyUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LambdaProvisionedConcurrencyUtilization&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_NeptuneReaderAverageCPUUtilization"><span class="hs-identifier hs-type">MetricType_NeptuneReaderAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_NeptuneReaderAverageCPUUtilization"><span id="%24mMetricType_NeptuneReaderAverageCPUUtilization"><span id="MetricType_NeptuneReaderAverageCPUUtilization"><span class="annot"><span class="annottext">$bMetricType_NeptuneReaderAverageCPUUtilization :: MetricType
+$mMetricType_NeptuneReaderAverageCPUUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_NeptuneReaderAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_NeptuneReaderAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NeptuneReaderAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_RDSReaderAverageCPUUtilization"><span class="hs-identifier hs-type">MetricType_RDSReaderAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_RDSReaderAverageCPUUtilization"><span id="%24mMetricType_RDSReaderAverageCPUUtilization"><span id="MetricType_RDSReaderAverageCPUUtilization"><span class="annot"><span class="annottext">$bMetricType_RDSReaderAverageCPUUtilization :: MetricType
+$mMetricType_RDSReaderAverageCPUUtilization :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_RDSReaderAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">MetricType_RDSReaderAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RDSReaderAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_RDSReaderAverageDatabaseConnections"><span class="hs-identifier hs-type">MetricType_RDSReaderAverageDatabaseConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_RDSReaderAverageDatabaseConnections"><span id="%24mMetricType_RDSReaderAverageDatabaseConnections"><span id="MetricType_RDSReaderAverageDatabaseConnections"><span class="annot"><span class="annottext">$bMetricType_RDSReaderAverageDatabaseConnections :: MetricType
+$mMetricType_RDSReaderAverageDatabaseConnections :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_RDSReaderAverageDatabaseConnections"><span class="hs-identifier hs-var hs-var hs-var">MetricType_RDSReaderAverageDatabaseConnections</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RDSReaderAverageDatabaseConnections&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_SageMakerVariantInvocationsPerInstance"><span class="hs-identifier hs-type">MetricType_SageMakerVariantInvocationsPerInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricType_SageMakerVariantInvocationsPerInstance"><span id="%24mMetricType_SageMakerVariantInvocationsPerInstance"><span id="MetricType_SageMakerVariantInvocationsPerInstance"><span class="annot"><span class="annottext">$bMetricType_SageMakerVariantInvocationsPerInstance :: MetricType
+$mMetricType_SageMakerVariantInvocationsPerInstance :: forall r. MetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#%24bMetricType_SageMakerVariantInvocationsPerInstance"><span class="hs-identifier hs-var hs-var hs-var">MetricType_SageMakerVariantInvocationsPerInstance</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-identifier hs-type">MetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SageMakerVariantInvocationsPerInstance&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ALBRequestCountPerTarget"><span class="hs-pragma hs-type">MetricType_ALBRequestCountPerTarget</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_AppStreamAverageCapacityUtilization"><span class="hs-pragma hs-type">MetricType_AppStreamAverageCapacityUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_CassandraReadCapacityUtilization"><span class="hs-pragma hs-type">MetricType_CassandraReadCapacityUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_CassandraWriteCapacityUtilization"><span class="hs-pragma hs-type">MetricType_CassandraWriteCapacityUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ComprehendInferenceUtilization"><span class="hs-pragma hs-type">MetricType_ComprehendInferenceUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_DynamoDBReadCapacityUtilization"><span class="hs-pragma hs-type">MetricType_DynamoDBReadCapacityUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_DynamoDBWriteCapacityUtilization"><span class="hs-pragma hs-type">MetricType_DynamoDBWriteCapacityUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-pragma hs-type">MetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-pragma hs-type">MetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-pragma hs-type">MetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ECSServiceAverageCPUUtilization"><span class="hs-pragma hs-type">MetricType_ECSServiceAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ECSServiceAverageMemoryUtilization"><span class="hs-pragma hs-type">MetricType_ECSServiceAverageMemoryUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"><span class="hs-pragma hs-type">MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCachePrimaryEngineCPUUtilization"><span class="hs-pragma hs-type">MetricType_ElastiCachePrimaryEngineCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_ElastiCacheReplicaEngineCPUUtilization"><span class="hs-pragma hs-type">MetricType_ElastiCacheReplicaEngineCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_KafkaBrokerStorageUtilization"><span class="hs-pragma hs-type">MetricType_KafkaBrokerStorageUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_LambdaProvisionedConcurrencyUtilization"><span class="hs-pragma hs-type">MetricType_LambdaProvisionedConcurrencyUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_NeptuneReaderAverageCPUUtilization"><span class="hs-pragma hs-type">MetricType_NeptuneReaderAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_RDSReaderAverageCPUUtilization"><span class="hs-pragma hs-type">MetricType_RDSReaderAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_RDSReaderAverageDatabaseConnections"><span class="hs-pragma hs-type">MetricType_RDSReaderAverageDatabaseConnections</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType_SageMakerVariantInvocationsPerInstance"><span class="hs-pragma hs-type">MetricType_SageMakerVariantInvocationsPerInstance</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricType.html#MetricType%27"><span class="hs-pragma hs-type">MetricType'</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-166"></span></pre></body></html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeCommit.UpdatePullRequestDescription</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Replaces the contents of the description of a pull request.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeCommit.UpdatePullRequestDescription</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier">UpdatePullRequestDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#newUpdatePullRequestDescription"><span class="hs-identifier">newUpdatePullRequestDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescription_pullRequestId"><span class="hs-identifier">updatePullRequestDescription_pullRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescription_description"><span class="hs-identifier">updatePullRequestDescription_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier">UpdatePullRequestDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#newUpdatePullRequestDescriptionResponse"><span class="hs-identifier">newUpdatePullRequestDescriptionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescriptionResponse_httpStatus"><span class="hs-identifier">updatePullRequestDescriptionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescriptionResponse_pullRequest"><span class="hs-identifier">updatePullRequestDescriptionResponse_pullRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.html"><span class="hs-identifier">Amazonka.CodeCommit.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdatePullRequestDescription' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679374595"><span id="local-6989586621679374596"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestDescription"><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-var">UpdatePullRequestDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestDescription%27"><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription%27"><span class="hs-identifier hs-var">UpdatePullRequestDescription'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated ID of the pull request. To get this ID, use</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- ListPullRequests.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3ApullRequestId%3AUpdatePullRequestDescription%27"><span class="annot"><span class="annottext">UpdatePullRequestDescription -&gt; Text
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3ApullRequestId%3AUpdatePullRequestDescription%27"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The updated content of the description for the pull request. This</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- content replaces the existing description.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Adescription%3AUpdatePullRequestDescription%27"><span class="annot"><span class="annottext">UpdatePullRequestDescription -&gt; Text
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3Adescription%3AUpdatePullRequestDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374588"><span id="local-6989586621679374590"><span class="annot"><span class="annottext">UpdatePullRequestDescription
+-&gt; UpdatePullRequestDescription -&gt; Bool
+(UpdatePullRequestDescription
+ -&gt; UpdatePullRequestDescription -&gt; Bool)
+-&gt; (UpdatePullRequestDescription
+    -&gt; UpdatePullRequestDescription -&gt; Bool)
+-&gt; Eq UpdatePullRequestDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePullRequestDescription
+-&gt; UpdatePullRequestDescription -&gt; Bool
+$c/= :: UpdatePullRequestDescription
+-&gt; UpdatePullRequestDescription -&gt; Bool
+== :: UpdatePullRequestDescription
+-&gt; UpdatePullRequestDescription -&gt; Bool
+$c== :: UpdatePullRequestDescription
+-&gt; UpdatePullRequestDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374579"><span id="local-6989586621679374581"><span id="local-6989586621679374583"><span id="local-6989586621679374585"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestDescription]
+ReadPrec UpdatePullRequestDescription
+Int -&gt; ReadS UpdatePullRequestDescription
+ReadS [UpdatePullRequestDescription]
+(Int -&gt; ReadS UpdatePullRequestDescription)
+-&gt; ReadS [UpdatePullRequestDescription]
+-&gt; ReadPrec UpdatePullRequestDescription
+-&gt; ReadPrec [UpdatePullRequestDescription]
+-&gt; Read UpdatePullRequestDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePullRequestDescription]
+$creadListPrec :: ReadPrec [UpdatePullRequestDescription]
+readPrec :: ReadPrec UpdatePullRequestDescription
+$creadPrec :: ReadPrec UpdatePullRequestDescription
+readList :: ReadS [UpdatePullRequestDescription]
+$creadList :: ReadS [UpdatePullRequestDescription]
+readsPrec :: Int -&gt; ReadS UpdatePullRequestDescription
+$creadsPrec :: Int -&gt; ReadS UpdatePullRequestDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374572"><span id="local-6989586621679374574"><span id="local-6989586621679374576"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestDescription -&gt; ShowS
+[UpdatePullRequestDescription] -&gt; ShowS
+UpdatePullRequestDescription -&gt; String
+(Int -&gt; UpdatePullRequestDescription -&gt; ShowS)
+-&gt; (UpdatePullRequestDescription -&gt; String)
+-&gt; ([UpdatePullRequestDescription] -&gt; ShowS)
+-&gt; Show UpdatePullRequestDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePullRequestDescription] -&gt; ShowS
+$cshowList :: [UpdatePullRequestDescription] -&gt; ShowS
+show :: UpdatePullRequestDescription -&gt; String
+$cshow :: UpdatePullRequestDescription -&gt; String
+showsPrec :: Int -&gt; UpdatePullRequestDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePullRequestDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePullRequestDescription -&gt; Rep UpdatePullRequestDescription x)
+-&gt; (forall x.
+    Rep UpdatePullRequestDescription x -&gt; UpdatePullRequestDescription)
+-&gt; Generic UpdatePullRequestDescription
+forall x.
+Rep UpdatePullRequestDescription x -&gt; UpdatePullRequestDescription
+forall x.
+UpdatePullRequestDescription -&gt; Rep UpdatePullRequestDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePullRequestDescription x -&gt; UpdatePullRequestDescription
+$cfrom :: forall x.
+UpdatePullRequestDescription -&gt; Rep UpdatePullRequestDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'UpdatePullRequestDescription' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'pullRequestId', 'updatePullRequestDescription_pullRequestId' - The system-generated ID of the pull request. To get this ID, use</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- ListPullRequests.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'description', 'updatePullRequestDescription_description' - The updated content of the description for the pull request. This</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- content replaces the existing description.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#newUpdatePullRequestDescription"><span class="hs-identifier hs-type">newUpdatePullRequestDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'pullRequestId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdatePullRequestDescription"><span class="annot"><span class="annottext">newUpdatePullRequestDescription :: Text -&gt; Text -&gt; UpdatePullRequestDescription
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#newUpdatePullRequestDescription"><span class="hs-identifier hs-var hs-var">newUpdatePullRequestDescription</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679374567"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374567"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679374566"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374566"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">UpdatePullRequestDescription' :: Text -&gt; Text -&gt; UpdatePullRequestDescription
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription%27"><span class="hs-identifier hs-type">UpdatePullRequestDescription'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pullRequestId:UpdatePullRequestDescription' :: Text
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3ApullRequestId%3AUpdatePullRequestDescription%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374567"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:UpdatePullRequestDescription' :: Text
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3Adescription%3AUpdatePullRequestDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374566"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The system-generated ID of the pull request. To get this ID, use</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- ListPullRequests.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescription_pullRequestId"><span class="hs-identifier hs-type">updatePullRequestDescription_pullRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="updatePullRequestDescription_pullRequestId"><span class="annot"><span class="annottext">updatePullRequestDescription_pullRequestId :: (Text -&gt; f Text)
+-&gt; UpdatePullRequestDescription -&gt; f UpdatePullRequestDescription
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescription_pullRequestId"><span class="hs-identifier hs-var hs-var">updatePullRequestDescription_pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePullRequestDescription -&gt; Text)
+-&gt; (UpdatePullRequestDescription
+    -&gt; Text -&gt; UpdatePullRequestDescription)
+-&gt; Lens
+     UpdatePullRequestDescription UpdatePullRequestDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription%27"><span class="hs-identifier hs-type">UpdatePullRequestDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374563"><span class="annot"><span class="annottext">Text
+pullRequestId :: Text
+$sel:pullRequestId:UpdatePullRequestDescription' :: UpdatePullRequestDescription -&gt; Text
+</span><a href="#local-6989586621679374563"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374563"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374562"><span class="annot"><span class="annottext">s :: UpdatePullRequestDescription
+</span><a href="#local-6989586621679374562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription%27"><span class="hs-identifier hs-type">UpdatePullRequestDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestDescription
+</span><a href="#local-6989586621679374562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:UpdatePullRequestDescription' :: Text
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3ApullRequestId%3AUpdatePullRequestDescription%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The updated content of the description for the pull request. This</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- content replaces the existing description.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescription_description"><span class="hs-identifier hs-type">updatePullRequestDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="updatePullRequestDescription_description"><span class="annot"><span class="annottext">updatePullRequestDescription_description :: (Text -&gt; f Text)
+-&gt; UpdatePullRequestDescription -&gt; f UpdatePullRequestDescription
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescription_description"><span class="hs-identifier hs-var hs-var">updatePullRequestDescription_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePullRequestDescription -&gt; Text)
+-&gt; (UpdatePullRequestDescription
+    -&gt; Text -&gt; UpdatePullRequestDescription)
+-&gt; Lens
+     UpdatePullRequestDescription UpdatePullRequestDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription%27"><span class="hs-identifier hs-type">UpdatePullRequestDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374560"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:UpdatePullRequestDescription' :: UpdatePullRequestDescription -&gt; Text
+</span><a href="#local-6989586621679374560"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374560"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374559"><span class="annot"><span class="annottext">s :: UpdatePullRequestDescription
+</span><a href="#local-6989586621679374559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription%27"><span class="hs-identifier hs-type">UpdatePullRequestDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestDescription
+</span><a href="#local-6989586621679374559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdatePullRequestDescription' :: Text
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3Adescription%3AUpdatePullRequestDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679374554"><span class="annot"><span class="annottext">request :: UpdatePullRequestDescription
+-&gt; Request UpdatePullRequestDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdatePullRequestDescription
+-&gt; Request UpdatePullRequestDescription
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679374550"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePullRequestDescription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePullRequestDescription)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdatePullRequestDescription))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePullRequestDescription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePullRequestDescription)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374547"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374547"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374546"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679374546"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374545"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PullRequest -&gt; UpdatePullRequestDescriptionResponse
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestDescriptionResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PullRequest -&gt; UpdatePullRequestDescriptionResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (PullRequest -&gt; UpdatePullRequestDescriptionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374547"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (PullRequest -&gt; UpdatePullRequestDescriptionResponse)
+-&gt; Either String PullRequest
+-&gt; Either String UpdatePullRequestDescriptionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PullRequest
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequest&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679374537"><span id="local-6989586621679374539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679374530"><span class="annot"><span class="annottext">toHeaders :: UpdatePullRequestDescription -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePullRequestDescription -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.UpdatePullRequestDescription&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374520"><span id="local-6989586621679374522"><span id="local-6989586621679374524"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679374518"><span class="annot"><span class="annottext">toJSON :: UpdatePullRequestDescription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription%27"><span class="hs-identifier hs-type">UpdatePullRequestDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374515"><span id="local-6989586621679374516"><span class="annot"><span class="annottext">Text
+description :: Text
+pullRequestId :: Text
+$sel:description:UpdatePullRequestDescription' :: UpdatePullRequestDescription -&gt; Text
+$sel:pullRequestId:UpdatePullRequestDescription' :: UpdatePullRequestDescription -&gt; Text
+</span><a href="#local-6989586621679374515"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374516"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374515"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679374509"><span class="annot"><span class="annottext">toPath :: UpdatePullRequestDescription -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdatePullRequestDescription -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescription"><span class="hs-identifier hs-type">UpdatePullRequestDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679374505"><span class="annot"><span class="annottext">toQuery :: UpdatePullRequestDescription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePullRequestDescription -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newUpdatePullRequestDescriptionResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679374502"><span id="local-6989586621679374503"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestDescriptionResponse"><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-var">UpdatePullRequestDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestDescriptionResponse%27"><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestDescriptionResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePullRequestDescriptionResponse%27"><span class="annot"><span class="annottext">UpdatePullRequestDescriptionResponse -&gt; Int
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3AhttpStatus%3AUpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | Information about the updated pull request.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3ApullRequest%3AUpdatePullRequestDescriptionResponse%27"><span class="annot"><span class="annottext">UpdatePullRequestDescriptionResponse -&gt; PullRequest
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3ApullRequest%3AUpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">pullRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.PullRequest.html#PullRequest"><span class="hs-identifier hs-type">PullRequest</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374496"><span id="local-6989586621679374498"><span class="annot"><span class="annottext">UpdatePullRequestDescriptionResponse
+-&gt; UpdatePullRequestDescriptionResponse -&gt; Bool
+(UpdatePullRequestDescriptionResponse
+ -&gt; UpdatePullRequestDescriptionResponse -&gt; Bool)
+-&gt; (UpdatePullRequestDescriptionResponse
+    -&gt; UpdatePullRequestDescriptionResponse -&gt; Bool)
+-&gt; Eq UpdatePullRequestDescriptionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePullRequestDescriptionResponse
+-&gt; UpdatePullRequestDescriptionResponse -&gt; Bool
+$c/= :: UpdatePullRequestDescriptionResponse
+-&gt; UpdatePullRequestDescriptionResponse -&gt; Bool
+== :: UpdatePullRequestDescriptionResponse
+-&gt; UpdatePullRequestDescriptionResponse -&gt; Bool
+$c== :: UpdatePullRequestDescriptionResponse
+-&gt; UpdatePullRequestDescriptionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374488"><span id="local-6989586621679374490"><span id="local-6989586621679374492"><span id="local-6989586621679374494"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestDescriptionResponse]
+ReadPrec UpdatePullRequestDescriptionResponse
+Int -&gt; ReadS UpdatePullRequestDescriptionResponse
+ReadS [UpdatePullRequestDescriptionResponse]
+(Int -&gt; ReadS UpdatePullRequestDescriptionResponse)
+-&gt; ReadS [UpdatePullRequestDescriptionResponse]
+-&gt; ReadPrec UpdatePullRequestDescriptionResponse
+-&gt; ReadPrec [UpdatePullRequestDescriptionResponse]
+-&gt; Read UpdatePullRequestDescriptionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePullRequestDescriptionResponse]
+$creadListPrec :: ReadPrec [UpdatePullRequestDescriptionResponse]
+readPrec :: ReadPrec UpdatePullRequestDescriptionResponse
+$creadPrec :: ReadPrec UpdatePullRequestDescriptionResponse
+readList :: ReadS [UpdatePullRequestDescriptionResponse]
+$creadList :: ReadS [UpdatePullRequestDescriptionResponse]
+readsPrec :: Int -&gt; ReadS UpdatePullRequestDescriptionResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePullRequestDescriptionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374482"><span id="local-6989586621679374484"><span id="local-6989586621679374486"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestDescriptionResponse -&gt; ShowS
+[UpdatePullRequestDescriptionResponse] -&gt; ShowS
+UpdatePullRequestDescriptionResponse -&gt; String
+(Int -&gt; UpdatePullRequestDescriptionResponse -&gt; ShowS)
+-&gt; (UpdatePullRequestDescriptionResponse -&gt; String)
+-&gt; ([UpdatePullRequestDescriptionResponse] -&gt; ShowS)
+-&gt; Show UpdatePullRequestDescriptionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePullRequestDescriptionResponse] -&gt; ShowS
+$cshowList :: [UpdatePullRequestDescriptionResponse] -&gt; ShowS
+show :: UpdatePullRequestDescriptionResponse -&gt; String
+$cshow :: UpdatePullRequestDescriptionResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePullRequestDescriptionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePullRequestDescriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePullRequestDescriptionResponse
+ -&gt; Rep UpdatePullRequestDescriptionResponse x)
+-&gt; (forall x.
+    Rep UpdatePullRequestDescriptionResponse x
+    -&gt; UpdatePullRequestDescriptionResponse)
+-&gt; Generic UpdatePullRequestDescriptionResponse
+forall x.
+Rep UpdatePullRequestDescriptionResponse x
+-&gt; UpdatePullRequestDescriptionResponse
+forall x.
+UpdatePullRequestDescriptionResponse
+-&gt; Rep UpdatePullRequestDescriptionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePullRequestDescriptionResponse x
+-&gt; UpdatePullRequestDescriptionResponse
+$cfrom :: forall x.
+UpdatePullRequestDescriptionResponse
+-&gt; Rep UpdatePullRequestDescriptionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'UpdatePullRequestDescriptionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'updatePullRequestDescriptionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'pullRequest', 'updatePullRequestDescriptionResponse_pullRequest' - Information about the updated pull request.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#newUpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">newUpdatePullRequestDescriptionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'pullRequest'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.Types.PullRequest.html#PullRequest"><span class="hs-identifier hs-type">PullRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newUpdatePullRequestDescriptionResponse"><span class="annot"><span class="annottext">newUpdatePullRequestDescriptionResponse :: Int -&gt; PullRequest -&gt; UpdatePullRequestDescriptionResponse
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#newUpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-var hs-var">newUpdatePullRequestDescriptionResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679374479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374479"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679374478"><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374478"><span class="hs-identifier hs-var">pPullRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">UpdatePullRequestDescriptionResponse' :: Int -&gt; PullRequest -&gt; UpdatePullRequestDescriptionResponse
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePullRequestDescriptionResponse' :: Int
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3AhttpStatus%3AUpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374479"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:pullRequest:UpdatePullRequestDescriptionResponse' :: PullRequest
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3ApullRequest%3AUpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var">pullRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374478"><span class="hs-identifier hs-var">pPullRequest_</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescriptionResponse_httpStatus"><span class="hs-identifier hs-type">updatePullRequestDescriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span id="updatePullRequestDescriptionResponse_httpStatus"><span class="annot"><span class="annottext">updatePullRequestDescriptionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdatePullRequestDescriptionResponse
+-&gt; f UpdatePullRequestDescriptionResponse
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescriptionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updatePullRequestDescriptionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePullRequestDescriptionResponse -&gt; Int)
+-&gt; (UpdatePullRequestDescriptionResponse
+    -&gt; Int -&gt; UpdatePullRequestDescriptionResponse)
+-&gt; Lens
+     UpdatePullRequestDescriptionResponse
+     UpdatePullRequestDescriptionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374477"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdatePullRequestDescriptionResponse' :: UpdatePullRequestDescriptionResponse -&gt; Int
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374476"><span class="annot"><span class="annottext">s :: UpdatePullRequestDescriptionResponse
+</span><a href="#local-6989586621679374476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374475"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestDescriptionResponse
+</span><a href="#local-6989586621679374476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePullRequestDescriptionResponse' :: Int
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3AhttpStatus%3AUpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Information about the updated pull request.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescriptionResponse_pullRequest"><span class="hs-identifier hs-type">updatePullRequestDescriptionResponse_pullRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.PullRequest.html#PullRequest"><span class="hs-identifier hs-type">PullRequest</span></a></span><span>
+</span><span id="line-190"></span><span id="updatePullRequestDescriptionResponse_pullRequest"><span class="annot"><span class="annottext">updatePullRequestDescriptionResponse_pullRequest :: (PullRequest -&gt; f PullRequest)
+-&gt; UpdatePullRequestDescriptionResponse
+-&gt; f UpdatePullRequestDescriptionResponse
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#updatePullRequestDescriptionResponse_pullRequest"><span class="hs-identifier hs-var hs-var">updatePullRequestDescriptionResponse_pullRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePullRequestDescriptionResponse -&gt; PullRequest)
+-&gt; (UpdatePullRequestDescriptionResponse
+    -&gt; PullRequest -&gt; UpdatePullRequestDescriptionResponse)
+-&gt; Lens
+     UpdatePullRequestDescriptionResponse
+     UpdatePullRequestDescriptionResponse
+     PullRequest
+     PullRequest
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374474"><span class="annot"><span class="annottext">PullRequest
+pullRequest :: PullRequest
+$sel:pullRequest:UpdatePullRequestDescriptionResponse' :: UpdatePullRequestDescriptionResponse -&gt; PullRequest
+</span><a href="#local-6989586621679374474"><span class="hs-identifier hs-var hs-var">pullRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374474"><span class="hs-identifier hs-var">pullRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374473"><span class="annot"><span class="annottext">s :: UpdatePullRequestDescriptionResponse
+</span><a href="#local-6989586621679374473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374472"><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestDescriptionResponse
+</span><a href="#local-6989586621679374473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequest:UpdatePullRequestDescriptionResponse' :: PullRequest
+</span><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#%24sel%3ApullRequest%3AUpdatePullRequestDescriptionResponse%27"><span class="hs-identifier hs-var">pullRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679374470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.UpdatePullRequestDescription.html#UpdatePullRequestDescriptionResponse"><span class="hs-identifier hs-type">UpdatePullRequestDescriptionResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

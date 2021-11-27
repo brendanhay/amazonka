@@ -5,62 +5,62 @@
 @version 2.0
 
 
-module Network.AWS.ApplicationCostProfiler.Types.Format
+module Amazonka.ApplicationCostProfiler.Types.Format
 newtype Format
 Format' :: Text -> Format
 [fromFormat] :: Format -> Text
 pattern Format_CSV :: Format
 pattern Format_PARQUET :: Format
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance GHC.Classes.Ord Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.Types.Format.Format
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance GHC.Classes.Ord Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.Types.Format.Format
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.Types.Format.Format
 
 
-module Network.AWS.ApplicationCostProfiler.Types.ReportFrequency
+module Amazonka.ApplicationCostProfiler.Types.ReportFrequency
 newtype ReportFrequency
 ReportFrequency' :: Text -> ReportFrequency
 [fromReportFrequency] :: ReportFrequency -> Text
 pattern ReportFrequency_ALL :: ReportFrequency
 pattern ReportFrequency_DAILY :: ReportFrequency
 pattern ReportFrequency_MONTHLY :: ReportFrequency
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance GHC.Classes.Ord Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance GHC.Classes.Ord Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.Types.ReportFrequency.ReportFrequency
 
 
-module Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion
+module Amazonka.ApplicationCostProfiler.Types.S3BucketRegion
 newtype S3BucketRegion
 S3BucketRegion' :: Text -> S3BucketRegion
 [fromS3BucketRegion] :: S3BucketRegion -> Text
@@ -68,28 +68,28 @@ pattern S3BucketRegion_Af_south_1 :: S3BucketRegion
 pattern S3BucketRegion_Ap_east_1 :: S3BucketRegion
 pattern S3BucketRegion_Eu_south_1 :: S3BucketRegion
 pattern S3BucketRegion_Me_south_1 :: S3BucketRegion
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance GHC.Classes.Ord Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance GHC.Classes.Ord Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.Types.S3BucketRegion.S3BucketRegion
 
 
-module Network.AWS.ApplicationCostProfiler.Types.S3Location
+module Amazonka.ApplicationCostProfiler.Types.S3Location
 
 -- | Represents the Amazon Simple Storage Service (Amazon S3) location
 --   where AWS Application Cost Profiler reports are generated and then
@@ -125,17 +125,17 @@ s3Location_bucket :: Lens' S3Location Text
 
 -- | Prefix for the location to write to.
 s3Location_prefix :: Lens' S3Location Text
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.Types.S3Location.S3Location
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.Types.S3Location.S3Location
 
 
-module Network.AWS.ApplicationCostProfiler.Types.ReportDefinition
+module Amazonka.ApplicationCostProfiler.Types.ReportDefinition
 
 -- | The configuration of a report in AWS Application Cost Profiler.
 --   
@@ -221,16 +221,16 @@ reportDefinition_reportDescription :: Lens' ReportDefinition (Maybe Text)
 -- | The location in Amazon Simple Storage Service (Amazon S3) the reports
 --   should be saved to.
 reportDefinition_destinationS3Location :: Lens' ReportDefinition (Maybe S3Location)
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.Types.ReportDefinition.ReportDefinition
 
 
-module Network.AWS.ApplicationCostProfiler.Types.SourceS3Location
+module Amazonka.ApplicationCostProfiler.Types.SourceS3Location
 
 -- | Represents the Amazon Simple Storage Service (Amazon S3) location
 --   where usage data is read from.
@@ -284,16 +284,16 @@ sourceS3Location_bucket :: Lens' SourceS3Location Text
 
 -- | Key of the object.
 sourceS3Location_key :: Lens' SourceS3Location Text
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.Types.SourceS3Location.SourceS3Location
 
 
-module Network.AWS.ApplicationCostProfiler.Types
+module Amazonka.ApplicationCostProfiler.Types
 
 -- | API version <tt>2020-09-10</tt> of the Amazon Application Cost
 --   Profiler SDK configuration.
@@ -509,7 +509,7 @@ sourceS3Location_key :: Lens' SourceS3Location Text
 
 -- | Creates the report definition for a report in Application Cost
 --   Profiler.
-module Network.AWS.ApplicationCostProfiler.PutReportDefinition
+module Amazonka.ApplicationCostProfiler.PutReportDefinition
 
 -- | <i>See:</i> <a>newPutReportDefinition</a> smart constructor.
 data PutReportDefinition
@@ -612,22 +612,22 @@ putReportDefinitionResponse_reportId :: Lens' PutReportDefinitionResponse (Maybe
 
 -- | The response's http status code.
 putReportDefinitionResponse_httpStatus :: Lens' PutReportDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.PutReportDefinition.PutReportDefinition
 
 
 -- | Retrieves a list of all reports and their configurations for your AWS
@@ -636,7 +636,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.PutR
 --   The maximum number of reports is one.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ApplicationCostProfiler.ListReportDefinitions
+module Amazonka.ApplicationCostProfiler.ListReportDefinitions
 
 -- | <i>See:</i> <a>newListReportDefinitions</a> smart constructor.
 data ListReportDefinitions
@@ -719,22 +719,22 @@ listReportDefinitionsResponse_reportDefinitions :: Lens' ListReportDefinitionsRe
 
 -- | The response's http status code.
 listReportDefinitionsResponse_httpStatus :: Lens' ListReportDefinitionsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.ListReportDefinitions.ListReportDefinitions
 
 
 -- | Ingests application usage data from Amazon Simple Storage Service
@@ -743,7 +743,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.List
 --   The data must already exist in the S3 location. As part of the action,
 --   AWS Application Cost Profiler copies the object from your S3 bucket to
 --   an S3 bucket owned by Amazon for processing asynchronously.
-module Network.AWS.ApplicationCostProfiler.ImportApplicationUsage
+module Amazonka.ApplicationCostProfiler.ImportApplicationUsage
 
 -- | <i>See:</i> <a>newImportApplicationUsage</a> smart constructor.
 data ImportApplicationUsage
@@ -803,27 +803,27 @@ importApplicationUsageResponse_httpStatus :: Lens' ImportApplicationUsageRespons
 
 -- | ID of the import request.
 importApplicationUsageResponse_importId :: Lens' ImportApplicationUsageResponse Text
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsageResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.ImportApplicationUsage.ImportApplicationUsage
 
 
 -- | Retrieves the definition of a report already configured in AWS
 --   Application Cost Profiler.
-module Network.AWS.ApplicationCostProfiler.GetReportDefinition
+module Amazonka.ApplicationCostProfiler.GetReportDefinition
 
 -- | <i>See:</i> <a>newGetReportDefinition</a> smart constructor.
 data GetReportDefinition
@@ -944,26 +944,26 @@ getReportDefinitionResponse_createdAt :: Lens' GetReportDefinitionResponse UTCTi
 
 -- | Timestamp (milliseconds) when this report definition was last updated.
 getReportDefinitionResponse_lastUpdated :: Lens' GetReportDefinitionResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.GetReportDefinition.GetReportDefinition
 
 
 -- | Deletes the specified report definition in AWS Application Cost
 --   Profiler. This stops the report from being generated.
-module Network.AWS.ApplicationCostProfiler.DeleteReportDefinition
+module Amazonka.ApplicationCostProfiler.DeleteReportDefinition
 
 -- | <i>See:</i> <a>newDeleteReportDefinition</a> smart constructor.
 data DeleteReportDefinition
@@ -1023,25 +1023,25 @@ deleteReportDefinitionResponse_reportId :: Lens' DeleteReportDefinitionResponse 
 
 -- | The response's http status code.
 deleteReportDefinitionResponse_httpStatus :: Lens' DeleteReportDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.DeleteReportDefinition.DeleteReportDefinition
 
 
 -- | Updates existing report in AWS Application Cost Profiler.
-module Network.AWS.ApplicationCostProfiler.UpdateReportDefinition
+module Amazonka.ApplicationCostProfiler.UpdateReportDefinition
 
 -- | <i>See:</i> <a>newUpdateReportDefinition</a> smart constructor.
 data UpdateReportDefinition
@@ -1143,25 +1143,25 @@ updateReportDefinitionResponse_reportId :: Lens' UpdateReportDefinitionResponse 
 
 -- | The response's http status code.
 updateReportDefinitionResponse_httpStatus :: Lens' UpdateReportDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance GHC.Generics.Generic Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
-instance GHC.Show.Show Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
-instance GHC.Read.Read Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance GHC.Generics.Generic Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
+instance GHC.Show.Show Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
+instance GHC.Read.Read Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
+instance GHC.Classes.Eq Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance Control.DeepSeq.NFData Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationCostProfiler.UpdateReportDefinition.UpdateReportDefinition
 
 
-module Network.AWS.ApplicationCostProfiler.Lens
+module Amazonka.ApplicationCostProfiler.Lens
 
 -- | Amazon S3 location to import application usage data from.
 importApplicationUsage_sourceS3Location :: Lens' ImportApplicationUsage SourceS3Location
@@ -1312,7 +1312,7 @@ sourceS3Location_bucket :: Lens' SourceS3Location Text
 sourceS3Location_key :: Lens' SourceS3Location Text
 
 
-module Network.AWS.ApplicationCostProfiler.Waiters
+module Amazonka.ApplicationCostProfiler.Waiters
 
 
 -- | Derived from API version <tt>2020-09-10</tt> of the AWS service
@@ -1328,7 +1328,7 @@ module Network.AWS.ApplicationCostProfiler.Waiters
 --   
 --   For more information about using this service, see the <a>AWS
 --   Application Cost Profiler User Guide</a>.
-module Network.AWS.ApplicationCostProfiler
+module Amazonka.ApplicationCostProfiler
 
 -- | API version <tt>2020-09-10</tt> of the Amazon Application Cost
 --   Profiler SDK configuration.

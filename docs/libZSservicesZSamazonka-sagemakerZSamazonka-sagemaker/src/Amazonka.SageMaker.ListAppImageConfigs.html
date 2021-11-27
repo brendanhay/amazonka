@@ -1,0 +1,1068 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.ListAppImageConfigs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the AppImageConfigs in your account and their properties. The list</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- can be filtered by creation time or modified time, and whether the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- AppImageConfig name contains a specified string.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.ListAppImageConfigs</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#newListAppImageConfigs"><span class="hs-identifier">newListAppImageConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_nameContains"><span class="hs-identifier">listAppImageConfigs_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_creationTimeAfter"><span class="hs-identifier">listAppImageConfigs_creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_modifiedTimeAfter"><span class="hs-identifier">listAppImageConfigs_modifiedTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_nextToken"><span class="hs-identifier">listAppImageConfigs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortOrder"><span class="hs-identifier">listAppImageConfigs_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_creationTimeBefore"><span class="hs-identifier">listAppImageConfigs_creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_modifiedTimeBefore"><span class="hs-identifier">listAppImageConfigs_modifiedTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_maxResults"><span class="hs-identifier">listAppImageConfigs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortBy"><span class="hs-identifier">listAppImageConfigs_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier">ListAppImageConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#newListAppImageConfigsResponse"><span class="hs-identifier">newListAppImageConfigsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_appImageConfigs"><span class="hs-identifier">listAppImageConfigsResponse_appImageConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_nextToken"><span class="hs-identifier">listAppImageConfigsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_httpStatus"><span class="hs-identifier">listAppImageConfigsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListAppImageConfigs' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621680387825"><span id="local-6989586621680387826"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppImageConfigs"><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-var">ListAppImageConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppImageConfigs%27"><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-var">ListAppImageConfigs'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns only AppImageConfigs whose name contains the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- specified string.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnameContains%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnameContains%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A filter that returns only AppImageConfigs created on or after the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AcreationTimeAfter%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A filter that returns only AppImageConfigs modified on or after the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmodifiedTimeAfter%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">modifiedTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | If the previous call to @ListImages@ didn\'t return the full set of</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- AppImageConfigs, the call returns a token for getting the next set of</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- AppImageConfigs.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsortOrder%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe SortOrder
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AsortOrder%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A filter that returns only AppImageConfigs created on or before the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AcreationTimeBefore%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | A filter that returns only AppImageConfigs modified on or before the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AmodifiedTimeBefore%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">modifiedTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The maximum number of AppImageConfigs to return in the response. The</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- default value is 10.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe Natural
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmaxResults%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AsortBy%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe AppImageConfigSortKey
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AsortBy%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-type">AppImageConfigSortKey</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680387811"><span id="local-6989586621680387813"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
+(ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool)
+-&gt; (ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool)
+-&gt; Eq ListAppImageConfigs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
+$c/= :: ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
+== :: ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
+$c== :: ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387802"><span id="local-6989586621680387804"><span id="local-6989586621680387806"><span id="local-6989586621680387808"><span class="annot"><span class="annottext">ReadPrec [ListAppImageConfigs]
+ReadPrec ListAppImageConfigs
+Int -&gt; ReadS ListAppImageConfigs
+ReadS [ListAppImageConfigs]
+(Int -&gt; ReadS ListAppImageConfigs)
+-&gt; ReadS [ListAppImageConfigs]
+-&gt; ReadPrec ListAppImageConfigs
+-&gt; ReadPrec [ListAppImageConfigs]
+-&gt; Read ListAppImageConfigs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAppImageConfigs]
+$creadListPrec :: ReadPrec [ListAppImageConfigs]
+readPrec :: ReadPrec ListAppImageConfigs
+$creadPrec :: ReadPrec ListAppImageConfigs
+readList :: ReadS [ListAppImageConfigs]
+$creadList :: ReadS [ListAppImageConfigs]
+readsPrec :: Int -&gt; ReadS ListAppImageConfigs
+$creadsPrec :: Int -&gt; ReadS ListAppImageConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387795"><span id="local-6989586621680387797"><span id="local-6989586621680387799"><span class="annot"><span class="annottext">Int -&gt; ListAppImageConfigs -&gt; ShowS
+[ListAppImageConfigs] -&gt; ShowS
+ListAppImageConfigs -&gt; String
+(Int -&gt; ListAppImageConfigs -&gt; ShowS)
+-&gt; (ListAppImageConfigs -&gt; String)
+-&gt; ([ListAppImageConfigs] -&gt; ShowS)
+-&gt; Show ListAppImageConfigs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAppImageConfigs] -&gt; ShowS
+$cshowList :: [ListAppImageConfigs] -&gt; ShowS
+show :: ListAppImageConfigs -&gt; String
+$cshow :: ListAppImageConfigs -&gt; String
+showsPrec :: Int -&gt; ListAppImageConfigs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAppImageConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAppImageConfigs -&gt; Rep ListAppImageConfigs x)
+-&gt; (forall x. Rep ListAppImageConfigs x -&gt; ListAppImageConfigs)
+-&gt; Generic ListAppImageConfigs
+forall x. Rep ListAppImageConfigs x -&gt; ListAppImageConfigs
+forall x. ListAppImageConfigs -&gt; Rep ListAppImageConfigs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAppImageConfigs x -&gt; ListAppImageConfigs
+$cfrom :: forall x. ListAppImageConfigs -&gt; Rep ListAppImageConfigs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'ListAppImageConfigs' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'nameContains', 'listAppImageConfigs_nameContains' - A filter that returns only AppImageConfigs whose name contains the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- specified string.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'creationTimeAfter', 'listAppImageConfigs_creationTimeAfter' - A filter that returns only AppImageConfigs created on or after the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'modifiedTimeAfter', 'listAppImageConfigs_modifiedTimeAfter' - A filter that returns only AppImageConfigs modified on or after the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'nextToken', 'listAppImageConfigs_nextToken' - If the previous call to @ListImages@ didn\'t return the full set of</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- AppImageConfigs, the call returns a token for getting the next set of</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- AppImageConfigs.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'sortOrder', 'listAppImageConfigs_sortOrder' - The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'creationTimeBefore', 'listAppImageConfigs_creationTimeBefore' - A filter that returns only AppImageConfigs created on or before the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'modifiedTimeBefore', 'listAppImageConfigs_modifiedTimeBefore' - A filter that returns only AppImageConfigs modified on or before the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'maxResults', 'listAppImageConfigs_maxResults' - The maximum number of AppImageConfigs to return in the response. The</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- default value is 10.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'sortBy', 'listAppImageConfigs_sortBy' - The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#newListAppImageConfigs"><span class="hs-identifier hs-type">newListAppImageConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span>
+</span><span id="line-128"></span><span id="newListAppImageConfigs"><span class="annot"><span class="annottext">newListAppImageConfigs :: ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#newListAppImageConfigs"><span class="hs-identifier hs-var hs-var">newListAppImageConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">ListAppImageConfigs' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Natural
+-&gt; Maybe AppImageConfigSortKey
+-&gt; ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nameContains:ListAppImageConfigs' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnameContains%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:modifiedTimeAfter:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigs' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListAppImageConfigs' :: Maybe SortOrder
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AsortOrder%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:modifiedTimeBefore:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAppImageConfigs' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmaxResults%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListAppImageConfigs' :: Maybe AppImageConfigSortKey
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AsortBy%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A filter that returns only AppImageConfigs whose name contains the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- specified string.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_nameContains"><span class="hs-identifier hs-type">listAppImageConfigs_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="listAppImageConfigs_nameContains"><span class="annot"><span class="annottext">listAppImageConfigs_nameContains :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_nameContains"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe Text)
+-&gt; (ListAppImageConfigs -&gt; Maybe Text -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs ListAppImageConfigs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387789"><span class="annot"><span class="annottext">Maybe Text
+nameContains :: Maybe Text
+$sel:nameContains:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621680387789"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387789"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387788"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListAppImageConfigs' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnameContains%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | A filter that returns only AppImageConfigs created on or after the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_creationTimeAfter"><span class="hs-identifier hs-type">listAppImageConfigs_creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="listAppImageConfigs_creationTimeAfter"><span class="annot"><span class="annottext">listAppImageConfigs_creationTimeAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_creationTimeAfter"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_creationTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe POSIX)
+-&gt; (ListAppImageConfigs -&gt; Maybe POSIX -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387786"><span class="annot"><span class="annottext">Maybe POSIX
+creationTimeAfter :: Maybe POSIX
+$sel:creationTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680387786"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387786"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387785"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387784"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs
+-&gt; f ListAppImageConfigs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | A filter that returns only AppImageConfigs modified on or after the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_modifiedTimeAfter"><span class="hs-identifier hs-type">listAppImageConfigs_modifiedTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listAppImageConfigs_modifiedTimeAfter"><span class="annot"><span class="annottext">listAppImageConfigs_modifiedTimeAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_modifiedTimeAfter"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_modifiedTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe POSIX)
+-&gt; (ListAppImageConfigs -&gt; Maybe POSIX -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387780"><span class="annot"><span class="annottext">Maybe POSIX
+modifiedTimeAfter :: Maybe POSIX
+$sel:modifiedTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680387780"><span class="hs-identifier hs-var hs-var">modifiedTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387780"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387779"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387778"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimeAfter:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs
+-&gt; f ListAppImageConfigs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | If the previous call to @ListImages@ didn\'t return the full set of</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- AppImageConfigs, the call returns a token for getting the next set of</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- AppImageConfigs.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_nextToken"><span class="hs-identifier hs-type">listAppImageConfigs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="listAppImageConfigs_nextToken"><span class="annot"><span class="annottext">listAppImageConfigs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_nextToken"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe Text)
+-&gt; (ListAppImageConfigs -&gt; Maybe Text -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs ListAppImageConfigs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387777"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621680387777"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387777"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387776"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigs' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortOrder"><span class="hs-identifier hs-type">listAppImageConfigs_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="listAppImageConfigs_sortOrder"><span class="annot"><span class="annottext">listAppImageConfigs_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortOrder"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe SortOrder)
+-&gt; (ListAppImageConfigs -&gt; Maybe SortOrder -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs
+     ListAppImageConfigs
+     (Maybe SortOrder)
+     (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387774"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680387774"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387774"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387773"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387772"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListAppImageConfigs' :: Maybe SortOrder
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AsortOrder%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | A filter that returns only AppImageConfigs created on or before the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_creationTimeBefore"><span class="hs-identifier hs-type">listAppImageConfigs_creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="listAppImageConfigs_creationTimeBefore"><span class="annot"><span class="annottext">listAppImageConfigs_creationTimeBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_creationTimeBefore"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_creationTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe POSIX)
+-&gt; (ListAppImageConfigs -&gt; Maybe POSIX -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387771"><span class="annot"><span class="annottext">Maybe POSIX
+creationTimeBefore :: Maybe POSIX
+$sel:creationTimeBefore:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680387771"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387771"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387770"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387769"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs
+-&gt; f ListAppImageConfigs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | A filter that returns only AppImageConfigs modified on or before the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_modifiedTimeBefore"><span class="hs-identifier hs-type">listAppImageConfigs_modifiedTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="listAppImageConfigs_modifiedTimeBefore"><span class="annot"><span class="annottext">listAppImageConfigs_modifiedTimeBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_modifiedTimeBefore"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_modifiedTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe POSIX)
+-&gt; (ListAppImageConfigs -&gt; Maybe POSIX -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387768"><span class="annot"><span class="annottext">Maybe POSIX
+modifiedTimeBefore :: Maybe POSIX
+$sel:modifiedTimeBefore:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+</span><a href="#local-6989586621680387768"><span class="hs-identifier hs-var hs-var">modifiedTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387768"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387767"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387766"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimeBefore:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListAppImageConfigs
+-&gt; f ListAppImageConfigs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The maximum number of AppImageConfigs to return in the response. The</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- default value is 10.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_maxResults"><span class="hs-identifier hs-type">listAppImageConfigs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="listAppImageConfigs_maxResults"><span class="annot"><span class="annottext">listAppImageConfigs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_maxResults"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe Natural)
+-&gt; (ListAppImageConfigs -&gt; Maybe Natural -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs
+     ListAppImageConfigs
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387765"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Natural
+</span><a href="#local-6989586621680387765"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387765"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387764"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387763"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAppImageConfigs' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AmaxResults%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortBy"><span class="hs-identifier hs-type">listAppImageConfigs_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-type">AppImageConfigSortKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="listAppImageConfigs_sortBy"><span class="annot"><span class="annottext">listAppImageConfigs_sortBy :: (Maybe AppImageConfigSortKey -&gt; f (Maybe AppImageConfigSortKey))
+-&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortBy"><span class="hs-identifier hs-var hs-var">listAppImageConfigs_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe AppImageConfigSortKey)
+-&gt; (ListAppImageConfigs
+    -&gt; Maybe AppImageConfigSortKey -&gt; ListAppImageConfigs)
+-&gt; Lens
+     ListAppImageConfigs
+     ListAppImageConfigs
+     (Maybe AppImageConfigSortKey)
+     (Maybe AppImageConfigSortKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387762"><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+sortBy :: Maybe AppImageConfigSortKey
+$sel:sortBy:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680387762"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680387762"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387761"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680387761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387760"><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680387760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListAppImageConfigs' :: Maybe AppImageConfigSortKey
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AsortBy%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680387760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621680387756"><span class="annot"><span class="annottext">page :: ListAppImageConfigs
+-&gt; AWSResponse ListAppImageConfigs -&gt; Maybe ListAppImageConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680387754"><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387754"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680387753"><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
+</span><a href="#local-6989586621680387753"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-189"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
+ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387753"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+-&gt; Getting (First Text) ListAppImageConfigsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAppImageConfigsResponse
+-&gt; Const (First Text) ListAppImageConfigsResponse
+Lens' ListAppImageConfigsResponse (Maybe Text)
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_nextToken"><span class="hs-identifier hs-var">listAppImageConfigsResponse_nextToken</span></a></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAppImageConfigsResponse
+ -&gt; Const (First Text) ListAppImageConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAppImageConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-192"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAppImageConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-195"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
+ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387753"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+-&gt; Getting
+     (First [AppImageConfigDetails])
+     ListAppImageConfigsResponse
+     [AppImageConfigDetails]
+-&gt; Maybe [AppImageConfigDetails]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [AppImageConfigDetails]
+ -&gt; Const
+      (First [AppImageConfigDetails]) (Maybe [AppImageConfigDetails]))
+-&gt; ListAppImageConfigsResponse
+-&gt; Const
+     (First [AppImageConfigDetails]) ListAppImageConfigsResponse
+Lens' ListAppImageConfigsResponse (Maybe [AppImageConfigDetails])
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_appImageConfigs"><span class="hs-identifier hs-var">listAppImageConfigsResponse_appImageConfigs</span></a></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [AppImageConfigDetails]
+  -&gt; Const
+       (First [AppImageConfigDetails]) (Maybe [AppImageConfigDetails]))
+ -&gt; ListAppImageConfigsResponse
+ -&gt; Const
+      (First [AppImageConfigDetails]) ListAppImageConfigsResponse)
+-&gt; (([AppImageConfigDetails]
+     -&gt; Const (First [AppImageConfigDetails]) [AppImageConfigDetails])
+    -&gt; Maybe [AppImageConfigDetails]
+    -&gt; Const
+         (First [AppImageConfigDetails]) (Maybe [AppImageConfigDetails]))
+-&gt; Getting
+     (First [AppImageConfigDetails])
+     ListAppImageConfigsResponse
+     [AppImageConfigDetails]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AppImageConfigDetails]
+ -&gt; Const (First [AppImageConfigDetails]) [AppImageConfigDetails])
+-&gt; Maybe [AppImageConfigDetails]
+-&gt; Const
+     (First [AppImageConfigDetails]) (Maybe [AppImageConfigDetails])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-198"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAppImageConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe ListAppImageConfigs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigs -&gt; Maybe ListAppImageConfigs)
+-&gt; ListAppImageConfigs -&gt; Maybe ListAppImageConfigs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680387754"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">ListAppImageConfigs
+-&gt; (ListAppImageConfigs -&gt; ListAppImageConfigs)
+-&gt; ListAppImageConfigs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAppImageConfigs -&gt; Identity ListAppImageConfigs
+Lens
+  ListAppImageConfigs ListAppImageConfigs (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_nextToken"><span class="hs-identifier hs-var">listAppImageConfigs_nextToken</span></a></span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAppImageConfigs -&gt; Identity ListAppImageConfigs)
+-&gt; Maybe Text -&gt; ListAppImageConfigs -&gt; ListAppImageConfigs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
+ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387753"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+-&gt; Getting (First Text) ListAppImageConfigsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAppImageConfigsResponse
+-&gt; Const (First Text) ListAppImageConfigsResponse
+Lens' ListAppImageConfigsResponse (Maybe Text)
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_nextToken"><span class="hs-identifier hs-var">listAppImageConfigsResponse_nextToken</span></a></span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAppImageConfigsResponse
+ -&gt; Const (First Text) ListAppImageConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAppImageConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-210"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621680387744"><span class="annot"><span class="annottext">request :: ListAppImageConfigs -&gt; Request ListAppImageConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAppImageConfigs -&gt; Request ListAppImageConfigs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621680387740"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAppImageConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAppImageConfigs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAppImageConfigs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAppImageConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAppImageConfigs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680387737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387737"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680387736"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680387736"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680387735"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680387735"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+-&gt; Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">ListAppImageConfigsResponse'</span></a></span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AppImageConfigDetails]
+ -&gt; Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse)
+-&gt; Either String (Maybe [AppImageConfigDetails])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680387735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [AppImageConfigDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppImageConfigs&quot;</span></span><span>
+</span><span id="line-218"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AppImageConfigDetails]))
+-&gt; Maybe [AppImageConfigDetails]
+-&gt; Either String (Maybe [AppImageConfigDetails])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-219"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListAppImageConfigsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680387735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAppImageConfigsResponse)
+-&gt; Either String Int -&gt; Either String ListAppImageConfigsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387737"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387726"><span id="local-6989586621680387728"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621680387719"><span class="annot"><span class="annottext">toHeaders :: ListAppImageConfigs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAppImageConfigs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.ListAppImageConfigs&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-235"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-239"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387709"><span id="local-6989586621680387711"><span id="local-6989586621680387713"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621680387707"><span class="annot"><span class="annottext">toJSON :: ListAppImageConfigs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387697"><span id="local-6989586621680387698"><span id="local-6989586621680387699"><span id="local-6989586621680387700"><span id="local-6989586621680387701"><span id="local-6989586621680387702"><span id="local-6989586621680387703"><span id="local-6989586621680387704"><span id="local-6989586621680387705"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe AppImageConfigSortKey
+Maybe SortOrder
+sortBy :: Maybe AppImageConfigSortKey
+maxResults :: Maybe Natural
+modifiedTimeBefore :: Maybe POSIX
+creationTimeBefore :: Maybe POSIX
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+modifiedTimeAfter :: Maybe POSIX
+creationTimeAfter :: Maybe POSIX
+nameContains :: Maybe Text
+$sel:sortBy:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe AppImageConfigSortKey
+$sel:maxResults:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Natural
+$sel:modifiedTimeBefore:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+$sel:creationTimeBefore:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+$sel:sortOrder:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe SortOrder
+$sel:nextToken:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
+$sel:modifiedTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+$sel:creationTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
+$sel:nameContains:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621680387697"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387705"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387704"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifiedTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387703"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387702"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387701"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387700"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifiedTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387699"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387698"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppImageConfigSortKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AppImageConfigSortKey -&gt; Pair)
+-&gt; Maybe AppImageConfigSortKey -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680387697"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><span id="line-260"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621680387691"><span class="annot"><span class="annottext">toPath :: ListAppImageConfigs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAppImageConfigs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621680387687"><span class="annot"><span class="annottext">toQuery :: ListAppImageConfigs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAppImageConfigs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | /See:/ 'newListAppImageConfigsResponse' smart constructor.</span><span>
+</span><span id="line-270"></span><span id="local-6989586621680387684"><span id="local-6989586621680387685"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppImageConfigsResponse"><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-var">ListAppImageConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppImageConfigsResponse%27"><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">ListAppImageConfigsResponse'</span></a></span></span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of AppImageConfigs and their properties.</span><span>
+</span><span id="line-272"></span><span>    </span><span id="%24sel%3AappImageConfigs%3AListAppImageConfigsResponse%27"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; Maybe [AppImageConfigDetails]
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AappImageConfigs%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var hs-var">appImageConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.AppImageConfigDetails.html#AppImageConfigDetails"><span class="hs-identifier hs-type">AppImageConfigDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- | A token for getting the next set of AppImageConfigs, if there are any.</span><span>
+</span><span id="line-274"></span><span>    </span><span id="%24sel%3AnextToken%3AListAppImageConfigsResponse%27"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-276"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-277"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680387677"><span id="local-6989586621680387679"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
+(ListAppImageConfigsResponse
+ -&gt; ListAppImageConfigsResponse -&gt; Bool)
+-&gt; (ListAppImageConfigsResponse
+    -&gt; ListAppImageConfigsResponse -&gt; Bool)
+-&gt; Eq ListAppImageConfigsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
+$c/= :: ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
+== :: ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
+$c== :: ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387669"><span id="local-6989586621680387671"><span id="local-6989586621680387673"><span id="local-6989586621680387675"><span class="annot"><span class="annottext">ReadPrec [ListAppImageConfigsResponse]
+ReadPrec ListAppImageConfigsResponse
+Int -&gt; ReadS ListAppImageConfigsResponse
+ReadS [ListAppImageConfigsResponse]
+(Int -&gt; ReadS ListAppImageConfigsResponse)
+-&gt; ReadS [ListAppImageConfigsResponse]
+-&gt; ReadPrec ListAppImageConfigsResponse
+-&gt; ReadPrec [ListAppImageConfigsResponse]
+-&gt; Read ListAppImageConfigsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAppImageConfigsResponse]
+$creadListPrec :: ReadPrec [ListAppImageConfigsResponse]
+readPrec :: ReadPrec ListAppImageConfigsResponse
+$creadPrec :: ReadPrec ListAppImageConfigsResponse
+readList :: ReadS [ListAppImageConfigsResponse]
+$creadList :: ReadS [ListAppImageConfigsResponse]
+readsPrec :: Int -&gt; ReadS ListAppImageConfigsResponse
+$creadsPrec :: Int -&gt; ReadS ListAppImageConfigsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387663"><span id="local-6989586621680387665"><span id="local-6989586621680387667"><span class="annot"><span class="annottext">Int -&gt; ListAppImageConfigsResponse -&gt; ShowS
+[ListAppImageConfigsResponse] -&gt; ShowS
+ListAppImageConfigsResponse -&gt; String
+(Int -&gt; ListAppImageConfigsResponse -&gt; ShowS)
+-&gt; (ListAppImageConfigsResponse -&gt; String)
+-&gt; ([ListAppImageConfigsResponse] -&gt; ShowS)
+-&gt; Show ListAppImageConfigsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAppImageConfigsResponse] -&gt; ShowS
+$cshowList :: [ListAppImageConfigsResponse] -&gt; ShowS
+show :: ListAppImageConfigsResponse -&gt; String
+$cshow :: ListAppImageConfigsResponse -&gt; String
+showsPrec :: Int -&gt; ListAppImageConfigsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAppImageConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAppImageConfigsResponse -&gt; Rep ListAppImageConfigsResponse x)
+-&gt; (forall x.
+    Rep ListAppImageConfigsResponse x -&gt; ListAppImageConfigsResponse)
+-&gt; Generic ListAppImageConfigsResponse
+forall x.
+Rep ListAppImageConfigsResponse x -&gt; ListAppImageConfigsResponse
+forall x.
+ListAppImageConfigsResponse -&gt; Rep ListAppImageConfigsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAppImageConfigsResponse x -&gt; ListAppImageConfigsResponse
+$cfrom :: forall x.
+ListAppImageConfigsResponse -&gt; Rep ListAppImageConfigsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- Create a value of 'ListAppImageConfigsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'appImageConfigs', 'listAppImageConfigsResponse_appImageConfigs' - A list of AppImageConfigs and their properties.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- 'nextToken', 'listAppImageConfigsResponse_nextToken' - A token for getting the next set of AppImageConfigs, if there are any.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- 'httpStatus', 'listAppImageConfigsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#newListAppImageConfigsResponse"><span class="hs-identifier hs-type">newListAppImageConfigsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-294"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-296"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span>
+</span><span id="line-297"></span><span id="newListAppImageConfigsResponse"><span class="annot"><span class="annottext">newListAppImageConfigsResponse :: Int -&gt; ListAppImageConfigsResponse
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#newListAppImageConfigsResponse"><span class="hs-identifier hs-var hs-var">newListAppImageConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621680387660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse' :: Maybe [AppImageConfigDetails]
+-&gt; Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span>
+</span><span id="line-299"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appImageConfigs:ListAppImageConfigsResponse' :: Maybe [AppImageConfigDetails]
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AappImageConfigs%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">appImageConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigsResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppImageConfigsResponse' :: Int
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-303"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | A list of AppImageConfigs and their properties.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_appImageConfigs"><span class="hs-identifier hs-type">listAppImageConfigsResponse_appImageConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.AppImageConfigDetails.html#AppImageConfigDetails"><span class="hs-identifier hs-type">AppImageConfigDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="listAppImageConfigsResponse_appImageConfigs"><span class="annot"><span class="annottext">listAppImageConfigsResponse_appImageConfigs :: (Maybe [AppImageConfigDetails]
+ -&gt; f (Maybe [AppImageConfigDetails]))
+-&gt; ListAppImageConfigsResponse -&gt; f ListAppImageConfigsResponse
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_appImageConfigs"><span class="hs-identifier hs-var hs-var">listAppImageConfigsResponse_appImageConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigsResponse -&gt; Maybe [AppImageConfigDetails])
+-&gt; (ListAppImageConfigsResponse
+    -&gt; Maybe [AppImageConfigDetails] -&gt; ListAppImageConfigsResponse)
+-&gt; Lens'
+     ListAppImageConfigsResponse (Maybe [AppImageConfigDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387659"><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+appImageConfigs :: Maybe [AppImageConfigDetails]
+$sel:appImageConfigs:ListAppImageConfigsResponse' :: ListAppImageConfigsResponse -&gt; Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387659"><span class="hs-identifier hs-var hs-var">appImageConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387659"><span class="hs-identifier hs-var">appImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387658"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387657"><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appImageConfigs:ListAppImageConfigsResponse' :: Maybe [AppImageConfigDetails]
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AappImageConfigs%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">appImageConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppImageConfigDetails]
+  -&gt; f (Maybe [AppImageConfigDetails]))
+ -&gt; ListAppImageConfigsResponse -&gt; f ListAppImageConfigsResponse)
+-&gt; ((Maybe [AppImageConfigDetails]
+     -&gt; f (Maybe [AppImageConfigDetails]))
+    -&gt; Maybe [AppImageConfigDetails]
+    -&gt; f (Maybe [AppImageConfigDetails]))
+-&gt; (Maybe [AppImageConfigDetails]
+    -&gt; f (Maybe [AppImageConfigDetails]))
+-&gt; ListAppImageConfigsResponse
+-&gt; f ListAppImageConfigsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AppImageConfigDetails]
+  [AppImageConfigDetails]
+  [AppImageConfigDetails]
+  [AppImageConfigDetails]
+-&gt; Iso
+     (Maybe [AppImageConfigDetails])
+     (Maybe [AppImageConfigDetails])
+     (Maybe [AppImageConfigDetails])
+     (Maybe [AppImageConfigDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AppImageConfigDetails]
+  [AppImageConfigDetails]
+  [AppImageConfigDetails]
+  [AppImageConfigDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | A token for getting the next set of AppImageConfigs, if there are any.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_nextToken"><span class="hs-identifier hs-type">listAppImageConfigsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="listAppImageConfigsResponse_nextToken"><span class="annot"><span class="annottext">listAppImageConfigsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppImageConfigsResponse -&gt; f ListAppImageConfigsResponse
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAppImageConfigsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigsResponse -&gt; Maybe Text)
+-&gt; (ListAppImageConfigsResponse
+    -&gt; Maybe Text -&gt; ListAppImageConfigsResponse)
+-&gt; Lens' ListAppImageConfigsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387655"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAppImageConfigsResponse' :: ListAppImageConfigsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680387655"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387655"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387654"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387653"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigsResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listAppImageConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-315"></span><span id="listAppImageConfigsResponse_httpStatus"><span class="annot"><span class="annottext">listAppImageConfigsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAppImageConfigsResponse -&gt; f ListAppImageConfigsResponse
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAppImageConfigsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppImageConfigsResponse -&gt; Int)
+-&gt; (ListAppImageConfigsResponse
+    -&gt; Int -&gt; ListAppImageConfigsResponse)
+-&gt; Lens
+     ListAppImageConfigsResponse ListAppImageConfigsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387652"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAppImageConfigsResponse' :: ListAppImageConfigsResponse -&gt; Int
+</span><a href="#local-6989586621680387652"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387652"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387651"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387650"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppImageConfigsResponse' :: Int
+</span><a href="Amazonka.SageMaker.ListAppImageConfigs.html#%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

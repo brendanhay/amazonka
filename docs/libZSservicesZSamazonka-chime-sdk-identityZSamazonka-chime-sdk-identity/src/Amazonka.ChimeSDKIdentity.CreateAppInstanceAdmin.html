@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Promotes an @AppInstanceUser@ to an @AppInstanceAdmin@. The promoted</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- user can perform the following actions.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- -   @ChannelModerator@ actions across all channels in the @AppInstance@.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   @DeleteChannelMessage@ actions.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Only an @AppInstanceUser@ can be promoted to an @AppInstanceAdmin@ role.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier">CreateAppInstanceAdmin</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#newCreateAppInstanceAdmin"><span class="hs-identifier">newCreateAppInstanceAdmin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdmin_appInstanceAdminArn"><span class="hs-identifier">createAppInstanceAdmin_appInstanceAdminArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdmin_appInstanceArn"><span class="hs-identifier">createAppInstanceAdmin_appInstanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier">CreateAppInstanceAdminResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#newCreateAppInstanceAdminResponse"><span class="hs-identifier">newCreateAppInstanceAdminResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_appInstanceAdmin"><span class="hs-identifier">createAppInstanceAdminResponse_appInstanceAdmin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_appInstanceArn"><span class="hs-identifier">createAppInstanceAdminResponse_appInstanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_httpStatus"><span class="hs-identifier">createAppInstanceAdminResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.Types.html"><span class="hs-identifier">Amazonka.ChimeSDKIdentity.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateAppInstanceAdmin' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679163127"><span id="local-6989586621679163128"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppInstanceAdmin"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-var">CreateAppInstanceAdmin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppInstanceAdmin%27"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-var">CreateAppInstanceAdmin'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the administrator of the current @AppInstance@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AappInstanceAdminArn%3ACreateAppInstanceAdmin%27"><span class="annot"><span class="annottext">CreateAppInstanceAdmin -&gt; Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceAdminArn%3ACreateAppInstanceAdmin%27"><span class="hs-identifier hs-var hs-var">appInstanceAdminArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ARN of the @AppInstance@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AappInstanceArn%3ACreateAppInstanceAdmin%27"><span class="annot"><span class="annottext">CreateAppInstanceAdmin -&gt; Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceArn%3ACreateAppInstanceAdmin%27"><span class="hs-identifier hs-var hs-var">appInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163120"><span id="local-6989586621679163122"><span class="annot"><span class="annottext">CreateAppInstanceAdmin -&gt; CreateAppInstanceAdmin -&gt; Bool
+(CreateAppInstanceAdmin -&gt; CreateAppInstanceAdmin -&gt; Bool)
+-&gt; (CreateAppInstanceAdmin -&gt; CreateAppInstanceAdmin -&gt; Bool)
+-&gt; Eq CreateAppInstanceAdmin
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAppInstanceAdmin -&gt; CreateAppInstanceAdmin -&gt; Bool
+$c/= :: CreateAppInstanceAdmin -&gt; CreateAppInstanceAdmin -&gt; Bool
+== :: CreateAppInstanceAdmin -&gt; CreateAppInstanceAdmin -&gt; Bool
+$c== :: CreateAppInstanceAdmin -&gt; CreateAppInstanceAdmin -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163111"><span id="local-6989586621679163113"><span id="local-6989586621679163115"><span id="local-6989586621679163117"><span class="annot"><span class="annottext">ReadPrec [CreateAppInstanceAdmin]
+ReadPrec CreateAppInstanceAdmin
+Int -&gt; ReadS CreateAppInstanceAdmin
+ReadS [CreateAppInstanceAdmin]
+(Int -&gt; ReadS CreateAppInstanceAdmin)
+-&gt; ReadS [CreateAppInstanceAdmin]
+-&gt; ReadPrec CreateAppInstanceAdmin
+-&gt; ReadPrec [CreateAppInstanceAdmin]
+-&gt; Read CreateAppInstanceAdmin
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAppInstanceAdmin]
+$creadListPrec :: ReadPrec [CreateAppInstanceAdmin]
+readPrec :: ReadPrec CreateAppInstanceAdmin
+$creadPrec :: ReadPrec CreateAppInstanceAdmin
+readList :: ReadS [CreateAppInstanceAdmin]
+$creadList :: ReadS [CreateAppInstanceAdmin]
+readsPrec :: Int -&gt; ReadS CreateAppInstanceAdmin
+$creadsPrec :: Int -&gt; ReadS CreateAppInstanceAdmin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163104"><span id="local-6989586621679163106"><span id="local-6989586621679163108"><span class="annot"><span class="annottext">Int -&gt; CreateAppInstanceAdmin -&gt; ShowS
+[CreateAppInstanceAdmin] -&gt; ShowS
+CreateAppInstanceAdmin -&gt; String
+(Int -&gt; CreateAppInstanceAdmin -&gt; ShowS)
+-&gt; (CreateAppInstanceAdmin -&gt; String)
+-&gt; ([CreateAppInstanceAdmin] -&gt; ShowS)
+-&gt; Show CreateAppInstanceAdmin
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAppInstanceAdmin] -&gt; ShowS
+$cshowList :: [CreateAppInstanceAdmin] -&gt; ShowS
+show :: CreateAppInstanceAdmin -&gt; String
+$cshow :: CreateAppInstanceAdmin -&gt; String
+showsPrec :: Int -&gt; CreateAppInstanceAdmin -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAppInstanceAdmin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateAppInstanceAdmin -&gt; Rep CreateAppInstanceAdmin x)
+-&gt; (forall x.
+    Rep CreateAppInstanceAdmin x -&gt; CreateAppInstanceAdmin)
+-&gt; Generic CreateAppInstanceAdmin
+forall x. Rep CreateAppInstanceAdmin x -&gt; CreateAppInstanceAdmin
+forall x. CreateAppInstanceAdmin -&gt; Rep CreateAppInstanceAdmin x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateAppInstanceAdmin x -&gt; CreateAppInstanceAdmin
+$cfrom :: forall x. CreateAppInstanceAdmin -&gt; Rep CreateAppInstanceAdmin x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'CreateAppInstanceAdmin' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'appInstanceAdminArn', 'createAppInstanceAdmin_appInstanceAdminArn' - The ARN of the administrator of the current @AppInstance@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'appInstanceArn', 'createAppInstanceAdmin_appInstanceArn' - The ARN of the @AppInstance@.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#newCreateAppInstanceAdmin"><span class="hs-identifier hs-type">newCreateAppInstanceAdmin</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'appInstanceAdminArn'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'appInstanceArn'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span>
+</span><span id="line-84"></span><span id="newCreateAppInstanceAdmin"><span class="annot"><span class="annottext">newCreateAppInstanceAdmin :: Text -&gt; Text -&gt; CreateAppInstanceAdmin
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#newCreateAppInstanceAdmin"><span class="hs-identifier hs-var hs-var">newCreateAppInstanceAdmin</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679163099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163099"><span class="hs-identifier hs-var">pAppInstanceAdminArn_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679163098"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163098"><span class="hs-identifier hs-var">pAppInstanceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">CreateAppInstanceAdmin' :: Text -&gt; Text -&gt; CreateAppInstanceAdmin
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-type">CreateAppInstanceAdmin'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appInstanceAdminArn:CreateAppInstanceAdmin' :: Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceAdminArn%3ACreateAppInstanceAdmin%27"><span class="hs-identifier hs-var">appInstanceAdminArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163099"><span class="hs-identifier hs-var">pAppInstanceAdminArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:appInstanceArn:CreateAppInstanceAdmin' :: Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceArn%3ACreateAppInstanceAdmin%27"><span class="hs-identifier hs-var">appInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163098"><span class="hs-identifier hs-var">pAppInstanceArn_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ARN of the administrator of the current @AppInstance@.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdmin_appInstanceAdminArn"><span class="hs-identifier hs-type">createAppInstanceAdmin_appInstanceAdminArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="createAppInstanceAdmin_appInstanceAdminArn"><span class="annot"><span class="annottext">createAppInstanceAdmin_appInstanceAdminArn :: (Text -&gt; f Text)
+-&gt; CreateAppInstanceAdmin -&gt; f CreateAppInstanceAdmin
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdmin_appInstanceAdminArn"><span class="hs-identifier hs-var hs-var">createAppInstanceAdmin_appInstanceAdminArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppInstanceAdmin -&gt; Text)
+-&gt; (CreateAppInstanceAdmin -&gt; Text -&gt; CreateAppInstanceAdmin)
+-&gt; Lens CreateAppInstanceAdmin CreateAppInstanceAdmin Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-type">CreateAppInstanceAdmin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163095"><span class="annot"><span class="annottext">Text
+appInstanceAdminArn :: Text
+$sel:appInstanceAdminArn:CreateAppInstanceAdmin' :: CreateAppInstanceAdmin -&gt; Text
+</span><a href="#local-6989586621679163095"><span class="hs-identifier hs-var hs-var">appInstanceAdminArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163095"><span class="hs-identifier hs-var">appInstanceAdminArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163094"><span class="annot"><span class="annottext">s :: CreateAppInstanceAdmin
+</span><a href="#local-6989586621679163094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-type">CreateAppInstanceAdmin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppInstanceAdmin
+</span><a href="#local-6989586621679163094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstanceAdminArn:CreateAppInstanceAdmin' :: Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceAdminArn%3ACreateAppInstanceAdmin%27"><span class="hs-identifier hs-var">appInstanceAdminArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ARN of the @AppInstance@.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdmin_appInstanceArn"><span class="hs-identifier hs-type">createAppInstanceAdmin_appInstanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="createAppInstanceAdmin_appInstanceArn"><span class="annot"><span class="annottext">createAppInstanceAdmin_appInstanceArn :: (Text -&gt; f Text)
+-&gt; CreateAppInstanceAdmin -&gt; f CreateAppInstanceAdmin
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdmin_appInstanceArn"><span class="hs-identifier hs-var hs-var">createAppInstanceAdmin_appInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppInstanceAdmin -&gt; Text)
+-&gt; (CreateAppInstanceAdmin -&gt; Text -&gt; CreateAppInstanceAdmin)
+-&gt; Lens CreateAppInstanceAdmin CreateAppInstanceAdmin Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-type">CreateAppInstanceAdmin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163092"><span class="annot"><span class="annottext">Text
+appInstanceArn :: Text
+$sel:appInstanceArn:CreateAppInstanceAdmin' :: CreateAppInstanceAdmin -&gt; Text
+</span><a href="#local-6989586621679163092"><span class="hs-identifier hs-var hs-var">appInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163092"><span class="hs-identifier hs-var">appInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163091"><span class="annot"><span class="annottext">s :: CreateAppInstanceAdmin
+</span><a href="#local-6989586621679163091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-type">CreateAppInstanceAdmin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163090"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppInstanceAdmin
+</span><a href="#local-6989586621679163091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstanceArn:CreateAppInstanceAdmin' :: Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceArn%3ACreateAppInstanceAdmin%27"><span class="hs-identifier hs-var">appInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679163086"><span class="annot"><span class="annottext">request :: CreateAppInstanceAdmin -&gt; Request CreateAppInstanceAdmin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAppInstanceAdmin -&gt; Request CreateAppInstanceAdmin
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ChimeSDKIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679163082"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateAppInstanceAdmin
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAppInstanceAdmin)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateAppInstanceAdmin))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateAppInstanceAdmin
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAppInstanceAdmin)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163079"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679163078"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679163078"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679163077"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Identity
+-&gt; Maybe Text -&gt; Int -&gt; CreateAppInstanceAdminResponse
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">CreateAppInstanceAdminResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Identity
+ -&gt; Maybe Text -&gt; Int -&gt; CreateAppInstanceAdminResponse)
+-&gt; Either String (Maybe Identity)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateAppInstanceAdminResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Identity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppInstanceAdmin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateAppInstanceAdminResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateAppInstanceAdminResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppInstanceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateAppInstanceAdminResponse)
+-&gt; Either String Int
+-&gt; Either String CreateAppInstanceAdminResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163079"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163069"><span id="local-6989586621679163071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679163062"><span class="annot"><span class="annottext">toHeaders :: CreateAppInstanceAdmin -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAppInstanceAdmin -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163053"><span id="local-6989586621679163055"><span id="local-6989586621679163057"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679163051"><span class="annot"><span class="annottext">toJSON :: CreateAppInstanceAdmin -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-type">CreateAppInstanceAdmin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163048"><span id="local-6989586621679163049"><span class="annot"><span class="annottext">Text
+appInstanceArn :: Text
+appInstanceAdminArn :: Text
+$sel:appInstanceArn:CreateAppInstanceAdmin' :: CreateAppInstanceAdmin -&gt; Text
+$sel:appInstanceAdminArn:CreateAppInstanceAdmin' :: CreateAppInstanceAdmin -&gt; Text
+</span><a href="#local-6989586621679163048"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppInstanceAdminArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163049"><span class="hs-identifier hs-var">appInstanceAdminArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679163042"><span class="annot"><span class="annottext">toPath :: CreateAppInstanceAdmin -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin%27"><span class="hs-identifier hs-type">CreateAppInstanceAdmin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163039"><span id="local-6989586621679163040"><span class="annot"><span class="annottext">Text
+appInstanceArn :: Text
+appInstanceAdminArn :: Text
+$sel:appInstanceArn:CreateAppInstanceAdmin' :: CreateAppInstanceAdmin -&gt; Text
+$sel:appInstanceAdminArn:CreateAppInstanceAdmin' :: CreateAppInstanceAdmin -&gt; Text
+</span><a href="#local-6989586621679163039"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/app-instances/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163039"><span class="hs-identifier hs-var">appInstanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/admins&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdmin"><span class="hs-identifier hs-type">CreateAppInstanceAdmin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679163035"><span class="annot"><span class="annottext">toQuery :: CreateAppInstanceAdmin -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAppInstanceAdmin -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newCreateAppInstanceAdminResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679163032"><span id="local-6989586621679163033"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppInstanceAdminResponse"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-var">CreateAppInstanceAdminResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppInstanceAdminResponse%27"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">CreateAppInstanceAdminResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name and ARN of the admin for the @AppInstance@.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AappInstanceAdmin%3ACreateAppInstanceAdminResponse%27"><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse -&gt; Maybe Identity
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceAdmin%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var hs-var">appInstanceAdmin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The ARN of the of the admin for the @AppInstance@.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AappInstanceArn%3ACreateAppInstanceAdminResponse%27"><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse -&gt; Maybe Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceArn%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var hs-var">appInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAppInstanceAdminResponse%27"><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse -&gt; Int
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AhttpStatus%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163025"><span id="local-6989586621679163027"><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse
+-&gt; CreateAppInstanceAdminResponse -&gt; Bool
+(CreateAppInstanceAdminResponse
+ -&gt; CreateAppInstanceAdminResponse -&gt; Bool)
+-&gt; (CreateAppInstanceAdminResponse
+    -&gt; CreateAppInstanceAdminResponse -&gt; Bool)
+-&gt; Eq CreateAppInstanceAdminResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAppInstanceAdminResponse
+-&gt; CreateAppInstanceAdminResponse -&gt; Bool
+$c/= :: CreateAppInstanceAdminResponse
+-&gt; CreateAppInstanceAdminResponse -&gt; Bool
+== :: CreateAppInstanceAdminResponse
+-&gt; CreateAppInstanceAdminResponse -&gt; Bool
+$c== :: CreateAppInstanceAdminResponse
+-&gt; CreateAppInstanceAdminResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163019"><span id="local-6989586621679163021"><span id="local-6989586621679163023"><span class="annot"><span class="annottext">Int -&gt; CreateAppInstanceAdminResponse -&gt; ShowS
+[CreateAppInstanceAdminResponse] -&gt; ShowS
+CreateAppInstanceAdminResponse -&gt; String
+(Int -&gt; CreateAppInstanceAdminResponse -&gt; ShowS)
+-&gt; (CreateAppInstanceAdminResponse -&gt; String)
+-&gt; ([CreateAppInstanceAdminResponse] -&gt; ShowS)
+-&gt; Show CreateAppInstanceAdminResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAppInstanceAdminResponse] -&gt; ShowS
+$cshowList :: [CreateAppInstanceAdminResponse] -&gt; ShowS
+show :: CreateAppInstanceAdminResponse -&gt; String
+$cshow :: CreateAppInstanceAdminResponse -&gt; String
+showsPrec :: Int -&gt; CreateAppInstanceAdminResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAppInstanceAdminResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAppInstanceAdminResponse
+ -&gt; Rep CreateAppInstanceAdminResponse x)
+-&gt; (forall x.
+    Rep CreateAppInstanceAdminResponse x
+    -&gt; CreateAppInstanceAdminResponse)
+-&gt; Generic CreateAppInstanceAdminResponse
+forall x.
+Rep CreateAppInstanceAdminResponse x
+-&gt; CreateAppInstanceAdminResponse
+forall x.
+CreateAppInstanceAdminResponse
+-&gt; Rep CreateAppInstanceAdminResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAppInstanceAdminResponse x
+-&gt; CreateAppInstanceAdminResponse
+$cfrom :: forall x.
+CreateAppInstanceAdminResponse
+-&gt; Rep CreateAppInstanceAdminResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'CreateAppInstanceAdminResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'appInstanceAdmin', 'createAppInstanceAdminResponse_appInstanceAdmin' - The name and ARN of the admin for the @AppInstance@.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'appInstanceArn', 'createAppInstanceAdminResponse_appInstanceArn' - The ARN of the of the admin for the @AppInstance@.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'createAppInstanceAdminResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#newCreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">newCreateAppInstanceAdminResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span>
+</span><span id="line-170"></span><span id="newCreateAppInstanceAdminResponse"><span class="annot"><span class="annottext">newCreateAppInstanceAdminResponse :: Int -&gt; CreateAppInstanceAdminResponse
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#newCreateAppInstanceAdminResponse"><span class="hs-identifier hs-var hs-var">newCreateAppInstanceAdminResponse</span></a></span></span><span> </span><span id="local-6989586621679163016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse' :: Maybe Identity
+-&gt; Maybe Text -&gt; Int -&gt; CreateAppInstanceAdminResponse
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appInstanceAdmin:CreateAppInstanceAdminResponse' :: Maybe Identity
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceAdmin%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">appInstanceAdmin</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe Identity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:appInstanceArn:CreateAppInstanceAdminResponse' :: Maybe Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceArn%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">appInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppInstanceAdminResponse' :: Int
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AhttpStatus%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The name and ARN of the admin for the @AppInstance@.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_appInstanceAdmin"><span class="hs-identifier hs-type">createAppInstanceAdminResponse_appInstanceAdmin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="createAppInstanceAdminResponse_appInstanceAdmin"><span class="annot"><span class="annottext">createAppInstanceAdminResponse_appInstanceAdmin :: (Maybe Identity -&gt; f (Maybe Identity))
+-&gt; CreateAppInstanceAdminResponse
+-&gt; f CreateAppInstanceAdminResponse
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_appInstanceAdmin"><span class="hs-identifier hs-var hs-var">createAppInstanceAdminResponse_appInstanceAdmin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppInstanceAdminResponse -&gt; Maybe Identity)
+-&gt; (CreateAppInstanceAdminResponse
+    -&gt; Maybe Identity -&gt; CreateAppInstanceAdminResponse)
+-&gt; Lens
+     CreateAppInstanceAdminResponse
+     CreateAppInstanceAdminResponse
+     (Maybe Identity)
+     (Maybe Identity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163015"><span class="annot"><span class="annottext">Maybe Identity
+appInstanceAdmin :: Maybe Identity
+$sel:appInstanceAdmin:CreateAppInstanceAdminResponse' :: CreateAppInstanceAdminResponse -&gt; Maybe Identity
+</span><a href="#local-6989586621679163015"><span class="hs-identifier hs-var hs-var">appInstanceAdmin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679163015"><span class="hs-identifier hs-var">appInstanceAdmin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163014"><span class="annot"><span class="annottext">s :: CreateAppInstanceAdminResponse
+</span><a href="#local-6989586621679163014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163013"><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679163013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse
+</span><a href="#local-6989586621679163014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstanceAdmin:CreateAppInstanceAdminResponse' :: Maybe Identity
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceAdmin%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">appInstanceAdmin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679163013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The ARN of the of the admin for the @AppInstance@.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_appInstanceArn"><span class="hs-identifier hs-type">createAppInstanceAdminResponse_appInstanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="createAppInstanceAdminResponse_appInstanceArn"><span class="annot"><span class="annottext">createAppInstanceAdminResponse_appInstanceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateAppInstanceAdminResponse
+-&gt; f CreateAppInstanceAdminResponse
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_appInstanceArn"><span class="hs-identifier hs-var hs-var">createAppInstanceAdminResponse_appInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppInstanceAdminResponse -&gt; Maybe Text)
+-&gt; (CreateAppInstanceAdminResponse
+    -&gt; Maybe Text -&gt; CreateAppInstanceAdminResponse)
+-&gt; Lens
+     CreateAppInstanceAdminResponse
+     CreateAppInstanceAdminResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163012"><span class="annot"><span class="annottext">Maybe Text
+appInstanceArn :: Maybe Text
+$sel:appInstanceArn:CreateAppInstanceAdminResponse' :: CreateAppInstanceAdminResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679163012"><span class="hs-identifier hs-var hs-var">appInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163012"><span class="hs-identifier hs-var">appInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163011"><span class="annot"><span class="annottext">s :: CreateAppInstanceAdminResponse
+</span><a href="#local-6989586621679163011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163010"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse
+</span><a href="#local-6989586621679163011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstanceArn:CreateAppInstanceAdminResponse' :: Maybe Text
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AappInstanceArn%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">appInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_httpStatus"><span class="hs-identifier hs-type">createAppInstanceAdminResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span id="createAppInstanceAdminResponse_httpStatus"><span class="annot"><span class="annottext">createAppInstanceAdminResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateAppInstanceAdminResponse
+-&gt; f CreateAppInstanceAdminResponse
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#createAppInstanceAdminResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAppInstanceAdminResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppInstanceAdminResponse -&gt; Int)
+-&gt; (CreateAppInstanceAdminResponse
+    -&gt; Int -&gt; CreateAppInstanceAdminResponse)
+-&gt; Lens
+     CreateAppInstanceAdminResponse
+     CreateAppInstanceAdminResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163009"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAppInstanceAdminResponse' :: CreateAppInstanceAdminResponse -&gt; Int
+</span><a href="#local-6989586621679163009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163008"><span class="annot"><span class="annottext">s :: CreateAppInstanceAdminResponse
+</span><a href="#local-6989586621679163008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163007"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppInstanceAdminResponse
+</span><a href="#local-6989586621679163008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppInstanceAdminResponse' :: Int
+</span><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#%24sel%3AhttpStatus%3ACreateAppInstanceAdminResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679163005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.html#CreateAppInstanceAdminResponse"><span class="hs-identifier hs-type">CreateAppInstanceAdminResponse</span></a></span></span><span>
+</span><span id="line-193"></span></pre></body></html>

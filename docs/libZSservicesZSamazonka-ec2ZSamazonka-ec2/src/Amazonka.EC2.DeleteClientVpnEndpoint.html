@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DeleteClientVpnEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified Client VPN endpoint. You must disassociate all</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- target networks before you can delete a Client VPN endpoint.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DeleteClientVpnEndpoint</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#newDeleteClientVpnEndpoint"><span class="hs-identifier">newDeleteClientVpnEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpoint_dryRun"><span class="hs-identifier">deleteClientVpnEndpoint_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpoint_clientVpnEndpointId"><span class="hs-identifier">deleteClientVpnEndpoint_clientVpnEndpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier">DeleteClientVpnEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#newDeleteClientVpnEndpointResponse"><span class="hs-identifier">newDeleteClientVpnEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpointResponse_status"><span class="hs-identifier">deleteClientVpnEndpointResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpointResponse_httpStatus"><span class="hs-identifier">deleteClientVpnEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteClientVpnEndpoint' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621681284006"><span id="local-6989586621681284007"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClientVpnEndpoint"><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-var">DeleteClientVpnEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClientVpnEndpoint%27"><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint%27"><span class="hs-identifier hs-var">DeleteClientVpnEndpoint'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteClientVpnEndpoint%27"><span class="annot"><span class="annottext">DeleteClientVpnEndpoint -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AdryRun%3ADeleteClientVpnEndpoint%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the Client VPN to be deleted.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AclientVpnEndpointId%3ADeleteClientVpnEndpoint%27"><span class="annot"><span class="annottext">DeleteClientVpnEndpoint -&gt; Text
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AclientVpnEndpointId%3ADeleteClientVpnEndpoint%27"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681283999"><span id="local-6989586621681284001"><span class="annot"><span class="annottext">DeleteClientVpnEndpoint -&gt; DeleteClientVpnEndpoint -&gt; Bool
+(DeleteClientVpnEndpoint -&gt; DeleteClientVpnEndpoint -&gt; Bool)
+-&gt; (DeleteClientVpnEndpoint -&gt; DeleteClientVpnEndpoint -&gt; Bool)
+-&gt; Eq DeleteClientVpnEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteClientVpnEndpoint -&gt; DeleteClientVpnEndpoint -&gt; Bool
+$c/= :: DeleteClientVpnEndpoint -&gt; DeleteClientVpnEndpoint -&gt; Bool
+== :: DeleteClientVpnEndpoint -&gt; DeleteClientVpnEndpoint -&gt; Bool
+$c== :: DeleteClientVpnEndpoint -&gt; DeleteClientVpnEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681283990"><span id="local-6989586621681283992"><span id="local-6989586621681283994"><span id="local-6989586621681283996"><span class="annot"><span class="annottext">ReadPrec [DeleteClientVpnEndpoint]
+ReadPrec DeleteClientVpnEndpoint
+Int -&gt; ReadS DeleteClientVpnEndpoint
+ReadS [DeleteClientVpnEndpoint]
+(Int -&gt; ReadS DeleteClientVpnEndpoint)
+-&gt; ReadS [DeleteClientVpnEndpoint]
+-&gt; ReadPrec DeleteClientVpnEndpoint
+-&gt; ReadPrec [DeleteClientVpnEndpoint]
+-&gt; Read DeleteClientVpnEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteClientVpnEndpoint]
+$creadListPrec :: ReadPrec [DeleteClientVpnEndpoint]
+readPrec :: ReadPrec DeleteClientVpnEndpoint
+$creadPrec :: ReadPrec DeleteClientVpnEndpoint
+readList :: ReadS [DeleteClientVpnEndpoint]
+$creadList :: ReadS [DeleteClientVpnEndpoint]
+readsPrec :: Int -&gt; ReadS DeleteClientVpnEndpoint
+$creadsPrec :: Int -&gt; ReadS DeleteClientVpnEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681283983"><span id="local-6989586621681283985"><span id="local-6989586621681283987"><span class="annot"><span class="annottext">Int -&gt; DeleteClientVpnEndpoint -&gt; ShowS
+[DeleteClientVpnEndpoint] -&gt; ShowS
+DeleteClientVpnEndpoint -&gt; String
+(Int -&gt; DeleteClientVpnEndpoint -&gt; ShowS)
+-&gt; (DeleteClientVpnEndpoint -&gt; String)
+-&gt; ([DeleteClientVpnEndpoint] -&gt; ShowS)
+-&gt; Show DeleteClientVpnEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteClientVpnEndpoint] -&gt; ShowS
+$cshowList :: [DeleteClientVpnEndpoint] -&gt; ShowS
+show :: DeleteClientVpnEndpoint -&gt; String
+$cshow :: DeleteClientVpnEndpoint -&gt; String
+showsPrec :: Int -&gt; DeleteClientVpnEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteClientVpnEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteClientVpnEndpoint -&gt; Rep DeleteClientVpnEndpoint x)
+-&gt; (forall x.
+    Rep DeleteClientVpnEndpoint x -&gt; DeleteClientVpnEndpoint)
+-&gt; Generic DeleteClientVpnEndpoint
+forall x. Rep DeleteClientVpnEndpoint x -&gt; DeleteClientVpnEndpoint
+forall x. DeleteClientVpnEndpoint -&gt; Rep DeleteClientVpnEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteClientVpnEndpoint x -&gt; DeleteClientVpnEndpoint
+$cfrom :: forall x. DeleteClientVpnEndpoint -&gt; Rep DeleteClientVpnEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DeleteClientVpnEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'dryRun', 'deleteClientVpnEndpoint_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'clientVpnEndpointId', 'deleteClientVpnEndpoint_clientVpnEndpointId' - The ID of the Client VPN to be deleted.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#newDeleteClientVpnEndpoint"><span class="hs-identifier hs-type">newDeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'clientVpnEndpointId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteClientVpnEndpoint"><span class="annot"><span class="annottext">newDeleteClientVpnEndpoint :: Text -&gt; DeleteClientVpnEndpoint
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#newDeleteClientVpnEndpoint"><span class="hs-identifier hs-var hs-var">newDeleteClientVpnEndpoint</span></a></span></span><span> </span><span id="local-6989586621681283978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681283978"><span class="hs-identifier hs-var">pClientVpnEndpointId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteClientVpnEndpoint' :: Maybe Bool -&gt; Text -&gt; DeleteClientVpnEndpoint
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DeleteClientVpnEndpoint' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AdryRun%3ADeleteClientVpnEndpoint%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:DeleteClientVpnEndpoint' :: Text
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AclientVpnEndpointId%3ADeleteClientVpnEndpoint%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681283978"><span class="hs-identifier hs-var">pClientVpnEndpointId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpoint_dryRun"><span class="hs-identifier hs-type">deleteClientVpnEndpoint_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="deleteClientVpnEndpoint_dryRun"><span class="annot"><span class="annottext">deleteClientVpnEndpoint_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteClientVpnEndpoint -&gt; f DeleteClientVpnEndpoint
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpoint_dryRun"><span class="hs-identifier hs-var hs-var">deleteClientVpnEndpoint_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteClientVpnEndpoint -&gt; Maybe Bool)
+-&gt; (DeleteClientVpnEndpoint
+    -&gt; Maybe Bool -&gt; DeleteClientVpnEndpoint)
+-&gt; Lens
+     DeleteClientVpnEndpoint
+     DeleteClientVpnEndpoint
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681283975"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DeleteClientVpnEndpoint' :: DeleteClientVpnEndpoint -&gt; Maybe Bool
+</span><a href="#local-6989586621681283975"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681283975"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681283974"><span class="annot"><span class="annottext">s :: DeleteClientVpnEndpoint
+</span><a href="#local-6989586621681283974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681283973"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681283973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClientVpnEndpoint
+</span><a href="#local-6989586621681283974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteClientVpnEndpoint' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AdryRun%3ADeleteClientVpnEndpoint%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681283973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the Client VPN to be deleted.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpoint_clientVpnEndpointId"><span class="hs-identifier hs-type">deleteClientVpnEndpoint_clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="deleteClientVpnEndpoint_clientVpnEndpointId"><span class="annot"><span class="annottext">deleteClientVpnEndpoint_clientVpnEndpointId :: (Text -&gt; f Text)
+-&gt; DeleteClientVpnEndpoint -&gt; f DeleteClientVpnEndpoint
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpoint_clientVpnEndpointId"><span class="hs-identifier hs-var hs-var">deleteClientVpnEndpoint_clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteClientVpnEndpoint -&gt; Text)
+-&gt; (DeleteClientVpnEndpoint -&gt; Text -&gt; DeleteClientVpnEndpoint)
+-&gt; Lens DeleteClientVpnEndpoint DeleteClientVpnEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681283972"><span class="annot"><span class="annottext">Text
+clientVpnEndpointId :: Text
+$sel:clientVpnEndpointId:DeleteClientVpnEndpoint' :: DeleteClientVpnEndpoint -&gt; Text
+</span><a href="#local-6989586621681283972"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681283972"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681283971"><span class="annot"><span class="annottext">s :: DeleteClientVpnEndpoint
+</span><a href="#local-6989586621681283971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681283970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681283970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClientVpnEndpoint
+</span><a href="#local-6989586621681283971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:DeleteClientVpnEndpoint' :: Text
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AclientVpnEndpointId%3ADeleteClientVpnEndpoint%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681283970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621681283966"><span class="annot"><span class="annottext">request :: DeleteClientVpnEndpoint -&gt; Request DeleteClientVpnEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteClientVpnEndpoint -&gt; Request DeleteClientVpnEndpoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621681283962"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteClientVpnEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteClientVpnEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DeleteClientVpnEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteClientVpnEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteClientVpnEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681283959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681283959"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681283958"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681283958"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681283957"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681283957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe ClientVpnEndpointStatus
+-&gt; Int -&gt; DeleteClientVpnEndpointResponse
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var">DeleteClientVpnEndpointResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ClientVpnEndpointStatus
+ -&gt; Int -&gt; DeleteClientVpnEndpointResponse)
+-&gt; Either String (Maybe ClientVpnEndpointStatus)
+-&gt; Either String (Int -&gt; DeleteClientVpnEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681283957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ClientVpnEndpointStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteClientVpnEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteClientVpnEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681283959"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681283949"><span id="local-6989586621681283951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681283946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681283942"><span class="annot"><span class="annottext">toHeaders :: DeleteClientVpnEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteClientVpnEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681283937"><span class="annot"><span class="annottext">toPath :: DeleteClientVpnEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteClientVpnEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681283933"><span class="annot"><span class="annottext">toQuery :: DeleteClientVpnEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpoint%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681283930"><span id="local-6989586621681283931"><span class="annot"><span class="annottext">Maybe Bool
+Text
+clientVpnEndpointId :: Text
+dryRun :: Maybe Bool
+$sel:clientVpnEndpointId:DeleteClientVpnEndpoint' :: DeleteClientVpnEndpoint -&gt; Text
+$sel:dryRun:DeleteClientVpnEndpoint' :: DeleteClientVpnEndpoint -&gt; Maybe Bool
+</span><a href="#local-6989586621681283930"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteClientVpnEndpoint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681283931"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClientVpnEndpointId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681283930"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDeleteClientVpnEndpointResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621681283927"><span id="local-6989586621681283928"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClientVpnEndpointResponse"><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-var">DeleteClientVpnEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClientVpnEndpointResponse%27"><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var">DeleteClientVpnEndpointResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the Client VPN endpoint.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteClientVpnEndpointResponse%27"><span class="annot"><span class="annottext">DeleteClientVpnEndpointResponse -&gt; Maybe ClientVpnEndpointStatus
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3Astatus%3ADeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientVpnEndpointStatus.html#ClientVpnEndpointStatus"><span class="hs-identifier hs-type">ClientVpnEndpointStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteClientVpnEndpointResponse%27"><span class="annot"><span class="annottext">DeleteClientVpnEndpointResponse -&gt; Int
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AhttpStatus%3ADeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681283921"><span id="local-6989586621681283923"><span class="annot"><span class="annottext">DeleteClientVpnEndpointResponse
+-&gt; DeleteClientVpnEndpointResponse -&gt; Bool
+(DeleteClientVpnEndpointResponse
+ -&gt; DeleteClientVpnEndpointResponse -&gt; Bool)
+-&gt; (DeleteClientVpnEndpointResponse
+    -&gt; DeleteClientVpnEndpointResponse -&gt; Bool)
+-&gt; Eq DeleteClientVpnEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteClientVpnEndpointResponse
+-&gt; DeleteClientVpnEndpointResponse -&gt; Bool
+$c/= :: DeleteClientVpnEndpointResponse
+-&gt; DeleteClientVpnEndpointResponse -&gt; Bool
+== :: DeleteClientVpnEndpointResponse
+-&gt; DeleteClientVpnEndpointResponse -&gt; Bool
+$c== :: DeleteClientVpnEndpointResponse
+-&gt; DeleteClientVpnEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681283913"><span id="local-6989586621681283915"><span id="local-6989586621681283917"><span id="local-6989586621681283919"><span class="annot"><span class="annottext">ReadPrec [DeleteClientVpnEndpointResponse]
+ReadPrec DeleteClientVpnEndpointResponse
+Int -&gt; ReadS DeleteClientVpnEndpointResponse
+ReadS [DeleteClientVpnEndpointResponse]
+(Int -&gt; ReadS DeleteClientVpnEndpointResponse)
+-&gt; ReadS [DeleteClientVpnEndpointResponse]
+-&gt; ReadPrec DeleteClientVpnEndpointResponse
+-&gt; ReadPrec [DeleteClientVpnEndpointResponse]
+-&gt; Read DeleteClientVpnEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteClientVpnEndpointResponse]
+$creadListPrec :: ReadPrec [DeleteClientVpnEndpointResponse]
+readPrec :: ReadPrec DeleteClientVpnEndpointResponse
+$creadPrec :: ReadPrec DeleteClientVpnEndpointResponse
+readList :: ReadS [DeleteClientVpnEndpointResponse]
+$creadList :: ReadS [DeleteClientVpnEndpointResponse]
+readsPrec :: Int -&gt; ReadS DeleteClientVpnEndpointResponse
+$creadsPrec :: Int -&gt; ReadS DeleteClientVpnEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681283907"><span id="local-6989586621681283909"><span id="local-6989586621681283911"><span class="annot"><span class="annottext">Int -&gt; DeleteClientVpnEndpointResponse -&gt; ShowS
+[DeleteClientVpnEndpointResponse] -&gt; ShowS
+DeleteClientVpnEndpointResponse -&gt; String
+(Int -&gt; DeleteClientVpnEndpointResponse -&gt; ShowS)
+-&gt; (DeleteClientVpnEndpointResponse -&gt; String)
+-&gt; ([DeleteClientVpnEndpointResponse] -&gt; ShowS)
+-&gt; Show DeleteClientVpnEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteClientVpnEndpointResponse] -&gt; ShowS
+$cshowList :: [DeleteClientVpnEndpointResponse] -&gt; ShowS
+show :: DeleteClientVpnEndpointResponse -&gt; String
+$cshow :: DeleteClientVpnEndpointResponse -&gt; String
+showsPrec :: Int -&gt; DeleteClientVpnEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteClientVpnEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteClientVpnEndpointResponse
+ -&gt; Rep DeleteClientVpnEndpointResponse x)
+-&gt; (forall x.
+    Rep DeleteClientVpnEndpointResponse x
+    -&gt; DeleteClientVpnEndpointResponse)
+-&gt; Generic DeleteClientVpnEndpointResponse
+forall x.
+Rep DeleteClientVpnEndpointResponse x
+-&gt; DeleteClientVpnEndpointResponse
+forall x.
+DeleteClientVpnEndpointResponse
+-&gt; Rep DeleteClientVpnEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteClientVpnEndpointResponse x
+-&gt; DeleteClientVpnEndpointResponse
+$cfrom :: forall x.
+DeleteClientVpnEndpointResponse
+-&gt; Rep DeleteClientVpnEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'DeleteClientVpnEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'status', 'deleteClientVpnEndpointResponse_status' - The current state of the Client VPN endpoint.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'deleteClientVpnEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#newDeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">newDeleteClientVpnEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse</span></a></span><span>
+</span><span id="line-156"></span><span id="newDeleteClientVpnEndpointResponse"><span class="annot"><span class="annottext">newDeleteClientVpnEndpointResponse :: Int -&gt; DeleteClientVpnEndpointResponse
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#newDeleteClientVpnEndpointResponse"><span class="hs-identifier hs-var hs-var">newDeleteClientVpnEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621681283904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681283904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">DeleteClientVpnEndpointResponse' :: Maybe ClientVpnEndpointStatus
+-&gt; Int -&gt; DeleteClientVpnEndpointResponse
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DeleteClientVpnEndpointResponse' :: Maybe ClientVpnEndpointStatus
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3Astatus%3ADeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe ClientVpnEndpointStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClientVpnEndpointResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AhttpStatus%3ADeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681283904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The current state of the Client VPN endpoint.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpointResponse_status"><span class="hs-identifier hs-type">deleteClientVpnEndpointResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientVpnEndpointStatus.html#ClientVpnEndpointStatus"><span class="hs-identifier hs-type">ClientVpnEndpointStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="deleteClientVpnEndpointResponse_status"><span class="annot"><span class="annottext">deleteClientVpnEndpointResponse_status :: (Maybe ClientVpnEndpointStatus
+ -&gt; f (Maybe ClientVpnEndpointStatus))
+-&gt; DeleteClientVpnEndpointResponse
+-&gt; f DeleteClientVpnEndpointResponse
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpointResponse_status"><span class="hs-identifier hs-var hs-var">deleteClientVpnEndpointResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteClientVpnEndpointResponse -&gt; Maybe ClientVpnEndpointStatus)
+-&gt; (DeleteClientVpnEndpointResponse
+    -&gt; Maybe ClientVpnEndpointStatus
+    -&gt; DeleteClientVpnEndpointResponse)
+-&gt; Lens
+     DeleteClientVpnEndpointResponse
+     DeleteClientVpnEndpointResponse
+     (Maybe ClientVpnEndpointStatus)
+     (Maybe ClientVpnEndpointStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681283903"><span class="annot"><span class="annottext">Maybe ClientVpnEndpointStatus
+status :: Maybe ClientVpnEndpointStatus
+$sel:status:DeleteClientVpnEndpointResponse' :: DeleteClientVpnEndpointResponse -&gt; Maybe ClientVpnEndpointStatus
+</span><a href="#local-6989586621681283903"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnEndpointStatus
+</span><a href="#local-6989586621681283903"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681283902"><span class="annot"><span class="annottext">s :: DeleteClientVpnEndpointResponse
+</span><a href="#local-6989586621681283902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681283901"><span class="annot"><span class="annottext">Maybe ClientVpnEndpointStatus
+</span><a href="#local-6989586621681283901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClientVpnEndpointResponse
+</span><a href="#local-6989586621681283902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteClientVpnEndpointResponse' :: Maybe ClientVpnEndpointStatus
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3Astatus%3ADeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnEndpointStatus
+</span><a href="#local-6989586621681283901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpointResponse_httpStatus"><span class="hs-identifier hs-type">deleteClientVpnEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="deleteClientVpnEndpointResponse_httpStatus"><span class="annot"><span class="annottext">deleteClientVpnEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteClientVpnEndpointResponse
+-&gt; f DeleteClientVpnEndpointResponse
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#deleteClientVpnEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteClientVpnEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteClientVpnEndpointResponse -&gt; Int)
+-&gt; (DeleteClientVpnEndpointResponse
+    -&gt; Int -&gt; DeleteClientVpnEndpointResponse)
+-&gt; Lens
+     DeleteClientVpnEndpointResponse
+     DeleteClientVpnEndpointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681283900"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteClientVpnEndpointResponse' :: DeleteClientVpnEndpointResponse -&gt; Int
+</span><a href="#local-6989586621681283900"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681283900"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681283899"><span class="annot"><span class="annottext">s :: DeleteClientVpnEndpointResponse
+</span><a href="#local-6989586621681283899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681283898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681283898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClientVpnEndpointResponse
+</span><a href="#local-6989586621681283899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClientVpnEndpointResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#%24sel%3AhttpStatus%3ADeleteClientVpnEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681283898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621681283896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteClientVpnEndpoint.html#DeleteClientVpnEndpointResponse"><span class="hs-identifier hs-type">DeleteClientVpnEndpointResponse</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

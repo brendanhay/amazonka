@@ -1,0 +1,868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.Types.Dataset</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.Types.Dataset</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.FormatOptions.html"><span class="hs-identifier">Amazonka.DataBrew.Types.FormatOptions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Input.html"><span class="hs-identifier">Amazonka.DataBrew.Types.Input</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.InputFormat.html"><span class="hs-identifier">Amazonka.DataBrew.Types.InputFormat</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.PathOptions.html"><span class="hs-identifier">Amazonka.DataBrew.Types.PathOptions</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Source.html"><span class="hs-identifier">Amazonka.DataBrew.Types.Source</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Represents a dataset that can be processed by DataBrew.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDataset' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679299845"><span id="local-6989586621679299846"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dataset"><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-var">Dataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dataset%27"><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-var">Dataset'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last modification date and time of the dataset.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AlastModifiedDate%3ADataset%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A set of options that defines how DataBrew interprets an Amazon S3 path</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- of the dataset.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApathOptions%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe PathOptions
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3ApathOptions%3ADataset%27"><span class="hs-identifier hs-var hs-var">pathOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The date and time that the dataset was created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreateDate%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AcreateDate%3ADataset%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A set of options that define how DataBrew interprets the data in the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- dataset.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AformatOptions%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe FormatOptions
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AformatOptions%3ADataset%27"><span class="hs-identifier hs-var hs-var">formatOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.FormatOptions.html#FormatOptions"><span class="hs-identifier hs-type">FormatOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The file format of a dataset that is created from an Amazon S3 file or</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- folder.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aformat%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe InputFormat
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Aformat%3ADataset%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.InputFormat.html#InputFormat"><span class="hs-identifier hs-type">InputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who created the dataset.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AcreatedBy%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AcreatedBy%3ADataset%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the dataset.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AaccountId%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AaccountId%3ADataset%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The unique Amazon Resource Name (ARN) for the dataset.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceArn%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AresourceArn%3ADataset%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The location of the data for the dataset, either Amazon S3 or the Glue</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Data Catalog.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Asource%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Source
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Asource%3ADataset%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who last modified the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- dataset.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AlastModifiedBy%3ADataset%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Metadata tags that have been applied to the dataset.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atags%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Atags%3ADataset%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The unique name of the dataset.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aname%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Aname%3ADataset%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Information on how DataBrew can find the dataset, in either the Glue</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Data Catalog or Amazon S3.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Ainput%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Input
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Ainput%3ADataset%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299827"><span id="local-6989586621679299829"><span class="annot"><span class="annottext">Dataset -&gt; Dataset -&gt; Bool
+(Dataset -&gt; Dataset -&gt; Bool)
+-&gt; (Dataset -&gt; Dataset -&gt; Bool) -&gt; Eq Dataset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Dataset -&gt; Dataset -&gt; Bool
+$c/= :: Dataset -&gt; Dataset -&gt; Bool
+== :: Dataset -&gt; Dataset -&gt; Bool
+$c== :: Dataset -&gt; Dataset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299818"><span id="local-6989586621679299820"><span id="local-6989586621679299822"><span id="local-6989586621679299824"><span class="annot"><span class="annottext">ReadPrec [Dataset]
+ReadPrec Dataset
+Int -&gt; ReadS Dataset
+ReadS [Dataset]
+(Int -&gt; ReadS Dataset)
+-&gt; ReadS [Dataset]
+-&gt; ReadPrec Dataset
+-&gt; ReadPrec [Dataset]
+-&gt; Read Dataset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Dataset]
+$creadListPrec :: ReadPrec [Dataset]
+readPrec :: ReadPrec Dataset
+$creadPrec :: ReadPrec Dataset
+readList :: ReadS [Dataset]
+$creadList :: ReadS [Dataset]
+readsPrec :: Int -&gt; ReadS Dataset
+$creadsPrec :: Int -&gt; ReadS Dataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299811"><span id="local-6989586621679299813"><span id="local-6989586621679299815"><span class="annot"><span class="annottext">Int -&gt; Dataset -&gt; ShowS
+[Dataset] -&gt; ShowS
+Dataset -&gt; String
+(Int -&gt; Dataset -&gt; ShowS)
+-&gt; (Dataset -&gt; String) -&gt; ([Dataset] -&gt; ShowS) -&gt; Show Dataset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Dataset] -&gt; ShowS
+$cshowList :: [Dataset] -&gt; ShowS
+show :: Dataset -&gt; String
+$cshow :: Dataset -&gt; String
+showsPrec :: Int -&gt; Dataset -&gt; ShowS
+$cshowsPrec :: Int -&gt; Dataset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Dataset -&gt; Rep Dataset x)
+-&gt; (forall x. Rep Dataset x -&gt; Dataset) -&gt; Generic Dataset
+forall x. Rep Dataset x -&gt; Dataset
+forall x. Dataset -&gt; Rep Dataset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Dataset x -&gt; Dataset
+$cfrom :: forall x. Dataset -&gt; Rep Dataset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'Dataset' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'lastModifiedDate', 'dataset_lastModifiedDate' - The last modification date and time of the dataset.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'pathOptions', 'dataset_pathOptions' - A set of options that defines how DataBrew interprets an Amazon S3 path</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- of the dataset.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'createDate', 'dataset_createDate' - The date and time that the dataset was created.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'formatOptions', 'dataset_formatOptions' - A set of options that define how DataBrew interprets the data in the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- dataset.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'format', 'dataset_format' - The file format of a dataset that is created from an Amazon S3 file or</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- folder.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'createdBy', 'dataset_createdBy' - The Amazon Resource Name (ARN) of the user who created the dataset.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'accountId', 'dataset_accountId' - The ID of the Amazon Web Services account that owns the dataset.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'resourceArn', 'dataset_resourceArn' - The unique Amazon Resource Name (ARN) for the dataset.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'source', 'dataset_source' - The location of the data for the dataset, either Amazon S3 or the Glue</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Data Catalog.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'lastModifiedBy', 'dataset_lastModifiedBy' - The Amazon Resource Name (ARN) of the user who last modified the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- dataset.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'tags', 'dataset_tags' - Metadata tags that have been applied to the dataset.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'name', 'dataset_name' - The unique name of the dataset.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'input', 'dataset_input' - Information on how DataBrew can find the dataset, in either the Glue</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Data Catalog or Amazon S3.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#newDataset"><span class="hs-identifier hs-type">newDataset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'input'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span>
+</span><span id="line-115"></span><span id="newDataset"><span class="annot"><span class="annottext">newDataset :: Text -&gt; Input -&gt; Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#newDataset"><span class="hs-identifier hs-var hs-var">newDataset</span></a></span></span><span> </span><span id="local-6989586621679299805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299805"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679299804"><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679299804"><span class="hs-identifier hs-var">pInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">Dataset' :: Maybe POSIX
+-&gt; Maybe PathOptions
+-&gt; Maybe POSIX
+-&gt; Maybe FormatOptions
+-&gt; Maybe InputFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Source
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Input
+-&gt; Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:Dataset' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AlastModifiedDate%3ADataset%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:pathOptions:Dataset' :: Maybe PathOptions
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3ApathOptions%3ADataset%27"><span class="hs-identifier hs-var">pathOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PathOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDate:Dataset' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AcreateDate%3ADataset%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:formatOptions:Dataset' :: Maybe FormatOptions
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AformatOptions%3ADataset%27"><span class="hs-identifier hs-var">formatOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FormatOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:Dataset' :: Maybe InputFormat
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Aformat%3ADataset%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AcreatedBy%3ADataset%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AaccountId%3ADataset%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AresourceArn%3ADataset%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:Dataset' :: Maybe Source
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Asource%3ADataset%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Source
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AlastModifiedBy%3ADataset%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Dataset' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Atags%3ADataset%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Dataset' :: Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Aname%3ADataset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299805"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:input:Dataset' :: Input
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Ainput%3ADataset%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679299804"><span class="hs-identifier hs-var">pInput_</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The last modification date and time of the dataset.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_lastModifiedDate"><span class="hs-identifier hs-type">dataset_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="dataset_lastModifiedDate"><span class="annot"><span class="annottext">dataset_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_lastModifiedDate"><span class="hs-identifier hs-var hs-var">dataset_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe POSIX)
+-&gt; (Dataset -&gt; Maybe POSIX -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299800"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:Dataset' :: Dataset -&gt; Maybe POSIX
+</span><a href="#local-6989586621679299800"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299800"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299799"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299798"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:Dataset' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AlastModifiedDate%3ADataset%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Dataset -&gt; f Dataset)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Dataset
+-&gt; f Dataset
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A set of options that defines how DataBrew interprets an Amazon S3 path</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- of the dataset.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_pathOptions"><span class="hs-identifier hs-type">dataset_pathOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="dataset_pathOptions"><span class="annot"><span class="annottext">dataset_pathOptions :: (Maybe PathOptions -&gt; f (Maybe PathOptions))
+-&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_pathOptions"><span class="hs-identifier hs-var hs-var">dataset_pathOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe PathOptions)
+-&gt; (Dataset -&gt; Maybe PathOptions -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe PathOptions) (Maybe PathOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299793"><span class="annot"><span class="annottext">Maybe PathOptions
+pathOptions :: Maybe PathOptions
+$sel:pathOptions:Dataset' :: Dataset -&gt; Maybe PathOptions
+</span><a href="#local-6989586621679299793"><span class="hs-identifier hs-var hs-var">pathOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PathOptions
+</span><a href="#local-6989586621679299793"><span class="hs-identifier hs-var">pathOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299792"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299791"><span class="annot"><span class="annottext">Maybe PathOptions
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathOptions:Dataset' :: Maybe PathOptions
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3ApathOptions%3ADataset%27"><span class="hs-identifier hs-var">pathOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PathOptions
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The date and time that the dataset was created.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_createDate"><span class="hs-identifier hs-type">dataset_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="dataset_createDate"><span class="annot"><span class="annottext">dataset_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_createDate"><span class="hs-identifier hs-var hs-var">dataset_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe POSIX)
+-&gt; (Dataset -&gt; Maybe POSIX -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299789"><span class="annot"><span class="annottext">Maybe POSIX
+createDate :: Maybe POSIX
+$sel:createDate:Dataset' :: Dataset -&gt; Maybe POSIX
+</span><a href="#local-6989586621679299789"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299789"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299788"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299787"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:Dataset' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AcreateDate%3ADataset%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Dataset -&gt; f Dataset)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Dataset
+-&gt; f Dataset
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | A set of options that define how DataBrew interprets the data in the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- dataset.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_formatOptions"><span class="hs-identifier hs-type">dataset_formatOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.FormatOptions.html#FormatOptions"><span class="hs-identifier hs-type">FormatOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="dataset_formatOptions"><span class="annot"><span class="annottext">dataset_formatOptions :: (Maybe FormatOptions -&gt; f (Maybe FormatOptions))
+-&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_formatOptions"><span class="hs-identifier hs-var hs-var">dataset_formatOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe FormatOptions)
+-&gt; (Dataset -&gt; Maybe FormatOptions -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe FormatOptions) (Maybe FormatOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299785"><span class="annot"><span class="annottext">Maybe FormatOptions
+formatOptions :: Maybe FormatOptions
+$sel:formatOptions:Dataset' :: Dataset -&gt; Maybe FormatOptions
+</span><a href="#local-6989586621679299785"><span class="hs-identifier hs-var hs-var">formatOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FormatOptions
+</span><a href="#local-6989586621679299785"><span class="hs-identifier hs-var">formatOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299784"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299783"><span class="annot"><span class="annottext">Maybe FormatOptions
+</span><a href="#local-6989586621679299783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatOptions:Dataset' :: Maybe FormatOptions
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AformatOptions%3ADataset%27"><span class="hs-identifier hs-var">formatOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FormatOptions
+</span><a href="#local-6989586621679299783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The file format of a dataset that is created from an Amazon S3 file or</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- folder.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_format"><span class="hs-identifier hs-type">dataset_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.InputFormat.html#InputFormat"><span class="hs-identifier hs-type">InputFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="dataset_format"><span class="annot"><span class="annottext">dataset_format :: (Maybe InputFormat -&gt; f (Maybe InputFormat))
+-&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_format"><span class="hs-identifier hs-var hs-var">dataset_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe InputFormat)
+-&gt; (Dataset -&gt; Maybe InputFormat -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe InputFormat) (Maybe InputFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299781"><span class="annot"><span class="annottext">Maybe InputFormat
+format :: Maybe InputFormat
+$sel:format:Dataset' :: Dataset -&gt; Maybe InputFormat
+</span><a href="#local-6989586621679299781"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputFormat
+</span><a href="#local-6989586621679299781"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299780"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299779"><span class="annot"><span class="annottext">Maybe InputFormat
+</span><a href="#local-6989586621679299779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:Dataset' :: Maybe InputFormat
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Aformat%3ADataset%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputFormat
+</span><a href="#local-6989586621679299779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who created the dataset.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_createdBy"><span class="hs-identifier hs-type">dataset_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="dataset_createdBy"><span class="annot"><span class="annottext">dataset_createdBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_createdBy"><span class="hs-identifier hs-var hs-var">dataset_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
+-&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299777"><span class="annot"><span class="annottext">Maybe Text
+createdBy :: Maybe Text
+$sel:createdBy:Dataset' :: Dataset -&gt; Maybe Text
+</span><a href="#local-6989586621679299777"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299777"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299776"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AcreatedBy%3ADataset%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the dataset.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_accountId"><span class="hs-identifier hs-type">dataset_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="dataset_accountId"><span class="annot"><span class="annottext">dataset_accountId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_accountId"><span class="hs-identifier hs-var hs-var">dataset_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
+-&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299773"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:Dataset' :: Dataset -&gt; Maybe Text
+</span><a href="#local-6989586621679299773"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299773"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299772"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AaccountId%3ADataset%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The unique Amazon Resource Name (ARN) for the dataset.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_resourceArn"><span class="hs-identifier hs-type">dataset_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="dataset_resourceArn"><span class="annot"><span class="annottext">dataset_resourceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_resourceArn"><span class="hs-identifier hs-var hs-var">dataset_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
+-&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299769"><span class="annot"><span class="annottext">Maybe Text
+resourceArn :: Maybe Text
+$sel:resourceArn:Dataset' :: Dataset -&gt; Maybe Text
+</span><a href="#local-6989586621679299769"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299769"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299768"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299767"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AresourceArn%3ADataset%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The location of the data for the dataset, either Amazon S3 or the Glue</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Data Catalog.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_source"><span class="hs-identifier hs-type">dataset_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="dataset_source"><span class="annot"><span class="annottext">dataset_source :: (Maybe Source -&gt; f (Maybe Source)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_source"><span class="hs-identifier hs-var hs-var">dataset_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Source)
+-&gt; (Dataset -&gt; Maybe Source -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe Source) (Maybe Source)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299765"><span class="annot"><span class="annottext">Maybe Source
+source :: Maybe Source
+$sel:source:Dataset' :: Dataset -&gt; Maybe Source
+</span><a href="#local-6989586621679299765"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679299765"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299764"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299763"><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679299763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Dataset' :: Maybe Source
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Asource%3ADataset%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679299763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who last modified the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- dataset.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_lastModifiedBy"><span class="hs-identifier hs-type">dataset_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="dataset_lastModifiedBy"><span class="annot"><span class="annottext">dataset_lastModifiedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_lastModifiedBy"><span class="hs-identifier hs-var hs-var">dataset_lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
+-&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299761"><span class="annot"><span class="annottext">Maybe Text
+lastModifiedBy :: Maybe Text
+$sel:lastModifiedBy:Dataset' :: Dataset -&gt; Maybe Text
+</span><a href="#local-6989586621679299761"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299761"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299760"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299759"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Dataset' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3AlastModifiedBy%3ADataset%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Metadata tags that have been applied to the dataset.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_tags"><span class="hs-identifier hs-type">dataset_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="dataset_tags"><span class="annot"><span class="annottext">dataset_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_tags"><span class="hs-identifier hs-var hs-var">dataset_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe (HashMap Text Text))
+-&gt; (Dataset -&gt; Maybe (HashMap Text Text) -&gt; Dataset)
+-&gt; Lens
+     Dataset
+     Dataset
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299757"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:Dataset' :: Dataset -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299757"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299757"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299756"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299755"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Dataset' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Atags%3ADataset%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Dataset -&gt; f Dataset)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Dataset
+-&gt; f Dataset
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The unique name of the dataset.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_name"><span class="hs-identifier hs-type">dataset_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-183"></span><span id="dataset_name"><span class="annot"><span class="annottext">dataset_name :: (Text -&gt; f Text) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_name"><span class="hs-identifier hs-var hs-var">dataset_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Text)
+-&gt; (Dataset -&gt; Text -&gt; Dataset) -&gt; Lens Dataset Dataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299752"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:Dataset' :: Dataset -&gt; Text
+</span><a href="#local-6989586621679299752"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299752"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299751"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dataset' :: Text
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Aname%3ADataset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Information on how DataBrew can find the dataset, in either the Glue</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Data Catalog or Amazon S3.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_input"><span class="hs-identifier hs-type">dataset_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span>
+</span><span id="line-188"></span><span id="dataset_input"><span class="annot"><span class="annottext">dataset_input :: (Input -&gt; f Input) -&gt; Dataset -&gt; f Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#dataset_input"><span class="hs-identifier hs-var hs-var">dataset_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Input)
+-&gt; (Dataset -&gt; Input -&gt; Dataset)
+-&gt; Lens Dataset Dataset Input Input
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299748"><span class="annot"><span class="annottext">Input
+input :: Input
+$sel:input:Dataset' :: Dataset -&gt; Input
+</span><a href="#local-6989586621679299748"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679299748"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299747"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679299747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299746"><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679299746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679299747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:Dataset' :: Input
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#%24sel%3Ainput%3ADataset%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679299746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299743"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679299741"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Dataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Dataset) -&gt; Value -&gt; Parser Dataset
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Dataset&quot;</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299738"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe PathOptions
+-&gt; Maybe POSIX
+-&gt; Maybe FormatOptions
+-&gt; Maybe InputFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Source
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Input
+-&gt; Dataset
+</span><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-var">Dataset'</span></a></span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe PathOptions
+ -&gt; Maybe POSIX
+ -&gt; Maybe FormatOptions
+ -&gt; Maybe InputFormat
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Source
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; Input
+ -&gt; Dataset)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe PathOptions
+      -&gt; Maybe POSIX
+      -&gt; Maybe FormatOptions
+      -&gt; Maybe InputFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PathOptions
+   -&gt; Maybe POSIX
+   -&gt; Maybe FormatOptions
+   -&gt; Maybe InputFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe PathOptions)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe FormatOptions
+      -&gt; Maybe InputFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PathOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PathOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe FormatOptions
+   -&gt; Maybe InputFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe FormatOptions
+      -&gt; Maybe InputFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FormatOptions
+   -&gt; Maybe InputFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe FormatOptions)
+-&gt; Parser
+     (Maybe InputFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FormatOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FormatOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe InputFormat)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Format&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Source
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Input
+      -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Source
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Input
+   -&gt; Dataset)
+-&gt; Parser (Maybe Source)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Input -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Source)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Input -&gt; Dataset)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; Input -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; Input -&gt; Dataset)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Text -&gt; Input -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Input -&gt; Dataset)
+-&gt; Parser Text -&gt; Parser (Input -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser (Input -&gt; Dataset) -&gt; Parser Input -&gt; Parser Dataset
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Input
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Input&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299730"><span id="local-6989586621679299732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

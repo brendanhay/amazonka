@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation"><span class="hs-identifier">UpdateDataRetentionOperation</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation_DECREASE_DATA_RETENTION"><span class="hs-identifier">UpdateDataRetentionOperation_DECREASE_DATA_RETENTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation_INCREASE_DATA_RETENTION"><span class="hs-identifier">UpdateDataRetentionOperation_INCREASE_DATA_RETENTION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679176747"><span id="local-6989586621679176748"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateDataRetentionOperation"><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation"><span class="hs-identifier hs-var">UpdateDataRetentionOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDataRetentionOperation%27"><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation%27"><span class="hs-identifier hs-var">UpdateDataRetentionOperation'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpdateDataRetentionOperation"><span class="annot"><span class="annottext">UpdateDataRetentionOperation -&gt; Text
+</span><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#fromUpdateDataRetentionOperation"><span class="hs-identifier hs-var hs-var">fromUpdateDataRetentionOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176739"><span id="local-6989586621679176741"><span id="local-6989586621679176743"><span class="annot"><span class="annottext">Int -&gt; UpdateDataRetentionOperation -&gt; ShowS
+[UpdateDataRetentionOperation] -&gt; ShowS
+UpdateDataRetentionOperation -&gt; String
+(Int -&gt; UpdateDataRetentionOperation -&gt; ShowS)
+-&gt; (UpdateDataRetentionOperation -&gt; String)
+-&gt; ([UpdateDataRetentionOperation] -&gt; ShowS)
+-&gt; Show UpdateDataRetentionOperation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDataRetentionOperation] -&gt; ShowS
+$cshowList :: [UpdateDataRetentionOperation] -&gt; ShowS
+show :: UpdateDataRetentionOperation -&gt; String
+$cshow :: UpdateDataRetentionOperation -&gt; String
+showsPrec :: Int -&gt; UpdateDataRetentionOperation -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDataRetentionOperation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176730"><span id="local-6989586621679176732"><span id="local-6989586621679176734"><span id="local-6989586621679176736"><span class="annot"><span class="annottext">ReadPrec [UpdateDataRetentionOperation]
+ReadPrec UpdateDataRetentionOperation
+Int -&gt; ReadS UpdateDataRetentionOperation
+ReadS [UpdateDataRetentionOperation]
+(Int -&gt; ReadS UpdateDataRetentionOperation)
+-&gt; ReadS [UpdateDataRetentionOperation]
+-&gt; ReadPrec UpdateDataRetentionOperation
+-&gt; ReadPrec [UpdateDataRetentionOperation]
+-&gt; Read UpdateDataRetentionOperation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDataRetentionOperation]
+$creadListPrec :: ReadPrec [UpdateDataRetentionOperation]
+readPrec :: ReadPrec UpdateDataRetentionOperation
+$creadPrec :: ReadPrec UpdateDataRetentionOperation
+readList :: ReadS [UpdateDataRetentionOperation]
+$creadList :: ReadS [UpdateDataRetentionOperation]
+readsPrec :: Int -&gt; ReadS UpdateDataRetentionOperation
+$creadsPrec :: Int -&gt; ReadS UpdateDataRetentionOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176725"><span id="local-6989586621679176727"><span class="annot"><span class="annottext">UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+(UpdateDataRetentionOperation
+ -&gt; UpdateDataRetentionOperation -&gt; Bool)
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; Bool)
+-&gt; Eq UpdateDataRetentionOperation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+$c/= :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+== :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+$c== :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176709"><span id="local-6989586621679176711"><span id="local-6989586621679176713"><span id="local-6989586621679176715"><span id="local-6989586621679176717"><span id="local-6989586621679176719"><span id="local-6989586621679176721"><span class="annot"><span class="annottext">Eq UpdateDataRetentionOperation
+Eq UpdateDataRetentionOperation
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; Ordering)
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; Bool)
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; Bool)
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; Bool)
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; Bool)
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetentionOperation)
+-&gt; (UpdateDataRetentionOperation
+    -&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetentionOperation)
+-&gt; Ord UpdateDataRetentionOperation
+UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Ordering
+UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetentionOperation
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetentionOperation
+$cmin :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetentionOperation
+max :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetentionOperation
+$cmax :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; UpdateDataRetentionOperation
+&gt;= :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+$c&gt;= :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+&gt; :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+$c&gt; :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+&lt;= :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+$c&lt;= :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+&lt; :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+$c&lt; :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Bool
+compare :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Ordering
+$ccompare :: UpdateDataRetentionOperation
+-&gt; UpdateDataRetentionOperation -&gt; Ordering
+$cp1Ord :: Eq UpdateDataRetentionOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDataRetentionOperation -&gt; Rep UpdateDataRetentionOperation x)
+-&gt; (forall x.
+    Rep UpdateDataRetentionOperation x -&gt; UpdateDataRetentionOperation)
+-&gt; Generic UpdateDataRetentionOperation
+forall x.
+Rep UpdateDataRetentionOperation x -&gt; UpdateDataRetentionOperation
+forall x.
+UpdateDataRetentionOperation -&gt; Rep UpdateDataRetentionOperation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDataRetentionOperation x -&gt; UpdateDataRetentionOperation
+$cfrom :: forall x.
+UpdateDataRetentionOperation -&gt; Rep UpdateDataRetentionOperation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176701"><span id="local-6989586621679176703"><span class="annot"><span class="annottext">Int -&gt; UpdateDataRetentionOperation -&gt; Int
+UpdateDataRetentionOperation -&gt; Int
+(Int -&gt; UpdateDataRetentionOperation -&gt; Int)
+-&gt; (UpdateDataRetentionOperation -&gt; Int)
+-&gt; Hashable UpdateDataRetentionOperation
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UpdateDataRetentionOperation -&gt; Int
+$chash :: UpdateDataRetentionOperation -&gt; Int
+hashWithSalt :: Int -&gt; UpdateDataRetentionOperation -&gt; Int
+$chashWithSalt :: Int -&gt; UpdateDataRetentionOperation -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176698"><span class="annot"><span class="annottext">UpdateDataRetentionOperation -&gt; ()
+(UpdateDataRetentionOperation -&gt; ())
+-&gt; NFData UpdateDataRetentionOperation
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UpdateDataRetentionOperation -&gt; ()
+$crnf :: UpdateDataRetentionOperation -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176695"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateDataRetentionOperation
+(Text -&gt; Either String UpdateDataRetentionOperation)
+-&gt; FromText UpdateDataRetentionOperation
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UpdateDataRetentionOperation
+$cfromText :: Text -&gt; Either String UpdateDataRetentionOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176692"><span class="annot"><span class="annottext">UpdateDataRetentionOperation -&gt; Text
+(UpdateDataRetentionOperation -&gt; Text)
+-&gt; ToText UpdateDataRetentionOperation
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UpdateDataRetentionOperation -&gt; Text
+$ctoText :: UpdateDataRetentionOperation -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176689"><span class="annot"><span class="annottext">UpdateDataRetentionOperation -&gt; ByteString
+(UpdateDataRetentionOperation -&gt; ByteString)
+-&gt; ToByteString UpdateDataRetentionOperation
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UpdateDataRetentionOperation -&gt; ByteString
+$ctoBS :: UpdateDataRetentionOperation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176686"><span class="annot"><span class="annottext">UpdateDataRetentionOperation -&gt; ByteStringBuilder
+(UpdateDataRetentionOperation -&gt; ByteStringBuilder)
+-&gt; ToLog UpdateDataRetentionOperation
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UpdateDataRetentionOperation -&gt; ByteStringBuilder
+$cbuild :: UpdateDataRetentionOperation -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176683"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateDataRetentionOperation -&gt; [Header]
+(HeaderName -&gt; UpdateDataRetentionOperation -&gt; [Header])
+-&gt; ToHeader UpdateDataRetentionOperation
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UpdateDataRetentionOperation -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UpdateDataRetentionOperation -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176680"><span class="annot"><span class="annottext">UpdateDataRetentionOperation -&gt; QueryString
+(UpdateDataRetentionOperation -&gt; QueryString)
+-&gt; ToQuery UpdateDataRetentionOperation
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UpdateDataRetentionOperation -&gt; QueryString
+$ctoQuery :: UpdateDataRetentionOperation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176675"><span id="local-6989586621679176677"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateDataRetentionOperation]
+Value -&gt; Parser UpdateDataRetentionOperation
+(Value -&gt; Parser UpdateDataRetentionOperation)
+-&gt; (Value -&gt; Parser [UpdateDataRetentionOperation])
+-&gt; FromJSON UpdateDataRetentionOperation
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UpdateDataRetentionOperation]
+$cparseJSONList :: Value -&gt; Parser [UpdateDataRetentionOperation]
+parseJSON :: Value -&gt; Parser UpdateDataRetentionOperation
+$cparseJSON :: Value -&gt; Parser UpdateDataRetentionOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176670"><span id="local-6989586621679176672"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateDataRetentionOperation]
+FromJSONKeyFunction UpdateDataRetentionOperation
+FromJSONKeyFunction UpdateDataRetentionOperation
+-&gt; FromJSONKeyFunction [UpdateDataRetentionOperation]
+-&gt; FromJSONKey UpdateDataRetentionOperation
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UpdateDataRetentionOperation]
+$cfromJSONKeyList :: FromJSONKeyFunction [UpdateDataRetentionOperation]
+fromJSONKey :: FromJSONKeyFunction UpdateDataRetentionOperation
+$cfromJSONKey :: FromJSONKeyFunction UpdateDataRetentionOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176661"><span id="local-6989586621679176663"><span id="local-6989586621679176665"><span id="local-6989586621679176667"><span class="annot"><span class="annottext">[UpdateDataRetentionOperation] -&gt; Encoding
+[UpdateDataRetentionOperation] -&gt; Value
+UpdateDataRetentionOperation -&gt; Encoding
+UpdateDataRetentionOperation -&gt; Value
+(UpdateDataRetentionOperation -&gt; Value)
+-&gt; (UpdateDataRetentionOperation -&gt; Encoding)
+-&gt; ([UpdateDataRetentionOperation] -&gt; Value)
+-&gt; ([UpdateDataRetentionOperation] -&gt; Encoding)
+-&gt; ToJSON UpdateDataRetentionOperation
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UpdateDataRetentionOperation] -&gt; Encoding
+$ctoEncodingList :: [UpdateDataRetentionOperation] -&gt; Encoding
+toJSONList :: [UpdateDataRetentionOperation] -&gt; Value
+$ctoJSONList :: [UpdateDataRetentionOperation] -&gt; Value
+toEncoding :: UpdateDataRetentionOperation -&gt; Encoding
+$ctoEncoding :: UpdateDataRetentionOperation -&gt; Encoding
+toJSON :: UpdateDataRetentionOperation -&gt; Value
+$ctoJSON :: UpdateDataRetentionOperation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176656"><span id="local-6989586621679176658"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateDataRetentionOperation]
+ToJSONKeyFunction UpdateDataRetentionOperation
+ToJSONKeyFunction UpdateDataRetentionOperation
+-&gt; ToJSONKeyFunction [UpdateDataRetentionOperation]
+-&gt; ToJSONKey UpdateDataRetentionOperation
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UpdateDataRetentionOperation]
+$ctoJSONKeyList :: ToJSONKeyFunction [UpdateDataRetentionOperation]
+toJSONKey :: ToJSONKeyFunction UpdateDataRetentionOperation
+$ctoJSONKey :: ToJSONKeyFunction UpdateDataRetentionOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176653"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateDataRetentionOperation
+([Node] -&gt; Either String UpdateDataRetentionOperation)
+-&gt; FromXML UpdateDataRetentionOperation
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UpdateDataRetentionOperation
+$cparseXML :: [Node] -&gt; Either String UpdateDataRetentionOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176650"><span class="annot"><span class="annottext">UpdateDataRetentionOperation -&gt; XML
+(UpdateDataRetentionOperation -&gt; XML)
+-&gt; ToXML UpdateDataRetentionOperation
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UpdateDataRetentionOperation -&gt; XML
+$ctoXML :: UpdateDataRetentionOperation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation_DECREASE_DATA_RETENTION"><span class="hs-identifier hs-type">UpdateDataRetentionOperation_DECREASE_DATA_RETENTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation"><span class="hs-identifier hs-type">UpdateDataRetentionOperation</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateDataRetentionOperation_DECREASE_DATA_RETENTION"><span id="%24mUpdateDataRetentionOperation_DECREASE_DATA_RETENTION"><span id="UpdateDataRetentionOperation_DECREASE_DATA_RETENTION"><span class="annot"><span class="annottext">$bUpdateDataRetentionOperation_DECREASE_DATA_RETENTION :: UpdateDataRetentionOperation
+$mUpdateDataRetentionOperation_DECREASE_DATA_RETENTION :: forall r.
+UpdateDataRetentionOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#%24bUpdateDataRetentionOperation_DECREASE_DATA_RETENTION"><span class="hs-identifier hs-var hs-var hs-var">UpdateDataRetentionOperation_DECREASE_DATA_RETENTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation%27"><span class="hs-identifier hs-type">UpdateDataRetentionOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DECREASE_DATA_RETENTION&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation_INCREASE_DATA_RETENTION"><span class="hs-identifier hs-type">UpdateDataRetentionOperation_INCREASE_DATA_RETENTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation"><span class="hs-identifier hs-type">UpdateDataRetentionOperation</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateDataRetentionOperation_INCREASE_DATA_RETENTION"><span id="%24mUpdateDataRetentionOperation_INCREASE_DATA_RETENTION"><span id="UpdateDataRetentionOperation_INCREASE_DATA_RETENTION"><span class="annot"><span class="annottext">$bUpdateDataRetentionOperation_INCREASE_DATA_RETENTION :: UpdateDataRetentionOperation
+$mUpdateDataRetentionOperation_INCREASE_DATA_RETENTION :: forall r.
+UpdateDataRetentionOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#%24bUpdateDataRetentionOperation_INCREASE_DATA_RETENTION"><span class="hs-identifier hs-var hs-var hs-var">UpdateDataRetentionOperation_INCREASE_DATA_RETENTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation%27"><span class="hs-identifier hs-type">UpdateDataRetentionOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INCREASE_DATA_RETENTION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation_DECREASE_DATA_RETENTION"><span class="hs-pragma hs-type">UpdateDataRetentionOperation_DECREASE_DATA_RETENTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation_INCREASE_DATA_RETENTION"><span class="hs-pragma hs-type">UpdateDataRetentionOperation_INCREASE_DATA_RETENTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.html#UpdateDataRetentionOperation%27"><span class="hs-pragma hs-type">UpdateDataRetentionOperation'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

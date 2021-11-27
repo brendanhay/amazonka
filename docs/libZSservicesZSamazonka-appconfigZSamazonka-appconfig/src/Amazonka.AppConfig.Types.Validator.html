@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppConfig.Types.Validator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppConfig.Types.Validator</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.ValidatorType.html"><span class="hs-identifier">Amazonka.AppConfig.Types.ValidatorType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A validator provides a syntactic or semantic check to ensure the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- configuration you want to deploy functions as intended. To validate your</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- application configuration data, you provide a schema or a Lambda</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- function that runs against the configuration. The configuration</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- deployment or update can only proceed when the configuration data is</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- valid.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newValidator' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679201516"><span id="local-6989586621679201517"></span></span><span class="hs-keyword">data</span><span> </span><span id="Validator"><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-var">Validator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Validator%27"><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-var">Validator'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | AppConfig supports validators of type @JSON_SCHEMA@ and @LAMBDA@</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atype%27%3AValidator%27"><span class="annot"><span class="annottext">Validator -&gt; ValidatorType
+</span><a href="Amazonka.AppConfig.Types.Validator.html#%24sel%3Atype%27%3AValidator%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.ValidatorType.html#ValidatorType"><span class="hs-identifier hs-type">ValidatorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Either the JSON Schema content or the Amazon Resource Name (ARN) of an</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- AWS Lambda function.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Acontent%3AValidator%27"><span class="annot"><span class="annottext">Validator -&gt; Sensitive Text
+</span><a href="Amazonka.AppConfig.Types.Validator.html#%24sel%3Acontent%3AValidator%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201509"><span id="local-6989586621679201511"><span class="annot"><span class="annottext">Validator -&gt; Validator -&gt; Bool
+(Validator -&gt; Validator -&gt; Bool)
+-&gt; (Validator -&gt; Validator -&gt; Bool) -&gt; Eq Validator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Validator -&gt; Validator -&gt; Bool
+$c/= :: Validator -&gt; Validator -&gt; Bool
+== :: Validator -&gt; Validator -&gt; Bool
+$c== :: Validator -&gt; Validator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201502"><span id="local-6989586621679201504"><span id="local-6989586621679201506"><span class="annot"><span class="annottext">Int -&gt; Validator -&gt; ShowS
+[Validator] -&gt; ShowS
+Validator -&gt; String
+(Int -&gt; Validator -&gt; ShowS)
+-&gt; (Validator -&gt; String)
+-&gt; ([Validator] -&gt; ShowS)
+-&gt; Show Validator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Validator] -&gt; ShowS
+$cshowList :: [Validator] -&gt; ShowS
+show :: Validator -&gt; String
+$cshow :: Validator -&gt; String
+showsPrec :: Int -&gt; Validator -&gt; ShowS
+$cshowsPrec :: Int -&gt; Validator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Validator -&gt; Rep Validator x)
+-&gt; (forall x. Rep Validator x -&gt; Validator) -&gt; Generic Validator
+forall x. Rep Validator x -&gt; Validator
+forall x. Validator -&gt; Rep Validator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Validator x -&gt; Validator
+$cfrom :: forall x. Validator -&gt; Rep Validator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'Validator' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'type'', 'validator_type' - AppConfig supports validators of type @JSON_SCHEMA@ and @LAMBDA@</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'content', 'validator_content' - Either the JSON Schema content or the Amazon Resource Name (ARN) of an</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- AWS Lambda function.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#newValidator"><span class="hs-identifier hs-type">newValidator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.Types.ValidatorType.html#ValidatorType"><span class="hs-identifier hs-type">ValidatorType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'content'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span><span>
+</span><span id="line-62"></span><span id="newValidator"><span class="annot"><span class="annottext">newValidator :: ValidatorType -&gt; Text -&gt; Validator
+</span><a href="Amazonka.AppConfig.Types.Validator.html#newValidator"><span class="hs-identifier hs-var hs-var">newValidator</span></a></span></span><span> </span><span id="local-6989586621679201496"><span class="annot"><span class="annottext">ValidatorType
+</span><a href="#local-6989586621679201496"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679201495"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201495"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">Validator' :: ValidatorType -&gt; Sensitive Text -&gt; Validator
+</span><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-type">Validator'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':Validator' :: ValidatorType
+</span><a href="Amazonka.AppConfig.Types.Validator.html#%24sel%3Atype%27%3AValidator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ValidatorType
+</span><a href="#local-6989586621679201496"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:Validator' :: Sensitive Text
+</span><a href="Amazonka.AppConfig.Types.Validator.html#%24sel%3Acontent%3AValidator%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201495"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | AppConfig supports validators of type @JSON_SCHEMA@ and @LAMBDA@</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#validator_type"><span class="hs-identifier hs-type">validator_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.ValidatorType.html#ValidatorType"><span class="hs-identifier hs-type">ValidatorType</span></a></span><span>
+</span><span id="line-70"></span><span id="validator_type"><span class="annot"><span class="annottext">validator_type :: (ValidatorType -&gt; f ValidatorType) -&gt; Validator -&gt; f Validator
+</span><a href="Amazonka.AppConfig.Types.Validator.html#validator_type"><span class="hs-identifier hs-var hs-var">validator_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Validator -&gt; ValidatorType)
+-&gt; (Validator -&gt; ValidatorType -&gt; Validator)
+-&gt; Lens Validator Validator ValidatorType ValidatorType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-type">Validator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201489"><span class="annot"><span class="annottext">ValidatorType
+type' :: ValidatorType
+$sel:type':Validator' :: Validator -&gt; ValidatorType
+</span><a href="#local-6989586621679201489"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidatorType
+</span><a href="#local-6989586621679201489"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201488"><span class="annot"><span class="annottext">s :: Validator
+</span><a href="#local-6989586621679201488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-type">Validator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201487"><span class="annot"><span class="annottext">ValidatorType
+</span><a href="#local-6989586621679201487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validator
+</span><a href="#local-6989586621679201488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Validator' :: ValidatorType
+</span><a href="Amazonka.AppConfig.Types.Validator.html#%24sel%3Atype%27%3AValidator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ValidatorType
+</span><a href="#local-6989586621679201487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Either the JSON Schema content or the Amazon Resource Name (ARN) of an</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- AWS Lambda function.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#validator_content"><span class="hs-identifier hs-type">validator_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="validator_content"><span class="annot"><span class="annottext">validator_content :: (Text -&gt; f Text) -&gt; Validator -&gt; f Validator
+</span><a href="Amazonka.AppConfig.Types.Validator.html#validator_content"><span class="hs-identifier hs-var hs-var">validator_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Validator -&gt; Sensitive Text)
+-&gt; (Validator -&gt; Sensitive Text -&gt; Validator)
+-&gt; Lens Validator Validator (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-type">Validator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201485"><span class="annot"><span class="annottext">Sensitive Text
+content :: Sensitive Text
+$sel:content:Validator' :: Validator -&gt; Sensitive Text
+</span><a href="#local-6989586621679201485"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679201485"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201484"><span class="annot"><span class="annottext">s :: Validator
+</span><a href="#local-6989586621679201484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-type">Validator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201483"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679201483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validator
+</span><a href="#local-6989586621679201484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:Validator' :: Sensitive Text
+</span><a href="Amazonka.AppConfig.Types.Validator.html#%24sel%3Acontent%3AValidator%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679201483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; Validator -&gt; f Validator)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; Validator
+-&gt; f Validator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201479"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679201477"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Validator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Validator) -&gt; Value -&gt; Parser Validator
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Validator&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201474"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">ValidatorType -&gt; Sensitive Text -&gt; Validator
+</span><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-var">Validator'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(ValidatorType -&gt; Sensitive Text -&gt; Validator)
+-&gt; Parser ValidatorType -&gt; Parser (Sensitive Text -&gt; Validator)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ValidatorType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Sensitive Text -&gt; Validator)
+-&gt; Parser (Sensitive Text) -&gt; Parser Validator
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201468"><span id="local-6989586621679201470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201457"><span id="local-6989586621679201459"><span id="local-6989586621679201461"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator"><span class="hs-identifier hs-type">Validator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679201455"><span class="annot"><span class="annottext">toJSON :: Validator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.Validator.html#Validator%27"><span class="hs-identifier hs-type">Validator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201452"><span id="local-6989586621679201453"><span class="annot"><span class="annottext">Sensitive Text
+ValidatorType
+content :: Sensitive Text
+type' :: ValidatorType
+$sel:content:Validator' :: Validator -&gt; Sensitive Text
+$sel:type':Validator' :: Validator -&gt; ValidatorType
+</span><a href="#local-6989586621679201452"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ValidatorType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ValidatorType
+</span><a href="#local-6989586621679201453"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679201452"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span></pre></body></html>

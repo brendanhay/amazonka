@@ -1,0 +1,705 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.Types.NetworkInterface</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.Types.NetworkInterface</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.PrivateIpAddressDetails.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.PrivateIpAddressDetails</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.SecurityGroup.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.SecurityGroup</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains information about the elastic network interface of the EC2</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNetworkInterface' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679300413"><span id="local-6989586621679300414"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkInterface"><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-var">NetworkInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterface%27"><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-var">NetworkInterface'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Other private IP address information of the EC2 instance.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AprivateIpAddresses%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe [PrivateIpAddressDetails]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateIpAddresses%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">privateIpAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The public DNS name of the EC2 instance.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ApublicDnsName%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3ApublicDnsName%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">publicDnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The security groups associated with the EC2 instance.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsecurityGroups%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe [SecurityGroup]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AsecurityGroups%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GuardDuty.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The VPC ID of the EC2 instance.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AvpcId%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AvpcId%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the network interface.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AnetworkInterfaceId%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The subnet ID of the EC2 instance.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsubnetId%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AsubnetId%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The private IP address of the EC2 instance.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AprivateIpAddress%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateIpAddress%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The public IP address of the EC2 instance.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ApublicIp%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3ApublicIp%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The private DNS name of the EC2 instance.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AprivateDnsName%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateDnsName%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A list of IPv6 addresses for the EC2 instance.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aipv6Addresses%3ANetworkInterface%27"><span class="annot"><span class="annottext">NetworkInterface -&gt; Maybe [Text]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3Aipv6Addresses%3ANetworkInterface%27"><span class="hs-identifier hs-var hs-var">ipv6Addresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300398"><span id="local-6989586621679300400"><span class="annot"><span class="annottext">NetworkInterface -&gt; NetworkInterface -&gt; Bool
+(NetworkInterface -&gt; NetworkInterface -&gt; Bool)
+-&gt; (NetworkInterface -&gt; NetworkInterface -&gt; Bool)
+-&gt; Eq NetworkInterface
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkInterface -&gt; NetworkInterface -&gt; Bool
+$c/= :: NetworkInterface -&gt; NetworkInterface -&gt; Bool
+== :: NetworkInterface -&gt; NetworkInterface -&gt; Bool
+$c== :: NetworkInterface -&gt; NetworkInterface -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300389"><span id="local-6989586621679300391"><span id="local-6989586621679300393"><span id="local-6989586621679300395"><span class="annot"><span class="annottext">ReadPrec [NetworkInterface]
+ReadPrec NetworkInterface
+Int -&gt; ReadS NetworkInterface
+ReadS [NetworkInterface]
+(Int -&gt; ReadS NetworkInterface)
+-&gt; ReadS [NetworkInterface]
+-&gt; ReadPrec NetworkInterface
+-&gt; ReadPrec [NetworkInterface]
+-&gt; Read NetworkInterface
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkInterface]
+$creadListPrec :: ReadPrec [NetworkInterface]
+readPrec :: ReadPrec NetworkInterface
+$creadPrec :: ReadPrec NetworkInterface
+readList :: ReadS [NetworkInterface]
+$creadList :: ReadS [NetworkInterface]
+readsPrec :: Int -&gt; ReadS NetworkInterface
+$creadsPrec :: Int -&gt; ReadS NetworkInterface
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300382"><span id="local-6989586621679300384"><span id="local-6989586621679300386"><span class="annot"><span class="annottext">Int -&gt; NetworkInterface -&gt; ShowS
+[NetworkInterface] -&gt; ShowS
+NetworkInterface -&gt; String
+(Int -&gt; NetworkInterface -&gt; ShowS)
+-&gt; (NetworkInterface -&gt; String)
+-&gt; ([NetworkInterface] -&gt; ShowS)
+-&gt; Show NetworkInterface
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkInterface] -&gt; ShowS
+$cshowList :: [NetworkInterface] -&gt; ShowS
+show :: NetworkInterface -&gt; String
+$cshow :: NetworkInterface -&gt; String
+showsPrec :: Int -&gt; NetworkInterface -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NetworkInterface -&gt; Rep NetworkInterface x)
+-&gt; (forall x. Rep NetworkInterface x -&gt; NetworkInterface)
+-&gt; Generic NetworkInterface
+forall x. Rep NetworkInterface x -&gt; NetworkInterface
+forall x. NetworkInterface -&gt; Rep NetworkInterface x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NetworkInterface x -&gt; NetworkInterface
+$cfrom :: forall x. NetworkInterface -&gt; Rep NetworkInterface x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'NetworkInterface' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'privateIpAddresses', 'networkInterface_privateIpAddresses' - Other private IP address information of the EC2 instance.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'publicDnsName', 'networkInterface_publicDnsName' - The public DNS name of the EC2 instance.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'securityGroups', 'networkInterface_securityGroups' - The security groups associated with the EC2 instance.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'vpcId', 'networkInterface_vpcId' - The VPC ID of the EC2 instance.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'networkInterfaceId', 'networkInterface_networkInterfaceId' - The ID of the network interface.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'subnetId', 'networkInterface_subnetId' - The subnet ID of the EC2 instance.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'privateIpAddress', 'networkInterface_privateIpAddress' - The private IP address of the EC2 instance.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'publicIp', 'networkInterface_publicIp' - The public IP address of the EC2 instance.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'privateDnsName', 'networkInterface_privateDnsName' - The private DNS name of the EC2 instance.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'ipv6Addresses', 'networkInterface_ipv6Addresses' - A list of IPv6 addresses for the EC2 instance.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#newNetworkInterface"><span class="hs-identifier hs-type">newNetworkInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span>
+</span><span id="line-85"></span><span id="newNetworkInterface"><span class="annot"><span class="annottext">newNetworkInterface :: NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#newNetworkInterface"><span class="hs-identifier hs-var hs-var">newNetworkInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">NetworkInterface' :: Maybe [PrivateIpAddressDetails]
+-&gt; Maybe Text
+-&gt; Maybe [SecurityGroup]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:privateIpAddresses:NetworkInterface' :: Maybe [PrivateIpAddressDetails]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateIpAddresses%3ANetworkInterface%27"><span class="hs-identifier hs-var">privateIpAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PrivateIpAddressDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicDnsName:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3ApublicDnsName%3ANetworkInterface%27"><span class="hs-identifier hs-var">publicDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroups:NetworkInterface' :: Maybe [SecurityGroup]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AsecurityGroups%3ANetworkInterface%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AvpcId%3ANetworkInterface%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AnetworkInterfaceId%3ANetworkInterface%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AsubnetId%3ANetworkInterface%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateIpAddress:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateIpAddress%3ANetworkInterface%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicIp:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3ApublicIp%3ANetworkInterface%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateDnsName:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateDnsName%3ANetworkInterface%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipv6Addresses:NetworkInterface' :: Maybe [Text]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3Aipv6Addresses%3ANetworkInterface%27"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Other private IP address information of the EC2 instance.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_privateIpAddresses"><span class="hs-identifier hs-type">networkInterface_privateIpAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GuardDuty.Types.PrivateIpAddressDetails.html#PrivateIpAddressDetails"><span class="hs-identifier hs-type">PrivateIpAddressDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="networkInterface_privateIpAddresses"><span class="annot"><span class="annottext">networkInterface_privateIpAddresses :: (Maybe [PrivateIpAddressDetails]
+ -&gt; f (Maybe [PrivateIpAddressDetails]))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_privateIpAddresses"><span class="hs-identifier hs-var hs-var">networkInterface_privateIpAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe [PrivateIpAddressDetails])
+-&gt; (NetworkInterface
+    -&gt; Maybe [PrivateIpAddressDetails] -&gt; NetworkInterface)
+-&gt; Lens
+     NetworkInterface
+     NetworkInterface
+     (Maybe [PrivateIpAddressDetails])
+     (Maybe [PrivateIpAddressDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300373"><span class="annot"><span class="annottext">Maybe [PrivateIpAddressDetails]
+privateIpAddresses :: Maybe [PrivateIpAddressDetails]
+$sel:privateIpAddresses:NetworkInterface' :: NetworkInterface -&gt; Maybe [PrivateIpAddressDetails]
+</span><a href="#local-6989586621679300373"><span class="hs-identifier hs-var hs-var">privateIpAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrivateIpAddressDetails]
+</span><a href="#local-6989586621679300373"><span class="hs-identifier hs-var">privateIpAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300372"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300371"><span class="annot"><span class="annottext">Maybe [PrivateIpAddressDetails]
+</span><a href="#local-6989586621679300371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIpAddresses:NetworkInterface' :: Maybe [PrivateIpAddressDetails]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateIpAddresses%3ANetworkInterface%27"><span class="hs-identifier hs-var">privateIpAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrivateIpAddressDetails]
+</span><a href="#local-6989586621679300371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrivateIpAddressDetails]
+  -&gt; f (Maybe [PrivateIpAddressDetails]))
+ -&gt; NetworkInterface -&gt; f NetworkInterface)
+-&gt; ((Maybe [PrivateIpAddressDetails]
+     -&gt; f (Maybe [PrivateIpAddressDetails]))
+    -&gt; Maybe [PrivateIpAddressDetails]
+    -&gt; f (Maybe [PrivateIpAddressDetails]))
+-&gt; (Maybe [PrivateIpAddressDetails]
+    -&gt; f (Maybe [PrivateIpAddressDetails]))
+-&gt; NetworkInterface
+-&gt; f NetworkInterface
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrivateIpAddressDetails]
+  [PrivateIpAddressDetails]
+  [PrivateIpAddressDetails]
+  [PrivateIpAddressDetails]
+-&gt; Iso
+     (Maybe [PrivateIpAddressDetails])
+     (Maybe [PrivateIpAddressDetails])
+     (Maybe [PrivateIpAddressDetails])
+     (Maybe [PrivateIpAddressDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrivateIpAddressDetails]
+  [PrivateIpAddressDetails]
+  [PrivateIpAddressDetails]
+  [PrivateIpAddressDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The public DNS name of the EC2 instance.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_publicDnsName"><span class="hs-identifier hs-type">networkInterface_publicDnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="networkInterface_publicDnsName"><span class="annot"><span class="annottext">networkInterface_publicDnsName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_publicDnsName"><span class="hs-identifier hs-var hs-var">networkInterface_publicDnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe Text)
+-&gt; (NetworkInterface -&gt; Maybe Text -&gt; NetworkInterface)
+-&gt; Lens NetworkInterface NetworkInterface (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300366"><span class="annot"><span class="annottext">Maybe Text
+publicDnsName :: Maybe Text
+$sel:publicDnsName:NetworkInterface' :: NetworkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679300366"><span class="hs-identifier hs-var hs-var">publicDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300366"><span class="hs-identifier hs-var">publicDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300365"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300364"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicDnsName:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3ApublicDnsName%3ANetworkInterface%27"><span class="hs-identifier hs-var">publicDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The security groups associated with the EC2 instance.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_securityGroups"><span class="hs-identifier hs-type">networkInterface_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GuardDuty.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="networkInterface_securityGroups"><span class="annot"><span class="annottext">networkInterface_securityGroups :: (Maybe [SecurityGroup] -&gt; f (Maybe [SecurityGroup]))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_securityGroups"><span class="hs-identifier hs-var hs-var">networkInterface_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe [SecurityGroup])
+-&gt; (NetworkInterface -&gt; Maybe [SecurityGroup] -&gt; NetworkInterface)
+-&gt; Lens
+     NetworkInterface
+     NetworkInterface
+     (Maybe [SecurityGroup])
+     (Maybe [SecurityGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300362"><span class="annot"><span class="annottext">Maybe [SecurityGroup]
+securityGroups :: Maybe [SecurityGroup]
+$sel:securityGroups:NetworkInterface' :: NetworkInterface -&gt; Maybe [SecurityGroup]
+</span><a href="#local-6989586621679300362"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroup]
+</span><a href="#local-6989586621679300362"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300361"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300360"><span class="annot"><span class="annottext">Maybe [SecurityGroup]
+</span><a href="#local-6989586621679300360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:NetworkInterface' :: Maybe [SecurityGroup]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AsecurityGroups%3ANetworkInterface%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroup]
+</span><a href="#local-6989586621679300360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SecurityGroup] -&gt; f (Maybe [SecurityGroup]))
+ -&gt; NetworkInterface -&gt; f NetworkInterface)
+-&gt; ((Maybe [SecurityGroup] -&gt; f (Maybe [SecurityGroup]))
+    -&gt; Maybe [SecurityGroup] -&gt; f (Maybe [SecurityGroup]))
+-&gt; (Maybe [SecurityGroup] -&gt; f (Maybe [SecurityGroup]))
+-&gt; NetworkInterface
+-&gt; f NetworkInterface
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SecurityGroup] [SecurityGroup] [SecurityGroup] [SecurityGroup]
+-&gt; Iso
+     (Maybe [SecurityGroup])
+     (Maybe [SecurityGroup])
+     (Maybe [SecurityGroup])
+     (Maybe [SecurityGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SecurityGroup] [SecurityGroup] [SecurityGroup] [SecurityGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The VPC ID of the EC2 instance.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_vpcId"><span class="hs-identifier hs-type">networkInterface_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="networkInterface_vpcId"><span class="annot"><span class="annottext">networkInterface_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_vpcId"><span class="hs-identifier hs-var hs-var">networkInterface_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe Text)
+-&gt; (NetworkInterface -&gt; Maybe Text -&gt; NetworkInterface)
+-&gt; Lens NetworkInterface NetworkInterface (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300358"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:NetworkInterface' :: NetworkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679300358"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300358"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300357"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AvpcId%3ANetworkInterface%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The ID of the network interface.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_networkInterfaceId"><span class="hs-identifier hs-type">networkInterface_networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="networkInterface_networkInterfaceId"><span class="annot"><span class="annottext">networkInterface_networkInterfaceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_networkInterfaceId"><span class="hs-identifier hs-var hs-var">networkInterface_networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe Text)
+-&gt; (NetworkInterface -&gt; Maybe Text -&gt; NetworkInterface)
+-&gt; Lens NetworkInterface NetworkInterface (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300354"><span class="annot"><span class="annottext">Maybe Text
+networkInterfaceId :: Maybe Text
+$sel:networkInterfaceId:NetworkInterface' :: NetworkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679300354"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300354"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300353"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AnetworkInterfaceId%3ANetworkInterface%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The subnet ID of the EC2 instance.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_subnetId"><span class="hs-identifier hs-type">networkInterface_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="networkInterface_subnetId"><span class="annot"><span class="annottext">networkInterface_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_subnetId"><span class="hs-identifier hs-var hs-var">networkInterface_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe Text)
+-&gt; (NetworkInterface -&gt; Maybe Text -&gt; NetworkInterface)
+-&gt; Lens NetworkInterface NetworkInterface (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300350"><span class="annot"><span class="annottext">Maybe Text
+subnetId :: Maybe Text
+$sel:subnetId:NetworkInterface' :: NetworkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679300350"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300350"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300349"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AsubnetId%3ANetworkInterface%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The private IP address of the EC2 instance.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_privateIpAddress"><span class="hs-identifier hs-type">networkInterface_privateIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="networkInterface_privateIpAddress"><span class="annot"><span class="annottext">networkInterface_privateIpAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_privateIpAddress"><span class="hs-identifier hs-var hs-var">networkInterface_privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe Text)
+-&gt; (NetworkInterface -&gt; Maybe Text -&gt; NetworkInterface)
+-&gt; Lens NetworkInterface NetworkInterface (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300346"><span class="annot"><span class="annottext">Maybe Text
+privateIpAddress :: Maybe Text
+$sel:privateIpAddress:NetworkInterface' :: NetworkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679300346"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300346"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300345"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIpAddress:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateIpAddress%3ANetworkInterface%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The public IP address of the EC2 instance.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_publicIp"><span class="hs-identifier hs-type">networkInterface_publicIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="networkInterface_publicIp"><span class="annot"><span class="annottext">networkInterface_publicIp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_publicIp"><span class="hs-identifier hs-var hs-var">networkInterface_publicIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe Text)
+-&gt; (NetworkInterface -&gt; Maybe Text -&gt; NetworkInterface)
+-&gt; Lens NetworkInterface NetworkInterface (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300342"><span class="annot"><span class="annottext">Maybe Text
+publicIp :: Maybe Text
+$sel:publicIp:NetworkInterface' :: NetworkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679300342"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300342"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300341"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIp:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3ApublicIp%3ANetworkInterface%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The private DNS name of the EC2 instance.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_privateDnsName"><span class="hs-identifier hs-type">networkInterface_privateDnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="networkInterface_privateDnsName"><span class="annot"><span class="annottext">networkInterface_privateDnsName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_privateDnsName"><span class="hs-identifier hs-var hs-var">networkInterface_privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe Text)
+-&gt; (NetworkInterface -&gt; Maybe Text -&gt; NetworkInterface)
+-&gt; Lens NetworkInterface NetworkInterface (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300338"><span class="annot"><span class="annottext">Maybe Text
+privateDnsName :: Maybe Text
+$sel:privateDnsName:NetworkInterface' :: NetworkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679300338"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300338"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300337"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateDnsName:NetworkInterface' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3AprivateDnsName%3ANetworkInterface%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A list of IPv6 addresses for the EC2 instance.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_ipv6Addresses"><span class="hs-identifier hs-type">networkInterface_ipv6Addresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="networkInterface_ipv6Addresses"><span class="annot"><span class="annottext">networkInterface_ipv6Addresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; NetworkInterface -&gt; f NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#networkInterface_ipv6Addresses"><span class="hs-identifier hs-var hs-var">networkInterface_ipv6Addresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterface -&gt; Maybe [Text])
+-&gt; (NetworkInterface -&gt; Maybe [Text] -&gt; NetworkInterface)
+-&gt; Lens
+     NetworkInterface NetworkInterface (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300334"><span class="annot"><span class="annottext">Maybe [Text]
+ipv6Addresses :: Maybe [Text]
+$sel:ipv6Addresses:NetworkInterface' :: NetworkInterface -&gt; Maybe [Text]
+</span><a href="#local-6989586621679300334"><span class="hs-identifier hs-var hs-var">ipv6Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300334"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300333"><span class="annot"><span class="annottext">s :: NetworkInterface
+</span><a href="#local-6989586621679300333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-type">NetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300332"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterface
+</span><a href="#local-6989586621679300333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Addresses:NetworkInterface' :: Maybe [Text]
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#%24sel%3Aipv6Addresses%3ANetworkInterface%27"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; NetworkInterface -&gt; f NetworkInterface)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; NetworkInterface
+-&gt; f NetworkInterface
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300329"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679300327"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkInterface
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NetworkInterface)
+-&gt; Value
+-&gt; Parser NetworkInterface
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NetworkInterface&quot;</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300324"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PrivateIpAddressDetails]
+-&gt; Maybe Text
+-&gt; Maybe [SecurityGroup]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; NetworkInterface
+</span><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface%27"><span class="hs-identifier hs-var">NetworkInterface'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PrivateIpAddressDetails]
+ -&gt; Maybe Text
+ -&gt; Maybe [SecurityGroup]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; NetworkInterface)
+-&gt; Parser (Maybe [PrivateIpAddressDetails])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [SecurityGroup]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PrivateIpAddressDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateIpAddresses&quot;</span></span><span>
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PrivateIpAddressDetails]))
+-&gt; Maybe [PrivateIpAddressDetails]
+-&gt; Parser (Maybe [PrivateIpAddressDetails])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PrivateIpAddressDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [SecurityGroup]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; NetworkInterface)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [SecurityGroup]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicDnsName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [SecurityGroup]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; NetworkInterface)
+-&gt; Parser (Maybe [SecurityGroup])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SecurityGroup]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SecurityGroup]))
+-&gt; Maybe [SecurityGroup] -&gt; Parser (Maybe [SecurityGroup])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; NetworkInterface)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; NetworkInterface)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; NetworkInterface)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; NetworkInterface)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateIpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; NetworkInterface)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicIp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Text] -&gt; NetworkInterface)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; NetworkInterface)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateDnsName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; NetworkInterface)
+-&gt; Parser (Maybe [Text]) -&gt; Parser NetworkInterface
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipv6Addresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300317"><span id="local-6989586621679300319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

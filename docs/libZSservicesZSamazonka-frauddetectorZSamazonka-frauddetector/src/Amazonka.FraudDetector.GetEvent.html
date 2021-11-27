@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.GetEvent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves details of events stored with Amazon Fraud Detector. This</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- action does not retrieve prediction results.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.GetEvent</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier">GetEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#newGetEvent"><span class="hs-identifier">newGetEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEvent_eventId"><span class="hs-identifier">getEvent_eventId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEvent_eventTypeName"><span class="hs-identifier">getEvent_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier">GetEventResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#newGetEventResponse"><span class="hs-identifier">newGetEventResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEventResponse_event"><span class="hs-identifier">getEventResponse_event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEventResponse_httpStatus"><span class="hs-identifier">getEventResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html"><span class="hs-identifier">Amazonka.FraudDetector.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetEvent' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679314566"><span id="local-6989586621679314567"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEvent"><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-var">GetEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEvent%27"><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent%27"><span class="hs-identifier hs-var">GetEvent'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the event to retrieve.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AeventId%3AGetEvent%27"><span class="annot"><span class="annottext">GetEvent -&gt; Text
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AeventId%3AGetEvent%27"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The event type of the event to retrieve.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AeventTypeName%3AGetEvent%27"><span class="annot"><span class="annottext">GetEvent -&gt; Text
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AeventTypeName%3AGetEvent%27"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314559"><span id="local-6989586621679314561"><span class="annot"><span class="annottext">GetEvent -&gt; GetEvent -&gt; Bool
+(GetEvent -&gt; GetEvent -&gt; Bool)
+-&gt; (GetEvent -&gt; GetEvent -&gt; Bool) -&gt; Eq GetEvent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEvent -&gt; GetEvent -&gt; Bool
+$c/= :: GetEvent -&gt; GetEvent -&gt; Bool
+== :: GetEvent -&gt; GetEvent -&gt; Bool
+$c== :: GetEvent -&gt; GetEvent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314550"><span id="local-6989586621679314552"><span id="local-6989586621679314554"><span id="local-6989586621679314556"><span class="annot"><span class="annottext">ReadPrec [GetEvent]
+ReadPrec GetEvent
+Int -&gt; ReadS GetEvent
+ReadS [GetEvent]
+(Int -&gt; ReadS GetEvent)
+-&gt; ReadS [GetEvent]
+-&gt; ReadPrec GetEvent
+-&gt; ReadPrec [GetEvent]
+-&gt; Read GetEvent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEvent]
+$creadListPrec :: ReadPrec [GetEvent]
+readPrec :: ReadPrec GetEvent
+$creadPrec :: ReadPrec GetEvent
+readList :: ReadS [GetEvent]
+$creadList :: ReadS [GetEvent]
+readsPrec :: Int -&gt; ReadS GetEvent
+$creadsPrec :: Int -&gt; ReadS GetEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314543"><span id="local-6989586621679314545"><span id="local-6989586621679314547"><span class="annot"><span class="annottext">Int -&gt; GetEvent -&gt; ShowS
+[GetEvent] -&gt; ShowS
+GetEvent -&gt; String
+(Int -&gt; GetEvent -&gt; ShowS)
+-&gt; (GetEvent -&gt; String) -&gt; ([GetEvent] -&gt; ShowS) -&gt; Show GetEvent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEvent] -&gt; ShowS
+$cshowList :: [GetEvent] -&gt; ShowS
+show :: GetEvent -&gt; String
+$cshow :: GetEvent -&gt; String
+showsPrec :: Int -&gt; GetEvent -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEvent -&gt; Rep GetEvent x)
+-&gt; (forall x. Rep GetEvent x -&gt; GetEvent) -&gt; Generic GetEvent
+forall x. Rep GetEvent x -&gt; GetEvent
+forall x. GetEvent -&gt; Rep GetEvent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEvent x -&gt; GetEvent
+$cfrom :: forall x. GetEvent -&gt; Rep GetEvent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetEvent' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'eventId', 'getEvent_eventId' - The ID of the event to retrieve.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'eventTypeName', 'getEvent_eventTypeName' - The event type of the event to retrieve.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#newGetEvent"><span class="hs-identifier hs-type">newGetEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'eventId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'eventTypeName'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span>
+</span><span id="line-77"></span><span id="newGetEvent"><span class="annot"><span class="annottext">newGetEvent :: Text -&gt; Text -&gt; GetEvent
+</span><a href="Amazonka.FraudDetector.GetEvent.html#newGetEvent"><span class="hs-identifier hs-var hs-var">newGetEvent</span></a></span></span><span> </span><span id="local-6989586621679314538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314538"><span class="hs-identifier hs-var">pEventId_</span></a></span></span><span> </span><span id="local-6989586621679314537"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314537"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetEvent' :: Text -&gt; Text -&gt; GetEvent
+</span><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent%27"><span class="hs-identifier hs-type">GetEvent'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventId:GetEvent' :: Text
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AeventId%3AGetEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314538"><span class="hs-identifier hs-var">pEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventTypeName:GetEvent' :: Text
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AeventTypeName%3AGetEvent%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314537"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The ID of the event to retrieve.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEvent_eventId"><span class="hs-identifier hs-type">getEvent_eventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="getEvent_eventId"><span class="annot"><span class="annottext">getEvent_eventId :: (Text -&gt; f Text) -&gt; GetEvent -&gt; f GetEvent
+</span><a href="Amazonka.FraudDetector.GetEvent.html#getEvent_eventId"><span class="hs-identifier hs-var hs-var">getEvent_eventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEvent -&gt; Text)
+-&gt; (GetEvent -&gt; Text -&gt; GetEvent)
+-&gt; Lens GetEvent GetEvent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent%27"><span class="hs-identifier hs-type">GetEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314534"><span class="annot"><span class="annottext">Text
+eventId :: Text
+$sel:eventId:GetEvent' :: GetEvent -&gt; Text
+</span><a href="#local-6989586621679314534"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314534"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314533"><span class="annot"><span class="annottext">s :: GetEvent
+</span><a href="#local-6989586621679314533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent%27"><span class="hs-identifier hs-type">GetEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEvent
+</span><a href="#local-6989586621679314533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:GetEvent' :: Text
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AeventId%3AGetEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The event type of the event to retrieve.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEvent_eventTypeName"><span class="hs-identifier hs-type">getEvent_eventTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="getEvent_eventTypeName"><span class="annot"><span class="annottext">getEvent_eventTypeName :: (Text -&gt; f Text) -&gt; GetEvent -&gt; f GetEvent
+</span><a href="Amazonka.FraudDetector.GetEvent.html#getEvent_eventTypeName"><span class="hs-identifier hs-var hs-var">getEvent_eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEvent -&gt; Text)
+-&gt; (GetEvent -&gt; Text -&gt; GetEvent)
+-&gt; Lens GetEvent GetEvent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent%27"><span class="hs-identifier hs-type">GetEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314531"><span class="annot"><span class="annottext">Text
+eventTypeName :: Text
+$sel:eventTypeName:GetEvent' :: GetEvent -&gt; Text
+</span><a href="#local-6989586621679314531"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314531"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314530"><span class="annot"><span class="annottext">s :: GetEvent
+</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent%27"><span class="hs-identifier hs-type">GetEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314529"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEvent
+</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeName:GetEvent' :: Text
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AeventTypeName%3AGetEvent%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-type">GetEventResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679314525"><span class="annot"><span class="annottext">request :: GetEvent -&gt; Request GetEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEvent -&gt; Request GetEvent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679314521"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEvent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetEvent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetEvent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEvent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetEvent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314518"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314518"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314517"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314517"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314516"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Event -&gt; Int -&gt; GetEventResponse
+</span><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse%27"><span class="hs-identifier hs-var">GetEventResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Event -&gt; Int -&gt; GetEventResponse)
+-&gt; Either String (Maybe Event)
+-&gt; Either String (Int -&gt; GetEventResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Event)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;event&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetEventResponse)
+-&gt; Either String Int -&gt; Either String GetEventResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314518"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314508"><span id="local-6989586621679314510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679314501"><span class="annot"><span class="annottext">toHeaders :: GetEvent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEvent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.GetEvent&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314491"><span id="local-6989586621679314493"><span id="local-6989586621679314495"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679314489"><span class="annot"><span class="annottext">toJSON :: GetEvent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent%27"><span class="hs-identifier hs-type">GetEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314486"><span id="local-6989586621679314487"><span class="annot"><span class="annottext">Text
+eventTypeName :: Text
+eventId :: Text
+$sel:eventTypeName:GetEvent' :: GetEvent -&gt; Text
+$sel:eventId:GetEvent' :: GetEvent -&gt; Text
+</span><a href="#local-6989586621679314486"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314487"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314486"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679314480"><span class="annot"><span class="annottext">toPath :: GetEvent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetEvent -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEvent"><span class="hs-identifier hs-type">GetEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679314476"><span class="annot"><span class="annottext">toQuery :: GetEvent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEvent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newGetEventResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679314473"><span id="local-6989586621679314474"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEventResponse"><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-var">GetEventResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEventResponse%27"><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse%27"><span class="hs-identifier hs-var">GetEventResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the event.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Aevent%3AGetEventResponse%27"><span class="annot"><span class="annottext">GetEventResponse -&gt; Maybe Event
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3Aevent%3AGetEventResponse%27"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEventResponse%27"><span class="annot"><span class="annottext">GetEventResponse -&gt; Int
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AhttpStatus%3AGetEventResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314467"><span id="local-6989586621679314469"><span class="annot"><span class="annottext">GetEventResponse -&gt; GetEventResponse -&gt; Bool
+(GetEventResponse -&gt; GetEventResponse -&gt; Bool)
+-&gt; (GetEventResponse -&gt; GetEventResponse -&gt; Bool)
+-&gt; Eq GetEventResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEventResponse -&gt; GetEventResponse -&gt; Bool
+$c/= :: GetEventResponse -&gt; GetEventResponse -&gt; Bool
+== :: GetEventResponse -&gt; GetEventResponse -&gt; Bool
+$c== :: GetEventResponse -&gt; GetEventResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314461"><span id="local-6989586621679314463"><span id="local-6989586621679314465"><span class="annot"><span class="annottext">Int -&gt; GetEventResponse -&gt; ShowS
+[GetEventResponse] -&gt; ShowS
+GetEventResponse -&gt; String
+(Int -&gt; GetEventResponse -&gt; ShowS)
+-&gt; (GetEventResponse -&gt; String)
+-&gt; ([GetEventResponse] -&gt; ShowS)
+-&gt; Show GetEventResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEventResponse] -&gt; ShowS
+$cshowList :: [GetEventResponse] -&gt; ShowS
+show :: GetEventResponse -&gt; String
+$cshow :: GetEventResponse -&gt; String
+showsPrec :: Int -&gt; GetEventResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEventResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEventResponse -&gt; Rep GetEventResponse x)
+-&gt; (forall x. Rep GetEventResponse x -&gt; GetEventResponse)
+-&gt; Generic GetEventResponse
+forall x. Rep GetEventResponse x -&gt; GetEventResponse
+forall x. GetEventResponse -&gt; Rep GetEventResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEventResponse x -&gt; GetEventResponse
+$cfrom :: forall x. GetEventResponse -&gt; Rep GetEventResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'GetEventResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'event', 'getEventResponse_event' - The details of the event.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'getEventResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#newGetEventResponse"><span class="hs-identifier hs-type">newGetEventResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-type">GetEventResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newGetEventResponse"><span class="annot"><span class="annottext">newGetEventResponse :: Int -&gt; GetEventResponse
+</span><a href="Amazonka.FraudDetector.GetEvent.html#newGetEventResponse"><span class="hs-identifier hs-var hs-var">newGetEventResponse</span></a></span></span><span> </span><span id="local-6989586621679314458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">GetEventResponse' :: Maybe Event -&gt; Int -&gt; GetEventResponse
+</span><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse%27"><span class="hs-identifier hs-type">GetEventResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:event:GetEventResponse' :: Maybe Event
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3Aevent%3AGetEventResponse%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Event
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEventResponse' :: Int
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AhttpStatus%3AGetEventResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The details of the event.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEventResponse_event"><span class="hs-identifier hs-type">getEventResponse_event</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-type">GetEventResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="getEventResponse_event"><span class="annot"><span class="annottext">getEventResponse_event :: (Maybe Event -&gt; f (Maybe Event))
+-&gt; GetEventResponse -&gt; f GetEventResponse
+</span><a href="Amazonka.FraudDetector.GetEvent.html#getEventResponse_event"><span class="hs-identifier hs-var hs-var">getEventResponse_event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEventResponse -&gt; Maybe Event)
+-&gt; (GetEventResponse -&gt; Maybe Event -&gt; GetEventResponse)
+-&gt; Lens
+     GetEventResponse GetEventResponse (Maybe Event) (Maybe Event)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse%27"><span class="hs-identifier hs-type">GetEventResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314457"><span class="annot"><span class="annottext">Maybe Event
+event :: Maybe Event
+$sel:event:GetEventResponse' :: GetEventResponse -&gt; Maybe Event
+</span><a href="#local-6989586621679314457"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Event
+</span><a href="#local-6989586621679314457"><span class="hs-identifier hs-var">event</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314456"><span class="annot"><span class="annottext">s :: GetEventResponse
+</span><a href="#local-6989586621679314456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse%27"><span class="hs-identifier hs-type">GetEventResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314455"><span class="annot"><span class="annottext">Maybe Event
+</span><a href="#local-6989586621679314455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEventResponse
+</span><a href="#local-6989586621679314456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:event:GetEventResponse' :: Maybe Event
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3Aevent%3AGetEventResponse%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Event
+</span><a href="#local-6989586621679314455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-type">GetEventResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#getEventResponse_httpStatus"><span class="hs-identifier hs-type">getEventResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-type">GetEventResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="getEventResponse_httpStatus"><span class="annot"><span class="annottext">getEventResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetEventResponse -&gt; f GetEventResponse
+</span><a href="Amazonka.FraudDetector.GetEvent.html#getEventResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getEventResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEventResponse -&gt; Int)
+-&gt; (GetEventResponse -&gt; Int -&gt; GetEventResponse)
+-&gt; Lens GetEventResponse GetEventResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse%27"><span class="hs-identifier hs-type">GetEventResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314454"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetEventResponse' :: GetEventResponse -&gt; Int
+</span><a href="#local-6989586621679314454"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314454"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314453"><span class="annot"><span class="annottext">s :: GetEventResponse
+</span><a href="#local-6989586621679314453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse%27"><span class="hs-identifier hs-type">GetEventResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314452"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEventResponse
+</span><a href="#local-6989586621679314453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEventResponse' :: Int
+</span><a href="Amazonka.FraudDetector.GetEvent.html#%24sel%3AhttpStatus%3AGetEventResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-type">GetEventResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetEvent.html#GetEventResponse"><span class="hs-identifier hs-type">GetEventResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

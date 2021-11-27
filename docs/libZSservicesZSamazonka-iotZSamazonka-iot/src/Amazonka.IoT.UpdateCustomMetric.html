@@ -1,0 +1,770 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.UpdateCustomMetric</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a Device Defender detect custom metric.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateCustomMetric&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.UpdateCustomMetric</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier">UpdateCustomMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#newUpdateCustomMetric"><span class="hs-identifier">newUpdateCustomMetric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetric_metricName"><span class="hs-identifier">updateCustomMetric_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetric_displayName"><span class="hs-identifier">updateCustomMetric_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier">UpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#newUpdateCustomMetricResponse"><span class="hs-identifier">newUpdateCustomMetricResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricType"><span class="hs-identifier">updateCustomMetricResponse_metricType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_lastModifiedDate"><span class="hs-identifier">updateCustomMetricResponse_lastModifiedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricName"><span class="hs-identifier">updateCustomMetricResponse_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_displayName"><span class="hs-identifier">updateCustomMetricResponse_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_creationDate"><span class="hs-identifier">updateCustomMetricResponse_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricArn"><span class="hs-identifier">updateCustomMetricResponse_metricArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_httpStatus"><span class="hs-identifier">updateCustomMetricResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newUpdateCustomMetric' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679858942"><span id="local-6989586621679858943"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCustomMetric"><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-var">UpdateCustomMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCustomMetric%27"><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-var">UpdateCustomMetric'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the custom metric. Cannot be updated.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmetricName%3AUpdateCustomMetric%27"><span class="annot"><span class="annottext">UpdateCustomMetric -&gt; Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricName%3AUpdateCustomMetric%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Field represents a friendly name in the console for the custom metric,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- it doesn\'t have to be unique. Don\'t use this name as the metric</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- identifier in the device metric report. Can be updated.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateCustomMetric%27"><span class="annot"><span class="annottext">UpdateCustomMetric -&gt; Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AdisplayName%3AUpdateCustomMetric%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858935"><span id="local-6989586621679858937"><span class="annot"><span class="annottext">UpdateCustomMetric -&gt; UpdateCustomMetric -&gt; Bool
+(UpdateCustomMetric -&gt; UpdateCustomMetric -&gt; Bool)
+-&gt; (UpdateCustomMetric -&gt; UpdateCustomMetric -&gt; Bool)
+-&gt; Eq UpdateCustomMetric
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCustomMetric -&gt; UpdateCustomMetric -&gt; Bool
+$c/= :: UpdateCustomMetric -&gt; UpdateCustomMetric -&gt; Bool
+== :: UpdateCustomMetric -&gt; UpdateCustomMetric -&gt; Bool
+$c== :: UpdateCustomMetric -&gt; UpdateCustomMetric -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858926"><span id="local-6989586621679858928"><span id="local-6989586621679858930"><span id="local-6989586621679858932"><span class="annot"><span class="annottext">ReadPrec [UpdateCustomMetric]
+ReadPrec UpdateCustomMetric
+Int -&gt; ReadS UpdateCustomMetric
+ReadS [UpdateCustomMetric]
+(Int -&gt; ReadS UpdateCustomMetric)
+-&gt; ReadS [UpdateCustomMetric]
+-&gt; ReadPrec UpdateCustomMetric
+-&gt; ReadPrec [UpdateCustomMetric]
+-&gt; Read UpdateCustomMetric
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCustomMetric]
+$creadListPrec :: ReadPrec [UpdateCustomMetric]
+readPrec :: ReadPrec UpdateCustomMetric
+$creadPrec :: ReadPrec UpdateCustomMetric
+readList :: ReadS [UpdateCustomMetric]
+$creadList :: ReadS [UpdateCustomMetric]
+readsPrec :: Int -&gt; ReadS UpdateCustomMetric
+$creadsPrec :: Int -&gt; ReadS UpdateCustomMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858919"><span id="local-6989586621679858921"><span id="local-6989586621679858923"><span class="annot"><span class="annottext">Int -&gt; UpdateCustomMetric -&gt; ShowS
+[UpdateCustomMetric] -&gt; ShowS
+UpdateCustomMetric -&gt; String
+(Int -&gt; UpdateCustomMetric -&gt; ShowS)
+-&gt; (UpdateCustomMetric -&gt; String)
+-&gt; ([UpdateCustomMetric] -&gt; ShowS)
+-&gt; Show UpdateCustomMetric
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCustomMetric] -&gt; ShowS
+$cshowList :: [UpdateCustomMetric] -&gt; ShowS
+show :: UpdateCustomMetric -&gt; String
+$cshow :: UpdateCustomMetric -&gt; String
+showsPrec :: Int -&gt; UpdateCustomMetric -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCustomMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateCustomMetric -&gt; Rep UpdateCustomMetric x)
+-&gt; (forall x. Rep UpdateCustomMetric x -&gt; UpdateCustomMetric)
+-&gt; Generic UpdateCustomMetric
+forall x. Rep UpdateCustomMetric x -&gt; UpdateCustomMetric
+forall x. UpdateCustomMetric -&gt; Rep UpdateCustomMetric x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateCustomMetric x -&gt; UpdateCustomMetric
+$cfrom :: forall x. UpdateCustomMetric -&gt; Rep UpdateCustomMetric x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'UpdateCustomMetric' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'metricName', 'updateCustomMetric_metricName' - The name of the custom metric. Cannot be updated.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'displayName', 'updateCustomMetric_displayName' - Field represents a friendly name in the console for the custom metric,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- it doesn\'t have to be unique. Don\'t use this name as the metric</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- identifier in the device metric report. Can be updated.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#newUpdateCustomMetric"><span class="hs-identifier hs-type">newUpdateCustomMetric</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'metricName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'displayName'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span>
+</span><span id="line-89"></span><span id="newUpdateCustomMetric"><span class="annot"><span class="annottext">newUpdateCustomMetric :: Text -&gt; Text -&gt; UpdateCustomMetric
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#newUpdateCustomMetric"><span class="hs-identifier hs-var hs-var">newUpdateCustomMetric</span></a></span></span><span> </span><span id="local-6989586621679858914"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858914"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span id="local-6989586621679858913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858913"><span class="hs-identifier hs-var">pDisplayName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">UpdateCustomMetric' :: Text -&gt; Text -&gt; UpdateCustomMetric
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-type">UpdateCustomMetric'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricName:UpdateCustomMetric' :: Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricName%3AUpdateCustomMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858914"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:UpdateCustomMetric' :: Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AdisplayName%3AUpdateCustomMetric%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858913"><span class="hs-identifier hs-var">pDisplayName_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the custom metric. Cannot be updated.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetric_metricName"><span class="hs-identifier hs-type">updateCustomMetric_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="updateCustomMetric_metricName"><span class="annot"><span class="annottext">updateCustomMetric_metricName :: (Text -&gt; f Text) -&gt; UpdateCustomMetric -&gt; f UpdateCustomMetric
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetric_metricName"><span class="hs-identifier hs-var hs-var">updateCustomMetric_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetric -&gt; Text)
+-&gt; (UpdateCustomMetric -&gt; Text -&gt; UpdateCustomMetric)
+-&gt; Lens UpdateCustomMetric UpdateCustomMetric Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-type">UpdateCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858910"><span class="annot"><span class="annottext">Text
+metricName :: Text
+$sel:metricName:UpdateCustomMetric' :: UpdateCustomMetric -&gt; Text
+</span><a href="#local-6989586621679858910"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858910"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858909"><span class="annot"><span class="annottext">s :: UpdateCustomMetric
+</span><a href="#local-6989586621679858909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-type">UpdateCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858908"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetric
+</span><a href="#local-6989586621679858909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:UpdateCustomMetric' :: Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricName%3AUpdateCustomMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Field represents a friendly name in the console for the custom metric,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- it doesn\'t have to be unique. Don\'t use this name as the metric</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- identifier in the device metric report. Can be updated.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetric_displayName"><span class="hs-identifier hs-type">updateCustomMetric_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="updateCustomMetric_displayName"><span class="annot"><span class="annottext">updateCustomMetric_displayName :: (Text -&gt; f Text) -&gt; UpdateCustomMetric -&gt; f UpdateCustomMetric
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetric_displayName"><span class="hs-identifier hs-var hs-var">updateCustomMetric_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetric -&gt; Text)
+-&gt; (UpdateCustomMetric -&gt; Text -&gt; UpdateCustomMetric)
+-&gt; Lens UpdateCustomMetric UpdateCustomMetric Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-type">UpdateCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858907"><span class="annot"><span class="annottext">Text
+displayName :: Text
+$sel:displayName:UpdateCustomMetric' :: UpdateCustomMetric -&gt; Text
+</span><a href="#local-6989586621679858907"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858907"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858906"><span class="annot"><span class="annottext">s :: UpdateCustomMetric
+</span><a href="#local-6989586621679858906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-type">UpdateCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetric
+</span><a href="#local-6989586621679858906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateCustomMetric' :: Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AdisplayName%3AUpdateCustomMetric%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679858901"><span class="annot"><span class="annottext">request :: UpdateCustomMetric -&gt; Request UpdateCustomMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateCustomMetric -&gt; Request UpdateCustomMetric
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679858897"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateCustomMetric
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCustomMetric)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateCustomMetric))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateCustomMetric
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCustomMetric)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679858894"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858894"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679858893"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679858893"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679858892"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679858892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomMetricType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">UpdateCustomMetricResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomMetricType
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateCustomMetricResponse)
+-&gt; Either String (Maybe CustomMetricType)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateCustomMetricResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679858892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CustomMetricType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateCustomMetricResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateCustomMetricResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679858892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateCustomMetricResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateCustomMetricResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679858892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateCustomMetricResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateCustomMetricResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679858892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateCustomMetricResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateCustomMetricResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679858892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateCustomMetricResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateCustomMetricResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679858892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateCustomMetricResponse)
+-&gt; Either String Int -&gt; Either String UpdateCustomMetricResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858894"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858884"><span id="local-6989586621679858886"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679858877"><span class="annot"><span class="annottext">toHeaders :: UpdateCustomMetric -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateCustomMetric -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858868"><span id="local-6989586621679858870"><span id="local-6989586621679858872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679858866"><span class="annot"><span class="annottext">toJSON :: UpdateCustomMetric -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-type">UpdateCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858863"><span id="local-6989586621679858864"><span class="annot"><span class="annottext">Text
+displayName :: Text
+metricName :: Text
+$sel:displayName:UpdateCustomMetric' :: UpdateCustomMetric -&gt; Text
+$sel:metricName:UpdateCustomMetric' :: UpdateCustomMetric -&gt; Text
+</span><a href="#local-6989586621679858863"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858863"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679858857"><span class="annot"><span class="annottext">toPath :: UpdateCustomMetric -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric%27"><span class="hs-identifier hs-type">UpdateCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858854"><span id="local-6989586621679858855"><span class="annot"><span class="annottext">Text
+displayName :: Text
+metricName :: Text
+$sel:displayName:UpdateCustomMetric' :: UpdateCustomMetric -&gt; Text
+$sel:metricName:UpdateCustomMetric' :: UpdateCustomMetric -&gt; Text
+</span><a href="#local-6989586621679858854"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/custom-metric/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858855"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetric"><span class="hs-identifier hs-type">UpdateCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679858850"><span class="annot"><span class="annottext">toQuery :: UpdateCustomMetric -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCustomMetric -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newUpdateCustomMetricResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679858847"><span id="local-6989586621679858848"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCustomMetricResponse"><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-var">UpdateCustomMetricResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCustomMetricResponse%27"><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">UpdateCustomMetricResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the custom metric. Types include @string-list@,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- @ip-address-list@, @number-list@, and @number@.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AmetricType%3AUpdateCustomMetricResponse%27"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; Maybe CustomMetricType
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricType%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">metricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CustomMetricType.html#CustomMetricType"><span class="hs-identifier hs-type">CustomMetricType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The time the custom metric was last modified in milliseconds since</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- epoch.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AUpdateCustomMetricResponse%27"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AlastModifiedDate%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The name of the custom metric.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AmetricName%3AUpdateCustomMetricResponse%27"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricName%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | A friendly name in the console for the custom metric</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateCustomMetricResponse%27"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AdisplayName%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The creation date of the custom metric in milliseconds since epoch.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AcreationDate%3AUpdateCustomMetricResponse%27"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AcreationDate%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the custom metric.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AmetricArn%3AUpdateCustomMetricResponse%27"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricArn%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">metricArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateCustomMetricResponse%27"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; Int
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AhttpStatus%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858836"><span id="local-6989586621679858838"><span class="annot"><span class="annottext">UpdateCustomMetricResponse -&gt; UpdateCustomMetricResponse -&gt; Bool
+(UpdateCustomMetricResponse -&gt; UpdateCustomMetricResponse -&gt; Bool)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; UpdateCustomMetricResponse -&gt; Bool)
+-&gt; Eq UpdateCustomMetricResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCustomMetricResponse -&gt; UpdateCustomMetricResponse -&gt; Bool
+$c/= :: UpdateCustomMetricResponse -&gt; UpdateCustomMetricResponse -&gt; Bool
+== :: UpdateCustomMetricResponse -&gt; UpdateCustomMetricResponse -&gt; Bool
+$c== :: UpdateCustomMetricResponse -&gt; UpdateCustomMetricResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858828"><span id="local-6989586621679858830"><span id="local-6989586621679858832"><span id="local-6989586621679858834"><span class="annot"><span class="annottext">ReadPrec [UpdateCustomMetricResponse]
+ReadPrec UpdateCustomMetricResponse
+Int -&gt; ReadS UpdateCustomMetricResponse
+ReadS [UpdateCustomMetricResponse]
+(Int -&gt; ReadS UpdateCustomMetricResponse)
+-&gt; ReadS [UpdateCustomMetricResponse]
+-&gt; ReadPrec UpdateCustomMetricResponse
+-&gt; ReadPrec [UpdateCustomMetricResponse]
+-&gt; Read UpdateCustomMetricResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCustomMetricResponse]
+$creadListPrec :: ReadPrec [UpdateCustomMetricResponse]
+readPrec :: ReadPrec UpdateCustomMetricResponse
+$creadPrec :: ReadPrec UpdateCustomMetricResponse
+readList :: ReadS [UpdateCustomMetricResponse]
+$creadList :: ReadS [UpdateCustomMetricResponse]
+readsPrec :: Int -&gt; ReadS UpdateCustomMetricResponse
+$creadsPrec :: Int -&gt; ReadS UpdateCustomMetricResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858822"><span id="local-6989586621679858824"><span id="local-6989586621679858826"><span class="annot"><span class="annottext">Int -&gt; UpdateCustomMetricResponse -&gt; ShowS
+[UpdateCustomMetricResponse] -&gt; ShowS
+UpdateCustomMetricResponse -&gt; String
+(Int -&gt; UpdateCustomMetricResponse -&gt; ShowS)
+-&gt; (UpdateCustomMetricResponse -&gt; String)
+-&gt; ([UpdateCustomMetricResponse] -&gt; ShowS)
+-&gt; Show UpdateCustomMetricResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCustomMetricResponse] -&gt; ShowS
+$cshowList :: [UpdateCustomMetricResponse] -&gt; ShowS
+show :: UpdateCustomMetricResponse -&gt; String
+$cshow :: UpdateCustomMetricResponse -&gt; String
+showsPrec :: Int -&gt; UpdateCustomMetricResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCustomMetricResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateCustomMetricResponse -&gt; Rep UpdateCustomMetricResponse x)
+-&gt; (forall x.
+    Rep UpdateCustomMetricResponse x -&gt; UpdateCustomMetricResponse)
+-&gt; Generic UpdateCustomMetricResponse
+forall x.
+Rep UpdateCustomMetricResponse x -&gt; UpdateCustomMetricResponse
+forall x.
+UpdateCustomMetricResponse -&gt; Rep UpdateCustomMetricResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateCustomMetricResponse x -&gt; UpdateCustomMetricResponse
+$cfrom :: forall x.
+UpdateCustomMetricResponse -&gt; Rep UpdateCustomMetricResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'UpdateCustomMetricResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'metricType', 'updateCustomMetricResponse_metricType' - The type of the custom metric. Types include @string-list@,</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- @ip-address-list@, @number-list@, and @number@.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'lastModifiedDate', 'updateCustomMetricResponse_lastModifiedDate' - The time the custom metric was last modified in milliseconds since</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- epoch.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'metricName', 'updateCustomMetricResponse_metricName' - The name of the custom metric.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'displayName', 'updateCustomMetricResponse_displayName' - A friendly name in the console for the custom metric</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'creationDate', 'updateCustomMetricResponse_creationDate' - The creation date of the custom metric in milliseconds since epoch.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'metricArn', 'updateCustomMetricResponse_metricArn' - The Amazon Resource Number (ARN) of the custom metric.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'updateCustomMetricResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#newUpdateCustomMetricResponse"><span class="hs-identifier hs-type">newUpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newUpdateCustomMetricResponse"><span class="annot"><span class="annottext">newUpdateCustomMetricResponse :: Int -&gt; UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#newUpdateCustomMetricResponse"><span class="hs-identifier hs-var hs-var">newUpdateCustomMetricResponse</span></a></span></span><span> </span><span id="local-6989586621679858819"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse' :: Maybe CustomMetricType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricType:UpdateCustomMetricResponse' :: Maybe CustomMetricType
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricType%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">metricType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe CustomMetricType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:UpdateCustomMetricResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AlastModifiedDate%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:UpdateCustomMetricResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricName%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:UpdateCustomMetricResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AdisplayName%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:UpdateCustomMetricResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AcreationDate%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricArn:UpdateCustomMetricResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricArn%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">metricArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCustomMetricResponse' :: Int
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AhttpStatus%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The type of the custom metric. Types include @string-list@,</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- @ip-address-list@, @number-list@, and @number@.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricType"><span class="hs-identifier hs-type">updateCustomMetricResponse_metricType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.CustomMetricType.html#CustomMetricType"><span class="hs-identifier hs-type">CustomMetricType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="updateCustomMetricResponse_metricType"><span class="annot"><span class="annottext">updateCustomMetricResponse_metricType :: (Maybe CustomMetricType -&gt; f (Maybe CustomMetricType))
+-&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricType"><span class="hs-identifier hs-var hs-var">updateCustomMetricResponse_metricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetricResponse -&gt; Maybe CustomMetricType)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; Maybe CustomMetricType -&gt; UpdateCustomMetricResponse)
+-&gt; Lens
+     UpdateCustomMetricResponse
+     UpdateCustomMetricResponse
+     (Maybe CustomMetricType)
+     (Maybe CustomMetricType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858818"><span class="annot"><span class="annottext">Maybe CustomMetricType
+metricType :: Maybe CustomMetricType
+$sel:metricType:UpdateCustomMetricResponse' :: UpdateCustomMetricResponse -&gt; Maybe CustomMetricType
+</span><a href="#local-6989586621679858818"><span class="hs-identifier hs-var hs-var">metricType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomMetricType
+</span><a href="#local-6989586621679858818"><span class="hs-identifier hs-var">metricType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858817"><span class="annot"><span class="annottext">s :: UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858816"><span class="annot"><span class="annottext">Maybe CustomMetricType
+</span><a href="#local-6989586621679858816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricType:UpdateCustomMetricResponse' :: Maybe CustomMetricType
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricType%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">metricType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomMetricType
+</span><a href="#local-6989586621679858816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The time the custom metric was last modified in milliseconds since</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- epoch.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_lastModifiedDate"><span class="hs-identifier hs-type">updateCustomMetricResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="updateCustomMetricResponse_lastModifiedDate"><span class="annot"><span class="annottext">updateCustomMetricResponse_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">updateCustomMetricResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetricResponse -&gt; Maybe POSIX)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; Maybe POSIX -&gt; UpdateCustomMetricResponse)
+-&gt; Lens
+     UpdateCustomMetricResponse
+     UpdateCustomMetricResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858815"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:UpdateCustomMetricResponse' :: UpdateCustomMetricResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679858815"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858815"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858814"><span class="annot"><span class="annottext">s :: UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858813"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:UpdateCustomMetricResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AlastModifiedDate%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateCustomMetricResponse
+-&gt; f UpdateCustomMetricResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The name of the custom metric.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricName"><span class="hs-identifier hs-type">updateCustomMetricResponse_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="updateCustomMetricResponse_metricName"><span class="annot"><span class="annottext">updateCustomMetricResponse_metricName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricName"><span class="hs-identifier hs-var hs-var">updateCustomMetricResponse_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetricResponse -&gt; Maybe Text)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; Maybe Text -&gt; UpdateCustomMetricResponse)
+-&gt; Lens
+     UpdateCustomMetricResponse
+     UpdateCustomMetricResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858809"><span class="annot"><span class="annottext">Maybe Text
+metricName :: Maybe Text
+$sel:metricName:UpdateCustomMetricResponse' :: UpdateCustomMetricResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679858809"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858809"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858808"><span class="annot"><span class="annottext">s :: UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858807"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:UpdateCustomMetricResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricName%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | A friendly name in the console for the custom metric</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_displayName"><span class="hs-identifier hs-type">updateCustomMetricResponse_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="updateCustomMetricResponse_displayName"><span class="annot"><span class="annottext">updateCustomMetricResponse_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_displayName"><span class="hs-identifier hs-var hs-var">updateCustomMetricResponse_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetricResponse -&gt; Maybe Text)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; Maybe Text -&gt; UpdateCustomMetricResponse)
+-&gt; Lens
+     UpdateCustomMetricResponse
+     UpdateCustomMetricResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858806"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:UpdateCustomMetricResponse' :: UpdateCustomMetricResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679858806"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858806"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858805"><span class="annot"><span class="annottext">s :: UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858804"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateCustomMetricResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AdisplayName%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The creation date of the custom metric in milliseconds since epoch.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_creationDate"><span class="hs-identifier hs-type">updateCustomMetricResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="updateCustomMetricResponse_creationDate"><span class="annot"><span class="annottext">updateCustomMetricResponse_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_creationDate"><span class="hs-identifier hs-var hs-var">updateCustomMetricResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetricResponse -&gt; Maybe POSIX)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; Maybe POSIX -&gt; UpdateCustomMetricResponse)
+-&gt; Lens
+     UpdateCustomMetricResponse
+     UpdateCustomMetricResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858803"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:UpdateCustomMetricResponse' :: UpdateCustomMetricResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679858803"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858803"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858802"><span class="annot"><span class="annottext">s :: UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858801"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:UpdateCustomMetricResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AcreationDate%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateCustomMetricResponse
+-&gt; f UpdateCustomMetricResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the custom metric.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricArn"><span class="hs-identifier hs-type">updateCustomMetricResponse_metricArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="updateCustomMetricResponse_metricArn"><span class="annot"><span class="annottext">updateCustomMetricResponse_metricArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_metricArn"><span class="hs-identifier hs-var hs-var">updateCustomMetricResponse_metricArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetricResponse -&gt; Maybe Text)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; Maybe Text -&gt; UpdateCustomMetricResponse)
+-&gt; Lens
+     UpdateCustomMetricResponse
+     UpdateCustomMetricResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858800"><span class="annot"><span class="annottext">Maybe Text
+metricArn :: Maybe Text
+$sel:metricArn:UpdateCustomMetricResponse' :: UpdateCustomMetricResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679858800"><span class="hs-identifier hs-var hs-var">metricArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858800"><span class="hs-identifier hs-var">metricArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858799"><span class="annot"><span class="annottext">s :: UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858798"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricArn:UpdateCustomMetricResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AmetricArn%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">metricArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_httpStatus"><span class="hs-identifier hs-type">updateCustomMetricResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="updateCustomMetricResponse_httpStatus"><span class="annot"><span class="annottext">updateCustomMetricResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateCustomMetricResponse -&gt; f UpdateCustomMetricResponse
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#updateCustomMetricResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateCustomMetricResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCustomMetricResponse -&gt; Int)
+-&gt; (UpdateCustomMetricResponse
+    -&gt; Int -&gt; UpdateCustomMetricResponse)
+-&gt; Lens
+     UpdateCustomMetricResponse UpdateCustomMetricResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858797"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateCustomMetricResponse' :: UpdateCustomMetricResponse -&gt; Int
+</span><a href="#local-6989586621679858797"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858797"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858796"><span class="annot"><span class="annottext">s :: UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse%27"><span class="hs-identifier hs-type">UpdateCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858795"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCustomMetricResponse
+</span><a href="#local-6989586621679858796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCustomMetricResponse' :: Int
+</span><a href="Amazonka.IoT.UpdateCustomMetric.html#%24sel%3AhttpStatus%3AUpdateCustomMetricResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateCustomMetric.html#UpdateCustomMetricResponse"><span class="hs-identifier hs-type">UpdateCustomMetricResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

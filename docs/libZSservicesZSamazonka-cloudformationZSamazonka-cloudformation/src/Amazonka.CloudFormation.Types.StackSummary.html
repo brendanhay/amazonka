@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.Types.StackSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.Types.StackSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackDriftInformationSummary.html"><span class="hs-identifier">Amazonka.CloudFormation.Types.StackDriftInformationSummary</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html"><span class="hs-identifier">Amazonka.CloudFormation.Types.StackStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The StackSummary Data Type</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStackSummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679426170"><span id="local-6989586621679426171"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackSummary"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-var">StackSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackSummary%27"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-var">StackSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the stack was last updated. This field will only be returned if</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the stack has been updated at least once.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AlastUpdatedTime%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | For nested stacks--stacks created as resources for another stack--the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- stack ID of the top-level stack to which the nested stack ultimately</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- belongs.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks&gt;</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArootId%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3ArootId%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">rootId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Success\/Failure message associated with the stack status.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstackStatusReason%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackStatusReason%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">stackStatusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The template description of the template used to create the stack.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AtemplateDescription%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AtemplateDescription%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Summarizes information on whether a stack\'s actual configuration</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- differs, or has /drifted/, from it\'s expected configuration, as defined</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- in the stack template and any values specified as template parameters.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources&gt;.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdriftInformation%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe StackDriftInformationSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AdriftInformation%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">driftInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackDriftInformationSummary.html#StackDriftInformationSummary"><span class="hs-identifier hs-type">StackDriftInformationSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The time the stack was deleted.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeletionTime%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AdeletionTime%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">deletionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Unique stack identifier.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AstackId%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackId%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | For nested stacks--stacks created as resources for another stack--the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- stack ID of the direct parent of this stack. For the first level of</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- nested stacks, the root stack is also the parent stack.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks&gt;</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AparentId%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AparentId%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">parentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name associated with the stack.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AstackName%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackName%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The time the stack was created.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AcreationTime%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AcreationTime%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The current status of the stack.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AstackStatus%3AStackSummary%27"><span class="annot"><span class="annottext">StackSummary -&gt; StackStatus
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackStatus%3AStackSummary%27"><span class="hs-identifier hs-var hs-var">stackStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426154"><span id="local-6989586621679426156"><span class="annot"><span class="annottext">StackSummary -&gt; StackSummary -&gt; Bool
+(StackSummary -&gt; StackSummary -&gt; Bool)
+-&gt; (StackSummary -&gt; StackSummary -&gt; Bool) -&gt; Eq StackSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackSummary -&gt; StackSummary -&gt; Bool
+$c/= :: StackSummary -&gt; StackSummary -&gt; Bool
+== :: StackSummary -&gt; StackSummary -&gt; Bool
+$c== :: StackSummary -&gt; StackSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426145"><span id="local-6989586621679426147"><span id="local-6989586621679426149"><span id="local-6989586621679426151"><span class="annot"><span class="annottext">ReadPrec [StackSummary]
+ReadPrec StackSummary
+Int -&gt; ReadS StackSummary
+ReadS [StackSummary]
+(Int -&gt; ReadS StackSummary)
+-&gt; ReadS [StackSummary]
+-&gt; ReadPrec StackSummary
+-&gt; ReadPrec [StackSummary]
+-&gt; Read StackSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackSummary]
+$creadListPrec :: ReadPrec [StackSummary]
+readPrec :: ReadPrec StackSummary
+$creadPrec :: ReadPrec StackSummary
+readList :: ReadS [StackSummary]
+$creadList :: ReadS [StackSummary]
+readsPrec :: Int -&gt; ReadS StackSummary
+$creadsPrec :: Int -&gt; ReadS StackSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426138"><span id="local-6989586621679426140"><span id="local-6989586621679426142"><span class="annot"><span class="annottext">Int -&gt; StackSummary -&gt; ShowS
+[StackSummary] -&gt; ShowS
+StackSummary -&gt; String
+(Int -&gt; StackSummary -&gt; ShowS)
+-&gt; (StackSummary -&gt; String)
+-&gt; ([StackSummary] -&gt; ShowS)
+-&gt; Show StackSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackSummary] -&gt; ShowS
+$cshowList :: [StackSummary] -&gt; ShowS
+show :: StackSummary -&gt; String
+$cshow :: StackSummary -&gt; String
+showsPrec :: Int -&gt; StackSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StackSummary -&gt; Rep StackSummary x)
+-&gt; (forall x. Rep StackSummary x -&gt; StackSummary)
+-&gt; Generic StackSummary
+forall x. Rep StackSummary x -&gt; StackSummary
+forall x. StackSummary -&gt; Rep StackSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackSummary x -&gt; StackSummary
+$cfrom :: forall x. StackSummary -&gt; Rep StackSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'StackSummary' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'lastUpdatedTime', 'stackSummary_lastUpdatedTime' - The time the stack was last updated. This field will only be returned if</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- the stack has been updated at least once.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'rootId', 'stackSummary_rootId' - For nested stacks--stacks created as resources for another stack--the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- stack ID of the top-level stack to which the nested stack ultimately</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- belongs.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'stackStatusReason', 'stackSummary_stackStatusReason' - Success\/Failure message associated with the stack status.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'templateDescription', 'stackSummary_templateDescription' - The template description of the template used to create the stack.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'driftInformation', 'stackSummary_driftInformation' - Summarizes information on whether a stack\'s actual configuration</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- differs, or has /drifted/, from it\'s expected configuration, as defined</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- in the stack template and any values specified as template parameters.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources&gt;.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'deletionTime', 'stackSummary_deletionTime' - The time the stack was deleted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'stackId', 'stackSummary_stackId' - Unique stack identifier.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'parentId', 'stackSummary_parentId' - For nested stacks--stacks created as resources for another stack--the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- stack ID of the direct parent of this stack. For the first level of</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- nested stacks, the root stack is also the parent stack.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks&gt;</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'stackName', 'stackSummary_stackName' - The name associated with the stack.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'creationTime', 'stackSummary_creationTime' - The time the stack was created.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'stackStatus', 'stackSummary_stackStatus' - The current status of the stack.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#newStackSummary"><span class="hs-identifier hs-type">newStackSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'stackName'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'creationTime'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'stackStatus'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span>
+</span><span id="line-128"></span><span id="newStackSummary"><span class="annot"><span class="annottext">newStackSummary :: Text -&gt; UTCTime -&gt; StackStatus -&gt; StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#newStackSummary"><span class="hs-identifier hs-var hs-var">newStackSummary</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679426132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426132"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679426131"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679426131"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679426130"><span class="annot"><span class="annottext">StackStatus
+</span><a href="#local-6989586621679426130"><span class="hs-identifier hs-var">pStackStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">StackSummary' :: Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe StackDriftInformationSummary
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; StackStatus
+-&gt; StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:StackSummary' :: Maybe ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AlastUpdatedTime%3AStackSummary%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:rootId:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3ArootId%3AStackSummary%27"><span class="hs-identifier hs-var">rootId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackStatusReason:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackStatusReason%3AStackSummary%27"><span class="hs-identifier hs-var">stackStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateDescription:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AtemplateDescription%3AStackSummary%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:driftInformation:StackSummary' :: Maybe StackDriftInformationSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AdriftInformation%3AStackSummary%27"><span class="hs-identifier hs-var">driftInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftInformationSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:deletionTime:StackSummary' :: Maybe ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AdeletionTime%3AStackSummary%27"><span class="hs-identifier hs-var">deletionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackId:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackId%3AStackSummary%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:parentId:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AparentId%3AStackSummary%27"><span class="hs-identifier hs-var">parentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackName:StackSummary' :: Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackName%3AStackSummary%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426132"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:StackSummary' :: ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AcreationTime%3AStackSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679426131"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackStatus:StackSummary' :: StackStatus
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackStatus%3AStackSummary%27"><span class="hs-identifier hs-var">stackStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StackStatus
+</span><a href="#local-6989586621679426130"><span class="hs-identifier hs-var">pStackStatus_</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The time the stack was last updated. This field will only be returned if</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the stack has been updated at least once.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_lastUpdatedTime"><span class="hs-identifier hs-type">stackSummary_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="stackSummary_lastUpdatedTime"><span class="annot"><span class="annottext">stackSummary_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">stackSummary_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe ISO8601)
+-&gt; (StackSummary -&gt; Maybe ISO8601 -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426124"><span class="annot"><span class="annottext">Maybe ISO8601
+lastUpdatedTime :: Maybe ISO8601
+$sel:lastUpdatedTime:StackSummary' :: StackSummary -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679426124"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426124"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426123"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426122"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:StackSummary' :: Maybe ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AlastUpdatedTime%3AStackSummary%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; StackSummary -&gt; f StackSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StackSummary
+-&gt; f StackSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | For nested stacks--stacks created as resources for another stack--the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- stack ID of the top-level stack to which the nested stack ultimately</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- belongs.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks&gt;</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_rootId"><span class="hs-identifier hs-type">stackSummary_rootId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="stackSummary_rootId"><span class="annot"><span class="annottext">stackSummary_rootId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_rootId"><span class="hs-identifier hs-var hs-var">stackSummary_rootId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe Text)
+-&gt; (StackSummary -&gt; Maybe Text -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426118"><span class="annot"><span class="annottext">Maybe Text
+rootId :: Maybe Text
+$sel:rootId:StackSummary' :: StackSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679426118"><span class="hs-identifier hs-var hs-var">rootId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426118"><span class="hs-identifier hs-var">rootId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426117"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426116"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootId:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3ArootId%3AStackSummary%27"><span class="hs-identifier hs-var">rootId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Success\/Failure message associated with the stack status.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackStatusReason"><span class="hs-identifier hs-type">stackSummary_stackStatusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="stackSummary_stackStatusReason"><span class="annot"><span class="annottext">stackSummary_stackStatusReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackStatusReason"><span class="hs-identifier hs-var hs-var">stackSummary_stackStatusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe Text)
+-&gt; (StackSummary -&gt; Maybe Text -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426114"><span class="annot"><span class="annottext">Maybe Text
+stackStatusReason :: Maybe Text
+$sel:stackStatusReason:StackSummary' :: StackSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679426114"><span class="hs-identifier hs-var hs-var">stackStatusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426114"><span class="hs-identifier hs-var">stackStatusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426113"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426112"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackStatusReason:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackStatusReason%3AStackSummary%27"><span class="hs-identifier hs-var">stackStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The template description of the template used to create the stack.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_templateDescription"><span class="hs-identifier hs-type">stackSummary_templateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="stackSummary_templateDescription"><span class="annot"><span class="annottext">stackSummary_templateDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_templateDescription"><span class="hs-identifier hs-var hs-var">stackSummary_templateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe Text)
+-&gt; (StackSummary -&gt; Maybe Text -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426110"><span class="annot"><span class="annottext">Maybe Text
+templateDescription :: Maybe Text
+$sel:templateDescription:StackSummary' :: StackSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679426110"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426110"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426109"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateDescription:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AtemplateDescription%3AStackSummary%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Summarizes information on whether a stack\'s actual configuration</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- differs, or has /drifted/, from it\'s expected configuration, as defined</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- in the stack template and any values specified as template parameters.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources&gt;.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_driftInformation"><span class="hs-identifier hs-type">stackSummary_driftInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackDriftInformationSummary.html#StackDriftInformationSummary"><span class="hs-identifier hs-type">StackDriftInformationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="stackSummary_driftInformation"><span class="annot"><span class="annottext">stackSummary_driftInformation :: (Maybe StackDriftInformationSummary
+ -&gt; f (Maybe StackDriftInformationSummary))
+-&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_driftInformation"><span class="hs-identifier hs-var hs-var">stackSummary_driftInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe StackDriftInformationSummary)
+-&gt; (StackSummary
+    -&gt; Maybe StackDriftInformationSummary -&gt; StackSummary)
+-&gt; Lens
+     StackSummary
+     StackSummary
+     (Maybe StackDriftInformationSummary)
+     (Maybe StackDriftInformationSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426106"><span class="annot"><span class="annottext">Maybe StackDriftInformationSummary
+driftInformation :: Maybe StackDriftInformationSummary
+$sel:driftInformation:StackSummary' :: StackSummary -&gt; Maybe StackDriftInformationSummary
+</span><a href="#local-6989586621679426106"><span class="hs-identifier hs-var hs-var">driftInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftInformationSummary
+</span><a href="#local-6989586621679426106"><span class="hs-identifier hs-var">driftInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426105"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426104"><span class="annot"><span class="annottext">Maybe StackDriftInformationSummary
+</span><a href="#local-6989586621679426104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftInformation:StackSummary' :: Maybe StackDriftInformationSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AdriftInformation%3AStackSummary%27"><span class="hs-identifier hs-var">driftInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftInformationSummary
+</span><a href="#local-6989586621679426104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The time the stack was deleted.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_deletionTime"><span class="hs-identifier hs-type">stackSummary_deletionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="stackSummary_deletionTime"><span class="annot"><span class="annottext">stackSummary_deletionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_deletionTime"><span class="hs-identifier hs-var hs-var">stackSummary_deletionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe ISO8601)
+-&gt; (StackSummary -&gt; Maybe ISO8601 -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426102"><span class="annot"><span class="annottext">Maybe ISO8601
+deletionTime :: Maybe ISO8601
+$sel:deletionTime:StackSummary' :: StackSummary -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679426102"><span class="hs-identifier hs-var hs-var">deletionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426102"><span class="hs-identifier hs-var">deletionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426101"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426100"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionTime:StackSummary' :: Maybe ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AdeletionTime%3AStackSummary%27"><span class="hs-identifier hs-var">deletionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; StackSummary -&gt; f StackSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StackSummary
+-&gt; f StackSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Unique stack identifier.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackId"><span class="hs-identifier hs-type">stackSummary_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="stackSummary_stackId"><span class="annot"><span class="annottext">stackSummary_stackId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackId"><span class="hs-identifier hs-var hs-var">stackSummary_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe Text)
+-&gt; (StackSummary -&gt; Maybe Text -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426098"><span class="annot"><span class="annottext">Maybe Text
+stackId :: Maybe Text
+$sel:stackId:StackSummary' :: StackSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679426098"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426098"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426097"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackId%3AStackSummary%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | For nested stacks--stacks created as resources for another stack--the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- stack ID of the direct parent of this stack. For the first level of</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- nested stacks, the root stack is also the parent stack.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks&gt;</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_parentId"><span class="hs-identifier hs-type">stackSummary_parentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="stackSummary_parentId"><span class="annot"><span class="annottext">stackSummary_parentId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_parentId"><span class="hs-identifier hs-var hs-var">stackSummary_parentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Maybe Text)
+-&gt; (StackSummary -&gt; Maybe Text -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426094"><span class="annot"><span class="annottext">Maybe Text
+parentId :: Maybe Text
+$sel:parentId:StackSummary' :: StackSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679426094"><span class="hs-identifier hs-var hs-var">parentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426094"><span class="hs-identifier hs-var">parentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426093"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentId:StackSummary' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AparentId%3AStackSummary%27"><span class="hs-identifier hs-var">parentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The name associated with the stack.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackName"><span class="hs-identifier hs-type">stackSummary_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-197"></span><span id="stackSummary_stackName"><span class="annot"><span class="annottext">stackSummary_stackName :: (Text -&gt; f Text) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackName"><span class="hs-identifier hs-var hs-var">stackSummary_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; Text)
+-&gt; (StackSummary -&gt; Text -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426090"><span class="annot"><span class="annottext">Text
+stackName :: Text
+$sel:stackName:StackSummary' :: StackSummary -&gt; Text
+</span><a href="#local-6989586621679426090"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426090"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426089"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:StackSummary' :: Text
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackName%3AStackSummary%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The time the stack was created.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_creationTime"><span class="hs-identifier hs-type">stackSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-201"></span><span id="stackSummary_creationTime"><span class="annot"><span class="annottext">stackSummary_creationTime :: (UTCTime -&gt; f UTCTime) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_creationTime"><span class="hs-identifier hs-var hs-var">stackSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; ISO8601)
+-&gt; (StackSummary -&gt; ISO8601 -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426086"><span class="annot"><span class="annottext">ISO8601
+creationTime :: ISO8601
+$sel:creationTime:StackSummary' :: StackSummary -&gt; ISO8601
+</span><a href="#local-6989586621679426086"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679426086"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426085"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426084"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679426084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:StackSummary' :: ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AcreationTime%3AStackSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679426084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; StackSummary -&gt; f StackSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; StackSummary
+-&gt; f StackSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The current status of the stack.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackStatus"><span class="hs-identifier hs-type">stackSummary_stackStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-205"></span><span id="stackSummary_stackStatus"><span class="annot"><span class="annottext">stackSummary_stackStatus :: (StackStatus -&gt; f StackStatus) -&gt; StackSummary -&gt; f StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#stackSummary_stackStatus"><span class="hs-identifier hs-var hs-var">stackSummary_stackStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSummary -&gt; StackStatus)
+-&gt; (StackSummary -&gt; StackStatus -&gt; StackSummary)
+-&gt; Lens StackSummary StackSummary StackStatus StackStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426082"><span class="annot"><span class="annottext">StackStatus
+stackStatus :: StackStatus
+$sel:stackStatus:StackSummary' :: StackSummary -&gt; StackStatus
+</span><a href="#local-6989586621679426082"><span class="hs-identifier hs-var hs-var">stackStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackStatus
+</span><a href="#local-6989586621679426082"><span class="hs-identifier hs-var">stackStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426081"><span class="annot"><span class="annottext">s :: StackSummary
+</span><a href="#local-6989586621679426081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-type">StackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426080"><span class="annot"><span class="annottext">StackStatus
+</span><a href="#local-6989586621679426080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSummary
+</span><a href="#local-6989586621679426081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackStatus:StackSummary' :: StackStatus
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#%24sel%3AstackStatus%3AStackSummary%27"><span class="hs-identifier hs-var">stackStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StackStatus
+</span><a href="#local-6989586621679426080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679426077"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679426075"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe StackDriftInformationSummary
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; StackStatus
+-&gt; StackSummary
+</span><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary%27"><span class="hs-identifier hs-var">StackSummary'</span></a></span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe StackDriftInformationSummary
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; ISO8601
+ -&gt; StackStatus
+ -&gt; StackSummary)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackDriftInformationSummary
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackStatus
+      -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackDriftInformationSummary
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackStatus
+   -&gt; StackSummary)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackDriftInformationSummary
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackStatus
+      -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RootId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackDriftInformationSummary
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackStatus
+   -&gt; StackSummary)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe StackDriftInformationSummary
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackStatus
+      -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackStatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe StackDriftInformationSummary
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackStatus
+   -&gt; StackSummary)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe StackDriftInformationSummary
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackStatus
+      -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StackDriftInformationSummary
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackStatus
+   -&gt; StackSummary)
+-&gt; Either String (Maybe StackDriftInformationSummary)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; StackStatus
+      -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe StackDriftInformationSummary)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DriftInformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; StackStatus
+   -&gt; StackSummary)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Text -&gt; ISO8601 -&gt; StackStatus -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeletionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Text -&gt; ISO8601 -&gt; StackStatus -&gt; StackSummary)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Text -&gt; ISO8601 -&gt; StackStatus -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Text -&gt; ISO8601 -&gt; StackStatus -&gt; StackSummary)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Text -&gt; ISO8601 -&gt; StackStatus -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; ISO8601 -&gt; StackStatus -&gt; StackSummary)
+-&gt; Either String Text
+-&gt; Either String (ISO8601 -&gt; StackStatus -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; StackStatus -&gt; StackSummary)
+-&gt; Either String ISO8601
+-&gt; Either String (StackStatus -&gt; StackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">Either String (StackStatus -&gt; StackSummary)
+-&gt; Either String StackStatus -&gt; Either String StackSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StackStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426068"><span id="local-6989586621679426070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span></span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span></span><span>
+</span><span id="line-225"></span></pre></body></html>

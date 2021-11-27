@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.NetworkManager.Types.AWSLocation
+module Amazonka.NetworkManager.Types.AWSLocation
 
 -- | Specifies a location in AWS.
 --   
@@ -42,17 +42,17 @@ aWSLocation_zone :: Lens' AWSLocation (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the subnet the device is located in.
 aWSLocation_subnetArn :: Lens' AWSLocation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.AWSLocation.AWSLocation
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
+instance GHC.Show.Show Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
+instance GHC.Read.Read Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.AWSLocation.AWSLocation
 
 
-module Network.AWS.NetworkManager.Types.Bandwidth
+module Amazonka.NetworkManager.Types.Bandwidth
 
 -- | Describes bandwidth information.
 --   
@@ -86,17 +86,17 @@ bandwidth_downloadSpeed :: Lens' Bandwidth (Maybe Int)
 
 -- | Upload speed in Mbps.
 bandwidth_uploadSpeed :: Lens' Bandwidth (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.Bandwidth.Bandwidth
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
+instance GHC.Show.Show Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
+instance GHC.Read.Read Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.Bandwidth.Bandwidth
 
 
-module Network.AWS.NetworkManager.Types.ConnectionState
+module Amazonka.NetworkManager.Types.ConnectionState
 newtype ConnectionState
 ConnectionState' :: Text -> ConnectionState
 [fromConnectionState] :: ConnectionState -> Text
@@ -104,28 +104,28 @@ pattern ConnectionState_AVAILABLE :: ConnectionState
 pattern ConnectionState_DELETING :: ConnectionState
 pattern ConnectionState_PENDING :: ConnectionState
 pattern ConnectionState_UPDATING :: ConnectionState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.ConnectionState.ConnectionState
 
 
-module Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState
+module Amazonka.NetworkManager.Types.CustomerGatewayAssociationState
 newtype CustomerGatewayAssociationState
 CustomerGatewayAssociationState' :: Text -> CustomerGatewayAssociationState
 [fromCustomerGatewayAssociationState] :: CustomerGatewayAssociationState -> Text
@@ -133,28 +133,28 @@ pattern CustomerGatewayAssociationState_AVAILABLE :: CustomerGatewayAssociationS
 pattern CustomerGatewayAssociationState_DELETED :: CustomerGatewayAssociationState
 pattern CustomerGatewayAssociationState_DELETING :: CustomerGatewayAssociationState
 pattern CustomerGatewayAssociationState_PENDING :: CustomerGatewayAssociationState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.CustomerGatewayAssociationState.CustomerGatewayAssociationState
 
 
-module Network.AWS.NetworkManager.Types.CustomerGatewayAssociation
+module Amazonka.NetworkManager.Types.CustomerGatewayAssociation
 
 -- | Describes the association between a customer gateway, a device, and a
 --   link.
@@ -219,16 +219,16 @@ customerGatewayAssociation_deviceId :: Lens' CustomerGatewayAssociation (Maybe T
 
 -- | The Amazon Resource Name (ARN) of the customer gateway.
 customerGatewayAssociation_customerGatewayArn :: Lens' CustomerGatewayAssociation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
+instance GHC.Show.Show Amazonka.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
+instance GHC.Read.Read Amazonka.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.CustomerGatewayAssociation.CustomerGatewayAssociation
 
 
-module Network.AWS.NetworkManager.Types.DeviceState
+module Amazonka.NetworkManager.Types.DeviceState
 newtype DeviceState
 DeviceState' :: Text -> DeviceState
 [fromDeviceState] :: DeviceState -> Text
@@ -236,28 +236,28 @@ pattern DeviceState_AVAILABLE :: DeviceState
 pattern DeviceState_DELETING :: DeviceState
 pattern DeviceState_PENDING :: DeviceState
 pattern DeviceState_UPDATING :: DeviceState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.DeviceState.DeviceState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.DeviceState.DeviceState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.DeviceState.DeviceState
 
 
-module Network.AWS.NetworkManager.Types.GlobalNetworkState
+module Amazonka.NetworkManager.Types.GlobalNetworkState
 newtype GlobalNetworkState
 GlobalNetworkState' :: Text -> GlobalNetworkState
 [fromGlobalNetworkState] :: GlobalNetworkState -> Text
@@ -265,28 +265,28 @@ pattern GlobalNetworkState_AVAILABLE :: GlobalNetworkState
 pattern GlobalNetworkState_DELETING :: GlobalNetworkState
 pattern GlobalNetworkState_PENDING :: GlobalNetworkState
 pattern GlobalNetworkState_UPDATING :: GlobalNetworkState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.GlobalNetworkState.GlobalNetworkState
 
 
-module Network.AWS.NetworkManager.Types.LinkAssociationState
+module Amazonka.NetworkManager.Types.LinkAssociationState
 newtype LinkAssociationState
 LinkAssociationState' :: Text -> LinkAssociationState
 [fromLinkAssociationState] :: LinkAssociationState -> Text
@@ -294,28 +294,28 @@ pattern LinkAssociationState_AVAILABLE :: LinkAssociationState
 pattern LinkAssociationState_DELETED :: LinkAssociationState
 pattern LinkAssociationState_DELETING :: LinkAssociationState
 pattern LinkAssociationState_PENDING :: LinkAssociationState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.LinkAssociationState.LinkAssociationState
 
 
-module Network.AWS.NetworkManager.Types.LinkAssociation
+module Amazonka.NetworkManager.Types.LinkAssociation
 
 -- | Describes the association between a device and a link.
 --   
@@ -369,16 +369,16 @@ linkAssociation_deviceId :: Lens' LinkAssociation (Maybe Text)
 
 -- | The state of the association.
 linkAssociation_linkAssociationState :: Lens' LinkAssociation (Maybe LinkAssociationState)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.LinkAssociation.LinkAssociation
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.LinkAssociation.LinkAssociation
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.LinkAssociation.LinkAssociation
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.LinkAssociation.LinkAssociation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.LinkAssociation.LinkAssociation
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.LinkAssociation.LinkAssociation
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.LinkAssociation.LinkAssociation
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.LinkAssociation.LinkAssociation
+instance GHC.Show.Show Amazonka.NetworkManager.Types.LinkAssociation.LinkAssociation
+instance GHC.Read.Read Amazonka.NetworkManager.Types.LinkAssociation.LinkAssociation
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.LinkAssociation.LinkAssociation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.LinkAssociation.LinkAssociation
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.LinkAssociation.LinkAssociation
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.LinkAssociation.LinkAssociation
 
 
-module Network.AWS.NetworkManager.Types.LinkState
+module Amazonka.NetworkManager.Types.LinkState
 newtype LinkState
 LinkState' :: Text -> LinkState
 [fromLinkState] :: LinkState -> Text
@@ -386,28 +386,28 @@ pattern LinkState_AVAILABLE :: LinkState
 pattern LinkState_DELETING :: LinkState
 pattern LinkState_PENDING :: LinkState
 pattern LinkState_UPDATING :: LinkState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.LinkState.LinkState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.LinkState.LinkState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.LinkState.LinkState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.LinkState.LinkState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.LinkState.LinkState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.LinkState.LinkState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.LinkState.LinkState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.LinkState.LinkState
 
 
-module Network.AWS.NetworkManager.Types.Location
+module Amazonka.NetworkManager.Types.Location
 
 -- | Describes a location.
 --   
@@ -450,16 +450,16 @@ location_address :: Lens' Location (Maybe Text)
 
 -- | The longitude.
 location_longitude :: Lens' Location (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.Location.Location
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.Location.Location
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.Location.Location
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.Location.Location
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.Location.Location
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.Location.Location
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.Location.Location
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.Location.Location
+instance GHC.Show.Show Amazonka.NetworkManager.Types.Location.Location
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.Location.Location
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.Location.Location
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.Location.Location
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.Location.Location
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.Location.Location
 
 
-module Network.AWS.NetworkManager.Types.SiteState
+module Amazonka.NetworkManager.Types.SiteState
 newtype SiteState
 SiteState' :: Text -> SiteState
 [fromSiteState] :: SiteState -> Text
@@ -467,28 +467,28 @@ pattern SiteState_AVAILABLE :: SiteState
 pattern SiteState_DELETING :: SiteState
 pattern SiteState_PENDING :: SiteState
 pattern SiteState_UPDATING :: SiteState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.SiteState.SiteState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.SiteState.SiteState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.SiteState.SiteState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.SiteState.SiteState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.SiteState.SiteState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.SiteState.SiteState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.SiteState.SiteState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.SiteState.SiteState
 
 
-module Network.AWS.NetworkManager.Types.Tag
+module Amazonka.NetworkManager.Types.Tag
 
 -- | Describes a tag.
 --   
@@ -532,17 +532,17 @@ tag_value :: Lens' Tag (Maybe Text)
 --   
 --   Length Constraints: Maximum length of 128 characters.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.NetworkManager.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.NetworkManager.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.Tag.Tag
 
 
-module Network.AWS.NetworkManager.Types.Site
+module Amazonka.NetworkManager.Types.Site
 
 -- | Describes a site.
 --   
@@ -627,15 +627,15 @@ site_description :: Lens' Site (Maybe Text)
 
 -- | The tags for the site.
 site_tags :: Lens' Site (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.Site.Site
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.Site.Site
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.Site.Site
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.Site.Site
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.Site.Site
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.Site.Site
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.Site.Site
+instance GHC.Show.Show Amazonka.NetworkManager.Types.Site.Site
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.Site.Site
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.Site.Site
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.Site.Site
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.Site.Site
 
 
-module Network.AWS.NetworkManager.Types.Link
+module Amazonka.NetworkManager.Types.Link
 
 -- | Describes a link.
 --   
@@ -745,16 +745,16 @@ link_provider :: Lens' Link (Maybe Text)
 
 -- | The tags for the link.
 link_tags :: Lens' Link (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.Link.Link
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.Link.Link
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.Link.Link
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.Link.Link
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.Link.Link
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.Link.Link
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.Link.Link
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.Link.Link
+instance GHC.Show.Show Amazonka.NetworkManager.Types.Link.Link
+instance GHC.Read.Read Amazonka.NetworkManager.Types.Link.Link
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.Link.Link
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.Link.Link
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.Link.Link
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.Link.Link
 
 
-module Network.AWS.NetworkManager.Types.GlobalNetwork
+module Amazonka.NetworkManager.Types.GlobalNetwork
 
 -- | Describes a global network.
 --   
@@ -827,16 +827,16 @@ globalNetwork_description :: Lens' GlobalNetwork (Maybe Text)
 
 -- | The tags for the global network.
 globalNetwork_tags :: Lens' GlobalNetwork (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.GlobalNetwork.GlobalNetwork
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.GlobalNetwork.GlobalNetwork
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.GlobalNetwork.GlobalNetwork
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.GlobalNetwork.GlobalNetwork
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.GlobalNetwork.GlobalNetwork
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.GlobalNetwork.GlobalNetwork
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.GlobalNetwork.GlobalNetwork
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.GlobalNetwork.GlobalNetwork
+instance GHC.Show.Show Amazonka.NetworkManager.Types.GlobalNetwork.GlobalNetwork
+instance GHC.Read.Read Amazonka.NetworkManager.Types.GlobalNetwork.GlobalNetwork
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.GlobalNetwork.GlobalNetwork
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.GlobalNetwork.GlobalNetwork
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.GlobalNetwork.GlobalNetwork
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.GlobalNetwork.GlobalNetwork
 
 
-module Network.AWS.NetworkManager.Types.Device
+module Amazonka.NetworkManager.Types.Device
 
 -- | Describes a device.
 --   
@@ -973,15 +973,15 @@ device_description :: Lens' Device (Maybe Text)
 
 -- | The tags for the device.
 device_tags :: Lens' Device (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.Device.Device
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.Device.Device
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.Device.Device
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.Device.Device
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.Device.Device
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.Device.Device
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.Device.Device
+instance GHC.Show.Show Amazonka.NetworkManager.Types.Device.Device
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.Device.Device
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.Device.Device
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.Device.Device
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.Device.Device
 
 
-module Network.AWS.NetworkManager.Types.Connection
+module Amazonka.NetworkManager.Types.Connection
 
 -- | Describes a connection.
 --   
@@ -1098,16 +1098,16 @@ connection_description :: Lens' Connection (Maybe Text)
 
 -- | The tags for the connection.
 connection_tags :: Lens' Connection (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.Connection.Connection
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.Connection.Connection
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.Connection.Connection
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.Connection.Connection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.Connection.Connection
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.Connection.Connection
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.Connection.Connection
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.Connection.Connection
+instance GHC.Show.Show Amazonka.NetworkManager.Types.Connection.Connection
+instance GHC.Read.Read Amazonka.NetworkManager.Types.Connection.Connection
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.Connection.Connection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.Connection.Connection
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.Connection.Connection
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.Connection.Connection
 
 
-module Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
+module Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
 newtype TransitGatewayConnectPeerAssociationState
 TransitGatewayConnectPeerAssociationState' :: Text -> TransitGatewayConnectPeerAssociationState
 [fromTransitGatewayConnectPeerAssociationState] :: TransitGatewayConnectPeerAssociationState -> Text
@@ -1115,28 +1115,28 @@ pattern TransitGatewayConnectPeerAssociationState_AVAILABLE :: TransitGatewayCon
 pattern TransitGatewayConnectPeerAssociationState_DELETED :: TransitGatewayConnectPeerAssociationState
 pattern TransitGatewayConnectPeerAssociationState_DELETING :: TransitGatewayConnectPeerAssociationState
 pattern TransitGatewayConnectPeerAssociationState_PENDING :: TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState.TransitGatewayConnectPeerAssociationState
 
 
-module Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation
+module Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation
 
 -- | Describes a transit gateway Connect peer association.
 --   
@@ -1205,16 +1205,16 @@ transitGatewayConnectPeerAssociation_linkId :: Lens' TransitGatewayConnectPeerAs
 
 -- | The ID of the device.
 transitGatewayConnectPeerAssociation_deviceId :: Lens' TransitGatewayConnectPeerAssociation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
+instance GHC.Show.Show Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
+instance GHC.Read.Read Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation
 
 
-module Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState
+module Amazonka.NetworkManager.Types.TransitGatewayRegistrationState
 newtype TransitGatewayRegistrationState
 TransitGatewayRegistrationState' :: Text -> TransitGatewayRegistrationState
 [fromTransitGatewayRegistrationState] :: TransitGatewayRegistrationState -> Text
@@ -1223,28 +1223,28 @@ pattern TransitGatewayRegistrationState_DELETED :: TransitGatewayRegistrationSta
 pattern TransitGatewayRegistrationState_DELETING :: TransitGatewayRegistrationState
 pattern TransitGatewayRegistrationState_FAILED :: TransitGatewayRegistrationState
 pattern TransitGatewayRegistrationState_PENDING :: TransitGatewayRegistrationState
-instance Network.AWS.Data.XML.ToXML Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Network.AWS.Data.XML.FromXML Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Network.AWS.Data.Log.ToLog Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Network.AWS.Data.Text.ToText Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Network.AWS.Data.Text.FromText Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance GHC.Classes.Ord Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.XML.ToXML Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.XML.FromXML Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.Headers.ToHeader Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.Log.ToLog Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.Text.ToText Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Amazonka.Data.Text.FromText Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance GHC.Classes.Ord Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance GHC.Read.Read Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
+instance GHC.Show.Show Amazonka.NetworkManager.Types.TransitGatewayRegistrationState.TransitGatewayRegistrationState
 
 
-module Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason
+module Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason
 
 -- | Describes the status of a transit gateway registration.
 --   
@@ -1282,16 +1282,16 @@ transitGatewayRegistrationStateReason_code :: Lens' TransitGatewayRegistrationSt
 
 -- | The message for the state reason.
 transitGatewayRegistrationStateReason_message :: Lens' TransitGatewayRegistrationStateReason (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
+instance GHC.Show.Show Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
+instance GHC.Read.Read Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason.TransitGatewayRegistrationStateReason
 
 
-module Network.AWS.NetworkManager.Types.TransitGatewayRegistration
+module Amazonka.NetworkManager.Types.TransitGatewayRegistration
 
 -- | Describes the registration of a transit gateway to a global network.
 --   
@@ -1338,16 +1338,16 @@ transitGatewayRegistration_globalNetworkId :: Lens' TransitGatewayRegistration (
 
 -- | The Amazon Resource Name (ARN) of the transit gateway.
 transitGatewayRegistration_transitGatewayArn :: Lens' TransitGatewayRegistration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
-instance GHC.Show.Show Network.AWS.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
-instance GHC.Read.Read Network.AWS.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
-instance GHC.Classes.Eq Network.AWS.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
+instance GHC.Generics.Generic Amazonka.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
+instance GHC.Show.Show Amazonka.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
+instance GHC.Read.Read Amazonka.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
+instance GHC.Classes.Eq Amazonka.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.Types.TransitGatewayRegistration.TransitGatewayRegistration
 
 
-module Network.AWS.NetworkManager.Types
+module Amazonka.NetworkManager.Types
 
 -- | API version <tt>2019-07-05</tt> of the Amazon Network Manager SDK
 --   configuration.
@@ -2380,7 +2380,7 @@ transitGatewayRegistrationStateReason_message :: Lens' TransitGatewayRegistratio
 
 
 -- | Tags a specified resource.
-module Network.AWS.NetworkManager.TagResource
+module Amazonka.NetworkManager.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2436,29 +2436,29 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.NetworkManager.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.NetworkManager.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.NetworkManager.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.NetworkManager.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.NetworkManager.TagResource.TagResource
+instance GHC.Show.Show Amazonka.NetworkManager.TagResource.TagResource
+instance GHC.Read.Read Amazonka.NetworkManager.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.NetworkManager.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.NetworkManager.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.NetworkManager.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.NetworkManager.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.TagResource.TagResource
 
 
 -- | Registers a transit gateway in your global network. The transit
 --   gateway can be in any AWS Region, but it must be owned by the same AWS
 --   account that owns the global network. You cannot register a transit
 --   gateway in more than one global network.
-module Network.AWS.NetworkManager.RegisterTransitGateway
+module Amazonka.NetworkManager.RegisterTransitGateway
 
 -- | <i>See:</i> <a>newRegisterTransitGateway</a> smart constructor.
 data RegisterTransitGateway
@@ -2532,26 +2532,26 @@ registerTransitGatewayResponse_transitGatewayRegistration :: Lens' RegisterTrans
 
 -- | The response's http status code.
 registerTransitGatewayResponse_httpStatus :: Lens' RegisterTransitGatewayResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance GHC.Show.Show Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance GHC.Read.Read Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance GHC.Classes.Eq Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance GHC.Generics.Generic Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance GHC.Show.Show Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance GHC.Read.Read Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance GHC.Classes.Eq Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
+instance GHC.Show.Show Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
+instance GHC.Read.Read Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGatewayResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.RegisterTransitGateway.RegisterTransitGateway
 
 
 -- | Lists the tags for a specified resource.
-module Network.AWS.NetworkManager.ListTagsForResource
+module Amazonka.NetworkManager.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2609,28 +2609,28 @@ listTagsForResourceResponse_tagList :: Lens' ListTagsForResourceResponse (Maybe 
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.ListTagsForResource.ListTagsForResource
 
 
 -- | Gets information about the transit gateway registrations in a
 --   specified global network.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetTransitGatewayRegistrations
+module Amazonka.NetworkManager.GetTransitGatewayRegistrations
 
 -- | <i>See:</i> <a>newGetTransitGatewayRegistrations</a> smart
 --   constructor.
@@ -2735,29 +2735,29 @@ getTransitGatewayRegistrationsResponse_nextToken :: Lens' GetTransitGatewayRegis
 
 -- | The response's http status code.
 getTransitGatewayRegistrationsResponse_httpStatus :: Lens' GetTransitGatewayRegistrationsResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance GHC.Show.Show Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance GHC.Read.Read Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance GHC.Show.Show Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance GHC.Read.Read Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
+instance GHC.Read.Read Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetTransitGatewayRegistrations.GetTransitGatewayRegistrations
 
 
 -- | Gets information about one or more of your transit gateway Connect
 --   peer associations in a global network.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations
+module Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations
 
 -- | <i>See:</i> <a>newGetTransitGatewayConnectPeerAssociations</a> smart
 --   constructor.
@@ -2863,28 +2863,28 @@ getTransitGatewayConnectPeerAssociationsResponse_transitGatewayConnectPeerAssoci
 
 -- | The response's http status code.
 getTransitGatewayConnectPeerAssociationsResponse_httpStatus :: Lens' GetTransitGatewayConnectPeerAssociationsResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance GHC.Show.Show Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance GHC.Read.Read Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance GHC.Show.Show Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance GHC.Read.Read Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
+instance GHC.Read.Read Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations.GetTransitGatewayConnectPeerAssociations
 
 
 -- | Gets information about one or more of your sites in a global network.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetSites
+module Amazonka.NetworkManager.GetSites
 
 -- | <i>See:</i> <a>newGetSites</a> smart constructor.
 data GetSites
@@ -2975,21 +2975,21 @@ getSitesResponse_sites :: Lens' GetSitesResponse (Maybe [Site])
 
 -- | The response's http status code.
 getSitesResponse_httpStatus :: Lens' GetSitesResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetSites.GetSites
-instance GHC.Show.Show Network.AWS.NetworkManager.GetSites.GetSites
-instance GHC.Read.Read Network.AWS.NetworkManager.GetSites.GetSites
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetSites.GetSites
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetSites.GetSitesResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetSites.GetSitesResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetSites.GetSitesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetSites.GetSites
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetSites.GetSitesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetSites.GetSites
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetSites.GetSites
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetSites.GetSites
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetSites.GetSites
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetSites.GetSites
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetSites.GetSites
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetSites.GetSites
+instance GHC.Show.Show Amazonka.NetworkManager.GetSites.GetSites
+instance GHC.Read.Read Amazonka.NetworkManager.GetSites.GetSites
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetSites.GetSites
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetSites.GetSitesResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetSites.GetSitesResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetSites.GetSitesResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetSites.GetSites
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetSites.GetSitesResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetSites.GetSites
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetSites.GetSites
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetSites.GetSites
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetSites.GetSites
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetSites.GetSites
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetSites.GetSites
 
 
 -- | Gets information about one or more links in a specified global
@@ -3000,7 +3000,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetSites.GetS
 --   request.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetLinks
+module Amazonka.NetworkManager.GetLinks
 
 -- | <i>See:</i> <a>newGetLinks</a> smart constructor.
 data GetLinks
@@ -3117,29 +3117,29 @@ getLinksResponse_links :: Lens' GetLinksResponse (Maybe [Link])
 
 -- | The response's http status code.
 getLinksResponse_httpStatus :: Lens' GetLinksResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetLinks.GetLinks
-instance GHC.Show.Show Network.AWS.NetworkManager.GetLinks.GetLinks
-instance GHC.Read.Read Network.AWS.NetworkManager.GetLinks.GetLinks
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetLinks.GetLinks
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetLinks.GetLinksResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetLinks.GetLinksResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.GetLinks.GetLinksResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetLinks.GetLinksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetLinks.GetLinks
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetLinks.GetLinksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetLinks.GetLinks
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetLinks.GetLinks
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetLinks.GetLinks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetLinks.GetLinks
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetLinks.GetLinks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetLinks.GetLinks
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetLinks.GetLinks
+instance GHC.Show.Show Amazonka.NetworkManager.GetLinks.GetLinks
+instance GHC.Read.Read Amazonka.NetworkManager.GetLinks.GetLinks
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetLinks.GetLinks
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetLinks.GetLinksResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetLinks.GetLinksResponse
+instance GHC.Read.Read Amazonka.NetworkManager.GetLinks.GetLinksResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetLinks.GetLinksResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetLinks.GetLinks
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetLinks.GetLinksResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetLinks.GetLinks
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetLinks.GetLinks
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetLinks.GetLinks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetLinks.GetLinks
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetLinks.GetLinks
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetLinks.GetLinks
 
 
 -- | Gets the link associations for a device or a link. Either the device
 --   ID or the link ID must be specified.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetLinkAssociations
+module Amazonka.NetworkManager.GetLinkAssociations
 
 -- | <i>See:</i> <a>newGetLinkAssociations</a> smart constructor.
 data GetLinkAssociations
@@ -3246,29 +3246,29 @@ getLinkAssociationsResponse_linkAssociations :: Lens' GetLinkAssociationsRespons
 
 -- | The response's http status code.
 getLinkAssociationsResponse_httpStatus :: Lens' GetLinkAssociationsResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance GHC.Show.Show Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance GHC.Read.Read Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance GHC.Show.Show Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance GHC.Read.Read Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
+instance GHC.Read.Read Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetLinkAssociations.GetLinkAssociations
 
 
 -- | Gets information about one or more of your devices in a global
 --   network.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetDevices
+module Amazonka.NetworkManager.GetDevices
 
 -- | <i>See:</i> <a>newGetDevices</a> smart constructor.
 data GetDevices
@@ -3369,28 +3369,28 @@ getDevicesResponse_devices :: Lens' GetDevicesResponse (Maybe [Device])
 
 -- | The response's http status code.
 getDevicesResponse_httpStatus :: Lens' GetDevicesResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetDevices.GetDevices
-instance GHC.Show.Show Network.AWS.NetworkManager.GetDevices.GetDevices
-instance GHC.Read.Read Network.AWS.NetworkManager.GetDevices.GetDevices
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetDevices.GetDevices
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetDevices.GetDevicesResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetDevices.GetDevicesResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetDevices.GetDevicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetDevices.GetDevices
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetDevices.GetDevicesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetDevices.GetDevices
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetDevices.GetDevices
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetDevices.GetDevices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetDevices.GetDevices
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetDevices.GetDevices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetDevices.GetDevices
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetDevices.GetDevices
+instance GHC.Show.Show Amazonka.NetworkManager.GetDevices.GetDevices
+instance GHC.Read.Read Amazonka.NetworkManager.GetDevices.GetDevices
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetDevices.GetDevices
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetDevices.GetDevicesResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetDevices.GetDevicesResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetDevices.GetDevicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetDevices.GetDevices
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetDevices.GetDevicesResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetDevices.GetDevices
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetDevices.GetDevices
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetDevices.GetDevices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetDevices.GetDevices
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetDevices.GetDevices
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetDevices.GetDevices
 
 
 -- | Gets the association information for customer gateways that are
 --   associated with devices and links in your global network.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetCustomerGatewayAssociations
+module Amazonka.NetworkManager.GetCustomerGatewayAssociations
 
 -- | <i>See:</i> <a>newGetCustomerGatewayAssociations</a> smart
 --   constructor.
@@ -3498,29 +3498,29 @@ getCustomerGatewayAssociationsResponse_customerGatewayAssociations :: Lens' GetC
 
 -- | The response's http status code.
 getCustomerGatewayAssociationsResponse_httpStatus :: Lens' GetCustomerGatewayAssociationsResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance GHC.Show.Show Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance GHC.Read.Read Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance GHC.Show.Show Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance GHC.Read.Read Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
+instance GHC.Read.Read Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetCustomerGatewayAssociations.GetCustomerGatewayAssociations
 
 
 -- | Gets information about one or more of your connections in a global
 --   network.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.GetConnections
+module Amazonka.NetworkManager.GetConnections
 
 -- | <i>See:</i> <a>newGetConnections</a> smart constructor.
 data GetConnections
@@ -3625,26 +3625,26 @@ getConnectionsResponse_nextToken :: Lens' GetConnectionsResponse (Maybe Text)
 
 -- | The response's http status code.
 getConnectionsResponse_httpStatus :: Lens' GetConnectionsResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetConnections.GetConnections
-instance GHC.Show.Show Network.AWS.NetworkManager.GetConnections.GetConnections
-instance GHC.Read.Read Network.AWS.NetworkManager.GetConnections.GetConnections
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetConnections.GetConnections
-instance GHC.Generics.Generic Network.AWS.NetworkManager.GetConnections.GetConnectionsResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.GetConnections.GetConnectionsResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.GetConnections.GetConnectionsResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.GetConnections.GetConnectionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.GetConnections.GetConnections
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetConnections.GetConnectionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.GetConnections.GetConnections
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.GetConnections.GetConnections
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.GetConnections.GetConnections
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.GetConnections.GetConnections
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.GetConnections.GetConnections
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.GetConnections.GetConnections
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetConnections.GetConnections
+instance GHC.Show.Show Amazonka.NetworkManager.GetConnections.GetConnections
+instance GHC.Read.Read Amazonka.NetworkManager.GetConnections.GetConnections
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetConnections.GetConnections
+instance GHC.Generics.Generic Amazonka.NetworkManager.GetConnections.GetConnectionsResponse
+instance GHC.Show.Show Amazonka.NetworkManager.GetConnections.GetConnectionsResponse
+instance GHC.Read.Read Amazonka.NetworkManager.GetConnections.GetConnectionsResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.GetConnections.GetConnectionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.GetConnections.GetConnections
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetConnections.GetConnectionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.GetConnections.GetConnections
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.GetConnections.GetConnections
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.GetConnections.GetConnections
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.GetConnections.GetConnections
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.GetConnections.GetConnections
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.GetConnections.GetConnections
 
 
 -- | Disassociates a transit gateway Connect peer from a device and link.
-module Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer
+module Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer
 
 -- | <i>See:</i> <a>newDisassociateTransitGatewayConnectPeer</a> smart
 --   constructor.
@@ -3717,26 +3717,26 @@ disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociati
 
 -- | The response's http status code.
 disassociateTransitGatewayConnectPeerResponse_httpStatus :: Lens' DisassociateTransitGatewayConnectPeerResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance GHC.Show.Show Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance GHC.Read.Read Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance GHC.Generics.Generic Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance GHC.Show.Show Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance GHC.Read.Read Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance GHC.Classes.Eq Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance GHC.Generics.Generic Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeerResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer.DisassociateTransitGatewayConnectPeer
 
 
 -- | Disassociates an existing device from a link. You must first
 --   disassociate any customer gateways that are associated with the link.
-module Network.AWS.NetworkManager.DisassociateLink
+module Amazonka.NetworkManager.DisassociateLink
 
 -- | <i>See:</i> <a>newDisassociateLink</a> smart constructor.
 data DisassociateLink
@@ -3813,25 +3813,25 @@ disassociateLinkResponse_linkAssociation :: Lens' DisassociateLinkResponse (Mayb
 
 -- | The response's http status code.
 disassociateLinkResponse_httpStatus :: Lens' DisassociateLinkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance GHC.Show.Show Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance GHC.Read.Read Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DisassociateLink.DisassociateLinkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DisassociateLink.DisassociateLinkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DisassociateLink.DisassociateLinkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DisassociateLink.DisassociateLinkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DisassociateLink.DisassociateLinkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DisassociateLink.DisassociateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance GHC.Show.Show Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance GHC.Read.Read Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance GHC.Classes.Eq Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.DisassociateLink.DisassociateLinkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DisassociateLink.DisassociateLinkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DisassociateLink.DisassociateLinkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DisassociateLink.DisassociateLinkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DisassociateLink.DisassociateLinkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DisassociateLink.DisassociateLink
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DisassociateLink.DisassociateLink
 
 
 -- | Disassociates a customer gateway from a device and a link.
-module Network.AWS.NetworkManager.DisassociateCustomerGateway
+module Amazonka.NetworkManager.DisassociateCustomerGateway
 
 -- | <i>See:</i> <a>newDisassociateCustomerGateway</a> smart constructor.
 data DisassociateCustomerGateway
@@ -3905,21 +3905,21 @@ disassociateCustomerGatewayResponse_customerGatewayAssociation :: Lens' Disassoc
 
 -- | The response's http status code.
 disassociateCustomerGatewayResponse_httpStatus :: Lens' DisassociateCustomerGatewayResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance GHC.Show.Show Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance GHC.Read.Read Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance GHC.Show.Show Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance GHC.Read.Read Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance GHC.Classes.Eq Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGatewayResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DisassociateCustomerGateway.DisassociateCustomerGateway
 
 
 -- | Describes one or more global networks. By default, all global networks
@@ -3929,7 +3929,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DisassociateC
 --   GetTransitGatewayRegistrations.
 --   
 --   This operation returns paginated results.
-module Network.AWS.NetworkManager.DescribeGlobalNetworks
+module Amazonka.NetworkManager.DescribeGlobalNetworks
 
 -- | <i>See:</i> <a>newDescribeGlobalNetworks</a> smart constructor.
 data DescribeGlobalNetworks
@@ -4019,28 +4019,28 @@ describeGlobalNetworksResponse_nextToken :: Lens' DescribeGlobalNetworksResponse
 
 -- | The response's http status code.
 describeGlobalNetworksResponse_httpStatus :: Lens' DescribeGlobalNetworksResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance GHC.Show.Show Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance GHC.Read.Read Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance GHC.Generics.Generic Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance GHC.Show.Show Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance GHC.Read.Read Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance GHC.Classes.Eq Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance GHC.Generics.Generic Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworksResponse
+instance Amazonka.Pager.AWSPager Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DescribeGlobalNetworks.DescribeGlobalNetworks
 
 
 -- | Deregisters a transit gateway from your global network. This action
 --   does not delete your transit gateway, or modify any of its
 --   attachments. This action removes any customer gateway associations.
-module Network.AWS.NetworkManager.DeregisterTransitGateway
+module Amazonka.NetworkManager.DeregisterTransitGateway
 
 -- | <i>See:</i> <a>newDeregisterTransitGateway</a> smart constructor.
 data DeregisterTransitGateway
@@ -4111,26 +4111,26 @@ deregisterTransitGatewayResponse_transitGatewayRegistration :: Lens' DeregisterT
 
 -- | The response's http status code.
 deregisterTransitGatewayResponse_httpStatus :: Lens' DeregisterTransitGatewayResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance GHC.Show.Show Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance GHC.Read.Read Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance GHC.Show.Show Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance GHC.Read.Read Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGatewayResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DeregisterTransitGateway.DeregisterTransitGateway
 
 
 -- | Deletes an existing site. The site cannot be associated with any
 --   device or link.
-module Network.AWS.NetworkManager.DeleteSite
+module Amazonka.NetworkManager.DeleteSite
 
 -- | <i>See:</i> <a>newDeleteSite</a> smart constructor.
 data DeleteSite
@@ -4195,25 +4195,25 @@ deleteSiteResponse_site :: Lens' DeleteSiteResponse (Maybe Site)
 
 -- | The response's http status code.
 deleteSiteResponse_httpStatus :: Lens' DeleteSiteResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteSite.DeleteSiteResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteSite.DeleteSiteResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteSite.DeleteSiteResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteSite.DeleteSiteResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DeleteSite.DeleteSite
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DeleteSite.DeleteSite
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteSite.DeleteSiteResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteSite.DeleteSiteResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteSite.DeleteSiteResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteSite.DeleteSiteResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DeleteSite.DeleteSite
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DeleteSite.DeleteSite
 
 
 -- | Deletes an existing link. You must first disassociate the link from
 --   any devices and customer gateways.
-module Network.AWS.NetworkManager.DeleteLink
+module Amazonka.NetworkManager.DeleteLink
 
 -- | <i>See:</i> <a>newDeleteLink</a> smart constructor.
 data DeleteLink
@@ -4278,27 +4278,27 @@ deleteLinkResponse_link :: Lens' DeleteLinkResponse (Maybe Link)
 
 -- | The response's http status code.
 deleteLinkResponse_httpStatus :: Lens' DeleteLinkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteLink.DeleteLinkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteLink.DeleteLinkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteLink.DeleteLinkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteLink.DeleteLinkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteLink.DeleteLinkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DeleteLink.DeleteLink
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DeleteLink.DeleteLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteLink.DeleteLinkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteLink.DeleteLinkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteLink.DeleteLinkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteLink.DeleteLinkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteLink.DeleteLinkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DeleteLink.DeleteLink
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DeleteLink.DeleteLink
 
 
 -- | Deletes an existing global network. You must first delete all global
 --   network objects (devices, links, and sites) and deregister all transit
 --   gateways.
-module Network.AWS.NetworkManager.DeleteGlobalNetwork
+module Amazonka.NetworkManager.DeleteGlobalNetwork
 
 -- | <i>See:</i> <a>newDeleteGlobalNetwork</a> smart constructor.
 data DeleteGlobalNetwork
@@ -4357,26 +4357,26 @@ deleteGlobalNetworkResponse_globalNetwork :: Lens' DeleteGlobalNetworkResponse (
 
 -- | The response's http status code.
 deleteGlobalNetworkResponse_httpStatus :: Lens' DeleteGlobalNetworkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetworkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DeleteGlobalNetwork.DeleteGlobalNetwork
 
 
 -- | Deletes an existing device. You must first disassociate the device
 --   from any links and customer gateways.
-module Network.AWS.NetworkManager.DeleteDevice
+module Amazonka.NetworkManager.DeleteDevice
 
 -- | <i>See:</i> <a>newDeleteDevice</a> smart constructor.
 data DeleteDevice
@@ -4442,24 +4442,24 @@ deleteDeviceResponse_device :: Lens' DeleteDeviceResponse (Maybe Device)
 
 -- | The response's http status code.
 deleteDeviceResponse_httpStatus :: Lens' DeleteDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteDevice.DeleteDeviceResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteDevice.DeleteDeviceResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteDevice.DeleteDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteDevice.DeleteDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DeleteDevice.DeleteDevice
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteDevice.DeleteDeviceResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteDevice.DeleteDeviceResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteDevice.DeleteDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteDevice.DeleteDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DeleteDevice.DeleteDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DeleteDevice.DeleteDevice
 
 
 -- | Deletes the specified connection in your global network.
-module Network.AWS.NetworkManager.DeleteConnection
+module Amazonka.NetworkManager.DeleteConnection
 
 -- | <i>See:</i> <a>newDeleteConnection</a> smart constructor.
 data DeleteConnection
@@ -4527,25 +4527,25 @@ deleteConnectionResponse_connection :: Lens' DeleteConnectionResponse (Maybe Con
 
 -- | The response's http status code.
 deleteConnectionResponse_httpStatus :: Lens' DeleteConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance GHC.Generics.Generic Network.AWS.NetworkManager.DeleteConnection.DeleteConnectionResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.DeleteConnection.DeleteConnectionResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.DeleteConnection.DeleteConnectionResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.DeleteConnection.DeleteConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteConnection.DeleteConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.NetworkManager.DeleteConnection.DeleteConnectionResponse
+instance GHC.Show.Show Amazonka.NetworkManager.DeleteConnection.DeleteConnectionResponse
+instance GHC.Read.Read Amazonka.NetworkManager.DeleteConnection.DeleteConnectionResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.DeleteConnection.DeleteConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteConnection.DeleteConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.DeleteConnection.DeleteConnection
 
 
 -- | Creates a new site in a global network.
-module Network.AWS.NetworkManager.CreateSite
+module Amazonka.NetworkManager.CreateSite
 
 -- | <i>See:</i> <a>newCreateSite</a> smart constructor.
 data CreateSite
@@ -4658,24 +4658,24 @@ createSiteResponse_site :: Lens' CreateSiteResponse (Maybe Site)
 
 -- | The response's http status code.
 createSiteResponse_httpStatus :: Lens' CreateSiteResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateSite.CreateSite
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateSite.CreateSite
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateSite.CreateSite
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateSite.CreateSiteResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateSite.CreateSiteResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateSite.CreateSiteResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.CreateSite.CreateSite
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateSite.CreateSiteResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.CreateSite.CreateSite
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateSite.CreateSite
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.CreateSite.CreateSite
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.CreateSite.CreateSite
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.CreateSite.CreateSite
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.CreateSite.CreateSite
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateSite.CreateSite
+instance GHC.Show.Show Amazonka.NetworkManager.CreateSite.CreateSite
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateSite.CreateSite
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateSite.CreateSiteResponse
+instance GHC.Show.Show Amazonka.NetworkManager.CreateSite.CreateSiteResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateSite.CreateSiteResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.CreateSite.CreateSite
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateSite.CreateSiteResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.CreateSite.CreateSite
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateSite.CreateSite
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.CreateSite.CreateSite
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.CreateSite.CreateSite
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.CreateSite.CreateSite
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.CreateSite.CreateSite
 
 
 -- | Creates a new link for a specified site.
-module Network.AWS.NetworkManager.CreateLink
+module Amazonka.NetworkManager.CreateLink
 
 -- | <i>See:</i> <a>newCreateLink</a> smart constructor.
 data CreateLink
@@ -4815,26 +4815,26 @@ createLinkResponse_link :: Lens' CreateLinkResponse (Maybe Link)
 
 -- | The response's http status code.
 createLinkResponse_httpStatus :: Lens' CreateLinkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateLink.CreateLink
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateLink.CreateLink
-instance GHC.Read.Read Network.AWS.NetworkManager.CreateLink.CreateLink
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateLink.CreateLink
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateLink.CreateLinkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateLink.CreateLinkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.CreateLink.CreateLinkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateLink.CreateLinkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.CreateLink.CreateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateLink.CreateLinkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.CreateLink.CreateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateLink.CreateLink
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.CreateLink.CreateLink
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.CreateLink.CreateLink
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.CreateLink.CreateLink
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.CreateLink.CreateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateLink.CreateLink
+instance GHC.Show.Show Amazonka.NetworkManager.CreateLink.CreateLink
+instance GHC.Read.Read Amazonka.NetworkManager.CreateLink.CreateLink
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateLink.CreateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateLink.CreateLinkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.CreateLink.CreateLinkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.CreateLink.CreateLinkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateLink.CreateLinkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.CreateLink.CreateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateLink.CreateLinkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.CreateLink.CreateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateLink.CreateLink
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.CreateLink.CreateLink
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.CreateLink.CreateLink
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.CreateLink.CreateLink
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.CreateLink.CreateLink
 
 
 -- | Creates a new, empty global network.
-module Network.AWS.NetworkManager.CreateGlobalNetwork
+module Amazonka.NetworkManager.CreateGlobalNetwork
 
 -- | <i>See:</i> <a>newCreateGlobalNetwork</a> smart constructor.
 data CreateGlobalNetwork
@@ -4908,28 +4908,28 @@ createGlobalNetworkResponse_globalNetwork :: Lens' CreateGlobalNetworkResponse (
 
 -- | The response's http status code.
 createGlobalNetworkResponse_httpStatus :: Lens' CreateGlobalNetworkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance GHC.Read.Read Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance GHC.Show.Show Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance GHC.Read.Read Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetworkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.CreateGlobalNetwork.CreateGlobalNetwork
 
 
 -- | Creates a new device in a global network. If you specify both a site
 --   ID and a location, the location of the site is used for visualization
 --   in the Network Manager console.
-module Network.AWS.NetworkManager.CreateDevice
+module Amazonka.NetworkManager.CreateDevice
 
 -- | <i>See:</i> <a>newCreateDevice</a> smart constructor.
 data CreateDevice
@@ -5091,27 +5091,27 @@ createDeviceResponse_device :: Lens' CreateDeviceResponse (Maybe Device)
 
 -- | The response's http status code.
 createDeviceResponse_httpStatus :: Lens' CreateDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateDevice.CreateDeviceResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateDevice.CreateDeviceResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateDevice.CreateDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateDevice.CreateDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.CreateDevice.CreateDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.CreateDevice.CreateDevice
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance GHC.Show.Show Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateDevice.CreateDeviceResponse
+instance GHC.Show.Show Amazonka.NetworkManager.CreateDevice.CreateDeviceResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateDevice.CreateDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateDevice.CreateDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.CreateDevice.CreateDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.CreateDevice.CreateDevice
 
 
 -- | Creates a connection between two devices. The devices can be a
 --   physical or virtual appliance that connects to a third-party appliance
 --   in a VPC, or a physical appliance that connects to another physical
 --   appliance in an on-premises network.
-module Network.AWS.NetworkManager.CreateConnection
+module Amazonka.NetworkManager.CreateConnection
 
 -- | <i>See:</i> <a>newCreateConnection</a> smart constructor.
 data CreateConnection
@@ -5233,22 +5233,22 @@ createConnectionResponse_connection :: Lens' CreateConnectionResponse (Maybe Con
 
 -- | The response's http status code.
 createConnectionResponse_httpStatus :: Lens' CreateConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance GHC.Read.Read Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance GHC.Generics.Generic Network.AWS.NetworkManager.CreateConnection.CreateConnectionResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.CreateConnection.CreateConnectionResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.CreateConnection.CreateConnectionResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.CreateConnection.CreateConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateConnection.CreateConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.CreateConnection.CreateConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.CreateConnection.CreateConnection
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance GHC.Show.Show Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance GHC.Read.Read Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance GHC.Generics.Generic Amazonka.NetworkManager.CreateConnection.CreateConnectionResponse
+instance GHC.Show.Show Amazonka.NetworkManager.CreateConnection.CreateConnectionResponse
+instance GHC.Read.Read Amazonka.NetworkManager.CreateConnection.CreateConnectionResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.CreateConnection.CreateConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateConnection.CreateConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.CreateConnection.CreateConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.CreateConnection.CreateConnection
 
 
 -- | Associates a transit gateway Connect peer with a device, and
@@ -5260,7 +5260,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.CreateConnect
 --   
 --   You cannot associate a transit gateway Connect peer with more than one
 --   device and link.
-module Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer
+module Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer
 
 -- | <i>See:</i> <a>newAssociateTransitGatewayConnectPeer</a> smart
 --   constructor.
@@ -5352,28 +5352,28 @@ associateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation 
 
 -- | The response's http status code.
 associateTransitGatewayConnectPeerResponse_httpStatus :: Lens' AssociateTransitGatewayConnectPeerResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance GHC.Show.Show Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance GHC.Read.Read Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance GHC.Classes.Eq Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance GHC.Generics.Generic Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance GHC.Generics.Generic Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance GHC.Show.Show Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance GHC.Read.Read Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance GHC.Classes.Eq Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance GHC.Generics.Generic Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
+instance GHC.Show.Show Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
+instance GHC.Read.Read Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeerResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer.AssociateTransitGatewayConnectPeer
 
 
 -- | Associates a link to a device. A device can be associated to multiple
 --   links and a link can be associated to multiple devices. The device and
 --   link must be in the same global network and the same site.
-module Network.AWS.NetworkManager.AssociateLink
+module Amazonka.NetworkManager.AssociateLink
 
 -- | <i>See:</i> <a>newAssociateLink</a> smart constructor.
 data AssociateLink
@@ -5448,22 +5448,22 @@ associateLinkResponse_linkAssociation :: Lens' AssociateLinkResponse (Maybe Link
 
 -- | The response's http status code.
 associateLinkResponse_httpStatus :: Lens' AssociateLinkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance GHC.Show.Show Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance GHC.Read.Read Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance GHC.Classes.Eq Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance GHC.Generics.Generic Network.AWS.NetworkManager.AssociateLink.AssociateLinkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.AssociateLink.AssociateLinkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.AssociateLink.AssociateLinkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.AssociateLink.AssociateLinkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.AssociateLink.AssociateLinkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.AssociateLink.AssociateLink
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.AssociateLink.AssociateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance GHC.Show.Show Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance GHC.Read.Read Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance GHC.Classes.Eq Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.AssociateLink.AssociateLinkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.AssociateLink.AssociateLinkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.AssociateLink.AssociateLinkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.AssociateLink.AssociateLinkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.AssociateLink.AssociateLinkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.AssociateLink.AssociateLink
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.AssociateLink.AssociateLink
 
 
 -- | Associates a customer gateway with a device and optionally, with a
@@ -5481,7 +5481,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.AssociateLink
 --   
 --   You cannot associate a customer gateway with more than one device and
 --   link.
-module Network.AWS.NetworkManager.AssociateCustomerGateway
+module Amazonka.NetworkManager.AssociateCustomerGateway
 
 -- | <i>See:</i> <a>newAssociateCustomerGateway</a> smart constructor.
 data AssociateCustomerGateway
@@ -5573,26 +5573,26 @@ associateCustomerGatewayResponse_customerGatewayAssociation :: Lens' AssociateCu
 
 -- | The response's http status code.
 associateCustomerGatewayResponse_httpStatus :: Lens' AssociateCustomerGatewayResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance GHC.Show.Show Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance GHC.Read.Read Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance GHC.Classes.Eq Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance GHC.Generics.Generic Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance GHC.Show.Show Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance GHC.Read.Read Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance GHC.Classes.Eq Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance GHC.Generics.Generic Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
+instance GHC.Show.Show Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
+instance GHC.Read.Read Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGatewayResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.AssociateCustomerGateway.AssociateCustomerGateway
 
 
 -- | Removes tags from a specified resource.
-module Network.AWS.NetworkManager.UntagResource
+module Amazonka.NetworkManager.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -5650,26 +5650,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.NetworkManager.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.NetworkManager.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.NetworkManager.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.NetworkManager.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.NetworkManager.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.NetworkManager.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.NetworkManager.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.NetworkManager.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.NetworkManager.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.UntagResource.UntagResource
 
 
 -- | Updates the information for an existing connection. To remove
 --   information for any of the parameters, specify an empty string.
-module Network.AWS.NetworkManager.UpdateConnection
+module Amazonka.NetworkManager.UpdateConnection
 
 -- | <i>See:</i> <a>newUpdateConnection</a> smart constructor.
 data UpdateConnection
@@ -5771,27 +5771,27 @@ updateConnectionResponse_connection :: Lens' UpdateConnectionResponse (Maybe Con
 
 -- | The response's http status code.
 updateConnectionResponse_httpStatus :: Lens' UpdateConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance GHC.Read.Read Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateConnection.UpdateConnectionResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateConnection.UpdateConnectionResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.UpdateConnection.UpdateConnectionResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateConnection.UpdateConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateConnection.UpdateConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.UpdateConnection.UpdateConnection
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance GHC.Read.Read Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateConnection.UpdateConnectionResponse
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateConnection.UpdateConnectionResponse
+instance GHC.Read.Read Amazonka.NetworkManager.UpdateConnection.UpdateConnectionResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateConnection.UpdateConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateConnection.UpdateConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.UpdateConnection.UpdateConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.UpdateConnection.UpdateConnection
 
 
 -- | Updates the details for an existing device. To remove information for
 --   any of the parameters, specify an empty string.
-module Network.AWS.NetworkManager.UpdateDevice
+module Amazonka.NetworkManager.UpdateDevice
 
 -- | <i>See:</i> <a>newUpdateDevice</a> smart constructor.
 data UpdateDevice
@@ -5951,25 +5951,25 @@ updateDeviceResponse_device :: Lens' UpdateDeviceResponse (Maybe Device)
 
 -- | The response's http status code.
 updateDeviceResponse_httpStatus :: Lens' UpdateDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateDevice.UpdateDeviceResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateDevice.UpdateDeviceResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateDevice.UpdateDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateDevice.UpdateDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.UpdateDevice.UpdateDevice
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateDevice.UpdateDeviceResponse
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateDevice.UpdateDeviceResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateDevice.UpdateDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateDevice.UpdateDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.UpdateDevice.UpdateDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.UpdateDevice.UpdateDevice
 
 
 -- | Updates an existing global network. To remove information for any of
 --   the parameters, specify an empty string.
-module Network.AWS.NetworkManager.UpdateGlobalNetwork
+module Amazonka.NetworkManager.UpdateGlobalNetwork
 
 -- | <i>See:</i> <a>newUpdateGlobalNetwork</a> smart constructor.
 data UpdateGlobalNetwork
@@ -6044,27 +6044,27 @@ updateGlobalNetworkResponse_globalNetwork :: Lens' UpdateGlobalNetworkResponse (
 
 -- | The response's http status code.
 updateGlobalNetworkResponse_httpStatus :: Lens' UpdateGlobalNetworkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance GHC.Read.Read Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance GHC.Read.Read Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetworkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.UpdateGlobalNetwork.UpdateGlobalNetwork
 
 
 -- | Updates the details for an existing link. To remove information for
 --   any of the parameters, specify an empty string.
-module Network.AWS.NetworkManager.UpdateLink
+module Amazonka.NetworkManager.UpdateLink
 
 -- | <i>See:</i> <a>newUpdateLink</a> smart constructor.
 data UpdateLink
@@ -6183,27 +6183,27 @@ updateLinkResponse_link :: Lens' UpdateLinkResponse (Maybe Link)
 
 -- | The response's http status code.
 updateLinkResponse_httpStatus :: Lens' UpdateLinkResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance GHC.Read.Read Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateLink.UpdateLinkResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateLink.UpdateLinkResponse
-instance GHC.Read.Read Network.AWS.NetworkManager.UpdateLink.UpdateLinkResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateLink.UpdateLinkResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateLink.UpdateLinkResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.UpdateLink.UpdateLink
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.UpdateLink.UpdateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance GHC.Read.Read Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateLink.UpdateLinkResponse
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateLink.UpdateLinkResponse
+instance GHC.Read.Read Amazonka.NetworkManager.UpdateLink.UpdateLinkResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateLink.UpdateLinkResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateLink.UpdateLinkResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.UpdateLink.UpdateLink
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.UpdateLink.UpdateLink
 
 
 -- | Updates the information for an existing site. To remove information
 --   for any of the parameters, specify an empty string.
-module Network.AWS.NetworkManager.UpdateSite
+module Amazonka.NetworkManager.UpdateSite
 
 -- | <i>See:</i> <a>newUpdateSite</a> smart constructor.
 data UpdateSite
@@ -6310,23 +6310,23 @@ updateSiteResponse_site :: Lens' UpdateSiteResponse (Maybe Site)
 
 -- | The response's http status code.
 updateSiteResponse_httpStatus :: Lens' UpdateSiteResponse Int
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance GHC.Generics.Generic Network.AWS.NetworkManager.UpdateSite.UpdateSiteResponse
-instance GHC.Show.Show Network.AWS.NetworkManager.UpdateSite.UpdateSiteResponse
-instance GHC.Classes.Eq Network.AWS.NetworkManager.UpdateSite.UpdateSiteResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateSite.UpdateSiteResponse
-instance Data.Hashable.Class.Hashable Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance Control.DeepSeq.NFData Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance Network.AWS.Data.Path.ToPath Network.AWS.NetworkManager.UpdateSite.UpdateSite
-instance Network.AWS.Data.Query.ToQuery Network.AWS.NetworkManager.UpdateSite.UpdateSite
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance GHC.Generics.Generic Amazonka.NetworkManager.UpdateSite.UpdateSiteResponse
+instance GHC.Show.Show Amazonka.NetworkManager.UpdateSite.UpdateSiteResponse
+instance GHC.Classes.Eq Amazonka.NetworkManager.UpdateSite.UpdateSiteResponse
+instance Amazonka.Types.AWSRequest Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateSite.UpdateSiteResponse
+instance Data.Hashable.Class.Hashable Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance Control.DeepSeq.NFData Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance Amazonka.Data.Headers.ToHeaders Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance Amazonka.Data.Path.ToPath Amazonka.NetworkManager.UpdateSite.UpdateSite
+instance Amazonka.Data.Query.ToQuery Amazonka.NetworkManager.UpdateSite.UpdateSite
 
 
-module Network.AWS.NetworkManager.Lens
+module Amazonka.NetworkManager.Lens
 
 -- | The token for the next page of results.
 getLinkAssociations_nextToken :: Lens' GetLinkAssociations (Maybe Text)
@@ -7265,7 +7265,7 @@ transitGatewayRegistrationStateReason_code :: Lens' TransitGatewayRegistrationSt
 transitGatewayRegistrationStateReason_message :: Lens' TransitGatewayRegistrationStateReason (Maybe Text)
 
 
-module Network.AWS.NetworkManager.Waiters
+module Amazonka.NetworkManager.Waiters
 
 
 -- | Derived from API version <tt>2019-07-05</tt> of the AWS service
@@ -7278,7 +7278,7 @@ module Network.AWS.NetworkManager.Waiters
 --   The Network Manager APIs are supported in the US West (Oregon) Region
 --   only. You must specify the <tt>us-west-2</tt> Region in all requests
 --   made to Network Manager.
-module Network.AWS.NetworkManager
+module Amazonka.NetworkManager
 
 -- | API version <tt>2019-07-05</tt> of the Amazon Network Manager SDK
 --   configuration.

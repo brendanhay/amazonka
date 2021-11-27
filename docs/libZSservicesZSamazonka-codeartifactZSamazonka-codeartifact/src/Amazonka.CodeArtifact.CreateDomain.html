@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.CreateDomain</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a domain. CodeArtifact /domains/ make it easier to manage</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- multiple repositories across an organization. You can use a domain to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- apply permissions across many repositories owned by different AWS</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- accounts. An asset is stored only once in a domain, even if it\'s in</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- multiple repositories.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Although you can have multiple domains, we recommend a single production</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- domain that contains all published artifacts so that your development</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- teams can find and share packages. You can use a second pre-production</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- domain to test changes to the production domain configuration.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.CreateDomain</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#newCreateDomain"><span class="hs-identifier">newCreateDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_encryptionKey"><span class="hs-identifier">createDomain_encryptionKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_tags"><span class="hs-identifier">createDomain_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_domain"><span class="hs-identifier">createDomain_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier">CreateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier">newCreateDomainResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomainResponse_domain"><span class="hs-identifier">createDomainResponse_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomainResponse_httpStatus"><span class="hs-identifier">createDomainResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.html"><span class="hs-identifier">Amazonka.CodeArtifact.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newCreateDomain' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679239811"><span id="local-6989586621679239812"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomain"><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-var">CreateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomain%27"><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-var">CreateDomain'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption key for the domain. This is used to encrypt content</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- stored in a domain. An encryption key can be a key ID, a key Amazon</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN), a key alias, or a key alias ARN. To specify an</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @encryptionKey@, your IAM role must have @kms:DescribeKey@ and</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @kms:CreateGrant@ permissions on the encryption key that is used. For</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax DescribeKey&gt;</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- in the /AWS Key Management Service API Reference/ and</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html AWS KMS API Permissions Reference&gt;</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- in the /AWS Key Management Service Developer Guide/.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- CodeArtifact supports only symmetric CMKs. Do not associate an</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- asymmetric CMK with your domain. For more information, see</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys&gt;</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- in the /AWS Key Management Service Developer Guide/.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AencryptionKey%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3AencryptionKey%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">encryptionKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | One or more tag key-value pairs for the domain.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Atags%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe [Tag]
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The name of the domain to create. All domain names in an AWS Region that</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- are in the same AWS account must be unique. The domain name is used as</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- the prefix in DNS hostnames. Do not use sensitive information in a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- domain name because it is publicly discoverable.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Adomain%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Text
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Adomain%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239803"><span id="local-6989586621679239805"><span class="annot"><span class="annottext">CreateDomain -&gt; CreateDomain -&gt; Bool
+(CreateDomain -&gt; CreateDomain -&gt; Bool)
+-&gt; (CreateDomain -&gt; CreateDomain -&gt; Bool) -&gt; Eq CreateDomain
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDomain -&gt; CreateDomain -&gt; Bool
+$c/= :: CreateDomain -&gt; CreateDomain -&gt; Bool
+== :: CreateDomain -&gt; CreateDomain -&gt; Bool
+$c== :: CreateDomain -&gt; CreateDomain -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239794"><span id="local-6989586621679239796"><span id="local-6989586621679239798"><span id="local-6989586621679239800"><span class="annot"><span class="annottext">ReadPrec [CreateDomain]
+ReadPrec CreateDomain
+Int -&gt; ReadS CreateDomain
+ReadS [CreateDomain]
+(Int -&gt; ReadS CreateDomain)
+-&gt; ReadS [CreateDomain]
+-&gt; ReadPrec CreateDomain
+-&gt; ReadPrec [CreateDomain]
+-&gt; Read CreateDomain
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDomain]
+$creadListPrec :: ReadPrec [CreateDomain]
+readPrec :: ReadPrec CreateDomain
+$creadPrec :: ReadPrec CreateDomain
+readList :: ReadS [CreateDomain]
+$creadList :: ReadS [CreateDomain]
+readsPrec :: Int -&gt; ReadS CreateDomain
+$creadsPrec :: Int -&gt; ReadS CreateDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239787"><span id="local-6989586621679239789"><span id="local-6989586621679239791"><span class="annot"><span class="annottext">Int -&gt; CreateDomain -&gt; ShowS
+[CreateDomain] -&gt; ShowS
+CreateDomain -&gt; String
+(Int -&gt; CreateDomain -&gt; ShowS)
+-&gt; (CreateDomain -&gt; String)
+-&gt; ([CreateDomain] -&gt; ShowS)
+-&gt; Show CreateDomain
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDomain] -&gt; ShowS
+$cshowList :: [CreateDomain] -&gt; ShowS
+show :: CreateDomain -&gt; String
+$cshow :: CreateDomain -&gt; String
+showsPrec :: Int -&gt; CreateDomain -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDomain -&gt; Rep CreateDomain x)
+-&gt; (forall x. Rep CreateDomain x -&gt; CreateDomain)
+-&gt; Generic CreateDomain
+forall x. Rep CreateDomain x -&gt; CreateDomain
+forall x. CreateDomain -&gt; Rep CreateDomain x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDomain x -&gt; CreateDomain
+$cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'CreateDomain' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'encryptionKey', 'createDomain_encryptionKey' - The encryption key for the domain. This is used to encrypt content</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- stored in a domain. An encryption key can be a key ID, a key Amazon</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Resource Name (ARN), a key alias, or a key alias ARN. To specify an</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @encryptionKey@, your IAM role must have @kms:DescribeKey@ and</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @kms:CreateGrant@ permissions on the encryption key that is used. For</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax DescribeKey&gt;</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- in the /AWS Key Management Service API Reference/ and</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html AWS KMS API Permissions Reference&gt;</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- in the /AWS Key Management Service Developer Guide/.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- CodeArtifact supports only symmetric CMKs. Do not associate an</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- asymmetric CMK with your domain. For more information, see</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys&gt;</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- in the /AWS Key Management Service Developer Guide/.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'tags', 'createDomain_tags' - One or more tag key-value pairs for the domain.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'domain', 'createDomain_domain' - The name of the domain to create. All domain names in an AWS Region that</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- are in the same AWS account must be unique. The domain name is used as</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the prefix in DNS hostnames. Do not use sensitive information in a</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- domain name because it is publicly discoverable.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#newCreateDomain"><span class="hs-identifier hs-type">newCreateDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span>
+</span><span id="line-122"></span><span id="newCreateDomain"><span class="annot"><span class="annottext">newCreateDomain :: Text -&gt; CreateDomain
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#newCreateDomain"><span class="hs-identifier hs-var hs-var">newCreateDomain</span></a></span></span><span> </span><span id="local-6989586621679239782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239782"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">CreateDomain' :: Maybe Text -&gt; Maybe [Tag] -&gt; Text -&gt; CreateDomain
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionKey:CreateDomain' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3AencryptionKey%3ACreateDomain%27"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateDomain' :: Maybe [Tag]
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:domain:CreateDomain' :: Text
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Adomain%3ACreateDomain%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239782"><span class="hs-identifier hs-var">pDomain_</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The encryption key for the domain. This is used to encrypt content</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- stored in a domain. An encryption key can be a key ID, a key Amazon</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Resource Name (ARN), a key alias, or a key alias ARN. To specify an</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @encryptionKey@, your IAM role must have @kms:DescribeKey@ and</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @kms:CreateGrant@ permissions on the encryption key that is used. For</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax DescribeKey&gt;</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- in the /AWS Key Management Service API Reference/ and</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html AWS KMS API Permissions Reference&gt;</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- in the /AWS Key Management Service Developer Guide/.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- CodeArtifact supports only symmetric CMKs. Do not associate an</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- asymmetric CMK with your domain. For more information, see</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys&gt;</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- in the /AWS Key Management Service Developer Guide/.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_encryptionKey"><span class="hs-identifier hs-type">createDomain_encryptionKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="createDomain_encryptionKey"><span class="annot"><span class="annottext">createDomain_encryptionKey :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_encryptionKey"><span class="hs-identifier hs-var hs-var">createDomain_encryptionKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe Text)
+-&gt; (CreateDomain -&gt; Maybe Text -&gt; CreateDomain)
+-&gt; Lens CreateDomain CreateDomain (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239779"><span class="annot"><span class="annottext">Maybe Text
+encryptionKey :: Maybe Text
+$sel:encryptionKey:CreateDomain' :: CreateDomain -&gt; Maybe Text
+</span><a href="#local-6989586621679239779"><span class="hs-identifier hs-var hs-var">encryptionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239779"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239778"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621679239778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621679239778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKey:CreateDomain' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3AencryptionKey%3ACreateDomain%27"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | One or more tag key-value pairs for the domain.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_tags"><span class="hs-identifier hs-type">createDomain_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeArtifact.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="createDomain_tags"><span class="annot"><span class="annottext">createDomain_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_tags"><span class="hs-identifier hs-var hs-var">createDomain_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe [Tag])
+-&gt; (CreateDomain -&gt; Maybe [Tag] -&gt; CreateDomain)
+-&gt; Lens CreateDomain CreateDomain (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239776"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateDomain' :: CreateDomain -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679239776"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679239776"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239775"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621679239775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239774"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679239774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621679239775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDomain' :: Maybe [Tag]
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679239774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateDomain -&gt; f CreateDomain)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDomain
+-&gt; f CreateDomain
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The name of the domain to create. All domain names in an AWS Region that</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- are in the same AWS account must be unique. The domain name is used as</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- the prefix in DNS hostnames. Do not use sensitive information in a</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- domain name because it is publicly discoverable.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_domain"><span class="hs-identifier hs-type">createDomain_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="createDomain_domain"><span class="annot"><span class="annottext">createDomain_domain :: (Text -&gt; f Text) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomain_domain"><span class="hs-identifier hs-var hs-var">createDomain_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Text)
+-&gt; (CreateDomain -&gt; Text -&gt; CreateDomain)
+-&gt; Lens CreateDomain CreateDomain Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239770"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:CreateDomain' :: CreateDomain -&gt; Text
+</span><a href="#local-6989586621679239770"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239770"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239769"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621679239769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239768"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621679239769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:CreateDomain' :: Text
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Adomain%3ACreateDomain%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679239764"><span class="annot"><span class="annottext">request :: CreateDomain -&gt; Request CreateDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDomain -&gt; Request CreateDomain
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeArtifact.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679239760"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDomain)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDomain))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDomain)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239757"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679239756"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679239756"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679239755"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239755"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe DomainDescription -&gt; Int -&gt; CreateDomainResponse
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DomainDescription -&gt; Int -&gt; CreateDomainResponse)
+-&gt; Either String (Maybe DomainDescription)
+-&gt; Either String (Int -&gt; CreateDomainResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DomainDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDomainResponse)
+-&gt; Either String Int -&gt; Either String CreateDomainResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239757"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239747"><span id="local-6989586621679239749"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679239740"><span class="annot"><span class="annottext">toHeaders :: CreateDomain -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDomain -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-180"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239730"><span id="local-6989586621679239732"><span id="local-6989586621679239734"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679239728"><span class="annot"><span class="annottext">toJSON :: CreateDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239724"><span id="local-6989586621679239725"><span id="local-6989586621679239726"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+domain :: Text
+tags :: Maybe [Tag]
+encryptionKey :: Maybe Text
+$sel:domain:CreateDomain' :: CreateDomain -&gt; Text
+$sel:tags:CreateDomain' :: CreateDomain -&gt; Maybe [Tag]
+$sel:encryptionKey:CreateDomain' :: CreateDomain -&gt; Maybe Text
+</span><a href="#local-6989586621679239724"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239726"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679239725"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679239718"><span class="annot"><span class="annottext">toPath :: CreateDomain -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDomain -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/domain&quot;</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679239714"><span class="annot"><span class="annottext">toQuery :: CreateDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239710"><span id="local-6989586621679239711"><span id="local-6989586621679239712"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+domain :: Text
+tags :: Maybe [Tag]
+encryptionKey :: Maybe Text
+$sel:domain:CreateDomain' :: CreateDomain -&gt; Text
+$sel:tags:CreateDomain' :: CreateDomain -&gt; Maybe [Tag]
+$sel:encryptionKey:CreateDomain' :: CreateDomain -&gt; Maybe Text
+</span><a href="#local-6989586621679239710"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239710"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newCreateDomainResponse' smart constructor.</span><span>
+</span><span id="line-201"></span><span id="local-6989586621679239707"><span id="local-6989586621679239708"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainResponse"><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-var">CreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainResponse%27"><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about the created domain after processing the</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3Adomain%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Maybe DomainDescription
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Adomain%3ACreateDomainResponse%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Int
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239701"><span id="local-6989586621679239703"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+(CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
+-&gt; (CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
+-&gt; Eq CreateDomainResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+$c/= :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+== :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+$c== :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239693"><span id="local-6989586621679239695"><span id="local-6989586621679239697"><span id="local-6989586621679239699"><span class="annot"><span class="annottext">ReadPrec [CreateDomainResponse]
+ReadPrec CreateDomainResponse
+Int -&gt; ReadS CreateDomainResponse
+ReadS [CreateDomainResponse]
+(Int -&gt; ReadS CreateDomainResponse)
+-&gt; ReadS [CreateDomainResponse]
+-&gt; ReadPrec CreateDomainResponse
+-&gt; ReadPrec [CreateDomainResponse]
+-&gt; Read CreateDomainResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDomainResponse]
+$creadListPrec :: ReadPrec [CreateDomainResponse]
+readPrec :: ReadPrec CreateDomainResponse
+$creadPrec :: ReadPrec CreateDomainResponse
+readList :: ReadS [CreateDomainResponse]
+$creadList :: ReadS [CreateDomainResponse]
+readsPrec :: Int -&gt; ReadS CreateDomainResponse
+$creadsPrec :: Int -&gt; ReadS CreateDomainResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239687"><span id="local-6989586621679239689"><span id="local-6989586621679239691"><span class="annot"><span class="annottext">Int -&gt; CreateDomainResponse -&gt; ShowS
+[CreateDomainResponse] -&gt; ShowS
+CreateDomainResponse -&gt; String
+(Int -&gt; CreateDomainResponse -&gt; ShowS)
+-&gt; (CreateDomainResponse -&gt; String)
+-&gt; ([CreateDomainResponse] -&gt; ShowS)
+-&gt; Show CreateDomainResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDomainResponse] -&gt; ShowS
+$cshowList :: [CreateDomainResponse] -&gt; ShowS
+show :: CreateDomainResponse -&gt; String
+$cshow :: CreateDomainResponse -&gt; String
+showsPrec :: Int -&gt; CreateDomainResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDomainResponse -&gt; Rep CreateDomainResponse x)
+-&gt; (forall x. Rep CreateDomainResponse x -&gt; CreateDomainResponse)
+-&gt; Generic CreateDomainResponse
+forall x. Rep CreateDomainResponse x -&gt; CreateDomainResponse
+forall x. CreateDomainResponse -&gt; Rep CreateDomainResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDomainResponse x -&gt; CreateDomainResponse
+$cfrom :: forall x. CreateDomainResponse -&gt; Rep CreateDomainResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'CreateDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'domain', 'createDomainResponse_domain' - Contains information about the created domain after processing the</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'httpStatus', 'createDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-type">newCreateDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
+</span><span id="line-226"></span><span id="newCreateDomainResponse"><span class="annot"><span class="annottext">newCreateDomainResponse :: Int -&gt; CreateDomainResponse
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679239684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">CreateDomainResponse' :: Maybe DomainDescription -&gt; Int -&gt; CreateDomainResponse
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domain:CreateDomainResponse' :: Maybe DomainDescription
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Adomain%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Contains information about the created domain after processing the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomainResponse_domain"><span class="hs-identifier hs-type">createDomainResponse_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="createDomainResponse_domain"><span class="annot"><span class="annottext">createDomainResponse_domain :: (Maybe DomainDescription -&gt; f (Maybe DomainDescription))
+-&gt; CreateDomainResponse -&gt; f CreateDomainResponse
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomainResponse_domain"><span class="hs-identifier hs-var hs-var">createDomainResponse_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomainResponse -&gt; Maybe DomainDescription)
+-&gt; (CreateDomainResponse
+    -&gt; Maybe DomainDescription -&gt; CreateDomainResponse)
+-&gt; Lens
+     CreateDomainResponse
+     CreateDomainResponse
+     (Maybe DomainDescription)
+     (Maybe DomainDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239683"><span class="annot"><span class="annottext">Maybe DomainDescription
+domain :: Maybe DomainDescription
+$sel:domain:CreateDomainResponse' :: CreateDomainResponse -&gt; Maybe DomainDescription
+</span><a href="#local-6989586621679239683"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDescription
+</span><a href="#local-6989586621679239683"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239682"><span class="annot"><span class="annottext">s :: CreateDomainResponse
+</span><a href="#local-6989586621679239682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239681"><span class="annot"><span class="annottext">Maybe DomainDescription
+</span><a href="#local-6989586621679239681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
+</span><a href="#local-6989586621679239682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:CreateDomainResponse' :: Maybe DomainDescription
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3Adomain%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDescription
+</span><a href="#local-6989586621679239681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomainResponse_httpStatus"><span class="hs-identifier hs-type">createDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-239"></span><span id="createDomainResponse_httpStatus"><span class="annot"><span class="annottext">createDomainResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateDomainResponse -&gt; f CreateDomainResponse
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#createDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomainResponse -&gt; Int)
+-&gt; (CreateDomainResponse -&gt; Int -&gt; CreateDomainResponse)
+-&gt; Lens CreateDomainResponse CreateDomainResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239680"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDomainResponse' :: CreateDomainResponse -&gt; Int
+</span><a href="#local-6989586621679239680"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239680"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239679"><span class="annot"><span class="annottext">s :: CreateDomainResponse
+</span><a href="#local-6989586621679239679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
+</span><a href="#local-6989586621679239679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

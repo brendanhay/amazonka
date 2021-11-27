@@ -1,0 +1,997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.FeatureGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.FeatureGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureDefinition.html"><span class="hs-identifier">Amazonka.SageMaker.Types.FeatureDefinition</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroupStatus.html"><span class="hs-identifier">Amazonka.SageMaker.Types.FeatureGroupStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OfflineStoreConfig.html"><span class="hs-identifier">Amazonka.SageMaker.Types.OfflineStoreConfig</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OfflineStoreStatus.html"><span class="hs-identifier">Amazonka.SageMaker.Types.OfflineStoreStatus</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OnlineStoreConfig.html"><span class="hs-identifier">Amazonka.SageMaker.Types.OnlineStoreConfig</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html"><span class="hs-identifier">Amazonka.SageMaker.Types.Tag</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Amazon SageMaker Feature Store stores features in a collection called</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Feature Group. A Feature Group can be visualized as a table which has</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- rows, with a unique identifier for each row where each column in the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- table is a feature. In principle, a Feature Group is composed of</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- features and values per features.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newFeatureGroup' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621680345619"><span id="local-6989586621680345620"></span></span><span class="hs-keyword">data</span><span> </span><span id="FeatureGroup"><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-var">FeatureGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureGroup%27"><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-var">FeatureGroup'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time a @FeatureGroup@ was created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreationTime%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AcreationTime%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AofflineStoreConfig%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe OfflineStoreConfig
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AofflineStoreConfig%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">offlineStoreConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OfflineStoreConfig.html#OfflineStoreConfig"><span class="hs-identifier hs-type">OfflineStoreConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The reason that the @FeatureGroup@ failed to be replicated in the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @OfflineStore@. This is failure may be due to a failure to create a</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @FeatureGroup@ in or delete a @FeatureGroup@ from the @OfflineStore@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AfailureReason%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfailureReason%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A @FeatureGroup@ status.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AfeatureGroupStatus%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe FeatureGroupStatus
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupStatus%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">featureGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroupStatus.html#FeatureGroupStatus"><span class="hs-identifier hs-type">FeatureGroupStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A list of @Feature@s. Each @Feature@ must include a @FeatureName@ and a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @FeatureType@.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Valid @FeatureType@s are @Integral@, @Fractional@ and @String@.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @FeatureName@s cannot be any of the following: @is_deleted@,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @write_time@, @api_invocation_time@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AfeatureDefinitions%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe (NonEmpty FeatureDefinition)
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureDefinitions%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">featureDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AofflineStoreStatus%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe OfflineStoreStatus
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AofflineStoreStatus%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">offlineStoreStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OfflineStoreStatus.html#OfflineStoreStatus"><span class="hs-identifier hs-type">OfflineStoreStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AonlineStoreConfig%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe OnlineStoreConfig
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AonlineStoreConfig%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">onlineStoreConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OnlineStoreConfig.html#OnlineStoreConfig"><span class="hs-identifier hs-type">OnlineStoreConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the feature that stores the @EventTime@ of a Record in a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @FeatureGroup@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- A @EventTime@ is point in time when a new event occurs that corresponds</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- in the @FeatureGroup@ must have a corresponding @EventTime@.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AeventTimeFeatureName%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AeventTimeFeatureName%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">eventTimeFeatureName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the @Feature@ whose value uniquely identifies a @Record@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- defined in the @FeatureGroup@ @FeatureDefinitions@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3ArecordIdentifierFeatureName%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3ArecordIdentifierFeatureName%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">recordIdentifierFeatureName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a @FeatureGroup@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AfeatureGroupArn%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupArn%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">featureGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the @FeatureGroup@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AfeatureGroupName%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupName%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">featureGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A free form description of a @FeatureGroup@.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Adescription%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3Adescription%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Tags used to define a @FeatureGroup@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Atags%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3Atags%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM execution role used to create</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the feature group.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AroleArn%3AFeatureGroup%27"><span class="annot"><span class="annottext">FeatureGroup -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AroleArn%3AFeatureGroup%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680345600"><span id="local-6989586621680345602"><span class="annot"><span class="annottext">FeatureGroup -&gt; FeatureGroup -&gt; Bool
+(FeatureGroup -&gt; FeatureGroup -&gt; Bool)
+-&gt; (FeatureGroup -&gt; FeatureGroup -&gt; Bool) -&gt; Eq FeatureGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FeatureGroup -&gt; FeatureGroup -&gt; Bool
+$c/= :: FeatureGroup -&gt; FeatureGroup -&gt; Bool
+== :: FeatureGroup -&gt; FeatureGroup -&gt; Bool
+$c== :: FeatureGroup -&gt; FeatureGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345591"><span id="local-6989586621680345593"><span id="local-6989586621680345595"><span id="local-6989586621680345597"><span class="annot"><span class="annottext">ReadPrec [FeatureGroup]
+ReadPrec FeatureGroup
+Int -&gt; ReadS FeatureGroup
+ReadS [FeatureGroup]
+(Int -&gt; ReadS FeatureGroup)
+-&gt; ReadS [FeatureGroup]
+-&gt; ReadPrec FeatureGroup
+-&gt; ReadPrec [FeatureGroup]
+-&gt; Read FeatureGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FeatureGroup]
+$creadListPrec :: ReadPrec [FeatureGroup]
+readPrec :: ReadPrec FeatureGroup
+$creadPrec :: ReadPrec FeatureGroup
+readList :: ReadS [FeatureGroup]
+$creadList :: ReadS [FeatureGroup]
+readsPrec :: Int -&gt; ReadS FeatureGroup
+$creadsPrec :: Int -&gt; ReadS FeatureGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345584"><span id="local-6989586621680345586"><span id="local-6989586621680345588"><span class="annot"><span class="annottext">Int -&gt; FeatureGroup -&gt; ShowS
+[FeatureGroup] -&gt; ShowS
+FeatureGroup -&gt; String
+(Int -&gt; FeatureGroup -&gt; ShowS)
+-&gt; (FeatureGroup -&gt; String)
+-&gt; ([FeatureGroup] -&gt; ShowS)
+-&gt; Show FeatureGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FeatureGroup] -&gt; ShowS
+$cshowList :: [FeatureGroup] -&gt; ShowS
+show :: FeatureGroup -&gt; String
+$cshow :: FeatureGroup -&gt; String
+showsPrec :: Int -&gt; FeatureGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; FeatureGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FeatureGroup -&gt; Rep FeatureGroup x)
+-&gt; (forall x. Rep FeatureGroup x -&gt; FeatureGroup)
+-&gt; Generic FeatureGroup
+forall x. Rep FeatureGroup x -&gt; FeatureGroup
+forall x. FeatureGroup -&gt; Rep FeatureGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FeatureGroup x -&gt; FeatureGroup
+$cfrom :: forall x. FeatureGroup -&gt; Rep FeatureGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'FeatureGroup' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'creationTime', 'featureGroup_creationTime' - The time a @FeatureGroup@ was created.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'offlineStoreConfig', 'featureGroup_offlineStoreConfig' - Undocumented member.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'failureReason', 'featureGroup_failureReason' - The reason that the @FeatureGroup@ failed to be replicated in the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @OfflineStore@. This is failure may be due to a failure to create a</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @FeatureGroup@ in or delete a @FeatureGroup@ from the @OfflineStore@.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'featureGroupStatus', 'featureGroup_featureGroupStatus' - A @FeatureGroup@ status.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'featureDefinitions', 'featureGroup_featureDefinitions' - A list of @Feature@s. Each @Feature@ must include a @FeatureName@ and a</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @FeatureType@.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Valid @FeatureType@s are @Integral@, @Fractional@ and @String@.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @FeatureName@s cannot be any of the following: @is_deleted@,</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @write_time@, @api_invocation_time@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'offlineStoreStatus', 'featureGroup_offlineStoreStatus' - Undocumented member.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'onlineStoreConfig', 'featureGroup_onlineStoreConfig' - Undocumented member.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'eventTimeFeatureName', 'featureGroup_eventTimeFeatureName' - The name of the feature that stores the @EventTime@ of a Record in a</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @FeatureGroup@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- A @EventTime@ is point in time when a new event occurs that corresponds</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- in the @FeatureGroup@ must have a corresponding @EventTime@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'recordIdentifierFeatureName', 'featureGroup_recordIdentifierFeatureName' - The name of the @Feature@ whose value uniquely identifies a @Record@</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- defined in the @FeatureGroup@ @FeatureDefinitions@.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'featureGroupArn', 'featureGroup_featureGroupArn' - The Amazon Resource Name (ARN) of a @FeatureGroup@.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'featureGroupName', 'featureGroup_featureGroupName' - The name of the @FeatureGroup@.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'description', 'featureGroup_description' - A free form description of a @FeatureGroup@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'tags', 'featureGroup_tags' - Tags used to define a @FeatureGroup@.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'roleArn', 'featureGroup_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to create</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- the feature group.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#newFeatureGroup"><span class="hs-identifier hs-type">newFeatureGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span>
+</span><span id="line-139"></span><span id="newFeatureGroup"><span class="annot"><span class="annottext">newFeatureGroup :: FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#newFeatureGroup"><span class="hs-identifier hs-var hs-var">newFeatureGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">FeatureGroup' :: Maybe POSIX
+-&gt; Maybe OfflineStoreConfig
+-&gt; Maybe Text
+-&gt; Maybe FeatureGroupStatus
+-&gt; Maybe (NonEmpty FeatureDefinition)
+-&gt; Maybe OfflineStoreStatus
+-&gt; Maybe OnlineStoreConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Maybe Text
+-&gt; FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:FeatureGroup' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AcreationTime%3AFeatureGroup%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:offlineStoreConfig:FeatureGroup' :: Maybe OfflineStoreConfig
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AofflineStoreConfig%3AFeatureGroup%27"><span class="hs-identifier hs-var">offlineStoreConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OfflineStoreConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfailureReason%3AFeatureGroup%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureGroupStatus:FeatureGroup' :: Maybe FeatureGroupStatus
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupStatus%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureGroupStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureDefinitions:FeatureGroup' :: Maybe (NonEmpty FeatureDefinition)
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureDefinitions%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeatureDefinition)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:offlineStoreStatus:FeatureGroup' :: Maybe OfflineStoreStatus
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AofflineStoreStatus%3AFeatureGroup%27"><span class="hs-identifier hs-var">offlineStoreStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OfflineStoreStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:onlineStoreConfig:FeatureGroup' :: Maybe OnlineStoreConfig
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AonlineStoreConfig%3AFeatureGroup%27"><span class="hs-identifier hs-var">onlineStoreConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnlineStoreConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventTimeFeatureName:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AeventTimeFeatureName%3AFeatureGroup%27"><span class="hs-identifier hs-var">eventTimeFeatureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordIdentifierFeatureName:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3ArecordIdentifierFeatureName%3AFeatureGroup%27"><span class="hs-identifier hs-var">recordIdentifierFeatureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureGroupArn:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupArn%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureGroupName:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupName%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3Adescription%3AFeatureGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:FeatureGroup' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3Atags%3AFeatureGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AroleArn%3AFeatureGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The time a @FeatureGroup@ was created.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_creationTime"><span class="hs-identifier hs-type">featureGroup_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="featureGroup_creationTime"><span class="annot"><span class="annottext">featureGroup_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_creationTime"><span class="hs-identifier hs-var hs-var">featureGroup_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe POSIX)
+-&gt; (FeatureGroup -&gt; Maybe POSIX -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345575"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:FeatureGroup' :: FeatureGroup -&gt; Maybe POSIX
+</span><a href="#local-6989586621680345575"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680345575"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345574"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345573"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680345573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:FeatureGroup' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AcreationTime%3AFeatureGroup%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680345573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; FeatureGroup -&gt; f FeatureGroup)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FeatureGroup
+-&gt; f FeatureGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_offlineStoreConfig"><span class="hs-identifier hs-type">featureGroup_offlineStoreConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OfflineStoreConfig.html#OfflineStoreConfig"><span class="hs-identifier hs-type">OfflineStoreConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="featureGroup_offlineStoreConfig"><span class="annot"><span class="annottext">featureGroup_offlineStoreConfig :: (Maybe OfflineStoreConfig -&gt; f (Maybe OfflineStoreConfig))
+-&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_offlineStoreConfig"><span class="hs-identifier hs-var hs-var">featureGroup_offlineStoreConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe OfflineStoreConfig)
+-&gt; (FeatureGroup -&gt; Maybe OfflineStoreConfig -&gt; FeatureGroup)
+-&gt; Lens
+     FeatureGroup
+     FeatureGroup
+     (Maybe OfflineStoreConfig)
+     (Maybe OfflineStoreConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345568"><span class="annot"><span class="annottext">Maybe OfflineStoreConfig
+offlineStoreConfig :: Maybe OfflineStoreConfig
+$sel:offlineStoreConfig:FeatureGroup' :: FeatureGroup -&gt; Maybe OfflineStoreConfig
+</span><a href="#local-6989586621680345568"><span class="hs-identifier hs-var hs-var">offlineStoreConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OfflineStoreConfig
+</span><a href="#local-6989586621680345568"><span class="hs-identifier hs-var">offlineStoreConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345567"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345566"><span class="annot"><span class="annottext">Maybe OfflineStoreConfig
+</span><a href="#local-6989586621680345566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offlineStoreConfig:FeatureGroup' :: Maybe OfflineStoreConfig
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AofflineStoreConfig%3AFeatureGroup%27"><span class="hs-identifier hs-var">offlineStoreConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OfflineStoreConfig
+</span><a href="#local-6989586621680345566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The reason that the @FeatureGroup@ failed to be replicated in the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @OfflineStore@. This is failure may be due to a failure to create a</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- @FeatureGroup@ in or delete a @FeatureGroup@ from the @OfflineStore@.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_failureReason"><span class="hs-identifier hs-type">featureGroup_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="featureGroup_failureReason"><span class="annot"><span class="annottext">featureGroup_failureReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_failureReason"><span class="hs-identifier hs-var hs-var">featureGroup_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe Text)
+-&gt; (FeatureGroup -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345564"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:FeatureGroup' :: FeatureGroup -&gt; Maybe Text
+</span><a href="#local-6989586621680345564"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345564"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345563"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfailureReason%3AFeatureGroup%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | A @FeatureGroup@ status.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureGroupStatus"><span class="hs-identifier hs-type">featureGroup_featureGroupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroupStatus.html#FeatureGroupStatus"><span class="hs-identifier hs-type">FeatureGroupStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="featureGroup_featureGroupStatus"><span class="annot"><span class="annottext">featureGroup_featureGroupStatus :: (Maybe FeatureGroupStatus -&gt; f (Maybe FeatureGroupStatus))
+-&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureGroupStatus"><span class="hs-identifier hs-var hs-var">featureGroup_featureGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe FeatureGroupStatus)
+-&gt; (FeatureGroup -&gt; Maybe FeatureGroupStatus -&gt; FeatureGroup)
+-&gt; Lens
+     FeatureGroup
+     FeatureGroup
+     (Maybe FeatureGroupStatus)
+     (Maybe FeatureGroupStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345560"><span class="annot"><span class="annottext">Maybe FeatureGroupStatus
+featureGroupStatus :: Maybe FeatureGroupStatus
+$sel:featureGroupStatus:FeatureGroup' :: FeatureGroup -&gt; Maybe FeatureGroupStatus
+</span><a href="#local-6989586621680345560"><span class="hs-identifier hs-var hs-var">featureGroupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureGroupStatus
+</span><a href="#local-6989586621680345560"><span class="hs-identifier hs-var">featureGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345559"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345558"><span class="annot"><span class="annottext">Maybe FeatureGroupStatus
+</span><a href="#local-6989586621680345558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureGroupStatus:FeatureGroup' :: Maybe FeatureGroupStatus
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupStatus%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureGroupStatus
+</span><a href="#local-6989586621680345558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | A list of @Feature@s. Each @Feature@ must include a @FeatureName@ and a</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- @FeatureType@.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Valid @FeatureType@s are @Integral@, @Fractional@ and @String@.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- @FeatureName@s cannot be any of the following: @is_deleted@,</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- @write_time@, @api_invocation_time@.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureDefinitions"><span class="hs-identifier hs-type">featureGroup_featureDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="featureGroup_featureDefinitions"><span class="annot"><span class="annottext">featureGroup_featureDefinitions :: (Maybe (NonEmpty FeatureDefinition)
+ -&gt; f (Maybe (NonEmpty FeatureDefinition)))
+-&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureDefinitions"><span class="hs-identifier hs-var hs-var">featureGroup_featureDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe (NonEmpty FeatureDefinition))
+-&gt; (FeatureGroup
+    -&gt; Maybe (NonEmpty FeatureDefinition) -&gt; FeatureGroup)
+-&gt; Lens
+     FeatureGroup
+     FeatureGroup
+     (Maybe (NonEmpty FeatureDefinition))
+     (Maybe (NonEmpty FeatureDefinition))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345556"><span class="annot"><span class="annottext">Maybe (NonEmpty FeatureDefinition)
+featureDefinitions :: Maybe (NonEmpty FeatureDefinition)
+$sel:featureDefinitions:FeatureGroup' :: FeatureGroup -&gt; Maybe (NonEmpty FeatureDefinition)
+</span><a href="#local-6989586621680345556"><span class="hs-identifier hs-var hs-var">featureDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeatureDefinition)
+</span><a href="#local-6989586621680345556"><span class="hs-identifier hs-var">featureDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345555"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345554"><span class="annot"><span class="annottext">Maybe (NonEmpty FeatureDefinition)
+</span><a href="#local-6989586621680345554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureDefinitions:FeatureGroup' :: Maybe (NonEmpty FeatureDefinition)
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureDefinitions%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeatureDefinition)
+</span><a href="#local-6989586621680345554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty FeatureDefinition)
+  -&gt; f (Maybe (NonEmpty FeatureDefinition)))
+ -&gt; FeatureGroup -&gt; f FeatureGroup)
+-&gt; ((Maybe (NonEmpty FeatureDefinition)
+     -&gt; f (Maybe (NonEmpty FeatureDefinition)))
+    -&gt; Maybe (NonEmpty FeatureDefinition)
+    -&gt; f (Maybe (NonEmpty FeatureDefinition)))
+-&gt; (Maybe (NonEmpty FeatureDefinition)
+    -&gt; f (Maybe (NonEmpty FeatureDefinition)))
+-&gt; FeatureGroup
+-&gt; f FeatureGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty FeatureDefinition)
+  (NonEmpty FeatureDefinition)
+  (NonEmpty FeatureDefinition)
+  (NonEmpty FeatureDefinition)
+-&gt; Iso
+     (Maybe (NonEmpty FeatureDefinition))
+     (Maybe (NonEmpty FeatureDefinition))
+     (Maybe (NonEmpty FeatureDefinition))
+     (Maybe (NonEmpty FeatureDefinition))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty FeatureDefinition)
+  (NonEmpty FeatureDefinition)
+  (NonEmpty FeatureDefinition)
+  (NonEmpty FeatureDefinition)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_offlineStoreStatus"><span class="hs-identifier hs-type">featureGroup_offlineStoreStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OfflineStoreStatus.html#OfflineStoreStatus"><span class="hs-identifier hs-type">OfflineStoreStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="featureGroup_offlineStoreStatus"><span class="annot"><span class="annottext">featureGroup_offlineStoreStatus :: (Maybe OfflineStoreStatus -&gt; f (Maybe OfflineStoreStatus))
+-&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_offlineStoreStatus"><span class="hs-identifier hs-var hs-var">featureGroup_offlineStoreStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe OfflineStoreStatus)
+-&gt; (FeatureGroup -&gt; Maybe OfflineStoreStatus -&gt; FeatureGroup)
+-&gt; Lens
+     FeatureGroup
+     FeatureGroup
+     (Maybe OfflineStoreStatus)
+     (Maybe OfflineStoreStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345551"><span class="annot"><span class="annottext">Maybe OfflineStoreStatus
+offlineStoreStatus :: Maybe OfflineStoreStatus
+$sel:offlineStoreStatus:FeatureGroup' :: FeatureGroup -&gt; Maybe OfflineStoreStatus
+</span><a href="#local-6989586621680345551"><span class="hs-identifier hs-var hs-var">offlineStoreStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OfflineStoreStatus
+</span><a href="#local-6989586621680345551"><span class="hs-identifier hs-var">offlineStoreStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345550"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345549"><span class="annot"><span class="annottext">Maybe OfflineStoreStatus
+</span><a href="#local-6989586621680345549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offlineStoreStatus:FeatureGroup' :: Maybe OfflineStoreStatus
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AofflineStoreStatus%3AFeatureGroup%27"><span class="hs-identifier hs-var">offlineStoreStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OfflineStoreStatus
+</span><a href="#local-6989586621680345549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_onlineStoreConfig"><span class="hs-identifier hs-type">featureGroup_onlineStoreConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OnlineStoreConfig.html#OnlineStoreConfig"><span class="hs-identifier hs-type">OnlineStoreConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="featureGroup_onlineStoreConfig"><span class="annot"><span class="annottext">featureGroup_onlineStoreConfig :: (Maybe OnlineStoreConfig -&gt; f (Maybe OnlineStoreConfig))
+-&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_onlineStoreConfig"><span class="hs-identifier hs-var hs-var">featureGroup_onlineStoreConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe OnlineStoreConfig)
+-&gt; (FeatureGroup -&gt; Maybe OnlineStoreConfig -&gt; FeatureGroup)
+-&gt; Lens
+     FeatureGroup
+     FeatureGroup
+     (Maybe OnlineStoreConfig)
+     (Maybe OnlineStoreConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345547"><span class="annot"><span class="annottext">Maybe OnlineStoreConfig
+onlineStoreConfig :: Maybe OnlineStoreConfig
+$sel:onlineStoreConfig:FeatureGroup' :: FeatureGroup -&gt; Maybe OnlineStoreConfig
+</span><a href="#local-6989586621680345547"><span class="hs-identifier hs-var hs-var">onlineStoreConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnlineStoreConfig
+</span><a href="#local-6989586621680345547"><span class="hs-identifier hs-var">onlineStoreConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345546"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345545"><span class="annot"><span class="annottext">Maybe OnlineStoreConfig
+</span><a href="#local-6989586621680345545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onlineStoreConfig:FeatureGroup' :: Maybe OnlineStoreConfig
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AonlineStoreConfig%3AFeatureGroup%27"><span class="hs-identifier hs-var">onlineStoreConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnlineStoreConfig
+</span><a href="#local-6989586621680345545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The name of the feature that stores the @EventTime@ of a Record in a</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @FeatureGroup@.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- A @EventTime@ is point in time when a new event occurs that corresponds</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- in the @FeatureGroup@ must have a corresponding @EventTime@.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_eventTimeFeatureName"><span class="hs-identifier hs-type">featureGroup_eventTimeFeatureName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="featureGroup_eventTimeFeatureName"><span class="annot"><span class="annottext">featureGroup_eventTimeFeatureName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_eventTimeFeatureName"><span class="hs-identifier hs-var hs-var">featureGroup_eventTimeFeatureName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe Text)
+-&gt; (FeatureGroup -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345543"><span class="annot"><span class="annottext">Maybe Text
+eventTimeFeatureName :: Maybe Text
+$sel:eventTimeFeatureName:FeatureGroup' :: FeatureGroup -&gt; Maybe Text
+</span><a href="#local-6989586621680345543"><span class="hs-identifier hs-var hs-var">eventTimeFeatureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345543"><span class="hs-identifier hs-var">eventTimeFeatureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345542"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTimeFeatureName:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AeventTimeFeatureName%3AFeatureGroup%27"><span class="hs-identifier hs-var">eventTimeFeatureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The name of the @Feature@ whose value uniquely identifies a @Record@</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- defined in the @FeatureGroup@ @FeatureDefinitions@.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_recordIdentifierFeatureName"><span class="hs-identifier hs-type">featureGroup_recordIdentifierFeatureName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="featureGroup_recordIdentifierFeatureName"><span class="annot"><span class="annottext">featureGroup_recordIdentifierFeatureName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_recordIdentifierFeatureName"><span class="hs-identifier hs-var hs-var">featureGroup_recordIdentifierFeatureName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe Text)
+-&gt; (FeatureGroup -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345539"><span class="annot"><span class="annottext">Maybe Text
+recordIdentifierFeatureName :: Maybe Text
+$sel:recordIdentifierFeatureName:FeatureGroup' :: FeatureGroup -&gt; Maybe Text
+</span><a href="#local-6989586621680345539"><span class="hs-identifier hs-var hs-var">recordIdentifierFeatureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345539"><span class="hs-identifier hs-var">recordIdentifierFeatureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345538"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordIdentifierFeatureName:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3ArecordIdentifierFeatureName%3AFeatureGroup%27"><span class="hs-identifier hs-var">recordIdentifierFeatureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a @FeatureGroup@.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureGroupArn"><span class="hs-identifier hs-type">featureGroup_featureGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="featureGroup_featureGroupArn"><span class="annot"><span class="annottext">featureGroup_featureGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureGroupArn"><span class="hs-identifier hs-var hs-var">featureGroup_featureGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe Text)
+-&gt; (FeatureGroup -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345535"><span class="annot"><span class="annottext">Maybe Text
+featureGroupArn :: Maybe Text
+$sel:featureGroupArn:FeatureGroup' :: FeatureGroup -&gt; Maybe Text
+</span><a href="#local-6989586621680345535"><span class="hs-identifier hs-var hs-var">featureGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345535"><span class="hs-identifier hs-var">featureGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345534"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345533"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureGroupArn:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupArn%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The name of the @FeatureGroup@.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureGroupName"><span class="hs-identifier hs-type">featureGroup_featureGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="featureGroup_featureGroupName"><span class="annot"><span class="annottext">featureGroup_featureGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_featureGroupName"><span class="hs-identifier hs-var hs-var">featureGroup_featureGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe Text)
+-&gt; (FeatureGroup -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345531"><span class="annot"><span class="annottext">Maybe Text
+featureGroupName :: Maybe Text
+$sel:featureGroupName:FeatureGroup' :: FeatureGroup -&gt; Maybe Text
+</span><a href="#local-6989586621680345531"><span class="hs-identifier hs-var hs-var">featureGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345531"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345530"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345529"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureGroupName:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AfeatureGroupName%3AFeatureGroup%27"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | A free form description of a @FeatureGroup@.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_description"><span class="hs-identifier hs-type">featureGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="featureGroup_description"><span class="annot"><span class="annottext">featureGroup_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_description"><span class="hs-identifier hs-var hs-var">featureGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe Text)
+-&gt; (FeatureGroup -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345527"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:FeatureGroup' :: FeatureGroup -&gt; Maybe Text
+</span><a href="#local-6989586621680345527"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345527"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345526"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345525"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3Adescription%3AFeatureGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | Tags used to define a @FeatureGroup@.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_tags"><span class="hs-identifier hs-type">featureGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="featureGroup_tags"><span class="annot"><span class="annottext">featureGroup_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_tags"><span class="hs-identifier hs-var hs-var">featureGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe [Tag])
+-&gt; (FeatureGroup -&gt; Maybe [Tag] -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345523"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:FeatureGroup' :: FeatureGroup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680345523"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680345523"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345522"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345521"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680345521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FeatureGroup' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3Atags%3AFeatureGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680345521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; FeatureGroup -&gt; f FeatureGroup)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; FeatureGroup
+-&gt; f FeatureGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM execution role used to create</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- the feature group.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_roleArn"><span class="hs-identifier hs-type">featureGroup_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="featureGroup_roleArn"><span class="annot"><span class="annottext">featureGroup_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FeatureGroup -&gt; f FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#featureGroup_roleArn"><span class="hs-identifier hs-var hs-var">featureGroup_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FeatureGroup -&gt; Maybe Text)
+-&gt; (FeatureGroup -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Lens FeatureGroup FeatureGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345519"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:FeatureGroup' :: FeatureGroup -&gt; Maybe Text
+</span><a href="#local-6989586621680345519"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345519"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345518"><span class="annot"><span class="annottext">s :: FeatureGroup
+</span><a href="#local-6989586621680345518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-type">FeatureGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345517"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureGroup
+</span><a href="#local-6989586621680345518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:FeatureGroup' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#%24sel%3AroleArn%3AFeatureGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621680345512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FeatureGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FeatureGroup) -&gt; Value -&gt; Parser FeatureGroup
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FeatureGroup&quot;</span></span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680345509"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe OfflineStoreConfig
+-&gt; Maybe Text
+-&gt; Maybe FeatureGroupStatus
+-&gt; Maybe (NonEmpty FeatureDefinition)
+-&gt; Maybe OfflineStoreStatus
+-&gt; Maybe OnlineStoreConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Maybe Text
+-&gt; FeatureGroup
+</span><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup%27"><span class="hs-identifier hs-var">FeatureGroup'</span></a></span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe OfflineStoreConfig
+ -&gt; Maybe Text
+ -&gt; Maybe FeatureGroupStatus
+ -&gt; Maybe (NonEmpty FeatureDefinition)
+ -&gt; Maybe OfflineStoreStatus
+ -&gt; Maybe OnlineStoreConfig
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; Maybe Text
+ -&gt; FeatureGroup)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe OfflineStoreConfig
+      -&gt; Maybe Text
+      -&gt; Maybe FeatureGroupStatus
+      -&gt; Maybe (NonEmpty FeatureDefinition)
+      -&gt; Maybe OfflineStoreStatus
+      -&gt; Maybe OnlineStoreConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OfflineStoreConfig
+   -&gt; Maybe Text
+   -&gt; Maybe FeatureGroupStatus
+   -&gt; Maybe (NonEmpty FeatureDefinition)
+   -&gt; Maybe OfflineStoreStatus
+   -&gt; Maybe OnlineStoreConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe OfflineStoreConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe FeatureGroupStatus
+      -&gt; Maybe (NonEmpty FeatureDefinition)
+      -&gt; Maybe OfflineStoreStatus
+      -&gt; Maybe OnlineStoreConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OfflineStoreConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OfflineStoreConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe FeatureGroupStatus
+   -&gt; Maybe (NonEmpty FeatureDefinition)
+   -&gt; Maybe OfflineStoreStatus
+   -&gt; Maybe OnlineStoreConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FeatureGroupStatus
+      -&gt; Maybe (NonEmpty FeatureDefinition)
+      -&gt; Maybe OfflineStoreStatus
+      -&gt; Maybe OnlineStoreConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FeatureGroupStatus
+   -&gt; Maybe (NonEmpty FeatureDefinition)
+   -&gt; Maybe OfflineStoreStatus
+   -&gt; Maybe OnlineStoreConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe FeatureGroupStatus)
+-&gt; Parser
+     (Maybe (NonEmpty FeatureDefinition)
+      -&gt; Maybe OfflineStoreStatus
+      -&gt; Maybe OnlineStoreConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FeatureGroupStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureGroupStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty FeatureDefinition)
+   -&gt; Maybe OfflineStoreStatus
+   -&gt; Maybe OnlineStoreConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe (NonEmpty FeatureDefinition))
+-&gt; Parser
+     (Maybe OfflineStoreStatus
+      -&gt; Maybe OnlineStoreConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty FeatureDefinition))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureDefinitions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OfflineStoreStatus
+   -&gt; Maybe OnlineStoreConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe OfflineStoreStatus)
+-&gt; Parser
+     (Maybe OnlineStoreConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OfflineStoreStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OfflineStoreStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OnlineStoreConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe OnlineStoreConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnlineStoreConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnlineStoreConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventTimeFeatureName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordIdentifierFeatureName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; FeatureGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Tag] -&gt; Maybe Text -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; Maybe Text -&gt; FeatureGroup)
+-&gt; Parser (Maybe [Tag]) -&gt; Parser (Maybe Text -&gt; FeatureGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FeatureGroup)
+-&gt; Parser (Maybe Text) -&gt; Parser FeatureGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345502"><span id="local-6989586621680345504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span></span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

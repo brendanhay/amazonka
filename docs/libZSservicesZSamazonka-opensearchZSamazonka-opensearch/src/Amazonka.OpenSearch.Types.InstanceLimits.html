@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpenSearch.Types.InstanceLimits</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpenSearch.Types.InstanceLimits</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceCountLimits.html"><span class="hs-identifier">Amazonka.OpenSearch.Types.InstanceCountLimits</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | InstanceLimits represents the list of instance-related attributes that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- are available for a given InstanceType.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceLimits' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299454"><span id="local-6989586621679299455"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceLimits"><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-var">InstanceLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceLimits%27"><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-var">InstanceLimits'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AinstanceCountLimits%3AInstanceLimits%27"><span class="annot"><span class="annottext">InstanceLimits -&gt; Maybe InstanceCountLimits
+</span><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#%24sel%3AinstanceCountLimits%3AInstanceLimits%27"><span class="hs-identifier hs-var hs-var">instanceCountLimits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceCountLimits.html#InstanceCountLimits"><span class="hs-identifier hs-type">InstanceCountLimits</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299448"><span id="local-6989586621679299450"><span class="annot"><span class="annottext">InstanceLimits -&gt; InstanceLimits -&gt; Bool
+(InstanceLimits -&gt; InstanceLimits -&gt; Bool)
+-&gt; (InstanceLimits -&gt; InstanceLimits -&gt; Bool) -&gt; Eq InstanceLimits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceLimits -&gt; InstanceLimits -&gt; Bool
+$c/= :: InstanceLimits -&gt; InstanceLimits -&gt; Bool
+== :: InstanceLimits -&gt; InstanceLimits -&gt; Bool
+$c== :: InstanceLimits -&gt; InstanceLimits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299439"><span id="local-6989586621679299441"><span id="local-6989586621679299443"><span id="local-6989586621679299445"><span class="annot"><span class="annottext">ReadPrec [InstanceLimits]
+ReadPrec InstanceLimits
+Int -&gt; ReadS InstanceLimits
+ReadS [InstanceLimits]
+(Int -&gt; ReadS InstanceLimits)
+-&gt; ReadS [InstanceLimits]
+-&gt; ReadPrec InstanceLimits
+-&gt; ReadPrec [InstanceLimits]
+-&gt; Read InstanceLimits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceLimits]
+$creadListPrec :: ReadPrec [InstanceLimits]
+readPrec :: ReadPrec InstanceLimits
+$creadPrec :: ReadPrec InstanceLimits
+readList :: ReadS [InstanceLimits]
+$creadList :: ReadS [InstanceLimits]
+readsPrec :: Int -&gt; ReadS InstanceLimits
+$creadsPrec :: Int -&gt; ReadS InstanceLimits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299432"><span id="local-6989586621679299434"><span id="local-6989586621679299436"><span class="annot"><span class="annottext">Int -&gt; InstanceLimits -&gt; ShowS
+[InstanceLimits] -&gt; ShowS
+InstanceLimits -&gt; String
+(Int -&gt; InstanceLimits -&gt; ShowS)
+-&gt; (InstanceLimits -&gt; String)
+-&gt; ([InstanceLimits] -&gt; ShowS)
+-&gt; Show InstanceLimits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceLimits] -&gt; ShowS
+$cshowList :: [InstanceLimits] -&gt; ShowS
+show :: InstanceLimits -&gt; String
+$cshow :: InstanceLimits -&gt; String
+showsPrec :: Int -&gt; InstanceLimits -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstanceLimits -&gt; Rep InstanceLimits x)
+-&gt; (forall x. Rep InstanceLimits x -&gt; InstanceLimits)
+-&gt; Generic InstanceLimits
+forall x. Rep InstanceLimits x -&gt; InstanceLimits
+forall x. InstanceLimits -&gt; Rep InstanceLimits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceLimits x -&gt; InstanceLimits
+$cfrom :: forall x. InstanceLimits -&gt; Rep InstanceLimits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'InstanceLimits' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'instanceCountLimits', 'instanceLimits_instanceCountLimits' - Undocumented member.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#newInstanceLimits"><span class="hs-identifier hs-type">newInstanceLimits</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span><span>
+</span><span id="line-47"></span><span id="newInstanceLimits"><span class="annot"><span class="annottext">newInstanceLimits :: InstanceLimits
+</span><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#newInstanceLimits"><span class="hs-identifier hs-var hs-var">newInstanceLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">InstanceLimits' :: Maybe InstanceCountLimits -&gt; InstanceLimits
+</span><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-type">InstanceLimits'</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceCountLimits:InstanceLimits' :: Maybe InstanceCountLimits
+</span><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#%24sel%3AinstanceCountLimits%3AInstanceLimits%27"><span class="hs-identifier hs-var">instanceCountLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#instanceLimits_instanceCountLimits"><span class="hs-identifier hs-type">instanceLimits_instanceCountLimits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceCountLimits.html#InstanceCountLimits"><span class="hs-identifier hs-type">InstanceCountLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="instanceLimits_instanceCountLimits"><span class="annot"><span class="annottext">instanceLimits_instanceCountLimits :: (Maybe InstanceCountLimits -&gt; f (Maybe InstanceCountLimits))
+-&gt; InstanceLimits -&gt; f InstanceLimits
+</span><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#instanceLimits_instanceCountLimits"><span class="hs-identifier hs-var hs-var">instanceLimits_instanceCountLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceLimits -&gt; Maybe InstanceCountLimits)
+-&gt; (InstanceLimits -&gt; Maybe InstanceCountLimits -&gt; InstanceLimits)
+-&gt; Lens
+     InstanceLimits
+     InstanceLimits
+     (Maybe InstanceCountLimits)
+     (Maybe InstanceCountLimits)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-type">InstanceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299423"><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+instanceCountLimits :: Maybe InstanceCountLimits
+$sel:instanceCountLimits:InstanceLimits' :: InstanceLimits -&gt; Maybe InstanceCountLimits
+</span><a href="#local-6989586621679299423"><span class="hs-identifier hs-var hs-var">instanceCountLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+</span><a href="#local-6989586621679299423"><span class="hs-identifier hs-var">instanceCountLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299422"><span class="annot"><span class="annottext">s :: InstanceLimits
+</span><a href="#local-6989586621679299422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-type">InstanceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299421"><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+</span><a href="#local-6989586621679299421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceLimits
+</span><a href="#local-6989586621679299422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCountLimits:InstanceLimits' :: Maybe InstanceCountLimits
+</span><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#%24sel%3AinstanceCountLimits%3AInstanceLimits%27"><span class="hs-identifier hs-var">instanceCountLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+</span><a href="#local-6989586621679299421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299418"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679299416"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceLimits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InstanceLimits)
+-&gt; Value
+-&gt; Parser InstanceLimits
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InstanceLimits&quot;</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299413"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299413"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits -&gt; InstanceLimits
+</span><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-var">InstanceLimits'</span></a></span><span>
+</span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceCountLimits -&gt; InstanceLimits)
+-&gt; Parser (Maybe InstanceCountLimits) -&gt; Parser InstanceLimits
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceCountLimits)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceCountLimits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299407"><span id="local-6989586621679299409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span><span>
+</span><span id="line-69"></span></pre></body></html>

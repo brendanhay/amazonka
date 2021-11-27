@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.ObjectLockEnabled</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.ObjectLockEnabled</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled"><span class="hs-identifier">ObjectLockEnabled</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled_Enabled"><span class="hs-identifier">ObjectLockEnabled_Enabled</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679545082"><span id="local-6989586621679545083"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectLockEnabled"><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled"><span class="hs-identifier hs-var">ObjectLockEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectLockEnabled%27"><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled%27"><span class="hs-identifier hs-var">ObjectLockEnabled'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectLockEnabled"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; Text
+</span><a href="Amazonka.S3.Types.ObjectLockEnabled.html#fromObjectLockEnabled"><span class="hs-identifier hs-var hs-var">fromObjectLockEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545074"><span id="local-6989586621679545076"><span id="local-6989586621679545078"><span class="annot"><span class="annottext">Int -&gt; ObjectLockEnabled -&gt; ShowS
+[ObjectLockEnabled] -&gt; ShowS
+ObjectLockEnabled -&gt; String
+(Int -&gt; ObjectLockEnabled -&gt; ShowS)
+-&gt; (ObjectLockEnabled -&gt; String)
+-&gt; ([ObjectLockEnabled] -&gt; ShowS)
+-&gt; Show ObjectLockEnabled
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ObjectLockEnabled] -&gt; ShowS
+$cshowList :: [ObjectLockEnabled] -&gt; ShowS
+show :: ObjectLockEnabled -&gt; String
+$cshow :: ObjectLockEnabled -&gt; String
+showsPrec :: Int -&gt; ObjectLockEnabled -&gt; ShowS
+$cshowsPrec :: Int -&gt; ObjectLockEnabled -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679545065"><span id="local-6989586621679545067"><span id="local-6989586621679545069"><span id="local-6989586621679545071"><span class="annot"><span class="annottext">ReadPrec [ObjectLockEnabled]
+ReadPrec ObjectLockEnabled
+Int -&gt; ReadS ObjectLockEnabled
+ReadS [ObjectLockEnabled]
+(Int -&gt; ReadS ObjectLockEnabled)
+-&gt; ReadS [ObjectLockEnabled]
+-&gt; ReadPrec ObjectLockEnabled
+-&gt; ReadPrec [ObjectLockEnabled]
+-&gt; Read ObjectLockEnabled
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ObjectLockEnabled]
+$creadListPrec :: ReadPrec [ObjectLockEnabled]
+readPrec :: ReadPrec ObjectLockEnabled
+$creadPrec :: ReadPrec ObjectLockEnabled
+readList :: ReadS [ObjectLockEnabled]
+$creadList :: ReadS [ObjectLockEnabled]
+readsPrec :: Int -&gt; ReadS ObjectLockEnabled
+$creadsPrec :: Int -&gt; ReadS ObjectLockEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679545060"><span id="local-6989586621679545062"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+(ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool)
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool)
+-&gt; Eq ObjectLockEnabled
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+$c/= :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+== :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+$c== :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679545044"><span id="local-6989586621679545046"><span id="local-6989586621679545048"><span id="local-6989586621679545050"><span id="local-6989586621679545052"><span id="local-6989586621679545054"><span id="local-6989586621679545056"><span class="annot"><span class="annottext">Eq ObjectLockEnabled
+Eq ObjectLockEnabled
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Ordering)
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool)
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool)
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool)
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool)
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; ObjectLockEnabled)
+-&gt; (ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; ObjectLockEnabled)
+-&gt; Ord ObjectLockEnabled
+ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Ordering
+ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; ObjectLockEnabled
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; ObjectLockEnabled
+$cmin :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; ObjectLockEnabled
+max :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; ObjectLockEnabled
+$cmax :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; ObjectLockEnabled
+&gt;= :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+$c&gt;= :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+&gt; :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+$c&gt; :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+&lt;= :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+$c&lt;= :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+&lt; :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+$c&lt; :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Bool
+compare :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Ordering
+$ccompare :: ObjectLockEnabled -&gt; ObjectLockEnabled -&gt; Ordering
+$cp1Ord :: Eq ObjectLockEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ObjectLockEnabled -&gt; Rep ObjectLockEnabled x)
+-&gt; (forall x. Rep ObjectLockEnabled x -&gt; ObjectLockEnabled)
+-&gt; Generic ObjectLockEnabled
+forall x. Rep ObjectLockEnabled x -&gt; ObjectLockEnabled
+forall x. ObjectLockEnabled -&gt; Rep ObjectLockEnabled x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ObjectLockEnabled x -&gt; ObjectLockEnabled
+$cfrom :: forall x. ObjectLockEnabled -&gt; Rep ObjectLockEnabled x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545036"><span id="local-6989586621679545038"><span class="annot"><span class="annottext">Int -&gt; ObjectLockEnabled -&gt; Int
+ObjectLockEnabled -&gt; Int
+(Int -&gt; ObjectLockEnabled -&gt; Int)
+-&gt; (ObjectLockEnabled -&gt; Int) -&gt; Hashable ObjectLockEnabled
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ObjectLockEnabled -&gt; Int
+$chash :: ObjectLockEnabled -&gt; Int
+hashWithSalt :: Int -&gt; ObjectLockEnabled -&gt; Int
+$chashWithSalt :: Int -&gt; ObjectLockEnabled -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679545033"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; ()
+(ObjectLockEnabled -&gt; ()) -&gt; NFData ObjectLockEnabled
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ObjectLockEnabled -&gt; ()
+$crnf :: ObjectLockEnabled -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679545030"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectLockEnabled
+(Text -&gt; Either String ObjectLockEnabled)
+-&gt; FromText ObjectLockEnabled
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ObjectLockEnabled
+$cfromText :: Text -&gt; Either String ObjectLockEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679545027"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; Text
+(ObjectLockEnabled -&gt; Text) -&gt; ToText ObjectLockEnabled
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ObjectLockEnabled -&gt; Text
+$ctoText :: ObjectLockEnabled -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679545024"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; ByteString
+(ObjectLockEnabled -&gt; ByteString) -&gt; ToByteString ObjectLockEnabled
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ObjectLockEnabled -&gt; ByteString
+$ctoBS :: ObjectLockEnabled -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679545021"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; ByteStringBuilder
+(ObjectLockEnabled -&gt; ByteStringBuilder) -&gt; ToLog ObjectLockEnabled
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ObjectLockEnabled -&gt; ByteStringBuilder
+$cbuild :: ObjectLockEnabled -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679545018"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectLockEnabled -&gt; [Header]
+(HeaderName -&gt; ObjectLockEnabled -&gt; [Header])
+-&gt; ToHeader ObjectLockEnabled
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ObjectLockEnabled -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ObjectLockEnabled -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679545015"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; QueryString
+(ObjectLockEnabled -&gt; QueryString) -&gt; ToQuery ObjectLockEnabled
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ObjectLockEnabled -&gt; QueryString
+$ctoQuery :: ObjectLockEnabled -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679545010"><span id="local-6989586621679545012"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectLockEnabled]
+Value -&gt; Parser ObjectLockEnabled
+(Value -&gt; Parser ObjectLockEnabled)
+-&gt; (Value -&gt; Parser [ObjectLockEnabled])
+-&gt; FromJSON ObjectLockEnabled
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ObjectLockEnabled]
+$cparseJSONList :: Value -&gt; Parser [ObjectLockEnabled]
+parseJSON :: Value -&gt; Parser ObjectLockEnabled
+$cparseJSON :: Value -&gt; Parser ObjectLockEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679545005"><span id="local-6989586621679545007"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectLockEnabled]
+FromJSONKeyFunction ObjectLockEnabled
+FromJSONKeyFunction ObjectLockEnabled
+-&gt; FromJSONKeyFunction [ObjectLockEnabled]
+-&gt; FromJSONKey ObjectLockEnabled
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ObjectLockEnabled]
+$cfromJSONKeyList :: FromJSONKeyFunction [ObjectLockEnabled]
+fromJSONKey :: FromJSONKeyFunction ObjectLockEnabled
+$cfromJSONKey :: FromJSONKeyFunction ObjectLockEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679544996"><span id="local-6989586621679544998"><span id="local-6989586621679545000"><span id="local-6989586621679545002"><span class="annot"><span class="annottext">[ObjectLockEnabled] -&gt; Encoding
+[ObjectLockEnabled] -&gt; Value
+ObjectLockEnabled -&gt; Encoding
+ObjectLockEnabled -&gt; Value
+(ObjectLockEnabled -&gt; Value)
+-&gt; (ObjectLockEnabled -&gt; Encoding)
+-&gt; ([ObjectLockEnabled] -&gt; Value)
+-&gt; ([ObjectLockEnabled] -&gt; Encoding)
+-&gt; ToJSON ObjectLockEnabled
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ObjectLockEnabled] -&gt; Encoding
+$ctoEncodingList :: [ObjectLockEnabled] -&gt; Encoding
+toJSONList :: [ObjectLockEnabled] -&gt; Value
+$ctoJSONList :: [ObjectLockEnabled] -&gt; Value
+toEncoding :: ObjectLockEnabled -&gt; Encoding
+$ctoEncoding :: ObjectLockEnabled -&gt; Encoding
+toJSON :: ObjectLockEnabled -&gt; Value
+$ctoJSON :: ObjectLockEnabled -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679544991"><span id="local-6989586621679544993"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectLockEnabled]
+ToJSONKeyFunction ObjectLockEnabled
+ToJSONKeyFunction ObjectLockEnabled
+-&gt; ToJSONKeyFunction [ObjectLockEnabled]
+-&gt; ToJSONKey ObjectLockEnabled
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ObjectLockEnabled]
+$ctoJSONKeyList :: ToJSONKeyFunction [ObjectLockEnabled]
+toJSONKey :: ToJSONKeyFunction ObjectLockEnabled
+$ctoJSONKey :: ToJSONKeyFunction ObjectLockEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679544988"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectLockEnabled
+([Node] -&gt; Either String ObjectLockEnabled)
+-&gt; FromXML ObjectLockEnabled
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ObjectLockEnabled
+$cparseXML :: [Node] -&gt; Either String ObjectLockEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679544985"><span class="annot"><span class="annottext">ObjectLockEnabled -&gt; XML
+(ObjectLockEnabled -&gt; XML) -&gt; ToXML ObjectLockEnabled
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ObjectLockEnabled -&gt; XML
+$ctoXML :: ObjectLockEnabled -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled_Enabled"><span class="hs-identifier hs-type">ObjectLockEnabled_Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled"><span class="hs-identifier hs-type">ObjectLockEnabled</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectLockEnabled_Enabled"><span id="%24mObjectLockEnabled_Enabled"><span id="ObjectLockEnabled_Enabled"><span class="annot"><span class="annottext">$bObjectLockEnabled_Enabled :: ObjectLockEnabled
+$mObjectLockEnabled_Enabled :: forall r. ObjectLockEnabled -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.ObjectLockEnabled.html#%24bObjectLockEnabled_Enabled"><span class="hs-identifier hs-var hs-var hs-var">ObjectLockEnabled_Enabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled%27"><span class="hs-identifier hs-type">ObjectLockEnabled'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enabled&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled_Enabled"><span class="hs-pragma hs-type">ObjectLockEnabled_Enabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.ObjectLockEnabled.html#ObjectLockEnabled%27"><span class="hs-pragma hs-type">ObjectLockEnabled'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

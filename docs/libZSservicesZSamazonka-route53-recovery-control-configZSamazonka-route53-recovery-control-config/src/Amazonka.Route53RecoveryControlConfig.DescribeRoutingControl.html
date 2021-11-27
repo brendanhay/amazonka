@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Displays details about a routing control. A routing control has one of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- two states: ON and OFF. You can map the routing control state to the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- state of an Amazon Route 53 health check, which can be used to control</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- routing.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- To get or update the routing control state, see the Recovery Cluster</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- (data plane) API actions for Amazon Route 53 Application Recovery</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Controller.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier">DescribeRoutingControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#newDescribeRoutingControl"><span class="hs-identifier">newDescribeRoutingControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControl_routingControlArn"><span class="hs-identifier">describeRoutingControl_routingControlArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier">DescribeRoutingControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#newDescribeRoutingControlResponse"><span class="hs-identifier">newDescribeRoutingControlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_routingControl"><span class="hs-identifier">describeRoutingControlResponse_routingControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_httpStatus"><span class="hs-identifier">describeRoutingControlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.html"><span class="hs-identifier">Amazonka.Route53RecoveryControlConfig.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeRoutingControl' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679177469"><span id="local-6989586621679177470"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRoutingControl"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-var">DescribeRoutingControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRoutingControl%27"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl%27"><span class="hs-identifier hs-var">DescribeRoutingControl'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing control that you\'re</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- getting details for.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AroutingControlArn%3ADescribeRoutingControl%27"><span class="annot"><span class="annottext">DescribeRoutingControl -&gt; Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AroutingControlArn%3ADescribeRoutingControl%27"><span class="hs-identifier hs-var hs-var">routingControlArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177463"><span id="local-6989586621679177465"><span class="annot"><span class="annottext">DescribeRoutingControl -&gt; DescribeRoutingControl -&gt; Bool
+(DescribeRoutingControl -&gt; DescribeRoutingControl -&gt; Bool)
+-&gt; (DescribeRoutingControl -&gt; DescribeRoutingControl -&gt; Bool)
+-&gt; Eq DescribeRoutingControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRoutingControl -&gt; DescribeRoutingControl -&gt; Bool
+$c/= :: DescribeRoutingControl -&gt; DescribeRoutingControl -&gt; Bool
+== :: DescribeRoutingControl -&gt; DescribeRoutingControl -&gt; Bool
+$c== :: DescribeRoutingControl -&gt; DescribeRoutingControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177454"><span id="local-6989586621679177456"><span id="local-6989586621679177458"><span id="local-6989586621679177460"><span class="annot"><span class="annottext">ReadPrec [DescribeRoutingControl]
+ReadPrec DescribeRoutingControl
+Int -&gt; ReadS DescribeRoutingControl
+ReadS [DescribeRoutingControl]
+(Int -&gt; ReadS DescribeRoutingControl)
+-&gt; ReadS [DescribeRoutingControl]
+-&gt; ReadPrec DescribeRoutingControl
+-&gt; ReadPrec [DescribeRoutingControl]
+-&gt; Read DescribeRoutingControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRoutingControl]
+$creadListPrec :: ReadPrec [DescribeRoutingControl]
+readPrec :: ReadPrec DescribeRoutingControl
+$creadPrec :: ReadPrec DescribeRoutingControl
+readList :: ReadS [DescribeRoutingControl]
+$creadList :: ReadS [DescribeRoutingControl]
+readsPrec :: Int -&gt; ReadS DescribeRoutingControl
+$creadsPrec :: Int -&gt; ReadS DescribeRoutingControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177447"><span id="local-6989586621679177449"><span id="local-6989586621679177451"><span class="annot"><span class="annottext">Int -&gt; DescribeRoutingControl -&gt; ShowS
+[DescribeRoutingControl] -&gt; ShowS
+DescribeRoutingControl -&gt; String
+(Int -&gt; DescribeRoutingControl -&gt; ShowS)
+-&gt; (DescribeRoutingControl -&gt; String)
+-&gt; ([DescribeRoutingControl] -&gt; ShowS)
+-&gt; Show DescribeRoutingControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRoutingControl] -&gt; ShowS
+$cshowList :: [DescribeRoutingControl] -&gt; ShowS
+show :: DescribeRoutingControl -&gt; String
+$cshow :: DescribeRoutingControl -&gt; String
+showsPrec :: Int -&gt; DescribeRoutingControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRoutingControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeRoutingControl -&gt; Rep DescribeRoutingControl x)
+-&gt; (forall x.
+    Rep DescribeRoutingControl x -&gt; DescribeRoutingControl)
+-&gt; Generic DescribeRoutingControl
+forall x. Rep DescribeRoutingControl x -&gt; DescribeRoutingControl
+forall x. DescribeRoutingControl -&gt; Rep DescribeRoutingControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeRoutingControl x -&gt; DescribeRoutingControl
+$cfrom :: forall x. DescribeRoutingControl -&gt; Rep DescribeRoutingControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeRoutingControl' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'routingControlArn', 'describeRoutingControl_routingControlArn' - The Amazon Resource Name (ARN) of the routing control that you\'re</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- getting details for.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#newDescribeRoutingControl"><span class="hs-identifier hs-type">newDescribeRoutingControl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'routingControlArn'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span>
+</span><span id="line-78"></span><span id="newDescribeRoutingControl"><span class="annot"><span class="annottext">newDescribeRoutingControl :: Text -&gt; DescribeRoutingControl
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#newDescribeRoutingControl"><span class="hs-identifier hs-var hs-var">newDescribeRoutingControl</span></a></span></span><span> </span><span id="local-6989586621679177442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177442"><span class="hs-identifier hs-var">pRoutingControlArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DescribeRoutingControl' :: Text -&gt; DescribeRoutingControl
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl%27"><span class="hs-identifier hs-type">DescribeRoutingControl'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingControlArn:DescribeRoutingControl' :: Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AroutingControlArn%3ADescribeRoutingControl%27"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177442"><span class="hs-identifier hs-var">pRoutingControlArn_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing control that you\'re</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- getting details for.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControl_routingControlArn"><span class="hs-identifier hs-type">describeRoutingControl_routingControlArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="describeRoutingControl_routingControlArn"><span class="annot"><span class="annottext">describeRoutingControl_routingControlArn :: (Text -&gt; f Text)
+-&gt; DescribeRoutingControl -&gt; f DescribeRoutingControl
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControl_routingControlArn"><span class="hs-identifier hs-var hs-var">describeRoutingControl_routingControlArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRoutingControl -&gt; Text)
+-&gt; (DescribeRoutingControl -&gt; Text -&gt; DescribeRoutingControl)
+-&gt; Lens DescribeRoutingControl DescribeRoutingControl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl%27"><span class="hs-identifier hs-type">DescribeRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177439"><span class="annot"><span class="annottext">Text
+routingControlArn :: Text
+$sel:routingControlArn:DescribeRoutingControl' :: DescribeRoutingControl -&gt; Text
+</span><a href="#local-6989586621679177439"><span class="hs-identifier hs-var hs-var">routingControlArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177439"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177438"><span class="annot"><span class="annottext">s :: DescribeRoutingControl
+</span><a href="#local-6989586621679177438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl%27"><span class="hs-identifier hs-type">DescribeRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177437"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRoutingControl
+</span><a href="#local-6989586621679177438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingControlArn:DescribeRoutingControl' :: Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AroutingControlArn%3ADescribeRoutingControl%27"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-type">DescribeRoutingControlResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679177433"><span class="annot"><span class="annottext">request :: DescribeRoutingControl -&gt; Request DescribeRoutingControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeRoutingControl -&gt; Request DescribeRoutingControl
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53RecoveryControlConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679177429"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeRoutingControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRoutingControl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeRoutingControl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeRoutingControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRoutingControl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177426"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177426"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177425"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177425"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177424"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177424"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe RoutingControl -&gt; Int -&gt; DescribeRoutingControlResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse%27"><span class="hs-identifier hs-var">DescribeRoutingControlResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RoutingControl -&gt; Int -&gt; DescribeRoutingControlResponse)
+-&gt; Either String (Maybe RoutingControl)
+-&gt; Either String (Int -&gt; DescribeRoutingControlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177424"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RoutingControl)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoutingControl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeRoutingControlResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeRoutingControlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177426"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177416"><span id="local-6989586621679177418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679177409"><span class="annot"><span class="annottext">toHeaders :: DescribeRoutingControl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRoutingControl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679177403"><span class="annot"><span class="annottext">toPath :: DescribeRoutingControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl%27"><span class="hs-identifier hs-type">DescribeRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177401"><span class="annot"><span class="annottext">Text
+routingControlArn :: Text
+$sel:routingControlArn:DescribeRoutingControl' :: DescribeRoutingControl -&gt; Text
+</span><a href="#local-6989586621679177401"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routingcontrol/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177401"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679177397"><span class="annot"><span class="annottext">toQuery :: DescribeRoutingControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRoutingControl -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDescribeRoutingControlResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679177394"><span id="local-6989586621679177395"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRoutingControlResponse"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-var">DescribeRoutingControlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRoutingControlResponse%27"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse%27"><span class="hs-identifier hs-var">DescribeRoutingControlResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the routing control.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AroutingControl%3ADescribeRoutingControlResponse%27"><span class="annot"><span class="annottext">DescribeRoutingControlResponse -&gt; Maybe RoutingControl
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AroutingControl%3ADescribeRoutingControlResponse%27"><span class="hs-identifier hs-var hs-var">routingControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.RoutingControl.html#RoutingControl"><span class="hs-identifier hs-type">RoutingControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRoutingControlResponse%27"><span class="annot"><span class="annottext">DescribeRoutingControlResponse -&gt; Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AhttpStatus%3ADescribeRoutingControlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177388"><span id="local-6989586621679177390"><span class="annot"><span class="annottext">DescribeRoutingControlResponse
+-&gt; DescribeRoutingControlResponse -&gt; Bool
+(DescribeRoutingControlResponse
+ -&gt; DescribeRoutingControlResponse -&gt; Bool)
+-&gt; (DescribeRoutingControlResponse
+    -&gt; DescribeRoutingControlResponse -&gt; Bool)
+-&gt; Eq DescribeRoutingControlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRoutingControlResponse
+-&gt; DescribeRoutingControlResponse -&gt; Bool
+$c/= :: DescribeRoutingControlResponse
+-&gt; DescribeRoutingControlResponse -&gt; Bool
+== :: DescribeRoutingControlResponse
+-&gt; DescribeRoutingControlResponse -&gt; Bool
+$c== :: DescribeRoutingControlResponse
+-&gt; DescribeRoutingControlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177380"><span id="local-6989586621679177382"><span id="local-6989586621679177384"><span id="local-6989586621679177386"><span class="annot"><span class="annottext">ReadPrec [DescribeRoutingControlResponse]
+ReadPrec DescribeRoutingControlResponse
+Int -&gt; ReadS DescribeRoutingControlResponse
+ReadS [DescribeRoutingControlResponse]
+(Int -&gt; ReadS DescribeRoutingControlResponse)
+-&gt; ReadS [DescribeRoutingControlResponse]
+-&gt; ReadPrec DescribeRoutingControlResponse
+-&gt; ReadPrec [DescribeRoutingControlResponse]
+-&gt; Read DescribeRoutingControlResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRoutingControlResponse]
+$creadListPrec :: ReadPrec [DescribeRoutingControlResponse]
+readPrec :: ReadPrec DescribeRoutingControlResponse
+$creadPrec :: ReadPrec DescribeRoutingControlResponse
+readList :: ReadS [DescribeRoutingControlResponse]
+$creadList :: ReadS [DescribeRoutingControlResponse]
+readsPrec :: Int -&gt; ReadS DescribeRoutingControlResponse
+$creadsPrec :: Int -&gt; ReadS DescribeRoutingControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177374"><span id="local-6989586621679177376"><span id="local-6989586621679177378"><span class="annot"><span class="annottext">Int -&gt; DescribeRoutingControlResponse -&gt; ShowS
+[DescribeRoutingControlResponse] -&gt; ShowS
+DescribeRoutingControlResponse -&gt; String
+(Int -&gt; DescribeRoutingControlResponse -&gt; ShowS)
+-&gt; (DescribeRoutingControlResponse -&gt; String)
+-&gt; ([DescribeRoutingControlResponse] -&gt; ShowS)
+-&gt; Show DescribeRoutingControlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRoutingControlResponse] -&gt; ShowS
+$cshowList :: [DescribeRoutingControlResponse] -&gt; ShowS
+show :: DescribeRoutingControlResponse -&gt; String
+$cshow :: DescribeRoutingControlResponse -&gt; String
+showsPrec :: Int -&gt; DescribeRoutingControlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRoutingControlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeRoutingControlResponse
+ -&gt; Rep DescribeRoutingControlResponse x)
+-&gt; (forall x.
+    Rep DescribeRoutingControlResponse x
+    -&gt; DescribeRoutingControlResponse)
+-&gt; Generic DescribeRoutingControlResponse
+forall x.
+Rep DescribeRoutingControlResponse x
+-&gt; DescribeRoutingControlResponse
+forall x.
+DescribeRoutingControlResponse
+-&gt; Rep DescribeRoutingControlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeRoutingControlResponse x
+-&gt; DescribeRoutingControlResponse
+$cfrom :: forall x.
+DescribeRoutingControlResponse
+-&gt; Rep DescribeRoutingControlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'DescribeRoutingControlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'routingControl', 'describeRoutingControlResponse_routingControl' - Information about the routing control.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'httpStatus', 'describeRoutingControlResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#newDescribeRoutingControlResponse"><span class="hs-identifier hs-type">newDescribeRoutingControlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-type">DescribeRoutingControlResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newDescribeRoutingControlResponse"><span class="annot"><span class="annottext">newDescribeRoutingControlResponse :: Int -&gt; DescribeRoutingControlResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#newDescribeRoutingControlResponse"><span class="hs-identifier hs-var hs-var">newDescribeRoutingControlResponse</span></a></span></span><span> </span><span id="local-6989586621679177371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DescribeRoutingControlResponse' :: Maybe RoutingControl -&gt; Int -&gt; DescribeRoutingControlResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse%27"><span class="hs-identifier hs-type">DescribeRoutingControlResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingControl:DescribeRoutingControlResponse' :: Maybe RoutingControl
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AroutingControl%3ADescribeRoutingControlResponse%27"><span class="hs-identifier hs-var">routingControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe RoutingControl
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRoutingControlResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AhttpStatus%3ADescribeRoutingControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Information about the routing control.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_routingControl"><span class="hs-identifier hs-type">describeRoutingControlResponse_routingControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-type">DescribeRoutingControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.RoutingControl.html#RoutingControl"><span class="hs-identifier hs-type">RoutingControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="describeRoutingControlResponse_routingControl"><span class="annot"><span class="annottext">describeRoutingControlResponse_routingControl :: (Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_routingControl"><span class="hs-identifier hs-var hs-var">describeRoutingControlResponse_routingControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRoutingControlResponse -&gt; Maybe RoutingControl)
+-&gt; (DescribeRoutingControlResponse
+    -&gt; Maybe RoutingControl -&gt; DescribeRoutingControlResponse)
+-&gt; Lens
+     DescribeRoutingControlResponse
+     DescribeRoutingControlResponse
+     (Maybe RoutingControl)
+     (Maybe RoutingControl)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse%27"><span class="hs-identifier hs-type">DescribeRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177370"><span class="annot"><span class="annottext">Maybe RoutingControl
+routingControl :: Maybe RoutingControl
+$sel:routingControl:DescribeRoutingControlResponse' :: DescribeRoutingControlResponse -&gt; Maybe RoutingControl
+</span><a href="#local-6989586621679177370"><span class="hs-identifier hs-var hs-var">routingControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingControl
+</span><a href="#local-6989586621679177370"><span class="hs-identifier hs-var">routingControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177369"><span class="annot"><span class="annottext">s :: DescribeRoutingControlResponse
+</span><a href="#local-6989586621679177369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse%27"><span class="hs-identifier hs-type">DescribeRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177368"><span class="annot"><span class="annottext">Maybe RoutingControl
+</span><a href="#local-6989586621679177368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRoutingControlResponse
+</span><a href="#local-6989586621679177369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingControl:DescribeRoutingControlResponse' :: Maybe RoutingControl
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AroutingControl%3ADescribeRoutingControlResponse%27"><span class="hs-identifier hs-var">routingControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingControl
+</span><a href="#local-6989586621679177368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-type">DescribeRoutingControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_httpStatus"><span class="hs-identifier hs-type">describeRoutingControlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-type">DescribeRoutingControlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="describeRoutingControlResponse_httpStatus"><span class="annot"><span class="annottext">describeRoutingControlResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeRoutingControlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRoutingControlResponse -&gt; Int)
+-&gt; (DescribeRoutingControlResponse
+    -&gt; Int -&gt; DescribeRoutingControlResponse)
+-&gt; Lens
+     DescribeRoutingControlResponse
+     DescribeRoutingControlResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse%27"><span class="hs-identifier hs-type">DescribeRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177367"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeRoutingControlResponse' :: DescribeRoutingControlResponse -&gt; Int
+</span><a href="#local-6989586621679177367"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177367"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177366"><span class="annot"><span class="annottext">s :: DescribeRoutingControlResponse
+</span><a href="#local-6989586621679177366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse%27"><span class="hs-identifier hs-type">DescribeRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177365"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRoutingControlResponse
+</span><a href="#local-6989586621679177366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRoutingControlResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#%24sel%3AhttpStatus%3ADescribeRoutingControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-type">DescribeRoutingControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679177363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControlResponse"><span class="hs-identifier hs-type">DescribeRoutingControlResponse</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

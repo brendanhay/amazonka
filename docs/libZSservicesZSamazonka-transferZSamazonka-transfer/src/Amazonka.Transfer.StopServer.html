@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Transfer.StopServer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the state of a file transfer protocol-enabled server from</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @ONLINE@ to @OFFLINE@. An @OFFLINE@ server cannot accept and process</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- file transfer jobs. Information tied to your server, such as server and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- user properties, are not affected by stopping your server.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Stopping the server will not reduce or impact your file transfer</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- protocol endpoint billing; you must delete the server to stop being</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- billed.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- The state of @STOPPING@ indicates that the server is in an intermediate</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- state, either not fully able to respond, or not fully offline. The</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- values of @STOP_FAILED@ can indicate an error condition.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- No response is returned from this call.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transfer.StopServer</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier">StopServer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#newStopServer"><span class="hs-identifier">newStopServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#stopServer_serverId"><span class="hs-identifier">stopServer_serverId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServerResponse"><span class="hs-identifier">StopServerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#newStopServerResponse"><span class="hs-identifier">newStopServerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.html"><span class="hs-identifier">Amazonka.Transfer.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStopServer' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679243386"><span id="local-6989586621679243387"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopServer"><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-var">StopServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopServer%27"><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer%27"><span class="hs-identifier hs-var">StopServer'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A system-assigned unique identifier for a server that you stopped.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AserverId%3AStopServer%27"><span class="annot"><span class="annottext">StopServer -&gt; Text
+</span><a href="Amazonka.Transfer.StopServer.html#%24sel%3AserverId%3AStopServer%27"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243380"><span id="local-6989586621679243382"><span class="annot"><span class="annottext">StopServer -&gt; StopServer -&gt; Bool
+(StopServer -&gt; StopServer -&gt; Bool)
+-&gt; (StopServer -&gt; StopServer -&gt; Bool) -&gt; Eq StopServer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopServer -&gt; StopServer -&gt; Bool
+$c/= :: StopServer -&gt; StopServer -&gt; Bool
+== :: StopServer -&gt; StopServer -&gt; Bool
+$c== :: StopServer -&gt; StopServer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243371"><span id="local-6989586621679243373"><span id="local-6989586621679243375"><span id="local-6989586621679243377"><span class="annot"><span class="annottext">ReadPrec [StopServer]
+ReadPrec StopServer
+Int -&gt; ReadS StopServer
+ReadS [StopServer]
+(Int -&gt; ReadS StopServer)
+-&gt; ReadS [StopServer]
+-&gt; ReadPrec StopServer
+-&gt; ReadPrec [StopServer]
+-&gt; Read StopServer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopServer]
+$creadListPrec :: ReadPrec [StopServer]
+readPrec :: ReadPrec StopServer
+$creadPrec :: ReadPrec StopServer
+readList :: ReadS [StopServer]
+$creadList :: ReadS [StopServer]
+readsPrec :: Int -&gt; ReadS StopServer
+$creadsPrec :: Int -&gt; ReadS StopServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243364"><span id="local-6989586621679243366"><span id="local-6989586621679243368"><span class="annot"><span class="annottext">Int -&gt; StopServer -&gt; ShowS
+[StopServer] -&gt; ShowS
+StopServer -&gt; String
+(Int -&gt; StopServer -&gt; ShowS)
+-&gt; (StopServer -&gt; String)
+-&gt; ([StopServer] -&gt; ShowS)
+-&gt; Show StopServer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopServer] -&gt; ShowS
+$cshowList :: [StopServer] -&gt; ShowS
+show :: StopServer -&gt; String
+$cshow :: StopServer -&gt; String
+showsPrec :: Int -&gt; StopServer -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopServer -&gt; Rep StopServer x)
+-&gt; (forall x. Rep StopServer x -&gt; StopServer) -&gt; Generic StopServer
+forall x. Rep StopServer x -&gt; StopServer
+forall x. StopServer -&gt; Rep StopServer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopServer x -&gt; StopServer
+$cfrom :: forall x. StopServer -&gt; Rep StopServer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'StopServer' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'serverId', 'stopServer_serverId' - A system-assigned unique identifier for a server that you stopped.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#newStopServer"><span class="hs-identifier hs-type">newStopServer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'serverId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span>
+</span><span id="line-78"></span><span id="newStopServer"><span class="annot"><span class="annottext">newStopServer :: Text -&gt; StopServer
+</span><a href="Amazonka.Transfer.StopServer.html#newStopServer"><span class="hs-identifier hs-var hs-var">newStopServer</span></a></span></span><span> </span><span id="local-6989586621679243359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243359"><span class="hs-identifier hs-var">pServerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">StopServer' :: Text -&gt; StopServer
+</span><a href="Amazonka.Transfer.StopServer.html#StopServer%27"><span class="hs-identifier hs-type">StopServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:StopServer' :: Text
+</span><a href="Amazonka.Transfer.StopServer.html#%24sel%3AserverId%3AStopServer%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243359"><span class="hs-identifier hs-var">pServerId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | A system-assigned unique identifier for a server that you stopped.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#stopServer_serverId"><span class="hs-identifier hs-type">stopServer_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="stopServer_serverId"><span class="annot"><span class="annottext">stopServer_serverId :: (Text -&gt; f Text) -&gt; StopServer -&gt; f StopServer
+</span><a href="Amazonka.Transfer.StopServer.html#stopServer_serverId"><span class="hs-identifier hs-var hs-var">stopServer_serverId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopServer -&gt; Text)
+-&gt; (StopServer -&gt; Text -&gt; StopServer)
+-&gt; Lens StopServer StopServer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer%27"><span class="hs-identifier hs-type">StopServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243356"><span class="annot"><span class="annottext">Text
+serverId :: Text
+$sel:serverId:StopServer' :: StopServer -&gt; Text
+</span><a href="#local-6989586621679243356"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243356"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243355"><span class="annot"><span class="annottext">s :: StopServer
+</span><a href="#local-6989586621679243355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer%27"><span class="hs-identifier hs-type">StopServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopServer
+</span><a href="#local-6989586621679243355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:StopServer' :: Text
+</span><a href="Amazonka.Transfer.StopServer.html#%24sel%3AserverId%3AStopServer%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServerResponse"><span class="hs-identifier hs-type">StopServerResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679243350"><span class="annot"><span class="annottext">request :: StopServer -&gt; Request StopServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopServer -&gt; Request StopServer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Transfer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679243346"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopServer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopServer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse StopServer
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopServer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopServer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse StopServer
+StopServerResponse
+</span><a href="Amazonka.Transfer.StopServer.html#StopServerResponse%27"><span class="hs-identifier hs-var">StopServerResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243339"><span id="local-6989586621679243341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679243332"><span class="annot"><span class="annottext">toHeaders :: StopServer -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StopServer -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransferService.StopServer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243322"><span id="local-6989586621679243324"><span id="local-6989586621679243326"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679243320"><span class="annot"><span class="annottext">toJSON :: StopServer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer%27"><span class="hs-identifier hs-type">StopServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243318"><span class="annot"><span class="annottext">Text
+serverId :: Text
+$sel:serverId:StopServer' :: StopServer -&gt; Text
+</span><a href="#local-6989586621679243318"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243318"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679243312"><span class="annot"><span class="annottext">toPath :: StopServer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopServer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServer"><span class="hs-identifier hs-type">StopServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679243308"><span class="annot"><span class="annottext">toQuery :: StopServer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopServer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newStopServerResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679243305"><span id="local-6989586621679243306"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopServerResponse"><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServerResponse"><span class="hs-identifier hs-var">StopServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopServerResponse%27"><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServerResponse%27"><span class="hs-identifier hs-var">StopServerResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243301"><span id="local-6989586621679243303"><span class="annot"><span class="annottext">StopServerResponse -&gt; StopServerResponse -&gt; Bool
+(StopServerResponse -&gt; StopServerResponse -&gt; Bool)
+-&gt; (StopServerResponse -&gt; StopServerResponse -&gt; Bool)
+-&gt; Eq StopServerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopServerResponse -&gt; StopServerResponse -&gt; Bool
+$c/= :: StopServerResponse -&gt; StopServerResponse -&gt; Bool
+== :: StopServerResponse -&gt; StopServerResponse -&gt; Bool
+$c== :: StopServerResponse -&gt; StopServerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243293"><span id="local-6989586621679243295"><span id="local-6989586621679243297"><span id="local-6989586621679243299"><span class="annot"><span class="annottext">ReadPrec [StopServerResponse]
+ReadPrec StopServerResponse
+Int -&gt; ReadS StopServerResponse
+ReadS [StopServerResponse]
+(Int -&gt; ReadS StopServerResponse)
+-&gt; ReadS [StopServerResponse]
+-&gt; ReadPrec StopServerResponse
+-&gt; ReadPrec [StopServerResponse]
+-&gt; Read StopServerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopServerResponse]
+$creadListPrec :: ReadPrec [StopServerResponse]
+readPrec :: ReadPrec StopServerResponse
+$creadPrec :: ReadPrec StopServerResponse
+readList :: ReadS [StopServerResponse]
+$creadList :: ReadS [StopServerResponse]
+readsPrec :: Int -&gt; ReadS StopServerResponse
+$creadsPrec :: Int -&gt; ReadS StopServerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243287"><span id="local-6989586621679243289"><span id="local-6989586621679243291"><span class="annot"><span class="annottext">Int -&gt; StopServerResponse -&gt; ShowS
+[StopServerResponse] -&gt; ShowS
+StopServerResponse -&gt; String
+(Int -&gt; StopServerResponse -&gt; ShowS)
+-&gt; (StopServerResponse -&gt; String)
+-&gt; ([StopServerResponse] -&gt; ShowS)
+-&gt; Show StopServerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopServerResponse] -&gt; ShowS
+$cshowList :: [StopServerResponse] -&gt; ShowS
+show :: StopServerResponse -&gt; String
+$cshow :: StopServerResponse -&gt; String
+showsPrec :: Int -&gt; StopServerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopServerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopServerResponse -&gt; Rep StopServerResponse x)
+-&gt; (forall x. Rep StopServerResponse x -&gt; StopServerResponse)
+-&gt; Generic StopServerResponse
+forall x. Rep StopServerResponse x -&gt; StopServerResponse
+forall x. StopServerResponse -&gt; Rep StopServerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopServerResponse x -&gt; StopServerResponse
+$cfrom :: forall x. StopServerResponse -&gt; Rep StopServerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'StopServerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#newStopServerResponse"><span class="hs-identifier hs-type">newStopServerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServerResponse"><span class="hs-identifier hs-type">StopServerResponse</span></a></span><span>
+</span><span id="line-132"></span><span id="newStopServerResponse"><span class="annot"><span class="annottext">newStopServerResponse :: StopServerResponse
+</span><a href="Amazonka.Transfer.StopServer.html#newStopServerResponse"><span class="hs-identifier hs-var hs-var">newStopServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopServerResponse
+</span><a href="Amazonka.Transfer.StopServer.html#StopServerResponse%27"><span class="hs-identifier hs-var">StopServerResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.StopServer.html#StopServerResponse"><span class="hs-identifier hs-type">StopServerResponse</span></a></span></span><span>
+</span><span id="line-135"></span></pre></body></html>

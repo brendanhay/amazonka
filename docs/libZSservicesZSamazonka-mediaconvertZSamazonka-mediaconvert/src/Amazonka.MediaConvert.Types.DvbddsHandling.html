@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.DvbddsHandling</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.DvbddsHandling</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling"><span class="hs-identifier">DvbddsHandling</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_NONE"><span class="hs-identifier">DvbddsHandling_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_NO_DISPLAY_WINDOW"><span class="hs-identifier">DvbddsHandling_NO_DISPLAY_WINDOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_SPECIFIED"><span class="hs-identifier">DvbddsHandling_SPECIFIED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Specify how MediaConvert handles the display definition segment (DDS).</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Keep the default, None (NONE), to exclude the DDS from this set of</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- captions. Choose No display window (NO_DISPLAY_WINDOW) to have</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- MediaConvert include the DDS but not include display window data. In</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- this case, MediaConvert writes that information to the page composition</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- segment (PCS) instead. Choose Specify (SPECIFIED) to have MediaConvert</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- set up the display window based on the values that you specify in</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- related job settings. For video resolutions that are 576 pixels or</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- smaller in height, MediaConvert doesn\'t include the DDS, regardless of</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- the value you choose for DDS handling (ddsHandling). In this case, it</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- doesn\'t write the display window data to the PCS either. Related</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- settings: Use the settings DDS x-coordinate (ddsXCoordinate) and DDS</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- y-coordinate (ddsYCoordinate) to specify the offset between the top left</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- corner of the display window and the top left corner of the video frame.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- All burn-in and DVB-Sub font settings must match.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679959276"><span id="local-6989586621679959277"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbddsHandling"><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling"><span class="hs-identifier hs-var">DvbddsHandling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbddsHandling%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling%27"><span class="hs-identifier hs-var">DvbddsHandling'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbddsHandling"><span class="annot"><span class="annottext">DvbddsHandling -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#fromDvbddsHandling"><span class="hs-identifier hs-var hs-var">fromDvbddsHandling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959268"><span id="local-6989586621679959270"><span id="local-6989586621679959272"><span class="annot"><span class="annottext">Int -&gt; DvbddsHandling -&gt; ShowS
+[DvbddsHandling] -&gt; ShowS
+DvbddsHandling -&gt; String
+(Int -&gt; DvbddsHandling -&gt; ShowS)
+-&gt; (DvbddsHandling -&gt; String)
+-&gt; ([DvbddsHandling] -&gt; ShowS)
+-&gt; Show DvbddsHandling
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DvbddsHandling] -&gt; ShowS
+$cshowList :: [DvbddsHandling] -&gt; ShowS
+show :: DvbddsHandling -&gt; String
+$cshow :: DvbddsHandling -&gt; String
+showsPrec :: Int -&gt; DvbddsHandling -&gt; ShowS
+$cshowsPrec :: Int -&gt; DvbddsHandling -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679959259"><span id="local-6989586621679959261"><span id="local-6989586621679959263"><span id="local-6989586621679959265"><span class="annot"><span class="annottext">ReadPrec [DvbddsHandling]
+ReadPrec DvbddsHandling
+Int -&gt; ReadS DvbddsHandling
+ReadS [DvbddsHandling]
+(Int -&gt; ReadS DvbddsHandling)
+-&gt; ReadS [DvbddsHandling]
+-&gt; ReadPrec DvbddsHandling
+-&gt; ReadPrec [DvbddsHandling]
+-&gt; Read DvbddsHandling
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DvbddsHandling]
+$creadListPrec :: ReadPrec [DvbddsHandling]
+readPrec :: ReadPrec DvbddsHandling
+$creadPrec :: ReadPrec DvbddsHandling
+readList :: ReadS [DvbddsHandling]
+$creadList :: ReadS [DvbddsHandling]
+readsPrec :: Int -&gt; ReadS DvbddsHandling
+$creadsPrec :: Int -&gt; ReadS DvbddsHandling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679959254"><span id="local-6989586621679959256"><span class="annot"><span class="annottext">DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+(DvbddsHandling -&gt; DvbddsHandling -&gt; Bool)
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool) -&gt; Eq DvbddsHandling
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+$c/= :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+== :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+$c== :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679959238"><span id="local-6989586621679959240"><span id="local-6989586621679959242"><span id="local-6989586621679959244"><span id="local-6989586621679959246"><span id="local-6989586621679959248"><span id="local-6989586621679959250"><span class="annot"><span class="annottext">Eq DvbddsHandling
+Eq DvbddsHandling
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Ordering)
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool)
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool)
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool)
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool)
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; DvbddsHandling)
+-&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; DvbddsHandling)
+-&gt; Ord DvbddsHandling
+DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+DvbddsHandling -&gt; DvbddsHandling -&gt; Ordering
+DvbddsHandling -&gt; DvbddsHandling -&gt; DvbddsHandling
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DvbddsHandling -&gt; DvbddsHandling -&gt; DvbddsHandling
+$cmin :: DvbddsHandling -&gt; DvbddsHandling -&gt; DvbddsHandling
+max :: DvbddsHandling -&gt; DvbddsHandling -&gt; DvbddsHandling
+$cmax :: DvbddsHandling -&gt; DvbddsHandling -&gt; DvbddsHandling
+&gt;= :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+$c&gt;= :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+&gt; :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+$c&gt; :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+&lt;= :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+$c&lt;= :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+&lt; :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+$c&lt; :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+compare :: DvbddsHandling -&gt; DvbddsHandling -&gt; Ordering
+$ccompare :: DvbddsHandling -&gt; DvbddsHandling -&gt; Ordering
+$cp1Ord :: Eq DvbddsHandling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DvbddsHandling -&gt; Rep DvbddsHandling x)
+-&gt; (forall x. Rep DvbddsHandling x -&gt; DvbddsHandling)
+-&gt; Generic DvbddsHandling
+forall x. Rep DvbddsHandling x -&gt; DvbddsHandling
+forall x. DvbddsHandling -&gt; Rep DvbddsHandling x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DvbddsHandling x -&gt; DvbddsHandling
+$cfrom :: forall x. DvbddsHandling -&gt; Rep DvbddsHandling x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959230"><span id="local-6989586621679959232"><span class="annot"><span class="annottext">Int -&gt; DvbddsHandling -&gt; Int
+DvbddsHandling -&gt; Int
+(Int -&gt; DvbddsHandling -&gt; Int)
+-&gt; (DvbddsHandling -&gt; Int) -&gt; Hashable DvbddsHandling
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DvbddsHandling -&gt; Int
+$chash :: DvbddsHandling -&gt; Int
+hashWithSalt :: Int -&gt; DvbddsHandling -&gt; Int
+$chashWithSalt :: Int -&gt; DvbddsHandling -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679959227"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ()
+(DvbddsHandling -&gt; ()) -&gt; NFData DvbddsHandling
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DvbddsHandling -&gt; ()
+$crnf :: DvbddsHandling -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679959224"><span class="annot"><span class="annottext">Text -&gt; Either String DvbddsHandling
+(Text -&gt; Either String DvbddsHandling) -&gt; FromText DvbddsHandling
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DvbddsHandling
+$cfromText :: Text -&gt; Either String DvbddsHandling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679959221"><span class="annot"><span class="annottext">DvbddsHandling -&gt; Text
+(DvbddsHandling -&gt; Text) -&gt; ToText DvbddsHandling
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DvbddsHandling -&gt; Text
+$ctoText :: DvbddsHandling -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679959218"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ByteString
+(DvbddsHandling -&gt; ByteString) -&gt; ToByteString DvbddsHandling
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DvbddsHandling -&gt; ByteString
+$ctoBS :: DvbddsHandling -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679959215"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ByteStringBuilder
+(DvbddsHandling -&gt; ByteStringBuilder) -&gt; ToLog DvbddsHandling
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DvbddsHandling -&gt; ByteStringBuilder
+$cbuild :: DvbddsHandling -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679959212"><span class="annot"><span class="annottext">HeaderName -&gt; DvbddsHandling -&gt; [Header]
+(HeaderName -&gt; DvbddsHandling -&gt; [Header])
+-&gt; ToHeader DvbddsHandling
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DvbddsHandling -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DvbddsHandling -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679959209"><span class="annot"><span class="annottext">DvbddsHandling -&gt; QueryString
+(DvbddsHandling -&gt; QueryString) -&gt; ToQuery DvbddsHandling
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DvbddsHandling -&gt; QueryString
+$ctoQuery :: DvbddsHandling -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679959204"><span id="local-6989586621679959206"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbddsHandling]
+Value -&gt; Parser DvbddsHandling
+(Value -&gt; Parser DvbddsHandling)
+-&gt; (Value -&gt; Parser [DvbddsHandling]) -&gt; FromJSON DvbddsHandling
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DvbddsHandling]
+$cparseJSONList :: Value -&gt; Parser [DvbddsHandling]
+parseJSON :: Value -&gt; Parser DvbddsHandling
+$cparseJSON :: Value -&gt; Parser DvbddsHandling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679959199"><span id="local-6989586621679959201"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbddsHandling]
+FromJSONKeyFunction DvbddsHandling
+FromJSONKeyFunction DvbddsHandling
+-&gt; FromJSONKeyFunction [DvbddsHandling]
+-&gt; FromJSONKey DvbddsHandling
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DvbddsHandling]
+$cfromJSONKeyList :: FromJSONKeyFunction [DvbddsHandling]
+fromJSONKey :: FromJSONKeyFunction DvbddsHandling
+$cfromJSONKey :: FromJSONKeyFunction DvbddsHandling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679959190"><span id="local-6989586621679959192"><span id="local-6989586621679959194"><span id="local-6989586621679959196"><span class="annot"><span class="annottext">[DvbddsHandling] -&gt; Encoding
+[DvbddsHandling] -&gt; Value
+DvbddsHandling -&gt; Encoding
+DvbddsHandling -&gt; Value
+(DvbddsHandling -&gt; Value)
+-&gt; (DvbddsHandling -&gt; Encoding)
+-&gt; ([DvbddsHandling] -&gt; Value)
+-&gt; ([DvbddsHandling] -&gt; Encoding)
+-&gt; ToJSON DvbddsHandling
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DvbddsHandling] -&gt; Encoding
+$ctoEncodingList :: [DvbddsHandling] -&gt; Encoding
+toJSONList :: [DvbddsHandling] -&gt; Value
+$ctoJSONList :: [DvbddsHandling] -&gt; Value
+toEncoding :: DvbddsHandling -&gt; Encoding
+$ctoEncoding :: DvbddsHandling -&gt; Encoding
+toJSON :: DvbddsHandling -&gt; Value
+$ctoJSON :: DvbddsHandling -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679959185"><span id="local-6989586621679959187"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbddsHandling]
+ToJSONKeyFunction DvbddsHandling
+ToJSONKeyFunction DvbddsHandling
+-&gt; ToJSONKeyFunction [DvbddsHandling] -&gt; ToJSONKey DvbddsHandling
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DvbddsHandling]
+$ctoJSONKeyList :: ToJSONKeyFunction [DvbddsHandling]
+toJSONKey :: ToJSONKeyFunction DvbddsHandling
+$ctoJSONKey :: ToJSONKeyFunction DvbddsHandling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679959182"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbddsHandling
+([Node] -&gt; Either String DvbddsHandling) -&gt; FromXML DvbddsHandling
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DvbddsHandling
+$cparseXML :: [Node] -&gt; Either String DvbddsHandling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679959179"><span class="annot"><span class="annottext">DvbddsHandling -&gt; XML
+(DvbddsHandling -&gt; XML) -&gt; ToXML DvbddsHandling
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DvbddsHandling -&gt; XML
+$ctoXML :: DvbddsHandling -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_NONE"><span class="hs-identifier hs-type">DvbddsHandling_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling"><span class="hs-identifier hs-type">DvbddsHandling</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbddsHandling_NONE"><span id="%24mDvbddsHandling_NONE"><span id="DvbddsHandling_NONE"><span class="annot"><span class="annottext">$bDvbddsHandling_NONE :: DvbddsHandling
+$mDvbddsHandling_NONE :: forall r. DvbddsHandling -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#%24bDvbddsHandling_NONE"><span class="hs-identifier hs-var hs-var hs-var">DvbddsHandling_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling%27"><span class="hs-identifier hs-type">DvbddsHandling'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_NO_DISPLAY_WINDOW"><span class="hs-identifier hs-type">DvbddsHandling_NO_DISPLAY_WINDOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling"><span class="hs-identifier hs-type">DvbddsHandling</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbddsHandling_NO_DISPLAY_WINDOW"><span id="%24mDvbddsHandling_NO_DISPLAY_WINDOW"><span id="DvbddsHandling_NO_DISPLAY_WINDOW"><span class="annot"><span class="annottext">$bDvbddsHandling_NO_DISPLAY_WINDOW :: DvbddsHandling
+$mDvbddsHandling_NO_DISPLAY_WINDOW :: forall r. DvbddsHandling -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#%24bDvbddsHandling_NO_DISPLAY_WINDOW"><span class="hs-identifier hs-var hs-var hs-var">DvbddsHandling_NO_DISPLAY_WINDOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling%27"><span class="hs-identifier hs-type">DvbddsHandling'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_DISPLAY_WINDOW&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_SPECIFIED"><span class="hs-identifier hs-type">DvbddsHandling_SPECIFIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling"><span class="hs-identifier hs-type">DvbddsHandling</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbddsHandling_SPECIFIED"><span id="%24mDvbddsHandling_SPECIFIED"><span id="DvbddsHandling_SPECIFIED"><span class="annot"><span class="annottext">$bDvbddsHandling_SPECIFIED :: DvbddsHandling
+$mDvbddsHandling_SPECIFIED :: forall r. DvbddsHandling -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#%24bDvbddsHandling_SPECIFIED"><span class="hs-identifier hs-var hs-var hs-var">DvbddsHandling_SPECIFIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling%27"><span class="hs-identifier hs-type">DvbddsHandling'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPECIFIED&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_NONE"><span class="hs-pragma hs-type">DvbddsHandling_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_NO_DISPLAY_WINDOW"><span class="hs-pragma hs-type">DvbddsHandling_NO_DISPLAY_WINDOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling_SPECIFIED"><span class="hs-pragma hs-type">DvbddsHandling_SPECIFIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling%27"><span class="hs-pragma hs-type">DvbddsHandling'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

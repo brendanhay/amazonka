@@ -1,0 +1,620 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glue.BatchDeleteConnection</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a list of connection definitions from the Data Catalog.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.BatchDeleteConnection</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier">BatchDeleteConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#newBatchDeleteConnection"><span class="hs-identifier">newBatchDeleteConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnection_catalogId"><span class="hs-identifier">batchDeleteConnection_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnection_connectionNameList"><span class="hs-identifier">batchDeleteConnection_connectionNameList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier">BatchDeleteConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#newBatchDeleteConnectionResponse"><span class="hs-identifier">newBatchDeleteConnectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_succeeded"><span class="hs-identifier">batchDeleteConnectionResponse_succeeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_errors"><span class="hs-identifier">batchDeleteConnectionResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_httpStatus"><span class="hs-identifier">batchDeleteConnectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.html"><span class="hs-identifier">Amazonka.Glue.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteConnection' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679745616"><span id="local-6989586621679745617"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteConnection"><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-var">BatchDeleteConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteConnection%27"><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection%27"><span class="hs-identifier hs-var">BatchDeleteConnection'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog in which the connections reside. If none is</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- provided, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcatalogId%3ABatchDeleteConnection%27"><span class="annot"><span class="annottext">BatchDeleteConnection -&gt; Maybe Text
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AcatalogId%3ABatchDeleteConnection%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A list of names of the connections to delete.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AconnectionNameList%3ABatchDeleteConnection%27"><span class="annot"><span class="annottext">BatchDeleteConnection -&gt; [Text]
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AconnectionNameList%3ABatchDeleteConnection%27"><span class="hs-identifier hs-var hs-var">connectionNameList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679745609"><span id="local-6989586621679745611"><span class="annot"><span class="annottext">BatchDeleteConnection -&gt; BatchDeleteConnection -&gt; Bool
+(BatchDeleteConnection -&gt; BatchDeleteConnection -&gt; Bool)
+-&gt; (BatchDeleteConnection -&gt; BatchDeleteConnection -&gt; Bool)
+-&gt; Eq BatchDeleteConnection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDeleteConnection -&gt; BatchDeleteConnection -&gt; Bool
+$c/= :: BatchDeleteConnection -&gt; BatchDeleteConnection -&gt; Bool
+== :: BatchDeleteConnection -&gt; BatchDeleteConnection -&gt; Bool
+$c== :: BatchDeleteConnection -&gt; BatchDeleteConnection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745600"><span id="local-6989586621679745602"><span id="local-6989586621679745604"><span id="local-6989586621679745606"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteConnection]
+ReadPrec BatchDeleteConnection
+Int -&gt; ReadS BatchDeleteConnection
+ReadS [BatchDeleteConnection]
+(Int -&gt; ReadS BatchDeleteConnection)
+-&gt; ReadS [BatchDeleteConnection]
+-&gt; ReadPrec BatchDeleteConnection
+-&gt; ReadPrec [BatchDeleteConnection]
+-&gt; Read BatchDeleteConnection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchDeleteConnection]
+$creadListPrec :: ReadPrec [BatchDeleteConnection]
+readPrec :: ReadPrec BatchDeleteConnection
+$creadPrec :: ReadPrec BatchDeleteConnection
+readList :: ReadS [BatchDeleteConnection]
+$creadList :: ReadS [BatchDeleteConnection]
+readsPrec :: Int -&gt; ReadS BatchDeleteConnection
+$creadsPrec :: Int -&gt; ReadS BatchDeleteConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745593"><span id="local-6989586621679745595"><span id="local-6989586621679745597"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteConnection -&gt; ShowS
+[BatchDeleteConnection] -&gt; ShowS
+BatchDeleteConnection -&gt; String
+(Int -&gt; BatchDeleteConnection -&gt; ShowS)
+-&gt; (BatchDeleteConnection -&gt; String)
+-&gt; ([BatchDeleteConnection] -&gt; ShowS)
+-&gt; Show BatchDeleteConnection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDeleteConnection] -&gt; ShowS
+$cshowList :: [BatchDeleteConnection] -&gt; ShowS
+show :: BatchDeleteConnection -&gt; String
+$cshow :: BatchDeleteConnection -&gt; String
+showsPrec :: Int -&gt; BatchDeleteConnection -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDeleteConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchDeleteConnection -&gt; Rep BatchDeleteConnection x)
+-&gt; (forall x. Rep BatchDeleteConnection x -&gt; BatchDeleteConnection)
+-&gt; Generic BatchDeleteConnection
+forall x. Rep BatchDeleteConnection x -&gt; BatchDeleteConnection
+forall x. BatchDeleteConnection -&gt; Rep BatchDeleteConnection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchDeleteConnection x -&gt; BatchDeleteConnection
+$cfrom :: forall x. BatchDeleteConnection -&gt; Rep BatchDeleteConnection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'BatchDeleteConnection' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'catalogId', 'batchDeleteConnection_catalogId' - The ID of the Data Catalog in which the connections reside. If none is</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- provided, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'connectionNameList', 'batchDeleteConnection_connectionNameList' - A list of names of the connections to delete.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#newBatchDeleteConnection"><span class="hs-identifier hs-type">newBatchDeleteConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span>
+</span><span id="line-75"></span><span id="newBatchDeleteConnection"><span class="annot"><span class="annottext">newBatchDeleteConnection :: BatchDeleteConnection
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#newBatchDeleteConnection"><span class="hs-identifier hs-var hs-var">newBatchDeleteConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteConnection' :: Maybe Text -&gt; [Text] -&gt; BatchDeleteConnection
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection%27"><span class="hs-identifier hs-type">BatchDeleteConnection'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeleteConnection' :: Maybe Text
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AcatalogId%3ABatchDeleteConnection%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNameList:BatchDeleteConnection' :: [Text]
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AconnectionNameList%3ABatchDeleteConnection%27"><span class="hs-identifier hs-var">connectionNameList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ID of the Data Catalog in which the connections reside. If none is</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- provided, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnection_catalogId"><span class="hs-identifier hs-type">batchDeleteConnection_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="batchDeleteConnection_catalogId"><span class="annot"><span class="annottext">batchDeleteConnection_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchDeleteConnection -&gt; f BatchDeleteConnection
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnection_catalogId"><span class="hs-identifier hs-var hs-var">batchDeleteConnection_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteConnection -&gt; Maybe Text)
+-&gt; (BatchDeleteConnection -&gt; Maybe Text -&gt; BatchDeleteConnection)
+-&gt; Lens
+     BatchDeleteConnection
+     BatchDeleteConnection
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection%27"><span class="hs-identifier hs-type">BatchDeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745586"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:BatchDeleteConnection' :: BatchDeleteConnection -&gt; Maybe Text
+</span><a href="#local-6989586621679745586"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679745586"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745585"><span class="annot"><span class="annottext">s :: BatchDeleteConnection
+</span><a href="#local-6989586621679745585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection%27"><span class="hs-identifier hs-type">BatchDeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745584"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679745584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteConnection
+</span><a href="#local-6989586621679745585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeleteConnection' :: Maybe Text
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AcatalogId%3ABatchDeleteConnection%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679745584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A list of names of the connections to delete.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnection_connectionNameList"><span class="hs-identifier hs-type">batchDeleteConnection_connectionNameList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span id="batchDeleteConnection_connectionNameList"><span class="annot"><span class="annottext">batchDeleteConnection_connectionNameList :: ([Text] -&gt; f [Text])
+-&gt; BatchDeleteConnection -&gt; f BatchDeleteConnection
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnection_connectionNameList"><span class="hs-identifier hs-var hs-var">batchDeleteConnection_connectionNameList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteConnection -&gt; [Text])
+-&gt; (BatchDeleteConnection -&gt; [Text] -&gt; BatchDeleteConnection)
+-&gt; Lens BatchDeleteConnection BatchDeleteConnection [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection%27"><span class="hs-identifier hs-type">BatchDeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745583"><span class="annot"><span class="annottext">[Text]
+connectionNameList :: [Text]
+$sel:connectionNameList:BatchDeleteConnection' :: BatchDeleteConnection -&gt; [Text]
+</span><a href="#local-6989586621679745583"><span class="hs-identifier hs-var hs-var">connectionNameList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679745583"><span class="hs-identifier hs-var">connectionNameList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745582"><span class="annot"><span class="annottext">s :: BatchDeleteConnection
+</span><a href="#local-6989586621679745582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection%27"><span class="hs-identifier hs-type">BatchDeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745581"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679745581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteConnection
+</span><a href="#local-6989586621679745582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNameList:BatchDeleteConnection' :: [Text]
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AconnectionNameList%3ABatchDeleteConnection%27"><span class="hs-identifier hs-var">connectionNameList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679745581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; BatchDeleteConnection -&gt; f BatchDeleteConnection)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; BatchDeleteConnection
+-&gt; f BatchDeleteConnection
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679745575"><span class="annot"><span class="annottext">request :: BatchDeleteConnection -&gt; Request BatchDeleteConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDeleteConnection -&gt; Request BatchDeleteConnection
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679745571"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchDeleteConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDeleteConnection)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchDeleteConnection))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchDeleteConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDeleteConnection)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679745568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745568"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679745567"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679745567"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679745566"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679745566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe (HashMap Text ErrorDetail)
+-&gt; Int
+-&gt; BatchDeleteConnectionResponse
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">BatchDeleteConnectionResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe (HashMap Text ErrorDetail)
+ -&gt; Int
+ -&gt; BatchDeleteConnectionResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe (HashMap Text ErrorDetail)
+      -&gt; Int -&gt; BatchDeleteConnectionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679745566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Succeeded&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text ErrorDetail)
+   -&gt; Int -&gt; BatchDeleteConnectionResponse)
+-&gt; Either String (Maybe (HashMap Text ErrorDetail))
+-&gt; Either String (Int -&gt; BatchDeleteConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679745566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text ErrorDetail)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text ErrorDetail)))
+-&gt; Maybe (HashMap Text ErrorDetail)
+-&gt; Either String (Maybe (HashMap Text ErrorDetail))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ErrorDetail)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchDeleteConnectionResponse)
+-&gt; Either String Int -&gt; Either String BatchDeleteConnectionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745568"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745557"><span id="local-6989586621679745559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679745550"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteConnection -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDeleteConnection -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.BatchDeleteConnection&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745540"><span id="local-6989586621679745542"><span id="local-6989586621679745544"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679745538"><span class="annot"><span class="annottext">toJSON :: BatchDeleteConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection%27"><span class="hs-identifier hs-type">BatchDeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745535"><span id="local-6989586621679745536"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+connectionNameList :: [Text]
+catalogId :: Maybe Text
+$sel:connectionNameList:BatchDeleteConnection' :: BatchDeleteConnection -&gt; [Text]
+$sel:catalogId:BatchDeleteConnection' :: BatchDeleteConnection -&gt; Maybe Text
+</span><a href="#local-6989586621679745535"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679745536"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionNameList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679745535"><span class="hs-identifier hs-var">connectionNameList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679745529"><span class="annot"><span class="annottext">toPath :: BatchDeleteConnection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeleteConnection -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnection"><span class="hs-identifier hs-type">BatchDeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679745525"><span class="annot"><span class="annottext">toQuery :: BatchDeleteConnection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDeleteConnection -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteConnectionResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679745522"><span id="local-6989586621679745523"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteConnectionResponse"><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-var">BatchDeleteConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteConnectionResponse%27"><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">BatchDeleteConnectionResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of names of the connection definitions that were successfully</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3Asucceeded%3ABatchDeleteConnectionResponse%27"><span class="annot"><span class="annottext">BatchDeleteConnectionResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3Asucceeded%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | A map of the names of connections that were not successfully deleted to</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- error details.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchDeleteConnectionResponse%27"><span class="annot"><span class="annottext">BatchDeleteConnectionResponse -&gt; Maybe (HashMap Text ErrorDetail)
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3Aerrors%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDeleteConnectionResponse%27"><span class="annot"><span class="annottext">BatchDeleteConnectionResponse -&gt; Int
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AhttpStatus%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679745515"><span id="local-6989586621679745517"><span class="annot"><span class="annottext">BatchDeleteConnectionResponse
+-&gt; BatchDeleteConnectionResponse -&gt; Bool
+(BatchDeleteConnectionResponse
+ -&gt; BatchDeleteConnectionResponse -&gt; Bool)
+-&gt; (BatchDeleteConnectionResponse
+    -&gt; BatchDeleteConnectionResponse -&gt; Bool)
+-&gt; Eq BatchDeleteConnectionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDeleteConnectionResponse
+-&gt; BatchDeleteConnectionResponse -&gt; Bool
+$c/= :: BatchDeleteConnectionResponse
+-&gt; BatchDeleteConnectionResponse -&gt; Bool
+== :: BatchDeleteConnectionResponse
+-&gt; BatchDeleteConnectionResponse -&gt; Bool
+$c== :: BatchDeleteConnectionResponse
+-&gt; BatchDeleteConnectionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745507"><span id="local-6989586621679745509"><span id="local-6989586621679745511"><span id="local-6989586621679745513"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteConnectionResponse]
+ReadPrec BatchDeleteConnectionResponse
+Int -&gt; ReadS BatchDeleteConnectionResponse
+ReadS [BatchDeleteConnectionResponse]
+(Int -&gt; ReadS BatchDeleteConnectionResponse)
+-&gt; ReadS [BatchDeleteConnectionResponse]
+-&gt; ReadPrec BatchDeleteConnectionResponse
+-&gt; ReadPrec [BatchDeleteConnectionResponse]
+-&gt; Read BatchDeleteConnectionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchDeleteConnectionResponse]
+$creadListPrec :: ReadPrec [BatchDeleteConnectionResponse]
+readPrec :: ReadPrec BatchDeleteConnectionResponse
+$creadPrec :: ReadPrec BatchDeleteConnectionResponse
+readList :: ReadS [BatchDeleteConnectionResponse]
+$creadList :: ReadS [BatchDeleteConnectionResponse]
+readsPrec :: Int -&gt; ReadS BatchDeleteConnectionResponse
+$creadsPrec :: Int -&gt; ReadS BatchDeleteConnectionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745501"><span id="local-6989586621679745503"><span id="local-6989586621679745505"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteConnectionResponse -&gt; ShowS
+[BatchDeleteConnectionResponse] -&gt; ShowS
+BatchDeleteConnectionResponse -&gt; String
+(Int -&gt; BatchDeleteConnectionResponse -&gt; ShowS)
+-&gt; (BatchDeleteConnectionResponse -&gt; String)
+-&gt; ([BatchDeleteConnectionResponse] -&gt; ShowS)
+-&gt; Show BatchDeleteConnectionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDeleteConnectionResponse] -&gt; ShowS
+$cshowList :: [BatchDeleteConnectionResponse] -&gt; ShowS
+show :: BatchDeleteConnectionResponse -&gt; String
+$cshow :: BatchDeleteConnectionResponse -&gt; String
+showsPrec :: Int -&gt; BatchDeleteConnectionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDeleteConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchDeleteConnectionResponse
+ -&gt; Rep BatchDeleteConnectionResponse x)
+-&gt; (forall x.
+    Rep BatchDeleteConnectionResponse x
+    -&gt; BatchDeleteConnectionResponse)
+-&gt; Generic BatchDeleteConnectionResponse
+forall x.
+Rep BatchDeleteConnectionResponse x
+-&gt; BatchDeleteConnectionResponse
+forall x.
+BatchDeleteConnectionResponse
+-&gt; Rep BatchDeleteConnectionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchDeleteConnectionResponse x
+-&gt; BatchDeleteConnectionResponse
+$cfrom :: forall x.
+BatchDeleteConnectionResponse
+-&gt; Rep BatchDeleteConnectionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Create a value of 'BatchDeleteConnectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'succeeded', 'batchDeleteConnectionResponse_succeeded' - A list of names of the connection definitions that were successfully</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'errors', 'batchDeleteConnectionResponse_errors' - A map of the names of connections that were not successfully deleted to</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- error details.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'batchDeleteConnectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#newBatchDeleteConnectionResponse"><span class="hs-identifier hs-type">newBatchDeleteConnectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newBatchDeleteConnectionResponse"><span class="annot"><span class="annottext">newBatchDeleteConnectionResponse :: Int -&gt; BatchDeleteConnectionResponse
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#newBatchDeleteConnectionResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679745498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteConnectionResponse' :: Maybe [Text]
+-&gt; Maybe (HashMap Text ErrorDetail)
+-&gt; Int
+-&gt; BatchDeleteConnectionResponse
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:succeeded:BatchDeleteConnectionResponse' :: Maybe [Text]
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3Asucceeded%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">succeeded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteConnectionResponse' :: Maybe (HashMap Text ErrorDetail)
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3Aerrors%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ErrorDetail)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteConnectionResponse' :: Int
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AhttpStatus%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A list of names of the connection definitions that were successfully</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_succeeded"><span class="hs-identifier hs-type">batchDeleteConnectionResponse_succeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="batchDeleteConnectionResponse_succeeded"><span class="annot"><span class="annottext">batchDeleteConnectionResponse_succeeded :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BatchDeleteConnectionResponse -&gt; f BatchDeleteConnectionResponse
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_succeeded"><span class="hs-identifier hs-var hs-var">batchDeleteConnectionResponse_succeeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteConnectionResponse -&gt; Maybe [Text])
+-&gt; (BatchDeleteConnectionResponse
+    -&gt; Maybe [Text] -&gt; BatchDeleteConnectionResponse)
+-&gt; Lens
+     BatchDeleteConnectionResponse
+     BatchDeleteConnectionResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745497"><span class="annot"><span class="annottext">Maybe [Text]
+succeeded :: Maybe [Text]
+$sel:succeeded:BatchDeleteConnectionResponse' :: BatchDeleteConnectionResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679745497"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679745497"><span class="hs-identifier hs-var">succeeded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745496"><span class="annot"><span class="annottext">s :: BatchDeleteConnectionResponse
+</span><a href="#local-6989586621679745496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745495"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679745495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteConnectionResponse
+</span><a href="#local-6989586621679745496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeeded:BatchDeleteConnectionResponse' :: Maybe [Text]
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3Asucceeded%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">succeeded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679745495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; BatchDeleteConnectionResponse
+ -&gt; f BatchDeleteConnectionResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BatchDeleteConnectionResponse
+-&gt; f BatchDeleteConnectionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | A map of the names of connections that were not successfully deleted to</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- error details.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_errors"><span class="hs-identifier hs-type">batchDeleteConnectionResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="batchDeleteConnectionResponse_errors"><span class="annot"><span class="annottext">batchDeleteConnectionResponse_errors :: (Maybe (HashMap Text ErrorDetail)
+ -&gt; f (Maybe (HashMap Text ErrorDetail)))
+-&gt; BatchDeleteConnectionResponse -&gt; f BatchDeleteConnectionResponse
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_errors"><span class="hs-identifier hs-var hs-var">batchDeleteConnectionResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteConnectionResponse -&gt; Maybe (HashMap Text ErrorDetail))
+-&gt; (BatchDeleteConnectionResponse
+    -&gt; Maybe (HashMap Text ErrorDetail)
+    -&gt; BatchDeleteConnectionResponse)
+-&gt; Lens
+     BatchDeleteConnectionResponse
+     BatchDeleteConnectionResponse
+     (Maybe (HashMap Text ErrorDetail))
+     (Maybe (HashMap Text ErrorDetail))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745493"><span class="annot"><span class="annottext">Maybe (HashMap Text ErrorDetail)
+errors :: Maybe (HashMap Text ErrorDetail)
+$sel:errors:BatchDeleteConnectionResponse' :: BatchDeleteConnectionResponse -&gt; Maybe (HashMap Text ErrorDetail)
+</span><a href="#local-6989586621679745493"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ErrorDetail)
+</span><a href="#local-6989586621679745493"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745492"><span class="annot"><span class="annottext">s :: BatchDeleteConnectionResponse
+</span><a href="#local-6989586621679745492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745491"><span class="annot"><span class="annottext">Maybe (HashMap Text ErrorDetail)
+</span><a href="#local-6989586621679745491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteConnectionResponse
+</span><a href="#local-6989586621679745492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteConnectionResponse' :: Maybe (HashMap Text ErrorDetail)
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3Aerrors%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ErrorDetail)
+</span><a href="#local-6989586621679745491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ErrorDetail)
+  -&gt; f (Maybe (HashMap Text ErrorDetail)))
+ -&gt; BatchDeleteConnectionResponse
+ -&gt; f BatchDeleteConnectionResponse)
+-&gt; ((Maybe (HashMap Text ErrorDetail)
+     -&gt; f (Maybe (HashMap Text ErrorDetail)))
+    -&gt; Maybe (HashMap Text ErrorDetail)
+    -&gt; f (Maybe (HashMap Text ErrorDetail)))
+-&gt; (Maybe (HashMap Text ErrorDetail)
+    -&gt; f (Maybe (HashMap Text ErrorDetail)))
+-&gt; BatchDeleteConnectionResponse
+-&gt; f BatchDeleteConnectionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ErrorDetail)
+  (HashMap Text ErrorDetail)
+  (HashMap Text ErrorDetail)
+  (HashMap Text ErrorDetail)
+-&gt; Iso
+     (Maybe (HashMap Text ErrorDetail))
+     (Maybe (HashMap Text ErrorDetail))
+     (Maybe (HashMap Text ErrorDetail))
+     (Maybe (HashMap Text ErrorDetail))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ErrorDetail)
+  (HashMap Text ErrorDetail)
+  (HashMap Text ErrorDetail)
+  (HashMap Text ErrorDetail)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_httpStatus"><span class="hs-identifier hs-type">batchDeleteConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span id="batchDeleteConnectionResponse_httpStatus"><span class="annot"><span class="annottext">batchDeleteConnectionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchDeleteConnectionResponse -&gt; f BatchDeleteConnectionResponse
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#batchDeleteConnectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchDeleteConnectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteConnectionResponse -&gt; Int)
+-&gt; (BatchDeleteConnectionResponse
+    -&gt; Int -&gt; BatchDeleteConnectionResponse)
+-&gt; Lens
+     BatchDeleteConnectionResponse BatchDeleteConnectionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745490"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchDeleteConnectionResponse' :: BatchDeleteConnectionResponse -&gt; Int
+</span><a href="#local-6989586621679745490"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745490"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745489"><span class="annot"><span class="annottext">s :: BatchDeleteConnectionResponse
+</span><a href="#local-6989586621679745489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse%27"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteConnectionResponse
+</span><a href="#local-6989586621679745489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteConnectionResponse' :: Int
+</span><a href="Amazonka.Glue.BatchDeleteConnection.html#%24sel%3AhttpStatus%3ABatchDeleteConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteConnection.html#BatchDeleteConnectionResponse"><span class="hs-identifier hs-type">BatchDeleteConnectionResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

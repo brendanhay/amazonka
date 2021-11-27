@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.InstanceSnapshotInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.InstanceSnapshotInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.DiskInfo.html"><span class="hs-identifier">Amazonka.Lightsail.Types.DiskInfo</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes an instance snapshot.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceSnapshotInfo' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679612532"><span id="local-6989586621679612533"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceSnapshotInfo"><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-var">InstanceSnapshotInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceSnapshotInfo%27"><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-var">InstanceSnapshotInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@).</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AfromBlueprintId%3AInstanceSnapshotInfo%27"><span class="annot"><span class="annottext">InstanceSnapshotInfo -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromBlueprintId%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var hs-var">fromBlueprintId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The bundle ID from which the source instance was created (e.g.,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @micro_1_0@).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfromBundleId%3AInstanceSnapshotInfo%27"><span class="annot"><span class="annottext">InstanceSnapshotInfo -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromBundleId%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var hs-var">fromBundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A list of objects describing the disks that were attached to the source</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AfromDiskInfo%3AInstanceSnapshotInfo%27"><span class="annot"><span class="annottext">InstanceSnapshotInfo -&gt; Maybe [DiskInfo]
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromDiskInfo%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var hs-var">fromDiskInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679612524"><span id="local-6989586621679612526"><span class="annot"><span class="annottext">InstanceSnapshotInfo -&gt; InstanceSnapshotInfo -&gt; Bool
+(InstanceSnapshotInfo -&gt; InstanceSnapshotInfo -&gt; Bool)
+-&gt; (InstanceSnapshotInfo -&gt; InstanceSnapshotInfo -&gt; Bool)
+-&gt; Eq InstanceSnapshotInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceSnapshotInfo -&gt; InstanceSnapshotInfo -&gt; Bool
+$c/= :: InstanceSnapshotInfo -&gt; InstanceSnapshotInfo -&gt; Bool
+== :: InstanceSnapshotInfo -&gt; InstanceSnapshotInfo -&gt; Bool
+$c== :: InstanceSnapshotInfo -&gt; InstanceSnapshotInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612515"><span id="local-6989586621679612517"><span id="local-6989586621679612519"><span id="local-6989586621679612521"><span class="annot"><span class="annottext">ReadPrec [InstanceSnapshotInfo]
+ReadPrec InstanceSnapshotInfo
+Int -&gt; ReadS InstanceSnapshotInfo
+ReadS [InstanceSnapshotInfo]
+(Int -&gt; ReadS InstanceSnapshotInfo)
+-&gt; ReadS [InstanceSnapshotInfo]
+-&gt; ReadPrec InstanceSnapshotInfo
+-&gt; ReadPrec [InstanceSnapshotInfo]
+-&gt; Read InstanceSnapshotInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceSnapshotInfo]
+$creadListPrec :: ReadPrec [InstanceSnapshotInfo]
+readPrec :: ReadPrec InstanceSnapshotInfo
+$creadPrec :: ReadPrec InstanceSnapshotInfo
+readList :: ReadS [InstanceSnapshotInfo]
+$creadList :: ReadS [InstanceSnapshotInfo]
+readsPrec :: Int -&gt; ReadS InstanceSnapshotInfo
+$creadsPrec :: Int -&gt; ReadS InstanceSnapshotInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612508"><span id="local-6989586621679612510"><span id="local-6989586621679612512"><span class="annot"><span class="annottext">Int -&gt; InstanceSnapshotInfo -&gt; ShowS
+[InstanceSnapshotInfo] -&gt; ShowS
+InstanceSnapshotInfo -&gt; String
+(Int -&gt; InstanceSnapshotInfo -&gt; ShowS)
+-&gt; (InstanceSnapshotInfo -&gt; String)
+-&gt; ([InstanceSnapshotInfo] -&gt; ShowS)
+-&gt; Show InstanceSnapshotInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceSnapshotInfo] -&gt; ShowS
+$cshowList :: [InstanceSnapshotInfo] -&gt; ShowS
+show :: InstanceSnapshotInfo -&gt; String
+$cshow :: InstanceSnapshotInfo -&gt; String
+showsPrec :: Int -&gt; InstanceSnapshotInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceSnapshotInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstanceSnapshotInfo -&gt; Rep InstanceSnapshotInfo x)
+-&gt; (forall x. Rep InstanceSnapshotInfo x -&gt; InstanceSnapshotInfo)
+-&gt; Generic InstanceSnapshotInfo
+forall x. Rep InstanceSnapshotInfo x -&gt; InstanceSnapshotInfo
+forall x. InstanceSnapshotInfo -&gt; Rep InstanceSnapshotInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceSnapshotInfo x -&gt; InstanceSnapshotInfo
+$cfrom :: forall x. InstanceSnapshotInfo -&gt; Rep InstanceSnapshotInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'InstanceSnapshotInfo' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'fromBlueprintId', 'instanceSnapshotInfo_fromBlueprintId' - The blueprint ID from which the source instance (e.g., @os_debian_8_3@).</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'fromBundleId', 'instanceSnapshotInfo_fromBundleId' - The bundle ID from which the source instance was created (e.g.,</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- @micro_1_0@).</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'fromDiskInfo', 'instanceSnapshotInfo_fromDiskInfo' - A list of objects describing the disks that were attached to the source</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#newInstanceSnapshotInfo"><span class="hs-identifier hs-type">newInstanceSnapshotInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span><span>
+</span><span id="line-59"></span><span id="newInstanceSnapshotInfo"><span class="annot"><span class="annottext">newInstanceSnapshotInfo :: InstanceSnapshotInfo
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#newInstanceSnapshotInfo"><span class="hs-identifier hs-var hs-var">newInstanceSnapshotInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">InstanceSnapshotInfo' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe [DiskInfo] -&gt; InstanceSnapshotInfo
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-type">InstanceSnapshotInfo'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fromBlueprintId:InstanceSnapshotInfo' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromBlueprintId%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var">fromBlueprintId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:fromBundleId:InstanceSnapshotInfo' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromBundleId%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var">fromBundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:fromDiskInfo:InstanceSnapshotInfo' :: Maybe [DiskInfo]
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromDiskInfo%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var">fromDiskInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DiskInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@).</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#instanceSnapshotInfo_fromBlueprintId"><span class="hs-identifier hs-type">instanceSnapshotInfo_fromBlueprintId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="instanceSnapshotInfo_fromBlueprintId"><span class="annot"><span class="annottext">instanceSnapshotInfo_fromBlueprintId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceSnapshotInfo -&gt; f InstanceSnapshotInfo
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#instanceSnapshotInfo_fromBlueprintId"><span class="hs-identifier hs-var hs-var">instanceSnapshotInfo_fromBlueprintId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceSnapshotInfo -&gt; Maybe Text)
+-&gt; (InstanceSnapshotInfo -&gt; Maybe Text -&gt; InstanceSnapshotInfo)
+-&gt; Lens
+     InstanceSnapshotInfo InstanceSnapshotInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-type">InstanceSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612499"><span class="annot"><span class="annottext">Maybe Text
+fromBlueprintId :: Maybe Text
+$sel:fromBlueprintId:InstanceSnapshotInfo' :: InstanceSnapshotInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679612499"><span class="hs-identifier hs-var hs-var">fromBlueprintId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612499"><span class="hs-identifier hs-var">fromBlueprintId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612498"><span class="annot"><span class="annottext">s :: InstanceSnapshotInfo
+</span><a href="#local-6989586621679612498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-type">InstanceSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceSnapshotInfo
+</span><a href="#local-6989586621679612498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromBlueprintId:InstanceSnapshotInfo' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromBlueprintId%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var">fromBlueprintId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The bundle ID from which the source instance was created (e.g.,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @micro_1_0@).</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#instanceSnapshotInfo_fromBundleId"><span class="hs-identifier hs-type">instanceSnapshotInfo_fromBundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="instanceSnapshotInfo_fromBundleId"><span class="annot"><span class="annottext">instanceSnapshotInfo_fromBundleId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceSnapshotInfo -&gt; f InstanceSnapshotInfo
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#instanceSnapshotInfo_fromBundleId"><span class="hs-identifier hs-var hs-var">instanceSnapshotInfo_fromBundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceSnapshotInfo -&gt; Maybe Text)
+-&gt; (InstanceSnapshotInfo -&gt; Maybe Text -&gt; InstanceSnapshotInfo)
+-&gt; Lens
+     InstanceSnapshotInfo InstanceSnapshotInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-type">InstanceSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612495"><span class="annot"><span class="annottext">Maybe Text
+fromBundleId :: Maybe Text
+$sel:fromBundleId:InstanceSnapshotInfo' :: InstanceSnapshotInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679612495"><span class="hs-identifier hs-var hs-var">fromBundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612495"><span class="hs-identifier hs-var">fromBundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612494"><span class="annot"><span class="annottext">s :: InstanceSnapshotInfo
+</span><a href="#local-6989586621679612494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-type">InstanceSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceSnapshotInfo
+</span><a href="#local-6989586621679612494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromBundleId:InstanceSnapshotInfo' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromBundleId%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var">fromBundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | A list of objects describing the disks that were attached to the source</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#instanceSnapshotInfo_fromDiskInfo"><span class="hs-identifier hs-type">instanceSnapshotInfo_fromDiskInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="instanceSnapshotInfo_fromDiskInfo"><span class="annot"><span class="annottext">instanceSnapshotInfo_fromDiskInfo :: (Maybe [DiskInfo] -&gt; f (Maybe [DiskInfo]))
+-&gt; InstanceSnapshotInfo -&gt; f InstanceSnapshotInfo
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#instanceSnapshotInfo_fromDiskInfo"><span class="hs-identifier hs-var hs-var">instanceSnapshotInfo_fromDiskInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceSnapshotInfo -&gt; Maybe [DiskInfo])
+-&gt; (InstanceSnapshotInfo
+    -&gt; Maybe [DiskInfo] -&gt; InstanceSnapshotInfo)
+-&gt; Lens
+     InstanceSnapshotInfo
+     InstanceSnapshotInfo
+     (Maybe [DiskInfo])
+     (Maybe [DiskInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-type">InstanceSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612491"><span class="annot"><span class="annottext">Maybe [DiskInfo]
+fromDiskInfo :: Maybe [DiskInfo]
+$sel:fromDiskInfo:InstanceSnapshotInfo' :: InstanceSnapshotInfo -&gt; Maybe [DiskInfo]
+</span><a href="#local-6989586621679612491"><span class="hs-identifier hs-var hs-var">fromDiskInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DiskInfo]
+</span><a href="#local-6989586621679612491"><span class="hs-identifier hs-var">fromDiskInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612490"><span class="annot"><span class="annottext">s :: InstanceSnapshotInfo
+</span><a href="#local-6989586621679612490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-type">InstanceSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612489"><span class="annot"><span class="annottext">Maybe [DiskInfo]
+</span><a href="#local-6989586621679612489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceSnapshotInfo
+</span><a href="#local-6989586621679612490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromDiskInfo:InstanceSnapshotInfo' :: Maybe [DiskInfo]
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#%24sel%3AfromDiskInfo%3AInstanceSnapshotInfo%27"><span class="hs-identifier hs-var">fromDiskInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DiskInfo]
+</span><a href="#local-6989586621679612489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DiskInfo] -&gt; f (Maybe [DiskInfo]))
+ -&gt; InstanceSnapshotInfo -&gt; f InstanceSnapshotInfo)
+-&gt; ((Maybe [DiskInfo] -&gt; f (Maybe [DiskInfo]))
+    -&gt; Maybe [DiskInfo] -&gt; f (Maybe [DiskInfo]))
+-&gt; (Maybe [DiskInfo] -&gt; f (Maybe [DiskInfo]))
+-&gt; InstanceSnapshotInfo
+-&gt; f InstanceSnapshotInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DiskInfo] [DiskInfo] [DiskInfo] [DiskInfo]
+-&gt; Iso
+     (Maybe [DiskInfo])
+     (Maybe [DiskInfo])
+     (Maybe [DiskInfo])
+     (Maybe [DiskInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DiskInfo] [DiskInfo] [DiskInfo] [DiskInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612483"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679612481"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceSnapshotInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InstanceSnapshotInfo)
+-&gt; Value
+-&gt; Parser InstanceSnapshotInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InstanceSnapshotInfo&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679612478"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612478"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe [DiskInfo] -&gt; InstanceSnapshotInfo
+</span><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo%27"><span class="hs-identifier hs-var">InstanceSnapshotInfo'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe [DiskInfo] -&gt; InstanceSnapshotInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [DiskInfo] -&gt; InstanceSnapshotInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fromBlueprintId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [DiskInfo] -&gt; InstanceSnapshotInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [DiskInfo] -&gt; InstanceSnapshotInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fromBundleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [DiskInfo] -&gt; InstanceSnapshotInfo)
+-&gt; Parser (Maybe [DiskInfo]) -&gt; Parser InstanceSnapshotInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DiskInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fromDiskInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DiskInfo]))
+-&gt; Maybe [DiskInfo] -&gt; Parser (Maybe [DiskInfo])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DiskInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612471"><span id="local-6989586621679612473"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceSnapshotInfo.html#InstanceSnapshotInfo"><span class="hs-identifier hs-type">InstanceSnapshotInfo</span></a></span></span><span>
+</span><span id="line-95"></span></pre></body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Signer.CancelSigningProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the state of an @ACTIVE@ signing profile to @CANCELED@. A</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- canceled profile is still viewable with the @ListSigningProfiles@</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- operation, but it cannot perform new signing jobs, and is deleted two</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- years after cancelation.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Signer.CancelSigningProfile</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier">CancelSigningProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#newCancelSigningProfile"><span class="hs-identifier">newCancelSigningProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#cancelSigningProfile_profileName"><span class="hs-identifier">cancelSigningProfile_profileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse"><span class="hs-identifier">CancelSigningProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#newCancelSigningProfileResponse"><span class="hs-identifier">newCancelSigningProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.html"><span class="hs-identifier">Amazonka.Signer.Types</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newCancelSigningProfile' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679205661"><span id="local-6989586621679205662"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelSigningProfile"><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-var">CancelSigningProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelSigningProfile%27"><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile%27"><span class="hs-identifier hs-var">CancelSigningProfile'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the signing profile to be canceled.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AprofileName%3ACancelSigningProfile%27"><span class="annot"><span class="annottext">CancelSigningProfile -&gt; Text
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#%24sel%3AprofileName%3ACancelSigningProfile%27"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205655"><span id="local-6989586621679205657"><span class="annot"><span class="annottext">CancelSigningProfile -&gt; CancelSigningProfile -&gt; Bool
+(CancelSigningProfile -&gt; CancelSigningProfile -&gt; Bool)
+-&gt; (CancelSigningProfile -&gt; CancelSigningProfile -&gt; Bool)
+-&gt; Eq CancelSigningProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelSigningProfile -&gt; CancelSigningProfile -&gt; Bool
+$c/= :: CancelSigningProfile -&gt; CancelSigningProfile -&gt; Bool
+== :: CancelSigningProfile -&gt; CancelSigningProfile -&gt; Bool
+$c== :: CancelSigningProfile -&gt; CancelSigningProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205646"><span id="local-6989586621679205648"><span id="local-6989586621679205650"><span id="local-6989586621679205652"><span class="annot"><span class="annottext">ReadPrec [CancelSigningProfile]
+ReadPrec CancelSigningProfile
+Int -&gt; ReadS CancelSigningProfile
+ReadS [CancelSigningProfile]
+(Int -&gt; ReadS CancelSigningProfile)
+-&gt; ReadS [CancelSigningProfile]
+-&gt; ReadPrec CancelSigningProfile
+-&gt; ReadPrec [CancelSigningProfile]
+-&gt; Read CancelSigningProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelSigningProfile]
+$creadListPrec :: ReadPrec [CancelSigningProfile]
+readPrec :: ReadPrec CancelSigningProfile
+$creadPrec :: ReadPrec CancelSigningProfile
+readList :: ReadS [CancelSigningProfile]
+$creadList :: ReadS [CancelSigningProfile]
+readsPrec :: Int -&gt; ReadS CancelSigningProfile
+$creadsPrec :: Int -&gt; ReadS CancelSigningProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205639"><span id="local-6989586621679205641"><span id="local-6989586621679205643"><span class="annot"><span class="annottext">Int -&gt; CancelSigningProfile -&gt; ShowS
+[CancelSigningProfile] -&gt; ShowS
+CancelSigningProfile -&gt; String
+(Int -&gt; CancelSigningProfile -&gt; ShowS)
+-&gt; (CancelSigningProfile -&gt; String)
+-&gt; ([CancelSigningProfile] -&gt; ShowS)
+-&gt; Show CancelSigningProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelSigningProfile] -&gt; ShowS
+$cshowList :: [CancelSigningProfile] -&gt; ShowS
+show :: CancelSigningProfile -&gt; String
+$cshow :: CancelSigningProfile -&gt; String
+showsPrec :: Int -&gt; CancelSigningProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelSigningProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelSigningProfile -&gt; Rep CancelSigningProfile x)
+-&gt; (forall x. Rep CancelSigningProfile x -&gt; CancelSigningProfile)
+-&gt; Generic CancelSigningProfile
+forall x. Rep CancelSigningProfile x -&gt; CancelSigningProfile
+forall x. CancelSigningProfile -&gt; Rep CancelSigningProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelSigningProfile x -&gt; CancelSigningProfile
+$cfrom :: forall x. CancelSigningProfile -&gt; Rep CancelSigningProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'CancelSigningProfile' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'profileName', 'cancelSigningProfile_profileName' - The name of the signing profile to be canceled.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#newCancelSigningProfile"><span class="hs-identifier hs-type">newCancelSigningProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'profileName'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span>
+</span><span id="line-68"></span><span id="newCancelSigningProfile"><span class="annot"><span class="annottext">newCancelSigningProfile :: Text -&gt; CancelSigningProfile
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#newCancelSigningProfile"><span class="hs-identifier hs-var hs-var">newCancelSigningProfile</span></a></span></span><span> </span><span id="local-6989586621679205634"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205634"><span class="hs-identifier hs-var">pProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">CancelSigningProfile' :: Text -&gt; CancelSigningProfile
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile%27"><span class="hs-identifier hs-type">CancelSigningProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileName:CancelSigningProfile' :: Text
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#%24sel%3AprofileName%3ACancelSigningProfile%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205634"><span class="hs-identifier hs-var">pProfileName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the signing profile to be canceled.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#cancelSigningProfile_profileName"><span class="hs-identifier hs-type">cancelSigningProfile_profileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="cancelSigningProfile_profileName"><span class="annot"><span class="annottext">cancelSigningProfile_profileName :: (Text -&gt; f Text) -&gt; CancelSigningProfile -&gt; f CancelSigningProfile
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#cancelSigningProfile_profileName"><span class="hs-identifier hs-var hs-var">cancelSigningProfile_profileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelSigningProfile -&gt; Text)
+-&gt; (CancelSigningProfile -&gt; Text -&gt; CancelSigningProfile)
+-&gt; Lens CancelSigningProfile CancelSigningProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile%27"><span class="hs-identifier hs-type">CancelSigningProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205631"><span class="annot"><span class="annottext">Text
+profileName :: Text
+$sel:profileName:CancelSigningProfile' :: CancelSigningProfile -&gt; Text
+</span><a href="#local-6989586621679205631"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205631"><span class="hs-identifier hs-var">profileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205630"><span class="annot"><span class="annottext">s :: CancelSigningProfile
+</span><a href="#local-6989586621679205630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile%27"><span class="hs-identifier hs-type">CancelSigningProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelSigningProfile
+</span><a href="#local-6989586621679205630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileName:CancelSigningProfile' :: Text
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#%24sel%3AprofileName%3ACancelSigningProfile%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse"><span class="hs-identifier hs-type">CancelSigningProfileResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679205625"><span class="annot"><span class="annottext">request :: CancelSigningProfile -&gt; Request CancelSigningProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelSigningProfile -&gt; Request CancelSigningProfile
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Signer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679205621"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelSigningProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelSigningProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse CancelSigningProfile
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelSigningProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelSigningProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse CancelSigningProfile
+CancelSigningProfileResponse
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse%27"><span class="hs-identifier hs-var">CancelSigningProfileResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205614"><span id="local-6989586621679205616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679205607"><span class="annot"><span class="annottext">toHeaders :: CancelSigningProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; CancelSigningProfile -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-92"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-94"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679205601"><span class="annot"><span class="annottext">toPath :: CancelSigningProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile%27"><span class="hs-identifier hs-type">CancelSigningProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205599"><span class="annot"><span class="annottext">Text
+profileName :: Text
+$sel:profileName:CancelSigningProfile' :: CancelSigningProfile -&gt; Text
+</span><a href="#local-6989586621679205599"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/signing-profiles/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205599"><span class="hs-identifier hs-var">profileName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfile"><span class="hs-identifier hs-type">CancelSigningProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679205595"><span class="annot"><span class="annottext">toQuery :: CancelSigningProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelSigningProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newCancelSigningProfileResponse' smart constructor.</span><span>
+</span><span id="line-107"></span><span id="local-6989586621679205592"><span id="local-6989586621679205593"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelSigningProfileResponse"><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse"><span class="hs-identifier hs-var">CancelSigningProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelSigningProfileResponse%27"><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse%27"><span class="hs-identifier hs-var">CancelSigningProfileResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205588"><span id="local-6989586621679205590"><span class="annot"><span class="annottext">CancelSigningProfileResponse
+-&gt; CancelSigningProfileResponse -&gt; Bool
+(CancelSigningProfileResponse
+ -&gt; CancelSigningProfileResponse -&gt; Bool)
+-&gt; (CancelSigningProfileResponse
+    -&gt; CancelSigningProfileResponse -&gt; Bool)
+-&gt; Eq CancelSigningProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelSigningProfileResponse
+-&gt; CancelSigningProfileResponse -&gt; Bool
+$c/= :: CancelSigningProfileResponse
+-&gt; CancelSigningProfileResponse -&gt; Bool
+== :: CancelSigningProfileResponse
+-&gt; CancelSigningProfileResponse -&gt; Bool
+$c== :: CancelSigningProfileResponse
+-&gt; CancelSigningProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205580"><span id="local-6989586621679205582"><span id="local-6989586621679205584"><span id="local-6989586621679205586"><span class="annot"><span class="annottext">ReadPrec [CancelSigningProfileResponse]
+ReadPrec CancelSigningProfileResponse
+Int -&gt; ReadS CancelSigningProfileResponse
+ReadS [CancelSigningProfileResponse]
+(Int -&gt; ReadS CancelSigningProfileResponse)
+-&gt; ReadS [CancelSigningProfileResponse]
+-&gt; ReadPrec CancelSigningProfileResponse
+-&gt; ReadPrec [CancelSigningProfileResponse]
+-&gt; Read CancelSigningProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelSigningProfileResponse]
+$creadListPrec :: ReadPrec [CancelSigningProfileResponse]
+readPrec :: ReadPrec CancelSigningProfileResponse
+$creadPrec :: ReadPrec CancelSigningProfileResponse
+readList :: ReadS [CancelSigningProfileResponse]
+$creadList :: ReadS [CancelSigningProfileResponse]
+readsPrec :: Int -&gt; ReadS CancelSigningProfileResponse
+$creadsPrec :: Int -&gt; ReadS CancelSigningProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205574"><span id="local-6989586621679205576"><span id="local-6989586621679205578"><span class="annot"><span class="annottext">Int -&gt; CancelSigningProfileResponse -&gt; ShowS
+[CancelSigningProfileResponse] -&gt; ShowS
+CancelSigningProfileResponse -&gt; String
+(Int -&gt; CancelSigningProfileResponse -&gt; ShowS)
+-&gt; (CancelSigningProfileResponse -&gt; String)
+-&gt; ([CancelSigningProfileResponse] -&gt; ShowS)
+-&gt; Show CancelSigningProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelSigningProfileResponse] -&gt; ShowS
+$cshowList :: [CancelSigningProfileResponse] -&gt; ShowS
+show :: CancelSigningProfileResponse -&gt; String
+$cshow :: CancelSigningProfileResponse -&gt; String
+showsPrec :: Int -&gt; CancelSigningProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelSigningProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelSigningProfileResponse -&gt; Rep CancelSigningProfileResponse x)
+-&gt; (forall x.
+    Rep CancelSigningProfileResponse x -&gt; CancelSigningProfileResponse)
+-&gt; Generic CancelSigningProfileResponse
+forall x.
+Rep CancelSigningProfileResponse x -&gt; CancelSigningProfileResponse
+forall x.
+CancelSigningProfileResponse -&gt; Rep CancelSigningProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelSigningProfileResponse x -&gt; CancelSigningProfileResponse
+$cfrom :: forall x.
+CancelSigningProfileResponse -&gt; Rep CancelSigningProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'CancelSigningProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#newCancelSigningProfileResponse"><span class="hs-identifier hs-type">newCancelSigningProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse"><span class="hs-identifier hs-type">CancelSigningProfileResponse</span></a></span><span>
+</span><span id="line-118"></span><span id="newCancelSigningProfileResponse"><span class="annot"><span class="annottext">newCancelSigningProfileResponse :: CancelSigningProfileResponse
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#newCancelSigningProfileResponse"><span class="hs-identifier hs-var hs-var">newCancelSigningProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">CancelSigningProfileResponse
+</span><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse%27"><span class="hs-identifier hs-var">CancelSigningProfileResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.CancelSigningProfile.html#CancelSigningProfileResponse"><span class="hs-identifier hs-type">CancelSigningProfileResponse</span></a></span></span><span>
+</span><span id="line-122"></span></pre></body></html>

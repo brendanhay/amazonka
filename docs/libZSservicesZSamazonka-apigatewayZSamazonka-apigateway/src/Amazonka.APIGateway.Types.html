@@ -1,0 +1,1025 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.APIGateway.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.APIGateway.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#_NotFoundException"><span class="hs-identifier">_NotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#_TooManyRequestsException"><span class="hs-identifier">_TooManyRequestsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#_ServiceUnavailableException"><span class="hs-identifier">_ServiceUnavailableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#_UnauthorizedException"><span class="hs-identifier">_UnauthorizedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#_BadRequestException"><span class="hs-identifier">_BadRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiKeySourceType</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType"><span class="hs-identifier">ApiKeySourceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiKeysFormat</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKeysFormat.html#ApiKeysFormat"><span class="hs-identifier">ApiKeysFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AuthorizerType</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier">AuthorizerType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CacheClusterSize</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CacheClusterSize.html#CacheClusterSize"><span class="hs-identifier">CacheClusterSize</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CacheClusterStatus</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CacheClusterStatus.html#CacheClusterStatus"><span class="hs-identifier">CacheClusterStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ConnectionType</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier">ConnectionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContentHandlingStrategy</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier">ContentHandlingStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DocumentationPartType</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartType.html#DocumentationPartType"><span class="hs-identifier">DocumentationPartType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DomainNameStatus</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainNameStatus.html#DomainNameStatus"><span class="hs-identifier">DomainNameStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EndpointType</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier">EndpointType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * GatewayResponseType</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponseType.html#GatewayResponseType"><span class="hs-identifier">GatewayResponseType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IntegrationType</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier">IntegrationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LocationStatusType</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.LocationStatusType.html#LocationStatusType"><span class="hs-identifier">LocationStatusType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Op</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Op.html#Op"><span class="hs-identifier">Op</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PutMode</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.PutMode.html#PutMode"><span class="hs-identifier">PutMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * QuotaPeriodType</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaPeriodType.html#QuotaPeriodType"><span class="hs-identifier">QuotaPeriodType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SecurityPolicy</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SecurityPolicy.html#SecurityPolicy"><span class="hs-identifier">SecurityPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UnauthorizedCacheControlHeaderStrategy</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy.html#UnauthorizedCacheControlHeaderStrategy"><span class="hs-identifier">UnauthorizedCacheControlHeaderStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VpcLinkStatus</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLinkStatus.html#VpcLinkStatus"><span class="hs-identifier">VpcLinkStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AccessLogSettings</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier">AccessLogSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.AccessLogSettings.html#newAccessLogSettings"><span class="hs-identifier">newAccessLogSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.AccessLogSettings.html#accessLogSettings_format"><span class="hs-identifier">accessLogSettings_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.AccessLogSettings.html#accessLogSettings_destinationArn"><span class="hs-identifier">accessLogSettings_destinationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Account</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Account.html#Account"><span class="hs-identifier">Account</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Account.html#newAccount"><span class="hs-identifier">newAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Account.html#account_apiKeyVersion"><span class="hs-identifier">account_apiKeyVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Account.html#account_cloudwatchRoleArn"><span class="hs-identifier">account_cloudwatchRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Account.html#account_features"><span class="hs-identifier">account_features</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Account.html#account_throttleSettings"><span class="hs-identifier">account_throttleSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiKey</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#ApiKey"><span class="hs-identifier">ApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#newApiKey"><span class="hs-identifier">newApiKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_enabled"><span class="hs-identifier">apiKey_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_value"><span class="hs-identifier">apiKey_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_customerId"><span class="hs-identifier">apiKey_customerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_createdDate"><span class="hs-identifier">apiKey_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_name"><span class="hs-identifier">apiKey_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_id"><span class="hs-identifier">apiKey_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_stageKeys"><span class="hs-identifier">apiKey_stageKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_lastUpdatedDate"><span class="hs-identifier">apiKey_lastUpdatedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_description"><span class="hs-identifier">apiKey_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html#apiKey_tags"><span class="hs-identifier">apiKey_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApiStage</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiStage.html#ApiStage"><span class="hs-identifier">ApiStage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiStage.html#newApiStage"><span class="hs-identifier">newApiStage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiStage.html#apiStage_stage"><span class="hs-identifier">apiStage_stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiStage.html#apiStage_apiId"><span class="hs-identifier">apiStage_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiStage.html#apiStage_throttle"><span class="hs-identifier">apiStage_throttle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Authorizer</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#Authorizer"><span class="hs-identifier">Authorizer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#newAuthorizer"><span class="hs-identifier">newAuthorizer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_authorizerUri"><span class="hs-identifier">authorizer_authorizerUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_identityValidationExpression"><span class="hs-identifier">authorizer_identityValidationExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_providerARNs"><span class="hs-identifier">authorizer_providerARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_name"><span class="hs-identifier">authorizer_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_id"><span class="hs-identifier">authorizer_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_authorizerResultTtlInSeconds"><span class="hs-identifier">authorizer_authorizerResultTtlInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_authType"><span class="hs-identifier">authorizer_authType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_type"><span class="hs-identifier">authorizer_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_identitySource"><span class="hs-identifier">authorizer_identitySource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html#authorizer_authorizerCredentials"><span class="hs-identifier">authorizer_authorizerCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BasePathMapping</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.BasePathMapping.html#BasePathMapping"><span class="hs-identifier">BasePathMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.BasePathMapping.html#newBasePathMapping"><span class="hs-identifier">newBasePathMapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.BasePathMapping.html#basePathMapping_stage"><span class="hs-identifier">basePathMapping_stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.BasePathMapping.html#basePathMapping_basePath"><span class="hs-identifier">basePathMapping_basePath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.BasePathMapping.html#basePathMapping_restApiId"><span class="hs-identifier">basePathMapping_restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CanarySettings</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CanarySettings.html#CanarySettings"><span class="hs-identifier">CanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CanarySettings.html#newCanarySettings"><span class="hs-identifier">newCanarySettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CanarySettings.html#canarySettings_deploymentId"><span class="hs-identifier">canarySettings_deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CanarySettings.html#canarySettings_stageVariableOverrides"><span class="hs-identifier">canarySettings_stageVariableOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CanarySettings.html#canarySettings_useStageCache"><span class="hs-identifier">canarySettings_useStageCache</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.CanarySettings.html#canarySettings_percentTraffic"><span class="hs-identifier">canarySettings_percentTraffic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ClientCertificate</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#newClientCertificate"><span class="hs-identifier">newClientCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#clientCertificate_pemEncodedCertificate"><span class="hs-identifier">clientCertificate_pemEncodedCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#clientCertificate_clientCertificateId"><span class="hs-identifier">clientCertificate_clientCertificateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#clientCertificate_createdDate"><span class="hs-identifier">clientCertificate_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#clientCertificate_expirationDate"><span class="hs-identifier">clientCertificate_expirationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#clientCertificate_description"><span class="hs-identifier">clientCertificate_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html#clientCertificate_tags"><span class="hs-identifier">clientCertificate_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Deployment</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Deployment.html#newDeployment"><span class="hs-identifier">newDeployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Deployment.html#deployment_apiSummary"><span class="hs-identifier">deployment_apiSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Deployment.html#deployment_createdDate"><span class="hs-identifier">deployment_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Deployment.html#deployment_id"><span class="hs-identifier">deployment_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Deployment.html#deployment_description"><span class="hs-identifier">deployment_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DeploymentCanarySettings</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier">DeploymentCanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DeploymentCanarySettings.html#newDeploymentCanarySettings"><span class="hs-identifier">newDeploymentCanarySettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_stageVariableOverrides"><span class="hs-identifier">deploymentCanarySettings_stageVariableOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_useStageCache"><span class="hs-identifier">deploymentCanarySettings_useStageCache</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_percentTraffic"><span class="hs-identifier">deploymentCanarySettings_percentTraffic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DocumentationPart</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier">DocumentationPart</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#newDocumentationPart"><span class="hs-identifier">newDocumentationPart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_location"><span class="hs-identifier">documentationPart_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_id"><span class="hs-identifier">documentationPart_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html#documentationPart_properties"><span class="hs-identifier">documentationPart_properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DocumentationPartLocation</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#DocumentationPartLocation"><span class="hs-identifier">DocumentationPartLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#newDocumentationPartLocation"><span class="hs-identifier">newDocumentationPartLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#documentationPartLocation_path"><span class="hs-identifier">documentationPartLocation_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#documentationPartLocation_name"><span class="hs-identifier">documentationPartLocation_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#documentationPartLocation_method"><span class="hs-identifier">documentationPartLocation_method</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#documentationPartLocation_statusCode"><span class="hs-identifier">documentationPartLocation_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html#documentationPartLocation_type"><span class="hs-identifier">documentationPartLocation_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DocumentationVersion</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationVersion.html#DocumentationVersion"><span class="hs-identifier">DocumentationVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationVersion.html#newDocumentationVersion"><span class="hs-identifier">newDocumentationVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationVersion.html#documentationVersion_createdDate"><span class="hs-identifier">documentationVersion_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationVersion.html#documentationVersion_version"><span class="hs-identifier">documentationVersion_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationVersion.html#documentationVersion_description"><span class="hs-identifier">documentationVersion_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DomainName</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#DomainName"><span class="hs-identifier">DomainName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#newDomainName"><span class="hs-identifier">newDomainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_regionalHostedZoneId"><span class="hs-identifier">domainName_regionalHostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_certificateName"><span class="hs-identifier">domainName_certificateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_ownershipVerificationCertificateArn"><span class="hs-identifier">domainName_ownershipVerificationCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_regionalCertificateArn"><span class="hs-identifier">domainName_regionalCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_certificateArn"><span class="hs-identifier">domainName_certificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_distributionHostedZoneId"><span class="hs-identifier">domainName_distributionHostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_securityPolicy"><span class="hs-identifier">domainName_securityPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_domainName"><span class="hs-identifier">domainName_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_mutualTlsAuthentication"><span class="hs-identifier">domainName_mutualTlsAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_regionalCertificateName"><span class="hs-identifier">domainName_regionalCertificateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_regionalDomainName"><span class="hs-identifier">domainName_regionalDomainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_certificateUploadDate"><span class="hs-identifier">domainName_certificateUploadDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_distributionDomainName"><span class="hs-identifier">domainName_distributionDomainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_domainNameStatusMessage"><span class="hs-identifier">domainName_domainNameStatusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_endpointConfiguration"><span class="hs-identifier">domainName_endpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_domainNameStatus"><span class="hs-identifier">domainName_domainNameStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html#domainName_tags"><span class="hs-identifier">domainName_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EndpointConfiguration</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier">EndpointConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html#newEndpointConfiguration"><span class="hs-identifier">newEndpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html#endpointConfiguration_types"><span class="hs-identifier">endpointConfiguration_types</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html#endpointConfiguration_vpcEndpointIds"><span class="hs-identifier">endpointConfiguration_vpcEndpointIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="hs-comment">-- * GatewayResponse</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html#GatewayResponse"><span class="hs-identifier">GatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html#newGatewayResponse"><span class="hs-identifier">newGatewayResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html#gatewayResponse_defaultResponse"><span class="hs-identifier">gatewayResponse_defaultResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html#gatewayResponse_responseTemplates"><span class="hs-identifier">gatewayResponse_responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html#gatewayResponse_responseType"><span class="hs-identifier">gatewayResponse_responseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html#gatewayResponse_statusCode"><span class="hs-identifier">gatewayResponse_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html#gatewayResponse_responseParameters"><span class="hs-identifier">gatewayResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Integration</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier">Integration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#newIntegration"><span class="hs-identifier">newIntegration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_httpMethod"><span class="hs-identifier">integration_httpMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_requestTemplates"><span class="hs-identifier">integration_requestTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_credentials"><span class="hs-identifier">integration_credentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_connectionId"><span class="hs-identifier">integration_connectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_requestParameters"><span class="hs-identifier">integration_requestParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_contentHandling"><span class="hs-identifier">integration_contentHandling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_passthroughBehavior"><span class="hs-identifier">integration_passthroughBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_uri"><span class="hs-identifier">integration_uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_integrationResponses"><span class="hs-identifier">integration_integrationResponses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_tlsConfig"><span class="hs-identifier">integration_tlsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_cacheNamespace"><span class="hs-identifier">integration_cacheNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_timeoutInMillis"><span class="hs-identifier">integration_timeoutInMillis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_type"><span class="hs-identifier">integration_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_connectionType"><span class="hs-identifier">integration_connectionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html#integration_cacheKeyParameters"><span class="hs-identifier">integration_cacheKeyParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IntegrationResponse</span></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html#IntegrationResponse"><span class="hs-identifier">IntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html#newIntegrationResponse"><span class="hs-identifier">newIntegrationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html#integrationResponse_contentHandling"><span class="hs-identifier">integrationResponse_contentHandling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html#integrationResponse_responseTemplates"><span class="hs-identifier">integrationResponse_responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html#integrationResponse_selectionPattern"><span class="hs-identifier">integrationResponse_selectionPattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html#integrationResponse_statusCode"><span class="hs-identifier">integrationResponse_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html#integrationResponse_responseParameters"><span class="hs-identifier">integrationResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Method</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#Method"><span class="hs-identifier">Method</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#newMethod"><span class="hs-identifier">newMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_methodResponses"><span class="hs-identifier">method_methodResponses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_httpMethod"><span class="hs-identifier">method_httpMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_authorizationScopes"><span class="hs-identifier">method_authorizationScopes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_requestValidatorId"><span class="hs-identifier">method_requestValidatorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_requestModels"><span class="hs-identifier">method_requestModels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_requestParameters"><span class="hs-identifier">method_requestParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_authorizerId"><span class="hs-identifier">method_authorizerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_operationName"><span class="hs-identifier">method_operationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_authorizationType"><span class="hs-identifier">method_authorizationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_apiKeyRequired"><span class="hs-identifier">method_apiKeyRequired</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html#method_methodIntegration"><span class="hs-identifier">method_methodIntegration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MethodResponse</span></span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier">MethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodResponse.html#newMethodResponse"><span class="hs-identifier">newMethodResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodResponse.html#methodResponse_responseModels"><span class="hs-identifier">methodResponse_responseModels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodResponse.html#methodResponse_statusCode"><span class="hs-identifier">methodResponse_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodResponse.html#methodResponse_responseParameters"><span class="hs-identifier">methodResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MethodSetting</span></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#MethodSetting"><span class="hs-identifier">MethodSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#newMethodSetting"><span class="hs-identifier">newMethodSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_cacheTtlInSeconds"><span class="hs-identifier">methodSetting_cacheTtlInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_dataTraceEnabled"><span class="hs-identifier">methodSetting_dataTraceEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_throttlingBurstLimit"><span class="hs-identifier">methodSetting_throttlingBurstLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_cacheDataEncrypted"><span class="hs-identifier">methodSetting_cacheDataEncrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_loggingLevel"><span class="hs-identifier">methodSetting_loggingLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_requireAuthorizationForCacheControl"><span class="hs-identifier">methodSetting_requireAuthorizationForCacheControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_cachingEnabled"><span class="hs-identifier">methodSetting_cachingEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_metricsEnabled"><span class="hs-identifier">methodSetting_metricsEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_throttlingRateLimit"><span class="hs-identifier">methodSetting_throttlingRateLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html#methodSetting_unauthorizedCacheControlHeaderStrategy"><span class="hs-identifier">methodSetting_unauthorizedCacheControlHeaderStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MethodSnapshot</span></span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier">MethodSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSnapshot.html#newMethodSnapshot"><span class="hs-identifier">newMethodSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSnapshot.html#methodSnapshot_authorizationType"><span class="hs-identifier">methodSnapshot_authorizationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSnapshot.html#methodSnapshot_apiKeyRequired"><span class="hs-identifier">methodSnapshot_apiKeyRequired</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Model</span></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html#Model"><span class="hs-identifier">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html#newModel"><span class="hs-identifier">newModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html#model_schema"><span class="hs-identifier">model_schema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html#model_name"><span class="hs-identifier">model_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html#model_id"><span class="hs-identifier">model_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html#model_description"><span class="hs-identifier">model_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html#model_contentType"><span class="hs-identifier">model_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MutualTlsAuthentication</span></span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthentication.html#MutualTlsAuthentication"><span class="hs-identifier">MutualTlsAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthentication.html#newMutualTlsAuthentication"><span class="hs-identifier">newMutualTlsAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthentication.html#mutualTlsAuthentication_truststoreWarnings"><span class="hs-identifier">mutualTlsAuthentication_truststoreWarnings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthentication.html#mutualTlsAuthentication_truststoreUri"><span class="hs-identifier">mutualTlsAuthentication_truststoreUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthentication.html#mutualTlsAuthentication_truststoreVersion"><span class="hs-identifier">mutualTlsAuthentication_truststoreVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MutualTlsAuthenticationInput</span></span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier">MutualTlsAuthenticationInput</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthenticationInput.html#newMutualTlsAuthenticationInput"><span class="hs-identifier">newMutualTlsAuthenticationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreUri"><span class="hs-identifier">mutualTlsAuthenticationInput_truststoreUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreVersion"><span class="hs-identifier">mutualTlsAuthenticationInput_truststoreVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PatchOperation</span></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.PatchOperation.html#PatchOperation"><span class="hs-identifier">PatchOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.PatchOperation.html#newPatchOperation"><span class="hs-identifier">newPatchOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.PatchOperation.html#patchOperation_op"><span class="hs-identifier">patchOperation_op</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.PatchOperation.html#patchOperation_path"><span class="hs-identifier">patchOperation_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.PatchOperation.html#patchOperation_value"><span class="hs-identifier">patchOperation_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.PatchOperation.html#patchOperation_from"><span class="hs-identifier">patchOperation_from</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><span class="hs-comment">-- * QuotaSettings</span></span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaSettings.html#QuotaSettings"><span class="hs-identifier">QuotaSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaSettings.html#newQuotaSettings"><span class="hs-identifier">newQuotaSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaSettings.html#quotaSettings_offset"><span class="hs-identifier">quotaSettings_offset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaSettings.html#quotaSettings_period"><span class="hs-identifier">quotaSettings_period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaSettings.html#quotaSettings_limit"><span class="hs-identifier">quotaSettings_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RequestValidator</span></span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RequestValidator.html#RequestValidator"><span class="hs-identifier">RequestValidator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RequestValidator.html#newRequestValidator"><span class="hs-identifier">newRequestValidator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RequestValidator.html#requestValidator_validateRequestParameters"><span class="hs-identifier">requestValidator_validateRequestParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RequestValidator.html#requestValidator_name"><span class="hs-identifier">requestValidator_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RequestValidator.html#requestValidator_validateRequestBody"><span class="hs-identifier">requestValidator_validateRequestBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RequestValidator.html#requestValidator_id"><span class="hs-identifier">requestValidator_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Resource</span></span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html#Resource"><span class="hs-identifier">Resource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html#newResource"><span class="hs-identifier">newResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html#resource_pathPart"><span class="hs-identifier">resource_pathPart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html#resource_path"><span class="hs-identifier">resource_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html#resource_id"><span class="hs-identifier">resource_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html#resource_resourceMethods"><span class="hs-identifier">resource_resourceMethods</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html#resource_parentId"><span class="hs-identifier">resource_parentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RestApi</span></span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#newRestApi"><span class="hs-identifier">newRestApi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_minimumCompressionSize"><span class="hs-identifier">restApi_minimumCompressionSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_disableExecuteApiEndpoint"><span class="hs-identifier">restApi_disableExecuteApiEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_binaryMediaTypes"><span class="hs-identifier">restApi_binaryMediaTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_warnings"><span class="hs-identifier">restApi_warnings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_createdDate"><span class="hs-identifier">restApi_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_name"><span class="hs-identifier">restApi_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_version"><span class="hs-identifier">restApi_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_apiKeySource"><span class="hs-identifier">restApi_apiKeySource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_id"><span class="hs-identifier">restApi_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_policy"><span class="hs-identifier">restApi_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_endpointConfiguration"><span class="hs-identifier">restApi_endpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_description"><span class="hs-identifier">restApi_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_tags"><span class="hs-identifier">restApi_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SdkConfigurationProperty</span></span><span>
+</span><span id="line-375"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html#SdkConfigurationProperty"><span class="hs-identifier">SdkConfigurationProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html#newSdkConfigurationProperty"><span class="hs-identifier">newSdkConfigurationProperty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html#sdkConfigurationProperty_friendlyName"><span class="hs-identifier">sdkConfigurationProperty_friendlyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html#sdkConfigurationProperty_required"><span class="hs-identifier">sdkConfigurationProperty_required</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html#sdkConfigurationProperty_name"><span class="hs-identifier">sdkConfigurationProperty_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html#sdkConfigurationProperty_defaultValue"><span class="hs-identifier">sdkConfigurationProperty_defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html#sdkConfigurationProperty_description"><span class="hs-identifier">sdkConfigurationProperty_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SdkType</span></span><span>
+</span><span id="line-384"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier">SdkType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkType.html#newSdkType"><span class="hs-identifier">newSdkType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkType.html#sdkType_friendlyName"><span class="hs-identifier">sdkType_friendlyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkType.html#sdkType_configurationProperties"><span class="hs-identifier">sdkType_configurationProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkType.html#sdkType_id"><span class="hs-identifier">sdkType_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkType.html#sdkType_description"><span class="hs-identifier">sdkType_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Stage</span></span><span>
+</span><span id="line-392"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#Stage"><span class="hs-identifier">Stage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#newStage"><span class="hs-identifier">newStage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_deploymentId"><span class="hs-identifier">stage_deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_variables"><span class="hs-identifier">stage_variables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_accessLogSettings"><span class="hs-identifier">stage_accessLogSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_documentationVersion"><span class="hs-identifier">stage_documentationVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_clientCertificateId"><span class="hs-identifier">stage_clientCertificateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_tracingEnabled"><span class="hs-identifier">stage_tracingEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_createdDate"><span class="hs-identifier">stage_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_cacheClusterStatus"><span class="hs-identifier">stage_cacheClusterStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_methodSettings"><span class="hs-identifier">stage_methodSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_lastUpdatedDate"><span class="hs-identifier">stage_lastUpdatedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_cacheClusterSize"><span class="hs-identifier">stage_cacheClusterSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_webAclArn"><span class="hs-identifier">stage_webAclArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_canarySettings"><span class="hs-identifier">stage_canarySettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_cacheClusterEnabled"><span class="hs-identifier">stage_cacheClusterEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_stageName"><span class="hs-identifier">stage_stageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_description"><span class="hs-identifier">stage_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html#stage_tags"><span class="hs-identifier">stage_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StageKey</span></span><span>
+</span><span id="line-413"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier">StageKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.StageKey.html#newStageKey"><span class="hs-identifier">newStageKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.StageKey.html#stageKey_restApiId"><span class="hs-identifier">stageKey_restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.StageKey.html#stageKey_stageName"><span class="hs-identifier">stageKey_stageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ThrottleSettings</span></span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ThrottleSettings.html#ThrottleSettings"><span class="hs-identifier">ThrottleSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-420"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ThrottleSettings.html#newThrottleSettings"><span class="hs-identifier">newThrottleSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-421"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ThrottleSettings.html#throttleSettings_burstLimit"><span class="hs-identifier">throttleSettings_burstLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.ThrottleSettings.html#throttleSettings_rateLimit"><span class="hs-identifier">throttleSettings_rateLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TlsConfig</span></span><span>
+</span><span id="line-425"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier">TlsConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.TlsConfig.html#newTlsConfig"><span class="hs-identifier">newTlsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-427"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.TlsConfig.html#tlsConfig_insecureSkipVerification"><span class="hs-identifier">tlsConfig_insecureSkipVerification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Usage</span></span><span>
+</span><span id="line-430"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html#Usage"><span class="hs-identifier">Usage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html#newUsage"><span class="hs-identifier">newUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html#usage_usagePlanId"><span class="hs-identifier">usage_usagePlanId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html#usage_endDate"><span class="hs-identifier">usage_endDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html#usage_items"><span class="hs-identifier">usage_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html#usage_startDate"><span class="hs-identifier">usage_startDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-436"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html#usage_position"><span class="hs-identifier">usage_position</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>
+</span><span id="line-438"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UsagePlan</span></span><span>
+</span><span id="line-439"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#UsagePlan"><span class="hs-identifier">UsagePlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#newUsagePlan"><span class="hs-identifier">newUsagePlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-441"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_apiStages"><span class="hs-identifier">usagePlan_apiStages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-442"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_name"><span class="hs-identifier">usagePlan_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-443"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_id"><span class="hs-identifier">usagePlan_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-444"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_throttle"><span class="hs-identifier">usagePlan_throttle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-445"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_quota"><span class="hs-identifier">usagePlan_quota</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-446"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_description"><span class="hs-identifier">usagePlan_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-447"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_productCode"><span class="hs-identifier">usagePlan_productCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html#usagePlan_tags"><span class="hs-identifier">usagePlan_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UsagePlanKey</span></span><span>
+</span><span id="line-451"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlanKey.html#UsagePlanKey"><span class="hs-identifier">UsagePlanKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-452"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlanKey.html#newUsagePlanKey"><span class="hs-identifier">newUsagePlanKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-453"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlanKey.html#usagePlanKey_value"><span class="hs-identifier">usagePlanKey_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlanKey.html#usagePlanKey_name"><span class="hs-identifier">usagePlanKey_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-455"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlanKey.html#usagePlanKey_id"><span class="hs-identifier">usagePlanKey_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlanKey.html#usagePlanKey_type"><span class="hs-identifier">usagePlanKey_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VpcLink</span></span><span>
+</span><span id="line-459"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier">VpcLink</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-460"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#newVpcLink"><span class="hs-identifier">newVpcLink</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#vpcLink_status"><span class="hs-identifier">vpcLink_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#vpcLink_targetArns"><span class="hs-identifier">vpcLink_targetArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-463"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#vpcLink_name"><span class="hs-identifier">vpcLink_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#vpcLink_statusMessage"><span class="hs-identifier">vpcLink_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-465"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#vpcLink_id"><span class="hs-identifier">vpcLink_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-466"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#vpcLink_description"><span class="hs-identifier">vpcLink_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-467"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html#vpcLink_tags"><span class="hs-identifier">vpcLink_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-468"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-470"></span><span>
+</span><span id="line-471"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.AccessLogSettings.html"><span class="hs-identifier">Amazonka.APIGateway.Types.AccessLogSettings</span></a></span><span>
+</span><span id="line-472"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Account.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Account</span></a></span><span>
+</span><span id="line-473"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKey.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ApiKey</span></a></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKeySourceType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ApiKeySourceType</span></a></span><span>
+</span><span id="line-475"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKeysFormat.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ApiKeysFormat</span></a></span><span>
+</span><span id="line-476"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiStage.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ApiStage</span></a></span><span>
+</span><span id="line-477"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Authorizer.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Authorizer</span></a></span><span>
+</span><span id="line-478"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.AuthorizerType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.AuthorizerType</span></a></span><span>
+</span><span id="line-479"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.BasePathMapping.html"><span class="hs-identifier">Amazonka.APIGateway.Types.BasePathMapping</span></a></span><span>
+</span><span id="line-480"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.CacheClusterSize.html"><span class="hs-identifier">Amazonka.APIGateway.Types.CacheClusterSize</span></a></span><span>
+</span><span id="line-481"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.CacheClusterStatus.html"><span class="hs-identifier">Amazonka.APIGateway.Types.CacheClusterStatus</span></a></span><span>
+</span><span id="line-482"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.CanarySettings.html"><span class="hs-identifier">Amazonka.APIGateway.Types.CanarySettings</span></a></span><span>
+</span><span id="line-483"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ClientCertificate.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ClientCertificate</span></a></span><span>
+</span><span id="line-484"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ConnectionType</span></a></span><span>
+</span><span id="line-485"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ContentHandlingStrategy.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ContentHandlingStrategy</span></a></span><span>
+</span><span id="line-486"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Deployment.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Deployment</span></a></span><span>
+</span><span id="line-487"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DeploymentCanarySettings.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DeploymentCanarySettings</span></a></span><span>
+</span><span id="line-488"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPart.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DocumentationPart</span></a></span><span>
+</span><span id="line-489"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartLocation.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DocumentationPartLocation</span></a></span><span>
+</span><span id="line-490"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationPartType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DocumentationPartType</span></a></span><span>
+</span><span id="line-491"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DocumentationVersion.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DocumentationVersion</span></a></span><span>
+</span><span id="line-492"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainName.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DomainName</span></a></span><span>
+</span><span id="line-493"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.DomainNameStatus.html"><span class="hs-identifier">Amazonka.APIGateway.Types.DomainNameStatus</span></a></span><span>
+</span><span id="line-494"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html"><span class="hs-identifier">Amazonka.APIGateway.Types.EndpointConfiguration</span></a></span><span>
+</span><span id="line-495"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.EndpointType</span></a></span><span>
+</span><span id="line-496"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponse.html"><span class="hs-identifier">Amazonka.APIGateway.Types.GatewayResponse</span></a></span><span>
+</span><span id="line-497"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.GatewayResponseType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.GatewayResponseType</span></a></span><span>
+</span><span id="line-498"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Integration.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Integration</span></a></span><span>
+</span><span id="line-499"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationResponse.html"><span class="hs-identifier">Amazonka.APIGateway.Types.IntegrationResponse</span></a></span><span>
+</span><span id="line-500"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.IntegrationType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.IntegrationType</span></a></span><span>
+</span><span id="line-501"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.LocationStatusType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.LocationStatusType</span></a></span><span>
+</span><span id="line-502"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Method.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Method</span></a></span><span>
+</span><span id="line-503"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodResponse.html"><span class="hs-identifier">Amazonka.APIGateway.Types.MethodResponse</span></a></span><span>
+</span><span id="line-504"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSetting.html"><span class="hs-identifier">Amazonka.APIGateway.Types.MethodSetting</span></a></span><span>
+</span><span id="line-505"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.MethodSnapshot.html"><span class="hs-identifier">Amazonka.APIGateway.Types.MethodSnapshot</span></a></span><span>
+</span><span id="line-506"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Model.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Model</span></a></span><span>
+</span><span id="line-507"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthentication.html"><span class="hs-identifier">Amazonka.APIGateway.Types.MutualTlsAuthentication</span></a></span><span>
+</span><span id="line-508"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.MutualTlsAuthenticationInput.html"><span class="hs-identifier">Amazonka.APIGateway.Types.MutualTlsAuthenticationInput</span></a></span><span>
+</span><span id="line-509"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Op.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Op</span></a></span><span>
+</span><span id="line-510"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.PatchOperation.html"><span class="hs-identifier">Amazonka.APIGateway.Types.PatchOperation</span></a></span><span>
+</span><span id="line-511"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.PutMode.html"><span class="hs-identifier">Amazonka.APIGateway.Types.PutMode</span></a></span><span>
+</span><span id="line-512"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaPeriodType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.QuotaPeriodType</span></a></span><span>
+</span><span id="line-513"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.QuotaSettings.html"><span class="hs-identifier">Amazonka.APIGateway.Types.QuotaSettings</span></a></span><span>
+</span><span id="line-514"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RequestValidator.html"><span class="hs-identifier">Amazonka.APIGateway.Types.RequestValidator</span></a></span><span>
+</span><span id="line-515"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Resource.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Resource</span></a></span><span>
+</span><span id="line-516"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html"><span class="hs-identifier">Amazonka.APIGateway.Types.RestApi</span></a></span><span>
+</span><span id="line-517"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkConfigurationProperty.html"><span class="hs-identifier">Amazonka.APIGateway.Types.SdkConfigurationProperty</span></a></span><span>
+</span><span id="line-518"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.SdkType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.SdkType</span></a></span><span>
+</span><span id="line-519"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.SecurityPolicy.html"><span class="hs-identifier">Amazonka.APIGateway.Types.SecurityPolicy</span></a></span><span>
+</span><span id="line-520"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Stage.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Stage</span></a></span><span>
+</span><span id="line-521"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.StageKey.html"><span class="hs-identifier">Amazonka.APIGateway.Types.StageKey</span></a></span><span>
+</span><span id="line-522"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ThrottleSettings.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ThrottleSettings</span></a></span><span>
+</span><span id="line-523"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.TlsConfig.html"><span class="hs-identifier">Amazonka.APIGateway.Types.TlsConfig</span></a></span><span>
+</span><span id="line-524"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy.html"><span class="hs-identifier">Amazonka.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy</span></a></span><span>
+</span><span id="line-525"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.Usage.html"><span class="hs-identifier">Amazonka.APIGateway.Types.Usage</span></a></span><span>
+</span><span id="line-526"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlan.html"><span class="hs-identifier">Amazonka.APIGateway.Types.UsagePlan</span></a></span><span>
+</span><span id="line-527"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.UsagePlanKey.html"><span class="hs-identifier">Amazonka.APIGateway.Types.UsagePlanKey</span></a></span><span>
+</span><span id="line-528"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLink.html"><span class="hs-identifier">Amazonka.APIGateway.Types.VpcLink</span></a></span><span>
+</span><span id="line-529"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.VpcLinkStatus.html"><span class="hs-identifier">Amazonka.APIGateway.Types.VpcLinkStatus</span></a></span><span>
+</span><span id="line-530"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-531"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-532"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-533"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-534"></span><span>
+</span><span id="line-535"></span><span class="hs-comment">-- | API version @2015-07-09@ of the Amazon API Gateway SDK configuration.</span><span>
+</span><span id="line-536"></span><span class="annot"><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-537"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-538"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-539"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;APIGateway&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-540"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-541"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;apigateway&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-542"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;apigateway&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-543"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-07-09&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-544"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-545"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-546"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-547"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-548"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-549"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;APIGateway&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-550"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679372580"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-551"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-552"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-553"></span><span>    </span><span id="local-6989586621679372580"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679372580"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-554"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-555"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-556"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-557"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-558"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679372574"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-559"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-560"></span><span>    </span><span id="local-6989586621679372574"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679372574"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679372573"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-561"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-562"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-563"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-564"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-565"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-566"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-567"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-568"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-569"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-570"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-571"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-572"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-573"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-574"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-575"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-576"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-577"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-578"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-579"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-580"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-581"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-582"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-583"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-584"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-585"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-586"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-587"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-588"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-589"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-590"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-591"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-592"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-593"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-594"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-595"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-596"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-597"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-598"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-599"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-600"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-601"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-602"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679372573"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-603"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-604"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-605"></span><span>
+</span><span id="line-606"></span><span class="hs-comment">-- | The request configuration has conflicts. For details, see the</span><span>
+</span><span id="line-607"></span><span class="hs-comment">-- accompanying error message.</span><span>
+</span><span id="line-608"></span><span id="local-6989586621679372568"><span class="annot"><a href="Amazonka.APIGateway.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679372568"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679372568"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-609"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.APIGateway.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-610"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-611"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-612"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-613"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-614"></span><span>
+</span><span id="line-615"></span><span class="hs-comment">-- | The requested resource is not found. Make sure that the request URI is</span><span>
+</span><span id="line-616"></span><span class="hs-comment">-- correct.</span><span>
+</span><span id="line-617"></span><span id="local-6989586621679372566"><span class="annot"><a href="Amazonka.APIGateway.Types.html#_NotFoundException"><span class="hs-identifier hs-type">_NotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679372566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679372566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-618"></span><span id="_NotFoundException"><span class="annot"><span class="annottext">_NotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.APIGateway.Types.html#_NotFoundException"><span class="hs-identifier hs-var hs-var">_NotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-619"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-620"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-621"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;NotFoundException&quot;</span></span><span>
+</span><span id="line-622"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-623"></span><span>
+</span><span id="line-624"></span><span class="hs-comment">-- | The request has reached its throttling limit. Retry after the specified</span><span>
+</span><span id="line-625"></span><span class="hs-comment">-- time period.</span><span>
+</span><span id="line-626"></span><span id="local-6989586621679372565"><span class="annot"><a href="Amazonka.APIGateway.Types.html#_TooManyRequestsException"><span class="hs-identifier hs-type">_TooManyRequestsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679372565"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679372565"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-627"></span><span id="_TooManyRequestsException"><span class="annot"><span class="annottext">_TooManyRequestsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.APIGateway.Types.html#_TooManyRequestsException"><span class="hs-identifier hs-var hs-var">_TooManyRequestsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-628"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-629"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-630"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TooManyRequestsException&quot;</span></span><span>
+</span><span id="line-631"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-632"></span><span>
+</span><span id="line-633"></span><span class="hs-comment">-- | The requested service is not available. For details see the accompanying</span><span>
+</span><span id="line-634"></span><span class="hs-comment">-- error message. Retry after the specified time period.</span><span>
+</span><span id="line-635"></span><span id="local-6989586621679372564"><span class="annot"><a href="Amazonka.APIGateway.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-type">_ServiceUnavailableException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679372564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679372564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-636"></span><span id="_ServiceUnavailableException"><span class="annot"><span class="annottext">_ServiceUnavailableException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.APIGateway.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-var hs-var">_ServiceUnavailableException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-637"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-638"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-639"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceUnavailableException&quot;</span></span><span>
+</span><span id="line-640"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span>
+</span><span id="line-641"></span><span>
+</span><span id="line-642"></span><span class="hs-comment">-- | The request is denied because the caller has insufficient permissions.</span><span>
+</span><span id="line-643"></span><span id="local-6989586621679372563"><span class="annot"><a href="Amazonka.APIGateway.Types.html#_UnauthorizedException"><span class="hs-identifier hs-type">_UnauthorizedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679372563"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679372563"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-644"></span><span id="_UnauthorizedException"><span class="annot"><span class="annottext">_UnauthorizedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.APIGateway.Types.html#_UnauthorizedException"><span class="hs-identifier hs-var hs-var">_UnauthorizedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-645"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-646"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-647"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;UnauthorizedException&quot;</span></span><span>
+</span><span id="line-648"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">401</span></span><span>
+</span><span id="line-649"></span><span>
+</span><span id="line-650"></span><span class="hs-comment">-- | The submitted request is not valid, for example, the input is incomplete</span><span>
+</span><span id="line-651"></span><span class="hs-comment">-- or incorrect. See the accompanying error message for details.</span><span>
+</span><span id="line-652"></span><span id="local-6989586621679372562"><span class="annot"><a href="Amazonka.APIGateway.Types.html#_BadRequestException"><span class="hs-identifier hs-type">_BadRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679372562"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679372562"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-653"></span><span id="_BadRequestException"><span class="annot"><span class="annottext">_BadRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.APIGateway.Types.html#_BadRequestException"><span class="hs-identifier hs-var hs-var">_BadRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-654"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-655"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-656"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;BadRequestException&quot;</span></span><span>
+</span><span id="line-657"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-658"></span><span>
+</span><span id="line-659"></span><span class="hs-comment">-- | The request exceeded the rate limit. Retry after the specified time</span><span>
+</span><span id="line-660"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-661"></span><span id="local-6989586621679372561"><span class="annot"><a href="Amazonka.APIGateway.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679372561"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679372561"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-662"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.APIGateway.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-663"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-664"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-665"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-666"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-667"></span></pre></body></html>

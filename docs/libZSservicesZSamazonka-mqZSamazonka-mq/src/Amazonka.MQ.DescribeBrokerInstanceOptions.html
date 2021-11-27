@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MQ.DescribeBrokerInstanceOptions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describe available broker instance options.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MQ.DescribeBrokerInstanceOptions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#newDescribeBrokerInstanceOptions"><span class="hs-identifier">newDescribeBrokerInstanceOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_nextToken"><span class="hs-identifier">describeBrokerInstanceOptions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_engineType"><span class="hs-identifier">describeBrokerInstanceOptions_engineType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_maxResults"><span class="hs-identifier">describeBrokerInstanceOptions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_hostInstanceType"><span class="hs-identifier">describeBrokerInstanceOptions_hostInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_storageType"><span class="hs-identifier">describeBrokerInstanceOptions_storageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier">DescribeBrokerInstanceOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#newDescribeBrokerInstanceOptionsResponse"><span class="hs-identifier">newDescribeBrokerInstanceOptionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_nextToken"><span class="hs-identifier">describeBrokerInstanceOptionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_brokerInstanceOptions"><span class="hs-identifier">describeBrokerInstanceOptionsResponse_brokerInstanceOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_maxResults"><span class="hs-identifier">describeBrokerInstanceOptionsResponse_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_httpStatus"><span class="hs-identifier">describeBrokerInstanceOptionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.html"><span class="hs-identifier">Amazonka.MQ.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeBrokerInstanceOptions' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679227710"><span id="local-6989586621679227711"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBrokerInstanceOptions"><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-var">DescribeBrokerInstanceOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBrokerInstanceOptions%27"><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">DescribeBrokerInstanceOptions'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeBrokerInstanceOptions%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AnextToken%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Filter response by engine type.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AengineType%3ADescribeBrokerInstanceOptions%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AengineType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of brokers that Amazon MQ can return per page (20 by</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- default). This value must be an integer from 5 to 100.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeBrokerInstanceOptions%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions -&gt; Maybe Natural
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AmaxResults%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Filter response by host instance type.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AhostInstanceType%3ADescribeBrokerInstanceOptions%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AhostInstanceType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var hs-var">hostInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Filter response by storage type.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstorageType%3ADescribeBrokerInstanceOptions%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AstorageType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227700"><span id="local-6989586621679227702"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions
+-&gt; DescribeBrokerInstanceOptions -&gt; Bool
+(DescribeBrokerInstanceOptions
+ -&gt; DescribeBrokerInstanceOptions -&gt; Bool)
+-&gt; (DescribeBrokerInstanceOptions
+    -&gt; DescribeBrokerInstanceOptions -&gt; Bool)
+-&gt; Eq DescribeBrokerInstanceOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBrokerInstanceOptions
+-&gt; DescribeBrokerInstanceOptions -&gt; Bool
+$c/= :: DescribeBrokerInstanceOptions
+-&gt; DescribeBrokerInstanceOptions -&gt; Bool
+== :: DescribeBrokerInstanceOptions
+-&gt; DescribeBrokerInstanceOptions -&gt; Bool
+$c== :: DescribeBrokerInstanceOptions
+-&gt; DescribeBrokerInstanceOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227691"><span id="local-6989586621679227693"><span id="local-6989586621679227695"><span id="local-6989586621679227697"><span class="annot"><span class="annottext">ReadPrec [DescribeBrokerInstanceOptions]
+ReadPrec DescribeBrokerInstanceOptions
+Int -&gt; ReadS DescribeBrokerInstanceOptions
+ReadS [DescribeBrokerInstanceOptions]
+(Int -&gt; ReadS DescribeBrokerInstanceOptions)
+-&gt; ReadS [DescribeBrokerInstanceOptions]
+-&gt; ReadPrec DescribeBrokerInstanceOptions
+-&gt; ReadPrec [DescribeBrokerInstanceOptions]
+-&gt; Read DescribeBrokerInstanceOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBrokerInstanceOptions]
+$creadListPrec :: ReadPrec [DescribeBrokerInstanceOptions]
+readPrec :: ReadPrec DescribeBrokerInstanceOptions
+$creadPrec :: ReadPrec DescribeBrokerInstanceOptions
+readList :: ReadS [DescribeBrokerInstanceOptions]
+$creadList :: ReadS [DescribeBrokerInstanceOptions]
+readsPrec :: Int -&gt; ReadS DescribeBrokerInstanceOptions
+$creadsPrec :: Int -&gt; ReadS DescribeBrokerInstanceOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227684"><span id="local-6989586621679227686"><span id="local-6989586621679227688"><span class="annot"><span class="annottext">Int -&gt; DescribeBrokerInstanceOptions -&gt; ShowS
+[DescribeBrokerInstanceOptions] -&gt; ShowS
+DescribeBrokerInstanceOptions -&gt; String
+(Int -&gt; DescribeBrokerInstanceOptions -&gt; ShowS)
+-&gt; (DescribeBrokerInstanceOptions -&gt; String)
+-&gt; ([DescribeBrokerInstanceOptions] -&gt; ShowS)
+-&gt; Show DescribeBrokerInstanceOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBrokerInstanceOptions] -&gt; ShowS
+$cshowList :: [DescribeBrokerInstanceOptions] -&gt; ShowS
+show :: DescribeBrokerInstanceOptions -&gt; String
+$cshow :: DescribeBrokerInstanceOptions -&gt; String
+showsPrec :: Int -&gt; DescribeBrokerInstanceOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBrokerInstanceOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeBrokerInstanceOptions
+ -&gt; Rep DescribeBrokerInstanceOptions x)
+-&gt; (forall x.
+    Rep DescribeBrokerInstanceOptions x
+    -&gt; DescribeBrokerInstanceOptions)
+-&gt; Generic DescribeBrokerInstanceOptions
+forall x.
+Rep DescribeBrokerInstanceOptions x
+-&gt; DescribeBrokerInstanceOptions
+forall x.
+DescribeBrokerInstanceOptions
+-&gt; Rep DescribeBrokerInstanceOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeBrokerInstanceOptions x
+-&gt; DescribeBrokerInstanceOptions
+$cfrom :: forall x.
+DescribeBrokerInstanceOptions
+-&gt; Rep DescribeBrokerInstanceOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'DescribeBrokerInstanceOptions' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'describeBrokerInstanceOptions_nextToken' - The token that specifies the next page of results Amazon MQ should</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'engineType', 'describeBrokerInstanceOptions_engineType' - Filter response by engine type.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'describeBrokerInstanceOptions_maxResults' - The maximum number of brokers that Amazon MQ can return per page (20 by</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- default). This value must be an integer from 5 to 100.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'hostInstanceType', 'describeBrokerInstanceOptions_hostInstanceType' - Filter response by host instance type.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'storageType', 'describeBrokerInstanceOptions_storageType' - Filter response by storage type.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#newDescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">newDescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span>
+</span><span id="line-93"></span><span id="newDescribeBrokerInstanceOptions"><span class="annot"><span class="annottext">newDescribeBrokerInstanceOptions :: DescribeBrokerInstanceOptions
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#newDescribeBrokerInstanceOptions"><span class="hs-identifier hs-var hs-var">newDescribeBrokerInstanceOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DescribeBrokerInstanceOptions
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AnextToken%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineType:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AengineType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeBrokerInstanceOptions' :: Maybe Natural
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AmaxResults%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostInstanceType:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AhostInstanceType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageType:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AstorageType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_nextToken"><span class="hs-identifier hs-type">describeBrokerInstanceOptions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="describeBrokerInstanceOptions_nextToken"><span class="annot"><span class="annottext">describeBrokerInstanceOptions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeBrokerInstanceOptions -&gt; f DescribeBrokerInstanceOptions
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_nextToken"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptions -&gt; Maybe Text)
+-&gt; (DescribeBrokerInstanceOptions
+    -&gt; Maybe Text -&gt; DescribeBrokerInstanceOptions)
+-&gt; Lens
+     DescribeBrokerInstanceOptions
+     DescribeBrokerInstanceOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227677"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679227677"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227677"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227676"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227675"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AnextToken%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Filter response by engine type.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_engineType"><span class="hs-identifier hs-type">describeBrokerInstanceOptions_engineType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="describeBrokerInstanceOptions_engineType"><span class="annot"><span class="annottext">describeBrokerInstanceOptions_engineType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeBrokerInstanceOptions -&gt; f DescribeBrokerInstanceOptions
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_engineType"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptions_engineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptions -&gt; Maybe Text)
+-&gt; (DescribeBrokerInstanceOptions
+    -&gt; Maybe Text -&gt; DescribeBrokerInstanceOptions)
+-&gt; Lens
+     DescribeBrokerInstanceOptions
+     DescribeBrokerInstanceOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227674"><span class="annot"><span class="annottext">Maybe Text
+engineType :: Maybe Text
+$sel:engineType:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679227674"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227674"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227673"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227672"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AengineType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of brokers that Amazon MQ can return per page (20 by</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- default). This value must be an integer from 5 to 100.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_maxResults"><span class="hs-identifier hs-type">describeBrokerInstanceOptions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="describeBrokerInstanceOptions_maxResults"><span class="annot"><span class="annottext">describeBrokerInstanceOptions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeBrokerInstanceOptions -&gt; f DescribeBrokerInstanceOptions
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_maxResults"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptions -&gt; Maybe Natural)
+-&gt; (DescribeBrokerInstanceOptions
+    -&gt; Maybe Natural -&gt; DescribeBrokerInstanceOptions)
+-&gt; Lens
+     DescribeBrokerInstanceOptions
+     DescribeBrokerInstanceOptions
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227671"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Natural
+</span><a href="#local-6989586621679227671"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227671"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227670"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227669"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeBrokerInstanceOptions' :: Maybe Natural
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AmaxResults%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Filter response by host instance type.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_hostInstanceType"><span class="hs-identifier hs-type">describeBrokerInstanceOptions_hostInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="describeBrokerInstanceOptions_hostInstanceType"><span class="annot"><span class="annottext">describeBrokerInstanceOptions_hostInstanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeBrokerInstanceOptions -&gt; f DescribeBrokerInstanceOptions
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_hostInstanceType"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptions_hostInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptions -&gt; Maybe Text)
+-&gt; (DescribeBrokerInstanceOptions
+    -&gt; Maybe Text -&gt; DescribeBrokerInstanceOptions)
+-&gt; Lens
+     DescribeBrokerInstanceOptions
+     DescribeBrokerInstanceOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227668"><span class="annot"><span class="annottext">Maybe Text
+hostInstanceType :: Maybe Text
+$sel:hostInstanceType:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679227668"><span class="hs-identifier hs-var hs-var">hostInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227668"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227667"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostInstanceType:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AhostInstanceType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Filter response by storage type.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_storageType"><span class="hs-identifier hs-type">describeBrokerInstanceOptions_storageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="describeBrokerInstanceOptions_storageType"><span class="annot"><span class="annottext">describeBrokerInstanceOptions_storageType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeBrokerInstanceOptions -&gt; f DescribeBrokerInstanceOptions
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptions_storageType"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptions_storageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptions -&gt; Maybe Text)
+-&gt; (DescribeBrokerInstanceOptions
+    -&gt; Maybe Text -&gt; DescribeBrokerInstanceOptions)
+-&gt; Lens
+     DescribeBrokerInstanceOptions
+     DescribeBrokerInstanceOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227665"><span class="annot"><span class="annottext">Maybe Text
+storageType :: Maybe Text
+$sel:storageType:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679227665"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227665"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227664"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptions
+</span><a href="#local-6989586621679227664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageType:DescribeBrokerInstanceOptions' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AstorageType%3ADescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679227659"><span class="annot"><span class="annottext">request :: DescribeBrokerInstanceOptions
+-&gt; Request DescribeBrokerInstanceOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeBrokerInstanceOptions
+-&gt; Request DescribeBrokerInstanceOptions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679227655"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeBrokerInstanceOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeBrokerInstanceOptions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeBrokerInstanceOptions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeBrokerInstanceOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeBrokerInstanceOptions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227652"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227651"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227651"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227650"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [BrokerInstanceOption]
+-&gt; Maybe Natural
+-&gt; Int
+-&gt; DescribeBrokerInstanceOptionsResponse
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">DescribeBrokerInstanceOptionsResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [BrokerInstanceOption]
+ -&gt; Maybe Natural
+ -&gt; Int
+ -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [BrokerInstanceOption]
+      -&gt; Maybe Natural -&gt; Int -&gt; DescribeBrokerInstanceOptionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [BrokerInstanceOption]
+   -&gt; Maybe Natural -&gt; Int -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Either String (Maybe [BrokerInstanceOption])
+-&gt; Either
+     String
+     (Maybe Natural -&gt; Int -&gt; DescribeBrokerInstanceOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [BrokerInstanceOption]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;brokerInstanceOptions&quot;</span></span><span>
+</span><span id="line-139"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BrokerInstanceOption]))
+-&gt; Maybe [BrokerInstanceOption]
+-&gt; Either String (Maybe [BrokerInstanceOption])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BrokerInstanceOption]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural -&gt; Int -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either String (Int -&gt; DescribeBrokerInstanceOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeBrokerInstanceOptionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227652"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679227641"><span id="local-6989586621679227643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679227634"><span class="annot"><span class="annottext">toHeaders :: DescribeBrokerInstanceOptions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeBrokerInstanceOptions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679227628"><span class="annot"><span class="annottext">toPath :: DescribeBrokerInstanceOptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeBrokerInstanceOptions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/broker-instance-options&quot;</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679227624"><span class="annot"><span class="annottext">toQuery :: DescribeBrokerInstanceOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptions%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227618"><span id="local-6989586621679227619"><span id="local-6989586621679227620"><span id="local-6989586621679227621"><span id="local-6989586621679227622"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+storageType :: Maybe Text
+hostInstanceType :: Maybe Text
+maxResults :: Maybe Natural
+engineType :: Maybe Text
+nextToken :: Maybe Text
+$sel:storageType:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+$sel:hostInstanceType:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+$sel:maxResults:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Natural
+$sel:engineType:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+$sel:nextToken:DescribeBrokerInstanceOptions' :: DescribeBrokerInstanceOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679227618"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227622"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;engineType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227621"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227620"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;hostInstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227619"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;storageType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227618"><span class="hs-identifier hs-var">storageType</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newDescribeBrokerInstanceOptionsResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679227615"><span id="local-6989586621679227616"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBrokerInstanceOptionsResponse"><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-var">DescribeBrokerInstanceOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBrokerInstanceOptionsResponse%27"><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">DescribeBrokerInstanceOptionsResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeBrokerInstanceOptionsResponse%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AnextToken%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | List of available broker instance options.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AbrokerInstanceOptions%3ADescribeBrokerInstanceOptionsResponse%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse
+-&gt; Maybe [BrokerInstanceOption]
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AbrokerInstanceOptions%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var hs-var">brokerInstanceOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | Required. The maximum number of instance options that can be returned</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- per page (20 by default). This value must be an integer from 5 to 100.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeBrokerInstanceOptionsResponse%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse -&gt; Maybe Natural
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AmaxResults%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeBrokerInstanceOptionsResponse%27"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse -&gt; Int
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AhttpStatus%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227607"><span id="local-6989586621679227609"><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse
+-&gt; DescribeBrokerInstanceOptionsResponse -&gt; Bool
+(DescribeBrokerInstanceOptionsResponse
+ -&gt; DescribeBrokerInstanceOptionsResponse -&gt; Bool)
+-&gt; (DescribeBrokerInstanceOptionsResponse
+    -&gt; DescribeBrokerInstanceOptionsResponse -&gt; Bool)
+-&gt; Eq DescribeBrokerInstanceOptionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBrokerInstanceOptionsResponse
+-&gt; DescribeBrokerInstanceOptionsResponse -&gt; Bool
+$c/= :: DescribeBrokerInstanceOptionsResponse
+-&gt; DescribeBrokerInstanceOptionsResponse -&gt; Bool
+== :: DescribeBrokerInstanceOptionsResponse
+-&gt; DescribeBrokerInstanceOptionsResponse -&gt; Bool
+$c== :: DescribeBrokerInstanceOptionsResponse
+-&gt; DescribeBrokerInstanceOptionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227599"><span id="local-6989586621679227601"><span id="local-6989586621679227603"><span id="local-6989586621679227605"><span class="annot"><span class="annottext">ReadPrec [DescribeBrokerInstanceOptionsResponse]
+ReadPrec DescribeBrokerInstanceOptionsResponse
+Int -&gt; ReadS DescribeBrokerInstanceOptionsResponse
+ReadS [DescribeBrokerInstanceOptionsResponse]
+(Int -&gt; ReadS DescribeBrokerInstanceOptionsResponse)
+-&gt; ReadS [DescribeBrokerInstanceOptionsResponse]
+-&gt; ReadPrec DescribeBrokerInstanceOptionsResponse
+-&gt; ReadPrec [DescribeBrokerInstanceOptionsResponse]
+-&gt; Read DescribeBrokerInstanceOptionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBrokerInstanceOptionsResponse]
+$creadListPrec :: ReadPrec [DescribeBrokerInstanceOptionsResponse]
+readPrec :: ReadPrec DescribeBrokerInstanceOptionsResponse
+$creadPrec :: ReadPrec DescribeBrokerInstanceOptionsResponse
+readList :: ReadS [DescribeBrokerInstanceOptionsResponse]
+$creadList :: ReadS [DescribeBrokerInstanceOptionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeBrokerInstanceOptionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeBrokerInstanceOptionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227593"><span id="local-6989586621679227595"><span id="local-6989586621679227597"><span class="annot"><span class="annottext">Int -&gt; DescribeBrokerInstanceOptionsResponse -&gt; ShowS
+[DescribeBrokerInstanceOptionsResponse] -&gt; ShowS
+DescribeBrokerInstanceOptionsResponse -&gt; String
+(Int -&gt; DescribeBrokerInstanceOptionsResponse -&gt; ShowS)
+-&gt; (DescribeBrokerInstanceOptionsResponse -&gt; String)
+-&gt; ([DescribeBrokerInstanceOptionsResponse] -&gt; ShowS)
+-&gt; Show DescribeBrokerInstanceOptionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBrokerInstanceOptionsResponse] -&gt; ShowS
+$cshowList :: [DescribeBrokerInstanceOptionsResponse] -&gt; ShowS
+show :: DescribeBrokerInstanceOptionsResponse -&gt; String
+$cshow :: DescribeBrokerInstanceOptionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeBrokerInstanceOptionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBrokerInstanceOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeBrokerInstanceOptionsResponse
+ -&gt; Rep DescribeBrokerInstanceOptionsResponse x)
+-&gt; (forall x.
+    Rep DescribeBrokerInstanceOptionsResponse x
+    -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Generic DescribeBrokerInstanceOptionsResponse
+forall x.
+Rep DescribeBrokerInstanceOptionsResponse x
+-&gt; DescribeBrokerInstanceOptionsResponse
+forall x.
+DescribeBrokerInstanceOptionsResponse
+-&gt; Rep DescribeBrokerInstanceOptionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeBrokerInstanceOptionsResponse x
+-&gt; DescribeBrokerInstanceOptionsResponse
+$cfrom :: forall x.
+DescribeBrokerInstanceOptionsResponse
+-&gt; Rep DescribeBrokerInstanceOptionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'DescribeBrokerInstanceOptionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'nextToken', 'describeBrokerInstanceOptionsResponse_nextToken' - The token that specifies the next page of results Amazon MQ should</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'brokerInstanceOptions', 'describeBrokerInstanceOptionsResponse_brokerInstanceOptions' - List of available broker instance options.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'maxResults', 'describeBrokerInstanceOptionsResponse_maxResults' - Required. The maximum number of instance options that can be returned</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- per page (20 by default). This value must be an integer from 5 to 100.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'describeBrokerInstanceOptionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#newDescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">newDescribeBrokerInstanceOptionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newDescribeBrokerInstanceOptionsResponse"><span class="annot"><span class="annottext">newDescribeBrokerInstanceOptionsResponse :: Int -&gt; DescribeBrokerInstanceOptionsResponse
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#newDescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeBrokerInstanceOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679227590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse' :: Maybe Text
+-&gt; Maybe [BrokerInstanceOption]
+-&gt; Maybe Natural
+-&gt; Int
+-&gt; DescribeBrokerInstanceOptionsResponse
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBrokerInstanceOptionsResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AnextToken%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerInstanceOptions:DescribeBrokerInstanceOptionsResponse' :: Maybe [BrokerInstanceOption]
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AbrokerInstanceOptions%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">brokerInstanceOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BrokerInstanceOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeBrokerInstanceOptionsResponse' :: Maybe Natural
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AmaxResults%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBrokerInstanceOptionsResponse' :: Int
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AhttpStatus%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_nextToken"><span class="hs-identifier hs-type">describeBrokerInstanceOptionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="describeBrokerInstanceOptionsResponse_nextToken"><span class="annot"><span class="annottext">describeBrokerInstanceOptionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeBrokerInstanceOptionsResponse
+-&gt; f DescribeBrokerInstanceOptionsResponse
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptionsResponse -&gt; Maybe Text)
+-&gt; (DescribeBrokerInstanceOptionsResponse
+    -&gt; Maybe Text -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Lens
+     DescribeBrokerInstanceOptionsResponse
+     DescribeBrokerInstanceOptionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227589"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeBrokerInstanceOptionsResponse' :: DescribeBrokerInstanceOptionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227589"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227589"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227588"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeBrokerInstanceOptionsResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AnextToken%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | List of available broker instance options.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_brokerInstanceOptions"><span class="hs-identifier hs-type">describeBrokerInstanceOptionsResponse_brokerInstanceOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="describeBrokerInstanceOptionsResponse_brokerInstanceOptions"><span class="annot"><span class="annottext">describeBrokerInstanceOptionsResponse_brokerInstanceOptions :: (Maybe [BrokerInstanceOption] -&gt; f (Maybe [BrokerInstanceOption]))
+-&gt; DescribeBrokerInstanceOptionsResponse
+-&gt; f DescribeBrokerInstanceOptionsResponse
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_brokerInstanceOptions"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptionsResponse_brokerInstanceOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptionsResponse
+ -&gt; Maybe [BrokerInstanceOption])
+-&gt; (DescribeBrokerInstanceOptionsResponse
+    -&gt; Maybe [BrokerInstanceOption]
+    -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Lens
+     DescribeBrokerInstanceOptionsResponse
+     DescribeBrokerInstanceOptionsResponse
+     (Maybe [BrokerInstanceOption])
+     (Maybe [BrokerInstanceOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227586"><span class="annot"><span class="annottext">Maybe [BrokerInstanceOption]
+brokerInstanceOptions :: Maybe [BrokerInstanceOption]
+$sel:brokerInstanceOptions:DescribeBrokerInstanceOptionsResponse' :: DescribeBrokerInstanceOptionsResponse
+-&gt; Maybe [BrokerInstanceOption]
+</span><a href="#local-6989586621679227586"><span class="hs-identifier hs-var hs-var">brokerInstanceOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BrokerInstanceOption]
+</span><a href="#local-6989586621679227586"><span class="hs-identifier hs-var">brokerInstanceOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227585"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227584"><span class="annot"><span class="annottext">Maybe [BrokerInstanceOption]
+</span><a href="#local-6989586621679227584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerInstanceOptions:DescribeBrokerInstanceOptionsResponse' :: Maybe [BrokerInstanceOption]
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AbrokerInstanceOptions%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">brokerInstanceOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BrokerInstanceOption]
+</span><a href="#local-6989586621679227584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BrokerInstanceOption] -&gt; f (Maybe [BrokerInstanceOption]))
+ -&gt; DescribeBrokerInstanceOptionsResponse
+ -&gt; f DescribeBrokerInstanceOptionsResponse)
+-&gt; ((Maybe [BrokerInstanceOption]
+     -&gt; f (Maybe [BrokerInstanceOption]))
+    -&gt; Maybe [BrokerInstanceOption]
+    -&gt; f (Maybe [BrokerInstanceOption]))
+-&gt; (Maybe [BrokerInstanceOption]
+    -&gt; f (Maybe [BrokerInstanceOption]))
+-&gt; DescribeBrokerInstanceOptionsResponse
+-&gt; f DescribeBrokerInstanceOptionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BrokerInstanceOption]
+  [BrokerInstanceOption]
+  [BrokerInstanceOption]
+  [BrokerInstanceOption]
+-&gt; Iso
+     (Maybe [BrokerInstanceOption])
+     (Maybe [BrokerInstanceOption])
+     (Maybe [BrokerInstanceOption])
+     (Maybe [BrokerInstanceOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BrokerInstanceOption]
+  [BrokerInstanceOption]
+  [BrokerInstanceOption]
+  [BrokerInstanceOption]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | Required. The maximum number of instance options that can be returned</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- per page (20 by default). This value must be an integer from 5 to 100.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_maxResults"><span class="hs-identifier hs-type">describeBrokerInstanceOptionsResponse_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="describeBrokerInstanceOptionsResponse_maxResults"><span class="annot"><span class="annottext">describeBrokerInstanceOptionsResponse_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeBrokerInstanceOptionsResponse
+-&gt; f DescribeBrokerInstanceOptionsResponse
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_maxResults"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptionsResponse_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptionsResponse -&gt; Maybe Natural)
+-&gt; (DescribeBrokerInstanceOptionsResponse
+    -&gt; Maybe Natural -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Lens
+     DescribeBrokerInstanceOptionsResponse
+     DescribeBrokerInstanceOptionsResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227580"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeBrokerInstanceOptionsResponse' :: DescribeBrokerInstanceOptionsResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679227580"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227580"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227579"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227578"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeBrokerInstanceOptionsResponse' :: Maybe Natural
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AmaxResults%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_httpStatus"><span class="hs-identifier hs-type">describeBrokerInstanceOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="describeBrokerInstanceOptionsResponse_httpStatus"><span class="annot"><span class="annottext">describeBrokerInstanceOptionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeBrokerInstanceOptionsResponse
+-&gt; f DescribeBrokerInstanceOptionsResponse
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#describeBrokerInstanceOptionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeBrokerInstanceOptionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBrokerInstanceOptionsResponse -&gt; Int)
+-&gt; (DescribeBrokerInstanceOptionsResponse
+    -&gt; Int -&gt; DescribeBrokerInstanceOptionsResponse)
+-&gt; Lens
+     DescribeBrokerInstanceOptionsResponse
+     DescribeBrokerInstanceOptionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227577"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeBrokerInstanceOptionsResponse' :: DescribeBrokerInstanceOptionsResponse -&gt; Int
+</span><a href="#local-6989586621679227577"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227577"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227576"><span class="annot"><span class="annottext">s :: DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBrokerInstanceOptionsResponse
+</span><a href="#local-6989586621679227576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBrokerInstanceOptionsResponse' :: Int
+</span><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#%24sel%3AhttpStatus%3ADescribeBrokerInstanceOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679227573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.DescribeBrokerInstanceOptions.html#DescribeBrokerInstanceOptionsResponse"><span class="hs-identifier hs-type">DescribeBrokerInstanceOptionsResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

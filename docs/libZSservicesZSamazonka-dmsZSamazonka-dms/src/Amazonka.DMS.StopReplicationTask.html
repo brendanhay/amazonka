@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DMS.StopReplicationTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops the replication task.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.StopReplicationTask</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier">StopReplicationTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#newStopReplicationTask"><span class="hs-identifier">newStopReplicationTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTask_replicationTaskArn"><span class="hs-identifier">stopReplicationTask_replicationTaskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier">StopReplicationTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#newStopReplicationTaskResponse"><span class="hs-identifier">newStopReplicationTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTaskResponse_replicationTask"><span class="hs-identifier">stopReplicationTaskResponse_replicationTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTaskResponse_httpStatus"><span class="hs-identifier">stopReplicationTaskResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.html"><span class="hs-identifier">Amazonka.DMS.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newStopReplicationTask' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679443133"><span id="local-6989586621679443134"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopReplicationTask"><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-var">StopReplicationTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopReplicationTask%27"><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask%27"><span class="hs-identifier hs-var">StopReplicationTask'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name(ARN) of the replication task to be stopped.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AreplicationTaskArn%3AStopReplicationTask%27"><span class="annot"><span class="annottext">StopReplicationTask -&gt; Text
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AreplicationTaskArn%3AStopReplicationTask%27"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443127"><span id="local-6989586621679443129"><span class="annot"><span class="annottext">StopReplicationTask -&gt; StopReplicationTask -&gt; Bool
+(StopReplicationTask -&gt; StopReplicationTask -&gt; Bool)
+-&gt; (StopReplicationTask -&gt; StopReplicationTask -&gt; Bool)
+-&gt; Eq StopReplicationTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopReplicationTask -&gt; StopReplicationTask -&gt; Bool
+$c/= :: StopReplicationTask -&gt; StopReplicationTask -&gt; Bool
+== :: StopReplicationTask -&gt; StopReplicationTask -&gt; Bool
+$c== :: StopReplicationTask -&gt; StopReplicationTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443118"><span id="local-6989586621679443120"><span id="local-6989586621679443122"><span id="local-6989586621679443124"><span class="annot"><span class="annottext">ReadPrec [StopReplicationTask]
+ReadPrec StopReplicationTask
+Int -&gt; ReadS StopReplicationTask
+ReadS [StopReplicationTask]
+(Int -&gt; ReadS StopReplicationTask)
+-&gt; ReadS [StopReplicationTask]
+-&gt; ReadPrec StopReplicationTask
+-&gt; ReadPrec [StopReplicationTask]
+-&gt; Read StopReplicationTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopReplicationTask]
+$creadListPrec :: ReadPrec [StopReplicationTask]
+readPrec :: ReadPrec StopReplicationTask
+$creadPrec :: ReadPrec StopReplicationTask
+readList :: ReadS [StopReplicationTask]
+$creadList :: ReadS [StopReplicationTask]
+readsPrec :: Int -&gt; ReadS StopReplicationTask
+$creadsPrec :: Int -&gt; ReadS StopReplicationTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443111"><span id="local-6989586621679443113"><span id="local-6989586621679443115"><span class="annot"><span class="annottext">Int -&gt; StopReplicationTask -&gt; ShowS
+[StopReplicationTask] -&gt; ShowS
+StopReplicationTask -&gt; String
+(Int -&gt; StopReplicationTask -&gt; ShowS)
+-&gt; (StopReplicationTask -&gt; String)
+-&gt; ([StopReplicationTask] -&gt; ShowS)
+-&gt; Show StopReplicationTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopReplicationTask] -&gt; ShowS
+$cshowList :: [StopReplicationTask] -&gt; ShowS
+show :: StopReplicationTask -&gt; String
+$cshow :: StopReplicationTask -&gt; String
+showsPrec :: Int -&gt; StopReplicationTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopReplicationTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopReplicationTask -&gt; Rep StopReplicationTask x)
+-&gt; (forall x. Rep StopReplicationTask x -&gt; StopReplicationTask)
+-&gt; Generic StopReplicationTask
+forall x. Rep StopReplicationTask x -&gt; StopReplicationTask
+forall x. StopReplicationTask -&gt; Rep StopReplicationTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopReplicationTask x -&gt; StopReplicationTask
+$cfrom :: forall x. StopReplicationTask -&gt; Rep StopReplicationTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'StopReplicationTask' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'replicationTaskArn', 'stopReplicationTask_replicationTaskArn' - The Amazon Resource Name(ARN) of the replication task to be stopped.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#newStopReplicationTask"><span class="hs-identifier hs-type">newStopReplicationTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'replicationTaskArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span>
+</span><span id="line-71"></span><span id="newStopReplicationTask"><span class="annot"><span class="annottext">newStopReplicationTask :: Text -&gt; StopReplicationTask
+</span><a href="Amazonka.DMS.StopReplicationTask.html#newStopReplicationTask"><span class="hs-identifier hs-var hs-var">newStopReplicationTask</span></a></span></span><span> </span><span id="local-6989586621679443106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443106"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">StopReplicationTask' :: Text -&gt; StopReplicationTask
+</span><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask%27"><span class="hs-identifier hs-type">StopReplicationTask'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationTaskArn:StopReplicationTask' :: Text
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AreplicationTaskArn%3AStopReplicationTask%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443106"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The Amazon Resource Name(ARN) of the replication task to be stopped.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTask_replicationTaskArn"><span class="hs-identifier hs-type">stopReplicationTask_replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="stopReplicationTask_replicationTaskArn"><span class="annot"><span class="annottext">stopReplicationTask_replicationTaskArn :: (Text -&gt; f Text) -&gt; StopReplicationTask -&gt; f StopReplicationTask
+</span><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTask_replicationTaskArn"><span class="hs-identifier hs-var hs-var">stopReplicationTask_replicationTaskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopReplicationTask -&gt; Text)
+-&gt; (StopReplicationTask -&gt; Text -&gt; StopReplicationTask)
+-&gt; Lens StopReplicationTask StopReplicationTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask%27"><span class="hs-identifier hs-type">StopReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443103"><span class="annot"><span class="annottext">Text
+replicationTaskArn :: Text
+$sel:replicationTaskArn:StopReplicationTask' :: StopReplicationTask -&gt; Text
+</span><a href="#local-6989586621679443103"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443103"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443102"><span class="annot"><span class="annottext">s :: StopReplicationTask
+</span><a href="#local-6989586621679443102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask%27"><span class="hs-identifier hs-type">StopReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443101"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopReplicationTask
+</span><a href="#local-6989586621679443102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskArn:StopReplicationTask' :: Text
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AreplicationTaskArn%3AStopReplicationTask%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-type">StopReplicationTaskResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679443097"><span class="annot"><span class="annottext">request :: StopReplicationTask -&gt; Request StopReplicationTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopReplicationTask -&gt; Request StopReplicationTask
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679443093"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopReplicationTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopReplicationTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StopReplicationTask))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopReplicationTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopReplicationTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443090"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443090"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443089"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679443089"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443088"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationTask -&gt; Int -&gt; StopReplicationTaskResponse
+</span><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse%27"><span class="hs-identifier hs-var">StopReplicationTaskResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicationTask -&gt; Int -&gt; StopReplicationTaskResponse)
+-&gt; Either String (Maybe ReplicationTask)
+-&gt; Either String (Int -&gt; StopReplicationTaskResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationTask)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTask&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopReplicationTaskResponse)
+-&gt; Either String Int -&gt; Either String StopReplicationTaskResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443090"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443080"><span id="local-6989586621679443082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679443073"><span class="annot"><span class="annottext">toHeaders :: StopReplicationTask -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopReplicationTask -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonDMSv20160101.StopReplicationTask&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443063"><span id="local-6989586621679443065"><span id="local-6989586621679443067"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679443061"><span class="annot"><span class="annottext">toJSON :: StopReplicationTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask%27"><span class="hs-identifier hs-type">StopReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443059"><span class="annot"><span class="annottext">Text
+replicationTaskArn :: Text
+$sel:replicationTaskArn:StopReplicationTask' :: StopReplicationTask -&gt; Text
+</span><a href="#local-6989586621679443059"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTaskArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443059"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679443053"><span class="annot"><span class="annottext">toPath :: StopReplicationTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopReplicationTask -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTask"><span class="hs-identifier hs-type">StopReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679443049"><span class="annot"><span class="annottext">toQuery :: StopReplicationTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopReplicationTask -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newStopReplicationTaskResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679443046"><span id="local-6989586621679443047"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopReplicationTaskResponse"><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-var">StopReplicationTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopReplicationTaskResponse%27"><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse%27"><span class="hs-identifier hs-var">StopReplicationTaskResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The replication task stopped.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AreplicationTask%3AStopReplicationTaskResponse%27"><span class="annot"><span class="annottext">StopReplicationTaskResponse -&gt; Maybe ReplicationTask
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AreplicationTask%3AStopReplicationTaskResponse%27"><span class="hs-identifier hs-var hs-var">replicationTask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTask.html#ReplicationTask"><span class="hs-identifier hs-type">ReplicationTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopReplicationTaskResponse%27"><span class="annot"><span class="annottext">StopReplicationTaskResponse -&gt; Int
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AhttpStatus%3AStopReplicationTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443040"><span id="local-6989586621679443042"><span class="annot"><span class="annottext">StopReplicationTaskResponse -&gt; StopReplicationTaskResponse -&gt; Bool
+(StopReplicationTaskResponse
+ -&gt; StopReplicationTaskResponse -&gt; Bool)
+-&gt; (StopReplicationTaskResponse
+    -&gt; StopReplicationTaskResponse -&gt; Bool)
+-&gt; Eq StopReplicationTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopReplicationTaskResponse -&gt; StopReplicationTaskResponse -&gt; Bool
+$c/= :: StopReplicationTaskResponse -&gt; StopReplicationTaskResponse -&gt; Bool
+== :: StopReplicationTaskResponse -&gt; StopReplicationTaskResponse -&gt; Bool
+$c== :: StopReplicationTaskResponse -&gt; StopReplicationTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443032"><span id="local-6989586621679443034"><span id="local-6989586621679443036"><span id="local-6989586621679443038"><span class="annot"><span class="annottext">ReadPrec [StopReplicationTaskResponse]
+ReadPrec StopReplicationTaskResponse
+Int -&gt; ReadS StopReplicationTaskResponse
+ReadS [StopReplicationTaskResponse]
+(Int -&gt; ReadS StopReplicationTaskResponse)
+-&gt; ReadS [StopReplicationTaskResponse]
+-&gt; ReadPrec StopReplicationTaskResponse
+-&gt; ReadPrec [StopReplicationTaskResponse]
+-&gt; Read StopReplicationTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopReplicationTaskResponse]
+$creadListPrec :: ReadPrec [StopReplicationTaskResponse]
+readPrec :: ReadPrec StopReplicationTaskResponse
+$creadPrec :: ReadPrec StopReplicationTaskResponse
+readList :: ReadS [StopReplicationTaskResponse]
+$creadList :: ReadS [StopReplicationTaskResponse]
+readsPrec :: Int -&gt; ReadS StopReplicationTaskResponse
+$creadsPrec :: Int -&gt; ReadS StopReplicationTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443026"><span id="local-6989586621679443028"><span id="local-6989586621679443030"><span class="annot"><span class="annottext">Int -&gt; StopReplicationTaskResponse -&gt; ShowS
+[StopReplicationTaskResponse] -&gt; ShowS
+StopReplicationTaskResponse -&gt; String
+(Int -&gt; StopReplicationTaskResponse -&gt; ShowS)
+-&gt; (StopReplicationTaskResponse -&gt; String)
+-&gt; ([StopReplicationTaskResponse] -&gt; ShowS)
+-&gt; Show StopReplicationTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopReplicationTaskResponse] -&gt; ShowS
+$cshowList :: [StopReplicationTaskResponse] -&gt; ShowS
+show :: StopReplicationTaskResponse -&gt; String
+$cshow :: StopReplicationTaskResponse -&gt; String
+showsPrec :: Int -&gt; StopReplicationTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopReplicationTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StopReplicationTaskResponse -&gt; Rep StopReplicationTaskResponse x)
+-&gt; (forall x.
+    Rep StopReplicationTaskResponse x -&gt; StopReplicationTaskResponse)
+-&gt; Generic StopReplicationTaskResponse
+forall x.
+Rep StopReplicationTaskResponse x -&gt; StopReplicationTaskResponse
+forall x.
+StopReplicationTaskResponse -&gt; Rep StopReplicationTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StopReplicationTaskResponse x -&gt; StopReplicationTaskResponse
+$cfrom :: forall x.
+StopReplicationTaskResponse -&gt; Rep StopReplicationTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'StopReplicationTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'replicationTask', 'stopReplicationTaskResponse_replicationTask' - The replication task stopped.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'stopReplicationTaskResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#newStopReplicationTaskResponse"><span class="hs-identifier hs-type">newStopReplicationTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-type">StopReplicationTaskResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newStopReplicationTaskResponse"><span class="annot"><span class="annottext">newStopReplicationTaskResponse :: Int -&gt; StopReplicationTaskResponse
+</span><a href="Amazonka.DMS.StopReplicationTask.html#newStopReplicationTaskResponse"><span class="hs-identifier hs-var hs-var">newStopReplicationTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679443023"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">StopReplicationTaskResponse' :: Maybe ReplicationTask -&gt; Int -&gt; StopReplicationTaskResponse
+</span><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse%27"><span class="hs-identifier hs-type">StopReplicationTaskResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationTask:StopReplicationTaskResponse' :: Maybe ReplicationTask
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AreplicationTask%3AStopReplicationTaskResponse%27"><span class="hs-identifier hs-var">replicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReplicationTask
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopReplicationTaskResponse' :: Int
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AhttpStatus%3AStopReplicationTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The replication task stopped.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTaskResponse_replicationTask"><span class="hs-identifier hs-type">stopReplicationTaskResponse_replicationTask</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-type">StopReplicationTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTask.html#ReplicationTask"><span class="hs-identifier hs-type">ReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="stopReplicationTaskResponse_replicationTask"><span class="annot"><span class="annottext">stopReplicationTaskResponse_replicationTask :: (Maybe ReplicationTask -&gt; f (Maybe ReplicationTask))
+-&gt; StopReplicationTaskResponse -&gt; f StopReplicationTaskResponse
+</span><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTaskResponse_replicationTask"><span class="hs-identifier hs-var hs-var">stopReplicationTaskResponse_replicationTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopReplicationTaskResponse -&gt; Maybe ReplicationTask)
+-&gt; (StopReplicationTaskResponse
+    -&gt; Maybe ReplicationTask -&gt; StopReplicationTaskResponse)
+-&gt; Lens
+     StopReplicationTaskResponse
+     StopReplicationTaskResponse
+     (Maybe ReplicationTask)
+     (Maybe ReplicationTask)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse%27"><span class="hs-identifier hs-type">StopReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443022"><span class="annot"><span class="annottext">Maybe ReplicationTask
+replicationTask :: Maybe ReplicationTask
+$sel:replicationTask:StopReplicationTaskResponse' :: StopReplicationTaskResponse -&gt; Maybe ReplicationTask
+</span><a href="#local-6989586621679443022"><span class="hs-identifier hs-var hs-var">replicationTask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679443022"><span class="hs-identifier hs-var">replicationTask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443021"><span class="annot"><span class="annottext">s :: StopReplicationTaskResponse
+</span><a href="#local-6989586621679443021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse%27"><span class="hs-identifier hs-type">StopReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443020"><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679443020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopReplicationTaskResponse
+</span><a href="#local-6989586621679443021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTask:StopReplicationTaskResponse' :: Maybe ReplicationTask
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AreplicationTask%3AStopReplicationTaskResponse%27"><span class="hs-identifier hs-var">replicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679443020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-type">StopReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTaskResponse_httpStatus"><span class="hs-identifier hs-type">stopReplicationTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-type">StopReplicationTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="stopReplicationTaskResponse_httpStatus"><span class="annot"><span class="annottext">stopReplicationTaskResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StopReplicationTaskResponse -&gt; f StopReplicationTaskResponse
+</span><a href="Amazonka.DMS.StopReplicationTask.html#stopReplicationTaskResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopReplicationTaskResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopReplicationTaskResponse -&gt; Int)
+-&gt; (StopReplicationTaskResponse
+    -&gt; Int -&gt; StopReplicationTaskResponse)
+-&gt; Lens
+     StopReplicationTaskResponse StopReplicationTaskResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse%27"><span class="hs-identifier hs-type">StopReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443019"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopReplicationTaskResponse' :: StopReplicationTaskResponse -&gt; Int
+</span><a href="#local-6989586621679443019"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443019"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443018"><span class="annot"><span class="annottext">s :: StopReplicationTaskResponse
+</span><a href="#local-6989586621679443018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse%27"><span class="hs-identifier hs-type">StopReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443017"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopReplicationTaskResponse
+</span><a href="#local-6989586621679443018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopReplicationTaskResponse' :: Int
+</span><a href="Amazonka.DMS.StopReplicationTask.html#%24sel%3AhttpStatus%3AStopReplicationTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-type">StopReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StopReplicationTask.html#StopReplicationTaskResponse"><span class="hs-identifier hs-type">StopReplicationTaskResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

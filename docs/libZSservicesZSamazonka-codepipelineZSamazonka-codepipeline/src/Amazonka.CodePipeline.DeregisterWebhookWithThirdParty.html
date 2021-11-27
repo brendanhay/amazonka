@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodePipeline.DeregisterWebhookWithThirdParty</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes the connection between the webhook that was created by</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- CodePipeline and the external tool with events to be detected. Currently</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- supported only for webhooks that target an action type of GitHub.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodePipeline.DeregisterWebhookWithThirdParty</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier">DeregisterWebhookWithThirdParty</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#newDeregisterWebhookWithThirdParty"><span class="hs-identifier">newDeregisterWebhookWithThirdParty</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#deregisterWebhookWithThirdParty_webhookName"><span class="hs-identifier">deregisterWebhookWithThirdParty_webhookName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier">DeregisterWebhookWithThirdPartyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#newDeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier">newDeregisterWebhookWithThirdPartyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#deregisterWebhookWithThirdPartyResponse_httpStatus"><span class="hs-identifier">deregisterWebhookWithThirdPartyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.html"><span class="hs-identifier">Amazonka.CodePipeline.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeregisterWebhookWithThirdParty' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679292058"><span id="local-6989586621679292059"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterWebhookWithThirdParty"><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-var">DeregisterWebhookWithThirdParty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterWebhookWithThirdParty%27"><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-var">DeregisterWebhookWithThirdParty'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the webhook you want to deregister.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AwebhookName%3ADeregisterWebhookWithThirdParty%27"><span class="annot"><span class="annottext">DeregisterWebhookWithThirdParty -&gt; Maybe Text
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#%24sel%3AwebhookName%3ADeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-var hs-var">webhookName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292052"><span id="local-6989586621679292054"><span class="annot"><span class="annottext">DeregisterWebhookWithThirdParty
+-&gt; DeregisterWebhookWithThirdParty -&gt; Bool
+(DeregisterWebhookWithThirdParty
+ -&gt; DeregisterWebhookWithThirdParty -&gt; Bool)
+-&gt; (DeregisterWebhookWithThirdParty
+    -&gt; DeregisterWebhookWithThirdParty -&gt; Bool)
+-&gt; Eq DeregisterWebhookWithThirdParty
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeregisterWebhookWithThirdParty
+-&gt; DeregisterWebhookWithThirdParty -&gt; Bool
+$c/= :: DeregisterWebhookWithThirdParty
+-&gt; DeregisterWebhookWithThirdParty -&gt; Bool
+== :: DeregisterWebhookWithThirdParty
+-&gt; DeregisterWebhookWithThirdParty -&gt; Bool
+$c== :: DeregisterWebhookWithThirdParty
+-&gt; DeregisterWebhookWithThirdParty -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292043"><span id="local-6989586621679292045"><span id="local-6989586621679292047"><span id="local-6989586621679292049"><span class="annot"><span class="annottext">ReadPrec [DeregisterWebhookWithThirdParty]
+ReadPrec DeregisterWebhookWithThirdParty
+Int -&gt; ReadS DeregisterWebhookWithThirdParty
+ReadS [DeregisterWebhookWithThirdParty]
+(Int -&gt; ReadS DeregisterWebhookWithThirdParty)
+-&gt; ReadS [DeregisterWebhookWithThirdParty]
+-&gt; ReadPrec DeregisterWebhookWithThirdParty
+-&gt; ReadPrec [DeregisterWebhookWithThirdParty]
+-&gt; Read DeregisterWebhookWithThirdParty
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeregisterWebhookWithThirdParty]
+$creadListPrec :: ReadPrec [DeregisterWebhookWithThirdParty]
+readPrec :: ReadPrec DeregisterWebhookWithThirdParty
+$creadPrec :: ReadPrec DeregisterWebhookWithThirdParty
+readList :: ReadS [DeregisterWebhookWithThirdParty]
+$creadList :: ReadS [DeregisterWebhookWithThirdParty]
+readsPrec :: Int -&gt; ReadS DeregisterWebhookWithThirdParty
+$creadsPrec :: Int -&gt; ReadS DeregisterWebhookWithThirdParty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292036"><span id="local-6989586621679292038"><span id="local-6989586621679292040"><span class="annot"><span class="annottext">Int -&gt; DeregisterWebhookWithThirdParty -&gt; ShowS
+[DeregisterWebhookWithThirdParty] -&gt; ShowS
+DeregisterWebhookWithThirdParty -&gt; String
+(Int -&gt; DeregisterWebhookWithThirdParty -&gt; ShowS)
+-&gt; (DeregisterWebhookWithThirdParty -&gt; String)
+-&gt; ([DeregisterWebhookWithThirdParty] -&gt; ShowS)
+-&gt; Show DeregisterWebhookWithThirdParty
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeregisterWebhookWithThirdParty] -&gt; ShowS
+$cshowList :: [DeregisterWebhookWithThirdParty] -&gt; ShowS
+show :: DeregisterWebhookWithThirdParty -&gt; String
+$cshow :: DeregisterWebhookWithThirdParty -&gt; String
+showsPrec :: Int -&gt; DeregisterWebhookWithThirdParty -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeregisterWebhookWithThirdParty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeregisterWebhookWithThirdParty
+ -&gt; Rep DeregisterWebhookWithThirdParty x)
+-&gt; (forall x.
+    Rep DeregisterWebhookWithThirdParty x
+    -&gt; DeregisterWebhookWithThirdParty)
+-&gt; Generic DeregisterWebhookWithThirdParty
+forall x.
+Rep DeregisterWebhookWithThirdParty x
+-&gt; DeregisterWebhookWithThirdParty
+forall x.
+DeregisterWebhookWithThirdParty
+-&gt; Rep DeregisterWebhookWithThirdParty x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeregisterWebhookWithThirdParty x
+-&gt; DeregisterWebhookWithThirdParty
+$cfrom :: forall x.
+DeregisterWebhookWithThirdParty
+-&gt; Rep DeregisterWebhookWithThirdParty x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeregisterWebhookWithThirdParty' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'webhookName', 'deregisterWebhookWithThirdParty_webhookName' - The name of the webhook you want to deregister.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#newDeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">newDeregisterWebhookWithThirdParty</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeregisterWebhookWithThirdParty"><span class="annot"><span class="annottext">newDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdParty
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#newDeregisterWebhookWithThirdParty"><span class="hs-identifier hs-var hs-var">newDeregisterWebhookWithThirdParty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeregisterWebhookWithThirdParty' :: Maybe Text -&gt; DeregisterWebhookWithThirdParty
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:webhookName:DeregisterWebhookWithThirdParty' :: Maybe Text
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#%24sel%3AwebhookName%3ADeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-var">webhookName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the webhook you want to deregister.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#deregisterWebhookWithThirdParty_webhookName"><span class="hs-identifier hs-type">deregisterWebhookWithThirdParty_webhookName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="deregisterWebhookWithThirdParty_webhookName"><span class="annot"><span class="annottext">deregisterWebhookWithThirdParty_webhookName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeregisterWebhookWithThirdParty
+-&gt; f DeregisterWebhookWithThirdParty
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#deregisterWebhookWithThirdParty_webhookName"><span class="hs-identifier hs-var hs-var">deregisterWebhookWithThirdParty_webhookName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterWebhookWithThirdParty -&gt; Maybe Text)
+-&gt; (DeregisterWebhookWithThirdParty
+    -&gt; Maybe Text -&gt; DeregisterWebhookWithThirdParty)
+-&gt; Lens
+     DeregisterWebhookWithThirdParty
+     DeregisterWebhookWithThirdParty
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292029"><span class="annot"><span class="annottext">Maybe Text
+webhookName :: Maybe Text
+$sel:webhookName:DeregisterWebhookWithThirdParty' :: DeregisterWebhookWithThirdParty -&gt; Maybe Text
+</span><a href="#local-6989586621679292029"><span class="hs-identifier hs-var hs-var">webhookName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292029"><span class="hs-identifier hs-var">webhookName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292028"><span class="annot"><span class="annottext">s :: DeregisterWebhookWithThirdParty
+</span><a href="#local-6989586621679292028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292027"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterWebhookWithThirdParty
+</span><a href="#local-6989586621679292028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webhookName:DeregisterWebhookWithThirdParty' :: Maybe Text
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#%24sel%3AwebhookName%3ADeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-var">webhookName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679292023"><span class="annot"><span class="annottext">request :: DeregisterWebhookWithThirdParty
+-&gt; Request DeregisterWebhookWithThirdParty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeregisterWebhookWithThirdParty
+-&gt; Request DeregisterWebhookWithThirdParty
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679292019"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeregisterWebhookWithThirdParty
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeregisterWebhookWithThirdParty)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeregisterWebhookWithThirdParty))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeregisterWebhookWithThirdParty
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeregisterWebhookWithThirdParty)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292016"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679292015"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679292015"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679292014"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679292014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeregisterWebhookWithThirdPartyResponse
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-var">DeregisterWebhookWithThirdPartyResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeregisterWebhookWithThirdPartyResponse)
+-&gt; Either String Int
+-&gt; Either String DeregisterWebhookWithThirdPartyResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292016"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679292007"><span id="local-6989586621679292009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679292004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679292000"><span class="annot"><span class="annottext">toHeaders :: DeregisterWebhookWithThirdParty -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DeregisterWebhookWithThirdParty -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodePipeline_20150709.DeregisterWebhookWithThirdParty&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291990"><span id="local-6989586621679291992"><span id="local-6989586621679291994"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679291988"><span class="annot"><span class="annottext">toJSON :: DeregisterWebhookWithThirdParty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty%27"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291986"><span class="annot"><span class="annottext">Maybe Text
+webhookName :: Maybe Text
+$sel:webhookName:DeregisterWebhookWithThirdParty' :: DeregisterWebhookWithThirdParty -&gt; Maybe Text
+</span><a href="#local-6989586621679291986"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;webhookName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291986"><span class="hs-identifier hs-var">webhookName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679291980"><span class="annot"><span class="annottext">toPath :: DeregisterWebhookWithThirdParty -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterWebhookWithThirdParty -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdParty"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdParty</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679291976"><span class="annot"><span class="annottext">toQuery :: DeregisterWebhookWithThirdParty -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterWebhookWithThirdParty -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDeregisterWebhookWithThirdPartyResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679291973"><span id="local-6989586621679291974"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterWebhookWithThirdPartyResponse"><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-var">DeregisterWebhookWithThirdPartyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterWebhookWithThirdPartyResponse%27"><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-var">DeregisterWebhookWithThirdPartyResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterWebhookWithThirdPartyResponse%27"><span class="annot"><span class="annottext">DeregisterWebhookWithThirdPartyResponse -&gt; Int
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#%24sel%3AhttpStatus%3ADeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291968"><span id="local-6989586621679291970"><span class="annot"><span class="annottext">DeregisterWebhookWithThirdPartyResponse
+-&gt; DeregisterWebhookWithThirdPartyResponse -&gt; Bool
+(DeregisterWebhookWithThirdPartyResponse
+ -&gt; DeregisterWebhookWithThirdPartyResponse -&gt; Bool)
+-&gt; (DeregisterWebhookWithThirdPartyResponse
+    -&gt; DeregisterWebhookWithThirdPartyResponse -&gt; Bool)
+-&gt; Eq DeregisterWebhookWithThirdPartyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeregisterWebhookWithThirdPartyResponse
+-&gt; DeregisterWebhookWithThirdPartyResponse -&gt; Bool
+$c/= :: DeregisterWebhookWithThirdPartyResponse
+-&gt; DeregisterWebhookWithThirdPartyResponse -&gt; Bool
+== :: DeregisterWebhookWithThirdPartyResponse
+-&gt; DeregisterWebhookWithThirdPartyResponse -&gt; Bool
+$c== :: DeregisterWebhookWithThirdPartyResponse
+-&gt; DeregisterWebhookWithThirdPartyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291960"><span id="local-6989586621679291962"><span id="local-6989586621679291964"><span id="local-6989586621679291966"><span class="annot"><span class="annottext">ReadPrec [DeregisterWebhookWithThirdPartyResponse]
+ReadPrec DeregisterWebhookWithThirdPartyResponse
+Int -&gt; ReadS DeregisterWebhookWithThirdPartyResponse
+ReadS [DeregisterWebhookWithThirdPartyResponse]
+(Int -&gt; ReadS DeregisterWebhookWithThirdPartyResponse)
+-&gt; ReadS [DeregisterWebhookWithThirdPartyResponse]
+-&gt; ReadPrec DeregisterWebhookWithThirdPartyResponse
+-&gt; ReadPrec [DeregisterWebhookWithThirdPartyResponse]
+-&gt; Read DeregisterWebhookWithThirdPartyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeregisterWebhookWithThirdPartyResponse]
+$creadListPrec :: ReadPrec [DeregisterWebhookWithThirdPartyResponse]
+readPrec :: ReadPrec DeregisterWebhookWithThirdPartyResponse
+$creadPrec :: ReadPrec DeregisterWebhookWithThirdPartyResponse
+readList :: ReadS [DeregisterWebhookWithThirdPartyResponse]
+$creadList :: ReadS [DeregisterWebhookWithThirdPartyResponse]
+readsPrec :: Int -&gt; ReadS DeregisterWebhookWithThirdPartyResponse
+$creadsPrec :: Int -&gt; ReadS DeregisterWebhookWithThirdPartyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291954"><span id="local-6989586621679291956"><span id="local-6989586621679291958"><span class="annot"><span class="annottext">Int -&gt; DeregisterWebhookWithThirdPartyResponse -&gt; ShowS
+[DeregisterWebhookWithThirdPartyResponse] -&gt; ShowS
+DeregisterWebhookWithThirdPartyResponse -&gt; String
+(Int -&gt; DeregisterWebhookWithThirdPartyResponse -&gt; ShowS)
+-&gt; (DeregisterWebhookWithThirdPartyResponse -&gt; String)
+-&gt; ([DeregisterWebhookWithThirdPartyResponse] -&gt; ShowS)
+-&gt; Show DeregisterWebhookWithThirdPartyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeregisterWebhookWithThirdPartyResponse] -&gt; ShowS
+$cshowList :: [DeregisterWebhookWithThirdPartyResponse] -&gt; ShowS
+show :: DeregisterWebhookWithThirdPartyResponse -&gt; String
+$cshow :: DeregisterWebhookWithThirdPartyResponse -&gt; String
+showsPrec :: Int -&gt; DeregisterWebhookWithThirdPartyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeregisterWebhookWithThirdPartyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeregisterWebhookWithThirdPartyResponse
+ -&gt; Rep DeregisterWebhookWithThirdPartyResponse x)
+-&gt; (forall x.
+    Rep DeregisterWebhookWithThirdPartyResponse x
+    -&gt; DeregisterWebhookWithThirdPartyResponse)
+-&gt; Generic DeregisterWebhookWithThirdPartyResponse
+forall x.
+Rep DeregisterWebhookWithThirdPartyResponse x
+-&gt; DeregisterWebhookWithThirdPartyResponse
+forall x.
+DeregisterWebhookWithThirdPartyResponse
+-&gt; Rep DeregisterWebhookWithThirdPartyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeregisterWebhookWithThirdPartyResponse x
+-&gt; DeregisterWebhookWithThirdPartyResponse
+$cfrom :: forall x.
+DeregisterWebhookWithThirdPartyResponse
+-&gt; Rep DeregisterWebhookWithThirdPartyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'DeregisterWebhookWithThirdPartyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'deregisterWebhookWithThirdPartyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#newDeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-type">newDeregisterWebhookWithThirdPartyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newDeregisterWebhookWithThirdPartyResponse"><span class="annot"><span class="annottext">newDeregisterWebhookWithThirdPartyResponse :: Int -&gt; DeregisterWebhookWithThirdPartyResponse
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#newDeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-var hs-var">newDeregisterWebhookWithThirdPartyResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679291951"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">DeregisterWebhookWithThirdPartyResponse' :: Int -&gt; DeregisterWebhookWithThirdPartyResponse
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterWebhookWithThirdPartyResponse' :: Int
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#%24sel%3AhttpStatus%3ADeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#deregisterWebhookWithThirdPartyResponse_httpStatus"><span class="hs-identifier hs-type">deregisterWebhookWithThirdPartyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="deregisterWebhookWithThirdPartyResponse_httpStatus"><span class="annot"><span class="annottext">deregisterWebhookWithThirdPartyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeregisterWebhookWithThirdPartyResponse
+-&gt; f DeregisterWebhookWithThirdPartyResponse
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#deregisterWebhookWithThirdPartyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deregisterWebhookWithThirdPartyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterWebhookWithThirdPartyResponse -&gt; Int)
+-&gt; (DeregisterWebhookWithThirdPartyResponse
+    -&gt; Int -&gt; DeregisterWebhookWithThirdPartyResponse)
+-&gt; Lens
+     DeregisterWebhookWithThirdPartyResponse
+     DeregisterWebhookWithThirdPartyResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291950"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeregisterWebhookWithThirdPartyResponse' :: DeregisterWebhookWithThirdPartyResponse -&gt; Int
+</span><a href="#local-6989586621679291950"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291950"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291949"><span class="annot"><span class="annottext">s :: DeregisterWebhookWithThirdPartyResponse
+</span><a href="#local-6989586621679291949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterWebhookWithThirdPartyResponse
+</span><a href="#local-6989586621679291949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterWebhookWithThirdPartyResponse' :: Int
+</span><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#%24sel%3AhttpStatus%3ADeregisterWebhookWithThirdPartyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679291946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.DeregisterWebhookWithThirdParty.html#DeregisterWebhookWithThirdPartyResponse"><span class="hs-identifier hs-type">DeregisterWebhookWithThirdPartyResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

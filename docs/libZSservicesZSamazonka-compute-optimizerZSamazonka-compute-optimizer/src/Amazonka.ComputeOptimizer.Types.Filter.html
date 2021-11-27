@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.Types.Filter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.Filter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FilterName.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.FilterName</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes a filter that returns a more specific list of recommendations.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Use this filter with the GetAutoScalingGroupRecommendations and</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- GetEC2InstanceRecommendations actions.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- You can use @EBSFilter@ with the GetEBSVolumeRecommendations action,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @LambdaFunctionRecommendationFilter@ with the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- GetLambdaFunctionRecommendations action, and @JobFilter@ with the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- DescribeRecommendationExportJobs action.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newFilter' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679237636"><span id="local-6989586621679237637"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filter"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-var">Filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filter%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter%27"><span class="hs-identifier hs-var">Filter'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the filter.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The valid values for this parameter are as follows, depending on what</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- you specify for the @name@ parameter and the resource type that you wish</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- to filter results for:</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   Specify @Optimized@ or @NotOptimized@ if you specify the @name@</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     parameter as @Finding@ and you want to filter results for Auto</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     Scaling groups.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   Specify @Underprovisioned@, @Overprovisioned@, or @Optimized@ if you</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     specify the @name@ parameter as @Finding@ and you want to filter</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     results for EC2 instances.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   Specify @Ec2Instance@ or @AutoScalingGroup@ if you specify the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     @name@ parameter as @RecommendationSourceType@.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   Specify one of the following options if you specify the @name@</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     parameter as @FindingReasonCodes@:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     -   __@CPUOverprovisioned@__ &#8212; The instance&#8217;s CPU configuration can</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--         be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--         of your workload.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     -   __@CPUUnderprovisioned@__ &#8212; The instance&#8217;s CPU configuration</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--         doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--         there is an alternative instance type that provides better CPU</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--         performance.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     -   __@MemoryOverprovisioned@__ &#8212; The instance&#8217;s memory</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     -   __@MemoryUnderprovisioned@__ &#8212; The instance&#8217;s memory</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--         better memory performance.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     -   __@EBSThroughputOverprovisioned@__ &#8212; The instance&#8217;s EBS</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--         throughput configuration can be sized down while still meeting</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     -   __@EBSThroughputUnderprovisioned@__ &#8212; The instance&#8217;s EBS</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--         throughput configuration doesn\'t meet the performance</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--         instance type that provides better EBS throughput performance.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     -   __@EBSIOPSOverprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     -   __@EBSIOPSUnderprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--         better EBS IOPS performance.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     -   __@NetworkBandwidthOverprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--         bandwidth configuration can be sized down while still meeting</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     -   __@NetworkBandwidthUnderprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--         bandwidth configuration doesn\'t meet the performance</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--         instance type that provides better network bandwidth</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--         performance. This finding reason happens when the @NetworkIn@ or</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--         @NetworkOut@ performance of an instance is impacted.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     -   __@NetworkPPSOverprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--         (packets per second) configuration can be sized down while still</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--         meeting the performance requirements of your workload.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     -   __@NetworkPPSUnderprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--         (packets per second) configuration doesn\'t meet the performance</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--         instance type that provides better network PPS performance.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     -   __@DiskIOPSOverprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--     -   __@DiskIOPSUnderprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--         better disk IOPS performance.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     -   __@DiskThroughputOverprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--         throughput configuration can be sized down while still meeting</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--     -   __@DiskThroughputUnderprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--         throughput configuration doesn\'t meet the performance</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--         instance type that provides better disk throughput performance.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3Avalues%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; Maybe [Text]
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- Specify @Finding@ to return recommendations with a specific finding</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- classification (for example, @Underprovisioned@).</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- Specify @RecommendationSourceType@ to return recommendations of a</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- specific resource type (for example, @Ec2Instance@).</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- Specify @FindingReasonCodes@ to return recommendations with a specific</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- finding reason code (for example, @CPUUnderprovisioned@).</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aname%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; Maybe FilterName
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#%24sel%3Aname%3AFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FilterName.html#FilterName"><span class="hs-identifier hs-type">FilterName</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237629"><span id="local-6989586621679237631"><span class="annot"><span class="annottext">Filter -&gt; Filter -&gt; Bool
+(Filter -&gt; Filter -&gt; Bool)
+-&gt; (Filter -&gt; Filter -&gt; Bool) -&gt; Eq Filter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Filter -&gt; Filter -&gt; Bool
+$c/= :: Filter -&gt; Filter -&gt; Bool
+== :: Filter -&gt; Filter -&gt; Bool
+$c== :: Filter -&gt; Filter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237620"><span id="local-6989586621679237622"><span id="local-6989586621679237624"><span id="local-6989586621679237626"><span class="annot"><span class="annottext">ReadPrec [Filter]
+ReadPrec Filter
+Int -&gt; ReadS Filter
+ReadS [Filter]
+(Int -&gt; ReadS Filter)
+-&gt; ReadS [Filter]
+-&gt; ReadPrec Filter
+-&gt; ReadPrec [Filter]
+-&gt; Read Filter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Filter]
+$creadListPrec :: ReadPrec [Filter]
+readPrec :: ReadPrec Filter
+$creadPrec :: ReadPrec Filter
+readList :: ReadS [Filter]
+$creadList :: ReadS [Filter]
+readsPrec :: Int -&gt; ReadS Filter
+$creadsPrec :: Int -&gt; ReadS Filter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237613"><span id="local-6989586621679237615"><span id="local-6989586621679237617"><span class="annot"><span class="annottext">Int -&gt; Filter -&gt; ShowS
+[Filter] -&gt; ShowS
+Filter -&gt; String
+(Int -&gt; Filter -&gt; ShowS)
+-&gt; (Filter -&gt; String) -&gt; ([Filter] -&gt; ShowS) -&gt; Show Filter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Filter] -&gt; ShowS
+$cshowList :: [Filter] -&gt; ShowS
+show :: Filter -&gt; String
+$cshow :: Filter -&gt; String
+showsPrec :: Int -&gt; Filter -&gt; ShowS
+$cshowsPrec :: Int -&gt; Filter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Filter -&gt; Rep Filter x)
+-&gt; (forall x. Rep Filter x -&gt; Filter) -&gt; Generic Filter
+forall x. Rep Filter x -&gt; Filter
+forall x. Filter -&gt; Rep Filter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Filter x -&gt; Filter
+$cfrom :: forall x. Filter -&gt; Rep Filter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'Filter' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'values', 'filter_values' - The value of the filter.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The valid values for this parameter are as follows, depending on what</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- you specify for the @name@ parameter and the resource type that you wish</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- to filter results for:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   Specify @Optimized@ or @NotOptimized@ if you specify the @name@</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     parameter as @Finding@ and you want to filter results for Auto</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     Scaling groups.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   Specify @Underprovisioned@, @Overprovisioned@, or @Optimized@ if you</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     specify the @name@ parameter as @Finding@ and you want to filter</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     results for EC2 instances.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   Specify @Ec2Instance@ or @AutoScalingGroup@ if you specify the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     @name@ parameter as @RecommendationSourceType@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   Specify one of the following options if you specify the @name@</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     parameter as @FindingReasonCodes@:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     -   __@CPUOverprovisioned@__ &#8212; The instance&#8217;s CPU configuration can</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--         be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--         of your workload.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     -   __@CPUUnderprovisioned@__ &#8212; The instance&#8217;s CPU configuration</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--         doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--         there is an alternative instance type that provides better CPU</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--         performance.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     -   __@MemoryOverprovisioned@__ &#8212; The instance&#8217;s memory</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     -   __@MemoryUnderprovisioned@__ &#8212; The instance&#8217;s memory</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--         better memory performance.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     -   __@EBSThroughputOverprovisioned@__ &#8212; The instance&#8217;s EBS</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--         throughput configuration can be sized down while still meeting</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     -   __@EBSThroughputUnderprovisioned@__ &#8212; The instance&#8217;s EBS</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--         throughput configuration doesn\'t meet the performance</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--         instance type that provides better EBS throughput performance.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     -   __@EBSIOPSOverprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     -   __@EBSIOPSUnderprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--         better EBS IOPS performance.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     -   __@NetworkBandwidthOverprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--         bandwidth configuration can be sized down while still meeting</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     -   __@NetworkBandwidthUnderprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--         bandwidth configuration doesn\'t meet the performance</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--         instance type that provides better network bandwidth</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--         performance. This finding reason happens when the @NetworkIn@ or</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--         @NetworkOut@ performance of an instance is impacted.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     -   __@NetworkPPSOverprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--         (packets per second) configuration can be sized down while still</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--         meeting the performance requirements of your workload.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     -   __@NetworkPPSUnderprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--         (packets per second) configuration doesn\'t meet the performance</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--         instance type that provides better network PPS performance.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     -   __@DiskIOPSOverprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     -   __@DiskIOPSUnderprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--         better disk IOPS performance.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     -   __@DiskThroughputOverprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--         throughput configuration can be sized down while still meeting</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     -   __@DiskThroughputUnderprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--         throughput configuration doesn\'t meet the performance</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--         instance type that provides better disk throughput performance.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'name', 'filter_name' - The name of the filter.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Specify @Finding@ to return recommendations with a specific finding</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- classification (for example, @Underprovisioned@).</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Specify @RecommendationSourceType@ to return recommendations of a</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- specific resource type (for example, @Ec2Instance@).</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- Specify @FindingReasonCodes@ to return recommendations with a specific</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- finding reason code (for example, @CPUUnderprovisioned@).</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#newFilter"><span class="hs-identifier hs-type">newFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span>
+</span><span id="line-260"></span><span id="newFilter"><span class="annot"><span class="annottext">newFilter :: Filter
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#newFilter"><span class="hs-identifier hs-var hs-var">newFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="annottext">Filter' :: Maybe [Text] -&gt; Maybe FilterName -&gt; Filter
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:Filter' :: Maybe [Text]
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Filter' :: Maybe FilterName
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#%24sel%3Aname%3AFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The value of the filter.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- The valid values for this parameter are as follows, depending on what</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- you specify for the @name@ parameter and the resource type that you wish</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- to filter results for:</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- -   Specify @Optimized@ or @NotOptimized@ if you specify the @name@</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     parameter as @Finding@ and you want to filter results for Auto</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     Scaling groups.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   Specify @Underprovisioned@, @Overprovisioned@, or @Optimized@ if you</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     specify the @name@ parameter as @Finding@ and you want to filter</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     results for EC2 instances.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -   Specify @Ec2Instance@ or @AutoScalingGroup@ if you specify the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     @name@ parameter as @RecommendationSourceType@.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   Specify one of the following options if you specify the @name@</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     parameter as @FindingReasonCodes@:</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--     -   __@CPUOverprovisioned@__ &#8212; The instance&#8217;s CPU configuration can</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--         be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--         of your workload.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--     -   __@CPUUnderprovisioned@__ &#8212; The instance&#8217;s CPU configuration</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--         doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--         there is an alternative instance type that provides better CPU</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--         performance.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     -   __@MemoryOverprovisioned@__ &#8212; The instance&#8217;s memory</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--     -   __@MemoryUnderprovisioned@__ &#8212; The instance&#8217;s memory</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--         better memory performance.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--     -   __@EBSThroughputOverprovisioned@__ &#8212; The instance&#8217;s EBS</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--         throughput configuration can be sized down while still meeting</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     -   __@EBSThroughputUnderprovisioned@__ &#8212; The instance&#8217;s EBS</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--         throughput configuration doesn\'t meet the performance</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--         instance type that provides better EBS throughput performance.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     -   __@EBSIOPSOverprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     -   __@EBSIOPSUnderprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--         better EBS IOPS performance.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     -   __@NetworkBandwidthOverprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--         bandwidth configuration can be sized down while still meeting</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     -   __@NetworkBandwidthUnderprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--         bandwidth configuration doesn\'t meet the performance</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--         instance type that provides better network bandwidth</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--         performance. This finding reason happens when the @NetworkIn@ or</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--         @NetworkOut@ performance of an instance is impacted.</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     -   __@NetworkPPSOverprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--         (packets per second) configuration can be sized down while still</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--         meeting the performance requirements of your workload.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--     -   __@NetworkPPSUnderprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--         (packets per second) configuration doesn\'t meet the performance</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--         instance type that provides better network PPS performance.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     -   __@DiskIOPSOverprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--         configuration can be sized down while still meeting the</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--         performance requirements of your workload.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     -   __@DiskIOPSUnderprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--         configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--         workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--         better disk IOPS performance.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--     -   __@DiskThroughputOverprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--         throughput configuration can be sized down while still meeting</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--         the performance requirements of your workload.</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--     -   __@DiskThroughputUnderprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--         throughput configuration doesn\'t meet the performance</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--         requirements of your workload and there is an alternative</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--         instance type that provides better disk throughput performance.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#filter_values"><span class="hs-identifier hs-type">filter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span id="filter_values"><span class="annot"><span class="annottext">filter_values :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Filter -&gt; f Filter
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#filter_values"><span class="hs-identifier hs-var hs-var">filter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Filter -&gt; Maybe [Text])
+-&gt; (Filter -&gt; Maybe [Text] -&gt; Filter)
+-&gt; Lens Filter Filter (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237604"><span class="annot"><span class="annottext">Maybe [Text]
+values :: Maybe [Text]
+$sel:values:Filter' :: Filter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679237604"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679237604"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237603"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679237603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237602"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679237602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679237603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:Filter' :: Maybe [Text]
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679237602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Filter -&gt; f Filter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Filter
+-&gt; f Filter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- Specify @Finding@ to return recommendations with a specific finding</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- classification (for example, @Underprovisioned@).</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- Specify @RecommendationSourceType@ to return recommendations of a</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- specific resource type (for example, @Ec2Instance@).</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- Specify @FindingReasonCodes@ to return recommendations with a specific</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- finding reason code (for example, @CPUUnderprovisioned@).</span><span>
+</span><span id="line-372"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#filter_name"><span class="hs-identifier hs-type">filter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FilterName.html#FilterName"><span class="hs-identifier hs-type">FilterName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span id="filter_name"><span class="annot"><span class="annottext">filter_name :: (Maybe FilterName -&gt; f (Maybe FilterName)) -&gt; Filter -&gt; f Filter
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#filter_name"><span class="hs-identifier hs-var hs-var">filter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Filter -&gt; Maybe FilterName)
+-&gt; (Filter -&gt; Maybe FilterName -&gt; Filter)
+-&gt; Lens Filter Filter (Maybe FilterName) (Maybe FilterName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237597"><span class="annot"><span class="annottext">Maybe FilterName
+name :: Maybe FilterName
+$sel:name:Filter' :: Filter -&gt; Maybe FilterName
+</span><a href="#local-6989586621679237597"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterName
+</span><a href="#local-6989586621679237597"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237596"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679237596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237595"><span class="annot"><span class="annottext">Maybe FilterName
+</span><a href="#local-6989586621679237595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679237596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Filter' :: Maybe FilterName
+</span><a href="Amazonka.ComputeOptimizer.Types.Filter.html#%24sel%3Aname%3AFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterName
+</span><a href="#local-6989586621679237595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237591"><span id="local-6989586621679237593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237580"><span id="local-6989586621679237582"><span id="local-6989586621679237584"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-380"></span><span>  </span><span id="local-6989586621679237578"><span class="annot"><span class="annottext">toJSON :: Filter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237575"><span id="local-6989586621679237576"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe FilterName
+name :: Maybe FilterName
+values :: Maybe [Text]
+$sel:name:Filter' :: Filter -&gt; Maybe FilterName
+$sel:values:Filter' :: Filter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679237575"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-382"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-383"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679237576"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FilterName -&gt; Pair) -&gt; Maybe FilterName -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterName
+</span><a href="#local-6989586621679237575"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><span id="line-385"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span></pre></body></html>

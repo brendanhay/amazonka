@@ -1,0 +1,912 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.EmailTemplateResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.EmailTemplateResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.TemplateType.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.TemplateType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides information about the content and settings for a message</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- template that can be used in messages that are sent through the email</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEmailTemplateResponse' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679614876"><span id="local-6989586621679614877"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmailTemplateResponse"><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-var">EmailTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailTemplateResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-var">EmailTemplateResponse'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subject line, or title, that\'s used in email messages that are</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- based on the message template.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asubject%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Asubject%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The message body, in plain text format, that\'s used in email messages</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- that are based on the message template.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtextPart%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtextPart%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the message template.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aarn%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Aarn%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The custom description of the message template.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtemplateDescription%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateDescription%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The JSON object that specifies the default values that are used for</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- message variables in the message template. This object is a set of</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- key-value pairs. Each key defines a message variable in the template.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- The corresponding value defines the default value for that variable.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdefaultSubstitutions%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AdefaultSubstitutions%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">defaultSubstitutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique identifier, as an integer, for the active version of the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- message template, or the version of the template that you specified by</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- using the version parameter in your request.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aversion%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Aversion%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The message body, in HTML format, that\'s used in email messages that</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- are based on the message template.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AhtmlPart%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AhtmlPart%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the recommender model that\'s used by the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- message template.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3ArecommenderId%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3ArecommenderId%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">recommenderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A string-to-string map of key-value pairs that identifies the tags that</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- are associated with the message template. Each tag consists of a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- required tag key and an associated tag value.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atags%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Atags%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The date, in ISO 8601 format, when the message template was last</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AlastModifiedDate%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The date, in ISO 8601 format, when the message template was created.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcreationDate%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AcreationDate%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the message template.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AtemplateName%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateName%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The type of channel that the message template is designed for. For an</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- email template, this value is EMAIL.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtemplateType%3AEmailTemplateResponse%27"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; TemplateType
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateType%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679614858"><span id="local-6989586621679614860"><span class="annot"><span class="annottext">EmailTemplateResponse -&gt; EmailTemplateResponse -&gt; Bool
+(EmailTemplateResponse -&gt; EmailTemplateResponse -&gt; Bool)
+-&gt; (EmailTemplateResponse -&gt; EmailTemplateResponse -&gt; Bool)
+-&gt; Eq EmailTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EmailTemplateResponse -&gt; EmailTemplateResponse -&gt; Bool
+$c/= :: EmailTemplateResponse -&gt; EmailTemplateResponse -&gt; Bool
+== :: EmailTemplateResponse -&gt; EmailTemplateResponse -&gt; Bool
+$c== :: EmailTemplateResponse -&gt; EmailTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679614849"><span id="local-6989586621679614851"><span id="local-6989586621679614853"><span id="local-6989586621679614855"><span class="annot"><span class="annottext">ReadPrec [EmailTemplateResponse]
+ReadPrec EmailTemplateResponse
+Int -&gt; ReadS EmailTemplateResponse
+ReadS [EmailTemplateResponse]
+(Int -&gt; ReadS EmailTemplateResponse)
+-&gt; ReadS [EmailTemplateResponse]
+-&gt; ReadPrec EmailTemplateResponse
+-&gt; ReadPrec [EmailTemplateResponse]
+-&gt; Read EmailTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EmailTemplateResponse]
+$creadListPrec :: ReadPrec [EmailTemplateResponse]
+readPrec :: ReadPrec EmailTemplateResponse
+$creadPrec :: ReadPrec EmailTemplateResponse
+readList :: ReadS [EmailTemplateResponse]
+$creadList :: ReadS [EmailTemplateResponse]
+readsPrec :: Int -&gt; ReadS EmailTemplateResponse
+$creadsPrec :: Int -&gt; ReadS EmailTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679614842"><span id="local-6989586621679614844"><span id="local-6989586621679614846"><span class="annot"><span class="annottext">Int -&gt; EmailTemplateResponse -&gt; ShowS
+[EmailTemplateResponse] -&gt; ShowS
+EmailTemplateResponse -&gt; String
+(Int -&gt; EmailTemplateResponse -&gt; ShowS)
+-&gt; (EmailTemplateResponse -&gt; String)
+-&gt; ([EmailTemplateResponse] -&gt; ShowS)
+-&gt; Show EmailTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EmailTemplateResponse] -&gt; ShowS
+$cshowList :: [EmailTemplateResponse] -&gt; ShowS
+show :: EmailTemplateResponse -&gt; String
+$cshow :: EmailTemplateResponse -&gt; String
+showsPrec :: Int -&gt; EmailTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; EmailTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EmailTemplateResponse -&gt; Rep EmailTemplateResponse x)
+-&gt; (forall x. Rep EmailTemplateResponse x -&gt; EmailTemplateResponse)
+-&gt; Generic EmailTemplateResponse
+forall x. Rep EmailTemplateResponse x -&gt; EmailTemplateResponse
+forall x. EmailTemplateResponse -&gt; Rep EmailTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EmailTemplateResponse x -&gt; EmailTemplateResponse
+$cfrom :: forall x. EmailTemplateResponse -&gt; Rep EmailTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'EmailTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'subject', 'emailTemplateResponse_subject' - The subject line, or title, that\'s used in email messages that are</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- based on the message template.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'textPart', 'emailTemplateResponse_textPart' - The message body, in plain text format, that\'s used in email messages</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- that are based on the message template.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'arn', 'emailTemplateResponse_arn' - The Amazon Resource Name (ARN) of the message template.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'templateDescription', 'emailTemplateResponse_templateDescription' - The custom description of the message template.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'defaultSubstitutions', 'emailTemplateResponse_defaultSubstitutions' - The JSON object that specifies the default values that are used for</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- message variables in the message template. This object is a set of</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- key-value pairs. Each key defines a message variable in the template.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The corresponding value defines the default value for that variable.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'version', 'emailTemplateResponse_version' - The unique identifier, as an integer, for the active version of the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- message template, or the version of the template that you specified by</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- using the version parameter in your request.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'htmlPart', 'emailTemplateResponse_htmlPart' - The message body, in HTML format, that\'s used in email messages that</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- are based on the message template.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'recommenderId', 'emailTemplateResponse_recommenderId' - The unique identifier for the recommender model that\'s used by the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- message template.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'tags', 'emailTemplateResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- are associated with the message template. Each tag consists of a</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- required tag key and an associated tag value.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'lastModifiedDate', 'emailTemplateResponse_lastModifiedDate' - The date, in ISO 8601 format, when the message template was last</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'creationDate', 'emailTemplateResponse_creationDate' - The date, in ISO 8601 format, when the message template was created.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'templateName', 'emailTemplateResponse_templateName' - The name of the message template.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'templateType', 'emailTemplateResponse_templateType' - The type of channel that the message template is designed for. For an</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- email template, this value is EMAIL.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#newEmailTemplateResponse"><span class="hs-identifier hs-type">newEmailTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'lastModifiedDate'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'creationDate'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'templateName'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'templateType'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span>
+</span><span id="line-131"></span><span id="newEmailTemplateResponse"><span class="annot"><span class="annottext">newEmailTemplateResponse :: Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#newEmailTemplateResponse"><span class="hs-identifier hs-var hs-var">newEmailTemplateResponse</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679614836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614836"><span class="hs-identifier hs-var">pLastModifiedDate_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679614835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614835"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679614834"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614834"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679614833"><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614833"><span class="hs-identifier hs-var">pTemplateType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">EmailTemplateResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; TemplateType
+-&gt; EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Asubject%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:textPart:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtextPart%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Aarn%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateDescription:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateDescription%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultSubstitutions:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AdefaultSubstitutions%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Aversion%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:htmlPart:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AhtmlPart%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">htmlPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:recommenderId:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3ArecommenderId%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">recommenderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:EmailTemplateResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Atags%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:EmailTemplateResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AlastModifiedDate%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614836"><span class="hs-identifier hs-var">pLastModifiedDate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:EmailTemplateResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AcreationDate%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614835"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateName:EmailTemplateResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateName%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614834"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateType:EmailTemplateResponse' :: TemplateType
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateType%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614833"><span class="hs-identifier hs-var">pTemplateType_</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The subject line, or title, that\'s used in email messages that are</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- based on the message template.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_subject"><span class="hs-identifier hs-type">emailTemplateResponse_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="emailTemplateResponse_subject"><span class="annot"><span class="annottext">emailTemplateResponse_subject :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_subject"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614829"><span class="annot"><span class="annottext">Maybe Text
+subject :: Maybe Text
+$sel:subject:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614829"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614829"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614828"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Asubject%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The message body, in plain text format, that\'s used in email messages</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- that are based on the message template.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_textPart"><span class="hs-identifier hs-type">emailTemplateResponse_textPart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="emailTemplateResponse_textPart"><span class="annot"><span class="annottext">emailTemplateResponse_textPart :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_textPart"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_textPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614825"><span class="annot"><span class="annottext">Maybe Text
+textPart :: Maybe Text
+$sel:textPart:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614825"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614825"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614824"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textPart:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtextPart%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the message template.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_arn"><span class="hs-identifier hs-type">emailTemplateResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="emailTemplateResponse_arn"><span class="annot"><span class="annottext">emailTemplateResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_arn"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614821"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614821"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614821"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614820"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614819"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Aarn%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The custom description of the message template.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_templateDescription"><span class="hs-identifier hs-type">emailTemplateResponse_templateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="emailTemplateResponse_templateDescription"><span class="annot"><span class="annottext">emailTemplateResponse_templateDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_templateDescription"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_templateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614817"><span class="annot"><span class="annottext">Maybe Text
+templateDescription :: Maybe Text
+$sel:templateDescription:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614817"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614817"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614816"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614815"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateDescription:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateDescription%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The JSON object that specifies the default values that are used for</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- message variables in the message template. This object is a set of</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- key-value pairs. Each key defines a message variable in the template.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The corresponding value defines the default value for that variable.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_defaultSubstitutions"><span class="hs-identifier hs-type">emailTemplateResponse_defaultSubstitutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="emailTemplateResponse_defaultSubstitutions"><span class="annot"><span class="annottext">emailTemplateResponse_defaultSubstitutions :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_defaultSubstitutions"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_defaultSubstitutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614813"><span class="annot"><span class="annottext">Maybe Text
+defaultSubstitutions :: Maybe Text
+$sel:defaultSubstitutions:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614813"><span class="hs-identifier hs-var hs-var">defaultSubstitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614813"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614812"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614811"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultSubstitutions:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AdefaultSubstitutions%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The unique identifier, as an integer, for the active version of the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- message template, or the version of the template that you specified by</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- using the version parameter in your request.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_version"><span class="hs-identifier hs-type">emailTemplateResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="emailTemplateResponse_version"><span class="annot"><span class="annottext">emailTemplateResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_version"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614809"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614809"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614809"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614808"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614807"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Aversion%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The message body, in HTML format, that\'s used in email messages that</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- are based on the message template.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_htmlPart"><span class="hs-identifier hs-type">emailTemplateResponse_htmlPart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="emailTemplateResponse_htmlPart"><span class="annot"><span class="annottext">emailTemplateResponse_htmlPart :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_htmlPart"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_htmlPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614805"><span class="annot"><span class="annottext">Maybe Text
+htmlPart :: Maybe Text
+$sel:htmlPart:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614805"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614805"><span class="hs-identifier hs-var">htmlPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614804"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:htmlPart:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AhtmlPart%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">htmlPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The unique identifier for the recommender model that\'s used by the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- message template.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_recommenderId"><span class="hs-identifier hs-type">emailTemplateResponse_recommenderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="emailTemplateResponse_recommenderId"><span class="annot"><span class="annottext">emailTemplateResponse_recommenderId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_recommenderId"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_recommenderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe Text)
+-&gt; (EmailTemplateResponse -&gt; Maybe Text -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614801"><span class="annot"><span class="annottext">Maybe Text
+recommenderId :: Maybe Text
+$sel:recommenderId:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614801"><span class="hs-identifier hs-var hs-var">recommenderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614801"><span class="hs-identifier hs-var">recommenderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614800"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614799"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommenderId:EmailTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3ArecommenderId%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">recommenderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | A string-to-string map of key-value pairs that identifies the tags that</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- are associated with the message template. Each tag consists of a</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- required tag key and an associated tag value.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_tags"><span class="hs-identifier hs-type">emailTemplateResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="emailTemplateResponse_tags"><span class="annot"><span class="annottext">emailTemplateResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_tags"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (EmailTemplateResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614797"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614797"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614797"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614796"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614795"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:EmailTemplateResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3Atags%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; EmailTemplateResponse
+-&gt; f EmailTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The date, in ISO 8601 format, when the message template was last</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_lastModifiedDate"><span class="hs-identifier hs-type">emailTemplateResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-202"></span><span id="emailTemplateResponse_lastModifiedDate"><span class="annot"><span class="annottext">emailTemplateResponse_lastModifiedDate :: (Text -&gt; f Text)
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Text)
+-&gt; (EmailTemplateResponse -&gt; Text -&gt; EmailTemplateResponse)
+-&gt; Lens EmailTemplateResponse EmailTemplateResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614790"><span class="annot"><span class="annottext">Text
+lastModifiedDate :: Text
+$sel:lastModifiedDate:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Text
+</span><a href="#local-6989586621679614790"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614790"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614789"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:EmailTemplateResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AlastModifiedDate%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The date, in ISO 8601 format, when the message template was created.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_creationDate"><span class="hs-identifier hs-type">emailTemplateResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-206"></span><span id="emailTemplateResponse_creationDate"><span class="annot"><span class="annottext">emailTemplateResponse_creationDate :: (Text -&gt; f Text)
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_creationDate"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Text)
+-&gt; (EmailTemplateResponse -&gt; Text -&gt; EmailTemplateResponse)
+-&gt; Lens EmailTemplateResponse EmailTemplateResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614786"><span class="annot"><span class="annottext">Text
+creationDate :: Text
+$sel:creationDate:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Text
+</span><a href="#local-6989586621679614786"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614786"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614785"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:EmailTemplateResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AcreationDate%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The name of the message template.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_templateName"><span class="hs-identifier hs-type">emailTemplateResponse_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-210"></span><span id="emailTemplateResponse_templateName"><span class="annot"><span class="annottext">emailTemplateResponse_templateName :: (Text -&gt; f Text)
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_templateName"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; Text)
+-&gt; (EmailTemplateResponse -&gt; Text -&gt; EmailTemplateResponse)
+-&gt; Lens EmailTemplateResponse EmailTemplateResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614782"><span class="annot"><span class="annottext">Text
+templateName :: Text
+$sel:templateName:EmailTemplateResponse' :: EmailTemplateResponse -&gt; Text
+</span><a href="#local-6989586621679614782"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614782"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614781"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:EmailTemplateResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateName%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The type of channel that the message template is designed for. For an</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- email template, this value is EMAIL.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_templateType"><span class="hs-identifier hs-type">emailTemplateResponse_templateType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span>
+</span><span id="line-215"></span><span id="emailTemplateResponse_templateType"><span class="annot"><span class="annottext">emailTemplateResponse_templateType :: (TemplateType -&gt; f TemplateType)
+-&gt; EmailTemplateResponse -&gt; f EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#emailTemplateResponse_templateType"><span class="hs-identifier hs-var hs-var">emailTemplateResponse_templateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateResponse -&gt; TemplateType)
+-&gt; (EmailTemplateResponse -&gt; TemplateType -&gt; EmailTemplateResponse)
+-&gt; Lens
+     EmailTemplateResponse
+     EmailTemplateResponse
+     TemplateType
+     TemplateType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614778"><span class="annot"><span class="annottext">TemplateType
+templateType :: TemplateType
+$sel:templateType:EmailTemplateResponse' :: EmailTemplateResponse -&gt; TemplateType
+</span><a href="#local-6989586621679614778"><span class="hs-identifier hs-var hs-var">templateType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614778"><span class="hs-identifier hs-var">templateType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614777"><span class="annot"><span class="annottext">s :: EmailTemplateResponse
+</span><a href="#local-6989586621679614777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-type">EmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614776"><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateResponse
+</span><a href="#local-6989586621679614777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateType:EmailTemplateResponse' :: TemplateType
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#%24sel%3AtemplateType%3AEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614773"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679614771"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmailTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EmailTemplateResponse)
+-&gt; Value
+-&gt; Parser EmailTemplateResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EmailTemplateResponse&quot;</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679614768"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; TemplateType
+-&gt; EmailTemplateResponse
+</span><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse%27"><span class="hs-identifier hs-var">EmailTemplateResponse'</span></a></span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; TemplateType
+ -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextPart&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultSubstitutions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HtmlPart&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecommenderId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; TemplateType -&gt; EmailTemplateResponse)
+-&gt; Parser Text -&gt; Parser (TemplateType -&gt; EmailTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser (TemplateType -&gt; EmailTemplateResponse)
+-&gt; Parser TemplateType -&gt; Parser EmailTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TemplateType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614760"><span id="local-6989586621679614762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span></span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EmailTemplateResponse.html#EmailTemplateResponse"><span class="hs-identifier hs-type">EmailTemplateResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

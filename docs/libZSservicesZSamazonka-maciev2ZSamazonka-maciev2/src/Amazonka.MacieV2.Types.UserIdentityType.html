@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.UserIdentityType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.UserIdentityType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier">UserIdentityType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AWSAccount"><span class="hs-identifier">UserIdentityType_AWSAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AWSService"><span class="hs-identifier">UserIdentityType_AWSService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AssumedRole"><span class="hs-identifier">UserIdentityType_AssumedRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_FederatedUser"><span class="hs-identifier">UserIdentityType_FederatedUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_IAMUser"><span class="hs-identifier">UserIdentityType_IAMUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_Root"><span class="hs-identifier">UserIdentityType_Root</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | The type of entity that performed the action on the affected resource.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679402609"><span id="local-6989586621679402610"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserIdentityType"><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier hs-var">UserIdentityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserIdentityType%27"><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-identifier hs-var">UserIdentityType'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserIdentityType"><span class="annot"><span class="annottext">UserIdentityType -&gt; Text
+</span><a href="Amazonka.MacieV2.Types.UserIdentityType.html#fromUserIdentityType"><span class="hs-identifier hs-var hs-var">fromUserIdentityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402601"><span id="local-6989586621679402603"><span id="local-6989586621679402605"><span class="annot"><span class="annottext">Int -&gt; UserIdentityType -&gt; ShowS
+[UserIdentityType] -&gt; ShowS
+UserIdentityType -&gt; String
+(Int -&gt; UserIdentityType -&gt; ShowS)
+-&gt; (UserIdentityType -&gt; String)
+-&gt; ([UserIdentityType] -&gt; ShowS)
+-&gt; Show UserIdentityType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserIdentityType] -&gt; ShowS
+$cshowList :: [UserIdentityType] -&gt; ShowS
+show :: UserIdentityType -&gt; String
+$cshow :: UserIdentityType -&gt; String
+showsPrec :: Int -&gt; UserIdentityType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserIdentityType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679402592"><span id="local-6989586621679402594"><span id="local-6989586621679402596"><span id="local-6989586621679402598"><span class="annot"><span class="annottext">ReadPrec [UserIdentityType]
+ReadPrec UserIdentityType
+Int -&gt; ReadS UserIdentityType
+ReadS [UserIdentityType]
+(Int -&gt; ReadS UserIdentityType)
+-&gt; ReadS [UserIdentityType]
+-&gt; ReadPrec UserIdentityType
+-&gt; ReadPrec [UserIdentityType]
+-&gt; Read UserIdentityType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserIdentityType]
+$creadListPrec :: ReadPrec [UserIdentityType]
+readPrec :: ReadPrec UserIdentityType
+$creadPrec :: ReadPrec UserIdentityType
+readList :: ReadS [UserIdentityType]
+$creadList :: ReadS [UserIdentityType]
+readsPrec :: Int -&gt; ReadS UserIdentityType
+$creadsPrec :: Int -&gt; ReadS UserIdentityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679402587"><span id="local-6989586621679402589"><span class="annot"><span class="annottext">UserIdentityType -&gt; UserIdentityType -&gt; Bool
+(UserIdentityType -&gt; UserIdentityType -&gt; Bool)
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; Bool)
+-&gt; Eq UserIdentityType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+$c/= :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+== :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+$c== :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679402571"><span id="local-6989586621679402573"><span id="local-6989586621679402575"><span id="local-6989586621679402577"><span id="local-6989586621679402579"><span id="local-6989586621679402581"><span id="local-6989586621679402583"><span class="annot"><span class="annottext">Eq UserIdentityType
+Eq UserIdentityType
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; Ordering)
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; Bool)
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; Bool)
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; Bool)
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; Bool)
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; UserIdentityType)
+-&gt; (UserIdentityType -&gt; UserIdentityType -&gt; UserIdentityType)
+-&gt; Ord UserIdentityType
+UserIdentityType -&gt; UserIdentityType -&gt; Bool
+UserIdentityType -&gt; UserIdentityType -&gt; Ordering
+UserIdentityType -&gt; UserIdentityType -&gt; UserIdentityType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UserIdentityType -&gt; UserIdentityType -&gt; UserIdentityType
+$cmin :: UserIdentityType -&gt; UserIdentityType -&gt; UserIdentityType
+max :: UserIdentityType -&gt; UserIdentityType -&gt; UserIdentityType
+$cmax :: UserIdentityType -&gt; UserIdentityType -&gt; UserIdentityType
+&gt;= :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+$c&gt;= :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+&gt; :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+$c&gt; :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+&lt;= :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+$c&lt;= :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+&lt; :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+$c&lt; :: UserIdentityType -&gt; UserIdentityType -&gt; Bool
+compare :: UserIdentityType -&gt; UserIdentityType -&gt; Ordering
+$ccompare :: UserIdentityType -&gt; UserIdentityType -&gt; Ordering
+$cp1Ord :: Eq UserIdentityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UserIdentityType -&gt; Rep UserIdentityType x)
+-&gt; (forall x. Rep UserIdentityType x -&gt; UserIdentityType)
+-&gt; Generic UserIdentityType
+forall x. Rep UserIdentityType x -&gt; UserIdentityType
+forall x. UserIdentityType -&gt; Rep UserIdentityType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserIdentityType x -&gt; UserIdentityType
+$cfrom :: forall x. UserIdentityType -&gt; Rep UserIdentityType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402563"><span id="local-6989586621679402565"><span class="annot"><span class="annottext">Int -&gt; UserIdentityType -&gt; Int
+UserIdentityType -&gt; Int
+(Int -&gt; UserIdentityType -&gt; Int)
+-&gt; (UserIdentityType -&gt; Int) -&gt; Hashable UserIdentityType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UserIdentityType -&gt; Int
+$chash :: UserIdentityType -&gt; Int
+hashWithSalt :: Int -&gt; UserIdentityType -&gt; Int
+$chashWithSalt :: Int -&gt; UserIdentityType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679402560"><span class="annot"><span class="annottext">UserIdentityType -&gt; ()
+(UserIdentityType -&gt; ()) -&gt; NFData UserIdentityType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UserIdentityType -&gt; ()
+$crnf :: UserIdentityType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402557"><span class="annot"><span class="annottext">Text -&gt; Either String UserIdentityType
+(Text -&gt; Either String UserIdentityType)
+-&gt; FromText UserIdentityType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UserIdentityType
+$cfromText :: Text -&gt; Either String UserIdentityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402554"><span class="annot"><span class="annottext">UserIdentityType -&gt; Text
+(UserIdentityType -&gt; Text) -&gt; ToText UserIdentityType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UserIdentityType -&gt; Text
+$ctoText :: UserIdentityType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402551"><span class="annot"><span class="annottext">UserIdentityType -&gt; ByteString
+(UserIdentityType -&gt; ByteString) -&gt; ToByteString UserIdentityType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UserIdentityType -&gt; ByteString
+$ctoBS :: UserIdentityType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402548"><span class="annot"><span class="annottext">UserIdentityType -&gt; ByteStringBuilder
+(UserIdentityType -&gt; ByteStringBuilder) -&gt; ToLog UserIdentityType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UserIdentityType -&gt; ByteStringBuilder
+$cbuild :: UserIdentityType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402545"><span class="annot"><span class="annottext">HeaderName -&gt; UserIdentityType -&gt; [Header]
+(HeaderName -&gt; UserIdentityType -&gt; [Header])
+-&gt; ToHeader UserIdentityType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UserIdentityType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UserIdentityType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402542"><span class="annot"><span class="annottext">UserIdentityType -&gt; QueryString
+(UserIdentityType -&gt; QueryString) -&gt; ToQuery UserIdentityType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UserIdentityType -&gt; QueryString
+$ctoQuery :: UserIdentityType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679402537"><span id="local-6989586621679402539"><span class="annot"><span class="annottext">Value -&gt; Parser [UserIdentityType]
+Value -&gt; Parser UserIdentityType
+(Value -&gt; Parser UserIdentityType)
+-&gt; (Value -&gt; Parser [UserIdentityType])
+-&gt; FromJSON UserIdentityType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UserIdentityType]
+$cparseJSONList :: Value -&gt; Parser [UserIdentityType]
+parseJSON :: Value -&gt; Parser UserIdentityType
+$cparseJSON :: Value -&gt; Parser UserIdentityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679402532"><span id="local-6989586621679402534"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserIdentityType]
+FromJSONKeyFunction UserIdentityType
+FromJSONKeyFunction UserIdentityType
+-&gt; FromJSONKeyFunction [UserIdentityType]
+-&gt; FromJSONKey UserIdentityType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UserIdentityType]
+$cfromJSONKeyList :: FromJSONKeyFunction [UserIdentityType]
+fromJSONKey :: FromJSONKeyFunction UserIdentityType
+$cfromJSONKey :: FromJSONKeyFunction UserIdentityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679402523"><span id="local-6989586621679402525"><span id="local-6989586621679402527"><span id="local-6989586621679402529"><span class="annot"><span class="annottext">[UserIdentityType] -&gt; Encoding
+[UserIdentityType] -&gt; Value
+UserIdentityType -&gt; Encoding
+UserIdentityType -&gt; Value
+(UserIdentityType -&gt; Value)
+-&gt; (UserIdentityType -&gt; Encoding)
+-&gt; ([UserIdentityType] -&gt; Value)
+-&gt; ([UserIdentityType] -&gt; Encoding)
+-&gt; ToJSON UserIdentityType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UserIdentityType] -&gt; Encoding
+$ctoEncodingList :: [UserIdentityType] -&gt; Encoding
+toJSONList :: [UserIdentityType] -&gt; Value
+$ctoJSONList :: [UserIdentityType] -&gt; Value
+toEncoding :: UserIdentityType -&gt; Encoding
+$ctoEncoding :: UserIdentityType -&gt; Encoding
+toJSON :: UserIdentityType -&gt; Value
+$ctoJSON :: UserIdentityType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679402518"><span id="local-6989586621679402520"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserIdentityType]
+ToJSONKeyFunction UserIdentityType
+ToJSONKeyFunction UserIdentityType
+-&gt; ToJSONKeyFunction [UserIdentityType]
+-&gt; ToJSONKey UserIdentityType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UserIdentityType]
+$ctoJSONKeyList :: ToJSONKeyFunction [UserIdentityType]
+toJSONKey :: ToJSONKeyFunction UserIdentityType
+$ctoJSONKey :: ToJSONKeyFunction UserIdentityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679402515"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserIdentityType
+([Node] -&gt; Either String UserIdentityType)
+-&gt; FromXML UserIdentityType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UserIdentityType
+$cparseXML :: [Node] -&gt; Either String UserIdentityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679402512"><span class="annot"><span class="annottext">UserIdentityType -&gt; XML
+(UserIdentityType -&gt; XML) -&gt; ToXML UserIdentityType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UserIdentityType -&gt; XML
+$ctoXML :: UserIdentityType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AWSAccount"><span class="hs-identifier hs-type">UserIdentityType_AWSAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier hs-type">UserIdentityType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserIdentityType_AWSAccount"><span id="%24mUserIdentityType_AWSAccount"><span id="UserIdentityType_AWSAccount"><span class="annot"><span class="annottext">$bUserIdentityType_AWSAccount :: UserIdentityType
+$mUserIdentityType_AWSAccount :: forall r. UserIdentityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UserIdentityType.html#%24bUserIdentityType_AWSAccount"><span class="hs-identifier hs-var hs-var hs-var">UserIdentityType_AWSAccount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-identifier hs-type">UserIdentityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWSAccount&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AWSService"><span class="hs-identifier hs-type">UserIdentityType_AWSService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier hs-type">UserIdentityType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserIdentityType_AWSService"><span id="%24mUserIdentityType_AWSService"><span id="UserIdentityType_AWSService"><span class="annot"><span class="annottext">$bUserIdentityType_AWSService :: UserIdentityType
+$mUserIdentityType_AWSService :: forall r. UserIdentityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UserIdentityType.html#%24bUserIdentityType_AWSService"><span class="hs-identifier hs-var hs-var hs-var">UserIdentityType_AWSService</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-identifier hs-type">UserIdentityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWSService&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AssumedRole"><span class="hs-identifier hs-type">UserIdentityType_AssumedRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier hs-type">UserIdentityType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserIdentityType_AssumedRole"><span id="%24mUserIdentityType_AssumedRole"><span id="UserIdentityType_AssumedRole"><span class="annot"><span class="annottext">$bUserIdentityType_AssumedRole :: UserIdentityType
+$mUserIdentityType_AssumedRole :: forall r. UserIdentityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UserIdentityType.html#%24bUserIdentityType_AssumedRole"><span class="hs-identifier hs-var hs-var hs-var">UserIdentityType_AssumedRole</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-identifier hs-type">UserIdentityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AssumedRole&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_FederatedUser"><span class="hs-identifier hs-type">UserIdentityType_FederatedUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier hs-type">UserIdentityType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserIdentityType_FederatedUser"><span id="%24mUserIdentityType_FederatedUser"><span id="UserIdentityType_FederatedUser"><span class="annot"><span class="annottext">$bUserIdentityType_FederatedUser :: UserIdentityType
+$mUserIdentityType_FederatedUser :: forall r. UserIdentityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UserIdentityType.html#%24bUserIdentityType_FederatedUser"><span class="hs-identifier hs-var hs-var hs-var">UserIdentityType_FederatedUser</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-identifier hs-type">UserIdentityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FederatedUser&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_IAMUser"><span class="hs-identifier hs-type">UserIdentityType_IAMUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier hs-type">UserIdentityType</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserIdentityType_IAMUser"><span id="%24mUserIdentityType_IAMUser"><span id="UserIdentityType_IAMUser"><span class="annot"><span class="annottext">$bUserIdentityType_IAMUser :: UserIdentityType
+$mUserIdentityType_IAMUser :: forall r. UserIdentityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UserIdentityType.html#%24bUserIdentityType_IAMUser"><span class="hs-identifier hs-var hs-var hs-var">UserIdentityType_IAMUser</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-identifier hs-type">UserIdentityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IAMUser&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_Root"><span class="hs-identifier hs-type">UserIdentityType_Root</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType"><span class="hs-identifier hs-type">UserIdentityType</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserIdentityType_Root"><span id="%24mUserIdentityType_Root"><span id="UserIdentityType_Root"><span class="annot"><span class="annottext">$bUserIdentityType_Root :: UserIdentityType
+$mUserIdentityType_Root :: forall r. UserIdentityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MacieV2.Types.UserIdentityType.html#%24bUserIdentityType_Root"><span class="hs-identifier hs-var hs-var hs-var">UserIdentityType_Root</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-identifier hs-type">UserIdentityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Root&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AWSAccount"><span class="hs-pragma hs-type">UserIdentityType_AWSAccount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AWSService"><span class="hs-pragma hs-type">UserIdentityType_AWSService</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_AssumedRole"><span class="hs-pragma hs-type">UserIdentityType_AssumedRole</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_FederatedUser"><span class="hs-pragma hs-type">UserIdentityType_FederatedUser</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_IAMUser"><span class="hs-pragma hs-type">UserIdentityType_IAMUser</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType_Root"><span class="hs-pragma hs-type">UserIdentityType_Root</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.UserIdentityType.html#UserIdentityType%27"><span class="hs-pragma hs-type">UserIdentityType'</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-93"></span></pre></body></html>

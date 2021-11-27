@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DLM.Types.RetentionIntervalUnitValues</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DLM.Types.RetentionIntervalUnitValues</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier">RetentionIntervalUnitValues</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_DAYS"><span class="hs-identifier">RetentionIntervalUnitValues_DAYS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_MONTHS"><span class="hs-identifier">RetentionIntervalUnitValues_MONTHS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_WEEKS"><span class="hs-identifier">RetentionIntervalUnitValues_WEEKS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_YEARS"><span class="hs-identifier">RetentionIntervalUnitValues_YEARS</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679179007"><span id="local-6989586621679179008"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RetentionIntervalUnitValues"><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier hs-var">RetentionIntervalUnitValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionIntervalUnitValues%27"><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues%27"><span class="hs-identifier hs-var">RetentionIntervalUnitValues'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRetentionIntervalUnitValues"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; Text
+</span><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#fromRetentionIntervalUnitValues"><span class="hs-identifier hs-var hs-var">fromRetentionIntervalUnitValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679178999"><span id="local-6989586621679179001"><span id="local-6989586621679179003"><span class="annot"><span class="annottext">Int -&gt; RetentionIntervalUnitValues -&gt; ShowS
+[RetentionIntervalUnitValues] -&gt; ShowS
+RetentionIntervalUnitValues -&gt; String
+(Int -&gt; RetentionIntervalUnitValues -&gt; ShowS)
+-&gt; (RetentionIntervalUnitValues -&gt; String)
+-&gt; ([RetentionIntervalUnitValues] -&gt; ShowS)
+-&gt; Show RetentionIntervalUnitValues
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetentionIntervalUnitValues] -&gt; ShowS
+$cshowList :: [RetentionIntervalUnitValues] -&gt; ShowS
+show :: RetentionIntervalUnitValues -&gt; String
+$cshow :: RetentionIntervalUnitValues -&gt; String
+showsPrec :: Int -&gt; RetentionIntervalUnitValues -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetentionIntervalUnitValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679178990"><span id="local-6989586621679178992"><span id="local-6989586621679178994"><span id="local-6989586621679178996"><span class="annot"><span class="annottext">ReadPrec [RetentionIntervalUnitValues]
+ReadPrec RetentionIntervalUnitValues
+Int -&gt; ReadS RetentionIntervalUnitValues
+ReadS [RetentionIntervalUnitValues]
+(Int -&gt; ReadS RetentionIntervalUnitValues)
+-&gt; ReadS [RetentionIntervalUnitValues]
+-&gt; ReadPrec RetentionIntervalUnitValues
+-&gt; ReadPrec [RetentionIntervalUnitValues]
+-&gt; Read RetentionIntervalUnitValues
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RetentionIntervalUnitValues]
+$creadListPrec :: ReadPrec [RetentionIntervalUnitValues]
+readPrec :: ReadPrec RetentionIntervalUnitValues
+$creadPrec :: ReadPrec RetentionIntervalUnitValues
+readList :: ReadS [RetentionIntervalUnitValues]
+$creadList :: ReadS [RetentionIntervalUnitValues]
+readsPrec :: Int -&gt; ReadS RetentionIntervalUnitValues
+$creadsPrec :: Int -&gt; ReadS RetentionIntervalUnitValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679178985"><span id="local-6989586621679178987"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+(RetentionIntervalUnitValues
+ -&gt; RetentionIntervalUnitValues -&gt; Bool)
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; Bool)
+-&gt; Eq RetentionIntervalUnitValues
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+$c/= :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+== :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+$c== :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679178969"><span id="local-6989586621679178971"><span id="local-6989586621679178973"><span id="local-6989586621679178975"><span id="local-6989586621679178977"><span id="local-6989586621679178979"><span id="local-6989586621679178981"><span class="annot"><span class="annottext">Eq RetentionIntervalUnitValues
+Eq RetentionIntervalUnitValues
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; Ordering)
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; Bool)
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; Bool)
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; Bool)
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; Bool)
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues)
+-&gt; (RetentionIntervalUnitValues
+    -&gt; RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues)
+-&gt; Ord RetentionIntervalUnitValues
+RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; Ordering
+RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues
+$cmin :: RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues
+max :: RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues
+$cmax :: RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues
+&gt;= :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+$c&gt;= :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+&gt; :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+$c&gt; :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+&lt;= :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+$c&lt;= :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+&lt; :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+$c&lt; :: RetentionIntervalUnitValues -&gt; RetentionIntervalUnitValues -&gt; Bool
+compare :: RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; Ordering
+$ccompare :: RetentionIntervalUnitValues
+-&gt; RetentionIntervalUnitValues -&gt; Ordering
+$cp1Ord :: Eq RetentionIntervalUnitValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RetentionIntervalUnitValues -&gt; Rep RetentionIntervalUnitValues x)
+-&gt; (forall x.
+    Rep RetentionIntervalUnitValues x -&gt; RetentionIntervalUnitValues)
+-&gt; Generic RetentionIntervalUnitValues
+forall x.
+Rep RetentionIntervalUnitValues x -&gt; RetentionIntervalUnitValues
+forall x.
+RetentionIntervalUnitValues -&gt; Rep RetentionIntervalUnitValues x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RetentionIntervalUnitValues x -&gt; RetentionIntervalUnitValues
+$cfrom :: forall x.
+RetentionIntervalUnitValues -&gt; Rep RetentionIntervalUnitValues x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679178961"><span id="local-6989586621679178963"><span class="annot"><span class="annottext">Int -&gt; RetentionIntervalUnitValues -&gt; Int
+RetentionIntervalUnitValues -&gt; Int
+(Int -&gt; RetentionIntervalUnitValues -&gt; Int)
+-&gt; (RetentionIntervalUnitValues -&gt; Int)
+-&gt; Hashable RetentionIntervalUnitValues
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RetentionIntervalUnitValues -&gt; Int
+$chash :: RetentionIntervalUnitValues -&gt; Int
+hashWithSalt :: Int -&gt; RetentionIntervalUnitValues -&gt; Int
+$chashWithSalt :: Int -&gt; RetentionIntervalUnitValues -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679178958"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; ()
+(RetentionIntervalUnitValues -&gt; ())
+-&gt; NFData RetentionIntervalUnitValues
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RetentionIntervalUnitValues -&gt; ()
+$crnf :: RetentionIntervalUnitValues -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679178955"><span class="annot"><span class="annottext">Text -&gt; Either String RetentionIntervalUnitValues
+(Text -&gt; Either String RetentionIntervalUnitValues)
+-&gt; FromText RetentionIntervalUnitValues
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RetentionIntervalUnitValues
+$cfromText :: Text -&gt; Either String RetentionIntervalUnitValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679178952"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; Text
+(RetentionIntervalUnitValues -&gt; Text)
+-&gt; ToText RetentionIntervalUnitValues
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RetentionIntervalUnitValues -&gt; Text
+$ctoText :: RetentionIntervalUnitValues -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679178949"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; ByteString
+(RetentionIntervalUnitValues -&gt; ByteString)
+-&gt; ToByteString RetentionIntervalUnitValues
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RetentionIntervalUnitValues -&gt; ByteString
+$ctoBS :: RetentionIntervalUnitValues -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679178946"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; ByteStringBuilder
+(RetentionIntervalUnitValues -&gt; ByteStringBuilder)
+-&gt; ToLog RetentionIntervalUnitValues
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RetentionIntervalUnitValues -&gt; ByteStringBuilder
+$cbuild :: RetentionIntervalUnitValues -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679178943"><span class="annot"><span class="annottext">HeaderName -&gt; RetentionIntervalUnitValues -&gt; [Header]
+(HeaderName -&gt; RetentionIntervalUnitValues -&gt; [Header])
+-&gt; ToHeader RetentionIntervalUnitValues
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RetentionIntervalUnitValues -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RetentionIntervalUnitValues -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679178940"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; QueryString
+(RetentionIntervalUnitValues -&gt; QueryString)
+-&gt; ToQuery RetentionIntervalUnitValues
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RetentionIntervalUnitValues -&gt; QueryString
+$ctoQuery :: RetentionIntervalUnitValues -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679178935"><span id="local-6989586621679178937"><span class="annot"><span class="annottext">Value -&gt; Parser [RetentionIntervalUnitValues]
+Value -&gt; Parser RetentionIntervalUnitValues
+(Value -&gt; Parser RetentionIntervalUnitValues)
+-&gt; (Value -&gt; Parser [RetentionIntervalUnitValues])
+-&gt; FromJSON RetentionIntervalUnitValues
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RetentionIntervalUnitValues]
+$cparseJSONList :: Value -&gt; Parser [RetentionIntervalUnitValues]
+parseJSON :: Value -&gt; Parser RetentionIntervalUnitValues
+$cparseJSON :: Value -&gt; Parser RetentionIntervalUnitValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679178930"><span id="local-6989586621679178932"><span class="annot"><span class="annottext">FromJSONKeyFunction [RetentionIntervalUnitValues]
+FromJSONKeyFunction RetentionIntervalUnitValues
+FromJSONKeyFunction RetentionIntervalUnitValues
+-&gt; FromJSONKeyFunction [RetentionIntervalUnitValues]
+-&gt; FromJSONKey RetentionIntervalUnitValues
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RetentionIntervalUnitValues]
+$cfromJSONKeyList :: FromJSONKeyFunction [RetentionIntervalUnitValues]
+fromJSONKey :: FromJSONKeyFunction RetentionIntervalUnitValues
+$cfromJSONKey :: FromJSONKeyFunction RetentionIntervalUnitValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679178921"><span id="local-6989586621679178923"><span id="local-6989586621679178925"><span id="local-6989586621679178927"><span class="annot"><span class="annottext">[RetentionIntervalUnitValues] -&gt; Encoding
+[RetentionIntervalUnitValues] -&gt; Value
+RetentionIntervalUnitValues -&gt; Encoding
+RetentionIntervalUnitValues -&gt; Value
+(RetentionIntervalUnitValues -&gt; Value)
+-&gt; (RetentionIntervalUnitValues -&gt; Encoding)
+-&gt; ([RetentionIntervalUnitValues] -&gt; Value)
+-&gt; ([RetentionIntervalUnitValues] -&gt; Encoding)
+-&gt; ToJSON RetentionIntervalUnitValues
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RetentionIntervalUnitValues] -&gt; Encoding
+$ctoEncodingList :: [RetentionIntervalUnitValues] -&gt; Encoding
+toJSONList :: [RetentionIntervalUnitValues] -&gt; Value
+$ctoJSONList :: [RetentionIntervalUnitValues] -&gt; Value
+toEncoding :: RetentionIntervalUnitValues -&gt; Encoding
+$ctoEncoding :: RetentionIntervalUnitValues -&gt; Encoding
+toJSON :: RetentionIntervalUnitValues -&gt; Value
+$ctoJSON :: RetentionIntervalUnitValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679178916"><span id="local-6989586621679178918"><span class="annot"><span class="annottext">ToJSONKeyFunction [RetentionIntervalUnitValues]
+ToJSONKeyFunction RetentionIntervalUnitValues
+ToJSONKeyFunction RetentionIntervalUnitValues
+-&gt; ToJSONKeyFunction [RetentionIntervalUnitValues]
+-&gt; ToJSONKey RetentionIntervalUnitValues
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RetentionIntervalUnitValues]
+$ctoJSONKeyList :: ToJSONKeyFunction [RetentionIntervalUnitValues]
+toJSONKey :: ToJSONKeyFunction RetentionIntervalUnitValues
+$ctoJSONKey :: ToJSONKeyFunction RetentionIntervalUnitValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679178913"><span class="annot"><span class="annottext">[Node] -&gt; Either String RetentionIntervalUnitValues
+([Node] -&gt; Either String RetentionIntervalUnitValues)
+-&gt; FromXML RetentionIntervalUnitValues
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RetentionIntervalUnitValues
+$cparseXML :: [Node] -&gt; Either String RetentionIntervalUnitValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679178910"><span class="annot"><span class="annottext">RetentionIntervalUnitValues -&gt; XML
+(RetentionIntervalUnitValues -&gt; XML)
+-&gt; ToXML RetentionIntervalUnitValues
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RetentionIntervalUnitValues -&gt; XML
+$ctoXML :: RetentionIntervalUnitValues -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_DAYS"><span class="hs-identifier hs-type">RetentionIntervalUnitValues_DAYS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier hs-type">RetentionIntervalUnitValues</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRetentionIntervalUnitValues_DAYS"><span id="%24mRetentionIntervalUnitValues_DAYS"><span id="RetentionIntervalUnitValues_DAYS"><span class="annot"><span class="annottext">$bRetentionIntervalUnitValues_DAYS :: RetentionIntervalUnitValues
+$mRetentionIntervalUnitValues_DAYS :: forall r.
+RetentionIntervalUnitValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#%24bRetentionIntervalUnitValues_DAYS"><span class="hs-identifier hs-var hs-var hs-var">RetentionIntervalUnitValues_DAYS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues%27"><span class="hs-identifier hs-type">RetentionIntervalUnitValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAYS&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_MONTHS"><span class="hs-identifier hs-type">RetentionIntervalUnitValues_MONTHS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier hs-type">RetentionIntervalUnitValues</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRetentionIntervalUnitValues_MONTHS"><span id="%24mRetentionIntervalUnitValues_MONTHS"><span id="RetentionIntervalUnitValues_MONTHS"><span class="annot"><span class="annottext">$bRetentionIntervalUnitValues_MONTHS :: RetentionIntervalUnitValues
+$mRetentionIntervalUnitValues_MONTHS :: forall r.
+RetentionIntervalUnitValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#%24bRetentionIntervalUnitValues_MONTHS"><span class="hs-identifier hs-var hs-var hs-var">RetentionIntervalUnitValues_MONTHS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues%27"><span class="hs-identifier hs-type">RetentionIntervalUnitValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MONTHS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_WEEKS"><span class="hs-identifier hs-type">RetentionIntervalUnitValues_WEEKS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier hs-type">RetentionIntervalUnitValues</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRetentionIntervalUnitValues_WEEKS"><span id="%24mRetentionIntervalUnitValues_WEEKS"><span id="RetentionIntervalUnitValues_WEEKS"><span class="annot"><span class="annottext">$bRetentionIntervalUnitValues_WEEKS :: RetentionIntervalUnitValues
+$mRetentionIntervalUnitValues_WEEKS :: forall r.
+RetentionIntervalUnitValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#%24bRetentionIntervalUnitValues_WEEKS"><span class="hs-identifier hs-var hs-var hs-var">RetentionIntervalUnitValues_WEEKS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues%27"><span class="hs-identifier hs-type">RetentionIntervalUnitValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEEKS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_YEARS"><span class="hs-identifier hs-type">RetentionIntervalUnitValues_YEARS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues"><span class="hs-identifier hs-type">RetentionIntervalUnitValues</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRetentionIntervalUnitValues_YEARS"><span id="%24mRetentionIntervalUnitValues_YEARS"><span id="RetentionIntervalUnitValues_YEARS"><span class="annot"><span class="annottext">$bRetentionIntervalUnitValues_YEARS :: RetentionIntervalUnitValues
+$mRetentionIntervalUnitValues_YEARS :: forall r.
+RetentionIntervalUnitValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#%24bRetentionIntervalUnitValues_YEARS"><span class="hs-identifier hs-var hs-var hs-var">RetentionIntervalUnitValues_YEARS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues%27"><span class="hs-identifier hs-type">RetentionIntervalUnitValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;YEARS&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_DAYS"><span class="hs-pragma hs-type">RetentionIntervalUnitValues_DAYS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_MONTHS"><span class="hs-pragma hs-type">RetentionIntervalUnitValues_MONTHS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_WEEKS"><span class="hs-pragma hs-type">RetentionIntervalUnitValues_WEEKS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues_YEARS"><span class="hs-pragma hs-type">RetentionIntervalUnitValues_YEARS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.DLM.Types.RetentionIntervalUnitValues.html#RetentionIntervalUnitValues%27"><span class="hs-pragma hs-type">RetentionIntervalUnitValues'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

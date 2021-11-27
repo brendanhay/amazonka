@@ -1,0 +1,1386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.Mpeg2Settings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2Settings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AfdSignaling.html"><span class="hs-identifier">Amazonka.MediaLive.Types.AfdSignaling</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.FixedAfd.html"><span class="hs-identifier">Amazonka.MediaLive.Types.FixedAfd</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2AdaptiveQuantization.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2AdaptiveQuantization</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ColorMetadata.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2ColorMetadata</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ColorSpace.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2ColorSpace</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2DisplayRatio.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2DisplayRatio</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2FilterSettings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2FilterSettings</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2GopSizeUnits.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2GopSizeUnits</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ScanType.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2ScanType</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2SubGopLength</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2TimecodeInsertionBehavior.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2TimecodeInsertionBehavior</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | Mpeg2 Settings</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newMpeg2Settings' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679925792"><span id="local-6989586621679925793"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mpeg2Settings"><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-var">Mpeg2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2Settings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-var">Mpeg2Settings'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- first).</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AscanType%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2ScanType
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AscanType%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">scanType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ScanType.html#Mpeg2ScanType"><span class="hs-identifier hs-type">Mpeg2ScanType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Determines how MediaLive inserts timecodes in the output video. For</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- detailed information about setting up the input and the output for a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- timecode, see the section on \\\&quot;MediaLive Features - Timecode</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- configuration\\\&quot; in the MediaLive User Guide. DISABLED: do not include</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtimecodeInsertion%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AtimecodeInsertion%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">timecodeInsertion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2TimecodeInsertionBehavior.html#Mpeg2TimecodeInsertionBehavior"><span class="hs-identifier hs-type">Mpeg2TimecodeInsertionBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Indicates the AFD values that MediaLive will write into the video</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- encode. If you do not know what AFD signaling is, or if your downstream</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- system has not given you guidance, choose AUTO. AUTO: MediaLive will try</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- to preserve the input AFD value (in cases where multiple AFD values are</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- valid). FIXED: MediaLive will use the value you specify in fixedAFD.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AafdSignaling%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe AfdSignaling
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AafdSignaling%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">afdSignaling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AfdSignaling.html#AfdSignaling"><span class="hs-identifier hs-type">AfdSignaling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Relates to the GOP structure. The GOP size (keyframe interval) in the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- units specified in gopSizeUnits. If you do not know what GOP is, use the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- default. If gopSizeUnits is frames, then the gopSize must be an integer</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- and must be greater than or equal to 1. If gopSizeUnits is seconds, the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- gopSize must be greater than 0, but does not need to be an integer.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AgopSize%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSize%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Relates to the GOP structure. Specifies whether the gopSize is specified</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in frames or seconds. If you do not plan to change the default gopSize,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- leave the default. If you specify SECONDS, MediaLive will internally</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- convert the gop size to a frame count.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AgopSizeUnits%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2GopSizeUnits
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSizeUnits%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">gopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Relates to the GOP structure. If you do not know what GOP is, use the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- default. FIXED: Set the number of B-frames in each sub-GOP to the value</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- in each sub-GOP, to improve visual quality.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsubgopLength%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2SubGopLength
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AsubgopLength%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">subgopLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength"><span class="hs-identifier hs-type">Mpeg2SubGopLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Sets the pixel aspect ratio for the encode.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdisplayAspectRatio%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2DisplayRatio
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AdisplayAspectRatio%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">displayAspectRatio</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2DisplayRatio.html#Mpeg2DisplayRatio"><span class="hs-identifier hs-type">Mpeg2DisplayRatio</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Relates to the GOP structure. The number of B-frames between reference</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- frames. If you do not know what a B-frame is, use the default.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AgopNumBFrames%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopNumBFrames%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">gopNumBFrames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Complete this field only when afdSignaling is set to FIXED. Enter the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- AFD value (4 bits) to write on all frames of the video encode.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AfixedAfd%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe FixedAfd
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfixedAfd%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">fixedAfd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.FixedAfd.html#FixedAfd"><span class="hs-identifier hs-type">FixedAfd</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Optionally specify a noise reduction filter, which can improve quality</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- of compressed content. If you do not choose a filter, no filter will be</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- applied. TEMPORAL: This filter is useful for both source content that is</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- noisy (when it has excessive digital artifacts) and source content that</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- is clean. When the content is noisy, the filter cleans up the source</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- content before the encoding phase, with these two effects: First, it</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- improves the output video quality because the content has been cleaned</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- up. Secondly, it decreases the bandwidth because MediaLive does not</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- waste bits on encoding noise. When the content is reasonably clean, the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- filter tends to decrease the bitrate.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AfilterSettings%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2FilterSettings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfilterSettings%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">filterSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2FilterSettings.html#Mpeg2FilterSettings"><span class="hs-identifier hs-type">Mpeg2FilterSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Specifies whether to include the color space metadata. The metadata</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- describes the color space that applies to the video (the colorSpace</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- field). We recommend that you insert the metadata.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AcolorMetadata%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2ColorMetadata
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorMetadata%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">colorMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ColorMetadata.html#Mpeg2ColorMetadata"><span class="hs-identifier hs-type">Mpeg2ColorMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | Choose Off to disable adaptive quantization. Or choose another value to</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- enable the quantizer and set its strength. The strengths are: Auto, Off,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Low, Medium, High. When you enable this field, MediaLive allows</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- intra-frame quantizers to vary, which might improve visual quality.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AadaptiveQuantization%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2AdaptiveQuantization
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AadaptiveQuantization%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">adaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2AdaptiveQuantization.html#Mpeg2AdaptiveQuantization"><span class="hs-identifier hs-type">Mpeg2AdaptiveQuantization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | MPEG2: default is open GOP.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AgopClosedCadence%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopClosedCadence%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">gopClosedCadence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Choose the type of color space conversion to apply to the output. For</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- detailed information on setting up both the input and the output to</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- obtain the desired color space in the output, see the section on</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- \\\&quot;MediaLive Features - Video - color space\\\&quot; in the MediaLive User</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- Guide. PASSTHROUGH: Keep the color space of the input content - do not</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- convert it. AUTO:Convert all content that is SD to rec 601, and convert</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- all content that is HD to rec 709.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AcolorSpace%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2ColorSpace
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorSpace%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ColorSpace.html#Mpeg2ColorSpace"><span class="hs-identifier hs-type">Mpeg2ColorSpace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The framerate numerator. For example, 24000. The framerate is the</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- numerator divided by the denominator. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- 23.976 FPS.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AframerateNumerator%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateNumerator%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | description\&quot;: \&quot;The framerate denominator. For example, 1001. The</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- framerate is the numerator divided by the denominator. For example,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- 24000 \/ 1001 = 23.976 FPS.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679925771"><span id="local-6989586621679925773"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
+(Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool)
+-&gt; (Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool) -&gt; Eq Mpeg2Settings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
+$c/= :: Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
+== :: Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
+$c== :: Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925762"><span id="local-6989586621679925764"><span id="local-6989586621679925766"><span id="local-6989586621679925768"><span class="annot"><span class="annottext">ReadPrec [Mpeg2Settings]
+ReadPrec Mpeg2Settings
+Int -&gt; ReadS Mpeg2Settings
+ReadS [Mpeg2Settings]
+(Int -&gt; ReadS Mpeg2Settings)
+-&gt; ReadS [Mpeg2Settings]
+-&gt; ReadPrec Mpeg2Settings
+-&gt; ReadPrec [Mpeg2Settings]
+-&gt; Read Mpeg2Settings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mpeg2Settings]
+$creadListPrec :: ReadPrec [Mpeg2Settings]
+readPrec :: ReadPrec Mpeg2Settings
+$creadPrec :: ReadPrec Mpeg2Settings
+readList :: ReadS [Mpeg2Settings]
+$creadList :: ReadS [Mpeg2Settings]
+readsPrec :: Int -&gt; ReadS Mpeg2Settings
+$creadsPrec :: Int -&gt; ReadS Mpeg2Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925755"><span id="local-6989586621679925757"><span id="local-6989586621679925759"><span class="annot"><span class="annottext">Int -&gt; Mpeg2Settings -&gt; ShowS
+[Mpeg2Settings] -&gt; ShowS
+Mpeg2Settings -&gt; String
+(Int -&gt; Mpeg2Settings -&gt; ShowS)
+-&gt; (Mpeg2Settings -&gt; String)
+-&gt; ([Mpeg2Settings] -&gt; ShowS)
+-&gt; Show Mpeg2Settings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mpeg2Settings] -&gt; ShowS
+$cshowList :: [Mpeg2Settings] -&gt; ShowS
+show :: Mpeg2Settings -&gt; String
+$cshow :: Mpeg2Settings -&gt; String
+showsPrec :: Int -&gt; Mpeg2Settings -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mpeg2Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Mpeg2Settings -&gt; Rep Mpeg2Settings x)
+-&gt; (forall x. Rep Mpeg2Settings x -&gt; Mpeg2Settings)
+-&gt; Generic Mpeg2Settings
+forall x. Rep Mpeg2Settings x -&gt; Mpeg2Settings
+forall x. Mpeg2Settings -&gt; Rep Mpeg2Settings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Mpeg2Settings x -&gt; Mpeg2Settings
+$cfrom :: forall x. Mpeg2Settings -&gt; Rep Mpeg2Settings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Create a value of 'Mpeg2Settings' with all optional fields omitted.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'scanType', 'mpeg2Settings_scanType' - Set the scan type of the output to PROGRESSIVE or INTERLACED (top field</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- first).</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'timecodeInsertion', 'mpeg2Settings_timecodeInsertion' - Determines how MediaLive inserts timecodes in the output video. For</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- detailed information about setting up the input and the output for a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- timecode, see the section on \\\&quot;MediaLive Features - Timecode</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- configuration\\\&quot; in the MediaLive User Guide. DISABLED: do not include</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'afdSignaling', 'mpeg2Settings_afdSignaling' - Indicates the AFD values that MediaLive will write into the video</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- encode. If you do not know what AFD signaling is, or if your downstream</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- system has not given you guidance, choose AUTO. AUTO: MediaLive will try</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- to preserve the input AFD value (in cases where multiple AFD values are</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- valid). FIXED: MediaLive will use the value you specify in fixedAFD.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'gopSize', 'mpeg2Settings_gopSize' - Relates to the GOP structure. The GOP size (keyframe interval) in the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- units specified in gopSizeUnits. If you do not know what GOP is, use the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- default. If gopSizeUnits is frames, then the gopSize must be an integer</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- and must be greater than or equal to 1. If gopSizeUnits is seconds, the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- gopSize must be greater than 0, but does not need to be an integer.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'gopSizeUnits', 'mpeg2Settings_gopSizeUnits' - Relates to the GOP structure. Specifies whether the gopSize is specified</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- in frames or seconds. If you do not plan to change the default gopSize,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- leave the default. If you specify SECONDS, MediaLive will internally</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- convert the gop size to a frame count.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'subgopLength', 'mpeg2Settings_subgopLength' - Relates to the GOP structure. If you do not know what GOP is, use the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- default. FIXED: Set the number of B-frames in each sub-GOP to the value</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- in each sub-GOP, to improve visual quality.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'displayAspectRatio', 'mpeg2Settings_displayAspectRatio' - Sets the pixel aspect ratio for the encode.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'gopNumBFrames', 'mpeg2Settings_gopNumBFrames' - Relates to the GOP structure. The number of B-frames between reference</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- frames. If you do not know what a B-frame is, use the default.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'fixedAfd', 'mpeg2Settings_fixedAfd' - Complete this field only when afdSignaling is set to FIXED. Enter the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- AFD value (4 bits) to write on all frames of the video encode.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'filterSettings', 'mpeg2Settings_filterSettings' - Optionally specify a noise reduction filter, which can improve quality</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- of compressed content. If you do not choose a filter, no filter will be</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- applied. TEMPORAL: This filter is useful for both source content that is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- noisy (when it has excessive digital artifacts) and source content that</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- is clean. When the content is noisy, the filter cleans up the source</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- content before the encoding phase, with these two effects: First, it</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- improves the output video quality because the content has been cleaned</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- up. Secondly, it decreases the bandwidth because MediaLive does not</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- waste bits on encoding noise. When the content is reasonably clean, the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- filter tends to decrease the bitrate.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'colorMetadata', 'mpeg2Settings_colorMetadata' - Specifies whether to include the color space metadata. The metadata</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- describes the color space that applies to the video (the colorSpace</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- field). We recommend that you insert the metadata.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'adaptiveQuantization', 'mpeg2Settings_adaptiveQuantization' - Choose Off to disable adaptive quantization. Or choose another value to</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- enable the quantizer and set its strength. The strengths are: Auto, Off,</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Low, Medium, High. When you enable this field, MediaLive allows</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- intra-frame quantizers to vary, which might improve visual quality.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'gopClosedCadence', 'mpeg2Settings_gopClosedCadence' - MPEG2: default is open GOP.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'colorSpace', 'mpeg2Settings_colorSpace' - Choose the type of color space conversion to apply to the output. For</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- detailed information on setting up both the input and the output to</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- obtain the desired color space in the output, see the section on</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- \\\&quot;MediaLive Features - Video - color space\\\&quot; in the MediaLive User</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Guide. PASSTHROUGH: Keep the color space of the input content - do not</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- convert it. AUTO:Convert all content that is SD to rec 601, and convert</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- all content that is HD to rec 709.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'framerateNumerator', 'mpeg2Settings_framerateNumerator' - The framerate numerator. For example, 24000. The framerate is the</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- numerator divided by the denominator. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 23.976 FPS.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'framerateDenominator', 'mpeg2Settings_framerateDenominator' - description\&quot;: \&quot;The framerate denominator. For example, 1001. The</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- framerate is the numerator divided by the denominator. For example,</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 24000 \/ 1001 = 23.976 FPS.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#newMpeg2Settings"><span class="hs-identifier hs-type">newMpeg2Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'framerateNumerator'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'framerateDenominator'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span>
+</span><span id="line-211"></span><span id="newMpeg2Settings"><span class="annot"><span class="annottext">newMpeg2Settings :: Natural -&gt; Natural -&gt; Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#newMpeg2Settings"><span class="hs-identifier hs-var hs-var">newMpeg2Settings</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679925749"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925749"><span class="hs-identifier hs-var">pFramerateNumerator_</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679925748"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925748"><span class="hs-identifier hs-var">pFramerateDenominator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">Mpeg2Settings' :: Maybe Mpeg2ScanType
+-&gt; Maybe Mpeg2TimecodeInsertionBehavior
+-&gt; Maybe AfdSignaling
+-&gt; Maybe Double
+-&gt; Maybe Mpeg2GopSizeUnits
+-&gt; Maybe Mpeg2SubGopLength
+-&gt; Maybe Mpeg2DisplayRatio
+-&gt; Maybe Natural
+-&gt; Maybe FixedAfd
+-&gt; Maybe Mpeg2FilterSettings
+-&gt; Maybe Mpeg2ColorMetadata
+-&gt; Maybe Mpeg2AdaptiveQuantization
+-&gt; Maybe Natural
+-&gt; Maybe Mpeg2ColorSpace
+-&gt; Natural
+-&gt; Natural
+-&gt; Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scanType:Mpeg2Settings' :: Maybe Mpeg2ScanType
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AscanType%3AMpeg2Settings%27"><span class="hs-identifier hs-var">scanType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:timecodeInsertion:Mpeg2Settings' :: Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AtimecodeInsertion%3AMpeg2Settings%27"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:afdSignaling:Mpeg2Settings' :: Maybe AfdSignaling
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AafdSignaling%3AMpeg2Settings%27"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:gopSize:Mpeg2Settings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSize%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:gopSizeUnits:Mpeg2Settings' :: Maybe Mpeg2GopSizeUnits
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSizeUnits%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:subgopLength:Mpeg2Settings' :: Maybe Mpeg2SubGopLength
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AsubgopLength%3AMpeg2Settings%27"><span class="hs-identifier hs-var">subgopLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:displayAspectRatio:Mpeg2Settings' :: Maybe Mpeg2DisplayRatio
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AdisplayAspectRatio%3AMpeg2Settings%27"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:gopNumBFrames:Mpeg2Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopNumBFrames%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:fixedAfd:Mpeg2Settings' :: Maybe FixedAfd
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfixedAfd%3AMpeg2Settings%27"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:filterSettings:Mpeg2Settings' :: Maybe Mpeg2FilterSettings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfilterSettings%3AMpeg2Settings%27"><span class="hs-identifier hs-var">filterSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:colorMetadata:Mpeg2Settings' :: Maybe Mpeg2ColorMetadata
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorMetadata%3AMpeg2Settings%27"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:adaptiveQuantization:Mpeg2Settings' :: Maybe Mpeg2AdaptiveQuantization
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AadaptiveQuantization%3AMpeg2Settings%27"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:gopClosedCadence:Mpeg2Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopClosedCadence%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:colorSpace:Mpeg2Settings' :: Maybe Mpeg2ColorSpace
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorSpace%3AMpeg2Settings%27"><span class="hs-identifier hs-var">colorSpace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:framerateNumerator:Mpeg2Settings' :: Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateNumerator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925749"><span class="hs-identifier hs-var">pFramerateNumerator_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:framerateDenominator:Mpeg2Settings' :: Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925748"><span class="hs-identifier hs-var">pFramerateDenominator_</span></a></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- first).</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_scanType"><span class="hs-identifier hs-type">mpeg2Settings_scanType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ScanType.html#Mpeg2ScanType"><span class="hs-identifier hs-type">Mpeg2ScanType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="mpeg2Settings_scanType"><span class="annot"><span class="annottext">mpeg2Settings_scanType :: (Maybe Mpeg2ScanType -&gt; f (Maybe Mpeg2ScanType))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_scanType"><span class="hs-identifier hs-var hs-var">mpeg2Settings_scanType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2ScanType)
+-&gt; (Mpeg2Settings -&gt; Maybe Mpeg2ScanType -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2ScanType)
+     (Maybe Mpeg2ScanType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925744"><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+scanType :: Maybe Mpeg2ScanType
+$sel:scanType:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679925744"><span class="hs-identifier hs-var hs-var">scanType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679925744"><span class="hs-identifier hs-var">scanType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925743"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925742"><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679925742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanType:Mpeg2Settings' :: Maybe Mpeg2ScanType
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AscanType%3AMpeg2Settings%27"><span class="hs-identifier hs-var">scanType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679925742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | Determines how MediaLive inserts timecodes in the output video. For</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- detailed information about setting up the input and the output for a</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- timecode, see the section on \\\&quot;MediaLive Features - Timecode</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- configuration\\\&quot; in the MediaLive User Guide. DISABLED: do not include</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_timecodeInsertion"><span class="hs-identifier hs-type">mpeg2Settings_timecodeInsertion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2TimecodeInsertionBehavior.html#Mpeg2TimecodeInsertionBehavior"><span class="hs-identifier hs-type">Mpeg2TimecodeInsertionBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="mpeg2Settings_timecodeInsertion"><span class="annot"><span class="annottext">mpeg2Settings_timecodeInsertion :: (Maybe Mpeg2TimecodeInsertionBehavior
+ -&gt; f (Maybe Mpeg2TimecodeInsertionBehavior))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_timecodeInsertion"><span class="hs-identifier hs-var hs-var">mpeg2Settings_timecodeInsertion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2TimecodeInsertionBehavior)
+-&gt; (Mpeg2Settings
+    -&gt; Maybe Mpeg2TimecodeInsertionBehavior -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2TimecodeInsertionBehavior)
+     (Maybe Mpeg2TimecodeInsertionBehavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925740"><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+timecodeInsertion :: Maybe Mpeg2TimecodeInsertionBehavior
+$sel:timecodeInsertion:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679925740"><span class="hs-identifier hs-var hs-var">timecodeInsertion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679925740"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925739"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925738"><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679925738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeInsertion:Mpeg2Settings' :: Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AtimecodeInsertion%3AMpeg2Settings%27"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679925738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Indicates the AFD values that MediaLive will write into the video</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- encode. If you do not know what AFD signaling is, or if your downstream</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- system has not given you guidance, choose AUTO. AUTO: MediaLive will try</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- to preserve the input AFD value (in cases where multiple AFD values are</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- valid). FIXED: MediaLive will use the value you specify in fixedAFD.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_afdSignaling"><span class="hs-identifier hs-type">mpeg2Settings_afdSignaling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AfdSignaling.html#AfdSignaling"><span class="hs-identifier hs-type">AfdSignaling</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="mpeg2Settings_afdSignaling"><span class="annot"><span class="annottext">mpeg2Settings_afdSignaling :: (Maybe AfdSignaling -&gt; f (Maybe AfdSignaling))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_afdSignaling"><span class="hs-identifier hs-var hs-var">mpeg2Settings_afdSignaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe AfdSignaling)
+-&gt; (Mpeg2Settings -&gt; Maybe AfdSignaling -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe AfdSignaling)
+     (Maybe AfdSignaling)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925736"><span class="annot"><span class="annottext">Maybe AfdSignaling
+afdSignaling :: Maybe AfdSignaling
+$sel:afdSignaling:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe AfdSignaling
+</span><a href="#local-6989586621679925736"><span class="hs-identifier hs-var hs-var">afdSignaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
+</span><a href="#local-6989586621679925736"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925735"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925734"><span class="annot"><span class="annottext">Maybe AfdSignaling
+</span><a href="#local-6989586621679925734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afdSignaling:Mpeg2Settings' :: Maybe AfdSignaling
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AafdSignaling%3AMpeg2Settings%27"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
+</span><a href="#local-6989586621679925734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Relates to the GOP structure. The GOP size (keyframe interval) in the</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- units specified in gopSizeUnits. If you do not know what GOP is, use the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- default. If gopSizeUnits is frames, then the gopSize must be an integer</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- and must be greater than or equal to 1. If gopSizeUnits is seconds, the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- gopSize must be greater than 0, but does not need to be an integer.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopSize"><span class="hs-identifier hs-type">mpeg2Settings_gopSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="mpeg2Settings_gopSize"><span class="annot"><span class="annottext">mpeg2Settings_gopSize :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopSize"><span class="hs-identifier hs-var hs-var">mpeg2Settings_gopSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Double)
+-&gt; (Mpeg2Settings -&gt; Maybe Double -&gt; Mpeg2Settings)
+-&gt; Lens Mpeg2Settings Mpeg2Settings (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925732"><span class="annot"><span class="annottext">Maybe Double
+gopSize :: Maybe Double
+$sel:gopSize:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Double
+</span><a href="#local-6989586621679925732"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679925732"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925731"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925730"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679925730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSize:Mpeg2Settings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSize%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679925730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Relates to the GOP structure. Specifies whether the gopSize is specified</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- in frames or seconds. If you do not plan to change the default gopSize,</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- leave the default. If you specify SECONDS, MediaLive will internally</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- convert the gop size to a frame count.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopSizeUnits"><span class="hs-identifier hs-type">mpeg2Settings_gopSizeUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="mpeg2Settings_gopSizeUnits"><span class="annot"><span class="annottext">mpeg2Settings_gopSizeUnits :: (Maybe Mpeg2GopSizeUnits -&gt; f (Maybe Mpeg2GopSizeUnits))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopSizeUnits"><span class="hs-identifier hs-var hs-var">mpeg2Settings_gopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2GopSizeUnits)
+-&gt; (Mpeg2Settings -&gt; Maybe Mpeg2GopSizeUnits -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2GopSizeUnits)
+     (Maybe Mpeg2GopSizeUnits)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925728"><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+gopSizeUnits :: Maybe Mpeg2GopSizeUnits
+$sel:gopSizeUnits:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679925728"><span class="hs-identifier hs-var hs-var">gopSizeUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679925728"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925727"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925726"><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679925726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSizeUnits:Mpeg2Settings' :: Maybe Mpeg2GopSizeUnits
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSizeUnits%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679925726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Relates to the GOP structure. If you do not know what GOP is, use the</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- default. FIXED: Set the number of B-frames in each sub-GOP to the value</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- in each sub-GOP, to improve visual quality.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_subgopLength"><span class="hs-identifier hs-type">mpeg2Settings_subgopLength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength"><span class="hs-identifier hs-type">Mpeg2SubGopLength</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="mpeg2Settings_subgopLength"><span class="annot"><span class="annottext">mpeg2Settings_subgopLength :: (Maybe Mpeg2SubGopLength -&gt; f (Maybe Mpeg2SubGopLength))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_subgopLength"><span class="hs-identifier hs-var hs-var">mpeg2Settings_subgopLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2SubGopLength)
+-&gt; (Mpeg2Settings -&gt; Maybe Mpeg2SubGopLength -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2SubGopLength)
+     (Maybe Mpeg2SubGopLength)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925724"><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+subgopLength :: Maybe Mpeg2SubGopLength
+$sel:subgopLength:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679925724"><span class="hs-identifier hs-var hs-var">subgopLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679925724"><span class="hs-identifier hs-var">subgopLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925723"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925722"><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679925722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subgopLength:Mpeg2Settings' :: Maybe Mpeg2SubGopLength
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AsubgopLength%3AMpeg2Settings%27"><span class="hs-identifier hs-var">subgopLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679925722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | Sets the pixel aspect ratio for the encode.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_displayAspectRatio"><span class="hs-identifier hs-type">mpeg2Settings_displayAspectRatio</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2DisplayRatio.html#Mpeg2DisplayRatio"><span class="hs-identifier hs-type">Mpeg2DisplayRatio</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="mpeg2Settings_displayAspectRatio"><span class="annot"><span class="annottext">mpeg2Settings_displayAspectRatio :: (Maybe Mpeg2DisplayRatio -&gt; f (Maybe Mpeg2DisplayRatio))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_displayAspectRatio"><span class="hs-identifier hs-var hs-var">mpeg2Settings_displayAspectRatio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2DisplayRatio)
+-&gt; (Mpeg2Settings -&gt; Maybe Mpeg2DisplayRatio -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2DisplayRatio)
+     (Maybe Mpeg2DisplayRatio)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925720"><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+displayAspectRatio :: Maybe Mpeg2DisplayRatio
+$sel:displayAspectRatio:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679925720"><span class="hs-identifier hs-var hs-var">displayAspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679925720"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925719"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925718"><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679925718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayAspectRatio:Mpeg2Settings' :: Maybe Mpeg2DisplayRatio
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AdisplayAspectRatio%3AMpeg2Settings%27"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679925718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | Relates to the GOP structure. The number of B-frames between reference</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- frames. If you do not know what a B-frame is, use the default.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopNumBFrames"><span class="hs-identifier hs-type">mpeg2Settings_gopNumBFrames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="mpeg2Settings_gopNumBFrames"><span class="annot"><span class="annottext">mpeg2Settings_gopNumBFrames :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopNumBFrames"><span class="hs-identifier hs-var hs-var">mpeg2Settings_gopNumBFrames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Natural)
+-&gt; (Mpeg2Settings -&gt; Maybe Natural -&gt; Mpeg2Settings)
+-&gt; Lens Mpeg2Settings Mpeg2Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925716"><span class="annot"><span class="annottext">Maybe Natural
+gopNumBFrames :: Maybe Natural
+$sel:gopNumBFrames:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621679925716"><span class="hs-identifier hs-var hs-var">gopNumBFrames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925716"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925715"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925714"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopNumBFrames:Mpeg2Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopNumBFrames%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | Complete this field only when afdSignaling is set to FIXED. Enter the</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- AFD value (4 bits) to write on all frames of the video encode.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_fixedAfd"><span class="hs-identifier hs-type">mpeg2Settings_fixedAfd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.FixedAfd.html#FixedAfd"><span class="hs-identifier hs-type">FixedAfd</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="mpeg2Settings_fixedAfd"><span class="annot"><span class="annottext">mpeg2Settings_fixedAfd :: (Maybe FixedAfd -&gt; f (Maybe FixedAfd))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_fixedAfd"><span class="hs-identifier hs-var hs-var">mpeg2Settings_fixedAfd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe FixedAfd)
+-&gt; (Mpeg2Settings -&gt; Maybe FixedAfd -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings Mpeg2Settings (Maybe FixedAfd) (Maybe FixedAfd)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925712"><span class="annot"><span class="annottext">Maybe FixedAfd
+fixedAfd :: Maybe FixedAfd
+$sel:fixedAfd:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe FixedAfd
+</span><a href="#local-6989586621679925712"><span class="hs-identifier hs-var hs-var">fixedAfd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
+</span><a href="#local-6989586621679925712"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925711"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925710"><span class="annot"><span class="annottext">Maybe FixedAfd
+</span><a href="#local-6989586621679925710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedAfd:Mpeg2Settings' :: Maybe FixedAfd
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfixedAfd%3AMpeg2Settings%27"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
+</span><a href="#local-6989586621679925710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Optionally specify a noise reduction filter, which can improve quality</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- of compressed content. If you do not choose a filter, no filter will be</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- applied. TEMPORAL: This filter is useful for both source content that is</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- noisy (when it has excessive digital artifacts) and source content that</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- is clean. When the content is noisy, the filter cleans up the source</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- content before the encoding phase, with these two effects: First, it</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- improves the output video quality because the content has been cleaned</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- up. Secondly, it decreases the bandwidth because MediaLive does not</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- waste bits on encoding noise. When the content is reasonably clean, the</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- filter tends to decrease the bitrate.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_filterSettings"><span class="hs-identifier hs-type">mpeg2Settings_filterSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2FilterSettings.html#Mpeg2FilterSettings"><span class="hs-identifier hs-type">Mpeg2FilterSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span id="mpeg2Settings_filterSettings"><span class="annot"><span class="annottext">mpeg2Settings_filterSettings :: (Maybe Mpeg2FilterSettings -&gt; f (Maybe Mpeg2FilterSettings))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_filterSettings"><span class="hs-identifier hs-var hs-var">mpeg2Settings_filterSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2FilterSettings)
+-&gt; (Mpeg2Settings -&gt; Maybe Mpeg2FilterSettings -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2FilterSettings)
+     (Maybe Mpeg2FilterSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925708"><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+filterSettings :: Maybe Mpeg2FilterSettings
+$sel:filterSettings:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679925708"><span class="hs-identifier hs-var hs-var">filterSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679925708"><span class="hs-identifier hs-var">filterSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925707"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925706"><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679925706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterSettings:Mpeg2Settings' :: Maybe Mpeg2FilterSettings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfilterSettings%3AMpeg2Settings%27"><span class="hs-identifier hs-var">filterSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679925706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | Specifies whether to include the color space metadata. The metadata</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- describes the color space that applies to the video (the colorSpace</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- field). We recommend that you insert the metadata.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_colorMetadata"><span class="hs-identifier hs-type">mpeg2Settings_colorMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ColorMetadata.html#Mpeg2ColorMetadata"><span class="hs-identifier hs-type">Mpeg2ColorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="mpeg2Settings_colorMetadata"><span class="annot"><span class="annottext">mpeg2Settings_colorMetadata :: (Maybe Mpeg2ColorMetadata -&gt; f (Maybe Mpeg2ColorMetadata))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_colorMetadata"><span class="hs-identifier hs-var hs-var">mpeg2Settings_colorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2ColorMetadata)
+-&gt; (Mpeg2Settings -&gt; Maybe Mpeg2ColorMetadata -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2ColorMetadata)
+     (Maybe Mpeg2ColorMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925704"><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+colorMetadata :: Maybe Mpeg2ColorMetadata
+$sel:colorMetadata:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679925704"><span class="hs-identifier hs-var hs-var">colorMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679925704"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925703"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925702"><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679925702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorMetadata:Mpeg2Settings' :: Maybe Mpeg2ColorMetadata
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorMetadata%3AMpeg2Settings%27"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679925702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | Choose Off to disable adaptive quantization. Or choose another value to</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- enable the quantizer and set its strength. The strengths are: Auto, Off,</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- Low, Medium, High. When you enable this field, MediaLive allows</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- intra-frame quantizers to vary, which might improve visual quality.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_adaptiveQuantization"><span class="hs-identifier hs-type">mpeg2Settings_adaptiveQuantization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2AdaptiveQuantization.html#Mpeg2AdaptiveQuantization"><span class="hs-identifier hs-type">Mpeg2AdaptiveQuantization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span id="mpeg2Settings_adaptiveQuantization"><span class="annot"><span class="annottext">mpeg2Settings_adaptiveQuantization :: (Maybe Mpeg2AdaptiveQuantization
+ -&gt; f (Maybe Mpeg2AdaptiveQuantization))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_adaptiveQuantization"><span class="hs-identifier hs-var hs-var">mpeg2Settings_adaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2AdaptiveQuantization)
+-&gt; (Mpeg2Settings
+    -&gt; Maybe Mpeg2AdaptiveQuantization -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2AdaptiveQuantization)
+     (Maybe Mpeg2AdaptiveQuantization)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925700"><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+adaptiveQuantization :: Maybe Mpeg2AdaptiveQuantization
+$sel:adaptiveQuantization:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925700"><span class="hs-identifier hs-var hs-var">adaptiveQuantization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925700"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925699"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925698"><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adaptiveQuantization:Mpeg2Settings' :: Maybe Mpeg2AdaptiveQuantization
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AadaptiveQuantization%3AMpeg2Settings%27"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | MPEG2: default is open GOP.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopClosedCadence"><span class="hs-identifier hs-type">mpeg2Settings_gopClosedCadence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="mpeg2Settings_gopClosedCadence"><span class="annot"><span class="annottext">mpeg2Settings_gopClosedCadence :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopClosedCadence"><span class="hs-identifier hs-var hs-var">mpeg2Settings_gopClosedCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Natural)
+-&gt; (Mpeg2Settings -&gt; Maybe Natural -&gt; Mpeg2Settings)
+-&gt; Lens Mpeg2Settings Mpeg2Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925696"><span class="annot"><span class="annottext">Maybe Natural
+gopClosedCadence :: Maybe Natural
+$sel:gopClosedCadence:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621679925696"><span class="hs-identifier hs-var hs-var">gopClosedCadence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925696"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925695"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925694"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopClosedCadence:Mpeg2Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopClosedCadence%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | Choose the type of color space conversion to apply to the output. For</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- detailed information on setting up both the input and the output to</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- obtain the desired color space in the output, see the section on</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- \\\&quot;MediaLive Features - Video - color space\\\&quot; in the MediaLive User</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- Guide. PASSTHROUGH: Keep the color space of the input content - do not</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- convert it. AUTO:Convert all content that is SD to rec 601, and convert</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- all content that is HD to rec 709.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_colorSpace"><span class="hs-identifier hs-type">mpeg2Settings_colorSpace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2ColorSpace.html#Mpeg2ColorSpace"><span class="hs-identifier hs-type">Mpeg2ColorSpace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span id="mpeg2Settings_colorSpace"><span class="annot"><span class="annottext">mpeg2Settings_colorSpace :: (Maybe Mpeg2ColorSpace -&gt; f (Maybe Mpeg2ColorSpace))
+-&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_colorSpace"><span class="hs-identifier hs-var hs-var">mpeg2Settings_colorSpace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Maybe Mpeg2ColorSpace)
+-&gt; (Mpeg2Settings -&gt; Maybe Mpeg2ColorSpace -&gt; Mpeg2Settings)
+-&gt; Lens
+     Mpeg2Settings
+     Mpeg2Settings
+     (Maybe Mpeg2ColorSpace)
+     (Maybe Mpeg2ColorSpace)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925692"><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+colorSpace :: Maybe Mpeg2ColorSpace
+$sel:colorSpace:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925692"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925692"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925691"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925690"><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:Mpeg2Settings' :: Maybe Mpeg2ColorSpace
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorSpace%3AMpeg2Settings%27"><span class="hs-identifier hs-var">colorSpace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | The framerate numerator. For example, 24000. The framerate is the</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- numerator divided by the denominator. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- 23.976 FPS.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_framerateNumerator"><span class="hs-identifier hs-type">mpeg2Settings_framerateNumerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-334"></span><span id="mpeg2Settings_framerateNumerator"><span class="annot"><span class="annottext">mpeg2Settings_framerateNumerator :: (Natural -&gt; f Natural) -&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_framerateNumerator"><span class="hs-identifier hs-var hs-var">mpeg2Settings_framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Natural)
+-&gt; (Mpeg2Settings -&gt; Natural -&gt; Mpeg2Settings)
+-&gt; Lens Mpeg2Settings Mpeg2Settings Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925688"><span class="annot"><span class="annottext">Natural
+framerateNumerator :: Natural
+$sel:framerateNumerator:Mpeg2Settings' :: Mpeg2Settings -&gt; Natural
+</span><a href="#local-6989586621679925688"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925688"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925687"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925686"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Mpeg2Settings' :: Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateNumerator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- | description\&quot;: \&quot;The framerate denominator. For example, 1001. The</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- framerate is the numerator divided by the denominator. For example,</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- 24000 \/ 1001 = 23.976 FPS.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_framerateDenominator"><span class="hs-identifier hs-type">mpeg2Settings_framerateDenominator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-340"></span><span id="mpeg2Settings_framerateDenominator"><span class="annot"><span class="annottext">mpeg2Settings_framerateDenominator :: (Natural -&gt; f Natural) -&gt; Mpeg2Settings -&gt; f Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_framerateDenominator"><span class="hs-identifier hs-var hs-var">mpeg2Settings_framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mpeg2Settings -&gt; Natural)
+-&gt; (Mpeg2Settings -&gt; Natural -&gt; Mpeg2Settings)
+-&gt; Lens Mpeg2Settings Mpeg2Settings Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925684"><span class="annot"><span class="annottext">Natural
+framerateDenominator :: Natural
+$sel:framerateDenominator:Mpeg2Settings' :: Mpeg2Settings -&gt; Natural
+</span><a href="#local-6989586621679925684"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925684"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925683"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925682"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Mpeg2Settings' :: Natural
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925679"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-343"></span><span>  </span><span id="local-6989586621679925677"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mpeg2Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Mpeg2Settings)
+-&gt; Value
+-&gt; Parser Mpeg2Settings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-345"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Mpeg2Settings&quot;</span></span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679925674"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-347"></span><span>          </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+-&gt; Maybe Mpeg2TimecodeInsertionBehavior
+-&gt; Maybe AfdSignaling
+-&gt; Maybe Double
+-&gt; Maybe Mpeg2GopSizeUnits
+-&gt; Maybe Mpeg2SubGopLength
+-&gt; Maybe Mpeg2DisplayRatio
+-&gt; Maybe Natural
+-&gt; Maybe FixedAfd
+-&gt; Maybe Mpeg2FilterSettings
+-&gt; Maybe Mpeg2ColorMetadata
+-&gt; Maybe Mpeg2AdaptiveQuantization
+-&gt; Maybe Natural
+-&gt; Maybe Mpeg2ColorSpace
+-&gt; Natural
+-&gt; Natural
+-&gt; Mpeg2Settings
+</span><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-var">Mpeg2Settings'</span></a></span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Mpeg2ScanType
+ -&gt; Maybe Mpeg2TimecodeInsertionBehavior
+ -&gt; Maybe AfdSignaling
+ -&gt; Maybe Double
+ -&gt; Maybe Mpeg2GopSizeUnits
+ -&gt; Maybe Mpeg2SubGopLength
+ -&gt; Maybe Mpeg2DisplayRatio
+ -&gt; Maybe Natural
+ -&gt; Maybe FixedAfd
+ -&gt; Maybe Mpeg2FilterSettings
+ -&gt; Maybe Mpeg2ColorMetadata
+ -&gt; Maybe Mpeg2AdaptiveQuantization
+ -&gt; Maybe Natural
+ -&gt; Maybe Mpeg2ColorSpace
+ -&gt; Natural
+ -&gt; Natural
+ -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2ScanType)
+-&gt; Parser
+     (Maybe Mpeg2TimecodeInsertionBehavior
+      -&gt; Maybe AfdSignaling
+      -&gt; Maybe Double
+      -&gt; Maybe Mpeg2GopSizeUnits
+      -&gt; Maybe Mpeg2SubGopLength
+      -&gt; Maybe Mpeg2DisplayRatio
+      -&gt; Maybe Natural
+      -&gt; Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ScanType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scanType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2TimecodeInsertionBehavior
+   -&gt; Maybe AfdSignaling
+   -&gt; Maybe Double
+   -&gt; Maybe Mpeg2GopSizeUnits
+   -&gt; Maybe Mpeg2SubGopLength
+   -&gt; Maybe Mpeg2DisplayRatio
+   -&gt; Maybe Natural
+   -&gt; Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2TimecodeInsertionBehavior)
+-&gt; Parser
+     (Maybe AfdSignaling
+      -&gt; Maybe Double
+      -&gt; Maybe Mpeg2GopSizeUnits
+      -&gt; Maybe Mpeg2SubGopLength
+      -&gt; Maybe Mpeg2DisplayRatio
+      -&gt; Maybe Natural
+      -&gt; Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2TimecodeInsertionBehavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeInsertion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AfdSignaling
+   -&gt; Maybe Double
+   -&gt; Maybe Mpeg2GopSizeUnits
+   -&gt; Maybe Mpeg2SubGopLength
+   -&gt; Maybe Mpeg2DisplayRatio
+   -&gt; Maybe Natural
+   -&gt; Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe AfdSignaling)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Mpeg2GopSizeUnits
+      -&gt; Maybe Mpeg2SubGopLength
+      -&gt; Maybe Mpeg2DisplayRatio
+      -&gt; Maybe Natural
+      -&gt; Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AfdSignaling)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;afdSignaling&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Mpeg2GopSizeUnits
+   -&gt; Maybe Mpeg2SubGopLength
+   -&gt; Maybe Mpeg2DisplayRatio
+   -&gt; Maybe Natural
+   -&gt; Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Mpeg2GopSizeUnits
+      -&gt; Maybe Mpeg2SubGopLength
+      -&gt; Maybe Mpeg2DisplayRatio
+      -&gt; Maybe Natural
+      -&gt; Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2GopSizeUnits
+   -&gt; Maybe Mpeg2SubGopLength
+   -&gt; Maybe Mpeg2DisplayRatio
+   -&gt; Maybe Natural
+   -&gt; Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2GopSizeUnits)
+-&gt; Parser
+     (Maybe Mpeg2SubGopLength
+      -&gt; Maybe Mpeg2DisplayRatio
+      -&gt; Maybe Natural
+      -&gt; Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2GopSizeUnits)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopSizeUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2SubGopLength
+   -&gt; Maybe Mpeg2DisplayRatio
+   -&gt; Maybe Natural
+   -&gt; Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2SubGopLength)
+-&gt; Parser
+     (Maybe Mpeg2DisplayRatio
+      -&gt; Maybe Natural
+      -&gt; Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2SubGopLength)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subgopLength&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2DisplayRatio
+   -&gt; Maybe Natural
+   -&gt; Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2DisplayRatio)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2DisplayRatio)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayAspectRatio&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe FixedAfd
+      -&gt; Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopNumBFrames&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FixedAfd
+   -&gt; Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe FixedAfd)
+-&gt; Parser
+     (Maybe Mpeg2FilterSettings
+      -&gt; Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FixedAfd)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fixedAfd&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2FilterSettings
+   -&gt; Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2FilterSettings)
+-&gt; Parser
+     (Maybe Mpeg2ColorMetadata
+      -&gt; Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2FilterSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2ColorMetadata
+   -&gt; Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2ColorMetadata)
+-&gt; Parser
+     (Maybe Mpeg2AdaptiveQuantization
+      -&gt; Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ColorMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2AdaptiveQuantization
+   -&gt; Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2AdaptiveQuantization)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Mpeg2ColorSpace -&gt; Natural -&gt; Natural -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2AdaptiveQuantization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adaptiveQuantization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Mpeg2ColorSpace -&gt; Natural -&gt; Natural -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Mpeg2ColorSpace -&gt; Natural -&gt; Natural -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopClosedCadence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mpeg2ColorSpace -&gt; Natural -&gt; Natural -&gt; Mpeg2Settings)
+-&gt; Parser (Maybe Mpeg2ColorSpace)
+-&gt; Parser (Natural -&gt; Natural -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ColorSpace)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; Natural -&gt; Mpeg2Settings)
+-&gt; Parser Natural -&gt; Parser (Natural -&gt; Mpeg2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; Mpeg2Settings)
+-&gt; Parser Natural -&gt; Parser Mpeg2Settings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925667"><span id="local-6989586621679925669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span></span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925656"><span id="local-6989586621679925658"><span id="local-6989586621679925660"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-371"></span><span>  </span><span id="local-6989586621679925654"><span class="annot"><span class="annottext">toJSON :: Mpeg2Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925637"><span id="local-6989586621679925638"><span id="local-6989586621679925639"><span id="local-6989586621679925640"><span id="local-6989586621679925641"><span id="local-6989586621679925642"><span id="local-6989586621679925643"><span id="local-6989586621679925644"><span id="local-6989586621679925645"><span id="local-6989586621679925646"><span id="local-6989586621679925647"><span id="local-6989586621679925648"><span id="local-6989586621679925649"><span id="local-6989586621679925650"><span id="local-6989586621679925651"><span id="local-6989586621679925652"><span class="annot"><span class="annottext">Natural
+Maybe Double
+Maybe Natural
+Maybe AfdSignaling
+Maybe FixedAfd
+Maybe Mpeg2AdaptiveQuantization
+Maybe Mpeg2ColorMetadata
+Maybe Mpeg2ColorSpace
+Maybe Mpeg2DisplayRatio
+Maybe Mpeg2GopSizeUnits
+Maybe Mpeg2ScanType
+Maybe Mpeg2SubGopLength
+Maybe Mpeg2TimecodeInsertionBehavior
+Maybe Mpeg2FilterSettings
+framerateDenominator :: Natural
+framerateNumerator :: Natural
+colorSpace :: Maybe Mpeg2ColorSpace
+gopClosedCadence :: Maybe Natural
+adaptiveQuantization :: Maybe Mpeg2AdaptiveQuantization
+colorMetadata :: Maybe Mpeg2ColorMetadata
+filterSettings :: Maybe Mpeg2FilterSettings
+fixedAfd :: Maybe FixedAfd
+gopNumBFrames :: Maybe Natural
+displayAspectRatio :: Maybe Mpeg2DisplayRatio
+subgopLength :: Maybe Mpeg2SubGopLength
+gopSizeUnits :: Maybe Mpeg2GopSizeUnits
+gopSize :: Maybe Double
+afdSignaling :: Maybe AfdSignaling
+timecodeInsertion :: Maybe Mpeg2TimecodeInsertionBehavior
+scanType :: Maybe Mpeg2ScanType
+$sel:framerateDenominator:Mpeg2Settings' :: Mpeg2Settings -&gt; Natural
+$sel:framerateNumerator:Mpeg2Settings' :: Mpeg2Settings -&gt; Natural
+$sel:colorSpace:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorSpace
+$sel:gopClosedCadence:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
+$sel:adaptiveQuantization:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2AdaptiveQuantization
+$sel:colorMetadata:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorMetadata
+$sel:filterSettings:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2FilterSettings
+$sel:fixedAfd:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe FixedAfd
+$sel:gopNumBFrames:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
+$sel:displayAspectRatio:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2DisplayRatio
+$sel:subgopLength:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2SubGopLength
+$sel:gopSizeUnits:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2GopSizeUnits
+$sel:gopSize:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Double
+$sel:afdSignaling:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe AfdSignaling
+$sel:timecodeInsertion:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2TimecodeInsertionBehavior
+$sel:scanType:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679925637"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-372"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-373"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-374"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scanType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2ScanType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mpeg2ScanType -&gt; Pair) -&gt; Maybe Mpeg2ScanType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679925652"><span class="hs-identifier hs-var">scanType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecodeInsertion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2TimecodeInsertionBehavior -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">(Mpeg2TimecodeInsertionBehavior -&gt; Pair)
+-&gt; Maybe Mpeg2TimecodeInsertionBehavior -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679925651"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;afdSignaling&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AfdSignaling -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AfdSignaling -&gt; Pair) -&gt; Maybe AfdSignaling -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
+</span><a href="#local-6989586621679925650"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679925649"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopSizeUnits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2GopSizeUnits -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mpeg2GopSizeUnits -&gt; Pair)
+-&gt; Maybe Mpeg2GopSizeUnits -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679925648"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subgopLength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2SubGopLength -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mpeg2SubGopLength -&gt; Pair)
+-&gt; Maybe Mpeg2SubGopLength -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679925647"><span class="hs-identifier hs-var">subgopLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayAspectRatio&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2DisplayRatio -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>              </span><span class="annot"><span class="annottext">(Mpeg2DisplayRatio -&gt; Pair)
+-&gt; Maybe Mpeg2DisplayRatio -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679925646"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopNumBFrames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925645"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fixedAfd&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FixedAfd -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FixedAfd -&gt; Pair) -&gt; Maybe FixedAfd -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
+</span><a href="#local-6989586621679925644"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2FilterSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>              </span><span class="annot"><span class="annottext">(Mpeg2FilterSettings -&gt; Pair)
+-&gt; Maybe Mpeg2FilterSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679925643"><span class="hs-identifier hs-var">filterSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2ColorMetadata -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mpeg2ColorMetadata -&gt; Pair)
+-&gt; Maybe Mpeg2ColorMetadata -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679925642"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adaptiveQuantization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2AdaptiveQuantization -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>              </span><span class="annot"><span class="annottext">(Mpeg2AdaptiveQuantization -&gt; Pair)
+-&gt; Maybe Mpeg2AdaptiveQuantization -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925641"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopClosedCadence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925640"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2ColorSpace -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mpeg2ColorSpace -&gt; Pair) -&gt; Maybe Mpeg2ColorSpace -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925639"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-394"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925638"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-396"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span>
+</span><span id="line-397"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925637"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span>
+</span><span id="line-398"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-400"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span></pre></body></html>

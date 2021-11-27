@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.CreateWirelessGateway</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provisions a wireless gateway.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.CreateWirelessGateway</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier">CreateWirelessGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#newCreateWirelessGateway"><span class="hs-identifier">newCreateWirelessGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_name"><span class="hs-identifier">createWirelessGateway_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_clientRequestToken"><span class="hs-identifier">createWirelessGateway_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_description"><span class="hs-identifier">createWirelessGateway_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_tags"><span class="hs-identifier">createWirelessGateway_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_loRaWAN"><span class="hs-identifier">createWirelessGateway_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier">CreateWirelessGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#newCreateWirelessGatewayResponse"><span class="hs-identifier">newCreateWirelessGatewayResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_arn"><span class="hs-identifier">createWirelessGatewayResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_id"><span class="hs-identifier">createWirelessGatewayResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_httpStatus"><span class="hs-identifier">createWirelessGatewayResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.html"><span class="hs-identifier">Amazonka.IoTWireless.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateWirelessGateway' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679290178"><span id="local-6989586621679290179"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWirelessGateway"><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-var">CreateWirelessGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWirelessGateway%27"><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-var">CreateWirelessGateway'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the new resource.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3ACreateWirelessGateway%27"><span class="annot"><span class="annottext">CreateWirelessGateway -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aname%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Each resource must have a unique client request token. If you try to</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- create a new resource with the same token as a resource that already</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- exists, an exception occurs. If you omit this value, AWS SDKs will</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- automatically generate a unique client request.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateWirelessGateway%27"><span class="annot"><span class="annottext">CreateWirelessGateway -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AclientRequestToken%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The description of the new resource.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Adescription%3ACreateWirelessGateway%27"><span class="annot"><span class="annottext">CreateWirelessGateway -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Adescription%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The tags to attach to the new wireless gateway. Tags are metadata that</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- you can use to manage a resource.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Atags%3ACreateWirelessGateway%27"><span class="annot"><span class="annottext">CreateWirelessGateway -&gt; Maybe [Tag]
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Atags%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The gateway configuration information to use to create the wireless</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AloRaWAN%3ACreateWirelessGateway%27"><span class="annot"><span class="annottext">CreateWirelessGateway -&gt; LoRaWANGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AloRaWAN%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGateway.html#LoRaWANGateway"><span class="hs-identifier hs-type">LoRaWANGateway</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290168"><span id="local-6989586621679290170"><span class="annot"><span class="annottext">CreateWirelessGateway -&gt; CreateWirelessGateway -&gt; Bool
+(CreateWirelessGateway -&gt; CreateWirelessGateway -&gt; Bool)
+-&gt; (CreateWirelessGateway -&gt; CreateWirelessGateway -&gt; Bool)
+-&gt; Eq CreateWirelessGateway
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWirelessGateway -&gt; CreateWirelessGateway -&gt; Bool
+$c/= :: CreateWirelessGateway -&gt; CreateWirelessGateway -&gt; Bool
+== :: CreateWirelessGateway -&gt; CreateWirelessGateway -&gt; Bool
+$c== :: CreateWirelessGateway -&gt; CreateWirelessGateway -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290159"><span id="local-6989586621679290161"><span id="local-6989586621679290163"><span id="local-6989586621679290165"><span class="annot"><span class="annottext">ReadPrec [CreateWirelessGateway]
+ReadPrec CreateWirelessGateway
+Int -&gt; ReadS CreateWirelessGateway
+ReadS [CreateWirelessGateway]
+(Int -&gt; ReadS CreateWirelessGateway)
+-&gt; ReadS [CreateWirelessGateway]
+-&gt; ReadPrec CreateWirelessGateway
+-&gt; ReadPrec [CreateWirelessGateway]
+-&gt; Read CreateWirelessGateway
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWirelessGateway]
+$creadListPrec :: ReadPrec [CreateWirelessGateway]
+readPrec :: ReadPrec CreateWirelessGateway
+$creadPrec :: ReadPrec CreateWirelessGateway
+readList :: ReadS [CreateWirelessGateway]
+$creadList :: ReadS [CreateWirelessGateway]
+readsPrec :: Int -&gt; ReadS CreateWirelessGateway
+$creadsPrec :: Int -&gt; ReadS CreateWirelessGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290152"><span id="local-6989586621679290154"><span id="local-6989586621679290156"><span class="annot"><span class="annottext">Int -&gt; CreateWirelessGateway -&gt; ShowS
+[CreateWirelessGateway] -&gt; ShowS
+CreateWirelessGateway -&gt; String
+(Int -&gt; CreateWirelessGateway -&gt; ShowS)
+-&gt; (CreateWirelessGateway -&gt; String)
+-&gt; ([CreateWirelessGateway] -&gt; ShowS)
+-&gt; Show CreateWirelessGateway
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWirelessGateway] -&gt; ShowS
+$cshowList :: [CreateWirelessGateway] -&gt; ShowS
+show :: CreateWirelessGateway -&gt; String
+$cshow :: CreateWirelessGateway -&gt; String
+showsPrec :: Int -&gt; CreateWirelessGateway -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWirelessGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateWirelessGateway -&gt; Rep CreateWirelessGateway x)
+-&gt; (forall x. Rep CreateWirelessGateway x -&gt; CreateWirelessGateway)
+-&gt; Generic CreateWirelessGateway
+forall x. Rep CreateWirelessGateway x -&gt; CreateWirelessGateway
+forall x. CreateWirelessGateway -&gt; Rep CreateWirelessGateway x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWirelessGateway x -&gt; CreateWirelessGateway
+$cfrom :: forall x. CreateWirelessGateway -&gt; Rep CreateWirelessGateway x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'CreateWirelessGateway' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'name', 'createWirelessGateway_name' - The name of the new resource.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'clientRequestToken', 'createWirelessGateway_clientRequestToken' - Each resource must have a unique client request token. If you try to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- create a new resource with the same token as a resource that already</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- exists, an exception occurs. If you omit this value, AWS SDKs will</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- automatically generate a unique client request.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'description', 'createWirelessGateway_description' - The description of the new resource.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'tags', 'createWirelessGateway_tags' - The tags to attach to the new wireless gateway. Tags are metadata that</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- you can use to manage a resource.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'loRaWAN', 'createWirelessGateway_loRaWAN' - The gateway configuration information to use to create the wireless</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#newCreateWirelessGateway"><span class="hs-identifier hs-type">newCreateWirelessGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'loRaWAN'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGateway.html#LoRaWANGateway"><span class="hs-identifier hs-type">LoRaWANGateway</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span>
+</span><span id="line-100"></span><span id="newCreateWirelessGateway"><span class="annot"><span class="annottext">newCreateWirelessGateway :: LoRaWANGateway -&gt; CreateWirelessGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#newCreateWirelessGateway"><span class="hs-identifier hs-var hs-var">newCreateWirelessGateway</span></a></span></span><span> </span><span id="local-6989586621679290147"><span class="annot"><span class="annottext">LoRaWANGateway
+</span><a href="#local-6989586621679290147"><span class="hs-identifier hs-var">pLoRaWAN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">CreateWirelessGateway' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; LoRaWANGateway
+-&gt; CreateWirelessGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateWirelessGateway' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aname%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateWirelessGateway' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AclientRequestToken%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateWirelessGateway' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Adescription%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateWirelessGateway' :: Maybe [Tag]
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Atags%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:loRaWAN:CreateWirelessGateway' :: LoRaWANGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AloRaWAN%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LoRaWANGateway
+</span><a href="#local-6989586621679290147"><span class="hs-identifier hs-var">pLoRaWAN_</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the new resource.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_name"><span class="hs-identifier hs-type">createWirelessGateway_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="createWirelessGateway_name"><span class="annot"><span class="annottext">createWirelessGateway_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWirelessGateway -&gt; f CreateWirelessGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_name"><span class="hs-identifier hs-var hs-var">createWirelessGateway_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGateway -&gt; Maybe Text)
+-&gt; (CreateWirelessGateway -&gt; Maybe Text -&gt; CreateWirelessGateway)
+-&gt; Lens
+     CreateWirelessGateway
+     CreateWirelessGateway
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290144"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe Text
+</span><a href="#local-6989586621679290144"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290144"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290143"><span class="annot"><span class="annottext">s :: CreateWirelessGateway
+</span><a href="#local-6989586621679290143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGateway
+</span><a href="#local-6989586621679290143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateWirelessGateway' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aname%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Each resource must have a unique client request token. If you try to</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- create a new resource with the same token as a resource that already</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- exists, an exception occurs. If you omit this value, AWS SDKs will</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- automatically generate a unique client request.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_clientRequestToken"><span class="hs-identifier hs-type">createWirelessGateway_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="createWirelessGateway_clientRequestToken"><span class="annot"><span class="annottext">createWirelessGateway_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWirelessGateway -&gt; f CreateWirelessGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_clientRequestToken"><span class="hs-identifier hs-var hs-var">createWirelessGateway_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGateway -&gt; Maybe Text)
+-&gt; (CreateWirelessGateway -&gt; Maybe Text -&gt; CreateWirelessGateway)
+-&gt; Lens
+     CreateWirelessGateway
+     CreateWirelessGateway
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290141"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe Text
+</span><a href="#local-6989586621679290141"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290141"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290140"><span class="annot"><span class="annottext">s :: CreateWirelessGateway
+</span><a href="#local-6989586621679290140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGateway
+</span><a href="#local-6989586621679290140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateWirelessGateway' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AclientRequestToken%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The description of the new resource.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_description"><span class="hs-identifier hs-type">createWirelessGateway_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="createWirelessGateway_description"><span class="annot"><span class="annottext">createWirelessGateway_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWirelessGateway -&gt; f CreateWirelessGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_description"><span class="hs-identifier hs-var hs-var">createWirelessGateway_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGateway -&gt; Maybe Text)
+-&gt; (CreateWirelessGateway -&gt; Maybe Text -&gt; CreateWirelessGateway)
+-&gt; Lens
+     CreateWirelessGateway
+     CreateWirelessGateway
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290138"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe Text
+</span><a href="#local-6989586621679290138"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290138"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290137"><span class="annot"><span class="annottext">s :: CreateWirelessGateway
+</span><a href="#local-6989586621679290137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGateway
+</span><a href="#local-6989586621679290137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateWirelessGateway' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Adescription%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The tags to attach to the new wireless gateway. Tags are metadata that</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- you can use to manage a resource.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_tags"><span class="hs-identifier hs-type">createWirelessGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="createWirelessGateway_tags"><span class="annot"><span class="annottext">createWirelessGateway_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateWirelessGateway -&gt; f CreateWirelessGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_tags"><span class="hs-identifier hs-var hs-var">createWirelessGateway_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGateway -&gt; Maybe [Tag])
+-&gt; (CreateWirelessGateway -&gt; Maybe [Tag] -&gt; CreateWirelessGateway)
+-&gt; Lens
+     CreateWirelessGateway
+     CreateWirelessGateway
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290135"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679290135"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679290135"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290134"><span class="annot"><span class="annottext">s :: CreateWirelessGateway
+</span><a href="#local-6989586621679290134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290133"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679290133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGateway
+</span><a href="#local-6989586621679290134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWirelessGateway' :: Maybe [Tag]
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Atags%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679290133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateWirelessGateway -&gt; f CreateWirelessGateway)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateWirelessGateway
+-&gt; f CreateWirelessGateway
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The gateway configuration information to use to create the wireless</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_loRaWAN"><span class="hs-identifier hs-type">createWirelessGateway_loRaWAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGateway.html#LoRaWANGateway"><span class="hs-identifier hs-type">LoRaWANGateway</span></a></span><span>
+</span><span id="line-132"></span><span id="createWirelessGateway_loRaWAN"><span class="annot"><span class="annottext">createWirelessGateway_loRaWAN :: (LoRaWANGateway -&gt; f LoRaWANGateway)
+-&gt; CreateWirelessGateway -&gt; f CreateWirelessGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGateway_loRaWAN"><span class="hs-identifier hs-var hs-var">createWirelessGateway_loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGateway -&gt; LoRaWANGateway)
+-&gt; (CreateWirelessGateway
+    -&gt; LoRaWANGateway -&gt; CreateWirelessGateway)
+-&gt; Lens
+     CreateWirelessGateway
+     CreateWirelessGateway
+     LoRaWANGateway
+     LoRaWANGateway
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290129"><span class="annot"><span class="annottext">LoRaWANGateway
+loRaWAN :: LoRaWANGateway
+$sel:loRaWAN:CreateWirelessGateway' :: CreateWirelessGateway -&gt; LoRaWANGateway
+</span><a href="#local-6989586621679290129"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGateway
+</span><a href="#local-6989586621679290129"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290128"><span class="annot"><span class="annottext">s :: CreateWirelessGateway
+</span><a href="#local-6989586621679290128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290127"><span class="annot"><span class="annottext">LoRaWANGateway
+</span><a href="#local-6989586621679290127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGateway
+</span><a href="#local-6989586621679290128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loRaWAN:CreateWirelessGateway' :: LoRaWANGateway
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AloRaWAN%3ACreateWirelessGateway%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LoRaWANGateway
+</span><a href="#local-6989586621679290127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679290123"><span class="annot"><span class="annottext">request :: CreateWirelessGateway -&gt; Request CreateWirelessGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWirelessGateway -&gt; Request CreateWirelessGateway
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679290119"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateWirelessGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateWirelessGateway)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateWirelessGateway))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateWirelessGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateWirelessGateway)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290116"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290116"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290115"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679290115"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290114"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290114"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateWirelessGatewayResponse
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">CreateWirelessGatewayResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateWirelessGatewayResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateWirelessGatewayResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateWirelessGatewayResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateWirelessGatewayResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateWirelessGatewayResponse)
+-&gt; Either String Int -&gt; Either String CreateWirelessGatewayResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290116"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290106"><span id="local-6989586621679290108"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679290099"><span class="annot"><span class="annottext">toHeaders :: CreateWirelessGateway -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWirelessGateway -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290090"><span id="local-6989586621679290092"><span id="local-6989586621679290094"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679290088"><span class="annot"><span class="annottext">toJSON :: CreateWirelessGateway -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway%27"><span class="hs-identifier hs-type">CreateWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290082"><span id="local-6989586621679290083"><span id="local-6989586621679290084"><span id="local-6989586621679290085"><span id="local-6989586621679290086"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+LoRaWANGateway
+loRaWAN :: LoRaWANGateway
+tags :: Maybe [Tag]
+description :: Maybe Text
+clientRequestToken :: Maybe Text
+name :: Maybe Text
+$sel:loRaWAN:CreateWirelessGateway' :: CreateWirelessGateway -&gt; LoRaWANGateway
+$sel:tags:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe [Tag]
+$sel:description:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe Text
+$sel:clientRequestToken:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe Text
+$sel:name:CreateWirelessGateway' :: CreateWirelessGateway -&gt; Maybe Text
+</span><a href="#local-6989586621679290082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290086"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290085"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290084"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679290083"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoRaWAN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LoRaWANGateway -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LoRaWANGateway
+</span><a href="#local-6989586621679290082"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679290076"><span class="annot"><span class="annottext">toPath :: CreateWirelessGateway -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWirelessGateway -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/wireless-gateways&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGateway"><span class="hs-identifier hs-type">CreateWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679290072"><span class="annot"><span class="annottext">toQuery :: CreateWirelessGateway -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWirelessGateway -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newCreateWirelessGatewayResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679290069"><span id="local-6989586621679290070"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWirelessGatewayResponse"><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-var">CreateWirelessGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWirelessGatewayResponse%27"><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">CreateWirelessGatewayResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name of the new resource.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3Aarn%3ACreateWirelessGatewayResponse%27"><span class="annot"><span class="annottext">CreateWirelessGatewayResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aarn%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The ID of the new wireless gateway.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3Aid%3ACreateWirelessGatewayResponse%27"><span class="annot"><span class="annottext">CreateWirelessGatewayResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aid%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWirelessGatewayResponse%27"><span class="annot"><span class="annottext">CreateWirelessGatewayResponse -&gt; Int
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AhttpStatus%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290062"><span id="local-6989586621679290064"><span class="annot"><span class="annottext">CreateWirelessGatewayResponse
+-&gt; CreateWirelessGatewayResponse -&gt; Bool
+(CreateWirelessGatewayResponse
+ -&gt; CreateWirelessGatewayResponse -&gt; Bool)
+-&gt; (CreateWirelessGatewayResponse
+    -&gt; CreateWirelessGatewayResponse -&gt; Bool)
+-&gt; Eq CreateWirelessGatewayResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWirelessGatewayResponse
+-&gt; CreateWirelessGatewayResponse -&gt; Bool
+$c/= :: CreateWirelessGatewayResponse
+-&gt; CreateWirelessGatewayResponse -&gt; Bool
+== :: CreateWirelessGatewayResponse
+-&gt; CreateWirelessGatewayResponse -&gt; Bool
+$c== :: CreateWirelessGatewayResponse
+-&gt; CreateWirelessGatewayResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290054"><span id="local-6989586621679290056"><span id="local-6989586621679290058"><span id="local-6989586621679290060"><span class="annot"><span class="annottext">ReadPrec [CreateWirelessGatewayResponse]
+ReadPrec CreateWirelessGatewayResponse
+Int -&gt; ReadS CreateWirelessGatewayResponse
+ReadS [CreateWirelessGatewayResponse]
+(Int -&gt; ReadS CreateWirelessGatewayResponse)
+-&gt; ReadS [CreateWirelessGatewayResponse]
+-&gt; ReadPrec CreateWirelessGatewayResponse
+-&gt; ReadPrec [CreateWirelessGatewayResponse]
+-&gt; Read CreateWirelessGatewayResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWirelessGatewayResponse]
+$creadListPrec :: ReadPrec [CreateWirelessGatewayResponse]
+readPrec :: ReadPrec CreateWirelessGatewayResponse
+$creadPrec :: ReadPrec CreateWirelessGatewayResponse
+readList :: ReadS [CreateWirelessGatewayResponse]
+$creadList :: ReadS [CreateWirelessGatewayResponse]
+readsPrec :: Int -&gt; ReadS CreateWirelessGatewayResponse
+$creadsPrec :: Int -&gt; ReadS CreateWirelessGatewayResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290048"><span id="local-6989586621679290050"><span id="local-6989586621679290052"><span class="annot"><span class="annottext">Int -&gt; CreateWirelessGatewayResponse -&gt; ShowS
+[CreateWirelessGatewayResponse] -&gt; ShowS
+CreateWirelessGatewayResponse -&gt; String
+(Int -&gt; CreateWirelessGatewayResponse -&gt; ShowS)
+-&gt; (CreateWirelessGatewayResponse -&gt; String)
+-&gt; ([CreateWirelessGatewayResponse] -&gt; ShowS)
+-&gt; Show CreateWirelessGatewayResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWirelessGatewayResponse] -&gt; ShowS
+$cshowList :: [CreateWirelessGatewayResponse] -&gt; ShowS
+show :: CreateWirelessGatewayResponse -&gt; String
+$cshow :: CreateWirelessGatewayResponse -&gt; String
+showsPrec :: Int -&gt; CreateWirelessGatewayResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWirelessGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateWirelessGatewayResponse
+ -&gt; Rep CreateWirelessGatewayResponse x)
+-&gt; (forall x.
+    Rep CreateWirelessGatewayResponse x
+    -&gt; CreateWirelessGatewayResponse)
+-&gt; Generic CreateWirelessGatewayResponse
+forall x.
+Rep CreateWirelessGatewayResponse x
+-&gt; CreateWirelessGatewayResponse
+forall x.
+CreateWirelessGatewayResponse
+-&gt; Rep CreateWirelessGatewayResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateWirelessGatewayResponse x
+-&gt; CreateWirelessGatewayResponse
+$cfrom :: forall x.
+CreateWirelessGatewayResponse
+-&gt; Rep CreateWirelessGatewayResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'CreateWirelessGatewayResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'arn', 'createWirelessGatewayResponse_arn' - The Amazon Resource Name of the new resource.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'id', 'createWirelessGatewayResponse_id' - The ID of the new wireless gateway.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'httpStatus', 'createWirelessGatewayResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#newCreateWirelessGatewayResponse"><span class="hs-identifier hs-type">newCreateWirelessGatewayResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span>
+</span><span id="line-202"></span><span id="newCreateWirelessGatewayResponse"><span class="annot"><span class="annottext">newCreateWirelessGatewayResponse :: Int -&gt; CreateWirelessGatewayResponse
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#newCreateWirelessGatewayResponse"><span class="hs-identifier hs-var hs-var">newCreateWirelessGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679290045"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290045"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">CreateWirelessGatewayResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateWirelessGatewayResponse
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:CreateWirelessGatewayResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aarn%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CreateWirelessGatewayResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aid%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWirelessGatewayResponse' :: Int
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AhttpStatus%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290045"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The Amazon Resource Name of the new resource.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_arn"><span class="hs-identifier hs-type">createWirelessGatewayResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="createWirelessGatewayResponse_arn"><span class="annot"><span class="annottext">createWirelessGatewayResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWirelessGatewayResponse -&gt; f CreateWirelessGatewayResponse
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_arn"><span class="hs-identifier hs-var hs-var">createWirelessGatewayResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGatewayResponse -&gt; Maybe Text)
+-&gt; (CreateWirelessGatewayResponse
+    -&gt; Maybe Text -&gt; CreateWirelessGatewayResponse)
+-&gt; Lens
+     CreateWirelessGatewayResponse
+     CreateWirelessGatewayResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290044"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreateWirelessGatewayResponse' :: CreateWirelessGatewayResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679290044"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290044"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290043"><span class="annot"><span class="annottext">s :: CreateWirelessGatewayResponse
+</span><a href="#local-6989586621679290043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGatewayResponse
+</span><a href="#local-6989586621679290043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateWirelessGatewayResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aarn%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The ID of the new wireless gateway.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_id"><span class="hs-identifier hs-type">createWirelessGatewayResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="createWirelessGatewayResponse_id"><span class="annot"><span class="annottext">createWirelessGatewayResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWirelessGatewayResponse -&gt; f CreateWirelessGatewayResponse
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_id"><span class="hs-identifier hs-var hs-var">createWirelessGatewayResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGatewayResponse -&gt; Maybe Text)
+-&gt; (CreateWirelessGatewayResponse
+    -&gt; Maybe Text -&gt; CreateWirelessGatewayResponse)
+-&gt; Lens
+     CreateWirelessGatewayResponse
+     CreateWirelessGatewayResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290041"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:CreateWirelessGatewayResponse' :: CreateWirelessGatewayResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679290041"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290041"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290040"><span class="annot"><span class="annottext">s :: CreateWirelessGatewayResponse
+</span><a href="#local-6989586621679290040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290039"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGatewayResponse
+</span><a href="#local-6989586621679290040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateWirelessGatewayResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3Aid%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_httpStatus"><span class="hs-identifier hs-type">createWirelessGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span id="createWirelessGatewayResponse_httpStatus"><span class="annot"><span class="annottext">createWirelessGatewayResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateWirelessGatewayResponse -&gt; f CreateWirelessGatewayResponse
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#createWirelessGatewayResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createWirelessGatewayResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWirelessGatewayResponse -&gt; Int)
+-&gt; (CreateWirelessGatewayResponse
+    -&gt; Int -&gt; CreateWirelessGatewayResponse)
+-&gt; Lens
+     CreateWirelessGatewayResponse CreateWirelessGatewayResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290038"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateWirelessGatewayResponse' :: CreateWirelessGatewayResponse -&gt; Int
+</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290037"><span class="annot"><span class="annottext">s :: CreateWirelessGatewayResponse
+</span><a href="#local-6989586621679290037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse%27"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290036"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWirelessGatewayResponse
+</span><a href="#local-6989586621679290037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWirelessGatewayResponse' :: Int
+</span><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#%24sel%3AhttpStatus%3ACreateWirelessGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.CreateWirelessGateway.html#CreateWirelessGatewayResponse"><span class="hs-identifier hs-type">CreateWirelessGatewayResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

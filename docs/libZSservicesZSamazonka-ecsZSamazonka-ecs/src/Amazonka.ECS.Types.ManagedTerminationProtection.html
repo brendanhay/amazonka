@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.ManagedTerminationProtection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.ManagedTerminationProtection</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection"><span class="hs-identifier">ManagedTerminationProtection</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection_DISABLED"><span class="hs-identifier">ManagedTerminationProtection_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection_ENABLED"><span class="hs-identifier">ManagedTerminationProtection_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679456029"><span id="local-6989586621679456030"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ManagedTerminationProtection"><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection"><span class="hs-identifier hs-var">ManagedTerminationProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedTerminationProtection%27"><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection%27"><span class="hs-identifier hs-var">ManagedTerminationProtection'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromManagedTerminationProtection"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; Text
+</span><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#fromManagedTerminationProtection"><span class="hs-identifier hs-var hs-var">fromManagedTerminationProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456021"><span id="local-6989586621679456023"><span id="local-6989586621679456025"><span class="annot"><span class="annottext">Int -&gt; ManagedTerminationProtection -&gt; ShowS
+[ManagedTerminationProtection] -&gt; ShowS
+ManagedTerminationProtection -&gt; String
+(Int -&gt; ManagedTerminationProtection -&gt; ShowS)
+-&gt; (ManagedTerminationProtection -&gt; String)
+-&gt; ([ManagedTerminationProtection] -&gt; ShowS)
+-&gt; Show ManagedTerminationProtection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ManagedTerminationProtection] -&gt; ShowS
+$cshowList :: [ManagedTerminationProtection] -&gt; ShowS
+show :: ManagedTerminationProtection -&gt; String
+$cshow :: ManagedTerminationProtection -&gt; String
+showsPrec :: Int -&gt; ManagedTerminationProtection -&gt; ShowS
+$cshowsPrec :: Int -&gt; ManagedTerminationProtection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679456012"><span id="local-6989586621679456014"><span id="local-6989586621679456016"><span id="local-6989586621679456018"><span class="annot"><span class="annottext">ReadPrec [ManagedTerminationProtection]
+ReadPrec ManagedTerminationProtection
+Int -&gt; ReadS ManagedTerminationProtection
+ReadS [ManagedTerminationProtection]
+(Int -&gt; ReadS ManagedTerminationProtection)
+-&gt; ReadS [ManagedTerminationProtection]
+-&gt; ReadPrec ManagedTerminationProtection
+-&gt; ReadPrec [ManagedTerminationProtection]
+-&gt; Read ManagedTerminationProtection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ManagedTerminationProtection]
+$creadListPrec :: ReadPrec [ManagedTerminationProtection]
+readPrec :: ReadPrec ManagedTerminationProtection
+$creadPrec :: ReadPrec ManagedTerminationProtection
+readList :: ReadS [ManagedTerminationProtection]
+$creadList :: ReadS [ManagedTerminationProtection]
+readsPrec :: Int -&gt; ReadS ManagedTerminationProtection
+$creadsPrec :: Int -&gt; ReadS ManagedTerminationProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679456007"><span id="local-6989586621679456009"><span class="annot"><span class="annottext">ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+(ManagedTerminationProtection
+ -&gt; ManagedTerminationProtection -&gt; Bool)
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; Bool)
+-&gt; Eq ManagedTerminationProtection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+$c/= :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+== :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+$c== :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679455991"><span id="local-6989586621679455993"><span id="local-6989586621679455995"><span id="local-6989586621679455997"><span id="local-6989586621679455999"><span id="local-6989586621679456001"><span id="local-6989586621679456003"><span class="annot"><span class="annottext">Eq ManagedTerminationProtection
+Eq ManagedTerminationProtection
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; Ordering)
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; Bool)
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; Bool)
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; Bool)
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; Bool)
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; ManagedTerminationProtection)
+-&gt; (ManagedTerminationProtection
+    -&gt; ManagedTerminationProtection -&gt; ManagedTerminationProtection)
+-&gt; Ord ManagedTerminationProtection
+ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Ordering
+ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; ManagedTerminationProtection
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; ManagedTerminationProtection
+$cmin :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; ManagedTerminationProtection
+max :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; ManagedTerminationProtection
+$cmax :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; ManagedTerminationProtection
+&gt;= :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+$c&gt;= :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+&gt; :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+$c&gt; :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+&lt;= :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+$c&lt;= :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+&lt; :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+$c&lt; :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Bool
+compare :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Ordering
+$ccompare :: ManagedTerminationProtection
+-&gt; ManagedTerminationProtection -&gt; Ordering
+$cp1Ord :: Eq ManagedTerminationProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ManagedTerminationProtection -&gt; Rep ManagedTerminationProtection x)
+-&gt; (forall x.
+    Rep ManagedTerminationProtection x -&gt; ManagedTerminationProtection)
+-&gt; Generic ManagedTerminationProtection
+forall x.
+Rep ManagedTerminationProtection x -&gt; ManagedTerminationProtection
+forall x.
+ManagedTerminationProtection -&gt; Rep ManagedTerminationProtection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ManagedTerminationProtection x -&gt; ManagedTerminationProtection
+$cfrom :: forall x.
+ManagedTerminationProtection -&gt; Rep ManagedTerminationProtection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679455983"><span id="local-6989586621679455985"><span class="annot"><span class="annottext">Int -&gt; ManagedTerminationProtection -&gt; Int
+ManagedTerminationProtection -&gt; Int
+(Int -&gt; ManagedTerminationProtection -&gt; Int)
+-&gt; (ManagedTerminationProtection -&gt; Int)
+-&gt; Hashable ManagedTerminationProtection
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ManagedTerminationProtection -&gt; Int
+$chash :: ManagedTerminationProtection -&gt; Int
+hashWithSalt :: Int -&gt; ManagedTerminationProtection -&gt; Int
+$chashWithSalt :: Int -&gt; ManagedTerminationProtection -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679455980"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ()
+(ManagedTerminationProtection -&gt; ())
+-&gt; NFData ManagedTerminationProtection
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ManagedTerminationProtection -&gt; ()
+$crnf :: ManagedTerminationProtection -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679455977"><span class="annot"><span class="annottext">Text -&gt; Either String ManagedTerminationProtection
+(Text -&gt; Either String ManagedTerminationProtection)
+-&gt; FromText ManagedTerminationProtection
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ManagedTerminationProtection
+$cfromText :: Text -&gt; Either String ManagedTerminationProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679455974"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; Text
+(ManagedTerminationProtection -&gt; Text)
+-&gt; ToText ManagedTerminationProtection
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ManagedTerminationProtection -&gt; Text
+$ctoText :: ManagedTerminationProtection -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679455971"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ByteString
+(ManagedTerminationProtection -&gt; ByteString)
+-&gt; ToByteString ManagedTerminationProtection
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ManagedTerminationProtection -&gt; ByteString
+$ctoBS :: ManagedTerminationProtection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679455968"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ByteStringBuilder
+(ManagedTerminationProtection -&gt; ByteStringBuilder)
+-&gt; ToLog ManagedTerminationProtection
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ManagedTerminationProtection -&gt; ByteStringBuilder
+$cbuild :: ManagedTerminationProtection -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679455965"><span class="annot"><span class="annottext">HeaderName -&gt; ManagedTerminationProtection -&gt; [Header]
+(HeaderName -&gt; ManagedTerminationProtection -&gt; [Header])
+-&gt; ToHeader ManagedTerminationProtection
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ManagedTerminationProtection -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ManagedTerminationProtection -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679455962"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; QueryString
+(ManagedTerminationProtection -&gt; QueryString)
+-&gt; ToQuery ManagedTerminationProtection
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ManagedTerminationProtection -&gt; QueryString
+$ctoQuery :: ManagedTerminationProtection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679455957"><span id="local-6989586621679455959"><span class="annot"><span class="annottext">Value -&gt; Parser [ManagedTerminationProtection]
+Value -&gt; Parser ManagedTerminationProtection
+(Value -&gt; Parser ManagedTerminationProtection)
+-&gt; (Value -&gt; Parser [ManagedTerminationProtection])
+-&gt; FromJSON ManagedTerminationProtection
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ManagedTerminationProtection]
+$cparseJSONList :: Value -&gt; Parser [ManagedTerminationProtection]
+parseJSON :: Value -&gt; Parser ManagedTerminationProtection
+$cparseJSON :: Value -&gt; Parser ManagedTerminationProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679455952"><span id="local-6989586621679455954"><span class="annot"><span class="annottext">FromJSONKeyFunction [ManagedTerminationProtection]
+FromJSONKeyFunction ManagedTerminationProtection
+FromJSONKeyFunction ManagedTerminationProtection
+-&gt; FromJSONKeyFunction [ManagedTerminationProtection]
+-&gt; FromJSONKey ManagedTerminationProtection
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ManagedTerminationProtection]
+$cfromJSONKeyList :: FromJSONKeyFunction [ManagedTerminationProtection]
+fromJSONKey :: FromJSONKeyFunction ManagedTerminationProtection
+$cfromJSONKey :: FromJSONKeyFunction ManagedTerminationProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679455943"><span id="local-6989586621679455945"><span id="local-6989586621679455947"><span id="local-6989586621679455949"><span class="annot"><span class="annottext">[ManagedTerminationProtection] -&gt; Encoding
+[ManagedTerminationProtection] -&gt; Value
+ManagedTerminationProtection -&gt; Encoding
+ManagedTerminationProtection -&gt; Value
+(ManagedTerminationProtection -&gt; Value)
+-&gt; (ManagedTerminationProtection -&gt; Encoding)
+-&gt; ([ManagedTerminationProtection] -&gt; Value)
+-&gt; ([ManagedTerminationProtection] -&gt; Encoding)
+-&gt; ToJSON ManagedTerminationProtection
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ManagedTerminationProtection] -&gt; Encoding
+$ctoEncodingList :: [ManagedTerminationProtection] -&gt; Encoding
+toJSONList :: [ManagedTerminationProtection] -&gt; Value
+$ctoJSONList :: [ManagedTerminationProtection] -&gt; Value
+toEncoding :: ManagedTerminationProtection -&gt; Encoding
+$ctoEncoding :: ManagedTerminationProtection -&gt; Encoding
+toJSON :: ManagedTerminationProtection -&gt; Value
+$ctoJSON :: ManagedTerminationProtection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679455938"><span id="local-6989586621679455940"><span class="annot"><span class="annottext">ToJSONKeyFunction [ManagedTerminationProtection]
+ToJSONKeyFunction ManagedTerminationProtection
+ToJSONKeyFunction ManagedTerminationProtection
+-&gt; ToJSONKeyFunction [ManagedTerminationProtection]
+-&gt; ToJSONKey ManagedTerminationProtection
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ManagedTerminationProtection]
+$ctoJSONKeyList :: ToJSONKeyFunction [ManagedTerminationProtection]
+toJSONKey :: ToJSONKeyFunction ManagedTerminationProtection
+$ctoJSONKey :: ToJSONKeyFunction ManagedTerminationProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679455935"><span class="annot"><span class="annottext">[Node] -&gt; Either String ManagedTerminationProtection
+([Node] -&gt; Either String ManagedTerminationProtection)
+-&gt; FromXML ManagedTerminationProtection
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ManagedTerminationProtection
+$cparseXML :: [Node] -&gt; Either String ManagedTerminationProtection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679455932"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; XML
+(ManagedTerminationProtection -&gt; XML)
+-&gt; ToXML ManagedTerminationProtection
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ManagedTerminationProtection -&gt; XML
+$ctoXML :: ManagedTerminationProtection -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection_DISABLED"><span class="hs-identifier hs-type">ManagedTerminationProtection_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection"><span class="hs-identifier hs-type">ManagedTerminationProtection</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bManagedTerminationProtection_DISABLED"><span id="%24mManagedTerminationProtection_DISABLED"><span id="ManagedTerminationProtection_DISABLED"><span class="annot"><span class="annottext">$bManagedTerminationProtection_DISABLED :: ManagedTerminationProtection
+$mManagedTerminationProtection_DISABLED :: forall r.
+ManagedTerminationProtection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#%24bManagedTerminationProtection_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">ManagedTerminationProtection_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection%27"><span class="hs-identifier hs-type">ManagedTerminationProtection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection_ENABLED"><span class="hs-identifier hs-type">ManagedTerminationProtection_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection"><span class="hs-identifier hs-type">ManagedTerminationProtection</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bManagedTerminationProtection_ENABLED"><span id="%24mManagedTerminationProtection_ENABLED"><span id="ManagedTerminationProtection_ENABLED"><span class="annot"><span class="annottext">$bManagedTerminationProtection_ENABLED :: ManagedTerminationProtection
+$mManagedTerminationProtection_ENABLED :: forall r.
+ManagedTerminationProtection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#%24bManagedTerminationProtection_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">ManagedTerminationProtection_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection%27"><span class="hs-identifier hs-type">ManagedTerminationProtection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection_DISABLED"><span class="hs-pragma hs-type">ManagedTerminationProtection_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection_ENABLED"><span class="hs-pragma hs-type">ManagedTerminationProtection_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection%27"><span class="hs-pragma hs-type">ManagedTerminationProtection'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

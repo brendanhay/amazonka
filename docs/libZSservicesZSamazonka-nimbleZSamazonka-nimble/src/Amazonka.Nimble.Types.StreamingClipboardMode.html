@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.Types.StreamingClipboardMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.Types.StreamingClipboardMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode"><span class="hs-identifier">StreamingClipboardMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode_DISABLED"><span class="hs-identifier">StreamingClipboardMode_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode_ENABLED"><span class="hs-identifier">StreamingClipboardMode_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679283518"><span id="local-6989586621679283519"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamingClipboardMode"><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode"><span class="hs-identifier hs-var">StreamingClipboardMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamingClipboardMode%27"><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode%27"><span class="hs-identifier hs-var">StreamingClipboardMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStreamingClipboardMode"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; Text
+</span><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#fromStreamingClipboardMode"><span class="hs-identifier hs-var hs-var">fromStreamingClipboardMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283510"><span id="local-6989586621679283512"><span id="local-6989586621679283514"><span class="annot"><span class="annottext">Int -&gt; StreamingClipboardMode -&gt; ShowS
+[StreamingClipboardMode] -&gt; ShowS
+StreamingClipboardMode -&gt; String
+(Int -&gt; StreamingClipboardMode -&gt; ShowS)
+-&gt; (StreamingClipboardMode -&gt; String)
+-&gt; ([StreamingClipboardMode] -&gt; ShowS)
+-&gt; Show StreamingClipboardMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StreamingClipboardMode] -&gt; ShowS
+$cshowList :: [StreamingClipboardMode] -&gt; ShowS
+show :: StreamingClipboardMode -&gt; String
+$cshow :: StreamingClipboardMode -&gt; String
+showsPrec :: Int -&gt; StreamingClipboardMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; StreamingClipboardMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679283501"><span id="local-6989586621679283503"><span id="local-6989586621679283505"><span id="local-6989586621679283507"><span class="annot"><span class="annottext">ReadPrec [StreamingClipboardMode]
+ReadPrec StreamingClipboardMode
+Int -&gt; ReadS StreamingClipboardMode
+ReadS [StreamingClipboardMode]
+(Int -&gt; ReadS StreamingClipboardMode)
+-&gt; ReadS [StreamingClipboardMode]
+-&gt; ReadPrec StreamingClipboardMode
+-&gt; ReadPrec [StreamingClipboardMode]
+-&gt; Read StreamingClipboardMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StreamingClipboardMode]
+$creadListPrec :: ReadPrec [StreamingClipboardMode]
+readPrec :: ReadPrec StreamingClipboardMode
+$creadPrec :: ReadPrec StreamingClipboardMode
+readList :: ReadS [StreamingClipboardMode]
+$creadList :: ReadS [StreamingClipboardMode]
+readsPrec :: Int -&gt; ReadS StreamingClipboardMode
+$creadsPrec :: Int -&gt; ReadS StreamingClipboardMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679283496"><span id="local-6989586621679283498"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+(StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool)
+-&gt; (StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool)
+-&gt; Eq StreamingClipboardMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+$c/= :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+== :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+$c== :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679283480"><span id="local-6989586621679283482"><span id="local-6989586621679283484"><span id="local-6989586621679283486"><span id="local-6989586621679283488"><span id="local-6989586621679283490"><span id="local-6989586621679283492"><span class="annot"><span class="annottext">Eq StreamingClipboardMode
+Eq StreamingClipboardMode
+-&gt; (StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Ordering)
+-&gt; (StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool)
+-&gt; (StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool)
+-&gt; (StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool)
+-&gt; (StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool)
+-&gt; (StreamingClipboardMode
+    -&gt; StreamingClipboardMode -&gt; StreamingClipboardMode)
+-&gt; (StreamingClipboardMode
+    -&gt; StreamingClipboardMode -&gt; StreamingClipboardMode)
+-&gt; Ord StreamingClipboardMode
+StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Ordering
+StreamingClipboardMode
+-&gt; StreamingClipboardMode -&gt; StreamingClipboardMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StreamingClipboardMode
+-&gt; StreamingClipboardMode -&gt; StreamingClipboardMode
+$cmin :: StreamingClipboardMode
+-&gt; StreamingClipboardMode -&gt; StreamingClipboardMode
+max :: StreamingClipboardMode
+-&gt; StreamingClipboardMode -&gt; StreamingClipboardMode
+$cmax :: StreamingClipboardMode
+-&gt; StreamingClipboardMode -&gt; StreamingClipboardMode
+&gt;= :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+$c&gt;= :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+&gt; :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+$c&gt; :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+&lt;= :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+$c&lt;= :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+&lt; :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+$c&lt; :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Bool
+compare :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Ordering
+$ccompare :: StreamingClipboardMode -&gt; StreamingClipboardMode -&gt; Ordering
+$cp1Ord :: Eq StreamingClipboardMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StreamingClipboardMode -&gt; Rep StreamingClipboardMode x)
+-&gt; (forall x.
+    Rep StreamingClipboardMode x -&gt; StreamingClipboardMode)
+-&gt; Generic StreamingClipboardMode
+forall x. Rep StreamingClipboardMode x -&gt; StreamingClipboardMode
+forall x. StreamingClipboardMode -&gt; Rep StreamingClipboardMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StreamingClipboardMode x -&gt; StreamingClipboardMode
+$cfrom :: forall x. StreamingClipboardMode -&gt; Rep StreamingClipboardMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283472"><span id="local-6989586621679283474"><span class="annot"><span class="annottext">Int -&gt; StreamingClipboardMode -&gt; Int
+StreamingClipboardMode -&gt; Int
+(Int -&gt; StreamingClipboardMode -&gt; Int)
+-&gt; (StreamingClipboardMode -&gt; Int)
+-&gt; Hashable StreamingClipboardMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StreamingClipboardMode -&gt; Int
+$chash :: StreamingClipboardMode -&gt; Int
+hashWithSalt :: Int -&gt; StreamingClipboardMode -&gt; Int
+$chashWithSalt :: Int -&gt; StreamingClipboardMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679283469"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; ()
+(StreamingClipboardMode -&gt; ()) -&gt; NFData StreamingClipboardMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StreamingClipboardMode -&gt; ()
+$crnf :: StreamingClipboardMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679283466"><span class="annot"><span class="annottext">Text -&gt; Either String StreamingClipboardMode
+(Text -&gt; Either String StreamingClipboardMode)
+-&gt; FromText StreamingClipboardMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StreamingClipboardMode
+$cfromText :: Text -&gt; Either String StreamingClipboardMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679283463"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; Text
+(StreamingClipboardMode -&gt; Text) -&gt; ToText StreamingClipboardMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StreamingClipboardMode -&gt; Text
+$ctoText :: StreamingClipboardMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679283460"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; ByteString
+(StreamingClipboardMode -&gt; ByteString)
+-&gt; ToByteString StreamingClipboardMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StreamingClipboardMode -&gt; ByteString
+$ctoBS :: StreamingClipboardMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679283457"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; ByteStringBuilder
+(StreamingClipboardMode -&gt; ByteStringBuilder)
+-&gt; ToLog StreamingClipboardMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StreamingClipboardMode -&gt; ByteStringBuilder
+$cbuild :: StreamingClipboardMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679283454"><span class="annot"><span class="annottext">HeaderName -&gt; StreamingClipboardMode -&gt; [Header]
+(HeaderName -&gt; StreamingClipboardMode -&gt; [Header])
+-&gt; ToHeader StreamingClipboardMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StreamingClipboardMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StreamingClipboardMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679283451"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; QueryString
+(StreamingClipboardMode -&gt; QueryString)
+-&gt; ToQuery StreamingClipboardMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StreamingClipboardMode -&gt; QueryString
+$ctoQuery :: StreamingClipboardMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679283446"><span id="local-6989586621679283448"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamingClipboardMode]
+Value -&gt; Parser StreamingClipboardMode
+(Value -&gt; Parser StreamingClipboardMode)
+-&gt; (Value -&gt; Parser [StreamingClipboardMode])
+-&gt; FromJSON StreamingClipboardMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StreamingClipboardMode]
+$cparseJSONList :: Value -&gt; Parser [StreamingClipboardMode]
+parseJSON :: Value -&gt; Parser StreamingClipboardMode
+$cparseJSON :: Value -&gt; Parser StreamingClipboardMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679283441"><span id="local-6989586621679283443"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamingClipboardMode]
+FromJSONKeyFunction StreamingClipboardMode
+FromJSONKeyFunction StreamingClipboardMode
+-&gt; FromJSONKeyFunction [StreamingClipboardMode]
+-&gt; FromJSONKey StreamingClipboardMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StreamingClipboardMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [StreamingClipboardMode]
+fromJSONKey :: FromJSONKeyFunction StreamingClipboardMode
+$cfromJSONKey :: FromJSONKeyFunction StreamingClipboardMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679283432"><span id="local-6989586621679283434"><span id="local-6989586621679283436"><span id="local-6989586621679283438"><span class="annot"><span class="annottext">[StreamingClipboardMode] -&gt; Encoding
+[StreamingClipboardMode] -&gt; Value
+StreamingClipboardMode -&gt; Encoding
+StreamingClipboardMode -&gt; Value
+(StreamingClipboardMode -&gt; Value)
+-&gt; (StreamingClipboardMode -&gt; Encoding)
+-&gt; ([StreamingClipboardMode] -&gt; Value)
+-&gt; ([StreamingClipboardMode] -&gt; Encoding)
+-&gt; ToJSON StreamingClipboardMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StreamingClipboardMode] -&gt; Encoding
+$ctoEncodingList :: [StreamingClipboardMode] -&gt; Encoding
+toJSONList :: [StreamingClipboardMode] -&gt; Value
+$ctoJSONList :: [StreamingClipboardMode] -&gt; Value
+toEncoding :: StreamingClipboardMode -&gt; Encoding
+$ctoEncoding :: StreamingClipboardMode -&gt; Encoding
+toJSON :: StreamingClipboardMode -&gt; Value
+$ctoJSON :: StreamingClipboardMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679283427"><span id="local-6989586621679283429"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamingClipboardMode]
+ToJSONKeyFunction StreamingClipboardMode
+ToJSONKeyFunction StreamingClipboardMode
+-&gt; ToJSONKeyFunction [StreamingClipboardMode]
+-&gt; ToJSONKey StreamingClipboardMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StreamingClipboardMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [StreamingClipboardMode]
+toJSONKey :: ToJSONKeyFunction StreamingClipboardMode
+$ctoJSONKey :: ToJSONKeyFunction StreamingClipboardMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679283424"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamingClipboardMode
+([Node] -&gt; Either String StreamingClipboardMode)
+-&gt; FromXML StreamingClipboardMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StreamingClipboardMode
+$cparseXML :: [Node] -&gt; Either String StreamingClipboardMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679283421"><span class="annot"><span class="annottext">StreamingClipboardMode -&gt; XML
+(StreamingClipboardMode -&gt; XML) -&gt; ToXML StreamingClipboardMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StreamingClipboardMode -&gt; XML
+$ctoXML :: StreamingClipboardMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode_DISABLED"><span class="hs-identifier hs-type">StreamingClipboardMode_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode"><span class="hs-identifier hs-type">StreamingClipboardMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingClipboardMode_DISABLED"><span id="%24mStreamingClipboardMode_DISABLED"><span id="StreamingClipboardMode_DISABLED"><span class="annot"><span class="annottext">$bStreamingClipboardMode_DISABLED :: StreamingClipboardMode
+$mStreamingClipboardMode_DISABLED :: forall r.
+StreamingClipboardMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#%24bStreamingClipboardMode_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">StreamingClipboardMode_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode%27"><span class="hs-identifier hs-type">StreamingClipboardMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode_ENABLED"><span class="hs-identifier hs-type">StreamingClipboardMode_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode"><span class="hs-identifier hs-type">StreamingClipboardMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingClipboardMode_ENABLED"><span id="%24mStreamingClipboardMode_ENABLED"><span id="StreamingClipboardMode_ENABLED"><span class="annot"><span class="annottext">$bStreamingClipboardMode_ENABLED :: StreamingClipboardMode
+$mStreamingClipboardMode_ENABLED :: forall r.
+StreamingClipboardMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#%24bStreamingClipboardMode_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">StreamingClipboardMode_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode%27"><span class="hs-identifier hs-type">StreamingClipboardMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode_DISABLED"><span class="hs-pragma hs-type">StreamingClipboardMode_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode_ENABLED"><span class="hs-pragma hs-type">StreamingClipboardMode_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingClipboardMode.html#StreamingClipboardMode%27"><span class="hs-pragma hs-type">StreamingClipboardMode'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

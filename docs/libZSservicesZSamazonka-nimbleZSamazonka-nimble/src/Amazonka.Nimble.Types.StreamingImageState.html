@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.Types.StreamingImageState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.Types.StreamingImageState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier">StreamingImageState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_CREATE_FAILED"><span class="hs-identifier">StreamingImageState_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_CREATE_IN_PROGRESS"><span class="hs-identifier">StreamingImageState_CREATE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETED"><span class="hs-identifier">StreamingImageState_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETE_FAILED"><span class="hs-identifier">StreamingImageState_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETE_IN_PROGRESS"><span class="hs-identifier">StreamingImageState_DELETE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_READY"><span class="hs-identifier">StreamingImageState_READY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_UPDATE_FAILED"><span class="hs-identifier">StreamingImageState_UPDATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_UPDATE_IN_PROGRESS"><span class="hs-identifier">StreamingImageState_UPDATE_IN_PROGRESS</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679283954"><span id="local-6989586621679283955"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamingImageState"><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-var">StreamingImageState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamingImageState%27"><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-var">StreamingImageState'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStreamingImageState"><span class="annot"><span class="annottext">StreamingImageState -&gt; Text
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#fromStreamingImageState"><span class="hs-identifier hs-var hs-var">fromStreamingImageState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283946"><span id="local-6989586621679283948"><span id="local-6989586621679283950"><span class="annot"><span class="annottext">Int -&gt; StreamingImageState -&gt; ShowS
+[StreamingImageState] -&gt; ShowS
+StreamingImageState -&gt; String
+(Int -&gt; StreamingImageState -&gt; ShowS)
+-&gt; (StreamingImageState -&gt; String)
+-&gt; ([StreamingImageState] -&gt; ShowS)
+-&gt; Show StreamingImageState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StreamingImageState] -&gt; ShowS
+$cshowList :: [StreamingImageState] -&gt; ShowS
+show :: StreamingImageState -&gt; String
+$cshow :: StreamingImageState -&gt; String
+showsPrec :: Int -&gt; StreamingImageState -&gt; ShowS
+$cshowsPrec :: Int -&gt; StreamingImageState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679283937"><span id="local-6989586621679283939"><span id="local-6989586621679283941"><span id="local-6989586621679283943"><span class="annot"><span class="annottext">ReadPrec [StreamingImageState]
+ReadPrec StreamingImageState
+Int -&gt; ReadS StreamingImageState
+ReadS [StreamingImageState]
+(Int -&gt; ReadS StreamingImageState)
+-&gt; ReadS [StreamingImageState]
+-&gt; ReadPrec StreamingImageState
+-&gt; ReadPrec [StreamingImageState]
+-&gt; Read StreamingImageState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StreamingImageState]
+$creadListPrec :: ReadPrec [StreamingImageState]
+readPrec :: ReadPrec StreamingImageState
+$creadPrec :: ReadPrec StreamingImageState
+readList :: ReadS [StreamingImageState]
+$creadList :: ReadS [StreamingImageState]
+readsPrec :: Int -&gt; ReadS StreamingImageState
+$creadsPrec :: Int -&gt; ReadS StreamingImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679283932"><span id="local-6989586621679283934"><span class="annot"><span class="annottext">StreamingImageState -&gt; StreamingImageState -&gt; Bool
+(StreamingImageState -&gt; StreamingImageState -&gt; Bool)
+-&gt; (StreamingImageState -&gt; StreamingImageState -&gt; Bool)
+-&gt; Eq StreamingImageState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+$c/= :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+== :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+$c== :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679283916"><span id="local-6989586621679283918"><span id="local-6989586621679283920"><span id="local-6989586621679283922"><span id="local-6989586621679283924"><span id="local-6989586621679283926"><span id="local-6989586621679283928"><span class="annot"><span class="annottext">Eq StreamingImageState
+Eq StreamingImageState
+-&gt; (StreamingImageState -&gt; StreamingImageState -&gt; Ordering)
+-&gt; (StreamingImageState -&gt; StreamingImageState -&gt; Bool)
+-&gt; (StreamingImageState -&gt; StreamingImageState -&gt; Bool)
+-&gt; (StreamingImageState -&gt; StreamingImageState -&gt; Bool)
+-&gt; (StreamingImageState -&gt; StreamingImageState -&gt; Bool)
+-&gt; (StreamingImageState
+    -&gt; StreamingImageState -&gt; StreamingImageState)
+-&gt; (StreamingImageState
+    -&gt; StreamingImageState -&gt; StreamingImageState)
+-&gt; Ord StreamingImageState
+StreamingImageState -&gt; StreamingImageState -&gt; Bool
+StreamingImageState -&gt; StreamingImageState -&gt; Ordering
+StreamingImageState -&gt; StreamingImageState -&gt; StreamingImageState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StreamingImageState -&gt; StreamingImageState -&gt; StreamingImageState
+$cmin :: StreamingImageState -&gt; StreamingImageState -&gt; StreamingImageState
+max :: StreamingImageState -&gt; StreamingImageState -&gt; StreamingImageState
+$cmax :: StreamingImageState -&gt; StreamingImageState -&gt; StreamingImageState
+&gt;= :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+$c&gt;= :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+&gt; :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+$c&gt; :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+&lt;= :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+$c&lt;= :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+&lt; :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+$c&lt; :: StreamingImageState -&gt; StreamingImageState -&gt; Bool
+compare :: StreamingImageState -&gt; StreamingImageState -&gt; Ordering
+$ccompare :: StreamingImageState -&gt; StreamingImageState -&gt; Ordering
+$cp1Ord :: Eq StreamingImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StreamingImageState -&gt; Rep StreamingImageState x)
+-&gt; (forall x. Rep StreamingImageState x -&gt; StreamingImageState)
+-&gt; Generic StreamingImageState
+forall x. Rep StreamingImageState x -&gt; StreamingImageState
+forall x. StreamingImageState -&gt; Rep StreamingImageState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StreamingImageState x -&gt; StreamingImageState
+$cfrom :: forall x. StreamingImageState -&gt; Rep StreamingImageState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283908"><span id="local-6989586621679283910"><span class="annot"><span class="annottext">Int -&gt; StreamingImageState -&gt; Int
+StreamingImageState -&gt; Int
+(Int -&gt; StreamingImageState -&gt; Int)
+-&gt; (StreamingImageState -&gt; Int) -&gt; Hashable StreamingImageState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StreamingImageState -&gt; Int
+$chash :: StreamingImageState -&gt; Int
+hashWithSalt :: Int -&gt; StreamingImageState -&gt; Int
+$chashWithSalt :: Int -&gt; StreamingImageState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679283905"><span class="annot"><span class="annottext">StreamingImageState -&gt; ()
+(StreamingImageState -&gt; ()) -&gt; NFData StreamingImageState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StreamingImageState -&gt; ()
+$crnf :: StreamingImageState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679283902"><span class="annot"><span class="annottext">Text -&gt; Either String StreamingImageState
+(Text -&gt; Either String StreamingImageState)
+-&gt; FromText StreamingImageState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StreamingImageState
+$cfromText :: Text -&gt; Either String StreamingImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679283899"><span class="annot"><span class="annottext">StreamingImageState -&gt; Text
+(StreamingImageState -&gt; Text) -&gt; ToText StreamingImageState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StreamingImageState -&gt; Text
+$ctoText :: StreamingImageState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679283896"><span class="annot"><span class="annottext">StreamingImageState -&gt; ByteString
+(StreamingImageState -&gt; ByteString)
+-&gt; ToByteString StreamingImageState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StreamingImageState -&gt; ByteString
+$ctoBS :: StreamingImageState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679283893"><span class="annot"><span class="annottext">StreamingImageState -&gt; ByteStringBuilder
+(StreamingImageState -&gt; ByteStringBuilder)
+-&gt; ToLog StreamingImageState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StreamingImageState -&gt; ByteStringBuilder
+$cbuild :: StreamingImageState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679283890"><span class="annot"><span class="annottext">HeaderName -&gt; StreamingImageState -&gt; [Header]
+(HeaderName -&gt; StreamingImageState -&gt; [Header])
+-&gt; ToHeader StreamingImageState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StreamingImageState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StreamingImageState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679283887"><span class="annot"><span class="annottext">StreamingImageState -&gt; QueryString
+(StreamingImageState -&gt; QueryString) -&gt; ToQuery StreamingImageState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StreamingImageState -&gt; QueryString
+$ctoQuery :: StreamingImageState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679283882"><span id="local-6989586621679283884"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamingImageState]
+Value -&gt; Parser StreamingImageState
+(Value -&gt; Parser StreamingImageState)
+-&gt; (Value -&gt; Parser [StreamingImageState])
+-&gt; FromJSON StreamingImageState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StreamingImageState]
+$cparseJSONList :: Value -&gt; Parser [StreamingImageState]
+parseJSON :: Value -&gt; Parser StreamingImageState
+$cparseJSON :: Value -&gt; Parser StreamingImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679283877"><span id="local-6989586621679283879"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamingImageState]
+FromJSONKeyFunction StreamingImageState
+FromJSONKeyFunction StreamingImageState
+-&gt; FromJSONKeyFunction [StreamingImageState]
+-&gt; FromJSONKey StreamingImageState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StreamingImageState]
+$cfromJSONKeyList :: FromJSONKeyFunction [StreamingImageState]
+fromJSONKey :: FromJSONKeyFunction StreamingImageState
+$cfromJSONKey :: FromJSONKeyFunction StreamingImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679283868"><span id="local-6989586621679283870"><span id="local-6989586621679283872"><span id="local-6989586621679283874"><span class="annot"><span class="annottext">[StreamingImageState] -&gt; Encoding
+[StreamingImageState] -&gt; Value
+StreamingImageState -&gt; Encoding
+StreamingImageState -&gt; Value
+(StreamingImageState -&gt; Value)
+-&gt; (StreamingImageState -&gt; Encoding)
+-&gt; ([StreamingImageState] -&gt; Value)
+-&gt; ([StreamingImageState] -&gt; Encoding)
+-&gt; ToJSON StreamingImageState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StreamingImageState] -&gt; Encoding
+$ctoEncodingList :: [StreamingImageState] -&gt; Encoding
+toJSONList :: [StreamingImageState] -&gt; Value
+$ctoJSONList :: [StreamingImageState] -&gt; Value
+toEncoding :: StreamingImageState -&gt; Encoding
+$ctoEncoding :: StreamingImageState -&gt; Encoding
+toJSON :: StreamingImageState -&gt; Value
+$ctoJSON :: StreamingImageState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679283863"><span id="local-6989586621679283865"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamingImageState]
+ToJSONKeyFunction StreamingImageState
+ToJSONKeyFunction StreamingImageState
+-&gt; ToJSONKeyFunction [StreamingImageState]
+-&gt; ToJSONKey StreamingImageState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StreamingImageState]
+$ctoJSONKeyList :: ToJSONKeyFunction [StreamingImageState]
+toJSONKey :: ToJSONKeyFunction StreamingImageState
+$ctoJSONKey :: ToJSONKeyFunction StreamingImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679283860"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamingImageState
+([Node] -&gt; Either String StreamingImageState)
+-&gt; FromXML StreamingImageState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StreamingImageState
+$cparseXML :: [Node] -&gt; Either String StreamingImageState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679283857"><span class="annot"><span class="annottext">StreamingImageState -&gt; XML
+(StreamingImageState -&gt; XML) -&gt; ToXML StreamingImageState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StreamingImageState -&gt; XML
+$ctoXML :: StreamingImageState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_CREATE_FAILED"><span class="hs-identifier hs-type">StreamingImageState_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_CREATE_FAILED"><span id="%24mStreamingImageState_CREATE_FAILED"><span id="StreamingImageState_CREATE_FAILED"><span class="annot"><span class="annottext">$bStreamingImageState_CREATE_FAILED :: StreamingImageState
+$mStreamingImageState_CREATE_FAILED :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_CREATE_IN_PROGRESS"><span class="hs-identifier hs-type">StreamingImageState_CREATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_CREATE_IN_PROGRESS"><span id="%24mStreamingImageState_CREATE_IN_PROGRESS"><span id="StreamingImageState_CREATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStreamingImageState_CREATE_IN_PROGRESS :: StreamingImageState
+$mStreamingImageState_CREATE_IN_PROGRESS :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_CREATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_CREATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETED"><span class="hs-identifier hs-type">StreamingImageState_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_DELETED"><span id="%24mStreamingImageState_DELETED"><span id="StreamingImageState_DELETED"><span class="annot"><span class="annottext">$bStreamingImageState_DELETED :: StreamingImageState
+$mStreamingImageState_DELETED :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_DELETED"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETE_FAILED"><span class="hs-identifier hs-type">StreamingImageState_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_DELETE_FAILED"><span id="%24mStreamingImageState_DELETE_FAILED"><span id="StreamingImageState_DELETE_FAILED"><span class="annot"><span class="annottext">$bStreamingImageState_DELETE_FAILED :: StreamingImageState
+$mStreamingImageState_DELETE_FAILED :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETE_IN_PROGRESS"><span class="hs-identifier hs-type">StreamingImageState_DELETE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_DELETE_IN_PROGRESS"><span id="%24mStreamingImageState_DELETE_IN_PROGRESS"><span id="StreamingImageState_DELETE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStreamingImageState_DELETE_IN_PROGRESS :: StreamingImageState
+$mStreamingImageState_DELETE_IN_PROGRESS :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_DELETE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_DELETE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_READY"><span class="hs-identifier hs-type">StreamingImageState_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_READY"><span id="%24mStreamingImageState_READY"><span id="StreamingImageState_READY"><span class="annot"><span class="annottext">$bStreamingImageState_READY :: StreamingImageState
+$mStreamingImageState_READY :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_READY"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_UPDATE_FAILED"><span class="hs-identifier hs-type">StreamingImageState_UPDATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_UPDATE_FAILED"><span id="%24mStreamingImageState_UPDATE_FAILED"><span id="StreamingImageState_UPDATE_FAILED"><span class="annot"><span class="annottext">$bStreamingImageState_UPDATE_FAILED :: StreamingImageState
+$mStreamingImageState_UPDATE_FAILED :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_UPDATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_UPDATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-type">StreamingImageState_UPDATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState"><span class="hs-identifier hs-type">StreamingImageState</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamingImageState_UPDATE_IN_PROGRESS"><span id="%24mStreamingImageState_UPDATE_IN_PROGRESS"><span id="StreamingImageState_UPDATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStreamingImageState_UPDATE_IN_PROGRESS :: StreamingImageState
+$mStreamingImageState_UPDATE_IN_PROGRESS :: forall r. StreamingImageState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StreamingImageState.html#%24bStreamingImageState_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StreamingImageState_UPDATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-identifier hs-type">StreamingImageState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_CREATE_FAILED"><span class="hs-pragma hs-type">StreamingImageState_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_CREATE_IN_PROGRESS"><span class="hs-pragma hs-type">StreamingImageState_CREATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETED"><span class="hs-pragma hs-type">StreamingImageState_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETE_FAILED"><span class="hs-pragma hs-type">StreamingImageState_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_DELETE_IN_PROGRESS"><span class="hs-pragma hs-type">StreamingImageState_DELETE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_READY"><span class="hs-pragma hs-type">StreamingImageState_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_UPDATE_FAILED"><span class="hs-pragma hs-type">StreamingImageState_UPDATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState_UPDATE_IN_PROGRESS"><span class="hs-pragma hs-type">StreamingImageState_UPDATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StreamingImageState.html#StreamingImageState%27"><span class="hs-pragma hs-type">StreamingImageState'</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-102"></span></pre></body></html>

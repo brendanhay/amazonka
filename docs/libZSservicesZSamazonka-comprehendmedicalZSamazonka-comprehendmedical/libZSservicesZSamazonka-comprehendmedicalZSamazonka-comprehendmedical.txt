@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ComprehendMedical.Types.AttributeName
+module Amazonka.ComprehendMedical.Types.AttributeName
 newtype AttributeName
 AttributeName' :: Text -> AttributeName
 [fromAttributeName] :: AttributeName -> Text
@@ -13,28 +13,28 @@ pattern AttributeName_DIAGNOSIS :: AttributeName
 pattern AttributeName_NEGATION :: AttributeName
 pattern AttributeName_SIGN :: AttributeName
 pattern AttributeName_SYMPTOM :: AttributeName
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.AttributeName.AttributeName
 
 
-module Network.AWS.ComprehendMedical.Types.EntitySubType
+module Amazonka.ComprehendMedical.Types.EntitySubType
 newtype EntitySubType
 EntitySubType' :: Text -> EntitySubType
 [fromEntitySubType] :: EntitySubType -> Text
@@ -72,28 +72,28 @@ pattern EntitySubType_TIME_TO_TEST_NAME :: EntitySubType
 pattern EntitySubType_TIME_TO_TREATMENT_NAME :: EntitySubType
 pattern EntitySubType_TREATMENT_NAME :: EntitySubType
 pattern EntitySubType_URL :: EntitySubType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.EntitySubType.EntitySubType
 
 
-module Network.AWS.ComprehendMedical.Types.EntityType
+module Amazonka.ComprehendMedical.Types.EntityType
 newtype EntityType
 EntityType' :: Text -> EntityType
 [fromEntityType] :: EntityType -> Text
@@ -103,28 +103,28 @@ pattern EntityType_MEDICATION :: EntityType
 pattern EntityType_PROTECTED_HEALTH_INFORMATION :: EntityType
 pattern EntityType_TEST_TREATMENT_PROCEDURE :: EntityType
 pattern EntityType_TIME_EXPRESSION :: EntityType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.EntityType.EntityType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.EntityType.EntityType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.EntityType.EntityType
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType
+module Amazonka.ComprehendMedical.Types.ICD10CMAttributeType
 newtype ICD10CMAttributeType
 ICD10CMAttributeType' :: Text -> ICD10CMAttributeType
 [fromICD10CMAttributeType] :: ICD10CMAttributeType -> Text
@@ -135,28 +135,28 @@ pattern ICD10CMAttributeType_QUANTITY :: ICD10CMAttributeType
 pattern ICD10CMAttributeType_SYSTEM_ORGAN_SITE :: ICD10CMAttributeType
 pattern ICD10CMAttributeType_TIME_EXPRESSION :: ICD10CMAttributeType
 pattern ICD10CMAttributeType_TIME_TO_DX_NAME :: ICD10CMAttributeType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMAttributeType.ICD10CMAttributeType
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMConcept
+module Amazonka.ComprehendMedical.Types.ICD10CMConcept
 
 -- | The ICD-10-CM concepts that the entity could refer to, along with a
 --   score indicating the likelihood of the match.
@@ -208,96 +208,96 @@ iCD10CMConcept_code :: Lens' ICD10CMConcept (Maybe Text)
 
 -- | The long description of the ICD-10-CM code in the ontology.
 iCD10CMConcept_description :: Lens' ICD10CMConcept (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMConcept.ICD10CMConcept
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory
+module Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory
 newtype ICD10CMEntityCategory
 ICD10CMEntityCategory' :: Text -> ICD10CMEntityCategory
 [fromICD10CMEntityCategory] :: ICD10CMEntityCategory -> Text
 pattern ICD10CMEntityCategory_MEDICAL_CONDITION :: ICD10CMEntityCategory
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory.ICD10CMEntityCategory
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMEntityType
+module Amazonka.ComprehendMedical.Types.ICD10CMEntityType
 newtype ICD10CMEntityType
 ICD10CMEntityType' :: Text -> ICD10CMEntityType
 [fromICD10CMEntityType] :: ICD10CMEntityType -> Text
 pattern ICD10CMEntityType_DX_NAME :: ICD10CMEntityType
 pattern ICD10CMEntityType_TIME_EXPRESSION :: ICD10CMEntityType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMEntityType.ICD10CMEntityType
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType
+module Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType
 newtype ICD10CMRelationshipType
 ICD10CMRelationshipType' :: Text -> ICD10CMRelationshipType
 [fromICD10CMRelationshipType] :: ICD10CMRelationshipType -> Text
 pattern ICD10CMRelationshipType_OVERLAP :: ICD10CMRelationshipType
 pattern ICD10CMRelationshipType_SYSTEM_ORGAN_SITE :: ICD10CMRelationshipType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType.ICD10CMRelationshipType
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMTraitName
+module Amazonka.ComprehendMedical.Types.ICD10CMTraitName
 newtype ICD10CMTraitName
 ICD10CMTraitName' :: Text -> ICD10CMTraitName
 [fromICD10CMTraitName] :: ICD10CMTraitName -> Text
@@ -305,28 +305,28 @@ pattern ICD10CMTraitName_DIAGNOSIS :: ICD10CMTraitName
 pattern ICD10CMTraitName_NEGATION :: ICD10CMTraitName
 pattern ICD10CMTraitName_SIGN :: ICD10CMTraitName
 pattern ICD10CMTraitName_SYMPTOM :: ICD10CMTraitName
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMTraitName.ICD10CMTraitName
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMTrait
+module Amazonka.ComprehendMedical.Types.ICD10CMTrait
 
 -- | Contextual information for the entity. The traits recognized by
 --   InferICD10CM are <tt>DIAGNOSIS</tt>, <tt>SIGN</tt>, <tt>SYMPTOM</tt>,
@@ -366,16 +366,16 @@ iCD10CMTrait_score :: Lens' ICD10CMTrait (Maybe Double)
 
 -- | Provides a name or contextual description about the trait.
 iCD10CMTrait_name :: Lens' ICD10CMTrait (Maybe ICD10CMTraitName)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMTrait.ICD10CMTrait
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMAttribute
+module Amazonka.ComprehendMedical.Types.ICD10CMAttribute
 
 -- | The detected attributes that relate to an entity. This includes an
 --   extracted segment of the text that is an attribute of an entity, or
@@ -527,16 +527,16 @@ iCD10CMAttribute_id :: Lens' ICD10CMAttribute (Maybe Int)
 -- | The type of attribute. InferICD10CM detects entities of the type
 --   <tt>DX_NAME</tt>.
 iCD10CMAttribute_type :: Lens' ICD10CMAttribute (Maybe ICD10CMAttributeType)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMAttribute.ICD10CMAttribute
 
 
-module Network.AWS.ComprehendMedical.Types.ICD10CMEntity
+module Amazonka.ComprehendMedical.Types.ICD10CMEntity
 
 -- | The collection of medical entities extracted from the input text and
 --   their associated information. For each entity, the response provides
@@ -688,16 +688,16 @@ iCD10CMEntity_id :: Lens' ICD10CMEntity (Maybe Int)
 --   InferICD10CM detects entities of the type <tt>DX_NAME</tt> and
 --   <tt>TIME_EXPRESSION</tt>.
 iCD10CMEntity_type :: Lens' ICD10CMEntity (Maybe ICD10CMEntityType)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ICD10CMEntity.ICD10CMEntity
 
 
-module Network.AWS.ComprehendMedical.Types.InputDataConfig
+module Amazonka.ComprehendMedical.Types.InputDataConfig
 
 -- | The input properties for an entities detection job. This includes the
 --   name of the S3 bucket and the path to the files to be analyzed.
@@ -745,17 +745,17 @@ inputDataConfig_s3Key :: Lens' InputDataConfig (Maybe Text)
 --   Each file in the document collection must be less than 40 KB. You can
 --   store a maximum of 30 GB in the bucket.
 inputDataConfig_s3Bucket :: Lens' InputDataConfig Text
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.InputDataConfig.InputDataConfig
 
 
-module Network.AWS.ComprehendMedical.Types.JobStatus
+module Amazonka.ComprehendMedical.Types.JobStatus
 newtype JobStatus
 JobStatus' :: Text -> JobStatus
 [fromJobStatus] :: JobStatus -> Text
@@ -766,28 +766,28 @@ pattern JobStatus_PARTIAL_SUCCESS :: JobStatus
 pattern JobStatus_STOPPED :: JobStatus
 pattern JobStatus_STOP_REQUESTED :: JobStatus
 pattern JobStatus_SUBMITTED :: JobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.JobStatus.JobStatus
 
 
-module Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
+module Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
 
 -- | Provides information for filtering a list of detection jobs.
 --   
@@ -859,42 +859,42 @@ comprehendMedicalAsyncJobFilter_jobName :: Lens' ComprehendMedicalAsyncJobFilter
 -- | Filters the list of jobs based on job status. Returns only jobs with
 --   the specified status.
 comprehendMedicalAsyncJobFilter_jobStatus :: Lens' ComprehendMedicalAsyncJobFilter (Maybe JobStatus)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter.ComprehendMedicalAsyncJobFilter
 
 
-module Network.AWS.ComprehendMedical.Types.LanguageCode
+module Amazonka.ComprehendMedical.Types.LanguageCode
 newtype LanguageCode
 LanguageCode' :: Text -> LanguageCode
 [fromLanguageCode] :: LanguageCode -> Text
 pattern LanguageCode_En :: LanguageCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.LanguageCode.LanguageCode
 
 
-module Network.AWS.ComprehendMedical.Types.OutputDataConfig
+module Amazonka.ComprehendMedical.Types.OutputDataConfig
 
 -- | The output properties for a detection job.
 --   
@@ -948,17 +948,17 @@ outputDataConfig_s3Key :: Lens' OutputDataConfig (Maybe Text)
 --   endpoint that you are calling. The location is used as the prefix for
 --   the actual location of the output.
 outputDataConfig_s3Bucket :: Lens' OutputDataConfig Text
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.OutputDataConfig.OutputDataConfig
 
 
-module Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
+module Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
 
 -- | Provides information about a detection job.
 --   
@@ -1150,16 +1150,16 @@ comprehendMedicalAsyncJobProperties_expirationTime :: Lens' ComprehendMedicalAsy
 
 -- | The time that the detection job was submitted for processing.
 comprehendMedicalAsyncJobProperties_submitTime :: Lens' ComprehendMedicalAsyncJobProperties (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties.ComprehendMedicalAsyncJobProperties
 
 
-module Network.AWS.ComprehendMedical.Types.RelationshipType
+module Amazonka.ComprehendMedical.Types.RelationshipType
 newtype RelationshipType
 RelationshipType' :: Text -> RelationshipType
 [fromRelationshipType] :: RelationshipType -> Text
@@ -1181,28 +1181,28 @@ pattern RelationshipType_SYSTEM_ORGAN_SITE :: RelationshipType
 pattern RelationshipType_TEST_UNITS :: RelationshipType
 pattern RelationshipType_TEST_VALUE :: RelationshipType
 pattern RelationshipType_WITH_DOSAGE :: RelationshipType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RelationshipType.RelationshipType
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormAttributeType
+module Amazonka.ComprehendMedical.Types.RxNormAttributeType
 newtype RxNormAttributeType
 RxNormAttributeType' :: Text -> RxNormAttributeType
 [fromRxNormAttributeType] :: RxNormAttributeType -> Text
@@ -1213,28 +1213,28 @@ pattern RxNormAttributeType_FREQUENCY :: RxNormAttributeType
 pattern RxNormAttributeType_RATE :: RxNormAttributeType
 pattern RxNormAttributeType_ROUTE_OR_MODE :: RxNormAttributeType
 pattern RxNormAttributeType_STRENGTH :: RxNormAttributeType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormAttributeType.RxNormAttributeType
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormConcept
+module Amazonka.ComprehendMedical.Types.RxNormConcept
 
 -- | The RxNorm concept that the entity could refer to, along with a score
 --   indicating the likelihood of the match.
@@ -1283,95 +1283,95 @@ rxNormConcept_code :: Lens' RxNormConcept (Maybe Text)
 
 -- | The description of the RxNorm concept.
 rxNormConcept_description :: Lens' RxNormConcept (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormConcept.RxNormConcept
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormConcept.RxNormConcept
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormConcept.RxNormConcept
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormConcept.RxNormConcept
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormConcept.RxNormConcept
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormConcept.RxNormConcept
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormConcept.RxNormConcept
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormConcept.RxNormConcept
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormConcept.RxNormConcept
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormConcept.RxNormConcept
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormConcept.RxNormConcept
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormConcept.RxNormConcept
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormConcept.RxNormConcept
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormConcept.RxNormConcept
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormEntityCategory
+module Amazonka.ComprehendMedical.Types.RxNormEntityCategory
 newtype RxNormEntityCategory
 RxNormEntityCategory' :: Text -> RxNormEntityCategory
 [fromRxNormEntityCategory] :: RxNormEntityCategory -> Text
 pattern RxNormEntityCategory_MEDICATION :: RxNormEntityCategory
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormEntityCategory.RxNormEntityCategory
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormEntityType
+module Amazonka.ComprehendMedical.Types.RxNormEntityType
 newtype RxNormEntityType
 RxNormEntityType' :: Text -> RxNormEntityType
 [fromRxNormEntityType] :: RxNormEntityType -> Text
 pattern RxNormEntityType_BRAND_NAME :: RxNormEntityType
 pattern RxNormEntityType_GENERIC_NAME :: RxNormEntityType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormEntityType.RxNormEntityType
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormTraitName
+module Amazonka.ComprehendMedical.Types.RxNormTraitName
 newtype RxNormTraitName
 RxNormTraitName' :: Text -> RxNormTraitName
 [fromRxNormTraitName] :: RxNormTraitName -> Text
 pattern RxNormTraitName_NEGATION :: RxNormTraitName
-instance Network.AWS.Data.XML.ToXML Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Network.AWS.Data.XML.FromXML Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Network.AWS.Data.Log.ToLog Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Network.AWS.Data.Text.ToText Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Network.AWS.Data.Text.FromText Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance GHC.Classes.Ord Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.XML.ToXML Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.XML.FromXML Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.Headers.ToHeader Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.Log.ToLog Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.Text.ToText Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Amazonka.Data.Text.FromText Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance GHC.Classes.Ord Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormTraitName.RxNormTraitName
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormTrait
+module Amazonka.ComprehendMedical.Types.RxNormTrait
 
 -- | The contextual information for the entity. InferRxNorm recognizes the
 --   trait <tt>NEGATION</tt>, which is any indication that the patient is
@@ -1410,16 +1410,16 @@ rxNormTrait_score :: Lens' RxNormTrait (Maybe Double)
 
 -- | Provides a name or contextual description about the trait.
 rxNormTrait_name :: Lens' RxNormTrait (Maybe RxNormTraitName)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormTrait.RxNormTrait
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormTrait.RxNormTrait
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormTrait.RxNormTrait
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormTrait.RxNormTrait
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormTrait.RxNormTrait
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormTrait.RxNormTrait
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormTrait.RxNormTrait
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormTrait.RxNormTrait
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormTrait.RxNormTrait
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormTrait.RxNormTrait
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormTrait.RxNormTrait
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormTrait.RxNormTrait
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormTrait.RxNormTrait
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormTrait.RxNormTrait
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormAttribute
+module Amazonka.ComprehendMedical.Types.RxNormAttribute
 
 -- | The extracted attributes that relate to this entity. The attributes
 --   recognized by InferRxNorm are <tt>DOSAGE</tt>, <tt>DURATION</tt>,
@@ -1543,16 +1543,16 @@ rxNormAttribute_id :: Lens' RxNormAttribute (Maybe Int)
 -- | The type of attribute. The types of attributes recognized by
 --   InferRxNorm are <tt>BRAND_NAME</tt> and <tt>GENERIC_NAME</tt>.
 rxNormAttribute_type :: Lens' RxNormAttribute (Maybe RxNormAttributeType)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormAttribute.RxNormAttribute
 
 
-module Network.AWS.ComprehendMedical.Types.RxNormEntity
+module Amazonka.ComprehendMedical.Types.RxNormEntity
 
 -- | The collection of medical entities extracted from the input text and
 --   their associated information. For each entity, the response provides
@@ -1699,16 +1699,16 @@ rxNormEntity_id :: Lens' RxNormEntity (Maybe Int)
 -- | Describes the specific type of entity. For InferRxNorm, the recognized
 --   entity type is <tt>MEDICATION</tt>.
 rxNormEntity_type :: Lens' RxNormEntity (Maybe RxNormEntityType)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.RxNormEntity.RxNormEntity
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.RxNormEntity.RxNormEntity
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.RxNormEntity.RxNormEntity
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.RxNormEntity.RxNormEntity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.RxNormEntity.RxNormEntity
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.RxNormEntity.RxNormEntity
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.RxNormEntity.RxNormEntity
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.RxNormEntity.RxNormEntity
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.RxNormEntity.RxNormEntity
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.RxNormEntity.RxNormEntity
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.RxNormEntity.RxNormEntity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.RxNormEntity.RxNormEntity
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.RxNormEntity.RxNormEntity
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.RxNormEntity.RxNormEntity
 
 
-module Network.AWS.ComprehendMedical.Types.Trait
+module Amazonka.ComprehendMedical.Types.Trait
 
 -- | Provides contextual information about the extracted entity.
 --   
@@ -1744,16 +1744,16 @@ trait_score :: Lens' Trait (Maybe Double)
 
 -- | Provides a name or contextual description about the trait.
 trait_name :: Lens' Trait (Maybe AttributeName)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.Trait.Trait
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.Trait.Trait
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.Trait.Trait
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.Trait.Trait
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.Trait.Trait
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.Trait.Trait
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.Trait.Trait
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.Trait.Trait
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.Trait.Trait
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.Trait.Trait
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.Trait.Trait
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.Trait.Trait
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.Trait.Trait
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.Trait.Trait
 
 
-module Network.AWS.ComprehendMedical.Types.Attribute
+module Amazonka.ComprehendMedical.Types.Attribute
 
 -- | An extracted segment of the text that is an attribute of an entity, or
 --   otherwise related to an entity, such as the dosage of a medication
@@ -1891,16 +1891,16 @@ attribute_id :: Lens' Attribute (Maybe Int)
 
 -- | The type of attribute.
 attribute_type :: Lens' Attribute (Maybe EntitySubType)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.Attribute.Attribute
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.Attribute.Attribute
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.Attribute.Attribute
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.Attribute.Attribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.Attribute.Attribute
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.Attribute.Attribute
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.Attribute.Attribute
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.Attribute.Attribute
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.Attribute.Attribute
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.Attribute.Attribute
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.Attribute.Attribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.Attribute.Attribute
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.Attribute.Attribute
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.Attribute.Attribute
 
 
-module Network.AWS.ComprehendMedical.Types.Entity
+module Amazonka.ComprehendMedical.Types.Entity
 
 -- | Provides information about an extracted medical entity.
 --   
@@ -2011,16 +2011,16 @@ entity_id :: Lens' Entity (Maybe Int)
 
 -- | Describes the specific type of entity with category of entities.
 entity_type :: Lens' Entity (Maybe EntitySubType)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.Entity.Entity
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.Entity.Entity
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.Entity.Entity
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.Entity.Entity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.Entity.Entity
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.Entity.Entity
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.Entity.Entity
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.Entity.Entity
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.Entity.Entity
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.Entity.Entity
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.Entity.Entity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.Entity.Entity
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.Entity.Entity
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.Entity.Entity
 
 
-module Network.AWS.ComprehendMedical.Types.UnmappedAttribute
+module Amazonka.ComprehendMedical.Types.UnmappedAttribute
 
 -- | An attribute that we extracted, but were unable to relate to an
 --   entity.
@@ -2065,16 +2065,16 @@ unmappedAttribute_attribute :: Lens' UnmappedAttribute (Maybe Attribute)
 --   "MEDICATION", "MEDICAL_CONDITION", "ANATOMY",
 --   "TEST_AND_TREATMENT_PROCEDURE" or "PROTECTED_HEALTH_INFORMATION".
 unmappedAttribute_type :: Lens' UnmappedAttribute (Maybe EntityType)
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
-instance GHC.Show.Show Network.AWS.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
-instance GHC.Read.Read Network.AWS.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
+instance GHC.Show.Show Amazonka.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
+instance GHC.Read.Read Amazonka.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.Types.UnmappedAttribute.UnmappedAttribute
 
 
-module Network.AWS.ComprehendMedical.Types
+module Amazonka.ComprehendMedical.Types
 
 -- | API version <tt>2018-10-30</tt> of the Amazon Comprehend Medical SDK
 --   configuration.
@@ -3692,7 +3692,7 @@ unmappedAttribute_type :: Lens' UnmappedAttribute (Maybe EntityType)
 
 
 -- | Stops an InferRxNorm inference job in progress.
-module Network.AWS.ComprehendMedical.StopRxNormInferenceJob
+module Amazonka.ComprehendMedical.StopRxNormInferenceJob
 
 -- | <i>See:</i> <a>newStopRxNormInferenceJob</a> smart constructor.
 data StopRxNormInferenceJob
@@ -3756,26 +3756,26 @@ stopRxNormInferenceJobResponse_jobId :: Lens' StopRxNormInferenceJobResponse (Ma
 
 -- | The response's http status code.
 stopRxNormInferenceJobResponse_httpStatus :: Lens' StopRxNormInferenceJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StopRxNormInferenceJob.StopRxNormInferenceJob
 
 
 -- | Stops a protected health information (PHI) detection job in progress.
-module Network.AWS.ComprehendMedical.StopPHIDetectionJob
+module Amazonka.ComprehendMedical.StopPHIDetectionJob
 
 -- | <i>See:</i> <a>newStopPHIDetectionJob</a> smart constructor.
 data StopPHIDetectionJob
@@ -3834,26 +3834,26 @@ stopPHIDetectionJobResponse_jobId :: Lens' StopPHIDetectionJobResponse (Maybe Te
 
 -- | The response's http status code.
 stopPHIDetectionJobResponse_httpStatus :: Lens' StopPHIDetectionJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StopPHIDetectionJob.StopPHIDetectionJob
 
 
 -- | Stops an InferICD10CM inference job in progress.
-module Network.AWS.ComprehendMedical.StopICD10CMInferenceJob
+module Amazonka.ComprehendMedical.StopICD10CMInferenceJob
 
 -- | <i>See:</i> <a>newStopICD10CMInferenceJob</a> smart constructor.
 data StopICD10CMInferenceJob
@@ -3917,26 +3917,26 @@ stopICD10CMInferenceJobResponse_jobId :: Lens' StopICD10CMInferenceJobResponse (
 
 -- | The response's http status code.
 stopICD10CMInferenceJobResponse_httpStatus :: Lens' StopICD10CMInferenceJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StopICD10CMInferenceJob.StopICD10CMInferenceJob
 
 
 -- | Stops a medical entities detection job in progress.
-module Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job
+module Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job
 
 -- | <i>See:</i> <a>newStopEntitiesDetectionV2Job</a> smart constructor.
 data StopEntitiesDetectionV2Job
@@ -3996,28 +3996,28 @@ stopEntitiesDetectionV2JobResponse_jobId :: Lens' StopEntitiesDetectionV2JobResp
 
 -- | The response's http status code.
 stopEntitiesDetectionV2JobResponse_httpStatus :: Lens' StopEntitiesDetectionV2JobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2JobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job.StopEntitiesDetectionV2Job
 
 
 -- | Starts an asynchronous job to detect medication entities and link them
 --   to the RxNorm ontology. Use the <tt>DescribeRxNormInferenceJob</tt>
 --   operation to track the status of a job.
-module Network.AWS.ComprehendMedical.StartRxNormInferenceJob
+module Amazonka.ComprehendMedical.StartRxNormInferenceJob
 
 -- | <i>See:</i> <a>newStartRxNormInferenceJob</a> smart constructor.
 data StartRxNormInferenceJob
@@ -4153,28 +4153,28 @@ startRxNormInferenceJobResponse_jobId :: Lens' StartRxNormInferenceJobResponse (
 
 -- | The response's http status code.
 startRxNormInferenceJobResponse_httpStatus :: Lens' StartRxNormInferenceJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StartRxNormInferenceJob.StartRxNormInferenceJob
 
 
 -- | Starts an asynchronous job to detect protected health information
 --   (PHI). Use the <tt>DescribePHIDetectionJob</tt> operation to track the
 --   status of a job.
-module Network.AWS.ComprehendMedical.StartPHIDetectionJob
+module Amazonka.ComprehendMedical.StartPHIDetectionJob
 
 -- | <i>See:</i> <a>newStartPHIDetectionJob</a> smart constructor.
 data StartPHIDetectionJob
@@ -4312,29 +4312,29 @@ startPHIDetectionJobResponse_jobId :: Lens' StartPHIDetectionJobResponse (Maybe 
 
 -- | The response's http status code.
 startPHIDetectionJobResponse_httpStatus :: Lens' StartPHIDetectionJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StartPHIDetectionJob.StartPHIDetectionJob
 
 
 -- | Starts an asynchronous job to detect medical conditions and link them
 --   to the ICD-10-CM ontology. Use the
 --   <tt>DescribeICD10CMInferenceJob</tt> operation to track the status of
 --   a job.
-module Network.AWS.ComprehendMedical.StartICD10CMInferenceJob
+module Amazonka.ComprehendMedical.StartICD10CMInferenceJob
 
 -- | <i>See:</i> <a>newStartICD10CMInferenceJob</a> smart constructor.
 data StartICD10CMInferenceJob
@@ -4473,28 +4473,28 @@ startICD10CMInferenceJobResponse_jobId :: Lens' StartICD10CMInferenceJobResponse
 
 -- | The response's http status code.
 startICD10CMInferenceJobResponse_httpStatus :: Lens' StartICD10CMInferenceJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StartICD10CMInferenceJob.StartICD10CMInferenceJob
 
 
 -- | Starts an asynchronous medical entity detection job for a collection
 --   of documents. Use the <tt>DescribeEntitiesDetectionV2Job</tt>
 --   operation to track the status of a job.
-module Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job
+module Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
 
 -- | <i>See:</i> <a>newStartEntitiesDetectionV2Job</a> smart constructor.
 data StartEntitiesDetectionV2Job
@@ -4636,26 +4636,26 @@ startEntitiesDetectionV2JobResponse_jobId :: Lens' StartEntitiesDetectionV2JobRe
 
 -- | The response's http status code.
 startEntitiesDetectionV2JobResponse_httpStatus :: Lens' StartEntitiesDetectionV2JobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2JobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job.StartEntitiesDetectionV2Job
 
 
 -- | Gets a list of InferRxNorm jobs that you have submitted.
-module Network.AWS.ComprehendMedical.ListRxNormInferenceJobs
+module Amazonka.ComprehendMedical.ListRxNormInferenceJobs
 
 -- | <i>See:</i> <a>newListRxNormInferenceJobs</a> smart constructor.
 data ListRxNormInferenceJobs
@@ -4755,27 +4755,27 @@ listRxNormInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList :: Lens'
 
 -- | The response's http status code.
 listRxNormInferenceJobsResponse_httpStatus :: Lens' ListRxNormInferenceJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.ListRxNormInferenceJobs.ListRxNormInferenceJobs
 
 
 -- | Gets a list of protected health information (PHI) detection jobs that
 --   you have submitted.
-module Network.AWS.ComprehendMedical.ListPHIDetectionJobs
+module Amazonka.ComprehendMedical.ListPHIDetectionJobs
 
 -- | <i>See:</i> <a>newListPHIDetectionJobs</a> smart constructor.
 data ListPHIDetectionJobs
@@ -4873,26 +4873,26 @@ listPHIDetectionJobsResponse_comprehendMedicalAsyncJobPropertiesList :: Lens' Li
 
 -- | The response's http status code.
 listPHIDetectionJobsResponse_httpStatus :: Lens' ListPHIDetectionJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.ListPHIDetectionJobs.ListPHIDetectionJobs
 
 
 -- | Gets a list of InferICD10CM jobs that you have submitted.
-module Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs
+module Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
 
 -- | <i>See:</i> <a>newListICD10CMInferenceJobs</a> smart constructor.
 data ListICD10CMInferenceJobs
@@ -4991,26 +4991,26 @@ listICD10CMInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList :: Lens
 
 -- | The response's http status code.
 listICD10CMInferenceJobsResponse_httpStatus :: Lens' ListICD10CMInferenceJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.ListICD10CMInferenceJobs.ListICD10CMInferenceJobs
 
 
 -- | Gets a list of medical entity detection jobs that you have submitted.
-module Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs
+module Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs
 
 -- | <i>See:</i> <a>newListEntitiesDetectionV2Jobs</a> smart constructor.
 data ListEntitiesDetectionV2Jobs
@@ -5109,29 +5109,29 @@ listEntitiesDetectionV2JobsResponse_comprehendMedicalAsyncJobPropertiesList :: L
 
 -- | The response's http status code.
 listEntitiesDetectionV2JobsResponse_httpStatus :: Lens' ListEntitiesDetectionV2JobsResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2JobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs.ListEntitiesDetectionV2Jobs
 
 
 -- | InferRxNorm detects medications as entities listed in a patient record
 --   and links to the normalized concept identifiers in the RxNorm database
 --   from the National Library of Medicine. Amazon Comprehend Medical only
 --   detects medical entities in English language texts.
-module Network.AWS.ComprehendMedical.InferRxNorm
+module Amazonka.ComprehendMedical.InferRxNorm
 
 -- | <i>See:</i> <a>newInferRxNorm</a> smart constructor.
 data InferRxNorm
@@ -5229,22 +5229,22 @@ inferRxNormResponse_httpStatus :: Lens' InferRxNormResponse Int
 --   concepts. If the action is successful, the service sends back an HTTP
 --   200 response, as well as the entities detected.
 inferRxNormResponse_entities :: Lens' InferRxNormResponse [RxNormEntity]
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance GHC.Show.Show Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance GHC.Read.Read Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.InferRxNorm.InferRxNormResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.InferRxNorm.InferRxNormResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.InferRxNorm.InferRxNormResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.InferRxNorm.InferRxNormResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.InferRxNorm.InferRxNormResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.InferRxNorm.InferRxNorm
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance GHC.Show.Show Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance GHC.Read.Read Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.InferRxNorm.InferRxNormResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.InferRxNorm.InferRxNormResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.InferRxNorm.InferRxNormResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.InferRxNorm.InferRxNormResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.InferRxNorm.InferRxNormResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.InferRxNorm.InferRxNorm
 
 
 -- | InferICD10CM detects medical conditions as entities listed in a
@@ -5252,7 +5252,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.InferRxNor
 --   identifiers in the ICD-10-CM knowledge base from the Centers for
 --   Disease Control. Amazon Comprehend Medical only detects medical
 --   entities in English language texts.
-module Network.AWS.ComprehendMedical.InferICD10CM
+module Amazonka.ComprehendMedical.InferICD10CM
 
 -- | <i>See:</i> <a>newInferICD10CM</a> smart constructor.
 data InferICD10CM
@@ -5351,29 +5351,29 @@ inferICD10CMResponse_httpStatus :: Lens' InferICD10CMResponse Int
 --   concepts. If the action is successful, the service sends back an HTTP
 --   200 response, as well as the entities detected.
 inferICD10CMResponse_entities :: Lens' InferICD10CMResponse [ICD10CMEntity]
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance GHC.Show.Show Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance GHC.Read.Read Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CMResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CMResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CMResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CMResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CMResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.InferICD10CM.InferICD10CM
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance GHC.Show.Show Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance GHC.Read.Read Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.InferICD10CM.InferICD10CMResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.InferICD10CM.InferICD10CMResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.InferICD10CM.InferICD10CMResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.InferICD10CM.InferICD10CMResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.InferICD10CM.InferICD10CMResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.InferICD10CM.InferICD10CM
 
 
 -- | Inspects the clinical text for protected health information (PHI)
 --   entities and returns the entity category, location, and confidence
 --   score for each entity. Amazon Comprehend Medical only detects entities
 --   in English language texts.
-module Network.AWS.ComprehendMedical.DetectPHI
+module Amazonka.ComprehendMedical.DetectPHI
 
 -- | <i>See:</i> <a>newDetectPHI</a> smart constructor.
 data DetectPHI
@@ -5477,22 +5477,22 @@ detectPHIResponse_entities :: Lens' DetectPHIResponse [Entity]
 --   number looks like X.X.X. You can use this information to track the
 --   model used for a particular batch of documents.
 detectPHIResponse_modelVersion :: Lens' DetectPHIResponse Text
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DetectPHI.DetectPHIResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DetectPHI.DetectPHIResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DetectPHI.DetectPHIResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DetectPHI.DetectPHIResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DetectPHI.DetectPHIResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.DetectPHI.DetectPHI
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance GHC.Show.Show Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance GHC.Read.Read Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DetectPHI.DetectPHIResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.DetectPHI.DetectPHIResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.DetectPHI.DetectPHIResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DetectPHI.DetectPHIResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DetectPHI.DetectPHIResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.DetectPHI.DetectPHI
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.DetectPHI.DetectPHI
 
 
 -- | Inspects the clinical text for a variety of medical entities and
@@ -5508,7 +5508,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.DetectPHI.
 --   
 --   The <tt>DetectEntitiesV2</tt> operation returns the <tt>Acuity</tt>
 --   and <tt>Direction</tt> entities as attributes instead of types.
-module Network.AWS.ComprehendMedical.DetectEntitiesV2
+module Amazonka.ComprehendMedical.DetectEntitiesV2
 
 -- | <i>See:</i> <a>newDetectEntitiesV2</a> smart constructor.
 data DetectEntitiesV2
@@ -5627,27 +5627,27 @@ detectEntitiesV2Response_entities :: Lens' DetectEntitiesV2Response [Entity]
 --   number looks like X.X.X. You can use this information to track the
 --   model used for a particular batch of documents.
 detectEntitiesV2Response_modelVersion :: Lens' DetectEntitiesV2Response Text
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance GHC.Show.Show Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance GHC.Read.Read Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
+instance GHC.Show.Show Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
+instance GHC.Read.Read Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2Response
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.DetectEntitiesV2.DetectEntitiesV2
 
 
 -- | Gets the properties associated with an InferRxNorm job. Use this
 --   operation to get the status of an inference job.
-module Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob
+module Amazonka.ComprehendMedical.DescribeRxNormInferenceJob
 
 -- | <i>See:</i> <a>newDescribeRxNormInferenceJob</a> smart constructor.
 data DescribeRxNormInferenceJob
@@ -5716,28 +5716,28 @@ describeRxNormInferenceJobResponse_comprehendMedicalAsyncJobProperties :: Lens' 
 
 -- | The response's http status code.
 describeRxNormInferenceJobResponse_httpStatus :: Lens' DescribeRxNormInferenceJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.DescribeRxNormInferenceJob.DescribeRxNormInferenceJob
 
 
 -- | Gets the properties associated with a protected health information
 --   (PHI) detection job. Use this operation to get the status of a
 --   detection job.
-module Network.AWS.ComprehendMedical.DescribePHIDetectionJob
+module Amazonka.ComprehendMedical.DescribePHIDetectionJob
 
 -- | <i>See:</i> <a>newDescribePHIDetectionJob</a> smart constructor.
 data DescribePHIDetectionJob
@@ -5807,27 +5807,27 @@ describePHIDetectionJobResponse_comprehendMedicalAsyncJobProperties :: Lens' Des
 
 -- | The response's http status code.
 describePHIDetectionJobResponse_httpStatus :: Lens' DescribePHIDetectionJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.DescribePHIDetectionJob.DescribePHIDetectionJob
 
 
 -- | Gets the properties associated with an InferICD10CM job. Use this
 --   operation to get the status of an inference job.
-module Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob
+module Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
 
 -- | <i>See:</i> <a>newDescribeICD10CMInferenceJob</a> smart constructor.
 data DescribeICD10CMInferenceJob
@@ -5897,27 +5897,27 @@ describeICD10CMInferenceJobResponse_comprehendMedicalAsyncJobProperties :: Lens'
 
 -- | The response's http status code.
 describeICD10CMInferenceJobResponse_httpStatus :: Lens' DescribeICD10CMInferenceJobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob.DescribeICD10CMInferenceJob
 
 
 -- | Gets the properties associated with a medical entities detection job.
 --   Use this operation to get the status of a detection job.
-module Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job
+module Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job
 
 -- | <i>See:</i> <a>newDescribeEntitiesDetectionV2Job</a> smart
 --   constructor.
@@ -5988,25 +5988,25 @@ describeEntitiesDetectionV2JobResponse_comprehendMedicalAsyncJobProperties :: Le
 
 -- | The response's http status code.
 describeEntitiesDetectionV2JobResponse_httpStatus :: Lens' DescribeEntitiesDetectionV2JobResponse Int
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance GHC.Generics.Generic Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
-instance GHC.Show.Show Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
-instance GHC.Read.Read Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
-instance GHC.Classes.Eq Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance Control.DeepSeq.NFData Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance Network.AWS.Data.Path.ToPath Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance GHC.Generics.Generic Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
+instance GHC.Show.Show Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
+instance GHC.Read.Read Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
+instance GHC.Classes.Eq Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
+instance Amazonka.Types.AWSRequest Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2JobResponse
+instance Data.Hashable.Class.Hashable Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance Control.DeepSeq.NFData Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance Amazonka.Data.Path.ToPath Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
+instance Amazonka.Data.Query.ToQuery Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job.DescribeEntitiesDetectionV2Job
 
 
-module Network.AWS.ComprehendMedical.Lens
+module Amazonka.ComprehendMedical.Lens
 
 -- | The identifier that Amazon Comprehend Medical generated for the job.
 --   The <tt>StartEntitiesDetectionV2Job</tt> operation returns this
@@ -6792,7 +6792,7 @@ unmappedAttribute_attribute :: Lens' UnmappedAttribute (Maybe Attribute)
 unmappedAttribute_type :: Lens' UnmappedAttribute (Maybe EntityType)
 
 
-module Network.AWS.ComprehendMedical.Waiters
+module Amazonka.ComprehendMedical.Waiters
 
 
 -- | Derived from API version <tt>2018-10-30</tt> of the AWS service
@@ -6801,7 +6801,7 @@ module Network.AWS.ComprehendMedical.Waiters
 --   Amazon Comprehend Medical extracts structured information from
 --   unstructured clinical text. Use these actions to gain insight in your
 --   documents.
-module Network.AWS.ComprehendMedical
+module Amazonka.ComprehendMedical
 
 -- | API version <tt>2018-10-30</tt> of the Amazon Comprehend Medical SDK
 --   configuration.
